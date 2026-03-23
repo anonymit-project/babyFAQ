@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alimentos por edad bebé · ¿Puede comerlo?</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf9f4; --warm-white: #fffdfb; --blush: #f2c4b0;
+    --terracota: #c97a5e; --deep: #2d1f14; --mid: #6a4a32; --soft: #c4a888;
+    --green: #3a7a4a; --green-bg: #edf5f0; --green-border: #a8d8b0;
+    --amber: #b07020; --amber-bg: #fdf3e0; --amber-border: #e8c870;
+    --red: #a83030; --red-bg: #fdf0f0; --red-border: #e8a8a8;
+    --blue: #3060a0; --blue-bg: #eef3fc; --blue-border: #a8c0e8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 300px; height: 300px; background: #f7d5a0; top: -100px; right: -80px; opacity: 0.35; }
+  .blob-2 { width: 250px; height: 250px; background: #c0e8c8; bottom: -80px; left: -60px; opacity: 0.3; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 20px 60px; }
+
+  header { text-align: center; margin-bottom: 28px; }
+  .badge { display: inline-block; background: var(--green-bg); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 30px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
+  h1 em { font-style: italic; color: var(--terracota); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.5; font-weight: 300; }
+
+  /* ── Controls ── */
+  .controls { background: var(--warm-white); border-radius: 20px; padding: 18px 16px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,31,20,0.06); border: 1px solid rgba(196,168,136,0.2); }
+
+  .search-wrap { position: relative; margin-bottom: 14px; }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 15px; opacity: 0.4; pointer-events: none; }
+  .search-input { width: 100%; background: var(--cream); border: 1.5px solid rgba(196,168,136,0.4); border-radius: 12px; padding: 12px 14px 12px 40px; font-size: 15px; font-family: 'DM Sans', sans-serif; color: var(--deep); outline: none; transition: border-color 0.2s; }
+  .search-input::placeholder { color: var(--soft); }
+  .search-input:focus { border-color: var(--terracota); }
+
+  .age-row { display: flex; align-items: center; gap: 10px; }
+  .age-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); flex-shrink: 0; }
+
+  .age-pills { display: flex; gap: 6px; flex-wrap: wrap; flex: 1; }
+  .age-pill { padding: 5px 11px; border-radius: 20px; border: 1.5px solid rgba(196,168,136,0.3); background: var(--cream); font-size: 12px; font-weight: 500; color: var(--mid); cursor: pointer; transition: all 0.15s; white-space: nowrap; touch-action: manipulation; }
+  .age-pill.active { background: var(--terracota); border-color: var(--terracota); color: white; }
+
+  /* ── Legend ── */
+  .legend { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--mid); }
+
+  /* ── Results count ── */
+  .results-meta { font-size: 12px; color: var(--soft); margin-bottom: 10px; padding-left: 2px; }
+
+  /* ── Category section ── */
+  .category-section { margin-bottom: 6px; }
+  .cat-header { display: flex; align-items: center; gap: 8px; padding: 8px 4px 6px; cursor: pointer; user-select: none; }
+  .cat-icon { font-size: 16px; }
+  .cat-name { font-size: 11px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); flex: 1; }
+  .cat-count { font-size: 11px; color: var(--soft); }
+  .cat-chevron { font-size: 10px; color: var(--soft); transition: transform 0.2s; }
+  .cat-header.open .cat-chevron { transform: rotate(90deg); }
+
+  .food-list { display: none; flex-direction: column; gap: 6px; padding-bottom: 6px; }
+  .food-list.open { display: flex; }
+
+  /* ── Food card ── */
+  .food-card {
+    display: flex; align-items: flex-start; gap: 10px;
+    background: var(--warm-white); border-radius: 13px;
+    padding: 11px 13px; border: 1.5px solid transparent;
+    transition: border-color 0.15s;
+  }
+  .food-card.status-ok      { border-color: var(--green-border);  background: var(--green-bg); }
+  .food-card.status-caution { border-color: var(--amber-border);  background: var(--amber-bg); }
+  .food-card.status-no      { border-color: var(--red-border);    background: var(--red-bg); }
+  .food-card.status-allergen { border-color: var(--blue-border);  background: var(--blue-bg); }
+
+  .food-status-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .food-body { flex: 1; min-width: 0; }
+  .food-name { font-size: 14px; font-weight: 500; color: var(--deep); margin-bottom: 2px; }
+  .food-note { font-size: 12px; color: var(--mid); line-height: 1.5; }
+  .food-from { font-size: 10px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; }
+  .food-card.status-ok .food-from      { color: var(--green); }
+  .food-card.status-caution .food-from { color: var(--amber); }
+  .food-card.status-no .food-from      { color: var(--red); }
+  .food-card.status-allergen .food-from { color: var(--blue); }
+
+  .no-results { text-align: center; padding: 40px 20px; color: var(--soft); font-size: 14px; }
+  .no-results-icon { font-size: 36px; display: block; margin-bottom: 10px; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 24px; padding: 0 8px; }
+</style>
+</head>
+<body>
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+  <header>
+    <span class="badge">Alimentación</span>
+    <h1>¿Puede comer<br><em>esto</em> ya?</h1>
+    <p class="subtitle">Busca un alimento o filtra por edad para saber si tu bebé puede tomarlo y cómo prepararlo.</p>
+  </header>
+
+  <div class="controls">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" type="text" id="search" placeholder="Busca un alimento… aceitunas, huevo, miel…" oninput="applyFilters()">
+    </div>
+    <div class="age-row">
+      <span class="age-label">Edad</span>
+      <div class="age-pills" id="age-pills"></div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item">✅ Permitido</div>
+    <div class="legend-item">⚠️ Con precaución</div>
+    <div class="legend-item">❌ No aún</div>
+    <div class="legend-item">🔵 Alérgeno</div>
+  </div>
+
+  <div class="results-meta" id="results-meta"></div>
+  <div id="food-output"></div>
+
+  <p class="disclaimer">
+    Basado en las recomendaciones de la ESPGHAN, AEP y EFSA (2023).<br>
+    Ante alergias conocidas o dudas específicas, consulta siempre con tu pediatra.
+  </p>
+</div>
+
+<script>
+// ── Age groups ────────────────────────────────────────────────────
+const AGE_GROUPS = [
+  { id: 'all', label: 'Todos' },
+  { id: '4',   label: '4m' },
+  { id: '6',   label: '6m' },
+  { id: '8',   label: '8m' },
+  { id: '10',  label: '10m' },
+  { id: '12',  label: '12m' },
+  { id: '18',  label: '18m' },
+  { id: '24',  label: '24m' },
+];
+
+// ── Food database ─────────────────────────────────────────────────
+// status: 'ok' | 'caution' | 'no' | 'allergen'
+// from: minimum age in months when this entry applies
+// ageGroups: array of age group ids where this status applies (empty = all)
+// If multiple entries for same food, the one matching current age wins
+
+const FOODS = [
+
+  // ── Verduras y hortalizas ─────────────────────────────────────
+  { cat:'Verduras y hortalizas', icon:'🥬', name:'Acelgas', tags:['acelgas'],
+    entries:[
+      { from:0,  status:'no',      note:'Alto contenido en nitratos. No antes de los 12 meses.' },
+      { from:12, status:'ok',      note:'En pequeñas cantidades, bien cocidas.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🫚', name:'Aceite de oliva', tags:['aceite','oliva'],
+    entries:[
+      { from:4,  status:'ok',      note:'Virgen extra, en pequeña cantidad en purés. Excelente fuente de grasa.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🫒', name:'Aceitunas', tags:['aceitunas','oliva'],
+    entries:[
+      { from:0,  status:'no',      note:'Demasiado saladas y duras. No antes de los 2 años.' },
+      { from:24, status:'caution', note:'Solo sin hueso y cortadas. Alto contenido en sal — limitar.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🥑', name:'Aguacate', tags:['aguacate'],
+    entries:[
+      { from:6,  status:'ok',      note:'Sin preparación especial, solo chafado. Excelente grasa saludable.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🧄', name:'Ajo', tags:['ajo'],
+    entries:[
+      { from:6,  status:'caution', note:'En muy pequeña cantidad cocinado. Sabor intenso que puede rechazar.' },
+      { from:12, status:'ok',      note:'Con normalidad cocinado.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🌿', name:'Apio', tags:['apio'],
+    entries:[
+      { from:0,  status:'no',      note:'Riesgo de atragantamiento en crudo. No antes de los 12 meses.' },
+      { from:12, status:'caution', note:'Solo muy cocido y en trocitos pequeños. Fibra dura en crudo.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🫑', name:'Berenjena', tags:['berenjena'],
+    entries:[
+      { from:6,  status:'caution', note:'Bien cocinada, sin piel. Puede amargar si no se cocina suficiente.' },
+      { from:8,  status:'ok',      note:'Bien cocinada en puré o trocitos sin piel.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🥔', name:'Boniato / Batata', tags:['boniato','batata','camote'],
+    entries:[
+      { from:4,  status:'ok',      note:'Muy dulce y digestivo. Excelente para primeros purés.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🥦', name:'Brócoli', tags:['brocoli','brócoli'],
+    entries:[
+      { from:6,  status:'caution', note:'Puede causar gases. Introduce poco a poco en puré.' },
+      { from:8,  status:'ok',      note:'Bien cocido en trocitos pequeños o puré.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🎃', name:'Calabacín', tags:['calabacin','calabacín'],
+    entries:[
+      { from:4,  status:'ok',      note:'Muy suave y digestivo. Ideal para primeros purés.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🎃', name:'Calabaza', tags:['calabaza'],
+    entries:[
+      { from:4,  status:'ok',      note:'Muy digestiva y dulce. Perfecta para primeros purés.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🧅', name:'Cebolla', tags:['cebolla'],
+    entries:[
+      { from:6,  status:'ok',      note:'Cocinada en puré o sofrito. Aporta sabor sin problema.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🍄', name:'Champiñones / Setas', tags:['champiñon','champiñones','seta','setas'],
+    entries:[
+      { from:0,  status:'no',      note:'No antes de los 12 meses.' },
+      { from:12, status:'ok',      note:'Solo variedades cultivadas (champiñón, portobello), muy bien cocinadas.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🥕', name:'Chirivía', tags:['chirivia','chirivía'],
+    entries:[
+      { from:4,  status:'ok',      note:'Dulce y digestiva. Buena opción para primeros purés.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🥬', name:'Col / Repollo', tags:['col','repollo'],
+    entries:[
+      { from:6,  status:'caution', note:'Puede causar gases. Introduce en pequeña cantidad bien cocida.' },
+      { from:10, status:'ok',      note:'Bien cocida, en pequeña cantidad.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🥦', name:'Coliflor', tags:['coliflor'],
+    entries:[
+      { from:6,  status:'caution', note:'Puede causar gases. Introduce en puré mezclada con patata.' },
+      { from:8,  status:'ok',      note:'Bien cocida. Mezclar con otros vegetales para suavizar sabor.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🌿', name:'Espárragos', tags:['esparragos','espárragos'],
+    entries:[
+      { from:6,  status:'caution', note:'Bien cocidos y triturados. Las puntas son las más tiernas.' },
+      { from:10, status:'ok',      note:'Bien cocidos, cortados en trocitos pequeños.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🌿', name:'Espinacas', tags:['espinacas'],
+    entries:[
+      { from:0,  status:'no',      note:'Alto contenido en nitratos. No antes de los 12 meses.' },
+      { from:12, status:'ok',      note:'En pequeñas cantidades. Vigilar nitratos totales de la dieta.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🌱', name:'Guisantes', tags:['guisantes'],
+    entries:[
+      { from:6,  status:'caution', note:'Triturados en puré. Los enteros son riesgo de atragantamiento.' },
+      { from:12, status:'ok',      note:'Chafados o triturados. Enteros solo a partir de los 3 años.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🌿', name:'Hinojo', tags:['hinojo'],
+    entries:[
+      { from:6,  status:'caution', note:'Sabor anisado intenso. En puré mezclado con otros vegetales.' },
+      { from:10, status:'ok',      note:'Bien cocido en trocitos.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🥬', name:'Judías verdes', tags:['judias verdes','judías verdes'],
+    entries:[
+      { from:6,  status:'ok',      note:'Sin hebras, muy bien cocidas. En puré o trocitos blandos.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🥬', name:'Lechuga / Endivias', tags:['lechuga','endivias','ensalada'],
+    entries:[
+      { from:0,  status:'no',      note:'En crudo difícil de tragar. No antes de los 12 meses.' },
+      { from:12, status:'caution', note:'En trozos muy pequeños, sin tallo duro.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🌽', name:'Maíz', tags:['maiz','maíz'],
+    entries:[
+      { from:6,  status:'caution', note:'Solo en puré muy fino. Los granos enteros son riesgo de atragantamiento.' },
+      { from:12, status:'ok',      note:'Bien triturado o en trocitos muy pequeños sin piel.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🥕', name:'Nabo', tags:['nabo'],
+    entries:[
+      { from:6,  status:'ok',      note:'Bien cocido en puré. Aporta un sabor ligeramente amargo.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🥔', name:'Patata', tags:['patata'],
+    entries:[
+      { from:4,  status:'ok',      note:'Muy bien tolerada. Ideal para primeros purés.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🥒', name:'Pepino', tags:['pepino'],
+    entries:[
+      { from:6,  status:'caution', note:'Pelado y sin semillas. Crudo puede ser difícil de digerir.' },
+      { from:10, status:'ok',      note:'Pelado en trocitos. Fácil de agarrar para BLW.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🫑', name:'Pimiento', tags:['pimiento'],
+    entries:[
+      { from:6,  status:'caution', note:'Bien cocinado, sin piel. En crudo es difícil de digerir.' },
+      { from:10, status:'ok',      note:'Asado o cocido, pelado. El rojo es más dulce y digestivo.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🧅', name:'Puerro', tags:['puerro'],
+    entries:[
+      { from:6,  status:'ok',      note:'Bien cocido en crema o puré. Sabor suave.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🫚', name:'Remolacha', tags:['remolacha'],
+    entries:[
+      { from:0,  status:'no',      note:'Alto contenido en nitratos. No antes de los 12 meses.' },
+      { from:12, status:'ok',      note:'Cocinada, en trocitos o rallada. Puede teñir heces de rojo — es normal.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🌿', name:'Rúcula', tags:['rucula','rúcula'],
+    entries:[
+      { from:0,  status:'no',      note:'Sabor muy amargo e intenso. No antes de los 18 meses.' },
+      { from:18, status:'caution', note:'En pequeña cantidad mezclada con otras verduras.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🍅', name:'Tomate', tags:['tomate'],
+    entries:[
+      { from:6,  status:'caution', note:'Puede irritar si hay tendencia alérgica. Sin piel, introduce en pequeña cantidad.' },
+      { from:8,  status:'ok',      note:'Sin piel ni semillas. Cocinado mejor que crudo al principio.' },
+    ]},
+  { cat:'Verduras y hortalizas', icon:'🥕', name:'Zanahoria', tags:['zanahoria'],
+    entries:[
+      { from:4,  status:'caution', note:'En puré muy fino. Evitar antes de los 6m por posibles nitratos.' },
+      { from:6,  status:'ok',      note:'En puré, crema o trocitos blandos cocinados.' },
+    ]},
+
+  // ── Frutas ────────────────────────────────────────────────────
+  { cat:'Frutas', icon:'🍑', name:'Albaricoque', tags:['albaricoque'],
+    entries:[
+      { from:6,  status:'ok',      note:'Sin hueso, pelado, bien maduro. En puré o trocitos blandos.' },
+    ]},
+  { cat:'Frutas', icon:'🫐', name:'Arándanos', tags:['arandanos','arándanos'],
+    entries:[
+      { from:8,  status:'caution', note:'Partidos por la mitad hasta los 3 años. Riesgo de atragantamiento enteros.' },
+      { from:12, status:'ok',      note:'Partidos por la mitad. Ricos en antioxidantes.' },
+    ]},
+  { cat:'Frutas', icon:'🍒', name:'Cerezas', tags:['cerezas','cereza'],
+    entries:[
+      { from:0,  status:'no',      note:'Riesgo de atragantamiento por el hueso.' },
+      { from:12, status:'caution', note:'Sin hueso, cortadas en cuartos. Vigilar siempre.' },
+    ]},
+  { cat:'Frutas', icon:'🥥', name:'Coco', tags:['coco'],
+    entries:[
+      { from:0,  status:'no',      note:'El coco rallado o en trozos es riesgo de atragantamiento.' },
+      { from:12, status:'caution', note:'Solo leche de coco o coco muy picado. No trozos duros.' },
+    ]},
+  { cat:'Frutas', icon:'🍑', name:'Ciruela', tags:['ciruela'],
+    entries:[
+      { from:6,  status:'ok',      note:'Sin hueso, muy madura, en puré. Efecto laxante suave.' },
+    ]},
+  { cat:'Frutas', icon:'🌴', name:'Dátiles', tags:['datiles','dátiles'],
+    entries:[
+      { from:0,  status:'no',      note:'Muy dulces, pegajosos y riesgo de atragantamiento.' },
+      { from:18, status:'caution', note:'Sin hueso, muy picados. Muy altos en azúcar — limitar.' },
+    ]},
+  { cat:'Frutas', icon:'🫐', name:'Frambuesas', tags:['frambuesas','frambuesa'],
+    entries:[
+      { from:8,  status:'caution', note:'Partidas. Las semillas pueden irritar. Introduce en pequeña cantidad.' },
+      { from:12, status:'ok',      note:'Partidas, ricas en fibra y vitamina C.' },
+    ]},
+  { cat:'Frutas', icon:'🍓', name:'Fresas', tags:['fresas','fresa'],
+    entries:[
+      { from:6,  status:'caution', note:'Posible alérgeno. Introduce de una en una y observa. Cortar en trozos.' },
+      { from:10, status:'ok',      note:'Cortadas en cuartos. Vigilar alergias.' },
+    ]},
+  { cat:'Frutas', icon:'🍈', name:'Granada', tags:['granada'],
+    entries:[
+      { from:0,  status:'no',      note:'Los granos son riesgo de atragantamiento.' },
+      { from:18, status:'caution', note:'Solo zumo natural sin azúcar o granos aplastados.' },
+    ]},
+  { cat:'Frutas', icon:'🍑', name:'Higos', tags:['higos','higo'],
+    entries:[
+      { from:6,  status:'ok',      note:'Muy maduros, sin piel, en trocitos blandos. Laxante natural.' },
+    ]},
+  { cat:'Frutas', icon:'🥝', name:'Kiwi', tags:['kiwi'],
+    entries:[
+      { from:6,  status:'caution', note:'Posible alérgeno. Introduce solo y observa reacción.' },
+      { from:10, status:'ok',      note:'Sin piel, en trocitos. Rico en vitamina C.' },
+    ]},
+  { cat:'Frutas', icon:'🍋', name:'Limón', tags:['limon','limón'],
+    entries:[
+      { from:0,  status:'no',      note:'Demasiado ácido.' },
+      { from:12, status:'caution', note:'Solo como condimento en pequeña cantidad.' },
+    ]},
+  { cat:'Frutas', icon:'🍈', name:'Lichi', tags:['lichi'],
+    entries:[
+      { from:0,  status:'no',      note:'Riesgo de atragantamiento y toxicidad si no está maduro.' },
+      { from:18, status:'caution', note:'Muy maduro, sin semilla, cortado. Con mucha precaución.' },
+    ]},
+  { cat:'Frutas', icon:'🍊', name:'Mandarina', tags:['mandarina'],
+    entries:[
+      { from:6,  status:'caution', note:'Puede irritar. Introduce poco a poco, sin membrana.' },
+      { from:10, status:'ok',      note:'Sin telillas, bien tolerada.' },
+    ]},
+  { cat:'Frutas', icon:'🥭', name:'Mango', tags:['mango'],
+    entries:[
+      { from:6,  status:'ok',      note:'En puré o trocitos blandos. Nutritivo y bien tolerado.' },
+    ]},
+  { cat:'Frutas', icon:'🍎', name:'Manzana', tags:['manzana'],
+    entries:[
+      { from:4,  status:'ok',      note:'Cocinada o en puré. Cruda rallada a partir de los 8m.' },
+    ]},
+  { cat:'Frutas', icon:'🍈', name:'Melón', tags:['melon','melón'],
+    entries:[
+      { from:6,  status:'ok',      note:'Sin semillas, en trocitos blandos.' },
+    ]},
+  { cat:'Frutas', icon:'🍑', name:'Melocotón / Nectarina', tags:['melocoton','melocotón','nectarina'],
+    entries:[
+      { from:6,  status:'ok',      note:'Sin hueso ni piel, en puré o trocitos muy blandos.' },
+    ]},
+  { cat:'Frutas', icon:'🫐', name:'Moras', tags:['moras','mora'],
+    entries:[
+      { from:8,  status:'caution', note:'Partidas por la mitad. Semillas pequeñas — vigilar.' },
+      { from:12, status:'ok',      note:'Partidas por la mitad, ricas en antioxidantes.' },
+    ]},
+  { cat:'Frutas', icon:'🍊', name:'Naranja', tags:['naranja'],
+    entries:[
+      { from:6,  status:'caution', note:'Puede irritar. Sin membrana, introduce poco a poco.' },
+      { from:10, status:'ok',      note:'En gajos sin telillas, bien tolerada.' },
+    ]},
+  { cat:'Frutas', icon:'🍈', name:'Papaya', tags:['papaya'],
+    entries:[
+      { from:6,  status:'ok',      note:'Sin semillas, en puré o trocitos. Muy digestiva.' },
+    ]},
+  { cat:'Frutas', icon:'🍐', name:'Pera', tags:['pera'],
+    entries:[
+      { from:4,  status:'ok',      note:'Cocinada o muy madura. Suave y bien tolerada.' },
+    ]},
+  { cat:'Frutas', icon:'🍍', name:'Piña', tags:['piña','pina'],
+    entries:[
+      { from:6,  status:'caution', note:'Puede irritar la mucosa oral por la bromelina. Introduce en pequeña cantidad.' },
+      { from:10, status:'ok',      note:'En trocitos, sin parte dura central.' },
+    ]},
+  { cat:'Frutas', icon:'🌴', name:'Plátano', tags:['platano','plátano'],
+    entries:[
+      { from:4,  status:'ok',      note:'Chafado o en puré. Muy digestivo y nutritivo.' },
+    ]},
+  { cat:'Frutas', icon:'🍈', name:'Pomelo', tags:['pomelo'],
+    entries:[
+      { from:0,  status:'no',      note:'Muy ácido. No antes de los 12 meses.' },
+      { from:12, status:'caution', note:'Sin membrana. Puede interferir con algunos medicamentos.' },
+    ]},
+  { cat:'Frutas', icon:'🍉', name:'Sandía', tags:['sandia','sandía'],
+    entries:[
+      { from:6,  status:'ok',      note:'Sin semillas, en trocitos. Muy hidratante.' },
+    ]},
+  { cat:'Frutas', icon:'🍇', name:'Uvas', tags:['uvas','uva'],
+    entries:[
+      { from:0,  status:'no',      note:'Riesgo grave de atragantamiento hasta los 3 años.' },
+      { from:12, status:'caution', note:'Solo partidas en cuartos a lo largo, nunca enteras. Riesgo de asfixia.' },
+    ]},
+
+  // ── Cereales y harinas ────────────────────────────────────────
+  { cat:'Cereales y harinas', icon:'🌾', name:'Arroz', tags:['arroz'],
+    entries:[
+      { from:4,  status:'ok',      note:'Papilla de arroz sin gluten. Muy bien tolerada como primer cereal.' },
+    ]},
+  { cat:'Cereales y harinas', icon:'🌾', name:'Avena', tags:['avena'],
+    entries:[
+      { from:6,  status:'caution', note:'Puede contener trazas de gluten. Introducir con precaución si hay riesgo familiar.' },
+      { from:6,  status:'allergen',note:'Posible sensibilidad en familias con celiaquía.' },
+    ]},
+  { cat:'Cereales y harinas', icon:'🫓', name:'Pan', tags:['pan'],
+    entries:[
+      { from:6,  status:'caution', note:'Pan blanco blando, sin sal añadida. Riesgo de atragantamiento si es duro.' },
+      { from:10, status:'ok',      note:'Trocitos blandos de miga. Sin sal o con poca sal.' },
+    ]},
+  { cat:'Cereales y harinas', icon:'🍝', name:'Pasta', tags:['pasta','macarrones','espagueti','fideos'],
+    entries:[
+      { from:6,  status:'ok',      note:'Muy bien cocida, en trocitos pequeños. Sin sal en el agua.' },
+    ]},
+  { cat:'Cereales y harinas', icon:'🌾', name:'Gluten (trigo, cebada, centeno)', tags:['gluten','trigo','cebada','centeno'],
+    entries:[
+      { from:0,  status:'no',      note:'No antes de los 6 meses.' },
+      { from:6,  status:'ok',      note:'Introducir entre los 4-7 meses puede reducir el riesgo de celiaquía.' },
+      { from:6,  status:'allergen',note:'Alérgeno frecuente. Introduce en casa y observa durante 3 días.' },
+    ]},
+  { cat:'Cereales y harinas', icon:'🌾', name:'Espelta', tags:['espelta'],
+    entries:[
+      { from:6,  status:'ok',      note:'Contiene gluten. Buena alternativa al trigo, más digestiva.' },
+      { from:6,  status:'allergen',note:'Contiene gluten.' },
+    ]},
+  { cat:'Cereales y harinas', icon:'🌿', name:'Quinoa', tags:['quinoa','quinua'],
+    entries:[
+      { from:6,  status:'ok',      note:'Sin gluten. Lavar bien antes de cocinar para eliminar saponinas.' },
+    ]},
+  { cat:'Cereales y harinas', icon:'🌾', name:'Mijo', tags:['mijo'],
+    entries:[
+      { from:6,  status:'ok',      note:'Sin gluten, muy digestivo. En papilla o mezclado con purés.' },
+    ]},
+  { cat:'Cereales y harinas', icon:'🌾', name:'Trigo sarraceno', tags:['trigo sarraceno','alforfon'],
+    entries:[
+      { from:6,  status:'ok',      note:'Sin gluten pese al nombre. Nutritivo, rico en proteína.' },
+    ]},
+  { cat:'Cereales y harinas', icon:'🌽', name:'Maíz (cereal / polenta)', tags:['harina maiz','cereal maiz','polenta'],
+    entries:[
+      { from:4,  status:'ok',      note:'Sin gluten. Bien tolerado en papillas y purés.' },
+    ]},
+  { cat:'Cereales y harinas', icon:'🌾', name:'Cuscús / Sémola', tags:['cuscus','cuscús','semola','sémola'],
+    entries:[
+      { from:6,  status:'ok',      note:'Contiene gluten (trigo). Bien cocido, textura suave y fácil.' },
+    ]},
+  { cat:'Cereales y harinas', icon:'🍞', name:'Galletas / Biscotes', tags:['galletas','galleta','biscotes'],
+    entries:[
+      { from:0,  status:'no',      note:'No antes de los 6 meses. Suelen llevar azúcar, sal y grasas.' },
+      { from:6,  status:'caution', note:'Solo galletas sin azúcar ni sal. En poca cantidad.' },
+      { from:12, status:'ok',      note:'Galletas simples sin azúcar. Limitar las azucaradas.' },
+    ]},
+  { cat:'Cereales y harinas', icon:'🌾', name:'Arroz inflado / Cereales de desayuno', tags:['arroz inflado','cereales desayuno','corn flakes'],
+    entries:[
+      { from:0,  status:'no',      note:'Riesgo de atragantamiento y altos en azúcar.' },
+      { from:12, status:'caution', note:'Solo cereales sin azúcar añadido. Los inflados enteros riesgo de asfixia.' },
+    ]},
+
+  // ── Carnes y pescados ─────────────────────────────────────────
+  { cat:'Carnes y pescados', icon:'🐟', name:'Anchoas / Boquerones', tags:['anchoas','boquerones'],
+    entries:[
+      { from:0,  status:'no',      note:'Muy salados. No antes de los 18 meses.' },
+      { from:18, status:'caution', note:'En muy pequeña cantidad, escurridos. Muy alto contenido en sal.' },
+    ]},
+  { cat:'Carnes y pescados', icon:'🐟', name:'Atún en lata', tags:['atun','atún','lata'],
+    entries:[
+      { from:0,  status:'no',      note:'Alto en mercurio y sal. No antes de los 12 meses.' },
+      { from:12, status:'caution', note:'Al natural, escurrido, máximo 1 vez por semana. Vigilar mercurio.' },
+    ]},
+  { cat:'Carnes y pescados', icon:'🥩', name:'Cerdo', tags:['cerdo','lomo'],
+    entries:[
+      { from:6,  status:'ok',      note:'Bien cocido, sin grasa visible. Carne magra muy nutritiva.' },
+    ]},
+  { cat:'Carnes y pescados', icon:'🐰', name:'Conejo', tags:['conejo'],
+    entries:[
+      { from:6,  status:'ok',      note:'Muy bien cocido, deshebrado. Carne magra, bien tolerada.' },
+    ]},
+  { cat:'Carnes y pescados', icon:'🐑', name:'Cordero', tags:['cordero'],
+    entries:[
+      { from:6,  status:'ok',      note:'Bien cocido, deshebrado. Algo más graso — quitar grasa visible.' },
+    ]},
+  { cat:'Carnes y pescados', icon:'🥩', name:'Embutidos (chorizo, salchichón, fuet)', tags:['embutido','chorizo','salchichon','salchichón','fuet'],
+    entries:[
+      { from:0,  status:'no',      note:'Muy altos en sal, grasa y conservantes. No antes de los 3 años.' },
+    ]},
+  { cat:'Carnes y pescados', icon:'🫀', name:'Hígado', tags:['higado','hígado'],
+    entries:[
+      { from:6,  status:'caution', note:'Máximo 1 vez por semana. Rico en hierro pero con exceso de vitamina A.' },
+      { from:8,  status:'ok',      note:'1 vez por semana como máximo. Bien cocinado.' },
+    ]},
+  { cat:'Carnes y pescados', icon:'🌭', name:'Jamón cocido / york', tags:['jamon cocido','jamón cocido','york'],
+    entries:[
+      { from:0,  status:'no',      note:'Alto en sal y conservantes. No antes de los 12 meses.' },
+      { from:12, status:'caution', note:'Ocasionalmente. Elegir variedades bajas en sal.' },
+    ]},
+  { cat:'Carnes y pescados', icon:'🥩', name:'Jamón serrano / ibérico', tags:['jamon serrano','jamón serrano','ibérico','iberico'],
+    entries:[
+      { from:0,  status:'no',      note:'Muy alto en sal. No antes de los 3 años.' },
+    ]},
+  { cat:'Carnes y pescados', icon:'🦀', name:'Marisco (gamba, langostino, mejillón)', tags:['marisco','gamba','langostino','mejillon','mejillón','almeja'],
+    entries:[
+      { from:0,  status:'no',      note:'Fuerte alérgeno. No antes de los 12 meses.' },
+      { from:12, status:'caution', note:'Alérgeno importante. Introduce solo y con precaución.' },
+      { from:12, status:'allergen',note:'Alérgeno frecuente.' },
+    ]},
+  { cat:'Carnes y pescados', icon:'🐟', name:'Pescado azul (salmón, sardina, caballa)', tags:['salmon','salmón','sardina','caballa','trucha'],
+    entries:[
+      { from:0,  status:'no',      note:'No antes de los 10 meses por mercurio y alérgenos.' },
+      { from:10, status:'caution', note:'Sin espinas. 1 vez por semana máximo por mercurio.' },
+      { from:10, status:'allergen',note:'Alérgeno frecuente.' },
+    ]},
+  { cat:'Carnes y pescados', icon:'🐟', name:'Pescado blanco (merluza, lenguado, bacalao)', tags:['pescado','merluza','lenguado','bacalao','rape','dorada'],
+    entries:[
+      { from:6,  status:'caution', note:'Sin espinas. Alérgeno frecuente — introduce solo y observa 3 días.' },
+      { from:6,  status:'allergen',note:'Alérgeno frecuente.' },
+      { from:8,  status:'ok',      note:'Sin espinas, bien cocido. 2-3 veces por semana.' },
+    ]},
+  { cat:'Carnes y pescados', icon:'⚠️', name:'Pez espada / Cazón / Tiburón', tags:['pez espada','cazon','tiburon','marrajo'],
+    entries:[
+      { from:0,  status:'no',      note:'Alto contenido en mercurio. Prohibido hasta los 10 años según AESAN.' },
+    ]},
+  { cat:'Carnes y pescados', icon:'🐔', name:'Pollo', tags:['pollo'],
+    entries:[
+      { from:6,  status:'ok',      note:'Muy bien cocido, deshebrado o en puré. Fuente de hierro importante.' },
+    ]},
+  { cat:'Carnes y pescados', icon:'🦑', name:'Pulpo / Calamar', tags:['pulpo','calamar'],
+    entries:[
+      { from:0,  status:'no',      note:'Textura muy dura, riesgo de atragantamiento.' },
+      { from:18, status:'caution', note:'Solo muy bien cocinado y en trozos pequeños. Difícil de masticar.' },
+    ]},
+  { cat:'Carnes y pescados', icon:'🌭', name:'Salchichas', tags:['salchichas','salchicha','frankfurt'],
+    entries:[
+      { from:0,  status:'no',      note:'Muy altas en sal, grasa y conservantes. No antes de los 3 años.' },
+    ]},
+  { cat:'Carnes y pescados', icon:'🦃', name:'Pavo', tags:['pavo'],
+    entries:[
+      { from:6,  status:'ok',      note:'Muy bien cocido, deshebrado. Carne magra y bien tolerada.' },
+    ]},
+  { cat:'Carnes y pescados', icon:'🥩', name:'Ternera / Vaca', tags:['ternera','vaca','carne'],
+    entries:[
+      { from:6,  status:'ok',      note:'Muy bien cocida, deshebrada. Excelente fuente de hierro.' },
+    ]},
+
+  // ── Huevo ─────────────────────────────────────────────────────
+  { cat:'Huevo', icon:'🥚', name:'Clara de huevo', tags:['clara huevo','clara'],
+    entries:[
+      { from:0,  status:'no',      note:'No antes de los 9-12 meses. La clara es más alérgena que la yema.' },
+      { from:9,  status:'caution', note:'Solo bien cocinada. Introduce después de tener tolerada la yema.' },
+      { from:9,  status:'allergen',note:'Alérgeno muy frecuente.' },
+    ]},
+  { cat:'Huevo', icon:'🍳', name:'Huevo entero cocinado', tags:['huevo entero','tortilla','revuelto'],
+    entries:[
+      { from:0,  status:'no',      note:'No antes de los 9-12 meses.' },
+      { from:9,  status:'caution', note:'Solo bien cocinado (nunca crudo ni poco hecho). Observa reacción.' },
+      { from:9,  status:'allergen',note:'Alérgeno muy frecuente.' },
+      { from:12, status:'ok',      note:'Huevo bien cocinado, con normalidad.' },
+    ]},
+  { cat:'Huevo', icon:'🥚', name:'Huevo crudo / poco hecho', tags:['huevo crudo','mayonesa casera'],
+    entries:[
+      { from:0,  status:'no',      note:'Riesgo de Salmonella. Nunca huevo crudo o poco cocinado antes de los 3 años.' },
+    ]},
+  { cat:'Huevo', icon:'🥚', name:'Yema de huevo', tags:['yema','yema huevo'],
+    entries:[
+      { from:0,  status:'no',      note:'No antes de los 6 meses.' },
+      { from:6,  status:'caution', note:'Alérgeno frecuente. La yema cocinada se puede introducir a los 6m. Solo yema primero.' },
+      { from:6,  status:'allergen',note:'Alérgeno muy frecuente (segundo tras la leche de vaca).' },
+    ]},
+
+  // ── Lácteos ───────────────────────────────────────────────────
+  { cat:'Lácteos', icon:'🍦', name:'Flan / Natillas', tags:['flan','natillas'],
+    entries:[
+      { from:0,  status:'no',      note:'Llevan huevo, azúcar y lácteos. No antes de los 12 meses.' },
+      { from:12, status:'caution', note:'Caseros sin azúcar, ocasionalmente. Los industriales tienen mucho azúcar.' },
+    ]},
+  { cat:'Lácteos', icon:'🍦', name:'Helado', tags:['helado'],
+    entries:[
+      { from:0,  status:'no',      note:'Azúcar, aditivos y riesgo de alérgenos. No antes de los 2 años.' },
+      { from:24, status:'caution', note:'Ocasionalmente. Preferir helados de fruta sin azúcar añadido.' },
+    ]},
+  { cat:'Lácteos', icon:'🥛', name:'Kéfir', tags:['kefir','kéfir'],
+    entries:[
+      { from:6,  status:'ok',      note:'Natural sin azúcar. Similar al yogur pero con más probióticos.' },
+      { from:6,  status:'allergen',note:'Contiene proteína de leche de vaca.' },
+    ]},
+  { cat:'Lácteos', icon:'🧈', name:'Mantequilla', tags:['mantequilla'],
+    entries:[
+      { from:6,  status:'ok',      note:'En muy pequeña cantidad como grasa para cocinar.' },
+    ]},
+  { cat:'Lácteos', icon:'🥛', name:'Leche de vaca (bebida)', tags:['leche vaca','leche entera'],
+    entries:[
+      { from:0,  status:'no',      note:'No como bebida principal antes de los 12 meses. Sí se puede usar para cocinar.' },
+      { from:12, status:'ok',      note:'Leche entera (no desnatada) a partir del año. Mínimo 500ml/día de lácteos.' },
+    ]},
+  { cat:'Lácteos', icon:'🥛', name:'Leche condensada', tags:['leche condensada'],
+    entries:[
+      { from:0,  status:'no',      note:'Muy alta en azúcar. No recomendada para bebés.' },
+    ]},
+  { cat:'Lácteos', icon:'🍦', name:'Nata', tags:['nata','crema'],
+    entries:[
+      { from:0,  status:'no',      note:'Alto contenido en grasa saturada. No antes de los 12 meses.' },
+      { from:12, status:'caution', note:'En muy pequeña cantidad como ingrediente ocasional.' },
+    ]},
+  { cat:'Lácteos', icon:'🧀', name:'Queso fresco / pasteurizado', tags:['queso','queso fresco','ricotta'],
+    entries:[
+      { from:0,  status:'no',      note:'No antes de los 6 meses.' },
+      { from:6,  status:'caution', note:'Solo quesos frescos pasteurizados. Sin quesos curados ni con mucha sal.' },
+      { from:6,  status:'allergen',note:'Alérgeno (proteína de leche de vaca).' },
+      { from:12, status:'ok',      note:'Variedad de quesos pasteurizados. Limitar los muy salados.' },
+    ]},
+  { cat:'Lácteos', icon:'🧀', name:'Queso no pasteurizado', tags:['queso crudo','brie','camembert','roquefort'],
+    entries:[
+      { from:0,  status:'no',      note:'Riesgo de Listeria y otros patógenos. No antes de los 3 años.' },
+    ]},
+  { cat:'Lácteos', icon:'🥣', name:'Yogur', tags:['yogur'],
+    entries:[
+      { from:0,  status:'no',      note:'No antes de los 6 meses.' },
+      { from:6,  status:'ok',      note:'Yogur natural sin azúcar ni sabores. No yogures de bebé azucarados.' },
+      { from:6,  status:'allergen',note:'Alérgeno (proteína de leche de vaca).' },
+    ]},
+
+  // ── Legumbres ─────────────────────────────────────────────────
+  { cat:'Legumbres', icon:'🫘', name:'Alubias / Judías', tags:['alubias','judias','frijoles'],
+    entries:[
+      { from:8,  status:'ok',      note:'Muy bien cocidas, en puré. Pueden dar gases.' },
+    ]},
+  { cat:'Legumbres', icon:'🫘', name:'Edamame', tags:['edamame'],
+    entries:[
+      { from:0,  status:'no',      note:'Riesgo de atragantamiento enteros.' },
+      { from:6,  status:'caution', note:'Solo en puré o aplastados. Soja — posible alérgeno.' },
+      { from:6,  status:'allergen',note:'Contiene soja, alérgeno frecuente.' },
+      { from:12, status:'ok',      note:'Aplastados o muy bien cocidos sin piel.' },
+    ]},
+  { cat:'Legumbres', icon:'🫘', name:'Garbanzos', tags:['garbanzos'],
+    entries:[
+      { from:6,  status:'ok',      note:'Muy bien cocidos, en puré o chafados sin piel.' },
+    ]},
+  { cat:'Legumbres', icon:'🫘', name:'Habas', tags:['habas'],
+    entries:[
+      { from:8,  status:'ok',      note:'Muy bien cocidas, sin piel, en puré. Aportan proteína y hierro.' },
+    ]},
+  { cat:'Legumbres', icon:'🫘', name:'Lentejas', tags:['lentejas'],
+    entries:[
+      { from:6,  status:'ok',      note:'Muy bien cocidas, en puré o chafadas. Excelente fuente de hierro.' },
+    ]},
+  { cat:'Legumbres', icon:'🫘', name:'Soja / Tofu', tags:['soja','tofu'],
+    entries:[
+      { from:0,  status:'no',      note:'No antes de los 6 meses.' },
+      { from:6,  status:'caution', note:'Tofu blando en pequeños trozos. Alérgeno frecuente.' },
+      { from:6,  status:'allergen',note:'Alérgeno frecuente.' },
+      { from:8,  status:'ok',      note:'Tofu bien cocinado o en puré. Con variedad, no como única proteína.' },
+    ]},
+
+  // ── Frutos secos y semillas ───────────────────────────────────
+  { cat:'Frutos secos y semillas', icon:'🥜', name:'Cacahuete', tags:['cacahuete','mani','maní'],
+    entries:[
+      { from:0,  status:'no',      note:'Enteros nunca antes de los 5 años (riesgo de asfixia).' },
+      { from:6,  status:'caution', note:'Solo en pasta muy fina (mantequilla sin sal). Alérgeno frecuente.' },
+      { from:6,  status:'allergen',note:'Alérgeno muy frecuente.' },
+    ]},
+  { cat:'Frutos secos y semillas', icon:'🌰', name:'Frutos secos enteros (nuez, almendra, avellana…)', tags:['nuez','almendra','avellana','pistacho','anacardo'],
+    entries:[
+      { from:0,  status:'no',      note:'Riesgo de atragantamiento hasta los 5 años. Solo en pasta o harina fina.' },
+    ]},
+  { cat:'Frutos secos y semillas', icon:'🌰', name:'Frutos secos triturados / pasta', tags:['pasta nuez','harina almendra','crema avellana'],
+    entries:[
+      { from:6,  status:'caution', note:'Solo molidos muy finos o en pasta. Introduce uno a la vez.' },
+      { from:6,  status:'allergen',note:'Alérgenos frecuentes.' },
+    ]},
+  { cat:'Frutos secos y semillas', icon:'🌱', name:'Semillas de chía', tags:['chia','chía'],
+    entries:[
+      { from:0,  status:'no',      note:'Pueden hincharse y causar asfixia. No antes de los 3 años.' },
+    ]},
+  { cat:'Frutos secos y semillas', icon:'🌱', name:'Semillas de lino', tags:['lino','linaza'],
+    entries:[
+      { from:0,  status:'no',      note:'Riesgo de atragantamiento. No antes de los 3 años.' },
+      { from:36, status:'caution', note:'Solo molidas muy finas. En pequeña cantidad.' },
+    ]},
+  { cat:'Frutos secos y semillas', icon:'🌻', name:'Semillas de girasol / calabaza', tags:['pipas','girasol','semillas calabaza'],
+    entries:[
+      { from:0,  status:'no',      note:'Riesgo de atragantamiento hasta los 5 años.' },
+    ]},
+  { cat:'Frutos secos y semillas', icon:'🫙', name:'Tahini (pasta de sésamo)', tags:['tahini','sesamo','sésamo'],
+    entries:[
+      { from:6,  status:'caution', note:'Pasta fina. El sésamo es un alérgeno frecuente — introduce solo.' },
+      { from:6,  status:'allergen',note:'El sésamo es un alérgeno frecuente.' },
+      { from:8,  status:'ok',      note:'En pasta, buena fuente de calcio y grasas saludables.' },
+    ]},
+
+  // ── Azúcar, sal y condimentos ─────────────────────────────────
+  { cat:'Azúcar, sal y condimentos', icon:'🍬', name:'Azúcar', tags:['azucar','azúcar'],
+    entries:[
+      { from:0,  status:'no',      note:'No añadir azúcar a los alimentos del bebé. Sin beneficio y promueve preferencia por lo dulce.' },
+      { from:24, status:'caution', note:'Lo menos posible. La OMS recomienda menos del 5% de calorías de azúcares libres.' },
+    ]},
+  { cat:'Azúcar, sal y condimentos', icon:'🍫', name:'Cacao / Chocolate', tags:['cacao','chocolate'],
+    entries:[
+      { from:0,  status:'no',      note:'Cafeína, azúcar y teobromina. No antes de los 2 años.' },
+      { from:24, status:'caution', note:'Cacao puro en pequeña cantidad. Evitar chocolate con leche azucarado.' },
+    ]},
+  { cat:'Azúcar, sal y condimentos', icon:'🌿', name:'Canela', tags:['canela'],
+    entries:[
+      { from:6,  status:'caution', note:'En cantidades mínimas como saborizante. La de Ceilán es más segura.' },
+      { from:10, status:'ok',      note:'Como especia en pequeña cantidad. Aporta sabor sin sal ni azúcar.' },
+    ]},
+  { cat:'Azúcar, sal y condimentos', icon:'🌿', name:'Especias suaves (cúrcuma, comino, orégano)', tags:['especias','curcuma','cúrcuma','comino','oregano','orégano'],
+    entries:[
+      { from:6,  status:'ok',      note:'En pequeñísimas cantidades como saborizante. Ayudan a ampliar el paladar.' },
+    ]},
+  { cat:'Azúcar, sal y condimentos', icon:'🍯', name:'Miel', tags:['miel'],
+    entries:[
+      { from:0,  status:'no',      note:'Prohibida antes de los 12 meses. Riesgo de botulismo infantil.' },
+      { from:12, status:'caution', note:'En cantidades mínimas. Sin valor nutricional — mejor evitar.' },
+    ]},
+  { cat:'Azúcar, sal y condimentos', icon:'🫙', name:'Kétchup / Salsa de tomate industrial', tags:['ketchup','kétchup','salsa tomate bote'],
+    entries:[
+      { from:0,  status:'no',      note:'Alto en sal, azúcar y conservantes. No antes de los 2 años.' },
+      { from:24, status:'caution', note:'En muy pequeña cantidad y ocasionalmente.' },
+    ]},
+  { cat:'Azúcar, sal y condimentos', icon:'🫙', name:'Mayonesa', tags:['mayonesa'],
+    entries:[
+      { from:0,  status:'no',      note:'Contiene huevo crudo (Salmonella) y sal. No antes de los 2 años.' },
+      { from:24, status:'caution', note:'Solo mayonesa pasteurizada de vez en cuando. La casera nunca antes de los 3 años.' },
+    ]},
+  { cat:'Azúcar, sal y condimentos', icon:'🫙', name:'Mermelada', tags:['mermelada','confitura'],
+    entries:[
+      { from:0,  status:'no',      note:'Demasiada azúcar. No antes de los 2 años.' },
+      { from:24, status:'caution', note:'En cantidades muy pequeñas. Preferir sin azúcar añadido.' },
+    ]},
+  { cat:'Azúcar, sal y condimentos', icon:'🧂', name:'Sal', tags:['sal'],
+    entries:[
+      { from:0,  status:'no',      note:'No añadir sal a la comida del bebé. Sus riñones no pueden procesarla bien.' },
+      { from:12, status:'caution', note:'Cantidades mínimas. Máximo 1g/día de sal en toda la dieta.' },
+    ]},
+  { cat:'Azúcar, sal y condimentos', icon:'🌿', name:'Vainilla', tags:['vainilla'],
+    entries:[
+      { from:6,  status:'ok',      note:'Extracto natural sin alcohol. Buen saborizante natural sin azúcar.' },
+    ]},
+  { cat:'Azúcar, sal y condimentos', icon:'🫙', name:'Vinagre', tags:['vinagre'],
+    entries:[
+      { from:0,  status:'no',      note:'Muy ácido. No antes de los 12 meses.' },
+      { from:12, status:'caution', note:'En cantidades muy pequeñas como aliño. El de manzana es más suave.' },
+    ]},
+
+  // ── Bebidas ───────────────────────────────────────────────────
+  { cat:'Bebidas', icon:'💧', name:'Agua', tags:['agua'],
+    entries:[
+      { from:0,  status:'no',      note:'No necesaria antes de los 6 meses si hay lactancia o fórmula.' },
+      { from:6,  status:'ok',      note:'Agua a demanda. Sin gas, sin sabores. La mejor bebida.' },
+    ]},
+  { cat:'Bebidas', icon:'💧', name:'Agua con gas', tags:['agua gas','agua carbonatada'],
+    entries:[
+      { from:0,  status:'no',      note:'No recomendada para bebés. Puede causar gases y malestar.' },
+      { from:24, status:'caution', note:'Ocasionalmente. Sin minerales y puede causar distensión.' },
+    ]},
+  { cat:'Bebidas', icon:'☕', name:'Bebidas con cafeína (café, té, cola)', tags:['cafe','café','te','té','cola'],
+    entries:[
+      { from:0,  status:'no',      note:'Cafeína, teína y otros estimulantes. Prohibidos en la infancia.' },
+    ]},
+  { cat:'Bebidas', icon:'🥛', name:'Bebida de avena', tags:['leche avena','bebida avena'],
+    entries:[
+      { from:0,  status:'no',      note:'No como sustituto de leche materna o fórmula antes de los 12 meses.' },
+      { from:12, status:'caution', note:'Como bebida complementaria. No aporta suficiente proteína ni calcio.' },
+    ]},
+  { cat:'Bebidas', icon:'🥛', name:'Bebida de soja', tags:['leche soja','bebida soja'],
+    entries:[
+      { from:0,  status:'no',      note:'No como sustituto de leche materna o fórmula.' },
+      { from:12, status:'caution', note:'Alérgeno frecuente. Solo bebida de soja enriquecida en calcio.' },
+      { from:12, status:'allergen',note:'Contiene soja.' },
+    ]},
+  { cat:'Bebidas', icon:'🥛', name:'Bebida de almendras / arroz', tags:['leche almendras','leche arroz','bebida almendras'],
+    entries:[
+      { from:0,  status:'no',      note:'No como sustituto de leche. Muy baja en proteínas y calcio.' },
+      { from:12, status:'caution', note:'Como bebida complementaria ocasional, nunca sustituyendo lácteos.' },
+    ]},
+  { cat:'Bebidas', icon:'🫖', name:'Infusiones', tags:['infusion','infusión','manzanilla','tila','poleo'],
+    entries:[
+      { from:0,  status:'no',      note:'No recomendadas. Pueden interferir con la absorción de hierro.' },
+    ]},
+  { cat:'Bebidas', icon:'🥤', name:'Refrescos / Bebidas azucaradas', tags:['refresco','fanta','aquarius'],
+    entries:[
+      { from:0,  status:'no',      note:'Azúcar, colorantes y ácidos. Prohibidos en menores. No hay edad segura.' },
+    ]},
+  { cat:'Bebidas', icon:'🥤', name:'Zumo de fruta', tags:['zumo','jugo'],
+    entries:[
+      { from:0,  status:'no',      note:'No recomendado antes de los 12 meses. Prefiere la fruta entera.' },
+      { from:12, status:'caution', note:'Solo zumo natural sin azúcar, máximo 120ml/día. La fruta entera siempre es mejor.' },
+    ]},
+
+  // ── Otros ─────────────────────────────────────────────────────
+  { cat:'Otros', icon:'🫙', name:'Aceite de girasol / maíz', tags:['aceite girasol','aceite maiz'],
+    entries:[
+      { from:6,  status:'ok',      note:'Como alternativa al aceite de oliva. El de oliva sigue siendo preferible.' },
+    ]},
+  { cat:'Otros', icon:'🌾', name:'Arroz inflado / Cereales de desayuno', tags:['arroz inflado','cereales desayuno'],
+    entries:[
+      { from:0,  status:'no',      note:'Riesgo de atragantamiento y altos en azúcar.' },
+      { from:12, status:'caution', note:'Solo cereales sin azúcar añadido.' },
+    ]},
+  { cat:'Otros', icon:'🧁', name:'Bollería / Pastelería', tags:['bollo','bolleria','bollería','bizcocho','magdalena','croissant'],
+    entries:[
+      { from:0,  status:'no',      note:'Azúcar, harinas refinadas y grasas saturadas. No antes de los 2 años.' },
+      { from:24, status:'caution', note:'Muy ocasionalmente. Preferir versiones caseras sin azúcar.' },
+    ]},
+  { cat:'Otros', icon:'🍬', name:'Caramelos / Gominolas', tags:['caramelos','gominolas','chuches'],
+    entries:[
+      { from:0,  status:'no',      note:'Riesgo de atragantamiento, azúcar puro y colorantes. No antes de los 3 años.' },
+    ]},
+  { cat:'Otros', icon:'🥫', name:'Conservas / Alimentos en lata', tags:['conservas','lata','enlatado'],
+    entries:[
+      { from:0,  status:'no',      note:'Altos en sal y conservantes. No antes de los 12 meses.' },
+      { from:12, status:'caution', note:'Ocasionalmente y eligiendo versiones bajas en sal. Escurrir siempre.' },
+    ]},
+  { cat:'Otros', icon:'🫙', name:'Hummus', tags:['hummus'],
+    entries:[
+      { from:6,  status:'ok',      note:'Casero sin sal. Fuente excelente de proteína vegetal y fibra.' },
+    ]},
+  { cat:'Otros', icon:'🍿', name:'Palomitas', tags:['palomitas'],
+    entries:[
+      { from:0,  status:'no',      note:'Riesgo grave de atragantamiento. No antes de los 5 años.' },
+    ]},
+  { cat:'Otros', icon:'🍟', name:'Patatas fritas / fritos', tags:['patatas fritas','fritos','croquetas'],
+    entries:[
+      { from:0,  status:'no',      note:'Muy altos en sal y grasas trans. No antes de los 2 años.' },
+      { from:24, status:'caution', note:'Muy ocasionalmente. Preferir cocinado al horno sin sal.' },
+    ]},
+  { cat:'Otros', icon:'🍕', name:'Pizza', tags:['pizza'],
+    entries:[
+      { from:0,  status:'no',      note:'Alta en sal, grasas no saludables y múltiples alérgenos.' },
+      { from:18, status:'caution', note:'Casera, con ingredientes controlados y poca sal. Ocasionalmente.' },
+    ]},
+
+];
+
+// ── State ─────────────────────────────────────────────────────────// ── State ─────────────────────────────────────────────────────────
+let selectedAge = 'all';
+let searchQuery = '';
+
+// ── Build age pills ───────────────────────────────────────────────
+function buildPills() {
+  const wrap = document.getElementById('age-pills');
+  AGE_GROUPS.forEach(ag => {
+    const btn = document.createElement('button');
+    btn.className = 'age-pill' + (ag.id === selectedAge ? ' active' : '');
+    btn.textContent = ag.label;
+    btn.addEventListener('click', () => {
+      selectedAge = ag.id;
+      document.querySelectorAll('.age-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilters();
+    });
+    wrap.appendChild(btn);
+  });
+}
+
+// ── Get best entry for current age ───────────────────────────────
+function getBestEntry(food, ageMonths) {
+  if (!food.entries || food.entries.length === 0) return null;
+  const valid = food.entries.filter(e => ageMonths === null || e.from <= ageMonths);
+  if (valid.length === 0) {
+    // Return the first 'no' entry
+    return food.entries[0];
+  }
+  // Return the last valid (highest from)
+  return valid.reduce((best, e) => e.from >= best.from ? e : best, valid[0]);
+}
+
+// ── Render ────────────────────────────────────────────────────────
+function applyFilters() {
+  searchQuery = document.getElementById('search').value.toLowerCase().trim();
+  const ageMonths = selectedAge === 'all' ? null : parseInt(selectedAge);
+
+  // Group foods by category
+  const cats = {};
+  FOODS.forEach(food => {
+    if (!cats[food.cat]) cats[food.cat] = { icon: getCatIcon(food.cat), foods: [] };
+    cats[food.cat].foods.push(food);
+  });
+
+  const output = document.getElementById('food-output');
+  output.innerHTML = '';
+  let totalVisible = 0;
+
+  Object.entries(cats).forEach(([catName, catData]) => {
+    const matchingFoods = catData.foods.filter(food => {
+      // Search filter
+      if (searchQuery) {
+        const nameMatch = food.name.toLowerCase().includes(searchQuery);
+        const tagMatch  = food.tags.some(t => t.includes(searchQuery));
+        if (!nameMatch && !tagMatch) return false;
+      }
+      return true;
+    });
+
+    if (matchingFoods.length === 0) return;
+
+    // Sort: no → caution → allergen → ok, then alphabetically
+    const statusOrder = { no: 0, caution: 1, allergen: 2, ok: 3 };
+    matchingFoods.sort((a, b) => {
+      const ea = getBestEntry(a, ageMonths);
+      const eb = getBestEntry(b, ageMonths);
+      const sa = ea ? (statusOrder[ea.status] ?? 4) : 4;
+      const sb = eb ? (statusOrder[eb.status] ?? 4) : 4;
+      if (sa !== sb) return sa - sb;
+      return a.name.localeCompare(b.name, 'es');
+    });
+
+    // Build cards
+    const cards = matchingFoods.map(food => {
+      const entry = getBestEntry(food, ageMonths);
+      if (!entry) return null;
+
+      // Deduplicate entries with same status for same food
+      const shown = new Set();
+      const allEntries = food.entries.filter(e => ageMonths === null || e.from <= ageMonths);
+      const uniqueEntries = allEntries.filter(e => {
+        const key = e.status;
+        if (shown.has(key)) return false;
+        shown.add(key);
+        return true;
+      });
+
+      // Use highest-from entry as primary
+      const primary = allEntries.length > 0
+        ? allEntries.reduce((b, e) => e.from >= b.from ? e : b, allEntries[0])
+        : food.entries[0];
+
+      const statusMap = {
+        ok: { icon: '✅', label: 'Permitido' },
+        caution: { icon: '⚠️', label: 'Con precaución' },
+        no: { icon: '❌', label: 'No recomendado aún' },
+        allergen: { icon: '🔵', label: 'Alérgeno frecuente' },
+      };
+      const s = statusMap[primary.status] || statusMap.ok;
+      const fromLabel = primary.from === 0 ? '' : `A partir de los ${primary.from} meses`;
+
+      return `
+        <div class="food-card status-${primary.status}">
+          <span class="food-status-icon">${food.icon}</span>
+          <div class="food-body">
+            <div class="food-name">${food.name}</div>
+            <div class="food-note">${primary.note}</div>
+            ${fromLabel ? `<div class="food-from">${fromLabel}</div>` : ''}
+          </div>
+          <span style="font-size:18px;flex-shrink:0">${s.icon}</span>
+        </div>`;
+    }).filter(Boolean);
+
+    if (cards.length === 0) return;
+    totalVisible += cards.length;
+
+    const section = document.createElement('div');
+    section.className = 'category-section';
+
+    const header = document.createElement('div');
+    header.className = 'cat-header open';
+    header.innerHTML = `
+      <span class="cat-icon">${catData.icon}</span>
+      <span class="cat-name">${catName}</span>
+      <span class="cat-count">${cards.length}</span>
+      <span class="cat-chevron">›</span>`;
+
+    const list = document.createElement('div');
+    list.className = 'food-list open';
+    list.innerHTML = cards.join('');
+
+    header.addEventListener('click', () => {
+      const open = list.classList.toggle('open');
+      header.classList.toggle('open', open);
+    });
+
+    section.appendChild(header);
+    section.appendChild(list);
+    output.appendChild(section);
+  });
+
+  // No results
+  if (totalVisible === 0) {
+    output.innerHTML = `
+      <div class="no-results">
+        <span class="no-results-icon">🤔</span>
+        No hemos encontrado "${searchQuery}" en la base de datos.<br>Prueba con otro nombre o consulta a tu pediatra.
+      </div>`;
+  }
+
+  document.getElementById('results-meta').textContent =
+    totalVisible > 0 ? `${totalVisible} alimento${totalVisible !== 1 ? 's' : ''}${selectedAge !== 'all' ? ` para ${AGE_GROUPS.find(a=>a.id===selectedAge)?.label}` : ''}` : '';
+}
+
+function getCatIcon(cat) {
+  const map = {
+    'Verduras y hortalizas': '🥦',
+    'Frutas': '🍎',
+    'Cereales y harinas': '🌾',
+    'Carnes y pescados': '🍖',
+    'Huevo': '🥚',
+    'Lácteos': '🥛',
+    'Legumbres': '🫘',
+    'Frutos secos': '🌰',
+    'Azúcar, sal y condimentos': '🧂',
+    'Bebidas': '💧',
+  };
+  return map[cat] || '🍽️';
+}
+
+buildPills();
+applyFilters();
+</script>
+</body>
+</html>

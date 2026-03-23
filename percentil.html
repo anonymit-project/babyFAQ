@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Percentil bebé · Peso y altura según OMS</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f4f8f4; --warm-white: #fafdfb; --mint: #a8d8b0;
+    --green: #3a7a4a; --deep: #1f2d22; --mid: #4a6a52; --soft: #8ab090;
+    --green-bg: #e8f5ec; --green-border: #a8d8b0;
+    --amber: #c97a2a; --amber-bg: #fdf0e0;
+    --red: #b85050; --red-bg: #fceaea;
+    --terracota: #c97a5e; --blush: #f2c4b0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 300px; height: 300px; background: #b8e0c0; top: -100px; right: -80px; opacity: 0.35; }
+  .blob-2 { width: 250px; height: 250px; background: #c0d8f0; bottom: -80px; left: -60px; opacity: 0.3; }
+
+  .container { position: relative; z-index: 1; max-width: 420px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  header { text-align: center; margin-bottom: 36px; }
+  .badge { display: inline-block; background: var(--green-bg); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 32px; line-height: 1.2; color: var(--deep); margin-bottom: 10px; }
+  h1 em { font-style: italic; color: var(--green); }
+  .subtitle { font-size: 14px; color: var(--mid); line-height: 1.5; font-weight: 300; }
+
+  .card { background: var(--warm-white); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; box-shadow: 0 2px 20px rgba(31,45,34,0.07); border: 1px solid rgba(138,176,144,0.2); }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 14px; }
+
+  /* Sex toggle */
+  .toggle-row { display: flex; gap: 8px; }
+  .toggle-btn { flex: 1; padding: 12px 8px; border-radius: 12px; border: 1.5px solid rgba(138,176,144,0.3); background: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: var(--mid); cursor: pointer; transition: all 0.18s; text-align: center; touch-action: manipulation; }
+  .toggle-btn .t-icon { display: block; font-size: 22px; margin-bottom: 4px; }
+  .toggle-btn.active { background: var(--warm-white); border-color: var(--green); color: var(--deep); box-shadow: 0 2px 10px rgba(58,122,74,0.15); }
+
+  /* Hold selectors */
+  .selectors-row { display: flex; gap: 10px; }
+  .hold-sel-wrap { flex: 1; }
+  .hold-sel-title { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); margin-bottom: 8px; display: block; text-align: center; }
+  .hold-sel { background: var(--cream); border-radius: 14px; border: 1.5px solid rgba(138,176,144,0.35); display: flex; align-items: center; height: 64px; padding: 0 4px; }
+  .hold-btn { width: 40px; height: 52px; flex-shrink: 0; border-radius: 10px; border: none; background: transparent; color: var(--green); font-size: 22px; font-weight: 300; cursor: pointer; display: flex; align-items: center; justify-content: center; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: background 0.1s; line-height: 1; }
+  .hold-btn:active, .hold-btn.pressing { background: var(--mint); }
+  .hold-center { flex: 1; text-align: center; }
+  .hold-val { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300; color: var(--deep); display: block; line-height: 1; }
+  .hold-unit { font-size: 11px; color: var(--soft); font-family: 'DM Sans', sans-serif; }
+
+  /* Result card */
+  .result-card { background: var(--warm-white); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; box-shadow: 0 2px 20px rgba(31,45,34,0.07); border: 1px solid rgba(138,176,144,0.2); animation: fadeUp 0.35s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .results-row { display: flex; gap: 10px; margin-bottom: 16px; }
+  .result-block { flex: 1; background: var(--cream); border-radius: 14px; padding: 14px 10px; text-align: center; border: 1.5px solid transparent; }
+
+  .r-label { font-size: 9px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 6px; }
+  .r-pct { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 400; color: var(--deep); display: block; line-height: 1; }
+  .r-pct-unit { font-size: 12px; color: var(--soft); }
+  .r-z { font-size: 11px; color: var(--soft); display: block; margin-top: 4px; }
+  .r-band { font-size: 11px; font-weight: 500; display: block; margin-top: 4px; }
+
+  /* Color bands */
+  .band-low    { color: var(--red);     }
+  .band-low-n  { color: var(--amber);   }
+  .band-normal { color: var(--green);   }
+  .band-high-n { color: var(--amber);   }
+  .band-high   { color: var(--red);     }
+
+  .block-low    { background: var(--red-bg);   border-color: #e8b4b4 !important; }
+  .block-low-n  { background: var(--amber-bg); border-color: #f0cc8a !important; }
+  .block-normal { background: var(--green-bg); border-color: var(--green-border) !important; }
+  .block-high-n { background: var(--amber-bg); border-color: #f0cc8a !important; }
+  .block-high   { background: var(--red-bg);   border-color: #e8b4b4 !important; }
+
+  /* Gauge bar */
+  .gauge-wrap { margin-bottom: 14px; }
+  .gauge-label { font-size: 9px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 8px; }
+  .gauge-track { position: relative; height: 12px; border-radius: 6px; overflow: visible; background: linear-gradient(to right, #e88080 0%, #f0c070 10%, #7acc8a 25%, #7acc8a 75%, #f0c070 90%, #e88080 100%); margin-bottom: 18px; }
+  .gauge-marker { position: absolute; top: 50%; transform: translate(-50%, -50%); width: 20px; height: 20px; background: white; border: 2.5px solid var(--deep); border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.2); transition: left 0.4s cubic-bezier(0.34,1.56,0.64,1); z-index: 2; }
+  .gauge-ticks { display: flex; justify-content: space-between; margin-top: 4px; }
+  .gauge-tick { font-size: 9px; color: var(--soft); }
+
+  /* Context note */
+  .context-note { background: var(--cream); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: var(--mid); line-height: 1.6; border: 1px solid rgba(138,176,144,0.2); }
+  .context-note strong { color: var(--deep); font-weight: 500; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 24px; padding: 0 8px; }
+</style>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+  <header>
+    <span class="badge">Crecimiento · OMS</span>
+    <h1>¿Está creciendo<br><em>bien</em>?</h1>
+    <p class="subtitle">Calcula el percentil de peso y altura de tu bebé según los estándares de la OMS (0–5 años).</p>
+  </header>
+
+  <!-- Sexo -->
+  <div class="card">
+    <div class="section-label">Sexo</div>
+    <div class="toggle-row">
+      <button class="toggle-btn active" id="btn-nino" onclick="setSex('M')">
+        <span class="t-icon">👦</span>Niño
+      </button>
+      <button class="toggle-btn" id="btn-nina" onclick="setSex('F')">
+        <span class="t-icon">👧</span>Niña
+      </button>
+    </div>
+  </div>
+
+  <!-- Edad, peso, altura -->
+  <div class="card">
+    <div class="section-label">Datos del bebé</div>
+    <div class="selectors-row" style="margin-bottom:12px">
+      <div class="hold-sel-wrap">
+        <span class="hold-sel-title">Edad</span>
+        <div class="hold-sel">
+          <button class="hold-btn" id="age-m" data-dir="-1">−</button>
+          <div class="hold-center">
+            <span class="hold-val" id="age-v">6</span>
+            <span class="hold-unit" id="age-u">meses</span>
+          </div>
+          <button class="hold-btn" id="age-p" data-dir="1">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="selectors-row">
+      <div class="hold-sel-wrap">
+        <span class="hold-sel-title">Peso</span>
+        <div class="hold-sel">
+          <button class="hold-btn" id="wt-m" data-dir="-1">−</button>
+          <div class="hold-center">
+            <span class="hold-val" id="wt-v">7.9</span>
+            <span class="hold-unit">kg</span>
+          </div>
+          <button class="hold-btn" id="wt-p" data-dir="1">+</button>
+        </div>
+      </div>
+      <div class="hold-sel-wrap">
+        <span class="hold-sel-title">Altura / longitud</span>
+        <div class="hold-sel">
+          <button class="hold-btn" id="ht-m" data-dir="-1">−</button>
+          <div class="hold-center">
+            <span class="hold-val" id="ht-v">67.0</span>
+            <span class="hold-unit">cm</span>
+          </div>
+          <button class="hold-btn" id="ht-p" data-dir="1">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div class="result-card" id="result-card">
+    <div class="section-label">Percentil según OMS</div>
+
+    <div class="results-row">
+      <div class="result-block" id="block-wt">
+        <span class="r-label">⚖️ Peso</span>
+        <span class="r-pct" id="pct-wt">—</span>
+        <span class="r-z"   id="z-wt"></span>
+        <span class="r-band" id="band-wt"></span>
+      </div>
+      <div class="result-block" id="block-ht">
+        <span class="r-label">📏 Altura</span>
+        <span class="r-pct" id="pct-ht">—</span>
+        <span class="r-z"   id="z-ht"></span>
+        <span class="r-band" id="band-ht"></span>
+      </div>
+    </div>
+
+    <div class="gauge-wrap" id="gauge-wt-wrap">
+      <span class="gauge-label">Posición en la curva · Peso</span>
+      <div class="gauge-track">
+        <div class="gauge-marker" id="gauge-wt-marker" style="left:50%"></div>
+      </div>
+      <div class="gauge-ticks">
+        <span class="gauge-tick">P3</span>
+        <span class="gauge-tick">P15</span>
+        <span class="gauge-tick">P50</span>
+        <span class="gauge-tick">P85</span>
+        <span class="gauge-tick">P97</span>
+      </div>
+    </div>
+
+    <div class="gauge-wrap" id="gauge-ht-wrap">
+      <span class="gauge-label">Posición en la curva · Altura</span>
+      <div class="gauge-track">
+        <div class="gauge-marker" id="gauge-ht-marker" style="left:50%"></div>
+      </div>
+      <div class="gauge-ticks">
+        <span class="gauge-tick">P3</span>
+        <span class="gauge-tick">P15</span>
+        <span class="gauge-tick">P50</span>
+        <span class="gauge-tick">P85</span>
+        <span class="gauge-tick">P97</span>
+      </div>
+    </div>
+
+    <div class="context-note" id="context-note"></div>
+  </div>
+
+  <p class="disclaimer">
+    Basado en los Estándares de Crecimiento Infantil de la OMS (2006).<br>
+    Esta herramienta es orientativa. Tu pediatra valora la <strong>tendencia</strong> a lo largo del tiempo, no un valor aislado.
+  </p>
+</div>
+
+<script>
+// ── WHO LMS data ──────────────────────────────────────────────────
+// Format: [month, L, M, S]
+// Source: WHO Child Growth Standards 2006
+
+const LMS = {
+  // Weight-for-age boys
+  WAB: [
+    [0,-0.3521,3.3464,0.14602],[1,-0.3521,4.4709,0.13395],[2,-0.3521,5.5675,0.12385],
+    [3,-0.3521,6.3762,0.11727],[4,-0.3521,7.0023,0.11316],[5,-0.3521,7.5105,0.11052],
+    [6,-0.3521,7.9340,0.10885],[7,-0.3521,8.2970,0.10750],[8,-0.3521,8.6151,0.10643],
+    [9,-0.3521,8.9014,0.10541],[10,-0.3521,9.1649,0.10441],[11,-0.3521,9.4122,0.10342],
+    [12,-0.3521,9.6479,0.10258],[13,-0.3521,9.8749,0.10171],[14,-0.3521,10.0953,0.10100],
+    [15,-0.3521,10.3101,0.10027],[16,-0.3521,10.5200,0.09960],[17,-0.3521,10.7258,0.09896],
+    [18,-0.3521,10.9276,0.09833],[19,-0.3521,11.1259,0.09777],[20,-0.3521,11.3214,0.09720],
+    [21,-0.3521,11.5143,0.09665],[22,-0.3521,11.7051,0.09614],[23,-0.3521,11.8940,0.09563],
+    [24,-0.3521,12.0814,0.09514],[27,-0.3521,12.6399,0.09342],[30,-0.3521,13.1685,0.09185],
+    [33,-0.3521,13.6758,0.09044],[36,-0.3521,14.1699,0.08918],[42,-0.3521,15.1215,0.08696],
+    [48,-0.3521,16.0927,0.08544],[54,-0.3521,17.0848,0.08425],[60,-0.3521,18.1383,0.08345]
+  ],
+  // Weight-for-age girls
+  WAG: [
+    [0,-0.3833,3.2322,0.14171],[1,-0.3833,4.1873,0.13724],[2,-0.3833,5.1282,0.13000],
+    [3,-0.3833,5.8458,0.12619],[4,-0.3833,6.4237,0.12402],[5,-0.3833,6.8985,0.12274],
+    [6,-0.3833,7.2970,0.12267],[7,-0.3833,7.6422,0.12268],[8,-0.3833,7.9487,0.12268],
+    [9,-0.3833,8.2254,0.12268],[10,-0.3833,8.4800,0.12268],[11,-0.3833,8.7192,0.12268],
+    [12,-0.3833,8.9481,0.12268],[13,-0.3833,9.1699,0.12241],[14,-0.3833,9.3876,0.12202],
+    [15,-0.3833,9.6029,0.12199],[16,-0.3833,9.8170,0.12197],[17,-0.3833,10.0295,0.12195],
+    [18,-0.3833,10.2400,0.12193],[19,-0.3833,10.4477,0.12191],[20,-0.3833,10.6522,0.12189],
+    [21,-0.3833,10.8535,0.12187],[22,-0.3833,11.0510,0.12185],[23,-0.3833,11.2446,0.12183],
+    [24,-0.3833,11.4341,0.12181],[27,-0.3833,11.9752,0.12108],[30,-0.3833,12.4897,0.12044],
+    [33,-0.3833,12.9836,0.11981],[36,-0.3833,13.4661,0.11934],[42,-0.3833,14.4100,0.11880],
+    [48,-0.3833,15.3527,0.11858],[54,-0.3833,16.3001,0.11841],[60,-0.3833,17.2753,0.11914]
+  ],
+  // Height-for-age boys
+  HAB: [
+    [0,1,49.8842,0.03795],[1,1,54.7244,0.03557],[2,1,58.4249,0.03424],
+    [3,1,61.4292,0.03328],[4,1,63.8860,0.03257],[5,1,65.9026,0.03176],
+    [6,1,67.6236,0.03143],[7,1,69.1645,0.03112],[8,1,70.5994,0.03082],
+    [9,1,71.9687,0.03054],[10,1,73.2812,0.03027],[11,1,74.5388,0.03001],
+    [12,1,75.7490,0.02975],[13,1,76.9186,0.02950],[14,1,78.0496,0.02927],
+    [15,1,79.1458,0.02904],[16,1,80.2113,0.02883],[17,1,81.2487,0.02861],
+    [18,1,82.2587,0.02840],[19,1,83.2418,0.02820],[20,1,84.1996,0.02800],
+    [21,1,85.1348,0.02781],[22,1,86.0477,0.02762],[23,1,86.9424,0.02744],
+    [24,1,87.8161,0.02726],[27,1,90.3490,0.02680],[30,1,92.7304,0.02637],
+    [33,1,95.0006,0.02597],[36,1,97.0653,0.02559],[42,1,100.964,0.02492],
+    [48,1,104.645,0.02434],[54,1,108.204,0.02383],[60,1,111.686,0.02338]
+  ],
+  // Height-for-age girls
+  HAG: [
+    [0,1,49.1477,0.03790],[1,1,53.6872,0.03568],[2,1,57.0673,0.03470],
+    [3,1,59.8029,0.03377],[4,1,62.0899,0.03289],[5,1,64.0301,0.03209],
+    [6,1,65.7311,0.03143],[7,1,67.2873,0.03079],[8,1,68.7498,0.03018],
+    [9,1,70.1435,0.02963],[10,1,71.4818,0.02912],[11,1,72.7710,0.02863],
+    [12,1,74.0150,0.02816],[13,1,75.2176,0.02771],[14,1,76.3817,0.02728],
+    [15,1,77.5099,0.02688],[16,1,78.6055,0.02649],[17,1,79.6713,0.02613],
+    [18,1,80.7079,0.02577],[19,1,81.7182,0.02544],[20,1,82.7054,0.02511],
+    [21,1,83.6711,0.02480],[22,1,84.6171,0.02449],[23,1,85.5450,0.02420],
+    [24,1,86.4561,0.02391],[27,1,88.9233,0.02339],[30,1,91.2973,0.02291],
+    [33,1,93.5717,0.02248],[36,1,95.7452,0.02210],[42,1,99.9475,0.02143],
+    [48,1,103.994,0.02085],[54,1,107.927,0.02034],[60,1,111.786,0.01989]
+  ]
+};
+
+// ── State ─────────────────────────────────────────────────────────
+let sex = 'M';
+
+// Age: 0–60 months
+const AGE_VALUES = Array.from({length: 61}, (_,i) => i);
+let ageIdx = 6;
+
+// Weight: 2.0–30.0 kg, step 0.1
+const WT_VALUES = [];
+for (let v = 2.0; v <= 30.0+1e-9; v = Math.round((v+0.1)*10)/10) WT_VALUES.push(parseFloat(v.toFixed(1)));
+let wtIdx = WT_VALUES.indexOf(7.9);
+
+// Height: 40–130 cm, step 0.5
+const HT_VALUES = [];
+for (let v = 40.0; v <= 130.0+1e-9; v = Math.round((v+0.5)*10)/10) HT_VALUES.push(parseFloat(v.toFixed(1)));
+let htIdx = HT_VALUES.indexOf(67.0);
+
+// ── LMS interpolation ─────────────────────────────────────────────
+function getLMS(table, monthTarget) {
+  const rows = LMS[table];
+  // exact match
+  const exact = rows.find(r => r[0] === monthTarget);
+  if (exact) return { L: exact[1], M: exact[2], S: exact[3] };
+  // interpolate
+  let lo = rows[0], hi = rows[rows.length-1];
+  for (let i = 0; i < rows.length-1; i++) {
+    if (rows[i][0] <= monthTarget && rows[i+1][0] >= monthTarget) {
+      lo = rows[i]; hi = rows[i+1]; break;
+    }
+  }
+  const t = (monthTarget - lo[0]) / (hi[0] - lo[0]);
+  return {
+    L: lo[1] + t*(hi[1]-lo[1]),
+    M: lo[2] + t*(hi[2]-lo[2]),
+    S: lo[3] + t*(hi[3]-lo[3]),
+  };
+}
+
+// Z-score from LMS
+function zScore(X, L, M, S) {
+  if (Math.abs(L) < 1e-6) return Math.log(X/M) / S;
+  return (Math.pow(X/M, L) - 1) / (L*S);
+}
+
+// Normal CDF approximation (Hart 1968)
+function normCDF(z) {
+  const t = 1 / (1 + 0.2316419 * Math.abs(z));
+  const poly = t*(0.319381530 + t*(-0.356563782 + t*(1.781477937 + t*(-1.821255978 + t*1.330274429))));
+  const p = 1 - (1/Math.sqrt(2*Math.PI)) * Math.exp(-0.5*z*z) * poly;
+  return z >= 0 ? p : 1-p;
+}
+
+function calcPercentile(X, table, month) {
+  const { L, M, S } = getLMS(table, month);
+  const z = zScore(X, L, M, S);
+  const p = normCDF(z);
+  return { pct: Math.round(p * 100), z: z.toFixed(2) };
+}
+
+// ── Band classification ───────────────────────────────────────────
+function getBand(pct) {
+  if (pct < 3)  return { cls: 'low',    label: 'Por debajo del rango' };
+  if (pct < 15) return { cls: 'low-n',  label: 'Bajo' };
+  if (pct <= 85)return { cls: 'normal', label: 'Normal' };
+  if (pct <= 97)return { cls: 'high-n', label: 'Alto' };
+  return          { cls: 'high',   label: 'Por encima del rango' };
+}
+
+// ── Hold-repeat engine ────────────────────────────────────────────
+function makeHoldBtn(el, onStep) {
+  let holdTimer=null, repeatTimer=null, step=0;
+  function fire(){ onStep(parseInt(el.dataset.dir)); }
+  function startHold(){
+    fire(); step=1;
+    holdTimer=setTimeout(()=>{
+      repeatTimer=setInterval(()=>{ fire(); step++; if(step===10){clearInterval(repeatTimer);repeatTimer=setInterval(fire,60);} },150);
+    },350);
+  }
+  function stopHold(){ clearTimeout(holdTimer); clearInterval(repeatTimer); holdTimer=repeatTimer=null; step=0; el.classList.remove('pressing'); }
+  el.addEventListener('touchstart',e=>{ e.preventDefault(); el.classList.add('pressing'); startHold(); },{passive:false});
+  el.addEventListener('touchend',   stopHold,{passive:true});
+  el.addEventListener('touchcancel',stopHold,{passive:true});
+  el.addEventListener('mousedown',()=>{ el.classList.add('pressing'); startHold(); });
+  el.addEventListener('mouseup',   stopHold);
+  el.addEventListener('mouseleave',stopHold);
+}
+
+makeHoldBtn(document.getElementById('age-m'), dir=>{ ageIdx=Math.max(0,Math.min(60,ageIdx+dir)); syncDefaults(); render(); });
+makeHoldBtn(document.getElementById('age-p'), dir=>{ ageIdx=Math.max(0,Math.min(60,ageIdx+dir)); syncDefaults(); render(); });
+makeHoldBtn(document.getElementById('wt-m'),  dir=>{ wtIdx=Math.max(0,Math.min(WT_VALUES.length-1,wtIdx+dir)); render(); });
+makeHoldBtn(document.getElementById('wt-p'),  dir=>{ wtIdx=Math.max(0,Math.min(WT_VALUES.length-1,wtIdx+dir)); render(); });
+makeHoldBtn(document.getElementById('ht-m'),  dir=>{ htIdx=Math.max(0,Math.min(HT_VALUES.length-1,htIdx+dir)); render(); });
+makeHoldBtn(document.getElementById('ht-p'),  dir=>{ htIdx=Math.max(0,Math.min(HT_VALUES.length-1,htIdx+dir)); render(); });
+
+function setSex(s) {
+  sex = s;
+  document.getElementById('btn-nino').classList.toggle('active', s==='M');
+  document.getElementById('btn-nina').classList.toggle('active', s==='F');
+  render();
+}
+
+// Snap weight/height to median when age changes (nice UX)
+function syncDefaults() {
+  const wt = sex==='M' ? 'WAB' : 'WAG';
+  const ht = sex==='M' ? 'HAB' : 'HAG';
+  const wtM = getLMS(wt, ageIdx).M;
+  const htM = getLMS(ht, ageIdx).M;
+  wtIdx = WT_VALUES.reduce((best,v,i)=>Math.abs(v-wtM)<Math.abs(WT_VALUES[best]-wtM)?i:best,0);
+  htIdx = HT_VALUES.reduce((best,v,i)=>Math.abs(v-htM)<Math.abs(HT_VALUES[best]-htM)?i:best,0);
+}
+
+// ── Gauge position (0-100% maps to P0–P100) ───────────────────────
+function pctToGaugeLeft(pct) {
+  // Map percentile to visual position. P50 → 50%, P3 → 10%, P97 → 90%
+  const clamp = Math.max(0.5, Math.min(99.5, pct));
+  return (clamp / 100 * 80 + 10) + '%'; // compress to 10%-90% range
+}
+
+// ── Notes ─────────────────────────────────────────────────────────
+function getNote(pctW, pctH) {
+  if (pctW < 3 || pctH < 3) return '<strong>Nota:</strong> Uno de los valores está por debajo del percentil 3. Comenta este resultado con tu pediatra en la próxima visita.';
+  if (pctW > 97 || pctH > 97) return '<strong>Nota:</strong> Uno de los valores está por encima del percentil 97. Comenta este resultado con tu pediatra en la próxima visita.';
+  if (pctW >= 3 && pctW <= 97 && pctH >= 3 && pctH <= 97) return '<strong>Recuerda:</strong> Lo más importante no es el percentil de hoy, sino que la curva de crecimiento sea <em>consistente</em> a lo largo del tiempo. Un percentil 15 que se mantiene estable es más positivo que un percentil 50 que baja bruscamente.';
+  return '<strong>Recuerda:</strong> El percentil indica dónde está tu bebé respecto a otros de su misma edad y sexo según la OMS. No es una medida de salud aislada — tu pediatra valora la tendencia.';
+}
+
+// ── Render ────────────────────────────────────────────────────────
+function render() {
+  const month = ageIdx;
+  const wt    = WT_VALUES[wtIdx];
+  const ht    = HT_VALUES[htIdx];
+
+  // Age display
+  document.getElementById('age-v').textContent = month;
+  document.getElementById('age-u').textContent = month === 1 ? 'mes' : month < 24 ? 'meses' : month === 24 ? 'meses (2 años)' : `meses (${Math.floor(month/12)}a ${month%12}m)`;
+
+  // Weight display
+  document.getElementById('wt-v').textContent = wt.toFixed(1);
+  // Height display
+  document.getElementById('ht-v').textContent = ht.toFixed(1);
+
+  const wtTable = sex==='M' ? 'WAB' : 'WAG';
+  const htTable = sex==='M' ? 'HAB' : 'HAG';
+
+  const { pct: pctW, z: zW } = calcPercentile(wt, wtTable, month);
+  const { pct: pctH, z: zH } = calcPercentile(ht, htTable, month);
+
+  const bandW = getBand(pctW);
+  const bandH = getBand(pctH);
+
+  // Weight block
+  const blkW = document.getElementById('block-wt');
+  blkW.className = `result-block block-${bandW.cls}`;
+  document.getElementById('pct-wt').innerHTML = `P${pctW}<span class="r-pct-unit"></span>`;
+  document.getElementById('z-wt').textContent  = `Z = ${zW}`;
+  document.getElementById('band-wt').className = `r-band band-${bandW.cls}`;
+  document.getElementById('band-wt').textContent = bandW.label;
+
+  // Height block
+  const blkH = document.getElementById('block-ht');
+  blkH.className = `result-block block-${bandH.cls}`;
+  document.getElementById('pct-ht').innerHTML = `P${pctH}<span class="r-pct-unit"></span>`;
+  document.getElementById('z-ht').textContent  = `Z = ${zH}`;
+  document.getElementById('band-ht').className = `r-band band-${bandH.cls}`;
+  document.getElementById('band-ht').textContent = bandH.label;
+
+  // Gauges
+  document.getElementById('gauge-wt-marker').style.left = pctToGaugeLeft(pctW);
+  document.getElementById('gauge-ht-marker').style.left = pctToGaugeLeft(pctH);
+
+  // Note
+  document.getElementById('context-note').innerHTML = getNote(pctW, pctH);
+}
+
+syncDefaults();
+render();
+</script>
+</body>
+</html>

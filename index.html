@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BebeFAQ · Calculadoras y herramientas para padres primerizos</title>
+<meta name="description" content="Calculadoras y tablas de referencia para padres primerizos. Tallas, percentiles, sueño, tomas, alimentos y más. En español. Sin artículos de 2.000 palabras.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6ee; --warm-white: #fffcf8; --blush: #f2c4b0;
+    --terracota: #c97a5e; --deep: #3d2b1f; --mid: #7a5c4e; --soft: #c4a898;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 350px; height: 350px; background: #f7d5c4; top: -120px; right: -100px; opacity: 0.45; }
+  .blob-2 { width: 280px; height: 280px; background: #d4e8d8; bottom: 60px; left: -80px; opacity: 0.35; }
+  .blob-3 { width: 200px; height: 200px; background: #d4d8f0; top: 40%; right: -60px; opacity: 0.25; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 48px 24px 72px; }
+
+  /* ── Hero ── */
+  .hero { text-align: center; margin-bottom: 40px; }
+  .logo { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+  .logo-icon { font-size: 28px; line-height: 1; }
+  .logo-text { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 600; color: var(--deep); letter-spacing: -0.02em; }
+  .logo-text span { color: var(--terracota); }
+  .hero-title { font-family: 'Fraunces', serif; font-weight: 300; font-size: 34px; line-height: 1.18; color: var(--deep); margin-bottom: 12px; }
+  .hero-title em { font-style: italic; color: var(--terracota); }
+  .hero-sub { font-size: 14px; color: var(--mid); font-weight: 300; line-height: 1.6; max-width: 300px; margin: 0 auto; }
+
+  /* ── Search ── */
+  .search-wrap { position: relative; margin-bottom: 32px; }
+  .search-input { width: 100%; background: var(--warm-white); border: 1.5px solid rgba(196,168,152,0.35); border-radius: 16px; padding: 14px 20px 14px 46px; font-size: 15px; font-family: 'DM Sans', sans-serif; color: var(--deep); outline: none; transition: border-color 0.2s; box-shadow: 0 2px 12px rgba(61,43,31,0.05); }
+  .search-input::placeholder { color: var(--soft); }
+  .search-input:focus { border-color: var(--terracota); }
+  .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 16px; pointer-events: none; opacity: 0.5; }
+
+  /* ── Categories ── */
+  .category { margin-bottom: 28px; }
+  .cat-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .cat-icon { font-size: 15px; }
+  .cat-title { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); }
+
+  /* ── Tool cards ── */
+  .tools-list { display: grid; gap: 8px; }
+  .tool-card { display: flex; align-items: center; gap: 14px; background: var(--warm-white); border-radius: 16px; padding: 16px 18px; border: 1.5px solid transparent; text-decoration: none; color: inherit; transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s; box-shadow: 0 1px 8px rgba(61,43,31,0.05); }
+  .tool-card:not(.soon):hover { border-color: var(--blush); box-shadow: 0 4px 20px rgba(201,122,94,0.12); transform: translateY(-1px); }
+  .tool-card.soon { opacity: 0.5; cursor: default; pointer-events: none; }
+
+  .tool-emoji { font-size: 22px; line-height: 1; flex-shrink: 0; width: 44px; height: 44px; background: var(--cream); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+  .tool-info { flex: 1; min-width: 0; }
+  .tool-name { font-size: 14px; font-weight: 500; color: var(--deep); margin-bottom: 2px; }
+  .tool-desc { font-size: 12px; color: var(--soft); line-height: 1.4; }
+
+  .tool-badge { flex-shrink: 0; font-size: 10px; font-weight: 500; padding: 3px 9px; border-radius: 20px; letter-spacing: 0.04em; white-space: nowrap; }
+  .badge-new  { background: #e8f5ec; color: #4a7a59; }
+  .badge-soon { background: rgba(196,168,152,0.18); color: var(--soft); }
+
+  .tool-arrow { color: var(--blush); font-size: 18px; flex-shrink: 0; }
+
+  /* ── Footer ── */
+  footer { text-align: center; margin-top: 48px; font-size: 11px; color: var(--soft); line-height: 1.8; }
+  footer a { color: var(--terracota); text-decoration: none; }
+  .affiliate-note { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(196,168,152,0.25); font-size: 10px; color: var(--soft); line-height: 1.7; }
+</style>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="logo">
+      <span class="logo-icon">🍼</span>
+      <span class="logo-text">Bebe<span>FAQ</span></span>
+    </div>
+    <h1 class="hero-title">La respuesta que buscas,<br>sin <em>rodeos</em></h1>
+    <p class="hero-sub">Calculadoras y tablas de referencia para padres primerizos. En español. Sin artículos de 2.000 palabras.</p>
+  </div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" type="text" placeholder="¿Qué necesitas saber?" oninput="filterTools(this.value)">
+  </div>
+
+  <div id="categories-wrap">
+
+    <!-- Lactancia -->
+    <div class="category" data-cat="lactancia">
+      <div class="cat-header">
+        <span class="cat-icon">🤱</span>
+        <span class="cat-title">Lactancia</span>
+      </div>
+      <div class="tools-list">
+        <a class="tool-card" href="tomas-leche.html">
+          <div class="tool-emoji">🍼</div>
+          <div class="tool-info">
+            <div class="tool-name">Tomas de leche</div>
+            <div class="tool-desc">Cuántos ml por toma según la edad y el peso</div>
+          </div>
+          <span class="tool-badge badge-new">Nuevo</span>
+          <span class="tool-arrow">›</span>
+        </a>
+        <a class="tool-card" href="calculadora-lactancia.html">
+          <div class="tool-emoji">🍷</div>
+          <div class="tool-info">
+            <div class="tool-name">Alcohol y lactancia</div>
+            <div class="tool-desc">¿Cuánto tengo que esperar para dar el pecho?</div>
+          </div>
+          <span class="tool-badge badge-new">Nuevo</span>
+          <span class="tool-arrow">›</span>
+        </a>
+        <a class="tool-card soon" href="#">
+          <div class="tool-emoji">📅</div>
+          <div class="tool-info">
+            <div class="tool-name">¿Cuándo introducir sólidos y agua?</div>
+            <div class="tool-desc">Línea de tiempo visual mes a mes</div>
+          </div>
+          <span class="tool-badge badge-soon">Pronto</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Alimentación -->
+    <div class="category" data-cat="alimentacion">
+      <div class="cat-header">
+        <span class="cat-icon">🥣</span>
+        <span class="cat-title">Alimentación</span>
+      </div>
+      <div class="tools-list">
+        <a class="tool-card" href="alimentos-edad.html">
+          <div class="tool-emoji">🥑</div>
+          <div class="tool-info">
+            <div class="tool-name">Alimentos por edad</div>
+            <div class="tool-desc">¿Puede comer X con Y meses?</div>
+          </div>
+          <span class="tool-badge badge-new">Nuevo</span>
+          <span class="tool-arrow">›</span>
+        </a>
+        <a class="tool-card soon" href="#">
+          <div class="tool-emoji">🧴</div>
+          <div class="tool-info">
+            <div class="tool-name">Talla de pañal por peso</div>
+            <div class="tool-desc">Qué talla corresponde según los kg del bebé</div>
+          </div>
+          <span class="tool-badge badge-soon">Pronto</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Sueño -->
+    <div class="category" data-cat="sueno">
+      <div class="cat-header">
+        <span class="cat-icon">🌙</span>
+        <span class="cat-title">Sueño</span>
+      </div>
+      <div class="tools-list">
+        <a class="tool-card" href="sueno-bebe.html">
+          <div class="tool-emoji">😴</div>
+          <div class="tool-info">
+            <div class="tool-name">Sueño por meses</div>
+            <div class="tool-desc">Siestas, horas totales y hora de acostarse</div>
+          </div>
+          <span class="tool-badge badge-new">Nuevo</span>
+          <span class="tool-arrow">›</span>
+        </a>
+        <a class="tool-card soon" href="#">
+          <div class="tool-emoji">🛏️</div>
+          <div class="tool-info">
+            <div class="tool-name">¿Cuándo pasar de cuna a cama?</div>
+            <div class="tool-desc">Señales, edad recomendada y cómo hacerlo</div>
+          </div>
+          <span class="tool-badge badge-soon">Pronto</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Crecimiento y salud -->
+    <div class="category" data-cat="crecimiento salud">
+      <div class="cat-header">
+        <span class="cat-icon">❤️</span>
+        <span class="cat-title">Crecimiento y salud</span>
+      </div>
+      <div class="tools-list">
+        <a class="tool-card" href="percentil.html">
+          <div class="tool-emoji">⚖️</div>
+          <div class="tool-info">
+            <div class="tool-name">Percentil peso y altura</div>
+            <div class="tool-desc">Tablas OMS para niños y niñas de 0 a 5 años</div>
+          </div>
+          <span class="tool-badge badge-new">Nuevo</span>
+          <span class="tool-arrow">›</span>
+        </a>
+        <a class="tool-card soon" href="#">
+          <div class="tool-emoji">🌡️</div>
+          <div class="tool-info">
+            <div class="tool-name">¿Es fiebre?</div>
+            <div class="tool-desc">Umbral por edad y conversor °C / °F</div>
+          </div>
+          <span class="tool-badge badge-soon">Pronto</span>
+        </a>
+        <a class="tool-card soon" href="#">
+          <div class="tool-emoji">🦷</div>
+          <div class="tool-info">
+            <div class="tool-name">Dentición</div>
+            <div class="tool-desc">Cuándo salen los dientes y en qué orden</div>
+          </div>
+          <span class="tool-badge badge-soon">Pronto</span>
+        </a>
+        <a class="tool-card soon" href="#">
+          <div class="tool-emoji">💉</div>
+          <div class="tool-info">
+            <div class="tool-name">Calendario de vacunas</div>
+            <div class="tool-desc">Vacunas del calendario oficial español por edad</div>
+          </div>
+          <span class="tool-badge badge-soon">Pronto</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Ropa y tallas -->
+    <div class="category" data-cat="ropa tallas">
+      <div class="cat-header">
+        <span class="cat-icon">👟</span>
+        <span class="cat-title">Ropa y tallas</span>
+      </div>
+      <div class="tools-list">
+        <a class="tool-card" href="talla-zapato.html">
+          <div class="tool-emoji">👟</div>
+          <div class="tool-info">
+            <div class="tool-name">Talla de zapato</div>
+            <div class="tool-desc">Introduce los cm del pie y obtén la talla</div>
+          </div>
+          <span class="tool-badge badge-new">Nuevo</span>
+          <span class="tool-arrow">›</span>
+        </a>
+        <a class="tool-card" href="tallas-ropa.html">
+          <div class="tool-emoji">👕</div>
+          <div class="tool-info">
+            <div class="tool-name">Tallas de ropa</div>
+            <div class="tool-desc">Conversor ES / FR / US / UK por edad, altura o peso</div>
+          </div>
+          <span class="tool-badge badge-new">Nuevo</span>
+          <span class="tool-arrow">›</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Compras -->
+    <div class="category" data-cat="compras productos">
+      <div class="cat-header">
+        <span class="cat-icon">🛒</span>
+        <span class="cat-title">¿Lo necesito?</span>
+      </div>
+      <div class="tools-list">
+        <a class="tool-card" href="checker-productos.html">
+          <div class="tool-emoji">✅</div>
+          <div class="tool-info">
+            <div class="tool-name">Checker de productos de bebé</div>
+            <div class="tool-desc">Veredicto honesto sobre qué comprar (y qué no)</div>
+          </div>
+          <span class="tool-badge badge-new">Nuevo</span>
+          <span class="tool-arrow">›</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    Hecho para padres, por un padre.<br>
+    Información orientativa — consulta siempre con tu pediatra o matrona.<br><br>
+    <a href="mailto:hola@bebefaq.es">Sugerir herramienta</a>
+
+    <div class="affiliate-note">
+      Esta web participa en el Programa de Afiliados de Amazon EU, un programa de publicidad para afiliados diseñado para ofrecer a sitios web un medio para obtener comisiones por publicidad mediante la creación de enlaces a Amazon.es. Como Asociado de Amazon, obtenemos ingresos por las compras que califican.
+    </div>
+  </footer>
+
+</div>
+
+<script>
+function filterTools(query) {
+  const q = query.toLowerCase().trim();
+  document.querySelectorAll('.category').forEach(cat => {
+    const cards = cat.querySelectorAll('.tool-card');
+    let any = false;
+    cards.forEach(card => {
+      const match = !q || card.textContent.toLowerCase().includes(q);
+      card.style.display = match ? '' : 'none';
+      if (match) any = true;
+    });
+    cat.style.display = any ? '' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>
