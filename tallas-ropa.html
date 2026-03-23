@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<title>Tallas de ropa bebé · Conversor ES FR US UK · BebeFAQ</title>
+<meta name="description" content="Convierte tallas de ropa de bebé entre sistemas español, francés, americano y británico. Busca por edad, altura o peso.">
+<meta property="og:title" content="Tallas de ropa bebé · Conversor ES FR US UK · BebeFAQ">
+<meta property="og:description" content="Convierte tallas de ropa de bebé entre sistemas español, francés, americano y británico. Busca por edad, altura o peso.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fdf6ee">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tallas de ropa bebé · Conversor ES / UK / US / FR</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -244,17 +251,17 @@
 // ── Size table ────────────────────────────────────────────────────
 // age: label, ageMonths: numeric for sorting, heightCm, weightKg, es, uk, us, fr
 const SIZES = [
-  { age:'Recién nacido', ageMonths:0,  heightMin:44, heightMax:50, weightMin:2.5, weightMax:3.5, es:'0–1m',   uk:'0–1m',    us:'Newborn',  fr:'50'  },
-  { age:'1–3 meses',     ageMonths:2,  heightMin:50, heightMax:60, weightMin:3.5, weightMax:5.5, es:'1–3m',   uk:'0–3m',    us:'0–3m',     fr:'60'  },
-  { age:'3–6 meses',     ageMonths:4,  heightMin:60, heightMax:67, weightMin:5.5, weightMax:7.5, es:'3–6m',   uk:'3–6m',    us:'3–6m',     fr:'68'  },
-  { age:'6–9 meses',     ageMonths:7,  heightMin:67, heightMax:74, weightMin:7.5, weightMax:9.0, es:'6–9m',   uk:'6–9m',    us:'6–9m',     fr:'74'  },
-  { age:'9–12 meses',    ageMonths:10, heightMin:74, heightMax:80, weightMin:9.0, weightMax:10.5,es:'9–12m',  uk:'9–12m',   us:'9–12m',    fr:'80'  },
-  { age:'12–18 meses',   ageMonths:15, heightMin:80, heightMax:86, weightMin:10.5,weightMax:12.0,es:'12–18m', uk:'12–18m',  us:'12–18m',   fr:'86'  },
-  { age:'18–24 meses',   ageMonths:21, heightMin:86, heightMax:92, weightMin:12.0,weightMax:13.5,es:'18–24m', uk:'18–24m',  us:'18–24m',   fr:'92'  },
-  { age:'2 años',        ageMonths:24, heightMin:92, heightMax:98, weightMin:13.5,weightMax:15.0,es:'2 años', uk:'2–3 años',us:'2T',       fr:'98'  },
-  { age:'3 años',        ageMonths:36, heightMin:98, heightMax:104,weightMin:15.0,weightMax:17.0,es:'3 años', uk:'3–4 años',us:'3T',       fr:'104' },
-  { age:'4 años',        ageMonths:48, heightMin:104,heightMax:110,weightMin:17.0,weightMax:19.0,es:'4 años', uk:'4–5 años',us:'4T',       fr:'110' },
-  { age:'5 años',        ageMonths:60, heightMin:110,heightMax:116,weightMin:19.0,weightMax:21.0,es:'5 años', uk:'5–6 años',us:'5T',       fr:'116' },
+  { age:'Recién nacido', ageMonths:1,  heightMin:44, heightMax:50, weightMin:2.5, weightMax:3.5, es:'0–1m',   uk:'0–1m',    us:'Newborn',  fr:'50'  },
+  { age:'1–3 meses',     ageMonths:3,  heightMin:50, heightMax:60, weightMin:3.5, weightMax:5.5, es:'1–3m',   uk:'0–3m',    us:'0–3m',     fr:'60'  },
+  { age:'3–6 meses',     ageMonths:6,  heightMin:60, heightMax:67, weightMin:5.5, weightMax:7.5, es:'3–6m',   uk:'3–6m',    us:'3–6m',     fr:'68'  },
+  { age:'6–9 meses',     ageMonths:9,  heightMin:67, heightMax:74, weightMin:7.5, weightMax:9.0, es:'6–9m',   uk:'6–9m',    us:'6–9m',     fr:'74'  },
+  { age:'9–12 meses',    ageMonths:12, heightMin:74, heightMax:80, weightMin:9.0, weightMax:10.5,es:'9–12m',  uk:'9–12m',   us:'9–12m',    fr:'80'  },
+  { age:'12–18 meses',   ageMonths:18, heightMin:80, heightMax:86, weightMin:10.5,weightMax:12.0,es:'12–18m', uk:'12–18m',  us:'12–18m',   fr:'86'  },
+  { age:'18–24 meses',   ageMonths:24, heightMin:86, heightMax:92, weightMin:12.0,weightMax:13.5,es:'18–24m', uk:'18–24m',  us:'18–24m',   fr:'92'  },
+  { age:'2 años',        ageMonths:36, heightMin:92, heightMax:98, weightMin:13.5,weightMax:15.0,es:'2 años', uk:'2–3 años',us:'2T',       fr:'98'  },
+  { age:'3 años',        ageMonths:48, heightMin:98, heightMax:104,weightMin:15.0,weightMax:17.0,es:'3 años', uk:'3–4 años',us:'3T',       fr:'104' },
+  { age:'4 años',        ageMonths:60, heightMin:104,heightMax:110,weightMin:17.0,weightMax:19.0,es:'4 años', uk:'4–5 años',us:'4T',       fr:'110' },
+  { age:'5 años',        ageMonths:72, heightMin:110,heightMax:116,weightMin:19.0,weightMax:21.0,es:'5 años', uk:'5–6 años',us:'5T',       fr:'116' },
 ];
 
 // Age values 0–72 months

@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<title>BebeFAQ · Calculadoras y herramientas para padres primerizos</title>
+<meta name="description" content="Tallas de zapato y ropa, percentiles OMS, tomas de leche, sueño por meses, alimentos por edad y más. En español. Sin artículos de 2.000 palabras.">
+<meta property="og:title" content="BebeFAQ · Calculadoras y herramientas para padres primerizos">
+<meta property="og:description" content="Tallas de zapato y ropa, percentiles OMS, tomas de leche, sueño por meses, alimentos por edad y más. En español. Sin artículos de 2.000 palabras.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fdf6ee">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BebeFAQ · Calculadoras y herramientas para padres primerizos</title>
-<meta name="description" content="Calculadoras y tablas de referencia para padres primerizos. Tallas, percentiles, sueño, tomas, alimentos y más. En español. Sin artículos de 2.000 palabras.">
+
+
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -277,7 +284,7 @@
   <footer>
     Hecho para padres, por un padre.<br>
     Información orientativa — consulta siempre con tu pediatra o matrona.<br><br>
-    <a href="mailto:hola@bebefaq.es">Sugerir herramienta</a>
+    <a href="/cdn-cgi/l/email-protection#452d2a292405272027202324346b2036">Sugerir herramienta</a>
 
     <div class="affiliate-note">
       Esta web participa en el Programa de Afiliados de Amazon EU, un programa de publicidad para afiliados diseñado para ofrecer a sitios web un medio para obtener comisiones por publicidad mediante la creación de enlaces a Amazon.es. Como Asociado de Amazon, obtenemos ingresos por las compras que califican.
@@ -286,7 +293,7 @@
 
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function filterTools(query) {
   const q = query.toLowerCase().trim();
   document.querySelectorAll('.category').forEach(cat => {
@@ -294,13 +301,4 @@ function filterTools(query) {
     let any = false;
     cards.forEach(card => {
       const match = !q || card.textContent.toLowerCase().includes(q);
-      card.style.display = match ? '' : 'none';
-      if (match) any = true;
-    });
-    cat.style.display = any ? '' : 'none';
-  });
-}
-</script>
-
-</body>
-</html>
+      card.style.
