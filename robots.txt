@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /sugerir.html
+
+Sitemap: https://babyfaq.es/sitemap.xml
