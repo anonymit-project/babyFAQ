@@ -6,10 +6,68 @@
 <meta property="og:title" content="¿Lo necesito? Checker productos de bebé · babyFAQ">
 <meta property="og:description" content="Veredicto honesto sobre los productos de bebé más comprados. Qué es imprescindible, qué es útil y qué no necesitas realmente.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://babyfaq.es/checker-productos.html">
 <meta name="theme-color" content="#fdf6ee">
+<link rel="canonical" href="https://babyfaq.es/checker-productos.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Checker de productos de bebé — ¿Lo necesito realmente?",
+  "description": "Veredicto honesto sobre más de 80 productos de bebé: imprescindible, útil, depende de tu situación o no lo necesitas. Sin publicidad ni interés comercial.",
+  "url": "https://babyfaq.es/checker-productos.html",
+  "applicationCategory": "LifestyleApplication",
+  "inLanguage": "es-ES",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "publisher": { "@type": "Organization", "name": "babyFAQ", "url": "https://babyfaq.es" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué productos son imprescindibles para un bebé recién nacido?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los productos realmente imprescindibles para un recién nacido son: silla de coche homologada i-Size (obligatoria por ley), moisés o cuna de colecho, saco de dormir (más seguro que mantas), termómetro digital, aspirador nasal, crema de pañal con óxido de zinc, bodies y pijamas en talla 0-3m y 3-6m, y muselinas. Todo lo demás es opcional o depende de tu situación."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es necesario el esterilizador de biberones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No es imprescindible. Hervir los biberones durante 5 minutos en agua consigue el mismo resultado que un esterilizador eléctrico o de microondas. El esterilizador es más cómodo y rápido, especialmente en los primeros meses de lactancia artificial, pero es un gasto prescindible si el presupuesto es ajustado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los andadores son buenos para bebés?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Los andadores (tacatás) están desaconsejados por todos los organismos pediátricos y están prohibidos en Canadá. Retrasan el desarrollo de la marcha natural, impiden que el bebé aprenda a equilibrarse correctamente y son peligrosos cerca de escaleras. Una alfombra de juego y tiempo en el suelo son mucho más beneficiosos para el desarrollo motor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué monitor de bebé es mejor, con o sin cámara?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende de tus necesidades. Un vigilabebés de audio es suficiente para saber si el bebé llora y es considerablemente más barato. La cámara da más tranquilidad visual pero no aporta información adicional relevante en la mayoría de casos. Los monitores de movimiento (que detectan la respiración) no están recomendados por la FDA como dispositivos de seguridad y pueden dar falsa sensación de seguridad."
+      }
+    }
+  ]
+}
+</script>
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -31,6 +89,9 @@
 
   .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 20px 60px; }
 
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--blue); }
+
   header { text-align: center; margin-bottom: 28px; }
   .badge { display: inline-block; background: #e0eaf8; color: var(--blue); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
   h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 30px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
@@ -38,7 +99,6 @@
   .subtitle { font-size: 13px; color: var(--mid); line-height: 1.5; font-weight: 300; }
 
   .controls { background: var(--warm-white); border-radius: 20px; padding: 18px 16px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,37,53,0.06); border: 1px solid rgba(138,170,200,0.2); }
-
   .search-wrap { position: relative; margin-bottom: 14px; }
   .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 15px; opacity: 0.4; pointer-events: none; }
   .search-input { width: 100%; background: var(--cream); border: 1.5px solid rgba(138,170,200,0.4); border-radius: 12px; padding: 12px 14px 12px 40px; font-size: 15px; font-family: 'DM Sans', sans-serif; color: var(--deep); outline: none; transition: border-color 0.2s; }
@@ -55,13 +115,10 @@
   .filter-pill.active-no     { background: var(--red-bg);    border-color: var(--red-border);   color: var(--red); }
   .filter-pill.active-all    { background: #e0eaf8; border-color: #a8c4e8; color: var(--blue); }
 
-  /* Legend */
   .legend { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
   .legend-item { display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--mid); }
-
   .results-meta { font-size: 12px; color: var(--soft); margin-bottom: 10px; padding-left: 2px; }
 
-  /* Category */
   .category-section { margin-bottom: 6px; }
   .cat-header { display: flex; align-items: center; gap: 8px; padding: 8px 4px 6px; cursor: pointer; user-select: none; }
   .cat-icon { font-size: 15px; }
@@ -72,8 +129,7 @@
   .product-list { display: none; flex-direction: column; gap: 6px; padding-bottom: 6px; }
   .product-list.open { display: flex; }
 
-  /* Product card */
-  .product-card { display: flex; align-items: flex-start; gap: 10px; background: var(--warm-white); border-radius: 13px; padding: 12px 13px; border: 1.5px solid transparent; transition: border-color 0.15s; }
+  .product-card { display: flex; align-items: flex-start; gap: 10px; background: var(--warm-white); border-radius: 13px; padding: 12px 13px; border: 1.5px solid transparent; }
   .product-card.must    { background: var(--green-bg);  border-color: var(--green-border); }
   .product-card.useful  { background: var(--yellow-bg); border-color: var(--yellow-border); }
   .product-card.depends { background: var(--amber-bg);  border-color: var(--amber-border); }
@@ -92,17 +148,19 @@
 
   .no-results { text-align: center; padding: 40px 20px; color: var(--soft); font-size: 14px; }
   .no-results-icon { font-size: 36px; display: block; margin-bottom: 10px; }
-
   .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 24px; padding: 0 8px; }
+
+  /* SEO */
+  .seo-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(138,170,200,0.25); }
+  .seo-section h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; color: var(--deep); margin-bottom: 12px; line-height: 1.3; }
+  .seo-section h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 17px; color: var(--deep); margin-bottom: 8px; margin-top: 24px; line-height: 1.3; }
+  .seo-section p { font-size: 14px; color: var(--mid); line-height: 1.7; margin-bottom: 14px; font-weight: 300; text-align: justify; }
+  .seo-section strong { color: var(--deep); font-weight: 500; }
+  .faq-item { margin-bottom: 20px; }
+  .faq-item h3 { margin-top: 0; }
 </style>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag("config", "G-55NR11957W");
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-55NR11957W");</script>
 </head>
 <body>
 <div class="noise"></div>
@@ -110,6 +168,8 @@
 <div class="blob blob-2"></div>
 
 <div class="container">
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
   <header>
     <span class="badge">Compras</span>
     <h1>¿Realmente<br>lo <em>necesito</em>?</h1>
@@ -137,290 +197,149 @@
   <div class="results-meta" id="results-meta"></div>
   <div id="product-output"></div>
 
-  <p class="disclaimer">
-    Opiniones basadas en experiencia real y consenso de pediatras y familias.<br>
-    Cada bebé y cada familia es diferente — lo que no sirve para unos puede ser clave para otros.
-  </p>
+  <p class="disclaimer">Opiniones basadas en experiencia real y consenso de pediatras y familias.<br>Cada bebé y cada familia es diferente — lo que no sirve para unos puede ser clave para otros.</p>
+
+  <!-- SEO -->
+  <div class="seo-section">
+    <h2>Qué comprar (y qué no) para un bebé recién nacido</h2>
+    <p>
+      La industria del bebé es enorme y muy hábil generando la sensación de que
+      necesitas todo lo que existe en el mercado. La realidad es que un bebé necesita
+      pocas cosas para estar seguro, cómodo y estimulado. La mayoría de los productos
+      que se venden como imprescindibles son en realidad comodidades o accesorios
+      que pueden ser útiles en determinadas situaciones, pero que no son necesarios
+      para todos.
+    </p>
+    <p>
+      Esta herramienta recoge los productos más comprados con una valoración honesta
+      basada en la evidencia disponible y el consenso de pediatras. El criterio es
+      sencillo: <strong>¿aporta seguridad, salud o un beneficio real al bebé
+      o a los padres?</strong> Si la respuesta es no, o si ese beneficio se puede
+      obtener con algo que ya tienes, el veredicto es claro.
+    </p>
+
+    <h2>Los productos más importantes para la seguridad del bebé</h2>
+    <p>
+      Hay una categoría de productos que no son opcionales porque afectan directamente
+      a la seguridad del bebé. La <strong>silla de coche homologada i-Size</strong>
+      es obligatoria por ley desde el primer viaje desde la maternidad. El
+      <strong>saco de dormir</strong> es la alternativa más segura a las mantas sueltas,
+      que aumentan el riesgo de muerte súbita del lactante. Las
+      <strong>barreras de escalera</strong> y los <strong>protectores de enchufes</strong>
+      son imprescindibles en cuanto el bebé empieza a moverse por la casa.
+    </p>
+
+    <div class="faq-item">
+      <h3>¿Merece la pena comprar ropa de bebé nueva?</h3>
+      <p>
+        En las primeras tallas (0-3m, 3-6m) la ropa se usa tan poco tiempo que comprar
+        de segunda mano es una opción muy razonable. Los bebés crecen tan rápido que
+        muchas prendas apenas tienen uso. Lo que sí merece la pena comprar nuevo son
+        los productos de seguridad (silla de coche, arnés), los que están en contacto
+        directo con la piel durante mucho tiempo (colchón de la cuna), y cualquier
+        cosa donde la historia de uso anterior no puedas conocerla con certeza.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿Cuánto se gasta de media en productos de bebé el primer año?</h3>
+      <p>
+        La variabilidad es enorme según las decisiones de cada familia. Con una lista
+        ajustada a lo imprescindible (silla de coche, carrito, cuna, ropa básica,
+        biberones, termómetro y productos de higiene) el gasto inicial puede situarse
+        entre 1.000 y 2.000 euros. Comprando todo nuevo de marcas premium o añadiendo
+        muchos accesorios opcionales, la cifra puede multiplicarse por cinco o más
+        sin que el bebé esté ni más seguro ni más feliz.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿Qué productos de bebé son peligrosos o están desaconsejados?</h3>
+      <p>
+        Hay productos que no solo son innecesarios sino que están activamente
+        desaconsejados por organismos pediátricos: los <strong>andadores</strong>
+        (retrasan la marcha y son peligrosos cerca de escaleras), los
+        <strong>posicionadores de cuna</strong> y <strong>nidos de bebé</strong>
+        para dormir sin supervisión (aumentan el riesgo de muerte súbita por
+        superficies blandas), los <strong>sensores de movimiento respiratorio</strong>
+        (la FDA ha alertado que no previenen la muerte súbita y dan falsa seguridad),
+        y las <strong>pantallas y tablets</strong> para bebés menores de 18-24 meses
+        (desaconsejadas por la OMS y la AAP).
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿En qué productos merece la pena gastar más?</h3>
+      <p>
+        Los productos donde la calidad sí importa y vale la pena invertir son aquellos
+        relacionados con la seguridad y el uso intensivo: la silla de coche (busca
+        siempre homologación i-Size y contramarcha hasta al menos los 4 años),
+        el carrito (si vas a usarlo mucho, que tenga buenas ruedas y sea fácil de
+        montar y desmontar), el colchón de la cuna (firme, transpirable y del tamaño
+        exacto de la cuna), y el portabebés ergonómico si planeas portear habitualmente.
+        En el resto, las diferencias de precio raramente se justifican.
+      </p>
+    </div>
+  </div>
 </div>
 
 <script>
-const FILTERS = [
-  { id: 'all',    label: 'Todos' },
-  { id: 'must',   label: '✅ Imprescindible' },
-  { id: 'useful', label: '👍 Útil' },
-  { id: 'depends',label: '⚠️ Depende' },
-  { id: 'no',     label: '❌ No' },
+const FILTERS=[{id:'all',label:'Todos'},{id:'must',label:'✅ Imprescindible'},{id:'useful',label:'👍 Útil'},{id:'depends',label:'⚠️ Depende'},{id:'no',label:'❌ No'},];
+const VERDICT={must:{icon:'✅',label:'Imprescindible'},useful:{icon:'👍',label:'Útil pero prescindible'},depends:{icon:'⚠️',label:'Depende de tu situación'},no:{icon:'❌',label:'No lo necesitas'}};
+const VERDICT_ORDER={must:0,useful:1,depends:2,no:3};
+const PRODUCTS=[
+  {cat:'Dormir',icon:'🛏️',name:'Moisés / cuna de colecho',tags:['moises','moisés','colecho'],verdict:'must',note:'Imprescindible hasta los 6 meses. El colecho adosado a la cama es una opción segura y cómoda para la lactancia nocturna.'},
+  {cat:'Dormir',icon:'🛏️',name:'Cuna estándar',tags:['cuna'],verdict:'must',note:'Para cuando el bebé se quede pequeño en el moisés (~6 meses). Elige una con barrotes a distancia reglamentaria y colchón firme.'},
+  {cat:'Dormir',icon:'😴',name:'Saco de dormir',tags:['saco dormir','saco'],verdict:'must',note:'Mucho más seguro que las mantas sueltas. Imprescindible desde el primer día. Elige el tog adecuado a la temperatura de la habitación.'},
+  {cat:'Dormir',icon:'📱',name:'Vigilabebés / monitor',tags:['vigilabebés','monitor bebe','camara bebe'],verdict:'useful',note:'Muy útil si el bebé duerme en otra habitación. Con audio suele ser suficiente; la cámara da más tranquilidad pero no es estrictamente necesaria.'},
+  {cat:'Dormir',icon:'🌙',name:'Proyector / luz nocturna',tags:['proyector','luz nocturna'],verdict:'useful',note:'Útil para tomas nocturnas sin encender luces fuertes. Una luz tenue en el enchufe también funciona igual de bien.'},
+  {cat:'Dormir',icon:'🔊',name:'Máquina de ruido blanco',tags:['ruido blanco','white noise'],verdict:'depends',note:'Muy útil para bebés con sueño ligero o en casas ruidosas. En habitaciones tranquilas no aporta nada. Mantén el volumen bajo (< 50 dB).'},
+  {cat:'Dormir',icon:'🪆',name:'Posicionador de bebé / nido',tags:['posicionador','nido bebe','nest','dockatot'],verdict:'no',note:'La AAP y la AEP lo desaconsejan expresamente por riesgo de muerte súbita. Nunca en la cuna para dormir sin supervisión.'},
+  {cat:'Alimentación',icon:'🍼',name:'Biberones',tags:['biberon','biberón'],verdict:'must',note:'Imprescindible si das leche extraída o fórmula. Para lactancia exclusiva directa no son necesarios, aunque uno de reserva siempre viene bien.'},
+  {cat:'Alimentación',icon:'🧴',name:'Esterilizador',tags:['esterilizador'],verdict:'useful',note:'Útil los primeros meses. Con agua hirviendo 5 minutos se logra el mismo resultado — el esterilizador es más cómodo, no imprescindible.'},
+  {cat:'Alimentación',icon:'🍼',name:'Calentador de biberones',tags:['calentador biberon'],verdict:'useful',note:'Cómodo para las tomas nocturnas. Un vaso de agua caliente hace exactamente lo mismo pero tarda más.'},
+  {cat:'Alimentación',icon:'🥛',name:'Sacaleches',tags:['sacaleches'],verdict:'depends',note:'Imprescindible si vas a dar lactancia extraída o a volver al trabajo. Si la lactancia directa funciona bien y no planeas extraer, no lo necesitas.'},
+  {cat:'Alimentación',icon:'🥣',name:'Triturador / batidora de brazo',tags:['triturador','batidora'],verdict:'must',note:'Imprescindible a partir de los 6 meses para purés. Una batidora de brazo básica (~15€) funciona perfectamente.'},
+  {cat:'Alimentación',icon:'🥄',name:'Cubiertos de bebé',tags:['cubiertos bebe','cuchara bebe'],verdict:'must',note:'A partir de los 6 meses. Compra 4-5 cucharas — se caen constantemente. No hace falta la marca cara.'},
+  {cat:'Alimentación',icon:'🪣',name:'Baberos con bolsillo',tags:['babero'],verdict:'must',note:'10-12 baberos con bolsillo rígido para BLW o purés. Los de silicona son los más fáciles de limpiar.'},
+  {cat:'Alimentación',icon:'🪑',name:'Trona / silla de comer',tags:['trona','silla comer'],verdict:'must',note:'Imprescindible a partir de los 6 meses. Elige una con reposapiés regulable — apoyar los pies es importante para la postura al comer.'},
+  {cat:'Alimentación',icon:'🤱',name:'Cojín de lactancia',tags:['cojin lactancia'],verdict:'depends',note:'Muy útil para lactancia materna. Para biberón es prescindible. Algunos lo usan también para colocar al bebé boca abajo.'},
+  {cat:'Alimentación',icon:'🔥',name:'Vaporera eléctrica para bebé',tags:['vaporera','robot bebe'],verdict:'no',note:'Cocinar al vapor en un cazo con colador hace exactamente lo mismo. El precio (50-100€) raramente se justifica.'},
+  {cat:'Baño e higiene',icon:'🛁',name:'Bañera de bebé',tags:['bañera bebe'],verdict:'useful',note:'Práctica los primeros meses. Algunos bebés se bañan directamente en el lavabo. Hacia los 6 meses se queda pequeña.'},
+  {cat:'Baño e higiene',icon:'🌡️',name:'Termómetro digital',tags:['termometro','termómetro'],verdict:'must',note:'Imprescindible. El rectal es el más preciso para menores de 3 meses. A partir de esa edad el axilar o de oído también funciona.'},
+  {cat:'Baño e higiene',icon:'✂️',name:'Cortaúñas / lima de bebé',tags:['cortauñas bebe','lima uñas'],verdict:'must',note:'Las uñas del bebé crecen rápido y rasguñan. La lima eléctrica es la más segura para los primeros meses.'},
+  {cat:'Baño e higiene',icon:'🧴',name:'Aspirador nasal',tags:['aspirador nasal','moco'],verdict:'must',note:'Imprescindible cuando haya mocos — los bebés no pueden sonarse. El tipo "boca" (Nosefrida) es más efectivo que los de perilla.'},
+  {cat:'Baño e higiene',icon:'🧴',name:'Crema de pañal',tags:['crema pañal'],verdict:'must',note:'Aplica en cada cambio desde el principio para prevenir irritaciones. La de óxido de zinc es la más efectiva.'},
+  {cat:'Baño e higiene',icon:'🧴',name:'Humidificador',tags:['humidificador'],verdict:'depends',note:'Útil en invierno con calefacción seca o cuando el bebé está constipado. En climas húmedos o sin calefacción, innecesario.'},
+  {cat:'Movilidad y transporte',icon:'🚗',name:'Silla de coche grupo 0+ / i-Size',tags:['silla coche','isize'],verdict:'must',note:'Imprescindible y obligatorio por ley. Elige homologada i-Size (R129). Contramarcha hasta los 15 meses mínimo (hasta 4 años recomendado).'},
+  {cat:'Movilidad y transporte',icon:'🛒',name:'Carrito / silla de paseo',tags:['carrito','cochecito'],verdict:'must',note:'Imprescindible. Elige según tu estilo de vida: urbano (ruedas grandes), compacto (transporte público), todo terreno (campo).'},
+  {cat:'Movilidad y transporte',icon:'🎒',name:'Mochila portabebés ergonómica',tags:['mochila portabebés','fular','porteo'],verdict:'depends',note:'Muy valorada por padres activos o con bebés que lloran si los dejas. No necesaria si el carrito te funciona bien.'},
+  {cat:'Juego y estimulación',icon:'🎯',name:'Gimnasio de actividades',tags:['gimnasio','arco actividades'],verdict:'must',note:'Muy útil de 0 a 6 meses para estimulación visual y motora. Uno básico es suficiente — no necesitas el de 80€.'},
+  {cat:'Juego y estimulación',icon:'🧸',name:'Mordedores',tags:['mordedor'],verdict:'must',note:'Imprescindible cuando empiezan los dientes (~4-6 meses). Ten varios por casa. Los de agua fría del frigorífico alivian las encías.'},
+  {cat:'Juego y estimulación',icon:'🪆',name:'Chupete',tags:['chupete'],verdict:'depends',note:'No todos los bebés lo aceptan ni lo necesitan. Si lo usa, elige uno anatómico con escudo ventilado. Retira antes de los 2 años.'},
+  {cat:'Juego y estimulación',icon:'🛁',name:'Hamaca / bouncer',tags:['hamaca','bouncer'],verdict:'useful',note:'Útil para tener al bebé seguro mientras cocinas o te duchas. No debe usarse como lugar de sueño. Tiempo limitado — el suelo es mejor para el desarrollo motor.'},
+  {cat:'Juego y estimulación',icon:'🪀',name:'Andador / tacatá',tags:['andador','tacata','tacatá'],verdict:'no',note:'Desaconsejados por pediatras y prohibidos en Canadá. Retrasan el gateo y la marcha natural, y son peligrosos cerca de escaleras.'},
+  {cat:'Juego y estimulación',icon:'🧩',name:'Alfombra de juego / puzzle de foam',tags:['alfombra juego','puzzle foam'],verdict:'must',note:'Imprescindible a partir de los 3-4 meses para el tiempo boca abajo. Amortigua caídas cuando empieza a sentarse y gatear.'},
+  {cat:'Juego y estimulación',icon:'📚',name:'Libros de tela / cartón',tags:['libros bebe','cuentos bebe'],verdict:'must',note:'Leer al bebé desde el primer día estimula el lenguaje y crea vínculo. Los de tela para los más pequeños, los de cartón duro a partir de los 6 meses.'},
+  {cat:'Juego y estimulación',icon:'📺',name:'Tablet / pantallas para bebés',tags:['tablet bebe','pantalla bebe'],verdict:'no',note:'La OMS y la AAP recomiendan cero pantallas antes de los 18-24 meses. No estimulan el desarrollo y desplazan interacciones reales.'},
+  {cat:'Salud y seguridad',icon:'🔒',name:'Protectores de enchufes',tags:['protector enchufe'],verdict:'must',note:'Imprescindible en cuanto el bebé empieza a gatear (~7-8 meses). Pon protectores en todos los enchufes accesibles.'},
+  {cat:'Salud y seguridad',icon:'🚧',name:'Barrera de seguridad para escaleras',tags:['barrera escalera','valla escalera'],verdict:'must',note:'Imprescindible si tienes escaleras en casa. Instala arriba Y abajo. Las de tornillo son más seguras que las a presión en la parte superior.'},
+  {cat:'Salud y seguridad',icon:'🛡️',name:'Protectores de esquinas',tags:['protector esquinas','esquineras'],verdict:'must',note:'A partir de los 8-9 meses cuando empieza a ponerse de pie. Los de silicona transparente son los más discretos.'},
+  {cat:'Salud y seguridad',icon:'🔒',name:'Seguros para cajones y armarios',tags:['seguro cajon','seguro armario'],verdict:'must',note:'En cuanto gatee y empiece a explorar. Especialmente en muebles con objetos peligrosos o pesados.'},
+  {cat:'Salud y seguridad',icon:'🧯',name:'Botiquín de bebé',tags:['botiquin','botiquín'],verdict:'must',note:'Ten siempre: termómetro, suero fisiológico, paracetamol infantil (con receta), crema de pañal, gasas y esparadrapo.'},
+  {cat:'Salud y seguridad',icon:'📡',name:'Sensor de movimiento para cuna',tags:['sensor movimiento','monitor respiracion','owlet'],verdict:'no',note:'La FDA ha alertado que estos dispositivos no previenen la muerte súbita y dan falsa seguridad. Sigue las recomendaciones de sueño seguro.'},
 ];
 
-const VERDICT = {
-  must:    { icon: '✅', label: 'Imprescindible' },
-  useful:  { icon: '👍', label: 'Útil pero prescindible' },
-  depends: { icon: '⚠️', label: 'Depende de tu situación' },
-  no:      { icon: '❌', label: 'No lo necesitas' },
-};
+let activeFilter='all';
+let searchQuery='';
 
-const VERDICT_ORDER = { must: 0, useful: 1, depends: 2, no: 3 };
+function buildPills(){const wrap=document.getElementById('filter-pills');FILTERS.forEach(f=>{const btn=document.createElement('button');btn.className='filter-pill'+(f.id===activeFilter?' active-'+f.id:'');btn.textContent=f.label;btn.addEventListener('click',()=>{activeFilter=f.id;document.querySelectorAll('.filter-pill').forEach(b=>{b.className='filter-pill';});btn.className='filter-pill active-'+f.id;applyFilters();});wrap.appendChild(btn);});}
 
-const PRODUCTS = [
+function applyFilters(){searchQuery=document.getElementById('search').value.toLowerCase().trim();const cats={};PRODUCTS.forEach(p=>{if(!cats[p.cat])cats[p.cat]=[];cats[p.cat].push(p);});const output=document.getElementById('product-output');output.innerHTML='';let totalVisible=0;Object.entries(cats).forEach(([catName,products])=>{const matching=products.filter(p=>{if(activeFilter!=='all'&&p.verdict!==activeFilter)return false;if(searchQuery){const nm=p.name.toLowerCase().includes(searchQuery);const tg=p.tags.some(t=>t.includes(searchQuery));if(!nm&&!tg)return false;}return true;});if(matching.length===0)return;matching.sort((a,b)=>{const d=VERDICT_ORDER[a.verdict]-VERDICT_ORDER[b.verdict];if(d!==0)return d;return a.name.localeCompare(b.name,'es');});totalVisible+=matching.length;const section=document.createElement('div');section.className='category-section';const header=document.createElement('div');header.className='cat-header open';header.innerHTML=`<span class="cat-icon">${getCatIcon(catName)}</span><span class="cat-name">${catName}</span><span class="cat-count">${matching.length}</span><span class="cat-chevron">›</span>`;const list=document.createElement('div');list.className='product-list open';list.innerHTML=matching.map(p=>{const v=VERDICT[p.verdict];return`<div class="product-card ${p.verdict}"><span class="product-icon">${p.icon}</span><div class="product-body"><div class="product-name">${p.name}</div><div class="product-verdict">${v.label}</div><div class="product-note">${p.note}</div></div><span class="verdict-icon">${v.icon}</span></div>`;}).join('');header.addEventListener('click',()=>{const open=list.classList.toggle('open');header.classList.toggle('open',open);});section.appendChild(header);section.appendChild(list);output.appendChild(section);});if(totalVisible===0){output.innerHTML=`<div class="no-results"><span class="no-results-icon">🤔</span>No hemos encontrado "${searchQuery}".<br>Prueba con otro nombre.</div>`;}document.getElementById('results-meta').textContent=totalVisible>0?`${totalVisible} producto${totalVisible!==1?'s':''}${activeFilter!=='all'?' · '+FILTERS.find(f=>f.id===activeFilter)?.label:''}`:'';}
 
-  // ── Dormir ────────────────────────────────────────────────────
-  { cat:'Dormir', icon:'🛏️', name:'Moisés / cuna de colecho', tags:['moises','moisés','colecho','cuna colecho'],
-    verdict:'must', note:'Imprescindible hasta los 6 meses. El colecho adosado a la cama es una opción segura y cómoda para la lactancia nocturna.' },
-  { cat:'Dormir', icon:'🛏️', name:'Cuna estándar', tags:['cuna'],
-    verdict:'must', note:'Para cuando el bebé se quede pequeño en el moisés (~6 meses). Elige una con barrotes a distancia reglamentaria y colchón firme.' },
-  { cat:'Dormir', icon:'😴', name:'Saco de dormir', tags:['saco dormir','saco'],
-    verdict:'must', note:'Mucho más seguro que las mantas sueltas. Imprescindible desde el primer día. Elige el tog adecuado a la temperatura de la habitación.' },
-  { cat:'Dormir', icon:'📱', name:'Vigilabebés / monitor', tags:['vigilabebés','vigilabebés','monitor bebe','camara bebe'],
-    verdict:'useful', note:'Muy útil si el bebé duerme en otra habitación. Con audio suele ser suficiente; la cámara da más tranquilidad pero no es estrictamente necesaria.' },
-  { cat:'Dormir', icon:'🌙', name:'Proyector / luz nocturna', tags:['proyector','luz nocturna','nightlight'],
-    verdict:'useful', note:'Útil para tomas nocturnas sin encender luces fuertes. Una luz tenue en el enchufe también funciona igual de bien.' },
-  { cat:'Dormir', icon:'🔊', name:'Máquina de ruido blanco', tags:['ruido blanco','white noise'],
-    verdict:'depends', note:'Muy útil para bebés con sueño ligero o en casas ruidosas. En habitaciones tranquilas no aporta nada. Mantén el volumen bajo (< 50 dB).' },
-  { cat:'Dormir', icon:'🛏️', name:'Cama de transición / cama baja', tags:['cama transicion','cama montessori','cama baja'],
-    verdict:'depends', note:'Útil a partir de los 18-24 meses si quieres facilitar la autonomía. No es necesaria — la cuna sirve hasta los 3 años perfectamente.' },
-  { cat:'Dormir', icon:'🪆', name:'Posicionador de bebé / cojín de posicionamiento', tags:['posicionador','cojin posicionamiento'],
-    verdict:'no', note:'La AAP y la AEP lo desaconsejan expresamente por riesgo de muerte súbita. Nunca en la cuna.' },
-  { cat:'Dormir', icon:'🛏️', name:'Nido de bebé (nest)', tags:['nido bebe','nest','dockatot'],
-    verdict:'no', note:'No recomendado para dormir sin supervisión. Las superficies blandas alrededor aumentan el riesgo de muerte súbita. Para juego vigilado, bien.' },
+function getCatIcon(cat){const map={'Dormir':'🌙','Alimentación':'🍼','Baño e higiene':'🛁','Movilidad y transporte':'🚗','Juego y estimulación':'🧸','Ropa y accesorios':'👕','Salud y seguridad':'🛡️'};return map[cat]||'📦';}
 
-  // ── Alimentación ─────────────────────────────────────────────
-  { cat:'Alimentación', icon:'🍼', name:'Biberones', tags:['biberon','biberón'],
-    verdict:'must', note:'Imprescindible si das leche extraída o fórmula. Para lactancia exclusiva directa no son necesarios, aunque uno de reserva siempre viene bien.' },
-  { cat:'Alimentación', icon:'🧴', name:'Esterilizador', tags:['esterilizador'],
-    verdict:'useful', note:'Útil los primeros meses, especialmente para fórmula. Con agua hirviendo 5 minutos se logra el mismo resultado — el esterilizador es más cómodo, no imprescindible.' },
-  { cat:'Alimentación', icon:'🍼', name:'Calentador de biberones', tags:['calentador biberon','calentador biberón'],
-    verdict:'useful', note:'Cómodo para las tomas nocturnas. Un vaso de agua caliente hace exactamente lo mismo pero tarda más. Valora si te compensa.' },
-  { cat:'Alimentación', icon:'🥛', name:'Sacaleches', tags:['sacaleches'],
-    verdict:'depends', note:'Imprescindible si vas a dar lactancia extraída o a volver al trabajo. Si la lactancia directa funciona bien y no planeas extraer, no lo necesitas.' },
-  { cat:'Alimentación', icon:'🥣', name:'Triturador / batidora de brazo', tags:['triturador','batidora','turmix'],
-    verdict:'must', note:'Imprescindible a partir de los 6 meses para purés. Una batidora de brazo básica (~15€) funciona perfectamente — no hace falta comprar una específica de bebé.' },
-  { cat:'Alimentación', icon:'🥄', name:'Cubiertos de bebé (cuchara, tenedor)', tags:['cubiertos bebe','cuchara bebe'],
-    verdict:'must', note:'A partir de los 6 meses. Compra 4-5 cucharas — se caen constantemente. No hace falta la marca cara.' },
-  { cat:'Alimentación', icon:'🪣', name:'Baberos con bolsillo', tags:['babero'],
-    verdict:'must', note:'10-12 baberos con bolsillo rígido para BLW o purés. Los de silicona son los más fáciles de limpiar.' },
-  { cat:'Alimentación', icon:'🪑', name:'Trona / silla de comer', tags:['trona','silla comer','silla alta'],
-    verdict:'must', note:'Imprescindible a partir de los 6 meses. Elige una con reposapiés regulable — apoyar los pies es importante para la postura al comer.' },
-  { cat:'Alimentación', icon:'🎨', name:'Mantel individual de silicona', tags:['mantel silicona','mantel bebe'],
-    verdict:'useful', note:'Facilita mucho la limpieza y algunos se adhieren a la trona. No imprescindible pero muy agradecido en el día a día.' },
-  { cat:'Alimentación', icon:'💊', name:'Dispensador de medicamentos', tags:['dispensador medicamentos','jeringa medicina'],
-    verdict:'useful', note:'Las jeringas graduadas que vienen con los jarabes funcionan igual de bien. El dispensador con chupete es útil para los primeros meses.' },
-  { cat:'Alimentación', icon:'🫙', name:'Recipientes para congelar purés', tags:['recipientes congelar','moldes puré'],
-    verdict:'useful', note:'Muy práctico para hacer purés en lote y congelar. Las cubiteras de silicona de toda la vida hacen el mismo papel.' },
-  { cat:'Alimentación', icon:'🤱', name:'Cojín de lactancia', tags:['cojin lactancia','almohada lactancia'],
-    verdict:'depends', note:'Muy útil para lactancia materna, especialmente las primeras semanas. Para biberón es prescindible. Algunos lo usan también para colocar al bebé boca abajo.' },
-  { cat:'Alimentación', icon:'🔥', name:'Vaporera eléctrica para bebé', tags:['vaporera','vapor bebe','robot bebe'],
-    verdict:'no', note:'Cocinar al vapor en un cazo con colador hace exactamente lo mismo. El precio (50-100€) raramente se justifica frente a alternativas que ya tienes en casa.' },
-  { cat:'Alimentación', icon:'🧃', name:'Exprimidor de fruta para bebé (malla)', tags:['exprimidor fruta','malla fruta','chupón fruta'],
-    verdict:'no', note:'Evita que el bebé aprenda a masticar y puede crear dependencia. La fruta en trocitos blandos o puré es mejor para el desarrollo oral.' },
-
-  // ── Baño e higiene ────────────────────────────────────────────
-  { cat:'Baño e higiene', icon:'🛁', name:'Bañera de bebé', tags:['bañera bebe','banera'],
-    verdict:'useful', note:'Práctica los primeros meses, especialmente si tu bañera es grande. Algunos bebés se bañan directamente en el lavabo. Hacia los 6 meses se queda pequeña.' },
-  { cat:'Baño e higiene', icon:'🌡️', name:'Termómetro digital (rectal / axilar)', tags:['termometro','termómetro'],
-    verdict:'must', note:'Imprescindible. El rectal es el más preciso para menores de 3 meses. A partir de esa edad el axilar o de oído también funciona.' },
-  { cat:'Baño e higiene', icon:'🌡️', name:'Termómetro de baño', tags:['termometro baño','termómetro baño'],
-    verdict:'useful', note:'Útil para calibrar la temperatura del agua (37°C ideal). Un codo también sirve, pero el termómetro da más seguridad.' },
-  { cat:'Baño e higiene', icon:'✂️', name:'Cortaúñas / lima de bebé', tags:['cortauñas bebe','lima uñas bebe'],
-    verdict:'must', note:'Las uñas del bebé crecen rápido y rasguñan. La lima eléctrica es la más segura para los primeros meses.' },
-  { cat:'Baño e higiene', icon:'🧴', name:'Aspirador nasal', tags:['aspirador nasal','moco','mucus'],
-    verdict:'must', note:'Imprescindible cuando haya mocos — los bebés no pueden sonarse. El tipo "boca" (Nosefrida) es más efectivo que los de perilla.' },
-  { cat:'Baño e higiene', icon:'🧴', name:'Crema de pañal', tags:['crema pañal','pasta pañal'],
-    verdict:'must', note:'Aplica en cada cambio desde el principio para prevenir irritaciones. La de óxido de zinc es la más efectiva.' },
-  { cat:'Baño e higiene', icon:'🚿', name:'Reductor WC / orinal', tags:['reductor wc','orinal','bacinica'],
-    verdict:'useful', note:'Imprescindible cuando empieces el control de esfínteres (~2 años). El orinal es más autónomo; el reductor evita comprar dos cosas.' },
-  { cat:'Baño e higiene', icon:'🪮', name:'Cepillo de dientes de silicona', tags:['cepillo dientes silicona','dedal dental'],
-    verdict:'must', note:'Desde que salen los primeros dientes (6-8 meses). El dedal de silicona es fácil de usar al principio.' },
-  { cat:'Baño e higiene', icon:'🧴', name:'Humidificador', tags:['humidificador'],
-    verdict:'depends', note:'Útil en invierno con calefacción seca o cuando el bebé está constipado. En climas húmedos o sin calefacción, innecesario.' },
-  { cat:'Baño e higiene', icon:'♨️', name:'Esterilizador UV', tags:['esterilizador uv'],
-    verdict:'no', note:'No aporta ventajas demostrables frente al esterilizador de vapor o el agua hirviendo. Precio injustificado.' },
-
-  // ── Movilidad y transporte ────────────────────────────────────
-  { cat:'Movilidad y transporte', icon:'🚗', name:'Silla de coche grupo 0+ / i-Size', tags:['silla coche','grupo 0','isize','i-size'],
-    verdict:'must', note:'Imprescindible y obligatorio por ley. Elige homologada i-Size (R129). Contramarcha hasta los 15 meses mínimo (hasta 4 años recomendado).' },
-  { cat:'Movilidad y transporte', icon:'🛒', name:'Carrito / silla de paseo', tags:['carrito','cochecito','silla paseo'],
-    verdict:'must', note:'Imprescindible. Elige según tu estilo de vida: urbano (ruedas grandes), compacto (transporte público), todo terreno (campo). El capazo separado del carro es mejor para recién nacidos.' },
-  { cat:'Movilidad y transporte', icon:'🎒', name:'Mochila portabebés ergonómica', tags:['mochila portabebés','fular','porteo'],
-    verdict:'depends', note:'Muy valorada por padres activos o con bebés que lloran si los dejas. No necesaria si el carrito te funciona bien. El fular elástico es más barato para los primeros meses.' },
-  { cat:'Movilidad y transporte', icon:'🛍️', name:'Organizador de carrito', tags:['organizador carrito'],
-    verdict:'useful', note:'Cómodo para llevar pañales y cosas sin bolsa extra. Una mochila ligera cumple la misma función.' },
-  { cat:'Movilidad y transporte', icon:'🚲', name:'Adaptador de capazo para carrito', tags:['adaptador capazo'],
-    verdict:'depends', note:'Necesario si compras capazo y chasis por separado. Verifica compatibilidad antes de comprar.' },
-  { cat:'Movilidad y transporte', icon:'🛡️', name:'Protector de lluvia para carrito', tags:['cubre lluvia','protector lluvia carrito'],
-    verdict:'depends', note:'Imprescindible si vives en zona lluviosa. En zonas secas, raramente necesario.' },
-
-  // ── Juego y estimulación ──────────────────────────────────────
-  { cat:'Juego y estimulación', icon:'🎯', name:'Gimnasio de actividades', tags:['gimnasio','arco actividades'],
-    verdict:'must', note:'Muy útil de 0 a 6 meses para estimulación visual y motora. Uno básico es suficiente — no necesitas el de 80€.' },
-  { cat:'Juego y estimulación', icon:'🧸', name:'Mordedores', tags:['mordedor'],
-    verdict:'must', note:'Imprescindible cuando empiezan los dientes (~4-6 meses). Ten varios por casa y lavados. Los de agua fría del frigorífico alivian las encías.' },
-  { cat:'Juego y estimulación', icon:'🪆', name:'Chupete', tags:['chupete'],
-    verdict:'depends', note:'No todos los bebés lo aceptan ni lo necesitan. Si lo usa, elige uno anatómico con escudo ventilado. Retira antes de los 2 años para no afectar la dentición.' },
-  { cat:'Juego y estimulación', icon:'🛁', name:'Hamaca / bouncer', tags:['hamaca','hamaca bebe','bouncer','columpio bebe'],
-    verdict:'useful', note:'Útil para tener al bebé seguro mientras cocinas o te duchas. No debe usarse como lugar de sueño. Tiempo limitado — el suelo es mejor para el desarrollo motor.' },
-  { cat:'Juego y estimulación', icon:'🪀', name:'Centro de actividades / andador', tags:['andador','centro actividades','tacatá','tacata'],
-    verdict:'no', note:'Los andadores están desaconsejados por pediatras y prohibidos en Canadá. Retrasan el gateo y la marcha natural, y son peligrosos cerca de escaleras.' },
-  { cat:'Juego y estimulación', icon:'🎠', name:'Columpio eléctrico', tags:['columpio electrico','hamaca electrica'],
-    verdict:'depends', note:'Muy útil para bebés con cólicos o que solo se calman en movimiento. Prescindible si tu bebé es tranquilo. Usa solo bajo supervisión.' },
-  { cat:'Juego y estimulación', icon:'🧩', name:'Alfombra de juego / puzzle de foam', tags:['alfombra juego','puzzle foam','tatami bebe'],
-    verdict:'must', note:'Imprescindible a partir de los 3-4 meses para el tiempo boca abajo (tummy time). Amortigua caídas cuando empieza a sentarse y gatear.' },
-  { cat:'Juego y estimulación', icon:'📚', name:'Libros de tela / cartón', tags:['libros bebe','libros carton','cuentos bebe'],
-    verdict:'must', note:'Leer al bebé desde el primer día estimula el lenguaje y crea vínculo. Los de tela para los más pequeños, los de cartón duro a partir de los 6 meses.' },
-  { cat:'Juego y estimulación', icon:'🎪', name:'Parque de juegos / corralito', tags:['parque','corralito','valla'],
-    verdict:'useful', note:'Muy útil entre los 8 y 18 meses para tener un espacio seguro. No es jaula — el bebé necesita tiempo fuera también para explorar.' },
-  { cat:'Juego y estimulación', icon:'📺', name:'Tablet / pantallas para bebés', tags:['tablet bebe','pantalla bebe'],
-    verdict:'no', note:'La OMS y la AAP recomiendan cero pantallas antes de los 18-24 meses (excepto videollamadas). No estimulan el desarrollo y desplazan interacciones reales.' },
-
-  // ── Ropa y accesorios ─────────────────────────────────────────
-  { cat:'Ropa y accesorios', icon:'👕', name:'Bodies y pijamas (pack)', tags:['bodies','body','pijama bebe'],
-    verdict:'must', note:'Compra packs de 5-7 unidades en tallas 0-3m y 3-6m. No compres mucho de una talla — crecen muy rápido. Los con cremallera son más fáciles a las 3 de la mañana.' },
-  { cat:'Ropa y accesorios', icon:'🧤', name:'Manoplas antiarañazos', tags:['manoplas','mitones'],
-    verdict:'useful', note:'Solo las primeras 2-3 semanas hasta cortarles las uñas. A partir de entonces interfieren con el desarrollo sensorial.' },
-  { cat:'Ropa y accesorios', icon:'🎩', name:'Gorrito para recién nacido', tags:['gorrito','gorro bebe'],
-    verdict:'useful', note:'Solo las primeras horas tras el nacimiento (para mantener el calor). En casa con temperatura normal no es necesario.' },
-  { cat:'Ropa y accesorios', icon:'🧣', name:'Arrullo / muselina', tags:['arrullo','muselina','swaddle'],
-    verdict:'must', note:'Las muselinas son de las cosas más versátiles: arrullo, babero, protector de silla, sábana ligera. Compra 6-8 unidades.' },
-
-  // ── Salud y seguridad ─────────────────────────────────────────
-  { cat:'Salud y seguridad', icon:'🔒', name:'Protectores de enchufes', tags:['protector enchufe','tapa enchufe'],
-    verdict:'must', note:'Imprescindible en cuanto el bebé empieza a gatear (~7-8 meses). Pon protectores en todos los enchufes accesibles.' },
-  { cat:'Salud y seguridad', icon:'🚧', name:'Barrera de seguridad para escaleras', tags:['barrera escalera','valla escalera','puerta seguridad'],
-    verdict:'must', note:'Imprescindible si tienes escaleras en casa. Instala arriba Y abajo. Las de tornillo son más seguras que las a presión en la parte superior.' },
-  { cat:'Salud y seguridad', icon:'🛡️', name:'Protectores de esquinas / muebles', tags:['protector esquinas','esquineras'],
-    verdict:'must', note:'A partir de los 8-9 meses cuando empieza a ponerse de pie. Los de silicona transparente son los más discretos.' },
-  { cat:'Salud y seguridad', icon:'🔒', name:'Seguros para cajones y armarios', tags:['seguro cajon','seguro armario','bloqueo muebles'],
-    verdict:'must', note:'En cuanto gatee y empiece a explorar. Especialmente en muebles con objetos peligrosos o pesados.' },
-  { cat:'Salud y seguridad', icon:'🧯', name:'Botiquín de bebé', tags:['botiquin','botiquín'],
-    verdict:'must', note:'Ten siempre: termómetro, suero fisiológico, paracetamol infantil (con receta), crema de pañal, gasas y esparadrapo. Consulta con tu pediatra qué tener.' },
-  { cat:'Salud y seguridad', icon:'🪟', name:'Bloqueador de ventanas', tags:['bloqueo ventana','seguro ventana'],
-    verdict:'must', note:'Imprescindible a partir de los 12 meses. Las ventanas deben tener apertura máxima de 10cm o llevar llave.' },
-  { cat:'Salud y seguridad', icon:'📡', name:'Sensor de movimiento para cuna (antiasfixia)', tags:['sensor movimiento','monitor respiracion','owlet'],
-    verdict:'no', note:'La FDA ha alertado que estos dispositivos no previenen la muerte súbita y dan falsa seguridad. Siguiendo las recomendaciones de sueño seguro (boca arriba, colchón firme, sin objetos en la cuna) ya se minimiza el riesgo.' },
-];
-
-// ── State ─────────────────────────────────────────────────────────
-let activeFilter = 'all';
-let searchQuery  = '';
-
-// ── Build filter pills ────────────────────────────────────────────
-function buildPills() {
-  const wrap = document.getElementById('filter-pills');
-  FILTERS.forEach(f => {
-    const btn = document.createElement('button');
-    btn.className = 'filter-pill' + (f.id === activeFilter ? ' active-' + f.id : '');
-    btn.textContent = f.label;
-    btn.addEventListener('click', () => {
-      activeFilter = f.id;
-      document.querySelectorAll('.filter-pill').forEach(b => {
-        b.className = 'filter-pill';
-      });
-      btn.className = 'filter-pill active-' + f.id;
-      applyFilters();
-    });
-    wrap.appendChild(btn);
-  });
-}
-
-// ── Render ────────────────────────────────────────────────────────
-function applyFilters() {
-  searchQuery = document.getElementById('search').value.toLowerCase().trim();
-
-  const cats = {};
-  PRODUCTS.forEach(p => {
-    if (!cats[p.cat]) cats[p.cat] = [];
-    cats[p.cat].push(p);
-  });
-
-  const output = document.getElementById('product-output');
-  output.innerHTML = '';
-  let totalVisible = 0;
-
-  Object.entries(cats).forEach(([catName, products]) => {
-    const matching = products.filter(p => {
-      if (activeFilter !== 'all' && p.verdict !== activeFilter) return false;
-      if (searchQuery) {
-        const nm = p.name.toLowerCase().includes(searchQuery);
-        const tg = p.tags.some(t => t.includes(searchQuery));
-        if (!nm && !tg) return false;
-      }
-      return true;
-    });
-
-    if (matching.length === 0) return;
-
-    // Sort: must → useful → depends → no, then alpha
-    matching.sort((a, b) => {
-      const d = VERDICT_ORDER[a.verdict] - VERDICT_ORDER[b.verdict];
-      if (d !== 0) return d;
-      return a.name.localeCompare(b.name, 'es');
-    });
-
-    totalVisible += matching.length;
-
-    const section = document.createElement('div');
-    section.className = 'category-section';
-
-    const header = document.createElement('div');
-    header.className = 'cat-header open';
-    header.innerHTML = `
-      <span class="cat-icon">${getCatIcon(catName)}</span>
-      <span class="cat-name">${catName}</span>
-      <span class="cat-count">${matching.length}</span>
-      <span class="cat-chevron">›</span>`;
-
-    const list = document.createElement('div');
-    list.className = 'product-list open';
-    list.innerHTML = matching.map(p => {
-      const v = VERDICT[p.verdict];
-      return `
-        <div class="product-card ${p.verdict}">
-          <span class="product-icon">${p.icon}</span>
-          <div class="product-body">
-            <div class="product-name">${p.name}</div>
-            <div class="product-verdict">${v.label}</div>
-            <div class="product-note">${p.note}</div>
-          </div>
-          <span class="verdict-icon">${v.icon}</span>
-        </div>`;
-    }).join('');
-
-    header.addEventListener('click', () => {
-      const open = list.classList.toggle('open');
-      header.classList.toggle('open', open);
-    });
-
-    section.appendChild(header);
-    section.appendChild(list);
-    output.appendChild(section);
-  });
-
-  if (totalVisible === 0) {
-    output.innerHTML = `
-      <div class="no-results">
-        <span class="no-results-icon">🤔</span>
-        No hemos encontrado "${searchQuery}".<br>Prueba con otro nombre.
-      </div>`;
-  }
-
-  document.getElementById('results-meta').textContent =
-    totalVisible > 0 ? `${totalVisible} producto${totalVisible !== 1 ? 's' : ''}${activeFilter !== 'all' ? ' · ' + FILTERS.find(f=>f.id===activeFilter)?.label : ''}` : '';
-}
-
-function getCatIcon(cat) {
-  const map = {
-    'Dormir': '🌙',
-    'Alimentación': '🍼',
-    'Baño e higiene': '🛁',
-    'Movilidad y transporte': '🚗',
-    'Juego y estimulación': '🧸',
-    'Ropa y accesorios': '👕',
-    'Salud y seguridad': '🛡️',
-  };
-  return map[cat] || '📦';
-}
-
-buildPills();
-applyFilters();
+buildPills();applyFilters();
 </script>
 </body>
 </html>
