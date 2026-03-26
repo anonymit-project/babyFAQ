@@ -6,7 +6,9 @@
 <meta property="og:title" content="babyFAQ · Calculadoras y herramientas para padres primerizos">
 <meta property="og:description" content="Tallas de zapato y ropa, percentiles OMS, tomas de leche, sueño por meses, alimentos por edad y más. En español. Sin artículos de 2.000 palabras.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://babyfaq.es/">
 <meta name="theme-color" content="#fdf6ee">
+<link rel="canonical" href="https://babyfaq.es/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,9 +55,31 @@
 
   /* ── Tool cards ── */
   .tools-list { display: grid; gap: 8px; }
-  .tool-card { display: flex; align-items: center; gap: 14px; background: var(--warm-white); border-radius: 16px; padding: 16px 18px; border: 1.5px solid transparent; text-decoration: none; color: inherit; transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s; box-shadow: 0 1px 8px rgba(61,43,31,0.05); }
-  .tool-card:not(.soon):hover { border-color: var(--blush); box-shadow: 0 4px 20px rgba(201,122,94,0.12); transform: translateY(-1px); }
-  .tool-card.soon { opacity: 0.5; cursor: default; pointer-events: none; }
+  .tool-card {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--warm-white); border-radius: 16px; padding: 16px 18px;
+    border: 1.5px solid transparent; text-decoration: none; color: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    box-shadow: 0 1px 8px rgba(61,43,31,0.05);
+    /* hidden by default — JS makes them visible */
+  }
+  /* active tool */
+  .tool-card.is-active:hover {
+    border-color: var(--blush);
+    box-shadow: 0 4px 20px rgba(201,122,94,0.12);
+    transform: translateY(-1px);
+  }
+  /* soon tool */
+  .tool-card.is-soon {
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none;
+  }
+  /* skeleton while loading */
+  .tool-card.loading {
+    opacity: 0;
+    pointer-events: none;
+  }
 
   .tool-emoji { font-size: 22px; line-height: 1; flex-shrink: 0; width: 44px; height: 44px; background: var(--cream); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
   .tool-info { flex: 1; min-width: 0; }
@@ -72,29 +96,6 @@
   footer { text-align: center; margin-top: 48px; font-size: 11px; color: var(--soft); line-height: 1.8; }
   footer a { color: var(--terracota); text-decoration: none; }
   .affiliate-note { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(196,168,152,0.25); font-size: 10px; color: var(--soft); line-height: 1.7; }
-
-  /* ── Desktop responsive ── */
-  @media (min-width: 768px) {
-    .container { max-width: 920px; padding: 56px 40px 80px; }
-
-    .hero { margin-bottom: 44px; }
-    .hero-title { font-size: 40px; }
-
-    .search-wrap { max-width: 500px; margin-left: auto; margin-right: auto; }
-
-    /* 2-column category grid */
-    #categories-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 40px;
-      align-items: start;
-    }
-
-    .category { margin-bottom: 32px; }
-
-    /* Tool cards a bit taller on desktop, hover more pronounced */
-    .tool-card { padding: 18px 20px; }
-  }
 </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
@@ -124,198 +125,16 @@
 
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
-    <input class="search-input" type="text" placeholder="¿Qué necesitas saber?" oninput="filterTools(this.value)">
+    <input class="search-input" type="text" id="search-input" placeholder="¿Qué necesitas saber?">
   </div>
 
-  <div id="categories-wrap">
-
-    <!-- Lactancia -->
-    <div class="category" data-cat="lactancia">
-      <div class="cat-header">
-        <span class="cat-icon">🤱</span>
-        <span class="cat-title">Lactancia</span>
-      </div>
-      <div class="tools-list">
-        <a class="tool-card" href="tomas-leche.html">
-          <div class="tool-emoji">🍼</div>
-          <div class="tool-info">
-            <div class="tool-name">Tomas de leche</div>
-            <div class="tool-desc">Cuántos ml por toma según la edad y el peso</div>
-          </div>
-          <span class="tool-badge badge-new">Nuevo</span>
-          <span class="tool-arrow">›</span>
-        </a>
-        <a class="tool-card" href="calculadora-lactancia.html">
-          <div class="tool-emoji">🍷</div>
-          <div class="tool-info">
-            <div class="tool-name">Alcohol y lactancia</div>
-            <div class="tool-desc">¿Cuánto tengo que esperar para dar el pecho?</div>
-          </div>
-          <span class="tool-badge badge-new">Nuevo</span>
-          <span class="tool-arrow">›</span>
-        </a>
-        <a class="tool-card soon" href="#">
-          <div class="tool-emoji">📅</div>
-          <div class="tool-info">
-            <div class="tool-name">¿Cuándo introducir sólidos y agua?</div>
-            <div class="tool-desc">Línea de tiempo visual mes a mes</div>
-          </div>
-          <span class="tool-badge badge-soon">Pronto</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Alimentación -->
-    <div class="category" data-cat="alimentacion">
-      <div class="cat-header">
-        <span class="cat-icon">🥣</span>
-        <span class="cat-title">Alimentación</span>
-      </div>
-      <div class="tools-list">
-        <a class="tool-card" href="alimentos-edad.html">
-          <div class="tool-emoji">🥑</div>
-          <div class="tool-info">
-            <div class="tool-name">Alimentos por edad</div>
-            <div class="tool-desc">¿Puede comer X con Y meses?</div>
-          </div>
-          <span class="tool-badge badge-new">Nuevo</span>
-          <span class="tool-arrow">›</span>
-        </a>
-        <a class="tool-card soon" href="#">
-          <div class="tool-emoji">🧴</div>
-          <div class="tool-info">
-            <div class="tool-name">Talla de pañal por peso</div>
-            <div class="tool-desc">Qué talla corresponde según los kg del bebé</div>
-          </div>
-          <span class="tool-badge badge-soon">Pronto</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Sueño -->
-    <div class="category" data-cat="sueno">
-      <div class="cat-header">
-        <span class="cat-icon">🌙</span>
-        <span class="cat-title">Sueño</span>
-      </div>
-      <div class="tools-list">
-        <a class="tool-card" href="sueno-bebe.html">
-          <div class="tool-emoji">😴</div>
-          <div class="tool-info">
-            <div class="tool-name">Sueño por meses</div>
-            <div class="tool-desc">Siestas, horas totales y hora de acostarse</div>
-          </div>
-          <span class="tool-badge badge-new">Nuevo</span>
-          <span class="tool-arrow">›</span>
-        </a>
-        <a class="tool-card soon" href="#">
-          <div class="tool-emoji">🛏️</div>
-          <div class="tool-info">
-            <div class="tool-name">¿Cuándo pasar de cuna a cama?</div>
-            <div class="tool-desc">Señales, edad recomendada y cómo hacerlo</div>
-          </div>
-          <span class="tool-badge badge-soon">Pronto</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Crecimiento y salud -->
-    <div class="category" data-cat="crecimiento salud">
-      <div class="cat-header">
-        <span class="cat-icon">❤️</span>
-        <span class="cat-title">Crecimiento y salud</span>
-      </div>
-      <div class="tools-list">
-        <a class="tool-card" href="percentil.html">
-          <div class="tool-emoji">⚖️</div>
-          <div class="tool-info">
-            <div class="tool-name">Percentil peso y altura</div>
-            <div class="tool-desc">Tablas OMS para niños y niñas de 0 a 5 años</div>
-          </div>
-          <span class="tool-badge badge-new">Nuevo</span>
-          <span class="tool-arrow">›</span>
-        </a>
-        <a class="tool-card soon" href="#">
-          <div class="tool-emoji">🌡️</div>
-          <div class="tool-info">
-            <div class="tool-name">¿Es fiebre?</div>
-            <div class="tool-desc">Umbral por edad y conversor °C / °F</div>
-          </div>
-          <span class="tool-badge badge-soon">Pronto</span>
-        </a>
-        <a class="tool-card soon" href="#">
-          <div class="tool-emoji">🦷</div>
-          <div class="tool-info">
-            <div class="tool-name">Dentición</div>
-            <div class="tool-desc">Cuándo salen los dientes y en qué orden</div>
-          </div>
-          <span class="tool-badge badge-soon">Pronto</span>
-        </a>
-        <a class="tool-card soon" href="#">
-          <div class="tool-emoji">💉</div>
-          <div class="tool-info">
-            <div class="tool-name">Calendario de vacunas</div>
-            <div class="tool-desc">Vacunas del calendario oficial español por edad</div>
-          </div>
-          <span class="tool-badge badge-soon">Pronto</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Ropa y tallas -->
-    <div class="category" data-cat="ropa tallas">
-      <div class="cat-header">
-        <span class="cat-icon">👟</span>
-        <span class="cat-title">Ropa y tallas</span>
-      </div>
-      <div class="tools-list">
-        <a class="tool-card" href="talla-zapato.html">
-          <div class="tool-emoji">👟</div>
-          <div class="tool-info">
-            <div class="tool-name">Talla de zapato</div>
-            <div class="tool-desc">Introduce los cm del pie y obtén la talla</div>
-          </div>
-          <span class="tool-badge badge-new">Nuevo</span>
-          <span class="tool-arrow">›</span>
-        </a>
-        <a class="tool-card" href="tallas-ropa.html">
-          <div class="tool-emoji">👕</div>
-          <div class="tool-info">
-            <div class="tool-name">Tallas de ropa</div>
-            <div class="tool-desc">Conversor ES / FR / US / UK por edad, altura o peso</div>
-          </div>
-          <span class="tool-badge badge-new">Nuevo</span>
-          <span class="tool-arrow">›</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Compras -->
-    <div class="category" data-cat="compras productos">
-      <div class="cat-header">
-        <span class="cat-icon">🛒</span>
-        <span class="cat-title">¿Lo necesito?</span>
-      </div>
-      <div class="tools-list">
-        <a class="tool-card" href="checker-productos.html">
-          <div class="tool-emoji">✅</div>
-          <div class="tool-info">
-            <div class="tool-name">Checker de productos de bebé</div>
-            <div class="tool-desc">Veredicto honesto sobre qué comprar (y qué no)</div>
-          </div>
-          <span class="tool-badge badge-new">Nuevo</span>
-          <span class="tool-arrow">›</span>
-        </a>
-      </div>
-    </div>
-
-  </div><!-- /categories-wrap -->
+  <!-- Categories rendered by JS -->
+  <div id="categories-wrap"></div>
 
   <footer>
     Hecho para padres, por un padre.<br>
     Información orientativa — consulta siempre con tu pediatra o matrona.<br><br>
     <a href="sugerir.html">💡 Sugerir herramienta</a>
-
     <div class="affiliate-note">
       Esta web participa en el Programa de Afiliados de Amazon EU, un programa de publicidad para afiliados diseñado para ofrecer a sitios web un medio para obtener comisiones por publicidad mediante la creación de enlaces a Amazon.es. Como Asociado de Amazon, obtenemos ingresos por las compras que califican.
     </div>
@@ -324,19 +143,319 @@
 </div>
 
 <script>
-function filterTools(query) {
-  const q = query.toLowerCase().trim();
-  document.querySelectorAll('.category').forEach(cat => {
-    const cards = cat.querySelectorAll('.tool-card');
-    let any = false;
-    cards.forEach(card => {
-      const match = !q || card.textContent.toLowerCase().includes(q);
-      card.style.display = match ? '' : 'none';
-      if (match) any = true;
-    });
-    cat.style.display = any ? '' : 'none';
+// ─────────────────────────────────────────────────────────────────
+// CONFIGURACIÓN DE HERRAMIENTAS
+// ─────────────────────────────────────────────────────────────────
+// Para añadir una herramienta nueva:
+//   1. Añade un objeto a la categoría correcta con:
+//      - file: nombre del .html (sin ruta)
+//      - emoji, name, desc: textos de la tarjeta
+//      - createdAt: fecha en formato 'YYYY-MM-DD' — controla el badge "Nuevo"
+//   2. Si aún no existe el .html, pon file: null (aparecerá como "Pronto")
+//   3. ¡Eso es todo! El index detecta automáticamente si el archivo existe.
+// ─────────────────────────────────────────────────────────────────
+
+const CATEGORIES = [
+  {
+    id: 'lactancia-alimentacion',
+    icon: '🍼',
+    title: 'Lactancia y alimentación',
+    tools: [
+      {
+        file: 'tomas-leche.html',
+        emoji: '🍼',
+        name: 'Tomas de leche',
+        desc: 'Cuántos ml por toma según la edad y el peso',
+        createdAt: '2025-03-01',
+      },
+      {
+        file: 'calculadora-lactancia.html',
+        emoji: '🍷',
+        name: 'Alcohol y lactancia',
+        desc: '¿Cuánto tengo que esperar para dar el pecho?',
+        createdAt: '2025-03-01',
+      },
+      {
+        file: 'alimentos-edad.html',
+        emoji: '🥑',
+        name: 'Alimentos por edad',
+        desc: '¿Puede comer X con Y meses? Más de 150 alimentos',
+        createdAt: '2025-03-01',
+      },
+      {
+        file: null, // pronto
+        emoji: '📅',
+        name: '¿Cuándo introducir sólidos y agua?',
+        desc: 'Línea de tiempo visual mes a mes',
+        createdAt: null,
+      },
+    ],
+  },
+  {
+    id: 'sueno',
+    icon: '🌙',
+    title: 'Sueño',
+    tools: [
+      {
+        file: 'sueno-bebe.html',
+        emoji: '😴',
+        name: 'Sueño por meses',
+        desc: 'Siestas, horas totales, ventana y hora de acostarse',
+        createdAt: '2025-03-01',
+      },
+      {
+        file: null,
+        emoji: '🛏️',
+        name: '¿Cuándo pasar de cuna a cama?',
+        desc: 'Señales, edad recomendada y cómo hacerlo',
+        createdAt: null,
+      },
+    ],
+  },
+  {
+    id: 'crecimiento-salud',
+    icon: '❤️',
+    title: 'Crecimiento y salud',
+    tools: [
+      {
+        file: 'percentil.html',
+        emoji: '⚖️',
+        name: 'Percentil peso y altura',
+        desc: 'Tablas OMS para niños y niñas de 0 a 5 años',
+        createdAt: '2025-03-01',
+      },
+      {
+        file: null,
+        emoji: '🧴',
+        name: 'Talla de pañal por peso',
+        desc: 'Qué talla corresponde según los kg del bebé',
+        createdAt: null,
+      },
+      {
+        file: null,
+        emoji: '🌡️',
+        name: '¿Es fiebre?',
+        desc: 'Umbral por edad y conversor °C / °F',
+        createdAt: null,
+      },
+      {
+        file: null,
+        emoji: '💊',
+        name: 'Dosis de paracetamol e ibuprofeno',
+        desc: 'Calculadora de dosis por peso y edad',
+        createdAt: null,
+      },
+      {
+        file: null,
+        emoji: '🦷',
+        name: 'Dentición',
+        desc: 'Cuándo salen los dientes y en qué orden',
+        createdAt: null,
+      },
+      {
+        file: null,
+        emoji: '💬',
+        name: 'Hitos del lenguaje por meses',
+        desc: 'Qué palabras y sonidos son normales a cada edad',
+        createdAt: null,
+      },
+      {
+        file: null,
+        emoji: '💉',
+        name: 'Calendario de vacunas',
+        desc: 'Vacunas del calendario oficial español por edad',
+        createdAt: null,
+      },
+    ],
+  },
+  {
+    id: 'ropa-tallas',
+    icon: '👟',
+    title: 'Ropa y tallas',
+    tools: [
+      {
+        file: 'tallas-ropa.html',
+        emoji: '👕',
+        name: 'Tallas de ropa',
+        desc: 'Conversor ES / FR / US / UK por edad, altura o peso',
+        createdAt: '2025-03-01',
+      },
+      {
+        file: 'talla-zapato.html',
+        emoji: '👟',
+        name: 'Talla de zapato',
+        desc: 'Introduce los cm del pie y obtén la talla',
+        createdAt: '2025-03-01',
+      },
+    ],
+  },
+  {
+    id: 'compras',
+    icon: '🛒',
+    title: '¿Lo necesito?',
+    tools: [
+      {
+        file: 'checker-productos.html',
+        emoji: '✅',
+        name: 'Checker de productos de bebé',
+        desc: 'Veredicto honesto sobre qué comprar (y qué no)',
+        createdAt: '2025-03-01',
+      },
+    ],
+  },
+];
+
+// ─────────────────────────────────────────────────────────────────
+// LÓGICA DINÁMICA
+// ─────────────────────────────────────────────────────────────────
+
+const NEW_BADGE_DAYS = 30; // días que se muestra el badge "Nuevo"
+
+function isNew(dateStr) {
+  if (!dateStr) return false;
+  const created = new Date(dateStr);
+  const diffMs  = Date.now() - created.getTime();
+  return diffMs / (1000 * 60 * 60 * 24) <= NEW_BADGE_DAYS;
+}
+
+// Intenta un HEAD request para saber si el archivo existe en el servidor.
+// Devuelve true si existe, false si da 404 o error.
+async function fileExists(filename) {
+  try {
+    const res = await fetch(filename, { method: 'HEAD' });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────
+// RENDERIZADO
+// ─────────────────────────────────────────────────────────────────
+
+function buildSkeleton() {
+  const wrap = document.getElementById('categories-wrap');
+  wrap.innerHTML = '';
+
+  CATEGORIES.forEach(cat => {
+    const section = document.createElement('div');
+    section.className = 'category';
+    section.dataset.cat = cat.id;
+
+    section.innerHTML = `
+      <div class="cat-header">
+        <span class="cat-icon">${cat.icon}</span>
+        <span class="cat-title">${cat.title}</span>
+      </div>
+      <div class="tools-list" id="tools-${cat.id}">
+        ${cat.tools.map((t, i) => `
+          <div
+            class="tool-card loading"
+            id="tool-${cat.id}-${i}"
+            data-name="${(t.name + ' ' + t.desc).toLowerCase()}"
+            data-cat="${cat.title.toLowerCase()}"
+          >
+            <div class="tool-emoji">${t.emoji}</div>
+            <div class="tool-info">
+              <div class="tool-name">${t.name}</div>
+              <div class="tool-desc">${t.desc}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+
+    wrap.appendChild(section);
   });
 }
+
+async function hydrateCards() {
+  for (const cat of CATEGORIES) {
+    for (let i = 0; i < cat.tools.length; i++) {
+      const tool = cat.tools[i];
+      const el   = document.getElementById(`tool-${cat.id}-${i}`);
+      if (!el) continue;
+
+      // Determine si está activo: tiene file Y ese file existe en el servidor
+      let active = false;
+      if (tool.file) {
+        active = await fileExists(tool.file);
+      }
+
+      el.classList.remove('loading');
+
+      if (active) {
+        // Tarjeta activa — enlace real
+        el.classList.add('is-active');
+        el.setAttribute('role', 'link');
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', () => { window.location.href = tool.file; });
+
+        // Badge "Nuevo" (solo si la herramienta existe y tiene menos de N días)
+        const badgeHtml = isNew(tool.createdAt)
+          ? `<span class="tool-badge badge-new">Nuevo</span>`
+          : '';
+
+        el.innerHTML = `
+          <div class="tool-emoji">${tool.emoji}</div>
+          <div class="tool-info">
+            <div class="tool-name">${tool.name}</div>
+            <div class="tool-desc">${tool.desc}</div>
+          </div>
+          ${badgeHtml}
+          <span class="tool-arrow">›</span>
+        `;
+      } else {
+        // Tarjeta "Pronto"
+        el.classList.add('is-soon');
+        el.innerHTML = `
+          <div class="tool-emoji">${tool.emoji}</div>
+          <div class="tool-info">
+            <div class="tool-name">${tool.name}</div>
+            <div class="tool-desc">${tool.desc}</div>
+          </div>
+          <span class="tool-badge badge-soon">Pronto</span>
+        `;
+      }
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────
+// BUSCADOR
+// ─────────────────────────────────────────────────────────────────
+
+function filterTools(query) {
+  const q = query.toLowerCase().trim();
+
+  CATEGORIES.forEach(cat => {
+    const section = document.querySelector(`.category[data-cat="${cat.id}"]`);
+    if (!section) return;
+
+    const cards = section.querySelectorAll('.tool-card');
+    let anyVisible = false;
+
+    cards.forEach(card => {
+      const text  = card.dataset.name || '';
+      const catTx = card.dataset.cat  || '';
+      const match = !q || text.includes(q) || catTx.includes(q);
+      card.style.display = match ? '' : 'none';
+      if (match) anyVisible = true;
+    });
+
+    section.style.display = anyVisible ? '' : 'none';
+  });
+}
+
+document.getElementById('search-input').addEventListener('input', e => {
+  filterTools(e.target.value);
+});
+
+// ─────────────────────────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────────────────────────
+buildSkeleton();
+hydrateCards();
 </script>
 </body>
 </html>

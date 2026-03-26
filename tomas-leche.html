@@ -6,10 +6,86 @@
 <meta property="og:title" content="Calculadora tomas de leche bebé por edad y peso · babyFAQ">
 <meta property="og:description" content="Cuántos ml por toma necesita tu bebé según su edad y peso. Leche materna y fórmula. Número de tomas al día e intervalo entre tomas.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://babyfaq.es/tomas-leche.html">
 <meta name="theme-color" content="#fdf6ee">
+<link rel="canonical" href="https://babyfaq.es/tomas-leche.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora tomas de leche bebé",
+  "description": "Calcula cuántos ml por toma necesita tu bebé según su edad y peso, para leche de fórmula y leche materna extraída. Incluye número de tomas al día e intervalo recomendado.",
+  "url": "https://babyfaq.es/tomas-leche.html",
+  "applicationCategory": "HealthApplication",
+  "inLanguage": "es-ES",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "babyFAQ",
+    "url": "https://babyfaq.es"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuántos ml de leche necesita mi bebé por toma?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende de la edad y el peso. La referencia general es 150 ml por kg de peso al día durante los primeros 3 meses, repartidos en el número de tomas según la edad. Por ejemplo, un bebé de 1 mes que pesa 4 kg necesita aproximadamente 600 ml al día, lo que equivale a unos 75-85 ml por toma si hace 7-8 tomas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cada cuánto tiempo hay que darle el biberón a un recién nacido?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los recién nacidos necesitan comer cada 2-3 horas, lo que equivale a unas 8-10 tomas al día. A medida que crecen, el intervalo se va espaciando: a los 3 meses suelen hacer tomas cada 3-4 horas, y a los 6 meses cada 4-5 horas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hay un máximo de ml de leche al día para bebés?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Aunque el cálculo por kg pueda dar cifras mayores en bebés más grandes, el máximo recomendado suele ser de 900 ml al día a partir de los 3 meses. Superar esta cantidad de forma habitual no aporta beneficios y puede sobrecargar el sistema digestivo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es lo mismo la calculadora para leche de fórmula y leche materna?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las cantidades de referencia son similares, pero la lactancia materna directa funciona a demanda y no se puede medir en ml. Esta calculadora aplica para leche materna extraída en biberón. Si el bebé toma el pecho directamente, lo más importante es que haga suficientes tomas y gane peso de forma adecuada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿A partir de qué edad se reduce la cantidad de leche?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A partir de los 6 meses, cuando se introduce la alimentación complementaria, la cantidad de leche empieza a reducirse progresivamente. El mínimo recomendado a partir de los 6 meses es de 500 ml al día entre biberones y otros lácteos como yogur o queso."
+      }
+    }
+  ]
+}
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -37,27 +113,60 @@
   .card { background: var(--warm-white); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; box-shadow: 0 2px 20px rgba(61,43,31,0.06); border: 1px solid rgba(196,168,152,0.2); }
   .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 16px; }
 
+  /* ── Milk type toggle ── */
   .toggle-row { display: flex; gap: 8px; }
-  .toggle-btn { flex: 1; padding: 12px 8px; border-radius: 12px; border: 1.5px solid rgba(196,168,152,0.3); background: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: var(--mid); cursor: pointer; transition: all 0.18s; text-align: center; touch-action: manipulation; }
+  .toggle-btn {
+    flex: 1; padding: 12px 8px; border-radius: 12px;
+    border: 1.5px solid rgba(196,168,152,0.3);
+    background: var(--cream); font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 500; color: var(--mid);
+    cursor: pointer; transition: all 0.18s; text-align: center;
+    touch-action: manipulation;
+  }
   .toggle-btn .t-icon { display: block; font-size: 20px; margin-bottom: 4px; }
   .toggle-btn.active { background: var(--warm-white); border-color: var(--terracota); color: var(--deep); box-shadow: 0 2px 10px rgba(201,122,94,0.15); }
 
+  /* ── Hold selectors row ── */
   .selectors-row { display: flex; gap: 10px; }
+
   .hold-sel-wrap { flex: 1; }
   .hold-sel-title { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); margin-bottom: 8px; display: block; text-align: center; }
-  .hold-sel { background: var(--cream); border-radius: 14px; border: 1.5px solid rgba(196,168,152,0.35); display: flex; align-items: center; height: 64px; padding: 0 4px; }
-  .hold-btn { width: 40px; height: 52px; flex-shrink: 0; border-radius: 10px; border: none; background: transparent; color: var(--terracota); font-size: 22px; font-weight: 300; cursor: pointer; display: flex; align-items: center; justify-content: center; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: background 0.1s; line-height: 1; }
+
+  .hold-sel {
+    background: var(--cream); border-radius: 14px;
+    border: 1.5px solid rgba(196,168,152,0.35);
+    display: flex; align-items: center; height: 64px; padding: 0 4px;
+  }
+  .hold-btn {
+    width: 40px; height: 52px; flex-shrink: 0;
+    border-radius: 10px; border: none; background: transparent;
+    color: var(--terracota); font-size: 22px; font-weight: 300;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    touch-action: manipulation; user-select: none; -webkit-user-select: none;
+    transition: background 0.1s; line-height: 1;
+  }
   .hold-btn:active, .hold-btn.pressing { background: var(--blush); }
   .hold-center { flex: 1; text-align: center; }
   .hold-val { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 300; color: var(--deep); display: block; line-height: 1; }
   .hold-unit { font-size: 11px; color: var(--soft); font-family: 'DM Sans', sans-serif; }
   .hold-sublabel { font-size: 10px; color: var(--soft); display: block; margin-top: 2px; font-style: italic; }
 
-  .result-card { background: var(--warm-white); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; box-shadow: 0 2px 20px rgba(61,43,31,0.06); border: 1px solid rgba(196,168,152,0.2); animation: fadeUp 0.35s ease; }
+  /* ── Result ── */
+  .result-card {
+    background: var(--warm-white); border-radius: 20px; padding: 24px 20px;
+    margin-bottom: 16px; box-shadow: 0 2px 20px rgba(61,43,31,0.06);
+    border: 1px solid rgba(196,168,152,0.2);
+    animation: fadeUp 0.35s ease;
+  }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
   .result-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 16px; }
-  .result-block { background: var(--cream); border-radius: 14px; padding: 14px 8px; text-align: center; border: 1.5px solid transparent; }
+
+  .result-block {
+    background: var(--cream); border-radius: 14px;
+    padding: 14px 8px; text-align: center;
+    border: 1.5px solid transparent;
+  }
   .result-block.main { background: var(--sage-bg); border-color: var(--sage-border); }
 
   .r-label { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 6px; }
@@ -66,29 +175,70 @@
   .r-unit { font-size: 10px; color: var(--soft); font-family: 'DM Sans', sans-serif; }
   .r-range { font-size: 10px; color: var(--soft); display: block; margin-top: 3px; }
 
-  .max-note { background: #fdf0e0; border: 1px solid #f0cc8a; border-radius: 10px; padding: 10px 14px; font-size: 12px; color: #8a6020; line-height: 1.5; margin-bottom: 12px; display: none; }
+  /* Max note */
+  .max-note {
+    background: #fdf0e0; border: 1px solid #f0cc8a;
+    border-radius: 10px; padding: 10px 14px;
+    font-size: 12px; color: #8a6020; line-height: 1.5;
+    margin-bottom: 12px; display: none;
+  }
   .max-note.visible { display: block; }
 
-  .context-note { background: var(--cream); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: var(--mid); line-height: 1.6; border: 1px solid rgba(196,168,152,0.2); }
+  /* Context note */
+  .context-note {
+    background: var(--cream); border-radius: 12px;
+    padding: 12px 14px; font-size: 12px; color: var(--mid);
+    line-height: 1.6; border: 1px solid rgba(196,168,152,0.2);
+  }
   .context-note strong { color: var(--deep); font-weight: 500; }
 
-  .solid-badge { display: none; align-items: center; gap: 8px; background: #f0f7ee; border: 1px solid #b8ddb0; border-radius: 12px; padding: 10px 14px; font-size: 12px; color: var(--sage); margin-bottom: 12px; }
+  /* Solid food badge */
+  .solid-badge {
+    display: none; align-items: center; gap: 8px;
+    background: #f0f7ee; border: 1px solid #b8ddb0;
+    border-radius: 12px; padding: 10px 14px;
+    font-size: 12px; color: var(--sage); margin-bottom: 12px;
+  }
   .solid-badge.visible { display: flex; }
 
   .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 24px; padding: 0 8px; }
 
-  /* ── Desktop responsive ── */
-  @media (min-width: 768px) {
-    .container { max-width: 920px; padding: 48px 40px 80px; }
-    .page-grid {
-      display: grid;
-      grid-template-columns: 370px 1fr;
-      gap: 28px;
-      align-items: start;
-    }
-    .right-col { position: sticky; top: 28px; }
-    .right-col .result-card { margin-bottom: 0; }
+  /* ── SEO content section ── */
+  .seo-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(196,168,152,0.25); }
+
+  .seo-section h2 {
+    font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px;
+    color: var(--deep); margin-bottom: 12px; line-height: 1.3;
   }
+  .seo-section h3 {
+    font-family: 'Fraunces', serif; font-weight: 400; font-size: 17px;
+    color: var(--deep); margin-bottom: 8px; margin-top: 24px; line-height: 1.3;
+  }
+  .seo-section p {
+    font-size: 14px; color: var(--mid); line-height: 1.7;
+    margin-bottom: 14px; font-weight: 300; text-align: justify;
+  }
+  .seo-section strong { color: var(--deep); font-weight: 500; }
+
+  .seo-table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+  .seo-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .seo-table thead th {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--soft); padding: 8px 10px; text-align: left;
+    border-bottom: 1px solid rgba(196,168,152,0.3); background: var(--warm-white);
+  }
+  .seo-table tbody td {
+    padding: 8px 10px; font-size: 13px; color: var(--mid);
+    border-bottom: 1px solid rgba(196,168,152,0.12); vertical-align: top;
+  }
+  .seo-table tbody td:first-child { font-weight: 500; color: var(--deep); white-space: nowrap; }
+  .seo-table tbody tr:last-child td { border-bottom: none; }
+
+  .faq-item { margin-bottom: 20px; }
+  .faq-item h3 { margin-top: 0; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--terracota); }
 </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
@@ -107,13 +257,13 @@
 
 <div class="container">
 
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
   <header>
     <span class="badge">Alimentación</span>
     <h1>¿Cuánta leche<br>necesita <em>ahora</em>?</h1>
     <p class="subtitle">Calcula los ml por toma, el número de tomas y el intervalo según la edad y el peso de tu bebé.</p>
   </header>
-
-<div class="page-grid"><div class="left-col">
 
   <!-- Tipo de leche -->
   <div class="card">
@@ -132,6 +282,7 @@
   <div class="card">
     <div class="section-label">Edad y peso</div>
     <div class="selectors-row">
+
       <div class="hold-sel-wrap">
         <span class="hold-sel-title">Edad</span>
         <div class="hold-sel">
@@ -144,6 +295,7 @@
           <button class="hold-btn" id="age-plus" data-dir="1">+</button>
         </div>
       </div>
+
       <div class="hold-sel-wrap">
         <span class="hold-sel-title">Peso</span>
         <div class="hold-sel">
@@ -155,12 +307,11 @@
           <button class="hold-btn" id="kg-plus" data-dir="1">+</button>
         </div>
       </div>
+
     </div>
   </div>
 
-</div><div class="right-col">
-
-  <!-- Result (always visible, updates live) -->
+  <!-- Result -->
   <div class="result-card" id="result-card">
     <div class="section-label">Recomendación orientativa</div>
 
@@ -191,106 +342,299 @@
     <div class="context-note" id="context-note"></div>
   </div>
 
-</div></div>
-
   <p class="disclaimer">
     Basado en recomendaciones de la AAP y ESPGHAN (150 ml/kg/día como referencia).<br>
     Cada bebé es diferente. Consulta siempre con tu pediatra.
   </p>
 
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECCIÓN SEO — texto indexable por Google
+       ══════════════════════════════════════════════════════════ -->
+  <div class="seo-section">
+
+    <h2>¿Cómo calcular cuánta leche necesita tu bebé?</h2>
+
+    <p>
+      La referencia estándar que usan pediatras y neonatólogos es de <strong>150 ml por kg de peso al día</strong>
+      durante los primeros tres meses de vida. A partir del tercer mes, la cifra va bajando progresivamente
+      hasta los 90-100 ml/kg/día conforme el bebé crece y su ritmo de crecimiento se estabiliza.
+    </p>
+    <p>
+      Esta calculadora aplica esa fórmula automáticamente según la edad y el peso que introduces,
+      y reparte el total diario entre el número de tomas habitual para cada etapa. El resultado
+      es la cantidad aproximada de <strong>leche de fórmula o leche materna extraída</strong> por toma.
+    </p>
+    <p>
+      Hay un tope máximo de <strong>900 ml al día</strong> a partir de los 3 meses: aunque el cálculo
+      por kg pudiera dar más en bebés grandes, superar esa cantidad de forma habitual no aporta
+      beneficios nutricionales adicionales.
+    </p>
+
+    <h2>Tabla de referencia: ml por toma según la edad</h2>
+
+    <p>
+      Esta tabla muestra los rangos orientativos para un bebé de peso medio. Usa la calculadora
+      de arriba para ajustar los valores al peso real de tu bebé.
+    </p>
+
+    <div class="seo-table-wrap">
+      <table class="seo-table">
+        <thead>
+          <tr>
+            <th>Edad</th>
+            <th>Tomas/día</th>
+            <th>Cada</th>
+            <th>ml/toma (aprox.)</th>
+            <th>Total día (aprox.)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Recién nacido</td>
+            <td>8–10</td>
+            <td>2–3 h</td>
+            <td>40–60 ml</td>
+            <td>400–600 ml</td>
+          </tr>
+          <tr>
+            <td>1 mes</td>
+            <td>7–9</td>
+            <td>3 h</td>
+            <td>70–90 ml</td>
+            <td>550–750 ml</td>
+          </tr>
+          <tr>
+            <td>2 meses</td>
+            <td>6–8</td>
+            <td>3–4 h</td>
+            <td>90–120 ml</td>
+            <td>650–800 ml</td>
+          </tr>
+          <tr>
+            <td>3 meses</td>
+            <td>5–7</td>
+            <td>3–4 h</td>
+            <td>120–150 ml</td>
+            <td>700–850 ml</td>
+          </tr>
+          <tr>
+            <td>4–5 meses</td>
+            <td>5–6</td>
+            <td>4 h</td>
+            <td>150–180 ml</td>
+            <td>750–900 ml</td>
+          </tr>
+          <tr>
+            <td>6 meses</td>
+            <td>4–5</td>
+            <td>4–5 h</td>
+            <td>160–200 ml</td>
+            <td>700–900 ml</td>
+          </tr>
+          <tr>
+            <td>7–9 meses</td>
+            <td>3–4</td>
+            <td>5 h</td>
+            <td>180–220 ml</td>
+            <td>600–800 ml</td>
+          </tr>
+          <tr>
+            <td>10–12 meses</td>
+            <td>2–3</td>
+            <td>5–8 h</td>
+            <td>200–240 ml</td>
+            <td>500–700 ml</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Leche de fórmula vs. leche materna extraída: ¿cambian los ml?</h2>
+
+    <p>
+      Las cantidades de referencia son muy similares en ambos casos. La diferencia principal es que
+      <strong>la lactancia materna directa al pecho funciona a demanda</strong> y no se puede medir
+      en mililitros: el bebé regula cuánto toma en cada succión. En cambio, cuando se usa leche
+      materna extraída en biberón, sí tiene sentido hablar de ml por toma, y los valores son
+      prácticamente idénticos a los de la fórmula.
+    </p>
+    <p>
+      Si tu bebé toma el pecho directamente, la señal más fiable de que está comiendo suficiente
+      no es el tiempo de cada toma sino <strong>la ganancia de peso en las revisiones del pediatra</strong>
+      y que moje 6 o más pañales al día.
+    </p>
+
+    <h2>Preguntas frecuentes sobre las tomas de leche</h2>
+
+    <div class="faq-item">
+      <h3>¿Y si mi bebé no termina el biberón?</h3>
+      <p>
+        Normal, especialmente los primeros meses. Los valores de esta calculadora son medias
+        orientativas: algunos bebés comen más en unas tomas y menos en otras. Lo que importa
+        es la ingesta total del día, no que cada toma sea exacta. <strong>Nunca fuerces al bebé
+        a terminar el biberón</strong> — aprende a reconocer sus señales de saciedad desde el principio.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿Cuándo espaciar las tomas nocturnas?</h3>
+      <p>
+        No hay una edad fija. Muchos bebés empiezan a hacer un tramo nocturno más largo
+        (5-6 horas) de forma espontánea entre las 6 y las 12 semanas. Si el bebé gana peso
+        correctamente y el pediatra lo confirma, no hace falta despertarlo para comer por la noche.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿A partir de qué mes se pueden espaciar las tomas a 4 horas?</h3>
+      <p>
+        Generalmente a partir de los 2-3 meses, cuando el estómago ya tiene mayor capacidad y
+        el bebé tolera tomas más grandes. La mayoría pasa de tomas cada 3 horas a tomas cada
+        3-4 horas de forma natural durante este período.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿Qué pasa con los ml cuando se introducen los sólidos a los 6 meses?</h3>
+      <p>
+        La leche sigue siendo el alimento principal hasta los 12 meses, pero la cantidad total
+        diaria puede ir reduciéndose de forma gradual conforme los purés y papillas van ocupando
+        más espacio en la dieta. El mínimo recomendado es de <strong>500 ml al día</strong> entre
+        biberones y otros lácteos (yogur, queso) hasta el año de vida.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿Esta calculadora sirve también para bebés prematuros?</h3>
+      <p>
+        No directamente. Los bebés prematuros tienen necesidades calóricas y de volumen distintas
+        que dependen de su edad gestacional corregida y de su situación clínica. Para prematuros
+        las cantidades siempre deben ser indicadas y supervisadas por el neonatólogo o pediatra.
+      </p>
+    </div>
+
+  </div>
+  <!-- fin seo-section -->
+
 </div>
 
 <script>
+// ── Reference data by age ─────────────────────────────────────────
 const FORMULA_DATA = [
-  { monthLabel:'0',  display:'Recién nacido', mlPerKgDay:150, feedsMin:8,  feedsMax:10, intervalH:'2 – 3', maxDailyMl:700,  note:'Los primeros días el estómago es muy pequeño (~30 ml). Ofrece el biberón a demanda cada 2-3 horas y no lo fuerces a terminar.' },
-  { monthLabel:'1',  display:'1 mes',         mlPerKgDay:150, feedsMin:7,  feedsMax:9,  intervalH:'3',     maxDailyMl:850,  note:'A esta edad ya empieza a regular mejor. Puedes ir espaciando alguna toma nocturna si el bebé lo permite.' },
-  { monthLabel:'2',  display:'2 meses',        mlPerKgDay:150, feedsMin:6,  feedsMax:8,  intervalH:'3 – 4', maxDailyMl:900,  note:'El patrón de alimentación se vuelve más predecible. Esperable que haga una pausa nocturna algo más larga.' },
-  { monthLabel:'3',  display:'3 meses',        mlPerKgDay:120, feedsMin:5,  feedsMax:7,  intervalH:'3 – 4', maxDailyMl:900,  note:'A partir de los 3 meses la necesidad por kg baja. Menos tomas pero más cantidad por toma.' },
-  { monthLabel:'4',  display:'4 meses',        mlPerKgDay:120, feedsMin:5,  feedsMax:6,  intervalH:'4',     maxDailyMl:900,  note:'Muchos bebés ya hacen 5 tomas diarias con pausa nocturna de 6-8 horas.' },
-  { monthLabel:'5',  display:'5 meses',        mlPerKgDay:120, feedsMin:5,  feedsMax:6,  intervalH:'4',     maxDailyMl:900,  note:'Consulta con tu pediatra si ya es momento de ir preparando la introducción de sólidos.' },
-  { monthLabel:'6',  display:'6 meses',        mlPerKgDay:100, feedsMin:4,  feedsMax:5,  intervalH:'4 – 5', maxDailyMl:900,  note:'Mes clave: se recomienda empezar con alimentación complementaria. La leche sigue siendo el alimento principal pero ya no el único.' },
-  { monthLabel:'7',  display:'7 meses',        mlPerKgDay:100, feedsMin:4,  feedsMax:5,  intervalH:'4 – 5', maxDailyMl:900,  note:'Los purés y papillas empiezan a complementar la leche. La cantidad de leche puede ir bajando progresivamente.' },
-  { monthLabel:'8',  display:'8 meses',        mlPerKgDay:100, feedsMin:3,  feedsMax:4,  intervalH:'5',     maxDailyMl:900,  note:'El bebé ya toma sólidos con más regularidad. El mínimo de leche recomendado es de 500 ml/día.' },
-  { monthLabel:'9',  display:'9 meses',        mlPerKgDay:90,  feedsMin:3,  feedsMax:4,  intervalH:'5',     maxDailyMl:900,  note:'Mínimo 500 ml/día de leche. Puedes repartirlo en biberones y/o lácteos como yogur o queso fresco.' },
-  { monthLabel:'10', display:'10 meses',       mlPerKgDay:90,  feedsMin:3,  feedsMax:4,  intervalH:'5 – 6', maxDailyMl:900,  note:'La dieta se diversifica. Mantén al menos 500 ml de leche al día en total entre biberones y otros lácteos.' },
-  { monthLabel:'11', display:'11 meses',       mlPerKgDay:90,  feedsMin:3,  feedsMax:3,  intervalH:'5 – 6', maxDailyMl:900,  note:'Casi en el primer año. Sigue con fórmula de continuación hasta los 12 meses, luego consulta con el pediatra el siguiente paso.' },
-  { monthLabel:'12', display:'12 meses',       mlPerKgDay:90,  feedsMin:2,  feedsMax:3,  intervalH:'6 – 8', maxDailyMl:900,  note:'Primer cumpleaños 🎂. A partir de ahora el pediatra indicará si continuar con leche de crecimiento. Mínimo 500 ml/día de lácteos en total.' },
+  { monthLabel: '0',  display: 'Recién nacido', mlPerKgDay: 150, feedsMin: 8,  feedsMax: 10, intervalH: '2 – 3', maxDailyMl: 700,  note: 'Los primeros días el estómago es muy pequeño (~30 ml). Ofrece el biberón a demanda cada 2-3 horas y no lo fuerces a terminar.' },
+  { monthLabel: '1',  display: '1 mes',         mlPerKgDay: 150, feedsMin: 7,  feedsMax: 9,  intervalH: '3',     maxDailyMl: 850,  note: 'A esta edad ya empieza a regular mejor. Puedes ir espaciando alguna toma nocturna si el bebé lo permite.' },
+  { monthLabel: '2',  display: '2 meses',        mlPerKgDay: 150, feedsMin: 6,  feedsMax: 8,  intervalH: '3 – 4', maxDailyMl: 900,  note: 'El patrón de alimentación se vuelve más predecible. Esperable que haga una pausa nocturna algo más larga.' },
+  { monthLabel: '3',  display: '3 meses',        mlPerKgDay: 120, feedsMin: 5,  feedsMax: 7,  intervalH: '3 – 4', maxDailyMl: 900,  note: 'A partir de los 3 meses la necesidad por kg baja. Menos tomas pero más cantidad por toma.' },
+  { monthLabel: '4',  display: '4 meses',        mlPerKgDay: 120, feedsMin: 5,  feedsMax: 6,  intervalH: '4',     maxDailyMl: 900,  note: 'Muchos bebés ya hacen 5 tomas diarias con pausa nocturna de 6-8 horas.' },
+  { monthLabel: '5',  display: '5 meses',        mlPerKgDay: 120, feedsMin: 5,  feedsMax: 6,  intervalH: '4',     maxDailyMl: 900,  note: 'Consulta con tu pediatra si ya es momento de ir preparando la introducción de sólidos.' },
+  { monthLabel: '6',  display: '6 meses',        mlPerKgDay: 100, feedsMin: 4,  feedsMax: 5,  intervalH: '4 – 5', maxDailyMl: 900,  note: 'Mes clave: se recomienda empezar con alimentación complementaria. La leche sigue siendo el alimento principal pero ya no el único.' },
+  { monthLabel: '7',  display: '7 meses',        mlPerKgDay: 100, feedsMin: 4,  feedsMax: 5,  intervalH: '4 – 5', maxDailyMl: 900,  note: 'Los purés y papillas empiezan a complementar la leche. La cantidad de leche puede ir bajando progresivamente.' },
+  { monthLabel: '8',  display: '8 meses',        mlPerKgDay: 100, feedsMin: 3,  feedsMax: 4,  intervalH: '5',     maxDailyMl: 900,  note: 'El bebé ya toma sólidos con más regularidad. El mínimo de leche recomendado es de 500 ml/día.' },
+  { monthLabel: '9',  display: '9 meses',        mlPerKgDay: 90,  feedsMin: 3,  feedsMax: 4,  intervalH: '5',     maxDailyMl: 900,  note: 'Mínimo 500 ml/día de leche. Puedes repartirlo en biberones y/o lácteos como yogur o queso fresco.' },
+  { monthLabel: '10', display: '10 meses',       mlPerKgDay: 90,  feedsMin: 3,  feedsMax: 4,  intervalH: '5 – 6', maxDailyMl: 900,  note: 'La dieta se diversifica. Mantén al menos 500 ml de leche al día en total entre biberones y otros lácteos.' },
+  { monthLabel: '11', display: '11 meses',       mlPerKgDay: 90,  feedsMin: 3,  feedsMax: 3,  intervalH: '5 – 6', maxDailyMl: 900,  note: 'Casi en el primer año. Sigue con fórmula de continuación hasta los 12 meses, luego consulta con el pediatra el siguiente paso.' },
+  { monthLabel: '12', display: '12 meses',       mlPerKgDay: 90,  feedsMin: 2,  feedsMax: 3,  intervalH: '6 – 8', maxDailyMl: 900,  note: 'Primer cumpleaños 🎂. A partir de ahora el pediatra indicará si continuar con leche de crecimiento. Mínimo 500 ml/día de lácteos en total.' },
 ];
 
 const MATERNA_DATA = [
-  { monthLabel:'0',  display:'Recién nacido', mlPerKgDay:150, feedsMin:8,  feedsMax:12, intervalH:'2 – 3', maxDailyMl:800,  note:'La lactancia materna directa es a demanda. Estos valores aplican si usas leche extraída. La producción se regula según la frecuencia de succión.' },
-  { monthLabel:'1',  display:'1 mes',         mlPerKgDay:150, feedsMin:8,  feedsMax:10, intervalH:'2 – 3', maxDailyMl:850,  note:'Los bebés amamantados suelen pedir con más frecuencia que los de fórmula. Es normal y no significa que no tengas suficiente leche.' },
-  { monthLabel:'2',  display:'2 meses',        mlPerKgDay:150, feedsMin:7,  feedsMax:9,  intervalH:'2 – 3', maxDailyMl:900,  note:'La lactancia materna directa sigue siendo a demanda. Estos ml son orientativos para leche extraída en biberón.' },
-  { monthLabel:'3',  display:'3 meses',        mlPerKgDay:120, feedsMin:6,  feedsMax:8,  intervalH:'3',     maxDailyMl:900,  note:'A partir de los 3 meses el bebé mama de forma más eficiente y puede vaciarte el pecho en menos tiempo. Es normal.' },
-  { monthLabel:'4',  display:'4 meses',        mlPerKgDay:120, feedsMin:5,  feedsMax:7,  intervalH:'3 – 4', maxDailyMl:900,  note:'Algunos bebés hacen una regresión del sueño a los 4 meses y piden más tomas. Es una fase pasajera.' },
-  { monthLabel:'5',  display:'5 meses',        mlPerKgDay:120, feedsMin:5,  feedsMax:6,  intervalH:'3 – 4', maxDailyMl:900,  note:'La OMS recomienda lactancia materna exclusiva hasta los 6 meses. Consulta con tu matrona o pediatra ante cualquier duda.' },
-  { monthLabel:'6',  display:'6 meses',        mlPerKgDay:100, feedsMin:4,  feedsMax:5,  intervalH:'4',     maxDailyMl:900,  note:'Inicio de la alimentación complementaria. La leche materna sigue siendo muy importante y puede mantenerse junto con los sólidos.' },
-  { monthLabel:'7',  display:'7 meses',        mlPerKgDay:100, feedsMin:4,  feedsMax:5,  intervalH:'4 – 5', maxDailyMl:900,  note:'Con BLW o purés, la leche se complementa con sólidos. El bebé ajusta la demanda solo.' },
-  { monthLabel:'8',  display:'8 meses',        mlPerKgDay:100, feedsMin:3,  feedsMax:4,  intervalH:'4 – 5', maxDailyMl:900,  note:'La OMS recomienda mantener la lactancia materna hasta los 2 años si madre y bebé lo desean.' },
-  { monthLabel:'9',  display:'9 meses',        mlPerKgDay:90,  feedsMin:3,  feedsMax:4,  intervalH:'5',     maxDailyMl:900,  note:'Mínimo 500 ml/día de leche en total (pecho + extraída + otros lácteos).' },
-  { monthLabel:'10', display:'10 meses',       mlPerKgDay:90,  feedsMin:3,  feedsMax:4,  intervalH:'5',     maxDailyMl:900,  note:'La lactancia materna puede mantenerse todo el tiempo que quieras. No hay prisa en destetar.' },
-  { monthLabel:'11', display:'11 meses',       mlPerKgDay:90,  feedsMin:2,  feedsMax:3,  intervalH:'5 – 6', maxDailyMl:900,  note:'Casi en el primer año. La leche materna sigue aportando anticuerpos y nutrientes importantes.' },
-  { monthLabel:'12', display:'12 meses',       mlPerKgDay:90,  feedsMin:2,  feedsMax:3,  intervalH:'6 – 8', maxDailyMl:900,  note:'¡Primer año! La OMS recomienda continuar con lactancia materna hasta los 2 años junto con alimentación variada.' },
+  { monthLabel: '0',  display: 'Recién nacido', mlPerKgDay: 150, feedsMin: 8,  feedsMax: 12, intervalH: '2 – 3', maxDailyMl: 800,  note: 'La lactancia materna directa es a demanda. Estos valores aplican si usas leche extraída. La producción se regula según la frecuencia de succión.' },
+  { monthLabel: '1',  display: '1 mes',         mlPerKgDay: 150, feedsMin: 8,  feedsMax: 10, intervalH: '2 – 3', maxDailyMl: 850,  note: 'Los bebés amamantados suelen pedir con más frecuencia que los de fórmula. Es normal y no significa que no tengas suficiente leche.' },
+  { monthLabel: '2',  display: '2 meses',        mlPerKgDay: 150, feedsMin: 7,  feedsMax: 9,  intervalH: '2 – 3', maxDailyMl: 900,  note: 'La lactancia materna directa sigue siendo a demanda. Estos ml son orientativos para leche extraída en biberón.' },
+  { monthLabel: '3',  display: '3 meses',        mlPerKgDay: 120, feedsMin: 6,  feedsMax: 8,  intervalH: '3',     maxDailyMl: 900,  note: 'A partir de los 3 meses el bebé mama de forma más eficiente y puede vaciarte el pecho en menos tiempo. Es normal.' },
+  { monthLabel: '4',  display: '4 meses',        mlPerKgDay: 120, feedsMin: 5,  feedsMax: 7,  intervalH: '3 – 4', maxDailyMl: 900,  note: 'Algunos bebés hacen una regresión del sueño a los 4 meses y piden más tomas. Es una fase pasajera.' },
+  { monthLabel: '5',  display: '5 meses',        mlPerKgDay: 120, feedsMin: 5,  feedsMax: 6,  intervalH: '3 – 4', maxDailyMl: 900,  note: 'La OMS recomienda lactancia materna exclusiva hasta los 6 meses. Consulta con tu matrona o pediatra ante cualquier duda.' },
+  { monthLabel: '6',  display: '6 meses',        mlPerKgDay: 100, feedsMin: 4,  feedsMax: 5,  intervalH: '4',     maxDailyMl: 900,  note: 'Inicio de la alimentación complementaria. La leche materna sigue siendo muy importante y puede mantenerse junto con los sólidos.' },
+  { monthLabel: '7',  display: '7 meses',        mlPerKgDay: 100, feedsMin: 4,  feedsMax: 5,  intervalH: '4 – 5', maxDailyMl: 900,  note: 'Con BLW o purés, la leche se complementa con sólidos. El bebé ajusta la demanda solo.' },
+  { monthLabel: '8',  display: '8 meses',        mlPerKgDay: 100, feedsMin: 3,  feedsMax: 4,  intervalH: '4 – 5', maxDailyMl: 900,  note: 'La OMS recomienda mantener la lactancia materna hasta los 2 años si madre y bebé lo desean.' },
+  { monthLabel: '9',  display: '9 meses',        mlPerKgDay: 90,  feedsMin: 3,  feedsMax: 4,  intervalH: '5',     maxDailyMl: 900,  note: 'Mínimo 500 ml/día de leche en total (pecho + extraída + otros lácteos).' },
+  { monthLabel: '10', display: '10 meses',       mlPerKgDay: 90,  feedsMin: 3,  feedsMax: 4,  intervalH: '5',     maxDailyMl: 900,  note: 'La lactancia materna puede mantenerse todo el tiempo que quieras. No hay prisa en destetar.' },
+  { monthLabel: '11', display: '11 meses',       mlPerKgDay: 90,  feedsMin: 2,  feedsMax: 3,  intervalH: '5 – 6', maxDailyMl: 900,  note: 'Casi en el primer año. La leche materna sigue aportando anticuerpos y nutrientes importantes.' },
+  { monthLabel: '12', display: '12 meses',       mlPerKgDay: 90,  feedsMin: 2,  feedsMax: 3,  intervalH: '6 – 8', maxDailyMl: 900,  note: '¡Primer año! La OMS recomienda continuar con lactancia materna hasta los 2 años junto con alimentación variada.' },
 ];
 
+// ── State ─────────────────────────────────────────────────────────
 const AGE_VALUES = [0,1,2,3,4,5,6,7,8,9,10,11,12];
-const KG_VALUES = [];
-for (let v=2.0; v<=14.0+1e-9; v=Math.round((v+0.1)*10)/10) KG_VALUES.push(parseFloat(v.toFixed(1)));
+const KG_VALUES  = [];
+for (let v = 2.0; v <= 14.0 + 1e-9; v = Math.round((v + 0.1)*10)/10) KG_VALUES.push(parseFloat(v.toFixed(1)));
 
-let ageIdx=AGE_VALUES.indexOf(1), kgIdx=KG_VALUES.indexOf(4.0), milkType='formula';
+let ageIdx  = AGE_VALUES.indexOf(1);
+let kgIdx   = KG_VALUES.indexOf(4.0);
+let milkType = 'formula';
 
+// ── Hold-repeat engine ────────────────────────────────────────────
 function makeHoldBtn(el, onStep) {
-  let holdTimer=null, repeatTimer=null, step=0;
-  function fire(){ onStep(parseInt(el.dataset.dir)); }
-  function startHold(){ fire(); step=1; holdTimer=setTimeout(()=>{ repeatTimer=setInterval(()=>{ fire(); step++; if(step===10){clearInterval(repeatTimer);repeatTimer=setInterval(fire,60);} },150); },350); }
-  function stopHold(){ clearTimeout(holdTimer); clearInterval(repeatTimer); holdTimer=repeatTimer=null; step=0; el.classList.remove('pressing'); }
-  el.addEventListener('touchstart',e=>{ e.preventDefault(); el.classList.add('pressing'); startHold(); },{passive:false});
-  el.addEventListener('touchend',   stopHold,{passive:true});
-  el.addEventListener('touchcancel',stopHold,{passive:true});
-  el.addEventListener('mousedown',()=>{ el.classList.add('pressing'); startHold(); });
+  let holdTimer = null, repeatTimer = null, step = 0;
+  function fire() { onStep(parseInt(el.dataset.dir)); }
+  function startHold() {
+    fire(); step = 1;
+    holdTimer = setTimeout(() => {
+      repeatTimer = setInterval(() => {
+        fire(); step++;
+        if (step === 10) { clearInterval(repeatTimer); repeatTimer = setInterval(fire, 60); }
+      }, 150);
+    }, 350);
+  }
+  function stopHold() {
+    clearTimeout(holdTimer); clearInterval(repeatTimer);
+    holdTimer = repeatTimer = null; step = 0;
+    el.classList.remove('pressing');
+  }
+  el.addEventListener('touchstart', e => { e.preventDefault(); el.classList.add('pressing'); startHold(); }, { passive: false });
+  el.addEventListener('touchend',    stopHold, { passive: true });
+  el.addEventListener('touchcancel', stopHold, { passive: true });
+  el.addEventListener('mousedown', () => { el.classList.add('pressing'); startHold(); });
   el.addEventListener('mouseup',   stopHold);
   el.addEventListener('mouseleave',stopHold);
 }
 
-makeHoldBtn(document.getElementById('age-minus'), dir=>{ ageIdx=Math.max(0,Math.min(AGE_VALUES.length-1,ageIdx+dir)); render(); });
-makeHoldBtn(document.getElementById('age-plus'),  dir=>{ ageIdx=Math.max(0,Math.min(AGE_VALUES.length-1,ageIdx+dir)); render(); });
-makeHoldBtn(document.getElementById('kg-minus'),  dir=>{ kgIdx=Math.max(0,Math.min(KG_VALUES.length-1,kgIdx+dir));   render(); });
-makeHoldBtn(document.getElementById('kg-plus'),   dir=>{ kgIdx=Math.max(0,Math.min(KG_VALUES.length-1,kgIdx+dir));   render(); });
+makeHoldBtn(document.getElementById('age-minus'), dir => { ageIdx = Math.max(0, Math.min(AGE_VALUES.length-1, ageIdx+dir)); render(); });
+makeHoldBtn(document.getElementById('age-plus'),  dir => { ageIdx = Math.max(0, Math.min(AGE_VALUES.length-1, ageIdx+dir)); render(); });
+makeHoldBtn(document.getElementById('kg-minus'),  dir => { kgIdx  = Math.max(0, Math.min(KG_VALUES.length-1,  kgIdx+dir));  render(); });
+makeHoldBtn(document.getElementById('kg-plus'),   dir => { kgIdx  = Math.max(0, Math.min(KG_VALUES.length-1,  kgIdx+dir));  render(); });
 
 function setType(type) {
-  milkType=type;
-  document.getElementById('btn-formula').classList.toggle('active',type==='formula');
-  document.getElementById('btn-materna').classList.toggle('active',type==='materna');
+  milkType = type;
+  document.getElementById('btn-formula').classList.toggle('active', type === 'formula');
+  document.getElementById('btn-materna').classList.toggle('active', type === 'materna');
   render();
 }
 
+// ── Render ────────────────────────────────────────────────────────
 function render() {
-  const age=AGE_VALUES[ageIdx], kg=KG_VALUES[kgIdx];
-  const data=milkType==='formula'?FORMULA_DATA:MATERNA_DATA;
-  const row=data[age];
-  document.getElementById('age-val').textContent=age===0?'0':age;
-  document.getElementById('age-sub').textContent=age===0?'recién nacido':row.display;
-  document.getElementById('kg-val').textContent=kg.toFixed(1);
+  const age = AGE_VALUES[ageIdx];
+  const kg  = KG_VALUES[kgIdx];
+  const data = milkType === 'formula' ? FORMULA_DATA : MATERNA_DATA;
+  const row = data[age];
 
-  const totalDay=Math.min(kg*row.mlPerKgDay,row.maxDailyMl);
-  const feedsMid=(row.feedsMin+row.feedsMax)/2;
-  const mlPerFeedMid=Math.round(totalDay/feedsMid/5)*5;
-  const mlPerFeedMin=Math.round(totalDay/row.feedsMax/5)*5;
-  const mlPerFeedMax=Math.round(totalDay/row.feedsMin/5)*5;
+  document.getElementById('age-val').textContent = age === 0 ? '0' : age;
+  document.getElementById('age-sub').textContent = age === 0 ? 'recién nacido' : row.display;
+  document.getElementById('kg-val').textContent = kg.toFixed(1);
 
-  document.getElementById('r-ml-toma').textContent=mlPerFeedMid;
-  document.getElementById('r-ml-range').textContent=`${mlPerFeedMin} – ${mlPerFeedMax} ml`;
-  document.getElementById('r-tomas').textContent=row.feedsMin===row.feedsMax?`${row.feedsMin}`:`${row.feedsMin}–${row.feedsMax}`;
-  document.getElementById('r-tomas-range').textContent='al día';
-  document.getElementById('r-interval').textContent=row.intervalH;
+  const totalDay  = Math.min(kg * row.mlPerKgDay, row.maxDailyMl);
+  const feedsMid  = (row.feedsMin + row.feedsMax) / 2;
+  const mlPerFeedMid = Math.round(totalDay / feedsMid / 5) * 5;
+  const mlPerFeedMin = Math.round(totalDay / row.feedsMax / 5) * 5;
+  const mlPerFeedMax = Math.round(totalDay / row.feedsMin / 5) * 5;
 
-  const maxNote=document.getElementById('max-note');
-  const capped=kg*row.mlPerKgDay>row.maxDailyMl;
-  if(capped){ maxNote.textContent=`⚠️ Para este peso el cálculo superaría los ${row.maxDailyMl} ml/día, que es el máximo recomendado. Se ha limitado a ese valor.`; maxNote.classList.add('visible'); }
-  else maxNote.classList.remove('visible');
+  document.getElementById('r-ml-toma').textContent  = mlPerFeedMid;
+  document.getElementById('r-ml-range').textContent = `${mlPerFeedMin} – ${mlPerFeedMax} ml`;
 
-  document.getElementById('solid-badge').classList.toggle('visible',age>=6);
-  document.getElementById('context-note').innerHTML=`<strong>Ten en cuenta:</strong> ${row.note}`;
+  document.getElementById('r-tomas').textContent       = row.feedsMin === row.feedsMax ? `${row.feedsMin}` : `${row.feedsMin}–${row.feedsMax}`;
+  document.getElementById('r-tomas-range').textContent = 'al día';
+  document.getElementById('r-interval').textContent = row.intervalH;
+
+  const maxNote = document.getElementById('max-note');
+  const cappedByMax = kg * row.mlPerKgDay > row.maxDailyMl;
+  if (cappedByMax) {
+    maxNote.textContent = `⚠️ Para este peso el cálculo superaría los ${row.maxDailyMl} ml/día, que es el máximo recomendado. Se ha limitado a ese valor.`;
+    maxNote.classList.add('visible');
+  } else {
+    maxNote.classList.remove('visible');
+  }
+
+  document.getElementById('solid-badge').classList.toggle('visible', age >= 6);
+  document.getElementById('context-note').innerHTML = `<strong>Ten en cuenta:</strong> ${row.note}`;
 }
 
 render();

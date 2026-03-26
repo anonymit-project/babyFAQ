@@ -6,10 +6,68 @@
 <meta property="og:title" content="Tallas de ropa bebé · Conversor ES FR US UK · babyFAQ">
 <meta property="og:description" content="Convierte tallas de ropa de bebé entre sistemas español, francés, americano y británico. Busca por edad, altura o peso.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://babyfaq.es/tallas-ropa.html">
 <meta name="theme-color" content="#fdf6ee">
+<link rel="canonical" href="https://babyfaq.es/tallas-ropa.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Conversor tallas de ropa bebé ES FR US UK",
+  "description": "Convierte tallas de ropa de bebé entre los sistemas español, francés, americano y británico. Busca por edad, altura o peso del bebé.",
+  "url": "https://babyfaq.es/tallas-ropa.html",
+  "applicationCategory": "LifestyleApplication",
+  "inLanguage": "es-ES",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "publisher": { "@type": "Organization", "name": "babyFAQ", "url": "https://babyfaq.es" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué talla de ropa tiene un bebé de 6 meses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un bebé de 6 meses suele usar la talla 3-6m en el sistema español y británico, la talla 68 en el sistema francés (basado en la altura en cm), y la talla 3-6m en el sistema americano. Estas tallas corresponden aproximadamente a una altura de 60-67 cm y un peso de 5,5 a 7,5 kg. Las marcas pueden variar — Zara y H&M suelen tallar grande, Primark y Mamas & Papas suelen tallar algo más pequeño."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se convierte la talla francesa de ropa de bebé?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El sistema francés de tallas de ropa infantil se basa en la altura del niño en centímetros. Una talla 68 francesa corresponde a un bebé de unos 60-67 cm de altura (aproximadamente 3-6 meses). Una talla 74 corresponde a 67-74 cm (6-9 meses), y así sucesivamente. Es el sistema más intuitivo para comparar marcas porque no depende de la edad sino de la medida real."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué talla comprar si el bebé está entre dos tallas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Siempre la talla más grande. Los bebés crecen muy rápido (especialmente los primeros 6 meses) y es mejor que la ropa le quede algo holgada ahora a que no le entre en dos semanas. También conviene no comprar demasiada ropa de una misma talla — especialmente en las tallas 0-3m y 1-3m, que se quedan pequeñas en pocas semanas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo sé qué talla de Zara, H&M o Primark corresponde a mi bebé?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cada marca tiene su propio patrón y puede haber diferencias de hasta una talla respecto a las equivalencias estándar. Como regla general: Zara y H&M suelen tallar grande (si tu bebé está en el límite, coge la talla más pequeña). Primark y Mamas & Papas suelen tallar más ajustado (coge la talla más grande). Siempre es mejor guiarse por la altura y el peso real del bebé que por la edad indicada en la etiqueta."
+      }
+    }
+  ]
+}
+</script>
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -30,6 +88,9 @@
   .blob-2 { width: 250px; height: 250px; background: #c4d0f7; bottom: -80px; left: -60px; opacity: 0.3; }
 
   .container { position: relative; z-index: 1; max-width: 420px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--terracota); }
 
   header { text-align: center; margin-bottom: 32px; }
   .badge { display: inline-block; background: var(--peach-bg); color: var(--terracota); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
@@ -86,10 +147,8 @@
 
   .table-toggle { width: 100%; background: transparent; border: 1.5px solid rgba(196,152,122,0.35); border-radius: 13px; padding: 11px; font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--mid); cursor: pointer; margin-top: 12px; transition: border-color 0.2s, color 0.2s; }
   .table-toggle:hover { border-color: var(--terracota); color: var(--terracota); }
-
   .full-table { display: none; margin-top: 12px; overflow-x: auto; }
   .full-table.visible { display: block; }
-
   table { width: 100%; border-collapse: collapse; font-size: 12px; }
   thead th { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); padding: 6px 6px; text-align: center; border-bottom: 1px solid rgba(196,152,122,0.25); }
   tbody tr { transition: background 0.12s; cursor: pointer; }
@@ -100,307 +159,192 @@
 
   .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 22px; padding: 0 8px; }
 
-  /* ── Desktop responsive ── */
-  @media (min-width: 768px) {
-    .container { max-width: 920px; padding: 48px 40px 80px; }
-    .page-grid {
-      display: grid;
-      grid-template-columns: 370px 1fr;
-      gap: 28px;
-      align-items: start;
-    }
-    .right-col { position: sticky; top: 28px; }
-    .right-col .result-card { margin-bottom: 0; }
-  }
+  /* SEO */
+  .seo-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(196,152,122,0.25); }
+  .seo-section h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; color: var(--deep); margin-bottom: 12px; line-height: 1.3; }
+  .seo-section h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 17px; color: var(--deep); margin-bottom: 8px; margin-top: 24px; line-height: 1.3; }
+  .seo-section p { font-size: 14px; color: var(--mid); line-height: 1.7; margin-bottom: 14px; font-weight: 300; text-align: justify; }
+  .seo-section strong { color: var(--deep); font-weight: 500; }
+  .faq-item { margin-bottom: 20px; }
+  .faq-item h3 { margin-top: 0; }
+  .seo-table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+  .seo-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .seo-table thead th { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); padding: 8px 10px; text-align: left; border-bottom: 1px solid rgba(196,152,122,0.3); background: var(--warm-white); }
+  .seo-table tbody td { padding: 8px 10px; font-size: 13px; color: var(--mid); border-bottom: 1px solid rgba(196,152,122,0.12); vertical-align: top; }
+  .seo-table tbody td:first-child { font-weight: 500; color: var(--deep); white-space: nowrap; }
+  .seo-table tbody tr:last-child td { border-bottom: none; }
 </style>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag("config", "G-55NR11957W");
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-55NR11957W");</script>
 </head>
 <body>
-
 <div class="noise"></div>
 <div class="blob blob-1"></div>
 <div class="blob blob-2"></div>
 
 <div class="container">
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
   <header>
     <span class="badge">Ropa y tallas</span>
     <h1>¿Qué talla de<br><em>ropa</em> le pongo?</h1>
     <p class="subtitle">Convierte tallas de bebé entre sistemas español, británico, americano y francés al instante.</p>
   </header>
 
-<div class="page-grid"><div class="left-col">
-
-  <!-- Buscar por -->
   <div class="card">
     <div class="section-label">Buscar por</div>
     <div class="toggle-row" style="margin-bottom:14px">
-      <button class="toggle-btn active" id="btn-age"  onclick="setMode('age')">
-        <span class="t-icon">🗓️</span>Edad
-      </button>
-      <button class="toggle-btn" id="btn-height" onclick="setMode('height')">
-        <span class="t-icon">📏</span>Altura
-      </button>
-      <button class="toggle-btn" id="btn-weight" onclick="setMode('weight')">
-        <span class="t-icon">⚖️</span>Peso
-      </button>
+      <button class="toggle-btn active" id="btn-age"  onclick="setMode('age')"><span class="t-icon">🗓️</span>Edad</button>
+      <button class="toggle-btn" id="btn-height" onclick="setMode('height')"><span class="t-icon">📏</span>Altura</button>
+      <button class="toggle-btn" id="btn-weight" onclick="setMode('weight')"><span class="t-icon">⚖️</span>Peso</button>
     </div>
-
-    <!-- Age selector -->
     <div id="sel-age">
       <div class="hold-sel">
         <button class="hold-btn" id="age-m" data-dir="-1">−</button>
-        <div class="hold-center">
-          <span class="hold-val" id="age-v">6</span>
-          <span class="hold-unit">meses</span>
-          <span class="hold-sub" id="age-sub"></span>
-        </div>
+        <div class="hold-center"><span class="hold-val" id="age-v">6</span><span class="hold-unit">meses</span><span class="hold-sub" id="age-sub"></span></div>
         <button class="hold-btn" id="age-p" data-dir="1">+</button>
       </div>
     </div>
-
-    <!-- Height selector -->
     <div id="sel-height" style="display:none">
       <div class="hold-sel">
         <button class="hold-btn" id="ht-m" data-dir="-1">−</button>
-        <div class="hold-center">
-          <span class="hold-val" id="ht-v">67</span>
-          <span class="hold-unit">cm</span>
-        </div>
+        <div class="hold-center"><span class="hold-val" id="ht-v">67</span><span class="hold-unit">cm</span></div>
         <button class="hold-btn" id="ht-p" data-dir="1">+</button>
       </div>
     </div>
-
-    <!-- Weight selector -->
     <div id="sel-weight" style="display:none">
       <div class="hold-sel">
         <button class="hold-btn" id="wt-m" data-dir="-1">−</button>
-        <div class="hold-center">
-          <span class="hold-val" id="wt-v">7.5</span>
-          <span class="hold-unit">kg</span>
-        </div>
+        <div class="hold-center"><span class="hold-val" id="wt-v">7.5</span><span class="hold-unit">kg</span></div>
         <button class="hold-btn" id="wt-p" data-dir="1">+</button>
       </div>
     </div>
   </div>
 
-</div><div class="right-col">
-
-  <!-- Result -->
   <div class="result-card" id="result-card">
     <div class="section-label">Tallas equivalentes</div>
-
     <div class="age-ref" id="age-ref"></div>
-
     <div class="sizes-row">
-      <div class="size-block es">
-        <span class="sz-system">🇪🇸 ES / EU</span>
-        <span class="sz-value" id="sz-es">—</span>
-        <span class="sz-sub" id="sz-es-sub"></span>
-      </div>
-      <div class="size-block fr">
-        <span class="sz-system">🇫🇷 FR</span>
-        <span class="sz-value" id="sz-fr">—</span>
-        <span class="sz-sub" id="sz-fr-sub"></span>
-      </div>
-      <div class="size-block us">
-        <span class="sz-system">🇺🇸 US</span>
-        <span class="sz-value" id="sz-us">—</span>
-        <span class="sz-sub" id="sz-us-sub"></span>
-      </div>
-      <div class="size-block uk">
-        <span class="sz-system">🇬🇧 UK</span>
-        <span class="sz-value" id="sz-uk">—</span>
-        <span class="sz-sub" id="sz-uk-sub"></span>
-      </div>
+      <div class="size-block es"><span class="sz-system">🇪🇸 ES / EU</span><span class="sz-value" id="sz-es">—</span><span class="sz-sub" id="sz-es-sub"></span></div>
+      <div class="size-block fr"><span class="sz-system">🇫🇷 FR</span><span class="sz-value" id="sz-fr">—</span><span class="sz-sub" id="sz-fr-sub"></span></div>
+      <div class="size-block us"><span class="sz-system">🇺🇸 US</span><span class="sz-value" id="sz-us">—</span><span class="sz-sub" id="sz-us-sub"></span></div>
+      <div class="size-block uk"><span class="sz-system">🇬🇧 UK</span><span class="sz-value" id="sz-uk">—</span><span class="sz-sub" id="sz-uk-sub"></span></div>
     </div>
-
     <div class="measures-row">
-      <div class="measure-block">
-        <span class="m-label">Altura ref.</span>
-        <span class="m-value" id="m-height">—</span> <span class="m-unit">cm</span>
-      </div>
-      <div class="measure-block">
-        <span class="m-label">Peso ref.</span>
-        <span class="m-value" id="m-weight">—</span> <span class="m-unit">kg</span>
-      </div>
-      <div class="measure-block">
-        <span class="m-label">Edad ref.</span>
-        <span class="m-value" id="m-age">—</span>
-      </div>
+      <div class="measure-block"><span class="m-label">Altura ref.</span><span class="m-value" id="m-height">—</span> <span class="m-unit">cm</span></div>
+      <div class="measure-block"><span class="m-label">Peso ref.</span><span class="m-value" id="m-weight">—</span> <span class="m-unit">kg</span></div>
+      <div class="measure-block"><span class="m-label">Edad ref.</span><span class="m-value" id="m-age">—</span></div>
     </div>
-
     <div class="context-note" id="context-note"></div>
-
     <button class="table-toggle" id="table-toggle" onclick="toggleTable()">Ver tabla completa ↓</button>
-
     <div class="full-table" id="full-table">
-      <table>
-        <thead>
-          <tr>
-            <th>Edad</th>
-            <th>Altura</th>
-            <th>Peso</th>
-            <th>🇪🇸 ES</th>
-            <th>🇬🇧 UK</th>
-            <th>🇺🇸 US</th>
-            <th>🇫🇷 FR</th>
-          </tr>
-        </thead>
-        <tbody id="table-body"></tbody>
-      </table>
+      <table><thead><tr><th>Edad</th><th>Altura</th><th>Peso</th><th>🇪🇸 ES</th><th>🇬🇧 UK</th><th>🇺🇸 US</th><th>🇫🇷 FR</th></tr></thead><tbody id="table-body"></tbody></table>
     </div>
   </div>
 
-</div></div>
+  <p class="disclaimer">Las tallas varían según fabricante (Zara, H&M, Primark, etc.). Usa siempre las medidas reales de tu bebé.<br>FR = talla basada en la altura en cm (sistema francés/europeo de confección).</p>
 
-  <p class="disclaimer">
-    Las tallas varían según fabricante (Zara, H&M, Primark, etc.). Usa siempre las medidas reales de tu bebé.<br>
-    FR = talla basada en la altura en cm (sistema francés/europeo de confección).
-  </p>
+  <!-- SEO -->
+  <div class="seo-section">
+    <h2>Guía de tallas de ropa de bebé por países</h2>
+    <p>
+      Comprar ropa de bebé en tiendas extranjeras o en marcas internacionales puede ser
+      confuso porque cada país usa un sistema de tallas diferente. En España y la mayor
+      parte de Europa continental las tallas se expresan por rangos de edad (3-6m, 6-9m…).
+      En Francia se usa la altura en centímetros como referencia, que es más precisa.
+      En el Reino Unido también se usa la edad pero con rangos distintos, y en Estados Unidos
+      se añade la letra T (Toddler) para las tallas de niño pequeño.
+    </p>
+
+    <h2>Tabla de equivalencias de tallas por sistemas</h2>
+    <div class="seo-table-wrap">
+      <table class="seo-table">
+        <thead><tr><th>Edad</th><th>Altura</th><th>🇪🇸 ES</th><th>🇫🇷 FR</th><th>🇺🇸 US</th><th>🇬🇧 UK</th></tr></thead>
+        <tbody>
+          <tr><td>Recién nacido</td><td>44–50 cm</td><td>0–1m</td><td>50</td><td>Newborn</td><td>0–1m</td></tr>
+          <tr><td>1–3 meses</td><td>50–60 cm</td><td>1–3m</td><td>60</td><td>0–3m</td><td>0–3m</td></tr>
+          <tr><td>3–6 meses</td><td>60–67 cm</td><td>3–6m</td><td>68</td><td>3–6m</td><td>3–6m</td></tr>
+          <tr><td>6–9 meses</td><td>67–74 cm</td><td>6–9m</td><td>74</td><td>6–9m</td><td>6–9m</td></tr>
+          <tr><td>9–12 meses</td><td>74–80 cm</td><td>9–12m</td><td>80</td><td>9–12m</td><td>9–12m</td></tr>
+          <tr><td>12–18 meses</td><td>80–86 cm</td><td>12–18m</td><td>86</td><td>12–18m</td><td>12–18m</td></tr>
+          <tr><td>18–24 meses</td><td>86–92 cm</td><td>18–24m</td><td>92</td><td>18–24m</td><td>18–24m</td></tr>
+          <tr><td>2 años</td><td>92–98 cm</td><td>2 años</td><td>98</td><td>2T</td><td>2–3 años</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿Por qué la talla francesa es diferente a la española?</h3>
+      <p>
+        El sistema francés de confección infantil usa la <strong>altura en centímetros</strong>
+        como referencia en lugar de la edad. Esto lo hace más fiable porque dos bebés de la
+        misma edad pueden tener alturas muy diferentes. La talla 68 francesa significa que
+        la prenda está diseñada para un bebé de unos 68 cm de altura, independientemente
+        de los meses que tenga. Es el sistema que usan marcas como Petit Bateau, Jacadi
+        o Bout'chou.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿Qué talla compro si voy a regalar ropa de bebé?</h3>
+      <p>
+        Si no sabes el tamaño exacto del bebé, lo más seguro es comprar una talla mayor
+        de la que correspondería por edad. Los recién nacidos pasan muy rápido la talla 0-1m,
+        así que un regalo en talla 3-6m o incluso 6-9m suele ser mucho más útil. También
+        es una buena idea preguntar directamente a los padres qué talla usan actualmente —
+        no les molestará, al contrario.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿Los pijamas con pie van en la misma talla que el resto de ropa?</h3>
+      <p>
+        No siempre. Los pijamas con pie incorporado a veces se quedan cortos antes de que
+        el resto de la ropa de esa talla le quede pequeña, porque la longitud total del bebé
+        crece más rápido que el contorno del cuerpo. Si el bebé está en el límite superior
+        de una talla, en pijamas con pie es mejor coger directamente la talla siguiente.
+      </p>
+    </div>
+  </div>
 </div>
 
 <script>
-const SIZES = [
-  { age:'Recién nacido', ageMonths:1,  heightMin:44, heightMax:50, weightMin:2.5, weightMax:3.5, es:'0–1m',   uk:'0–1m',    us:'Newborn',  fr:'50'  },
-  { age:'1–3 meses',     ageMonths:3,  heightMin:50, heightMax:60, weightMin:3.5, weightMax:5.5, es:'1–3m',   uk:'0–3m',    us:'0–3m',     fr:'60'  },
-  { age:'3–6 meses',     ageMonths:6,  heightMin:60, heightMax:67, weightMin:5.5, weightMax:7.5, es:'3–6m',   uk:'3–6m',    us:'3–6m',     fr:'68'  },
-  { age:'6–9 meses',     ageMonths:9,  heightMin:67, heightMax:74, weightMin:7.5, weightMax:9.0, es:'6–9m',   uk:'6–9m',    us:'6–9m',     fr:'74'  },
-  { age:'9–12 meses',    ageMonths:12, heightMin:74, heightMax:80, weightMin:9.0, weightMax:10.5,es:'9–12m',  uk:'9–12m',   us:'9–12m',    fr:'80'  },
-  { age:'12–18 meses',   ageMonths:18, heightMin:80, heightMax:86, weightMin:10.5,weightMax:12.0,es:'12–18m', uk:'12–18m',  us:'12–18m',   fr:'86'  },
-  { age:'18–24 meses',   ageMonths:24, heightMin:86, heightMax:92, weightMin:12.0,weightMax:13.5,es:'18–24m', uk:'18–24m',  us:'18–24m',   fr:'92'  },
-  { age:'2 años',        ageMonths:36, heightMin:92, heightMax:98, weightMin:13.5,weightMax:15.0,es:'2 años', uk:'2–3 años',us:'2T',       fr:'98'  },
-  { age:'3 años',        ageMonths:48, heightMin:98, heightMax:104,weightMin:15.0,weightMax:17.0,es:'3 años', uk:'3–4 años',us:'3T',       fr:'104' },
-  { age:'4 años',        ageMonths:60, heightMin:104,heightMax:110,weightMin:17.0,weightMax:19.0,es:'4 años', uk:'4–5 años',us:'4T',       fr:'110' },
-  { age:'5 años',        ageMonths:72, heightMin:110,heightMax:116,weightMin:19.0,weightMax:21.0,es:'5 años', uk:'5–6 años',us:'5T',       fr:'116' },
+const SIZES=[
+  {age:'Recién nacido',ageMonths:1,heightMin:44,heightMax:50,weightMin:2.5,weightMax:3.5,es:'0–1m',uk:'0–1m',us:'Newborn',fr:'50'},
+  {age:'1–3 meses',ageMonths:3,heightMin:50,heightMax:60,weightMin:3.5,weightMax:5.5,es:'1–3m',uk:'0–3m',us:'0–3m',fr:'60'},
+  {age:'3–6 meses',ageMonths:6,heightMin:60,heightMax:67,weightMin:5.5,weightMax:7.5,es:'3–6m',uk:'3–6m',us:'3–6m',fr:'68'},
+  {age:'6–9 meses',ageMonths:9,heightMin:67,heightMax:74,weightMin:7.5,weightMax:9.0,es:'6–9m',uk:'6–9m',us:'6–9m',fr:'74'},
+  {age:'9–12 meses',ageMonths:12,heightMin:74,heightMax:80,weightMin:9.0,weightMax:10.5,es:'9–12m',uk:'9–12m',us:'9–12m',fr:'80'},
+  {age:'12–18 meses',ageMonths:18,heightMin:80,heightMax:86,weightMin:10.5,weightMax:12.0,es:'12–18m',uk:'12–18m',us:'12–18m',fr:'86'},
+  {age:'18–24 meses',ageMonths:24,heightMin:86,heightMax:92,weightMin:12.0,weightMax:13.5,es:'18–24m',uk:'18–24m',us:'18–24m',fr:'92'},
+  {age:'2 años',ageMonths:36,heightMin:92,heightMax:98,weightMin:13.5,weightMax:15.0,es:'2 años',uk:'2–3 años',us:'2T',fr:'98'},
+  {age:'3 años',ageMonths:48,heightMin:98,heightMax:104,weightMin:15.0,weightMax:17.0,es:'3 años',uk:'3–4 años',us:'3T',fr:'104'},
+  {age:'4 años',ageMonths:60,heightMin:104,heightMax:110,weightMin:17.0,weightMax:19.0,es:'4 años',uk:'4–5 años',us:'4T',fr:'110'},
+  {age:'5 años',ageMonths:72,heightMin:110,heightMax:116,weightMin:19.0,weightMax:21.0,es:'5 años',uk:'5–6 años',us:'5T',fr:'116'},
 ];
+const AGE_VALUES=Array.from({length:73},(_,i)=>i);
+const HT_VALUES=Array.from({length:73},(_,i)=>44+i);
+const WT_VALUES=[];for(let v=2.5;v<=22.0+1e-9;v=Math.round((v+0.5)*10)/10)WT_VALUES.push(parseFloat(v.toFixed(1)));
+let mode='age',ageIdx=AGE_VALUES.indexOf(6),htIdx=HT_VALUES.indexOf(67),wtIdx=WT_VALUES.indexOf(7.5);
 
-const AGE_VALUES = Array.from({length: 73}, (_,i) => i);
-const HT_VALUES  = Array.from({length: 73}, (_,i) => 44 + i);
-const WT_VALUES  = [];
-for (let v=2.5; v<=22.0+1e-9; v=Math.round((v+0.5)*10)/10) WT_VALUES.push(parseFloat(v.toFixed(1)));
+function makeHoldBtn(el,onStep){let h=null,r=null,s=0;function fire(){onStep(parseInt(el.dataset.dir));}function start(){fire();s=1;h=setTimeout(()=>{r=setInterval(()=>{fire();s++;if(s===10){clearInterval(r);r=setInterval(fire,60);}},150);},350);}function stop(){clearTimeout(h);clearInterval(r);h=r=null;s=0;el.classList.remove('pressing');}el.addEventListener('touchstart',e=>{e.preventDefault();el.classList.add('pressing');start();},{passive:false});el.addEventListener('touchend',stop,{passive:true});el.addEventListener('touchcancel',stop,{passive:true});el.addEventListener('mousedown',()=>{el.classList.add('pressing');start();});el.addEventListener('mouseup',stop);el.addEventListener('mouseleave',stop);}
 
-let mode   = 'age';
-let ageIdx = AGE_VALUES.indexOf(6);
-let htIdx  = HT_VALUES.indexOf(67);
-let wtIdx  = WT_VALUES.indexOf(7.5);
+makeHoldBtn(document.getElementById('age-m'),dir=>{ageIdx=Math.max(0,Math.min(AGE_VALUES.length-1,ageIdx+dir));render();});
+makeHoldBtn(document.getElementById('age-p'),dir=>{ageIdx=Math.max(0,Math.min(AGE_VALUES.length-1,ageIdx+dir));render();});
+makeHoldBtn(document.getElementById('ht-m'),dir=>{htIdx=Math.max(0,Math.min(HT_VALUES.length-1,htIdx+dir));render();});
+makeHoldBtn(document.getElementById('ht-p'),dir=>{htIdx=Math.max(0,Math.min(HT_VALUES.length-1,htIdx+dir));render();});
+makeHoldBtn(document.getElementById('wt-m'),dir=>{wtIdx=Math.max(0,Math.min(WT_VALUES.length-1,wtIdx+dir));render();});
+makeHoldBtn(document.getElementById('wt-p'),dir=>{wtIdx=Math.max(0,Math.min(WT_VALUES.length-1,wtIdx+dir));render();});
 
-function makeHoldBtn(el, onStep) {
-  let holdTimer=null, repeatTimer=null, step=0;
-  function fire(){ onStep(parseInt(el.dataset.dir)); }
-  function startHold(){
-    fire(); step=1;
-    holdTimer=setTimeout(()=>{
-      repeatTimer=setInterval(()=>{ fire(); step++; if(step===10){clearInterval(repeatTimer);repeatTimer=setInterval(fire,60);} },150);
-    },350);
-  }
-  function stopHold(){ clearTimeout(holdTimer); clearInterval(repeatTimer); holdTimer=repeatTimer=null; step=0; el.classList.remove('pressing'); }
-  el.addEventListener('touchstart',e=>{ e.preventDefault(); el.classList.add('pressing'); startHold(); },{passive:false});
-  el.addEventListener('touchend',   stopHold,{passive:true});
-  el.addEventListener('touchcancel',stopHold,{passive:true});
-  el.addEventListener('mousedown',()=>{ el.classList.add('pressing'); startHold(); });
-  el.addEventListener('mouseup',   stopHold);
-  el.addEventListener('mouseleave',stopHold);
-}
+function setMode(m){mode=m;['age','height','weight'].forEach(id=>{document.getElementById('btn-'+id).classList.toggle('active',id===m);document.getElementById('sel-'+id).style.display=id===m?'':'none';});render();}
+function findRow(){if(mode==='age'){const months=AGE_VALUES[ageIdx];return SIZES.find(s=>months<=s.ageMonths)||SIZES[SIZES.length-1];}if(mode==='height'){const cm=HT_VALUES[htIdx];return SIZES.find(s=>cm<=s.heightMax)||SIZES[SIZES.length-1];}const kg=WT_VALUES[wtIdx];return SIZES.find(s=>kg<=s.weightMax)||SIZES[SIZES.length-1];}
+function findRowIdx(row){return SIZES.indexOf(row);}
 
-makeHoldBtn(document.getElementById('age-m'), dir=>{ ageIdx=Math.max(0,Math.min(AGE_VALUES.length-1,ageIdx+dir)); render(); });
-makeHoldBtn(document.getElementById('age-p'), dir=>{ ageIdx=Math.max(0,Math.min(AGE_VALUES.length-1,ageIdx+dir)); render(); });
-makeHoldBtn(document.getElementById('ht-m'),  dir=>{ htIdx=Math.max(0,Math.min(HT_VALUES.length-1,htIdx+dir)); render(); });
-makeHoldBtn(document.getElementById('ht-p'),  dir=>{ htIdx=Math.max(0,Math.min(HT_VALUES.length-1,htIdx+dir)); render(); });
-makeHoldBtn(document.getElementById('wt-m'),  dir=>{ wtIdx=Math.max(0,Math.min(WT_VALUES.length-1,wtIdx+dir)); render(); });
-makeHoldBtn(document.getElementById('wt-p'),  dir=>{ wtIdx=Math.max(0,Math.min(WT_VALUES.length-1,wtIdx+dir)); render(); });
+function render(){const months=AGE_VALUES[ageIdx];document.getElementById('age-v').textContent=months;document.getElementById('age-sub').textContent=months===1?'mes':months<24?'':months===24?'2 años':`${Math.floor(months/12)}a ${months%12}m`;document.getElementById('ht-v').textContent=HT_VALUES[htIdx];document.getElementById('wt-v').textContent=WT_VALUES[wtIdx].toFixed(1);const row=findRow();const idx=findRowIdx(row);document.getElementById('sz-es').textContent=row.es;document.getElementById('sz-uk').textContent=row.uk;document.getElementById('sz-us').textContent=row.us;document.getElementById('sz-fr').textContent=row.fr;document.getElementById('sz-es-sub').textContent=row.age;document.getElementById('sz-fr-sub').textContent=`${row.heightMin}–${row.heightMax} cm`;document.getElementById('m-height').textContent=`${row.heightMin}–${row.heightMax}`;document.getElementById('m-weight').textContent=`${row.weightMin}–${row.weightMax}`;document.getElementById('m-age').textContent=row.age;document.getElementById('age-ref').innerHTML=`<strong>Edad de referencia:</strong> ${row.age} · ${row.heightMin}–${row.heightMax} cm · ${row.weightMin}–${row.weightMax} kg`;const notes=['Las primeras semanas el bebé crece muy rápido. Si dudas entre dos tallas, coge la más grande.','A esta edad los bebés crecen unos 3–4 cm al mes. Las tallas duran poco — no compres mucho de una sola.','Zara y H&M suelen tallar grande; Primark y Mamas & Papas tallar más pequeño que la media.','Para pijamas, ten en cuenta los pies: algunos modelos con pie incorporado se quedan cortos antes de la talla.','A partir de los 12 meses la talla UK coincide más con la edad que con las medidas — usa siempre cm de referencia.','A partir de los 2 años la talla FR equivale a la altura en cm. Es el sistema más intuitivo para comparar marcas.'];const note=notes[Math.min(idx,notes.length-1)];document.getElementById('context-note').innerHTML=`<strong>Consejo:</strong> ${note}`;document.querySelectorAll('#table-body tr').forEach((tr,i)=>{tr.classList.toggle('highlight',i===idx);});const highlighted=document.querySelector('#table-body tr.highlight');if(highlighted&&document.getElementById('full-table').classList.contains('visible')){highlighted.scrollIntoView({block:'nearest',behavior:'smooth'});}}
 
-function setMode(m) {
-  mode = m;
-  ['age','height','weight'].forEach(id => {
-    document.getElementById('btn-'+id).classList.toggle('active', id===m);
-    document.getElementById('sel-'+id).style.display = id===m ? '' : 'none';
-  });
-  render();
-}
-
-function findRow() {
-  if (mode === 'age') {
-    const months = AGE_VALUES[ageIdx];
-    return SIZES.find(s => months <= s.ageMonths) || SIZES[SIZES.length-1];
-  }
-  if (mode === 'height') {
-    const cm = HT_VALUES[htIdx];
-    return SIZES.find(s => cm <= s.heightMax) || SIZES[SIZES.length-1];
-  }
-  const kg = WT_VALUES[wtIdx];
-  return SIZES.find(s => kg <= s.weightMax) || SIZES[SIZES.length-1];
-}
-
-function render() {
-  const months = AGE_VALUES[ageIdx];
-  document.getElementById('age-v').textContent = months;
-  document.getElementById('age-sub').textContent = months === 1 ? 'mes' : months < 24 ? '' : months === 24 ? '2 años' : `${Math.floor(months/12)}a ${months%12}m`;
-  document.getElementById('ht-v').textContent = HT_VALUES[htIdx];
-  document.getElementById('wt-v').textContent = WT_VALUES[wtIdx].toFixed(1);
-
-  const row = findRow();
-  const idx = SIZES.indexOf(row);
-
-  document.getElementById('sz-es').textContent = row.es;
-  document.getElementById('sz-uk').textContent = row.uk;
-  document.getElementById('sz-us').textContent = row.us;
-  document.getElementById('sz-fr').textContent = row.fr;
-  document.getElementById('sz-es-sub').textContent = row.age;
-  document.getElementById('sz-uk-sub').textContent = '';
-  document.getElementById('sz-us-sub').textContent = '';
-  document.getElementById('sz-fr-sub').textContent = `${row.heightMin}–${row.heightMax} cm`;
-  document.getElementById('m-height').textContent = `${row.heightMin}–${row.heightMax}`;
-  document.getElementById('m-weight').textContent = `${row.weightMin}–${row.weightMax}`;
-  document.getElementById('m-age').textContent    = row.age;
-  document.getElementById('age-ref').innerHTML = `<strong>Edad de referencia:</strong> ${row.age} · ${row.heightMin}–${row.heightMax} cm · ${row.weightMin}–${row.weightMax} kg`;
-
-  const notes = [
-    'Las primeras semanas el bebé crece muy rápido. Si dudas entre dos tallas, coge la más grande.',
-    'A esta edad los bebés crecen unos 3–4 cm al mes. Las tallas duran poco — no compres mucho de una sola.',
-    'Zara y H&M suelen tallar grande; Primark y Mamas & Papas tallar más pequeño que la media.',
-    'Para pijamas, ten en cuenta los pies: algunos modelos con pie incorporado se quedan cortos antes de la talla.',
-    'A partir de los 12 meses la talla UK coincide más con la edad que con las medidas — usa siempre cm de referencia.',
-    'A partir de los 2 años la talla FR equivale a la altura en cm. Es el sistema más intuitivo para comparar marcas.',
-  ];
-  document.getElementById('context-note').innerHTML = `<strong>Consejo:</strong> ${notes[Math.min(idx, notes.length-1)]}`;
-
-  document.querySelectorAll('#table-body tr').forEach((tr, i) => { tr.classList.toggle('highlight', i === idx); });
-  const highlighted = document.querySelector('#table-body tr.highlight');
-  if (highlighted && document.getElementById('full-table').classList.contains('visible')) {
-    highlighted.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-  }
-}
-
-function buildTable() {
-  const tbody = document.getElementById('table-body');
-  SIZES.forEach((row, i) => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${row.age}</td><td>${row.heightMin}–${row.heightMax}</td><td>${row.weightMin}–${row.weightMax}</td><td>${row.es}</td><td>${row.uk}</td><td>${row.us}</td><td>${row.fr}</td>`;
-    tr.addEventListener('click', () => { ageIdx = AGE_VALUES.indexOf(row.ageMonths); if (ageIdx < 0) ageIdx = 0; setMode('age'); render(); });
-    tbody.appendChild(tr);
-  });
-}
-
-function toggleTable() {
-  const t   = document.getElementById('full-table');
-  const btn = document.getElementById('table-toggle');
-  const open = t.classList.toggle('visible');
-  btn.textContent = open ? 'Ocultar tabla ↑' : 'Ver tabla completa ↓';
-  if (open) {
-    const highlighted = document.querySelector('#table-body tr.highlight');
-    if (highlighted) setTimeout(() => highlighted.scrollIntoView({ block:'nearest', behavior:'smooth' }), 50);
-  }
-}
-
-buildTable();
-render();
+function buildTable(){const tbody=document.getElementById('table-body');SIZES.forEach((row,i)=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${row.age}</td><td>${row.heightMin}–${row.heightMax}</td><td>${row.weightMin}–${row.weightMax}</td><td>${row.es}</td><td>${row.uk}</td><td>${row.us}</td><td>${row.fr}</td>`;tr.addEventListener('click',()=>{ageIdx=AGE_VALUES.indexOf(row.ageMonths);if(ageIdx<0)ageIdx=0;setMode('age');render();});tbody.appendChild(tr);});}
+function toggleTable(){const t=document.getElementById('full-table');const btn=document.getElementById('table-toggle');const open=t.classList.toggle('visible');btn.textContent=open?'Ocultar tabla ↑':'Ver tabla completa ↓';if(open){const highlighted=document.querySelector('#table-body tr.highlight');if(highlighted)setTimeout(()=>highlighted.scrollIntoView({block:'nearest',behavior:'smooth'}),50);}}
+buildTable();render();
 </script>
 </body>
 </html>

@@ -6,10 +6,77 @@
 <meta property="og:title" content="Calculadora percentil bebé peso y altura · Tablas OMS · babyFAQ">
 <meta property="og:description" content="Calcula el percentil de peso y talla de tu bebé según las tablas de la OMS. Para niños y niñas de 0 a 5 años.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://babyfaq.es/percentil.html">
 <meta name="theme-color" content="#fdf6ee">
+<link rel="canonical" href="https://babyfaq.es/percentil.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora percentil bebé peso y altura OMS",
+  "description": "Calcula el percentil de peso y altura de tu bebé según los Estándares de Crecimiento Infantil de la OMS 2006. Para niños y niñas de 0 a 5 años.",
+  "url": "https://babyfaq.es/percentil.html",
+  "applicationCategory": "HealthApplication",
+  "inLanguage": "es-ES",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "publisher": { "@type": "Organization", "name": "babyFAQ", "url": "https://babyfaq.es" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es el percentil de un bebé?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El percentil indica la posición de tu bebé respecto a otros niños de su misma edad y sexo. Un percentil 75 de peso significa que tu bebé pesa más que el 75% de los bebés de su edad y sexo, y menos que el 25% restante. No existe un percentil 'bueno' o 'malo' — cualquier valor entre el percentil 3 y el 97 se considera dentro del rango normal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué percentil es normal en un bebé?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Se considera normal cualquier percentil entre el 3 y el 97. Un bebé en el percentil 10 no está mal nutrido ni enfermo — simplemente está en el extremo inferior del rango normal. Lo más importante no es el percentil puntual sino que la curva de crecimiento sea estable a lo largo del tiempo. Una caída brusca de percentil (por ejemplo, de 50 a 15 en pocas semanas) es más relevante que estar en un percentil bajo de forma consistente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué diferencia hay entre percentil de peso y percentil de talla?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Son indicadores independientes. Un bebé puede estar en el percentil 80 de peso y en el percentil 40 de talla, o al revés. El pediatra valora ambos en conjunto y también el índice peso-talla, que mide si el peso es proporcional a la altura. Una diferencia muy grande entre ambos percentiles puede ser relevante clínicamente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Con qué frecuencia hay que calcular el percentil?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El seguimiento del crecimiento forma parte de las revisiones del pediatra del programa del niño sano: a los 15 días, 1 mes, 2 meses, 4 meses, 6 meses, 9 meses, 12 meses, 15 meses, 18 meses, 2 años, y luego anualmente. Calcular el percentil de forma obsesiva en casa entre revisiones puede generar ansiedad innecesaria — una medición aislada tiene poco valor sin el contexto de la tendencia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué tablas usa esta calculadora?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Esta calculadora usa los Estándares de Crecimiento Infantil de la OMS publicados en 2006, que son las tablas de referencia recomendadas por la Asociación Española de Pediatría (AEP) y la mayoría de sistemas sanitarios europeos. Están basadas en niños criados en condiciones óptimas de salud en seis países diferentes, por lo que representan cómo deberían crecer los niños, no solo cómo crecen de media."
+      }
+    }
+  ]
+}
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -29,6 +96,9 @@
   .blob-2 { width: 250px; height: 250px; background: #c0d8f0; bottom: -80px; left: -60px; opacity: 0.3; }
 
   .container { position: relative; z-index: 1; max-width: 420px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--green); }
 
   header { text-align: center; margin-bottom: 36px; }
   .badge { display: inline-block; background: var(--green-bg); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; }
@@ -66,12 +136,9 @@
   .r-z { font-size: 11px; color: var(--soft); display: block; margin-top: 4px; }
   .r-band { font-size: 11px; font-weight: 500; display: block; margin-top: 4px; }
 
-  .band-low    { color: var(--red);   }
-  .band-low-n  { color: var(--amber); }
-  .band-normal { color: var(--green); }
-  .band-high-n { color: var(--amber); }
+  .band-low    { color: var(--red);   } .band-low-n  { color: var(--amber); }
+  .band-normal { color: var(--green); } .band-high-n { color: var(--amber); }
   .band-high   { color: var(--red);   }
-
   .block-low    { background: var(--red-bg);   border-color: #e8b4b4 !important; }
   .block-low-n  { background: var(--amber-bg); border-color: #f0cc8a !important; }
   .block-normal { background: var(--green-bg); border-color: var(--green-border) !important; }
@@ -90,57 +157,46 @@
 
   .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 24px; padding: 0 8px; }
 
-  /* ── Desktop responsive ── */
-  @media (min-width: 768px) {
-    .container { max-width: 920px; padding: 48px 40px 80px; }
-    .page-grid {
-      display: grid;
-      grid-template-columns: 370px 1fr;
-      gap: 28px;
-      align-items: start;
-    }
-    .right-col { position: sticky; top: 28px; }
-    .right-col .result-card { margin-bottom: 0; }
-  }
+  /* SEO */
+  .seo-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(138,176,144,0.25); }
+  .seo-section h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; color: var(--deep); margin-bottom: 12px; line-height: 1.3; }
+  .seo-section h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 17px; color: var(--deep); margin-bottom: 8px; margin-top: 24px; line-height: 1.3; }
+  .seo-section p { font-size: 14px; color: var(--mid); line-height: 1.7; margin-bottom: 14px; font-weight: 300; text-align: justify; }
+  .seo-section strong { color: var(--deep); font-weight: 500; }
+  .faq-item { margin-bottom: 20px; }
+  .faq-item h3 { margin-top: 0; }
+  .seo-table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+  .seo-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .seo-table thead th { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); padding: 8px 10px; text-align: left; border-bottom: 1px solid rgba(138,176,144,0.3); background: var(--warm-white); }
+  .seo-table tbody td { padding: 8px 10px; font-size: 13px; color: var(--mid); border-bottom: 1px solid rgba(138,176,144,0.12); vertical-align: top; }
+  .seo-table tbody td:first-child { font-weight: 500; color: var(--deep); white-space: nowrap; }
+  .seo-table tbody tr:last-child td { border-bottom: none; }
 </style>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag("config", "G-55NR11957W");
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-55NR11957W");</script>
 </head>
 <body>
-
 <div class="noise"></div>
 <div class="blob blob-1"></div>
 <div class="blob blob-2"></div>
 
 <div class="container">
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
   <header>
     <span class="badge">Crecimiento · OMS</span>
     <h1>¿Está creciendo<br><em>bien</em>?</h1>
     <p class="subtitle">Calcula el percentil de peso y altura de tu bebé según los estándares de la OMS (0–5 años).</p>
   </header>
 
-<div class="page-grid"><div class="left-col">
-
-  <!-- Sexo -->
   <div class="card">
     <div class="section-label">Sexo</div>
     <div class="toggle-row">
-      <button class="toggle-btn active" id="btn-nino" onclick="setSex('M')">
-        <span class="t-icon">👦</span>Niño
-      </button>
-      <button class="toggle-btn" id="btn-nina" onclick="setSex('F')">
-        <span class="t-icon">👧</span>Niña
-      </button>
+      <button class="toggle-btn active" id="btn-nino" onclick="setSex('M')"><span class="t-icon">👦</span>Niño</button>
+      <button class="toggle-btn" id="btn-nina" onclick="setSex('F')"><span class="t-icon">👧</span>Niña</button>
     </div>
   </div>
 
-  <!-- Edad, peso, altura -->
   <div class="card">
     <div class="section-label">Datos del bebé</div>
     <div class="selectors-row" style="margin-bottom:12px">
@@ -148,10 +204,7 @@
         <span class="hold-sel-title">Edad</span>
         <div class="hold-sel">
           <button class="hold-btn" id="age-m" data-dir="-1">−</button>
-          <div class="hold-center">
-            <span class="hold-val" id="age-v">6</span>
-            <span class="hold-unit" id="age-u">meses</span>
-          </div>
+          <div class="hold-center"><span class="hold-val" id="age-v">6</span><span class="hold-unit" id="age-u">meses</span></div>
           <button class="hold-btn" id="age-p" data-dir="1">+</button>
         </div>
       </div>
@@ -161,10 +214,7 @@
         <span class="hold-sel-title">Peso</span>
         <div class="hold-sel">
           <button class="hold-btn" id="wt-m" data-dir="-1">−</button>
-          <div class="hold-center">
-            <span class="hold-val" id="wt-v">7.9</span>
-            <span class="hold-unit">kg</span>
-          </div>
+          <div class="hold-center"><span class="hold-val" id="wt-v">7.9</span><span class="hold-unit">kg</span></div>
           <button class="hold-btn" id="wt-p" data-dir="1">+</button>
         </div>
       </div>
@@ -172,74 +222,138 @@
         <span class="hold-sel-title">Altura / longitud</span>
         <div class="hold-sel">
           <button class="hold-btn" id="ht-m" data-dir="-1">−</button>
-          <div class="hold-center">
-            <span class="hold-val" id="ht-v">67.0</span>
-            <span class="hold-unit">cm</span>
-          </div>
+          <div class="hold-center"><span class="hold-val" id="ht-v">67.0</span><span class="hold-unit">cm</span></div>
           <button class="hold-btn" id="ht-p" data-dir="1">+</button>
         </div>
       </div>
     </div>
   </div>
 
-</div><div class="right-col">
-
-  <!-- Results -->
   <div class="result-card" id="result-card">
     <div class="section-label">Percentil según OMS</div>
-
     <div class="results-row">
       <div class="result-block" id="block-wt">
         <span class="r-label">⚖️ Peso</span>
         <span class="r-pct" id="pct-wt">—</span>
-        <span class="r-z"   id="z-wt"></span>
+        <span class="r-z" id="z-wt"></span>
         <span class="r-band" id="band-wt"></span>
       </div>
       <div class="result-block" id="block-ht">
         <span class="r-label">📏 Altura</span>
         <span class="r-pct" id="pct-ht">—</span>
-        <span class="r-z"   id="z-ht"></span>
+        <span class="r-z" id="z-ht"></span>
         <span class="r-band" id="band-ht"></span>
       </div>
     </div>
-
-    <div class="gauge-wrap" id="gauge-wt-wrap">
+    <div class="gauge-wrap">
       <span class="gauge-label">Posición en la curva · Peso</span>
-      <div class="gauge-track">
-        <div class="gauge-marker" id="gauge-wt-marker" style="left:50%"></div>
-      </div>
-      <div class="gauge-ticks">
-        <span class="gauge-tick">P3</span>
-        <span class="gauge-tick">P15</span>
-        <span class="gauge-tick">P50</span>
-        <span class="gauge-tick">P85</span>
-        <span class="gauge-tick">P97</span>
-      </div>
+      <div class="gauge-track"><div class="gauge-marker" id="gauge-wt-marker" style="left:50%"></div></div>
+      <div class="gauge-ticks"><span class="gauge-tick">P3</span><span class="gauge-tick">P15</span><span class="gauge-tick">P50</span><span class="gauge-tick">P85</span><span class="gauge-tick">P97</span></div>
     </div>
-
-    <div class="gauge-wrap" id="gauge-ht-wrap">
+    <div class="gauge-wrap">
       <span class="gauge-label">Posición en la curva · Altura</span>
-      <div class="gauge-track">
-        <div class="gauge-marker" id="gauge-ht-marker" style="left:50%"></div>
-      </div>
-      <div class="gauge-ticks">
-        <span class="gauge-tick">P3</span>
-        <span class="gauge-tick">P15</span>
-        <span class="gauge-tick">P50</span>
-        <span class="gauge-tick">P85</span>
-        <span class="gauge-tick">P97</span>
-      </div>
+      <div class="gauge-track"><div class="gauge-marker" id="gauge-ht-marker" style="left:50%"></div></div>
+      <div class="gauge-ticks"><span class="gauge-tick">P3</span><span class="gauge-tick">P15</span><span class="gauge-tick">P50</span><span class="gauge-tick">P85</span><span class="gauge-tick">P97</span></div>
     </div>
-
     <div class="context-note" id="context-note"></div>
   </div>
-
-</div></div>
 
   <p class="disclaimer">
     Basado en los Estándares de Crecimiento Infantil de la OMS (2006).<br>
     Esta herramienta es orientativa. Tu pediatra valora la <strong>tendencia</strong> a lo largo del tiempo, no un valor aislado.
   </p>
+
+  <!-- SEO -->
+  <div class="seo-section">
+    <h2>¿Qué es el percentil y cómo se interpreta?</h2>
+    <p>
+      El percentil es una medida estadística que indica dónde se sitúa tu bebé dentro de una
+      población de referencia del mismo sexo y edad. Un bebé en el <strong>percentil 50</strong>
+      está exactamente en la media: la mitad de los bebés de su edad pesan más y la otra mitad
+      pesa menos. Un bebé en el percentil 25 pesa más que el 25% y menos que el 75%.
+      Ningún percentil es intrínsecamente mejor que otro — lo que importa es la estabilidad
+      de la curva a lo largo del tiempo.
+    </p>
+    <p>
+      Esta calculadora usa los <strong>Estándares de Crecimiento Infantil de la OMS (2006)</strong>,
+      elaborados a partir de una muestra de niños criados en condiciones óptimas de salud
+      en seis países. Son las tablas de referencia recomendadas por la Asociación Española
+      de Pediatría y la mayoría de sistemas sanitarios europeos.
+    </p>
+
+    <h2>Rangos de percentil y qué significan</h2>
+    <div class="seo-table-wrap">
+      <table class="seo-table">
+        <thead><tr><th>Rango</th><th>Clasificación</th><th>Qué significa</th></tr></thead>
+        <tbody>
+          <tr><td>Por debajo de P3</td><td>Bajo peso / talla baja</td><td>Puede requerir evaluación pediátrica</td></tr>
+          <tr><td>P3 – P15</td><td>Bajo-normal</td><td>Dentro del rango, en el extremo inferior</td></tr>
+          <tr><td>P15 – P85</td><td>Normal</td><td>Rango central, sin preocupación</td></tr>
+          <tr><td>P85 – P97</td><td>Alto-normal</td><td>Dentro del rango, en el extremo superior</td></tr>
+          <tr><td>Por encima de P97</td><td>Peso / talla elevados</td><td>Puede requerir evaluación pediátrica</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Preguntas frecuentes sobre percentiles</h2>
+
+    <div class="faq-item">
+      <h3>¿Qué percentil es normal en un bebé?</h3>
+      <p>
+        Cualquier valor entre el percentil 3 y el 97 se considera dentro del rango normal.
+        Un bebé consistentemente en el percentil 10 no está mal — simplemente es de complexión
+        pequeña. Lo que preocupa a los pediatras es un <strong>cambio brusco de percentil</strong>:
+        si un bebé que siempre estuvo en el P50 cae al P15 en pocas semanas, eso merece
+        investigación, independientemente de los números absolutos.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿Es preocupante estar en el percentil 3 o por debajo?</h3>
+      <p>
+        Estar por debajo del percentil 3 no es automáticamente una señal de alarma, pero
+        sí es un motivo para que el pediatra haga un seguimiento más cercano. Algunos bebés
+        son constitucionalmente pequeños y crecen perfectamente por debajo de ese umbral.
+        La diferencia está en si el bebé come bien, está activo, tiene buen desarrollo
+        neurológico y su curva es estable — o si, por el contrario, el crecimiento se ha
+        frenado de forma repentina.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿Por qué mi pediatra tiene tablas diferentes a esta calculadora?</h3>
+      <p>
+        Es posible que tu pediatra use las tablas de la <strong>Fundación Orbegozo</strong>
+        (muy usadas en España, especialmente en el País Vasco y Cataluña) u otras referencias
+        nacionales. Ambas son válidas pero pueden dar percentiles ligeramente distintos para
+        el mismo niño. Lo importante es usar siempre la misma tabla para hacer comparaciones
+        coherentes a lo largo del tiempo.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿Cada cuánto hay que calcular el percentil?</h3>
+      <p>
+        El seguimiento del crecimiento está incluido en las revisiones del programa del niño
+        sano. No es necesario ni recomendable pesar y medir al bebé en casa de forma frecuente:
+        una medición aislada tiene muy poco valor diagnóstico. Lo que el pediatra necesita
+        es la tendencia a lo largo de varias mediciones realizadas en condiciones similares
+        (misma báscula, misma hora del día, sin ropa).
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿Influye la genética en el percentil del bebé?</h3>
+      <p>
+        Sí, de forma significativa. La altura y el peso de los padres son el mejor predictor
+        del tamaño que tendrá el bebé a largo plazo. Existen fórmulas para calcular la
+        <strong>talla diana</strong> (altura esperada según la genética de los padres), que
+        el pediatra puede usar como referencia complementaria al percentil. Un bebé de padres
+        bajos que crece en el percentil 10 es un escenario muy diferente al de un bebé de
+        padres altos en el mismo percentil.
+      </p>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -250,101 +364,37 @@ const LMS = {
   HAG: [[0,1,49.1477,0.03790],[1,1,53.6872,0.03568],[2,1,57.0673,0.03470],[3,1,59.8029,0.03377],[4,1,62.0899,0.03289],[5,1,64.0301,0.03209],[6,1,65.7311,0.03143],[7,1,67.2873,0.03079],[8,1,68.7498,0.03018],[9,1,70.1435,0.02963],[10,1,71.4818,0.02912],[11,1,72.7710,0.02863],[12,1,74.0150,0.02816],[13,1,75.2176,0.02771],[14,1,76.3817,0.02728],[15,1,77.5099,0.02688],[16,1,78.6055,0.02649],[17,1,79.6713,0.02613],[18,1,80.7079,0.02577],[19,1,81.7182,0.02544],[20,1,82.7054,0.02511],[21,1,83.6711,0.02480],[22,1,84.6171,0.02449],[23,1,85.5450,0.02420],[24,1,86.4561,0.02391],[27,1,88.9233,0.02339],[30,1,91.2973,0.02291],[33,1,93.5717,0.02248],[36,1,95.7452,0.02210],[42,1,99.9475,0.02143],[48,1,103.994,0.02085],[54,1,107.927,0.02034],[60,1,111.786,0.01989]]
 };
 
-let sex = 'M';
-const AGE_VALUES = Array.from({length: 61}, (_,i) => i);
-let ageIdx = 6;
-const WT_VALUES = [];
-for (let v = 2.0; v <= 30.0+1e-9; v = Math.round((v+0.1)*10)/10) WT_VALUES.push(parseFloat(v.toFixed(1)));
-let wtIdx = WT_VALUES.indexOf(7.9);
-const HT_VALUES = [];
-for (let v = 40.0; v <= 130.0+1e-9; v = Math.round((v+0.5)*10)/10) HT_VALUES.push(parseFloat(v.toFixed(1)));
-let htIdx = HT_VALUES.indexOf(67.0);
+let sex='M';
+const AGE_VALUES=Array.from({length:61},(_,i)=>i);
+let ageIdx=6;
+const WT_VALUES=[];for(let v=2.0;v<=30.0+1e-9;v=Math.round((v+0.1)*10)/10)WT_VALUES.push(parseFloat(v.toFixed(1)));
+let wtIdx=WT_VALUES.indexOf(7.9);
+const HT_VALUES=[];for(let v=40.0;v<=130.0+1e-9;v=Math.round((v+0.5)*10)/10)HT_VALUES.push(parseFloat(v.toFixed(1)));
+let htIdx=HT_VALUES.indexOf(67.0);
 
-function getLMS(table, m) {
-  const rows = LMS[table];
-  const exact = rows.find(r => r[0] === m);
-  if (exact) return { L: exact[1], M: exact[2], S: exact[3] };
-  let lo = rows[0], hi = rows[rows.length-1];
-  for (let i = 0; i < rows.length-1; i++) { if (rows[i][0] <= m && rows[i+1][0] >= m) { lo = rows[i]; hi = rows[i+1]; break; } }
-  const t = (m - lo[0]) / (hi[0] - lo[0]);
-  return { L: lo[1]+t*(hi[1]-lo[1]), M: lo[2]+t*(hi[2]-lo[2]), S: lo[3]+t*(hi[3]-lo[3]) };
-}
-function zScore(X, L, M, S) { return Math.abs(L) < 1e-6 ? Math.log(X/M)/S : (Math.pow(X/M,L)-1)/(L*S); }
-function normCDF(z) { const t=1/(1+0.2316419*Math.abs(z)); const p=1-(1/Math.sqrt(2*Math.PI))*Math.exp(-0.5*z*z)*t*(0.319381530+t*(-0.356563782+t*(1.781477937+t*(-1.821255978+t*1.330274429)))); return z>=0?p:1-p; }
-function calcPercentile(X, table, month) { const {L,M,S}=getLMS(table,month); const z=zScore(X,L,M,S); return { pct:Math.round(normCDF(z)*100), z:z.toFixed(2) }; }
-function getBand(pct) {
-  if (pct < 3)  return { cls:'low',    label:'Por debajo del rango' };
-  if (pct < 15) return { cls:'low-n',  label:'Bajo' };
-  if (pct <= 85)return { cls:'normal', label:'Normal' };
-  if (pct <= 97)return { cls:'high-n', label:'Alto' };
-  return               { cls:'high',   label:'Por encima del rango' };
-}
+function getLMS(table,m){const rows=LMS[table];const exact=rows.find(r=>r[0]===m);if(exact)return{L:exact[1],M:exact[2],S:exact[3]};let lo=rows[0],hi=rows[rows.length-1];for(let i=0;i<rows.length-1;i++){if(rows[i][0]<=m&&rows[i+1][0]>=m){lo=rows[i];hi=rows[i+1];break;}}const t=(m-lo[0])/(hi[0]-lo[0]);return{L:lo[1]+t*(hi[1]-lo[1]),M:lo[2]+t*(hi[2]-lo[2]),S:lo[3]+t*(hi[3]-lo[3])};}
+function zScore(X,L,M,S){if(Math.abs(L)<1e-6)return Math.log(X/M)/S;return(Math.pow(X/M,L)-1)/(L*S);}
+function normCDF(z){const t=1/(1+0.2316419*Math.abs(z));const poly=t*(0.319381530+t*(-0.356563782+t*(1.781477937+t*(-1.821255978+t*1.330274429))));const p=1-(1/Math.sqrt(2*Math.PI))*Math.exp(-0.5*z*z)*poly;return z>=0?p:1-p;}
+function calcPercentile(X,table,month){const{L,M,S}=getLMS(table,month);const z=zScore(X,L,M,S);const p=normCDF(z);return{pct:Math.round(p*100),z:z.toFixed(2)};}
+function getBand(pct){if(pct<3)return{cls:'low',label:'Por debajo del rango'};if(pct<15)return{cls:'low-n',label:'Bajo'};if(pct<=85)return{cls:'normal',label:'Normal'};if(pct<=97)return{cls:'high-n',label:'Alto'};return{cls:'high',label:'Por encima del rango'};}
 
-function makeHoldBtn(el, onStep) {
-  let holdTimer=null, repeatTimer=null, step=0;
-  function fire(){ onStep(parseInt(el.dataset.dir)); }
-  function startHold(){ fire(); step=1; holdTimer=setTimeout(()=>{ repeatTimer=setInterval(()=>{ fire(); step++; if(step===10){clearInterval(repeatTimer);repeatTimer=setInterval(fire,60);} },150); },350); }
-  function stopHold(){ clearTimeout(holdTimer); clearInterval(repeatTimer); holdTimer=repeatTimer=null; step=0; el.classList.remove('pressing'); }
-  el.addEventListener('touchstart',e=>{ e.preventDefault(); el.classList.add('pressing'); startHold(); },{passive:false});
-  el.addEventListener('touchend',   stopHold,{passive:true});
-  el.addEventListener('touchcancel',stopHold,{passive:true});
-  el.addEventListener('mousedown',()=>{ el.classList.add('pressing'); startHold(); });
-  el.addEventListener('mouseup',   stopHold);
-  el.addEventListener('mouseleave',stopHold);
-}
+function makeHoldBtn(el,onStep){let h=null,r=null,s=0;function fire(){onStep(parseInt(el.dataset.dir));}function start(){fire();s=1;h=setTimeout(()=>{r=setInterval(()=>{fire();s++;if(s===10){clearInterval(r);r=setInterval(fire,60);}},150);},350);}function stop(){clearTimeout(h);clearInterval(r);h=r=null;s=0;el.classList.remove('pressing');}el.addEventListener('touchstart',e=>{e.preventDefault();el.classList.add('pressing');start();},{passive:false});el.addEventListener('touchend',stop,{passive:true});el.addEventListener('touchcancel',stop,{passive:true});el.addEventListener('mousedown',()=>{el.classList.add('pressing');start();});el.addEventListener('mouseup',stop);el.addEventListener('mouseleave',stop);}
 
-makeHoldBtn(document.getElementById('age-m'), dir=>{ ageIdx=Math.max(0,Math.min(60,ageIdx+dir)); syncDefaults(); render(); });
-makeHoldBtn(document.getElementById('age-p'), dir=>{ ageIdx=Math.max(0,Math.min(60,ageIdx+dir)); syncDefaults(); render(); });
-makeHoldBtn(document.getElementById('wt-m'),  dir=>{ wtIdx=Math.max(0,Math.min(WT_VALUES.length-1,wtIdx+dir)); render(); });
-makeHoldBtn(document.getElementById('wt-p'),  dir=>{ wtIdx=Math.max(0,Math.min(WT_VALUES.length-1,wtIdx+dir)); render(); });
-makeHoldBtn(document.getElementById('ht-m'),  dir=>{ htIdx=Math.max(0,Math.min(HT_VALUES.length-1,htIdx+dir)); render(); });
-makeHoldBtn(document.getElementById('ht-p'),  dir=>{ htIdx=Math.max(0,Math.min(HT_VALUES.length-1,htIdx+dir)); render(); });
+makeHoldBtn(document.getElementById('age-m'),dir=>{ageIdx=Math.max(0,Math.min(60,ageIdx+dir));syncDefaults();render();});
+makeHoldBtn(document.getElementById('age-p'),dir=>{ageIdx=Math.max(0,Math.min(60,ageIdx+dir));syncDefaults();render();});
+makeHoldBtn(document.getElementById('wt-m'),dir=>{wtIdx=Math.max(0,Math.min(WT_VALUES.length-1,wtIdx+dir));render();});
+makeHoldBtn(document.getElementById('wt-p'),dir=>{wtIdx=Math.max(0,Math.min(WT_VALUES.length-1,wtIdx+dir));render();});
+makeHoldBtn(document.getElementById('ht-m'),dir=>{htIdx=Math.max(0,Math.min(HT_VALUES.length-1,htIdx+dir));render();});
+makeHoldBtn(document.getElementById('ht-p'),dir=>{htIdx=Math.max(0,Math.min(HT_VALUES.length-1,htIdx+dir));render();});
 
-function setSex(s) { sex=s; document.getElementById('btn-nino').classList.toggle('active',s==='M'); document.getElementById('btn-nina').classList.toggle('active',s==='F'); render(); }
-function syncDefaults() {
-  const wt=sex==='M'?'WAB':'WAG', ht=sex==='M'?'HAB':'HAG';
-  const wtM=getLMS(wt,ageIdx).M, htM=getLMS(ht,ageIdx).M;
-  wtIdx=WT_VALUES.reduce((b,v,i)=>Math.abs(v-wtM)<Math.abs(WT_VALUES[b]-wtM)?i:b,0);
-  htIdx=HT_VALUES.reduce((b,v,i)=>Math.abs(v-htM)<Math.abs(HT_VALUES[b]-htM)?i:b,0);
-}
-function pctToGaugeLeft(pct) { return (Math.max(0.5,Math.min(99.5,pct))/100*80+10)+'%'; }
-function getNote(pW,pH) {
-  if(pW<3||pH<3) return '<strong>Nota:</strong> Uno de los valores está por debajo del percentil 3. Comenta este resultado con tu pediatra en la próxima visita.';
-  if(pW>97||pH>97) return '<strong>Nota:</strong> Uno de los valores está por encima del percentil 97. Comenta este resultado con tu pediatra en la próxima visita.';
-  return '<strong>Recuerda:</strong> Lo más importante no es el percentil de hoy, sino que la curva de crecimiento sea <em>consistente</em> a lo largo del tiempo. Un percentil 15 que se mantiene estable es más positivo que un percentil 50 que baja bruscamente.';
-}
+function setSex(s){sex=s;document.getElementById('btn-nino').classList.toggle('active',s==='M');document.getElementById('btn-nina').classList.toggle('active',s==='F');render();}
+function syncDefaults(){const wt=sex==='M'?'WAB':'WAG';const ht=sex==='M'?'HAB':'HAG';const wtM=getLMS(wt,ageIdx).M;const htM=getLMS(ht,ageIdx).M;wtIdx=WT_VALUES.reduce((best,v,i)=>Math.abs(v-wtM)<Math.abs(WT_VALUES[best]-wtM)?i:best,0);htIdx=HT_VALUES.reduce((best,v,i)=>Math.abs(v-htM)<Math.abs(HT_VALUES[best]-htM)?i:best,0);}
+function pctToGaugeLeft(pct){const clamp=Math.max(0.5,Math.min(99.5,pct));return(clamp/100*80+10)+'%';}
+function getNote(pW,pH){if(pW<3||pH<3)return'<strong>Nota:</strong> Uno de los valores está por debajo del percentil 3. Comenta este resultado con tu pediatra en la próxima visita.';if(pW>97||pH>97)return'<strong>Nota:</strong> Uno de los valores está por encima del percentil 97. Comenta este resultado con tu pediatra en la próxima visita.';return'<strong>Recuerda:</strong> Lo más importante no es el percentil de hoy, sino que la curva de crecimiento sea <em>consistente</em> a lo largo del tiempo. Un percentil 15 que se mantiene estable es más positivo que un percentil 50 que baja bruscamente.';}
 
-function render() {
-  const month=ageIdx, wt=WT_VALUES[wtIdx], ht=HT_VALUES[htIdx];
-  document.getElementById('age-v').textContent=month;
-  document.getElementById('age-u').textContent=month===1?'mes':month<24?'meses':month===24?'meses (2 años)':`meses (${Math.floor(month/12)}a ${month%12}m)`;
-  document.getElementById('wt-v').textContent=wt.toFixed(1);
-  document.getElementById('ht-v').textContent=ht.toFixed(1);
+function render(){const month=ageIdx;const wt=WT_VALUES[wtIdx];const ht=HT_VALUES[htIdx];document.getElementById('age-v').textContent=month;document.getElementById('age-u').textContent=month===1?'mes':month<24?'meses':month===24?'meses (2 años)':`meses (${Math.floor(month/12)}a ${month%12}m)`;document.getElementById('wt-v').textContent=wt.toFixed(1);document.getElementById('ht-v').textContent=ht.toFixed(1);const wtTable=sex==='M'?'WAB':'WAG';const htTable=sex==='M'?'HAB':'HAG';const{pct:pctW,z:zW}=calcPercentile(wt,wtTable,month);const{pct:pctH,z:zH}=calcPercentile(ht,htTable,month);const bandW=getBand(pctW);const bandH=getBand(pctH);document.getElementById('block-wt').className=`result-block block-${bandW.cls}`;document.getElementById('pct-wt').innerHTML=`P${pctW}`;document.getElementById('z-wt').textContent=`Z = ${zW}`;document.getElementById('band-wt').className=`r-band band-${bandW.cls}`;document.getElementById('band-wt').textContent=bandW.label;document.getElementById('block-ht').className=`result-block block-${bandH.cls}`;document.getElementById('pct-ht').innerHTML=`P${pctH}`;document.getElementById('z-ht').textContent=`Z = ${zH}`;document.getElementById('band-ht').className=`r-band band-${bandH.cls}`;document.getElementById('band-ht').textContent=bandH.label;document.getElementById('gauge-wt-marker').style.left=pctToGaugeLeft(pctW);document.getElementById('gauge-ht-marker').style.left=pctToGaugeLeft(pctH);document.getElementById('context-note').innerHTML=getNote(pctW,pctH);}
 
-  const wtTable=sex==='M'?'WAB':'WAG', htTable=sex==='M'?'HAB':'HAG';
-  const {pct:pW,z:zW}=calcPercentile(wt,wtTable,month);
-  const {pct:pH,z:zH}=calcPercentile(ht,htTable,month);
-  const bW=getBand(pW), bH=getBand(pH);
-
-  document.getElementById('block-wt').className=`result-block block-${bW.cls}`;
-  document.getElementById('pct-wt').innerHTML=`P${pW}<span class="r-pct-unit"></span>`;
-  document.getElementById('z-wt').textContent=`Z = ${zW}`;
-  document.getElementById('band-wt').className=`r-band band-${bW.cls}`;
-  document.getElementById('band-wt').textContent=bW.label;
-
-  document.getElementById('block-ht').className=`result-block block-${bH.cls}`;
-  document.getElementById('pct-ht').innerHTML=`P${pH}<span class="r-pct-unit"></span>`;
-  document.getElementById('z-ht').textContent=`Z = ${zH}`;
-  document.getElementById('band-ht').className=`r-band band-${bH.cls}`;
-  document.getElementById('band-ht').textContent=bH.label;
-
-  document.getElementById('gauge-wt-marker').style.left=pctToGaugeLeft(pW);
-  document.getElementById('gauge-ht-marker').style.left=pctToGaugeLeft(pH);
-  document.getElementById('context-note').innerHTML=getNote(pW,pH);
-}
-
-syncDefaults();
-render();
+syncDefaults();render();
 </script>
 </body>
 </html>
