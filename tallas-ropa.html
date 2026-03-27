@@ -173,6 +173,19 @@
   .seo-table tbody td { padding: 8px 10px; font-size: 13px; color: var(--mid); border-bottom: 1px solid rgba(196,152,122,0.12); vertical-align: top; }
   .seo-table tbody td:first-child { font-weight: 500; color: var(--deep); white-space: nowrap; }
   .seo-table tbody tr:last-child td { border-bottom: none; }
+
+  /* ── Desktop layout ── */
+  @media (min-width: 768px) {
+    .container { max-width: 920px; padding: 48px 40px 80px; }
+    .page-grid {
+      display: grid;
+      grid-template-columns: 370px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .right-col { position: sticky; top: 28px; }
+    .right-col .result-card { margin-bottom: 0; }
+  }
 </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-55NR11957W");</script>
@@ -190,6 +203,8 @@
     <h1>¿Qué talla de<br><em>ropa</em> le pongo?</h1>
     <p class="subtitle">Convierte tallas de bebé entre sistemas español, británico, americano y francés al instante.</p>
   </header>
+
+  <div class="page-grid"><div class="left-col">
 
   <div class="card">
     <div class="section-label">Buscar por</div>
@@ -221,6 +236,9 @@
     </div>
   </div>
 
+  </div><!-- /left-col -->
+  <div class="right-col">
+
   <div class="result-card" id="result-card">
     <div class="section-label">Tallas equivalentes</div>
     <div class="age-ref" id="age-ref"></div>
@@ -241,6 +259,9 @@
       <table><thead><tr><th>Edad</th><th>Altura</th><th>Peso</th><th>🇪🇸 ES</th><th>🇬🇧 UK</th><th>🇺🇸 US</th><th>🇫🇷 FR</th></tr></thead><tbody id="table-body"></tbody></table>
     </div>
   </div>
+
+  </div><!-- /right-col -->
+  </div><!-- /page-grid -->
 
   <p class="disclaimer">Las tallas varían según fabricante (Zara, H&M, Primark, etc.). Usa siempre las medidas reales de tu bebé.<br>FR = talla basada en la altura en cm (sistema francés/europeo de confección).</p>
 

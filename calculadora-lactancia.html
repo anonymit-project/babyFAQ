@@ -175,6 +175,19 @@
   .seo-table tbody td { padding: 8px 10px; font-size: 13px; color: var(--mid); border-bottom: 1px solid rgba(196,168,152,0.12); vertical-align: top; }
   .seo-table tbody td:first-child { font-weight: 500; color: var(--deep); white-space: nowrap; }
   .seo-table tbody tr:last-child td { border-bottom: none; }
+
+  /* ── Desktop layout ── */
+  @media (min-width: 768px) {
+    .container { max-width: 920px; padding: 48px 40px 80px; }
+    .page-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 28px;
+      align-items: start;
+    }
+    .right-col { position: sticky; top: 28px; }
+    .cta-btn { margin-bottom: 0; }
+  }
 </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-55NR11957W");</script>
@@ -192,6 +205,8 @@
     <h1>¿Puedo dar<br>el <em>pecho</em> ya?</h1>
     <p class="subtitle">Calcula cuándo has eliminado el alcohol<br>y puedes amamantar sin preocuparte.</p>
   </header>
+
+  <div class="page-grid"><div class="left-col">
 
   <div class="card">
     <div class="section-label">Tu peso</div>
@@ -223,6 +238,9 @@
   <button class="cta-btn" onclick="calculate()">Calcular ahora</button>
   <button class="reset-btn" id="reset-btn" onclick="resetAll()">↩ Volver a calcular</button>
 
+  </div><!-- /left-col -->
+  <div class="right-col">
+
   <div class="result" id="result">
     <span class="result-emoji" id="result-emoji"></span>
     <div class="result-headline" id="result-headline"></div>
@@ -231,6 +249,9 @@
     <div class="divider"></div>
     <div class="result-detail" id="result-detail"></div>
   </div>
+
+  </div><!-- /right-col -->
+  </div><!-- /page-grid -->
 
   <p class="disclaimer">
     Cálculo basado en ml × graduación × densidad del etanol (factor femenino r=0.55).<br><br>
