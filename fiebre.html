@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>¿Es fiebre? Calculadora por edad y método · babyFAQ</title>
+<meta name="description" content="¿Tiene fiebre tu bebé? Descubre el umbral exacto según la edad y el método de medición. Conversor °C y °F incluido.">
+<meta property="og:title" content="¿Es fiebre? Calculadora por edad y método · babyFAQ">
+<meta property="og:description" content="¿Tiene fiebre tu bebé? Descubre el umbral exacto según la edad y el método de medición. Conversor °C y °F incluido.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://babyfaq.es/fiebre.html">
+<meta name="theme-color" content="#fdf6ee">
+<link rel="canonical" href="https://babyfaq.es/fiebre.html">
+<link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "¿Es fiebre? Calculadora por edad y método de medición",
+  "description": "Calcula si la temperatura de tu bebé es fiebre según su edad y el método de medición usado. Incluye conversor de grados Celsius a Fahrenheit y pautas de actuación por edad.",
+  "url": "https://babyfaq.es/fiebre.html",
+  "applicationCategory": "HealthApplication",
+  "inLanguage": "es-ES",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "babyFAQ",
+    "url": "https://babyfaq.es"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿A partir de qué temperatura tiene fiebre un bebé?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del método de medición. Con termómetro rectal (el más preciso), se considera fiebre a partir de 38°C. Con termómetro axilar, el umbral es 37,5°C. Con termómetro de oído o frente, 38°C. En bebés menores de 3 meses, cualquier temperatura rectal igual o superior a 38°C debe considerarse una urgencia y requiere evaluación médica inmediata."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el método más fiable para medir la fiebre en bebés?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El termómetro rectal es el método más preciso para bebés menores de 3 meses. A partir de los 3-4 meses el termómetro de oído (timpánico) también es muy fiable si se usa correctamente. El termómetro axilar es el menos preciso pero el más cómodo — en caso de duda, confirma con el método rectal. Los termómetros de frente (infrarrojos) son cómodos pero pueden dar lecturas variables según las condiciones ambientales."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuándo hay que ir a urgencias con un bebé con fiebre?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En menores de 3 meses, cualquier fiebre (≥38°C rectal) es una urgencia y hay que acudir a urgencias inmediatamente. En bebés de 3 a 6 meses, consulta al pediatra ese mismo día si la fiebre es ≥38°C. En mayores de 6 meses, ve a urgencias si la fiebre supera los 40°C, si el bebé tiene mal aspecto (no reacciona, no puede beber, tiene dificultad para respirar), si la fiebre dura más de 3 días o si presenta manchas en la piel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo convertir grados Celsius a Fahrenheit en la fiebre?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La fórmula es: °F = (°C × 9/5) + 32. Así, 38°C equivale a 100,4°F; 38,5°C = 101,3°F; 39°C = 102,2°F; 39,5°C = 103,1°F; 40°C = 104°F. El umbral de fiebre de 38°C rectal corresponde a 100,4°F, que es la referencia que suelen usar las fuentes americanas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hay que bajar siempre la fiebre con medicación?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No necesariamente. La fiebre es una respuesta inmunológica normal y saludable — ayuda al cuerpo a combatir infecciones. La medicación (paracetamol o ibuprofeno) se da principalmente para mejorar el confort del bebé, no para 'curar' la fiebre. Si el bebé está activo, bebe bien y no parece excesivamente decaído, no es imprescindible medicar aunque tenga 38,5°C. En menores de 3 meses con fiebre nunca hay que automedicar: hay que consultar primero."
+      }
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf7f2; --warm-white: #fffcfa; --blush: #f2c4b0;
+    --terracota: #c97a5e; --deep: #2d1a0e; --mid: #6a3a1e; --soft: #c49878;
+    --amber: #c97a2a; --amber-bg: #fdf3e0; --amber-border: #f0c880;
+    --red: #c03030; --red-bg: #fdf0f0; --red-border: #f0a8a8;
+    --green: #3a7a4a; --green-bg: #edf5f0; --green-border: #a8d8b0;
+    --orange: #d06020; --orange-bg: #fdf4ec; --orange-border: #f0b888;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 320px; height: 320px; background: #f7c8a0; top: -120px; right: -80px; opacity: 0.4; }
+  .blob-2 { width: 260px; height: 260px; background: #f0d4b8; bottom: -80px; left: -60px; opacity: 0.35; }
+
+  .container { position: relative; z-index: 1; max-width: 420px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--terracota); }
+
+  header { text-align: center; margin-bottom: 36px; }
+  .badge { display: inline-block; background: var(--amber-bg); color: var(--amber); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 32px; line-height: 1.2; color: var(--deep); margin-bottom: 10px; }
+  h1 em { font-style: italic; color: var(--terracota); }
+  .subtitle { font-size: 14px; color: var(--mid); line-height: 1.5; font-weight: 300; }
+
+  .card { background: var(--warm-white); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; box-shadow: 0 2px 20px rgba(45,26,14,0.06); border: 1px solid rgba(196,152,120,0.2); }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 14px; }
+
+  /* ── Método toggle ── */
+  .toggle-row { display: flex; gap: 8px; }
+  .toggle-btn { flex: 1; padding: 10px 6px; border-radius: 12px; border: 1.5px solid rgba(196,152,120,0.3); background: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; color: var(--mid); cursor: pointer; transition: all 0.18s; text-align: center; touch-action: manipulation; line-height: 1.3; }
+  .toggle-btn .t-icon { display: block; font-size: 18px; margin-bottom: 4px; }
+  .toggle-btn.active { background: var(--warm-white); border-color: var(--terracota); color: var(--deep); box-shadow: 0 2px 8px rgba(201,122,94,0.15); }
+
+  /* ── Hold selectors ── */
+  .hold-sel { background: var(--cream); border-radius: 14px; border: 1.5px solid rgba(196,152,120,0.35); display: flex; align-items: center; height: 68px; padding: 0 4px; }
+  .hold-btn { width: 44px; height: 52px; flex-shrink: 0; border-radius: 10px; border: none; background: transparent; color: var(--terracota); font-size: 24px; font-weight: 300; cursor: pointer; display: flex; align-items: center; justify-content: center; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: background 0.1s; line-height: 1; }
+  .hold-btn:active, .hold-btn.pressing { background: var(--blush); }
+  .hold-center { flex: 1; text-align: center; }
+  .hold-val { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 300; color: var(--deep); display: block; line-height: 1; }
+  .hold-unit { font-size: 12px; color: var(--soft); font-family: 'DM Sans', sans-serif; }
+  .hold-sub { font-size: 10px; color: var(--soft); display: block; margin-top: 2px; font-style: italic; }
+
+  /* ── Result card ── */
+  .result-card { background: var(--warm-white); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; box-shadow: 0 2px 20px rgba(45,26,14,0.06); border: 1px solid rgba(196,152,120,0.2); animation: fadeUp 0.3s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Veredicto */
+  .verdict-block { border-radius: 14px; padding: 18px 16px; text-align: center; margin-bottom: 16px; }
+  .verdict-block.normal  { background: var(--green-bg);  border: 1.5px solid var(--green-border); }
+  .verdict-block.subfebril { background: var(--amber-bg); border: 1.5px solid var(--amber-border); }
+  .verdict-block.fever   { background: var(--orange-bg); border: 1.5px solid var(--orange-border); }
+  .verdict-block.urgent  { background: var(--red-bg);    border: 1.5px solid var(--red-border); }
+
+  .verdict-emoji { font-size: 32px; display: block; margin-bottom: 8px; line-height: 1; }
+  .verdict-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 4px; }
+  .normal   .verdict-label  { color: var(--green); }
+  .subfebril .verdict-label { color: var(--amber); }
+  .fever    .verdict-label  { color: var(--orange); }
+  .urgent   .verdict-label  { color: var(--red); }
+
+  .verdict-title { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 400; line-height: 1.1; display: block; margin-bottom: 4px; }
+  .normal   .verdict-title  { color: var(--green); }
+  .subfebril .verdict-title { color: var(--amber); }
+  .fever    .verdict-title  { color: var(--orange); }
+  .urgent   .verdict-title  { color: var(--red); }
+
+  .verdict-sub { font-size: 12px; color: var(--mid); display: block; }
+
+  /* Temperatura °C / °F */
+  .temp-row { display: flex; gap: 10px; margin-bottom: 14px; }
+  .temp-block { flex: 1; background: var(--cream); border-radius: 12px; padding: 12px 10px; text-align: center; }
+  .temp-label { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 4px; }
+  .temp-value { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 300; color: var(--deep); line-height: 1; }
+  .temp-unit  { font-size: 12px; color: var(--soft); }
+
+  /* Umbral info */
+  .threshold-note { background: var(--cream); border-radius: 10px; padding: 9px 13px; font-size: 12px; color: var(--mid); text-align: center; margin-bottom: 12px; }
+  .threshold-note strong { color: var(--deep); }
+
+  /* Acción */
+  .action-block { border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; }
+  .action-block.action-ok     { background: var(--green-bg);  border: 1px solid var(--green-border); }
+  .action-block.action-watch  { background: var(--amber-bg);  border: 1px solid var(--amber-border); }
+  .action-block.action-call   { background: var(--orange-bg); border: 1px solid var(--orange-border); }
+  .action-block.action-er     { background: var(--red-bg);    border: 1px solid var(--red-border); }
+
+  .action-title { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px; display: block; }
+  .action-ok    .action-title { color: var(--green); }
+  .action-watch .action-title { color: var(--amber); }
+  .action-call  .action-title { color: var(--orange); }
+  .action-er    .action-title { color: var(--red); }
+
+  .action-text { font-size: 13px; color: var(--mid); line-height: 1.6; }
+
+  .context-note { background: var(--cream); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: var(--mid); line-height: 1.6; border: 1px solid rgba(196,152,120,0.2); }
+  .context-note strong { color: var(--deep); font-weight: 500; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 24px; padding: 0 8px; }
+
+  /* ── SEO section ── */
+  .seo-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(196,152,120,0.25); }
+  .seo-section h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; color: var(--deep); margin-bottom: 12px; line-height: 1.3; }
+  .seo-section h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 17px; color: var(--deep); margin-bottom: 8px; margin-top: 24px; line-height: 1.3; }
+  .seo-section p { font-size: 14px; color: var(--mid); line-height: 1.7; margin-bottom: 14px; font-weight: 300; text-align: justify; }
+  .seo-section strong { color: var(--deep); font-weight: 500; }
+  .faq-item { margin-bottom: 20px; }
+  .faq-item h3 { margin-top: 0; }
+  .seo-table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+  .seo-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .seo-table thead th { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); padding: 8px 10px; text-align: left; border-bottom: 1px solid rgba(196,152,120,0.3); background: var(--warm-white); }
+  .seo-table tbody td { padding: 8px 10px; font-size: 13px; color: var(--mid); border-bottom: 1px solid rgba(196,152,120,0.12); vertical-align: top; }
+  .seo-table tbody td:first-child { font-weight: 500; color: var(--deep); white-space: nowrap; }
+  .seo-table tbody tr:last-child td { border-bottom: none; }
+
+  /* ── Desktop layout ── */
+  @media (min-width: 768px) {
+    .container { max-width: 920px; padding: 48px 40px 80px; }
+    .page-grid {
+      display: grid;
+      grid-template-columns: 370px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .right-col { position: sticky; top: 28px; }
+    .right-col .result-card { margin-bottom: 0; }
+  }
+</style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-55NR11957W");
+  </script>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">Salud</span>
+    <h1>¿Tiene<br><em>fiebre</em>?</h1>
+    <p class="subtitle">Comprueba si la temperatura de tu bebé es fiebre según su edad y el método de medición.</p>
+  </header>
+
+  <div class="page-grid"><div class="left-col">
+
+  <!-- Edad -->
+  <div class="card">
+    <div class="section-label">Edad del bebé</div>
+    <div class="hold-sel">
+      <button class="hold-btn" id="age-m" data-dir="-1">−</button>
+      <div class="hold-center">
+        <span class="hold-val" id="age-v">6</span>
+        <span class="hold-unit">meses</span>
+        <span class="hold-sub" id="age-sub"></span>
+      </div>
+      <button class="hold-btn" id="age-p" data-dir="1">+</button>
+    </div>
+  </div>
+
+  <!-- Método -->
+  <div class="card">
+    <div class="section-label">Método de medición</div>
+    <div class="toggle-row">
+      <button class="toggle-btn active" id="btn-rectal" onclick="setMethod('rectal')">
+        <span class="t-icon">🌡️</span>Rectal
+      </button>
+      <button class="toggle-btn" id="btn-axilar" onclick="setMethod('axilar')">
+        <span class="t-icon">🫁</span>Axilar
+      </button>
+      <button class="toggle-btn" id="btn-oido" onclick="setMethod('oido')">
+        <span class="t-icon">👂</span>Oído / frente
+      </button>
+    </div>
+  </div>
+
+  <!-- Temperatura -->
+  <div class="card">
+    <div class="section-label">Temperatura medida</div>
+    <div class="hold-sel">
+      <button class="hold-btn" id="temp-m" data-dir="-1">−</button>
+      <div class="hold-center">
+        <span class="hold-val" id="temp-v">38.0</span>
+        <span class="hold-unit">°C</span>
+      </div>
+      <button class="hold-btn" id="temp-p" data-dir="1">+</button>
+    </div>
+  </div>
+
+  </div><div class="right-col">
+
+  <!-- Resultado -->
+  <div class="result-card" id="result-card">
+    <div class="section-label">Resultado</div>
+
+    <div class="verdict-block" id="verdict-block">
+      <span class="verdict-emoji" id="verdict-emoji"></span>
+      <span class="verdict-label" id="verdict-label"></span>
+      <span class="verdict-title" id="verdict-title"></span>
+      <span class="verdict-sub"  id="verdict-sub"></span>
+    </div>
+
+    <div class="temp-row">
+      <div class="temp-block">
+        <span class="temp-label">Temperatura</span>
+        <span class="temp-value" id="disp-c">—</span><span class="temp-unit"> °C</span>
+      </div>
+      <div class="temp-block">
+        <span class="temp-label">En Fahrenheit</span>
+        <span class="temp-value" id="disp-f">—</span><span class="temp-unit"> °F</span>
+      </div>
+    </div>
+
+    <div class="threshold-note" id="threshold-note"></div>
+
+    <div class="action-block" id="action-block">
+      <span class="action-title" id="action-title"></span>
+      <span class="action-text"  id="action-text"></span>
+    </div>
+
+    <div class="context-note" id="context-note"></div>
+  </div>
+
+  </div></div>
+
+  <p class="disclaimer">
+    Basado en las guías de la <strong>AEP</strong> (Asociación Española de Pediatría) y la <strong>AAP</strong> (American Academy of Pediatrics).<br>
+    Esta herramienta es orientativa. Ante cualquier duda sobre el estado de tu bebé, consulta con tu pediatra.
+  </p>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECCIÓN SEO
+       ══════════════════════════════════════════════════════════ -->
+  <div class="seo-section">
+
+    <h2>¿Cuándo se considera fiebre en un bebé?</h2>
+    <p>
+      La fiebre no es una enfermedad sino una respuesta inmunológica: el cuerpo sube la temperatura
+      para dificultar la supervivencia de virus y bacterias. El umbral depende del método de medición,
+      porque cada zona del cuerpo tiene una temperatura ligeramente diferente.
+      El método <strong>rectal</strong> es el más preciso y el de referencia clínica.
+      El <strong>axilar</strong> es el más cómodo pero el menos exacto — puede estar 0,5°C por debajo
+      de la temperatura real. El de <strong>oído o frente</strong> es rápido y fiable si se usa correctamente.
+    </p>
+
+    <h2>Umbrales de fiebre por método</h2>
+    <div class="seo-table-wrap">
+      <table class="seo-table">
+        <thead>
+          <tr>
+            <th>Método</th>
+            <th>Normal</th>
+            <th>Subfebril</th>
+            <th>Fiebre</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Rectal (más preciso)</td><td>< 37,5°C</td><td>37,5 – 37,9°C</td><td>≥ 38,0°C</td></tr>
+          <tr><td>Axilar</td><td>< 37,0°C</td><td>37,0 – 37,4°C</td><td>≥ 37,5°C</td></tr>
+          <tr><td>Oído / frente</td><td>< 37,5°C</td><td>37,5 – 37,9°C</td><td>≥ 38,0°C</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Fiebre según la edad: qué hacer en cada caso</h2>
+    <p>
+      La edad es el factor más importante para decidir cómo actuar ante la fiebre.
+      El sistema inmune de los bebés muy pequeños aún no está maduro,
+      lo que hace que una infección que para un niño de 2 años es banal pueda ser grave
+      para un recién nacido.
+    </p>
+    <div class="seo-table-wrap">
+      <table class="seo-table">
+        <thead>
+          <tr>
+            <th>Edad</th>
+            <th>Fiebre desde</th>
+            <th>Qué hacer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>0 – 1 mes</td><td>≥ 38°C rectal</td><td>Urgencias inmediatamente</td></tr>
+          <tr><td>1 – 3 meses</td><td>≥ 38°C rectal</td><td>Llamar al pediatra ese mismo día</td></tr>
+          <tr><td>3 – 6 meses</td><td>≥ 38°C</td><td>Consultar si persiste > 24 h o mal aspecto</td></tr>
+          <tr><td>6 – 24 meses</td><td>≥ 38°C</td><td>Tratar si molesta; consultar si > 39°C o > 3 días</td></tr>
+          <tr><td>> 24 meses</td><td>≥ 38°C</td><td>Tratar si molesta; consultar si > 40°C o > 3 días</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Preguntas frecuentes sobre la fiebre en bebés</h2>
+
+    <div class="faq-item">
+      <h3>¿Hay que bajar la fiebre siempre con medicación?</h3>
+      <p>
+        No. La fiebre en sí misma ayuda al sistema inmune. La medicación
+        (paracetamol o ibuprofeno) se usa principalmente para mejorar el
+        <strong>confort del bebé</strong>, no para curar la causa de la fiebre.
+        Si el bebé está activo, bebe bien y no parece muy decaído, no es
+        imprescindible medicar aunque tenga 38,5°C.
+        En menores de 3 meses nunca se debe automedicar — hay que consultar primero.
+        El ibuprofeno solo está indicado a partir de los 6 meses.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿Cuándo ir a urgencias con el bebé?</h3>
+      <p>
+        Independientemente de la temperatura, acude a urgencias si el bebé
+        tiene menos de 3 meses con cualquier fiebre, si tiene manchas en la piel
+        (petequias), si le cuesta respirar, si no reacciona o está muy decaído,
+        si no puede beber o ha vomitado la medicación, o si la fiebre ha durado
+        más de 5 días. La temperatura alta por sí sola no es el único indicador
+        — el <strong>aspecto general del bebé</strong> es igual de importante.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿El termómetro de oído es fiable en bebés?</h3>
+      <p>
+        Es fiable a partir de los 3-4 meses, cuando el canal auditivo ya tiene
+        el tamaño suficiente. En recién nacidos y bebés muy pequeños puede dar
+        lecturas incorrectas. Para ser preciso hay que tirar suavemente de la
+        oreja hacia atrás y arriba (en mayores de 1 año) o hacia atrás y abajo
+        (en menores de 1 año) para enderezar el canal antes de medir.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿La fiebre puede causar daño cerebral?</h3>
+      <p>
+        La fiebre por infección, incluso cuando es alta (39-40°C), no daña el
+        cerebro. El cerebro solo se daña con temperaturas por encima de 42°C,
+        algo que la fiebre por infección no alcanza de forma natural. Los
+        convulsiones febriles, aunque muy angustiantes, tampoco causan daño
+        cerebral en la mayoría de los casos. El miedo al daño cerebral por fiebre
+        es uno de los mitos más extendidos — la preocupación real debe centrarse
+        en la causa que genera esa fiebre, no en el número del termómetro.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>¿Cómo pasar de °C a °F?</h3>
+      <p>
+        La fórmula es <strong>°F = (°C × 9/5) + 32</strong>.
+        Los valores más importantes: 37°C = 98,6°F (temperatura normal);
+        38°C = 100,4°F (umbral de fiebre); 39°C = 102,2°F; 40°C = 104°F.
+        La calculadora de arriba hace la conversión automáticamente.
+      </p>
+    </div>
+
+  </div>
+  <!-- fin seo-section -->
+
+</div>
+
+<script>
+// ── Datos ─────────────────────────────────────────────────────────
+
+// Umbrales por método: [subfebril_desde, fiebre_desde]
+const THRESHOLDS = {
+  rectal: { sub: 37.5, fever: 38.0, label: 'rectal' },
+  axilar: { sub: 37.0, fever: 37.5, label: 'axilar' },
+  oido:   { sub: 37.5, fever: 38.0, label: 'oído/frente' },
+};
+
+// Acciones por tramo de edad (meses) y estado
+// estado: 'normal' | 'subfebril' | 'fever' | 'urgent'
+function getAgeGroup(months) {
+  if (months <= 1)  return 'newborn';   // 0-1 mes
+  if (months <= 3)  return 'infant';    // 1-3 meses
+  if (months <= 6)  return 'small';     // 3-6 meses
+  if (months <= 24) return 'baby';      // 6-24 meses
+  return 'toddler';                     // > 24 meses
+}
+
+const AGE_ACTIONS = {
+  newborn: {
+    normal:    { cls: 'action-ok',   title: 'Temperatura normal', text: 'La temperatura está dentro del rango normal para esta edad. Vigila si aparecen otros síntomas.' },
+    subfebril: { cls: 'action-er',   title: '⚠️ Consulta ahora', text: 'En menores de 1 mes cualquier temperatura elevada requiere evaluación médica inmediata. Llama al pediatra o ve a urgencias.' },
+    fever:     { cls: 'action-er',   title: '🚨 Urgencias', text: 'En menores de 1 mes cualquier fiebre (≥38°C rectal) es una URGENCIA. Acude a urgencias inmediatamente, aunque el bebé parezca estar bien.' },
+    urgent:    { cls: 'action-er',   title: '🚨 Urgencias', text: 'En menores de 1 mes cualquier fiebre (≥38°C rectal) es una URGENCIA. Acude a urgencias inmediatamente, aunque el bebé parezca estar bien.' },
+  },
+  infant: {
+    normal:    { cls: 'action-ok',   title: 'Temperatura normal', text: 'La temperatura está dentro del rango normal. Vigila si aparecen otros síntomas en las próximas horas.' },
+    subfebril: { cls: 'action-watch', title: 'Vigila y mide de nuevo', text: 'Temperatura ligeramente elevada. Mide de nuevo en 30-60 minutos. Si sube o el bebé parece mal, llama al pediatra.' },
+    fever:     { cls: 'action-call',  title: 'Llama al pediatra hoy', text: 'En bebés de 1 a 3 meses, cualquier fiebre (≥38°C) debe ser evaluada por el pediatra el mismo día. No esperes a que suba más.' },
+    urgent:    { cls: 'action-er',    title: '🚨 Urgencias', text: 'Fiebre muy alta en un bebé menor de 3 meses. Acude a urgencias.' },
+  },
+  small: {
+    normal:    { cls: 'action-ok',   title: 'Temperatura normal', text: 'La temperatura está dentro del rango normal.' },
+    subfebril: { cls: 'action-watch', title: 'Vigila', text: 'Temperatura ligeramente elevada. Ofrece líquidos, ventila la habitación y mide de nuevo en 1-2 horas.' },
+    fever:     { cls: 'action-watch', title: 'Vigila y consulta si empeora', text: 'Ofrece paracetamol si está molesto (dosis por peso). Consulta al pediatra si la fiebre dura más de 24 horas, supera los 39°C o el bebé tiene mal aspecto.' },
+    urgent:    { cls: 'action-call',  title: 'Llama al pediatra', text: 'Fiebre alta en bebé de 3-6 meses. Llama al pediatra y sigue sus instrucciones.' },
+  },
+  baby: {
+    normal:    { cls: 'action-ok',   title: 'Temperatura normal', text: 'La temperatura está dentro del rango normal.' },
+    subfebril: { cls: 'action-ok',   title: 'Subfebril — vigila', text: 'Temperatura ligeramente elevada. Ofrece líquidos y vigila la evolución. No es necesario medicar aún.' },
+    fever:     { cls: 'action-watch', title: 'Fiebre — medidas generales', text: 'Ofrece paracetamol o ibuprofeno (≥6m) si está molesto. Consulta al pediatra si la fiebre supera los 39°C, dura más de 3 días o el niño tiene mal aspecto.' },
+    urgent:    { cls: 'action-call',  title: 'Fiebre alta — consulta', text: 'Fiebre elevada. Administra antitérmico según peso y llama al pediatra. Ve a urgencias si el niño no reacciona bien o no puede beber.' },
+  },
+  toddler: {
+    normal:    { cls: 'action-ok',   title: 'Temperatura normal', text: 'La temperatura está dentro del rango normal.' },
+    subfebril: { cls: 'action-ok',   title: 'Subfebril — vigila', text: 'Temperatura ligeramente elevada. Ofrece líquidos y vigila. No es necesario medicar.' },
+    fever:     { cls: 'action-watch', title: 'Fiebre — medidas generales', text: 'Ofrece paracetamol o ibuprofeno si está molesto. Consulta al pediatra si la fiebre supera los 40°C, dura más de 3 días o hay síntomas preocupantes.' },
+    urgent:    { cls: 'action-call',  title: 'Fiebre alta — consulta', text: 'Fiebre muy elevada. Administra antitérmico y llama al pediatra. Ve a urgencias si el niño tiene manchas en la piel, dificultad para respirar o no responde bien.' },
+  },
+};
+
+// Notas contextuales por estado
+const CONTEXT_NOTES = {
+  normal:    '<strong>Recuerda:</strong> La temperatura varía a lo largo del día — es más alta por la tarde y después del ejercicio. Un valor puntual normal no descarta que aparezca fiebre más tarde.',
+  subfebril: '<strong>Ten en cuenta:</strong> El subfebril no siempre requiere medicación. Lo más útil es observar la evolución y el estado general del bebé. Si está activo y bebe bien, espera y mide de nuevo.',
+  fever:     '<strong>Ten en cuenta:</strong> La fiebre es una respuesta normal del sistema inmune. El objetivo de los antitérmicos es mejorar el confort, no bajar el número. Un bebé con 39°C que juega y bebe bien es menos preocupante que uno con 38°C muy decaído.',
+  urgent:    '<strong>Importante:</strong> En bebés pequeños o con fiebre muy alta, el aspecto general es más relevante que el número exacto. Si el bebé no reacciona, no puede beber o tiene dificultad para respirar, acude a urgencias sin esperar.',
+};
+
+// ── Estado ─────────────────────────────────────────────────────────
+
+const AGE_MAX = 36;
+let ageMonths = 6;
+let method    = 'rectal';
+
+// Temperatura: de 35.0 a 42.0 en pasos de 0.1
+const TEMP_VALUES = [];
+for (let v = 35.0; v <= 42.0 + 1e-9; v = Math.round((v + 0.1) * 10) / 10)
+  TEMP_VALUES.push(parseFloat(v.toFixed(1)));
+let tempIdx = TEMP_VALUES.indexOf(38.0);
+
+// ── Hold-repeat ────────────────────────────────────────────────────
+
+function makeHoldBtn(el, onStep) {
+  let holdTimer = null, repeatTimer = null, step = 0;
+  function fire() { onStep(parseInt(el.dataset.dir)); }
+  function startHold() {
+    fire(); step = 1;
+    holdTimer = setTimeout(() => {
+      repeatTimer = setInterval(() => {
+        fire(); step++;
+        if (step === 10) { clearInterval(repeatTimer); repeatTimer = setInterval(fire, 60); }
+      }, 150);
+    }, 350);
+  }
+  function stopHold() {
+    clearTimeout(holdTimer); clearInterval(repeatTimer);
+    holdTimer = repeatTimer = null; step = 0;
+    el.classList.remove('pressing');
+  }
+  el.addEventListener('touchstart', e => { e.preventDefault(); el.classList.add('pressing'); startHold(); }, { passive: false });
+  el.addEventListener('touchend',    stopHold, { passive: true });
+  el.addEventListener('touchcancel', stopHold, { passive: true });
+  el.addEventListener('mousedown', () => { el.classList.add('pressing'); startHold(); });
+  el.addEventListener('mouseup',   stopHold);
+  el.addEventListener('mouseleave', stopHold);
+}
+
+makeHoldBtn(document.getElementById('age-m'), dir => {
+  ageMonths = Math.max(0, Math.min(AGE_MAX, ageMonths + dir));
+  render();
+});
+makeHoldBtn(document.getElementById('age-p'), dir => {
+  ageMonths = Math.max(0, Math.min(AGE_MAX, ageMonths + dir));
+  render();
+});
+makeHoldBtn(document.getElementById('temp-m'), dir => {
+  tempIdx = Math.max(0, Math.min(TEMP_VALUES.length - 1, tempIdx + dir));
+  render();
+});
+makeHoldBtn(document.getElementById('temp-p'), dir => {
+  tempIdx = Math.max(0, Math.min(TEMP_VALUES.length - 1, tempIdx + dir));
+  render();
+});
+
+// ── Método ─────────────────────────────────────────────────────────
+
+function setMethod(m) {
+  method = m;
+  ['rectal', 'axilar', 'oido'].forEach(id => {
+    document.getElementById('btn-' + id).classList.toggle('active', id === m);
+  });
+  render();
+}
+
+// ── Calcular estado ────────────────────────────────────────────────
+
+function getState(temp, m) {
+  const thr = THRESHOLDS[m];
+  if (temp >= 40.5)            return 'urgent';
+  if (temp >= thr.fever)       return 'fever';
+  if (temp >= thr.sub)         return 'subfebril';
+  return 'normal';
+}
+
+// ── Render ─────────────────────────────────────────────────────────
+
+function render() {
+  const temp = TEMP_VALUES[tempIdx];
+  const thr  = THRESHOLDS[method];
+  const state = getState(temp, method);
+  const ageGroup = getAgeGroup(ageMonths);
+
+  // Age display
+  document.getElementById('age-v').textContent = ageMonths;
+  const ageSub = ageMonths === 0 ? 'recién nacido'
+               : ageMonths === 1 ? 'mes'
+               : ageMonths < 24  ? ''
+               : ageMonths === 24 ? '2 años'
+               : `${Math.floor(ageMonths/12)}a ${ageMonths%12}m`;
+  document.getElementById('age-sub').textContent = ageSub;
+
+  // Temp display
+  document.getElementById('temp-v').textContent = temp.toFixed(1);
+  document.getElementById('disp-c').textContent = temp.toFixed(1);
+  document.getElementById('disp-f').textContent = (temp * 9 / 5 + 32).toFixed(1);
+
+  // Threshold note
+  document.getElementById('threshold-note').innerHTML =
+    `<strong>Umbral ${thr.label}:</strong> normal &lt; ${thr.sub.toFixed(1)}°C · subfebril ${thr.sub.toFixed(1)}–${(thr.fever - 0.1).toFixed(1)}°C · fiebre ≥ ${thr.fever.toFixed(1)}°C`;
+
+  // Veredicto
+  const vBlock = document.getElementById('verdict-block');
+  const stateMap = {
+    normal:    { cls: 'normal',   emoji: '✅', label: 'Sin fiebre',  title: 'Temperatura normal',  sub: 'Dentro del rango esperado' },
+    subfebril: { cls: 'subfebril',emoji: '🌡️', label: 'Subfebril',  title: 'Temperatura elevada', sub: 'Aún no es fiebre' },
+    fever:     { cls: 'fever',    emoji: '🔆', label: 'Fiebre',      title: 'Tiene fiebre',        sub: 'Sigue las pautas según la edad' },
+    urgent:    { cls: 'urgent',   emoji: '⚠️', label: 'Fiebre alta', title: 'Fiebre muy alta',     sub: 'Consulta inmediatamente' },
+  };
+
+  // Override a urgente si bebé < 3m con cualquier fiebre
+  let effectiveState = state;
+  if (ageMonths <= 3 && (state === 'fever' || state === 'urgent')) effectiveState = 'urgent';
+  if (ageMonths <= 1 && state === 'subfebril') effectiveState = 'urgent';
+
+  const v = stateMap[effectiveState];
+  vBlock.className = 'verdict-block ' + v.cls;
+  document.getElementById('verdict-emoji').textContent = v.emoji;
+  document.getElementById('verdict-label').textContent = v.label;
+  document.getElementById('verdict-title').textContent = v.title;
+  document.getElementById('verdict-sub').textContent   = v.sub;
+
+  // Acción por edad
+  const actions = AGE_ACTIONS[ageGroup];
+  const action  = actions[effectiveState] || actions.normal;
+  const aBlock  = document.getElementById('action-block');
+  aBlock.className = 'action-block ' + action.cls;
+  document.getElementById('action-title').textContent = action.title;
+  document.getElementById('action-text').textContent  = action.text;
+
+  // Nota contextual
+  document.getElementById('context-note').innerHTML =
+    '<strong>Ten en cuenta:</strong> ' + (CONTEXT_NOTES[effectiveState] || CONTEXT_NOTES.normal).replace('<strong>Ten en cuenta:</strong> ', '');
+}
+
+render();
+</script>
+</body>
+</html>
