@@ -178,6 +178,19 @@
   .seo-table tbody td { padding: 8px 10px; font-size: 13px; color: var(--mid); border-bottom: 1px solid rgba(168,152,196,0.12); vertical-align: top; }
   .seo-table tbody td:first-child { font-weight: 500; color: var(--deep); white-space: nowrap; }
   .seo-table tbody tr:last-child td { border-bottom: none; }
+
+  /* ── Desktop layout ── */
+  @media (min-width: 768px) {
+    .container { max-width: 920px; padding: 48px 40px 80px; }
+    .page-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .right-col { position: sticky; top: 28px; }
+    .right-col .card { margin-bottom: 0; }
+  }
 </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
   <script>
@@ -203,6 +216,8 @@
     <p class="subtitle">Horas totales, siestas, ventana de sueño y hora de acostarse según la edad de tu bebé.</p>
   </header>
 
+  <div class="page-grid"><div class="left-col">
+
   <div class="card">
     <div class="section-label">Edad del bebé</div>
     <div class="age-selector">
@@ -215,6 +230,9 @@
       <button class="hold-btn" id="age-plus" data-dir="1">+</button>
     </div>
   </div>
+
+  </div><!-- /left-col -->
+  <div class="right-col">
 
   <div class="card" id="result-card">
     <div class="section-label">Guía orientativa</div>
@@ -263,6 +281,9 @@
 
     <div class="context-note" id="context-note"></div>
   </div>
+
+  </div><!-- /right-col -->
+  </div><!-- /page-grid -->
 
   <p class="disclaimer">
     Basado en recomendaciones de la NSF (National Sleep Foundation) y la AAP.<br>

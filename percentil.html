@@ -171,6 +171,19 @@
   .seo-table tbody td { padding: 8px 10px; font-size: 13px; color: var(--mid); border-bottom: 1px solid rgba(138,176,144,0.12); vertical-align: top; }
   .seo-table tbody td:first-child { font-weight: 500; color: var(--deep); white-space: nowrap; }
   .seo-table tbody tr:last-child td { border-bottom: none; }
+
+  /* ── Desktop layout ── */
+  @media (min-width: 768px) {
+    .container { max-width: 920px; padding: 48px 40px 80px; }
+    .page-grid {
+      display: grid;
+      grid-template-columns: 370px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .right-col { position: sticky; top: 28px; }
+    .right-col .result-card { margin-bottom: 0; }
+  }
 </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-55NR11957W");</script>
@@ -188,6 +201,8 @@
     <h1>¿Está creciendo<br><em>bien</em>?</h1>
     <p class="subtitle">Calcula el percentil de peso y altura de tu bebé según los estándares de la OMS (0–5 años).</p>
   </header>
+
+  <div class="page-grid"><div class="left-col">
 
   <div class="card">
     <div class="section-label">Sexo</div>
@@ -229,6 +244,9 @@
     </div>
   </div>
 
+  </div><!-- /left-col -->
+  <div class="right-col">
+
   <div class="result-card" id="result-card">
     <div class="section-label">Percentil según OMS</div>
     <div class="results-row">
@@ -257,6 +275,9 @@
     </div>
     <div class="context-note" id="context-note"></div>
   </div>
+
+  </div><!-- /right-col -->
+  </div><!-- /page-grid -->
 
   <p class="disclaimer">
     Basado en los Estándares de Crecimiento Infantil de la OMS (2006).<br>

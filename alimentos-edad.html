@@ -198,6 +198,20 @@
   .seo-table tbody td { padding: 8px 10px; font-size: 13px; color: var(--mid); border-bottom: 1px solid rgba(196,168,136,0.12); vertical-align: top; }
   .seo-table tbody td:first-child { font-weight: 500; color: var(--deep); white-space: nowrap; }
   .seo-table tbody tr:last-child td { border-bottom: none; }
+
+  /* ── Desktop layout ── */
+  @media (min-width: 768px) {
+    .container { max-width: 1040px; padding: 48px 40px 80px; }
+    .page-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .left-col { position: sticky; top: 28px; }
+    .left-col .controls { margin-bottom: 14px; }
+    .left-col .legend { margin-bottom: 0; }
+  }
 </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
   <script>
@@ -222,6 +236,8 @@
     <p class="subtitle">Busca un alimento o filtra por edad para saber si tu bebé puede tomarlo y cómo prepararlo.</p>
   </header>
 
+  <div class="page-grid"><div class="left-col">
+
   <div class="controls">
     <div class="search-wrap">
       <span class="search-icon">🔍</span>
@@ -240,8 +256,14 @@
     <div class="legend-item">🔵 Alérgeno</div>
   </div>
 
+  </div><!-- /left-col -->
+  <div class="right-col">
+
   <div class="results-meta" id="results-meta"></div>
   <div id="food-output"></div>
+
+  </div><!-- /right-col -->
+  </div><!-- /page-grid -->
 
   <p class="disclaimer">
     Basado en las recomendaciones de la ESPGHAN, AEP y EFSA (2023).<br>

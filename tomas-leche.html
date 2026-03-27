@@ -239,6 +239,19 @@
 
   .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
   .back-link:hover { color: var(--terracota); }
+
+  /* ── Desktop layout ── */
+  @media (min-width: 768px) {
+    .container { max-width: 920px; padding: 48px 40px 80px; }
+    .page-grid {
+      display: grid;
+      grid-template-columns: 370px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .right-col { position: sticky; top: 28px; }
+    .right-col .result-card { margin-bottom: 0; }
+  }
 </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
@@ -265,6 +278,8 @@
     <p class="subtitle">Calcula los ml por toma, el número de tomas y el intervalo según la edad y el peso de tu bebé.</p>
   </header>
 
+  <!-- Tipo de leche -->
+  <div class="page-grid"><div class="left-col">
   <!-- Tipo de leche -->
   <div class="card">
     <div class="section-label">Tipo de alimentación</div>
@@ -311,6 +326,9 @@
     </div>
   </div>
 
+  </div><!-- /left-col -->
+  <div class="right-col">
+
   <!-- Result -->
   <div class="result-card" id="result-card">
     <div class="section-label">Recomendación orientativa</div>
@@ -341,6 +359,9 @@
 
     <div class="context-note" id="context-note"></div>
   </div>
+
+  </div><!-- /right-col -->
+  </div><!-- /page-grid -->
 
   <p class="disclaimer">
     Basado en recomendaciones de la AAP y ESPGHAN (150 ml/kg/día como referencia).<br>
