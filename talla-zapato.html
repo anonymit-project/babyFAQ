@@ -157,6 +157,19 @@
   .seo-table tbody td { padding: 8px 10px; font-size: 13px; color: var(--mid); border-bottom: 1px solid rgba(196,168,152,0.12); vertical-align: top; }
   .seo-table tbody td:first-child { font-weight: 500; color: var(--deep); white-space: nowrap; }
   .seo-table tbody tr:last-child td { border-bottom: none; }
+
+  /* ── Desktop layout ── */
+  @media (min-width: 768px) {
+    .container { max-width: 920px; padding: 48px 40px 80px; }
+    .page-grid {
+      display: grid;
+      grid-template-columns: 370px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .right-col { position: sticky; top: 28px; }
+    .right-col .result-card { margin-bottom: 0; }
+  }
 </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-55NR11957W");</script>
@@ -175,6 +188,8 @@
     <p class="subtitle">Introduce la longitud del pie y obtén la talla en todos los sistemas al instante.</p>
   </header>
 
+  <div class="page-grid"><div class="left-col">
+
   <div class="card">
     <div class="section-label">Longitud del pie</div>
     <div class="tip">
@@ -187,6 +202,9 @@
       <button class="hold-btn" id="btn-plus" data-dir="1">+</button>
     </div>
   </div>
+
+  </div><!-- /left-col -->
+  <div class="right-col">
 
   <div class="result-card visible" id="result-card">
     <div class="section-label">Tallas recomendadas</div>
@@ -208,6 +226,9 @@
       </table>
     </div>
   </div>
+
+  </div><!-- /right-col -->
+  </div><!-- /page-grid -->
 
   <p class="disclaimer">Las tallas varían según fabricante. Úsalas como referencia y comprueba siempre antes de comprar.<br>Los rangos de edad son orientativos — cada bebé crece a su ritmo.</p>
 
