@@ -7,6 +7,12 @@
 <meta property="og:description" content="Guía visual mes a mes para la introducción de alimentos sólidos y agua en bebés. Qué introducir a los 6, 7, 8, 9, 10 y 12 meses.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#fdf6ee">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="babyFAQ">
 <link rel="canonical" href="https://babyfaq.es/solidos-agua.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta charset="UTF-8">
@@ -144,6 +150,26 @@
 
   /* ── Disclaimer ── */
   .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 22px; padding: 0 8px; }
+
+  /* ── Desktop layout ── */
+  @media (min-width: 768px) {
+    .container { max-width: 1040px; padding: 48px 40px 80px; }
+
+    /* Eliminar saltos de línea forzados en el header */
+    header br { display: none; }
+    h1 { font-size: 34px; }
+    .subtitle { font-size: 14px; }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .left-col { position: sticky; top: 28px; }
+    .left-col .card { margin-bottom: 14px; }
+    .left-col .oms-banner { margin-bottom: 0; }
+  }
 </style>
 
 <!-- Google tag (gtag.js) -->
@@ -165,9 +191,11 @@
 
   <header>
     <span class="badge">Alimentación complementaria</span>
-    <h1>¿Cuándo introducir<br><em>sólidos</em> y agua?</h1>
+    <h1>¿Cuándo introducir <br><em>sólidos</em> y agua?</h1>
     <p class="subtitle">Guía mes a mes sobre qué alimentos puedes introducir según la edad de tu bebé. Basada en las recomendaciones de la ESPGHAN y la AEP.</p>
   </header>
+
+  <div class="page-grid"><div class="left-col">
 
   <!-- OMS note -->
   <div class="oms-banner">
@@ -188,6 +216,9 @@
       <button class="hold-btn" id="age-plus" data-dir="1">+</button>
     </div>
   </div>
+
+  </div><!-- /left-col -->
+  <div class="right-col">
 
   <!-- Stage result card -->
   <div class="stage-card" id="stage-card">
@@ -230,6 +261,9 @@
     <div class="section-label" style="margin-bottom:18px">Línea de tiempo completa</div>
     <div class="timeline" id="timeline"></div>
   </div>
+
+  </div><!-- /right-col -->
+  </div><!-- /page-grid -->
 
   <p class="disclaimer">
     Basado en las guías de la ESPGHAN (2017), la AEP y la OMS.<br>
@@ -514,6 +548,13 @@ function render() {
 buildTimeline();
 render();
 </script>
-
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .catch(err => console.warn('SW registration failed:', err));
+  });
+}
+</script>
 </body>
 </html>
