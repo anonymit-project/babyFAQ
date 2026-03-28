@@ -8,6 +8,12 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://babyfaq.es/calculadora-lactancia.html">
 <meta name="theme-color" content="#fdf6ee">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="babyFAQ">
 <link rel="canonical" href="https://babyfaq.es/calculadora-lactancia.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta charset="UTF-8">
@@ -367,6 +373,14 @@ function alcoholGrams(d){const s=st[d.id];return s.count*d.mlValues[s.mlIdx]*(d.
 function calculate(){const weight=parseFloat(document.getElementById('weight').value);const elapsed=(parseFloat(document.getElementById('hours').value)||0)+(parseFloat(document.getElementById('minutes').value)||0)/60;if(!weight||weight<30){alert('Introduce tu peso en kg para continuar.');return;}const totalAlcohol=DRINKS.reduce((s,d)=>s+alcoholGrams(d),0);if(totalAlcohol===0){alert('Selecciona al menos una bebida.');return;}const bac0=totalAlcohol/(weight*0.55*10);const bacNow=Math.max(0,bac0-0.015*elapsed);const hLeft=Math.max(0,bacNow/0.015);const result=document.getElementById('result');const emoji=document.getElementById('result-emoji');const headline=document.getElementById('result-headline');const timeEl=document.getElementById('result-time');const timeLbl=document.getElementById('result-time-label');const detail=document.getElementById('result-detail');result.className='result';if(bacNow===0){result.classList.add('safe');emoji.textContent='✅';headline.textContent='Puedes dar el pecho';timeEl.textContent='';timeLbl.textContent='';detail.textContent='El alcohol ya se ha eliminado de tu organismo. Puedes amamantar con tranquilidad.';}else{const totalMin=Math.ceil(hLeft*60);const h=Math.floor(totalMin/60),m=totalMin%60;result.classList.add(hLeft<=1?'wait':'careful');emoji.textContent=hLeft<=1?'⏳':'⚠️';headline.textContent=hLeft<=1?'Espera un poco más':'Todavía no';timeEl.textContent=h>0?(m>0?`${h}h ${m}m`:`${h}h`):`${m}m`;timeLbl.textContent='para poder dar el pecho';const timeStr=h>0?`${h} hora${h>1?'s':''}${m>0?' y '+m+' minutos':''}`:` ${m} minutos`;detail.textContent=`Con ${totalAlcohol.toFixed(1)}g de alcohol y tu peso, necesitas esperar${timeStr} más desde la última copa.`;}document.getElementById('reset-btn').classList.add('visible');result.scrollIntoView({behavior:'smooth',block:'nearest'});}
 function resetAll(){initState();document.getElementById('weight').value='';document.getElementById('hours').value='';document.getElementById('minutes').value='';document.getElementById('result').className='result';document.getElementById('reset-btn').classList.remove('visible');buildRows();window.scrollTo({top:0,behavior:'smooth'});}
 initState();buildRows();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .catch(err => console.warn('SW registration failed:', err));
+  });
+}
 </script>
 </body>
 </html>
