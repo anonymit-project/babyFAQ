@@ -1,81 +1,94 @@
 // babyFAQ Service Worker
-// Cache-first strategy: funciona sin internet después de la primera visita
+// Cache-first con actualización en background
 
-const CACHE_NAME = 'babyfaq-v1';
+const CACHE_NAME = 'babyfaq-v2';
 
-// Todos los recursos a cachear (las herramientas funcionan 100% offline)
-const ASSETS_TO_CACHE = [
+// Páginas y assets a precachear en la instalación
+const PRECACHE_URLS = [
   '/',
   '/index.html',
+  '/dosis-fiebre.html',
   '/tomas-leche.html',
-  '/calculadora-lactancia.html',
   '/alimentos-edad.html',
   '/percentil.html',
   '/talla-zapato.html',
   '/tallas-ropa.html',
   '/sueno-bebe.html',
   '/checker-productos.html',
+  '/calculadora-lactancia.html',
   '/sugerir.html',
   '/favicon.svg',
   '/manifest.json',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png',
-  '/icons/apple-touch-icon.png',
 ];
 
-// ── Install: pre-cachear todos los assets ────────────────────────
+// ── Install: precachear todo ──────────────────────────────────────
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(ASSETS_TO_CACHE))
+      .then(cache => cache.addAll(PRECACHE_URLS))
       .then(() => self.skipWaiting())
   );
 });
 
-// ── Activate: limpiar caches antiguos ────────────────────────────
+// ── Activate: limpiar caches antiguas ─────────────────────────────
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(
-        keys
-          .filter(key => key !== CACHE_NAME)
-          .map(key => caches.delete(key))
-      ))
+      .then(cacheNames =>
+        Promise.all(
+          cacheNames
+            .filter(name => name !== CACHE_NAME)
+            .map(name => caches.delete(name))
+        )
+      )
       .then(() => self.clients.claim())
   );
 });
 
-// ── Fetch: cache-first, network fallback ─────────────────────────
+// ── Fetch: cache-first, fallback a red, luego index offline ───────
 self.addEventListener('fetch', event => {
-  // Solo interceptar GET requests del mismo origen o Google Fonts
-  const url = new URL(event.request.url);
-  const isOwnOrigin = url.origin === self.location.origin;
-  const isGoogleFonts = url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com';
+  // Solo GET
+  if (event.request.method !== 'GET') return;
 
-  if (!isOwnOrigin && !isGoogleFonts) return;
+  const url = new URL(event.request.url);
+  const isSameOrigin  = url.origin === self.location.origin;
+  const isGoogleFont  = url.hostname.includes('fonts.googleapis.com') ||
+                        url.hostname.includes('fonts.gstatic.com');
+  const isGoogleTag   = url.hostname.includes('googletagmanager.com') ||
+                        url.hostname.includes('google-analytics.com');
+
+  // No interceptar analytics (no bloquear si falla)
+  if (isGoogleTag) return;
+
+  // Solo interceptar mismo origen + fuentes Google
+  if (!isSameOrigin && !isGoogleFont) return;
 
   event.respondWith(
-    caches.match(event.request)
-      .then(cached => {
-        if (cached) return cached;
-
-        // No está en cache → ir a red y cachear para la próxima
-        return fetch(event.request)
-          .then(response => {
-            if (!response || response.status !== 200 || response.type === 'error') {
-              return response;
+    caches.open(CACHE_NAME).then(cache =>
+      cache.match(event.request).then(cachedResponse => {
+        // Revalidar en background (stale-while-revalidate)
+        const fetchPromise = fetch(event.request)
+          .then(networkResponse => {
+            if (networkResponse && networkResponse.status === 200) {
+              cache.put(event.request, networkResponse.clone());
             }
-            const toCache = response.clone();
-            caches.open(CACHE_NAME)
-              .then(cache => cache.put(event.request, toCache));
-            return response;
+            return networkResponse;
           })
-          .catch(() => {
-            // Sin red y no estaba cacheado → página offline básica
-            if (event.request.mode === 'navigate') {
-              return caches.match('/index.html');
-            }
-          });
+          .catch(() => null);
+
+        // Devolver cache inmediatamente si existe
+        if (cachedResponse) return cachedResponse;
+
+        // Si no hay cache, esperar a red
+        return fetchPromise.then(networkResponse => {
+          if (networkResponse) return networkResponse;
+          // Fallback offline: devolver index para páginas HTML
+          if (event.request.headers.get('accept')?.includes('text/html')) {
+            return cache.match('/index.html');
+          }
+          return new Response('', { status: 408, statusText: 'Sin conexión' });
+        });
       })
+    )
   );
 });

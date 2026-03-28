@@ -1,97 +1,43 @@
 {
-  "name": "babyFAQ — Herramientas para padres",
+  "name": "babyFAQ – Herramientas para padres",
   "short_name": "babyFAQ",
-  "description": "Calculadoras y tablas de referencia para padres primerizos. Tallas, percentiles, sueño, alimentación y más.",
+  "description": "Calculadoras y tablas de referencia para padres primerizos en español. Sin artículos de 2.000 palabras.",
   "start_url": "/",
-  "scope": "/",
   "display": "standalone",
   "background_color": "#fdf6ee",
-  "theme_color": "#fdf6ee",
-  "lang": "es",
+  "theme_color": "#c97a5e",
   "orientation": "portrait-primary",
-  "categories": ["health", "lifestyle", "parenting"],
+  "lang": "es",
+  "categories": ["health", "kids", "parenting"],
   "icons": [
     {
-      "src": "/icons/icon-72x72.png",
-      "sizes": "72x72",
-      "type": "image/png"
-    },
-    {
-      "src": "/icons/icon-96x96.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    },
-    {
-      "src": "/icons/icon-128x128.png",
-      "sizes": "128x128",
-      "type": "image/png"
-    },
-    {
-      "src": "/icons/icon-144x144.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-    {
-      "src": "/icons/icon-152x152.png",
-      "sizes": "152x152",
-      "type": "image/png"
-    },
-    {
-      "src": "/icons/icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "any"
-    },
-    {
-      "src": "/icons/icon-384x384.png",
-      "sizes": "384x384",
-      "type": "image/png"
-    },
-    {
-      "src": "/icons/icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icons/icon-maskable-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "/icons/icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "form_factor": "narrow"
     }
   ],
   "shortcuts": [
     {
-      "name": "Tomas de leche",
-      "short_name": "Tomas",
-      "url": "/tomas-leche.html",
-      "icons": [{ "src": "/icons/icon-96x96.png", "sizes": "96x96" }]
-    },
-    {
-      "name": "Sueño por meses",
-      "short_name": "Sueño",
-      "url": "/sueno-bebe.html",
-      "icons": [{ "src": "/icons/icon-96x96.png", "sizes": "96x96" }]
-    },
-    {
-      "name": "Alimentos por edad",
-      "short_name": "Alimentos",
-      "url": "/alimentos-edad.html",
-      "icons": [{ "src": "/icons/icon-96x96.png", "sizes": "96x96" }]
+      "name": "Dosis paracetamol e ibuprofeno",
+      "short_name": "Dosis fiebre",
+      "description": "Calcular la dosis exacta por peso",
+      "url": "/dosis-fiebre.html",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
     },
     {
       "name": "Percentil OMS",
       "short_name": "Percentil",
+      "description": "Percentil de peso y altura",
       "url": "/percentil.html",
-      "icons": [{ "src": "/icons/icon-96x96.png", "sizes": "96x96" }]
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Tomas de leche",
+      "short_name": "Tomas",
+      "description": "Cuántos mL por toma según peso y edad",
+      "url": "/tomas-leche.html",
+      "icons": [{ "src": "/favicon.svg", "sizes": "any" }]
     }
   ]
 }
