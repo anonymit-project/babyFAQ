@@ -8,6 +8,12 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://babyfaq.es/percentil.html">
 <meta name="theme-color" content="#fdf6ee">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="babyFAQ">
 <link rel="canonical" href="https://babyfaq.es/percentil.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta charset="UTF-8">
@@ -416,6 +422,14 @@ function getNote(pW,pH){if(pW<3||pH<3)return'<strong>Nota:</strong> Uno de los v
 function render(){const month=ageIdx;const wt=WT_VALUES[wtIdx];const ht=HT_VALUES[htIdx];document.getElementById('age-v').textContent=month;document.getElementById('age-u').textContent=month===1?'mes':month<24?'meses':month===24?'meses (2 años)':`meses (${Math.floor(month/12)}a ${month%12}m)`;document.getElementById('wt-v').textContent=wt.toFixed(1);document.getElementById('ht-v').textContent=ht.toFixed(1);const wtTable=sex==='M'?'WAB':'WAG';const htTable=sex==='M'?'HAB':'HAG';const{pct:pctW,z:zW}=calcPercentile(wt,wtTable,month);const{pct:pctH,z:zH}=calcPercentile(ht,htTable,month);const bandW=getBand(pctW);const bandH=getBand(pctH);document.getElementById('block-wt').className=`result-block block-${bandW.cls}`;document.getElementById('pct-wt').innerHTML=`P${pctW}`;document.getElementById('z-wt').textContent=`Z = ${zW}`;document.getElementById('band-wt').className=`r-band band-${bandW.cls}`;document.getElementById('band-wt').textContent=bandW.label;document.getElementById('block-ht').className=`result-block block-${bandH.cls}`;document.getElementById('pct-ht').innerHTML=`P${pctH}`;document.getElementById('z-ht').textContent=`Z = ${zH}`;document.getElementById('band-ht').className=`r-band band-${bandH.cls}`;document.getElementById('band-ht').textContent=bandH.label;document.getElementById('gauge-wt-marker').style.left=pctToGaugeLeft(pctW);document.getElementById('gauge-ht-marker').style.left=pctToGaugeLeft(pctH);document.getElementById('context-note').innerHTML=getNote(pctW,pctH);}
 
 syncDefaults();render();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .catch(err => console.warn('SW registration failed:', err));
+  });
+}
 </script>
 </body>
 </html>
