@@ -20,6 +20,12 @@
   </url>
 
   <url>
+    <loc>https://babyfaq.es/solidos-agua.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
     <loc>https://babyfaq.es/alimentos-edad.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -27,6 +33,18 @@
 
   <url>
     <loc>https://babyfaq.es/percentil.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://babyfaq.es/fiebre.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://babyfaq.es/dosis-fiebre.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
