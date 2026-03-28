@@ -8,6 +8,12 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://babyfaq.es/tomas-leche.html">
 <meta name="theme-color" content="#fdf6ee">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="babyFAQ">
 <link rel="canonical" href="https://babyfaq.es/tomas-leche.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta charset="UTF-8">
@@ -659,6 +665,14 @@ function render() {
 }
 
 render();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .catch(err => console.warn('SW registration failed:', err));
+  });
+}
 </script>
 </body>
 </html>
