@@ -53,6 +53,9 @@
   /* ── Layout ── */
   .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 20px 60px; }
 
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--terracota); }
+  
   /* ── Header ── */
   header { text-align: center; margin-bottom: 32px; }
   .badge { display: inline-block; background: #edf5f0; color: #5a8a6a; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
@@ -189,6 +192,8 @@
 
 <div class="container">
 
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+  
   <header>
     <span class="badge">Alimentación complementaria</span>
     <h1>¿Cuándo introducir <br><em>sólidos</em> y agua?</h1>
