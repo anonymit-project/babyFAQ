@@ -48,6 +48,9 @@
 
   .container { position: relative; z-index: 1; max-width: 420px; margin: 0 auto; padding: 36px 22px 60px; }
 
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--terracota); }
+  
   /* ── Header ── */
   header { text-align: center; margin-bottom: 26px; }
   .badge { display: inline-block; background: var(--blush); color: var(--terracota); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
@@ -161,6 +164,8 @@
 
 <div class="container">
 
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+  
   <header>
     <span class="badge">Salud · Fiebre</span>
     <h1>Paracetamol<br>e <em>ibuprofeno</em></h1>
