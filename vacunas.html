@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Calendario de vacunas bebé y niño España 2024 · babyFAQ</title>
+<meta name="description" content="Calendario oficial de vacunación infantil en España 2024. Selecciona la edad de tu bebé y descubre qué vacunas le corresponden, para qué sirven y qué efectos secundarios son normales.">
+<meta property="og:title" content="Calendario de vacunas bebé y niño España 2024 · babyFAQ">
+<meta property="og:description" content="¿Qué vacunas le tocan a tu bebé? Calendario oficial del Consejo Interterritorial del SNS. Selecciona la edad y consulta las vacunas, para qué protegen y qué esperar después.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fdf6ee">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f3f8f4; --warm-white: #fafdfb; --mint: #a8d8b8;
+    --green: #3a7a4a; --deep: #1a2d1f; --mid: #3a5a44; --soft: #7aaa88;
+    --green-bg: #e8f5ec; --green-border: #a8d8b0;
+    --blue: #3a6aaa; --blue-bg: #e8f0fa; --blue-border: #a8c4e8;
+    --amber: #b07020; --amber-bg: #fdf3e0; --amber-border: #e8c870;
+    --purple: #7048a8; --purple-bg: #f0eaf8; --purple-border: #c8aae8;
+    --red: #a83030; --red-bg: #fdf0f0; --red-border: #e8a8a8;
+    --terracota: #c97a5e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 320px; height: 320px; background: #a0d0b8; top: -100px; right: -80px; opacity: 0.28; }
+  .blob-2 { width: 260px; height: 260px; background: #a0b8d8; bottom: -80px; left: -60px; opacity: 0.22; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 20px 64px; }
+
+  /* ── Back ── */
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 28px; transition: color 0.2s; }
+  .back-link:hover { color: var(--green); }
+
+  /* ── Header ── */
+  header { text-align: center; margin-bottom: 32px; }
+  .badge { display: inline-block; background: var(--green-bg); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 10px; }
+  h1 em { font-style: italic; color: var(--green); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.5; font-weight: 300; max-width: 340px; margin: 0 auto; }
+
+  @media (min-width: 480px) { h1 { font-size: 34px; } .subtitle { font-size: 14px; } }
+  @media (min-width: 640px) { h1 { font-size: 38px; } .container { padding: 56px 28px 80px; } }
+
+  /* ── Card ── */
+  .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,45,31,0.07); border: 1px solid rgba(122,170,136,0.22); }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 14px; }
+
+  /* ── Age pills ── */
+  .age-scroll { display: flex; gap: 7px; flex-wrap: wrap; }
+  .age-pill {
+    padding: 8px 14px; border-radius: 20px;
+    border: 1.5px solid rgba(122,170,136,0.3);
+    background: var(--cream); font-family: 'DM Sans', sans-serif;
+    font-size: 12px; font-weight: 500; color: var(--mid);
+    cursor: pointer; transition: all 0.15s; white-space: nowrap;
+    touch-action: manipulation;
+  }
+  .age-pill:hover { border-color: var(--green); color: var(--green); }
+  .age-pill.active { background: var(--green); border-color: var(--green); color: white; }
+
+  /* ── Visit hero ── */
+  .visit-hero {
+    background: var(--green-bg); border: 1.5px solid var(--green-border);
+    border-radius: 18px; padding: 20px; margin-bottom: 14px;
+    animation: fadeUp 0.3s ease;
+  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .visit-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 6px; display: block; }
+  .visit-title { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 400; color: var(--deep); margin-bottom: 4px; }
+  .visit-sub { font-size: 12px; color: var(--mid); line-height: 1.5; }
+
+  /* ── Vaccine card ── */
+  .vaccine-card {
+    background: var(--warm-white); border-radius: 16px;
+    padding: 14px 16px; margin-bottom: 10px;
+    border: 1.5px solid rgba(122,170,136,0.2);
+    box-shadow: 0 1px 6px rgba(26,45,31,0.05);
+    cursor: pointer; transition: border-color 0.2s;
+    animation: fadeUp 0.3s ease;
+  }
+  .vaccine-card:hover { border-color: var(--green-border); }
+  .vaccine-card.expanded { border-color: var(--green-border); }
+
+  .vc-top { display: flex; align-items: center; gap: 10px; }
+  .vc-icon { font-size: 22px; flex-shrink: 0; }
+  .vc-main { flex: 1; min-width: 0; }
+  .vc-name { font-size: 14px; font-weight: 500; color: var(--deep); margin-bottom: 2px; }
+  .vc-abbr { font-size: 11px; color: var(--soft); }
+  .vc-dose-badge {
+    flex-shrink: 0; font-size: 10px; font-weight: 500;
+    padding: 3px 9px; border-radius: 20px; white-space: nowrap;
+  }
+  .dose-1 { background: var(--blue-bg);   color: var(--blue);   border: 1px solid var(--blue-border); }
+  .dose-2 { background: var(--purple-bg); color: var(--purple); border: 1px solid var(--purple-border); }
+  .dose-3 { background: var(--amber-bg);  color: var(--amber);  border: 1px solid var(--amber-border); }
+  .dose-4 { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-border); }
+  .dose-5 { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-border); }
+  .dose-r { background: #f4f2ff; color: var(--purple); border: 1px solid var(--purple-border); }
+
+  .vc-chevron { color: var(--soft); font-size: 14px; transition: transform 0.2s; flex-shrink: 0; }
+  .vaccine-card.expanded .vc-chevron { transform: rotate(90deg); }
+
+  .vc-detail { display: none; padding-top: 12px; border-top: 1px solid rgba(122,170,136,0.15); margin-top: 12px; }
+  .vaccine-card.expanded .vc-detail { display: block; }
+
+  .vc-protects { margin-bottom: 10px; }
+  .vc-protects-label { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); margin-bottom: 5px; display: block; }
+  .vc-protects-text { font-size: 12px; color: var(--mid); line-height: 1.6; }
+
+  .vc-sections { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+  .vc-section { background: var(--cream); border-radius: 10px; padding: 9px 10px; }
+  .vcs-label { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 4px; }
+  .vcs-val { font-size: 12px; color: var(--mid); line-height: 1.5; }
+
+  .vc-side { background: var(--amber-bg); border-radius: 10px; padding: 10px 12px; border: 1px solid var(--amber-border); }
+  .vc-side-label { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); margin-bottom: 4px; display: block; }
+  .vc-side-text { font-size: 12px; color: var(--mid); line-height: 1.5; }
+
+  /* ── No vaccines banner ── */
+  .no-vax { text-align: center; padding: 28px 16px; color: var(--soft); }
+  .no-vax-icon { font-size: 36px; margin-bottom: 10px; display: block; }
+
+  /* ── Full schedule table toggle ── */
+  .table-toggle { width: 100%; background: transparent; border: 1.5px solid rgba(122,170,136,0.35); border-radius: 13px; padding: 11px; font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--mid); cursor: pointer; margin-top: 0; transition: border-color 0.2s, color 0.2s; }
+  .table-toggle:hover { border-color: var(--green); color: var(--green); }
+  .full-table { display: none; margin-top: 12px; overflow-x: auto; }
+  .full-table.visible { display: block; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  thead th { font-size: 9px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--soft); padding: 5px 5px; text-align: left; border-bottom: 1px solid rgba(122,170,136,0.25); }
+  tbody td { padding: 7px 5px; border-bottom: 1px solid rgba(122,170,136,0.1); vertical-align: top; font-size: 11px; color: var(--mid); }
+  tbody td:first-child { font-weight: 500; color: var(--deep); white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+  .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--green); margin: 1px; }
+
+  /* ── Tips ── */
+  .tips-list { display: flex; flex-direction: column; gap: 8px; }
+  .tip-item { display: flex; gap: 10px; align-items: flex-start; background: var(--cream); border-radius: 12px; padding: 11px 12px; }
+  .tip-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .tip-text { font-size: 12px; color: var(--mid); line-height: 1.6; }
+  .tip-text strong { color: var(--deep); font-weight: 500; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 22px; padding: 0 8px; }
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">Salud · Vacunas</span>
+    <h1>¿Qué vacunas le<br>tocan <em>ahora</em>?</h1>
+    <p class="subtitle">Calendario oficial del SNS 2024. Selecciona la edad de tu bebé y descubre qué vacunas corresponden, para qué protegen y qué efectos son normales.</p>
+  </header>
+
+  <!-- Age selector -->
+  <div class="card">
+    <div class="section-label">Edad del bebé o niño</div>
+    <div class="age-scroll" id="age-pills"></div>
+  </div>
+
+  <!-- Results -->
+  <div id="results-wrap"></div>
+
+  <!-- Full schedule -->
+  <div class="card">
+    <button class="table-toggle" onclick="toggleTable()">Ver calendario completo ↓</button>
+    <div class="full-table" id="full-table">
+      <table id="sched-table"></table>
+    </div>
+  </div>
+
+  <!-- Tips -->
+  <div class="card">
+    <div class="section-label">Consejos antes y después de vacunar</div>
+    <div class="tips-list">
+      <div class="tip-item">
+        <span class="tip-icon">🍼</span>
+        <p class="tip-text"><strong>Antes:</strong> No es necesario ayuno. Dale la toma habitual. Lleva la cartilla de vacunación y el informe del pediatra si tiene alguna condición especial.</p>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">🤗</span>
+        <p class="tip-text"><strong>Durante:</strong> Sujetar al bebé en posición vertical contra el pecho reduce el dolor. La lactancia durante o justo después de la vacuna tiene efecto analgésico demostrado.</p>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">🌡️</span>
+        <p class="tip-text"><strong>Fiebre leve:</strong> Es una respuesta inmune normal, especialmente con la vacuna hexavalente. Puede durar 24–48h. Consulta con tu pediatra la dosis de paracetamol adecuada si hay malestar.</p>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">💉</span>
+        <p class="tip-text"><strong>Zona de la inyección:</strong> Es normal que aparezca un bulto, enrojecimiento o sensibilidad en el muslo durante unos días. Aplica frío local si molesta. Desaparece solo.</p>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">⚠️</span>
+        <p class="tip-text"><strong>Cuándo llamar al médico:</strong> Fiebre superior a 39,5°C, llanto inconsolable más de 3 horas, convulsiones, erupción generalizada o dificultad para respirar. Son reacciones muy poco frecuentes pero que hay que valorar.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="disclaimer">
+    Basado en el Calendario de Vacunación del Consejo Interterritorial del Sistema Nacional de Salud (SNS) 2024.<br>
+    Algunas comunidades autónomas incluyen vacunas adicionales (p. ej. rotavirus, meningococo B). Consulta el calendario de tu comunidad.<br>
+    Esta herramienta es orientativa. Tu pediatra adaptará el calendario a las necesidades específicas de tu hijo.
+  </p>
+
+</div>
+
+<script>
+// ── Vaccine database ───────────────────────────────────────────────
+const VACCINES = {
+  hex: {
+    name: 'Hexavalente',
+    abbr: 'DTPa-VPI-Hib-HB',
+    icon: '💉',
+    protects: 'Protege contra seis enfermedades al mismo tiempo: difteria, tétanos, tosferina (Bordetella pertussis), polio, Haemophilus influenzae tipo b y hepatitis B.',
+    route: 'Inyección intramuscular en el muslo',
+    brand: 'Infanrix Hexa o similar (según CCAA)',
+    sides: 'Muy frecuente: rojez, hinchazón y dolor en la zona del pinchazo, irritabilidad, llanto, pérdida de apetito y fiebre leve (37,5–38,5°C) las primeras 24–48 h. Todo es normal y es señal de que el sistema inmune responde.',
+  },
+  menb: {
+    name: 'Meningococo B',
+    abbr: 'Men B · Bexsero',
+    icon: '🧬',
+    protects: 'Protege contra la meningitis y sepsis causadas por Neisseria meningitidis serogrupo B, la causa más frecuente de meningitis bacteriana en bebés en España.',
+    route: 'Inyección intramuscular en el muslo (pierna contraria a la hexavalente)',
+    brand: 'Bexsero (financiada en el SNS desde 2022)',
+    sides: 'Muy frecuente: fiebre alta (puede llegar a 39–40°C), especialmente con la primera dosis y cuando se da junto con la hexavalente. Se recomienda administrar paracetamol profiláctico. La fiebre cede en 24–48 h.',
+  },
+  menc: {
+    name: 'Meningococo C / ACWY',
+    abbr: 'Men C · Men ACWY',
+    icon: '🧬',
+    protects: 'Protege contra la meningitis y sepsis por Neisseria meningitidis serogrupos C (en menores de 1 año) y A, C, W, Y (en mayores). Complementa la cobertura frente al Men B.',
+    route: 'Inyección intramuscular',
+    brand: 'Menjugate / NeisVac-C (Men C) o Nimenrix / MenQuadfi (ACWY)',
+    sides: 'Frecuente: dolor local, fiebre leve, irritabilidad. Menos frecuente que con Men B. Suele tolerarse bien.',
+  },
+  neumococo: {
+    name: 'Neumococo',
+    abbr: 'VNC13 / VNC15',
+    icon: '🫁',
+    protects: 'Protege contra Streptococcus pneumoniae, causante de otitis media, neumonía, meningitis y sepsis. La vacuna actual cubre 13 o 15 serotipos diferentes.',
+    route: 'Inyección intramuscular',
+    brand: 'Prevenar 13 o Vaxneuvance (según CCAA)',
+    sides: 'Frecuente: dolor e hinchazón local, irritabilidad, fiebre leve. Generalmente leve y transitoria (24–48 h).',
+  },
+  rv: {
+    name: 'Rotavirus',
+    abbr: 'RV · Oral',
+    icon: '🧪',
+    protects: 'Protege contra la gastroenteritis grave por rotavirus, primera causa de hospitalización por diarrea en lactantes. Es oral, no es una inyección.',
+    route: 'Administración oral (unas gotitas)',
+    brand: 'Rotarix (2 dosis) o RotaTeq (3 dosis). Financiado en algunas CCAA; disponible en farmacia en otras.',
+    sides: 'Generalmente bien tolerada. Puede haber irritabilidad leve y heces blandas los días siguientes. En casos muy raros, invaginación intestinal (dolor abdominal intenso, sangre en heces: acudir a urgencias).',
+  },
+  tv: {
+    name: 'Triple vírica',
+    abbr: 'SRP · MMR',
+    icon: '🦠',
+    protects: 'Protege contra tres enfermedades víricas: sarampión, rubeola y parotiditis (paperas). Dos dosis garantizan protección de por vida.',
+    route: 'Inyección subcutánea',
+    brand: 'Priorix o M-M-RvaxPro',
+    sides: 'Frecuente (5–12 días después): fiebre moderada, erupción leve, hinchazón de ganglios. No es contagioso. La fiebre puede ser alta (>38,5°C) — consulta dosis de paracetamol con tu pediatra.',
+  },
+  varicela: {
+    name: 'Varicela',
+    abbr: 'Var · VVZ',
+    icon: '🌟',
+    protects: 'Protege contra la varicela (Varicella zoster). La vacuna reduce drásticamente el riesgo de contagio y prácticamente elimina las formas graves de la enfermedad.',
+    route: 'Inyección subcutánea',
+    brand: 'Varivax o Varilrix',
+    sides: 'Poco frecuente: erupción leve similar a varicela (3–5 vesículas) entre los días 5 y 26 post-vacuna. Puede contagiar si hay lesiones abiertas — evitar inmunodeprimidos. Fiebre leve.',
+  },
+  hb: {
+    name: 'Hepatitis B',
+    abbr: 'HB · HBsAg',
+    icon: '🔵',
+    protects: 'Protege contra la infección por el virus de la hepatitis B, que puede provocar hepatitis crónica, cirrosis y cáncer de hígado. La primera dosis se administra en las primeras horas de vida.',
+    route: 'Inyección intramuscular',
+    brand: 'Engerix-B o Fendrix (incluida en la hexavalente a partir de los 2 meses)',
+    sides: 'Muy bien tolerada. Posible dolor leve en la zona de punción. Fiebre infrecuente.',
+  },
+  hpv: {
+    name: 'Virus del Papiloma Humano',
+    abbr: 'VPH · HPV',
+    icon: '🛡️',
+    protects: 'Protege contra los serotipos del VPH causantes del cáncer de cuello de útero, vulva, vagina, pene, ano y orofaringe, además de condilomas. Desde 2023 se vacunan niños y niñas en el SNS.',
+    route: 'Inyección intramuscular en el brazo',
+    brand: 'Cervarix (2v), Gardasil 4 o Gardasil 9 (según CCAA)',
+    sides: 'Frecuente: dolor, enrojecimiento e hinchazón en el brazo. Mareo o lipotimia justo después (poco frecuente) — se recomienda permanecer sentado 15 min tras la vacuna.',
+  },
+  dtpa: {
+    name: 'Difteria-Tétanos-Tosferina',
+    abbr: 'dTpa (baja carga)',
+    icon: '💉',
+    protects: 'Refuerzo de difteria, tétanos y tosferina. A partir de los 6 años se usa la formulación de baja carga antigénica (dTpa), que reduce los efectos locales manteniendo la protección.',
+    route: 'Inyección intramuscular',
+    brand: 'Boostrix o Adacel',
+    sides: 'Frecuente: dolor, enrojecimiento e hinchazón en el brazo, más intenso que con la hexavalente. Puede persistir varios días. Fiebre poco frecuente.',
+  },
+  mena: {
+    name: 'Meningococo ACWY',
+    abbr: 'Men ACWY · refuerzo',
+    icon: '🧬',
+    protects: 'Refuerzo de la vacuna antimeningocócica para los 4 serogrupos más frecuentes (A, C, W, Y). Se añade el refuerzo en adolescencia para mantener la protección.',
+    route: 'Inyección intramuscular',
+    brand: 'Nimenrix o MenQuadfi',
+    sides: 'Bien tolerada. Dolor local, posible fiebre leve. Similares a dosis previas.',
+  },
+};
+
+// ── Age / visit data ───────────────────────────────────────────────
+const VISITS = [
+  {
+    id: 'rn', label: 'Recién nacido', sublabel: 'En el hospital',
+    intro: 'En las primeras horas de vida, antes del alta hospitalaria, se administra la primera dosis de hepatitis B.',
+    vaccines: [
+      { id: 'hb', dose: 1, doseLabel: '1.ª dosis', note: 'Se pone en las primeras 24 horas de vida, en el hospital.' }
+    ]
+  },
+  {
+    id: '2m', label: '2 meses', sublabel: '1.ª visita de vacunación',
+    intro: 'Primera visita de vacunación. Es la más intensa — el bebé recibe hasta 4 vacunas (o 5 con rotavirus). La reacción con fiebre es muy esperada: es la respuesta inmune, no una infección.',
+    vaccines: [
+      { id: 'hex',       dose: 1, doseLabel: '1.ª dosis', note: 'Muslo derecho. La más reactógena de toda la pauta.' },
+      { id: 'menb',      dose: 1, doseLabel: '1.ª dosis', note: 'Muslo izquierdo. Se recomienda paracetamol profiláctico por la alta probabilidad de fiebre.' },
+      { id: 'neumococo', dose: 1, doseLabel: '1.ª dosis', note: 'Puede ir en el mismo brazo que otra vacuna, en músculo separado.' },
+      { id: 'rv',        dose: 1, doseLabel: '1.ª dosis (oral)', note: 'No es una inyección — son unas gotitas que el bebé se traga.' },
+    ]
+  },
+  {
+    id: '4m', label: '4 meses', sublabel: '2.ª visita de vacunación',
+    intro: 'Segunda ronda de vacunación. Mismas vacunas que a los 2 meses, misma pauta. La reacción suele ser similar o algo menor que la primera vez.',
+    vaccines: [
+      { id: 'hex',       dose: 2, doseLabel: '2.ª dosis' },
+      { id: 'menb',      dose: 2, doseLabel: '2.ª dosis', note: 'Sigue siendo frecuente la fiebre — mantén el paracetamol a mano.' },
+      { id: 'neumococo', dose: 2, doseLabel: '2.ª dosis' },
+      { id: 'rv',        dose: 2, doseLabel: '2.ª dosis (oral)' },
+    ]
+  },
+  {
+    id: '11m', label: '11–12 meses', sublabel: '3.ª visita de vacunación',
+    intro: 'Refuerzo de las vacunas del primer año. Se añade también la primera dosis de meningococo C (o ACWY). Es la última visita intensa de la pauta infantil.',
+    vaccines: [
+      { id: 'hex',       dose: 3, doseLabel: '3.ª dosis' },
+      { id: 'menb',      dose: 3, doseLabel: '3.ª dosis' },
+      { id: 'neumococo', dose: 3, doseLabel: '3.ª dosis (refuerzo)', note: 'Esta dosis es el refuerzo de los primeros meses.' },
+      { id: 'menc',      dose: 1, doseLabel: '1.ª dosis', note: 'Primera dosis de Men C (pauta 1+1) o Men ACWY según comunidad.' },
+    ]
+  },
+  {
+    id: '15m', label: '15 meses', sublabel: 'Primeras víricas',
+    intro: 'Primera dosis de triple vírica y varicela. Son vacunas víricas atenuadas: la reacción no es inmediata, sino que aparece entre los días 5 y 12 post-vacuna.',
+    vaccines: [
+      { id: 'tv',       dose: 1, doseLabel: '1.ª dosis', note: 'La reacción (fiebre, erupción leve) aparece 5–12 días después, no en las primeras 24–48 h como con la hexavalente.' },
+      { id: 'varicela', dose: 1, doseLabel: '1.ª dosis', note: 'Puede aparecer una erupción leve tipo varicela días después. No es grave ni contagioso salvo si hay vesículas abiertas.' },
+    ]
+  },
+  {
+    id: '3a', label: '3 años', sublabel: 'Refuerzo Men ACWY',
+    intro: 'Refuerzo de la vacuna antimeningocócica para los serogrupos A, C, W e Y. En algunas comunidades se administra Men ACWY en lugar de Men C.',
+    vaccines: [
+      { id: 'mena', dose: 'R', doseLabel: 'Refuerzo', note: 'En algunas CCAA es Men C refuerzo; en otras ya se usa Men ACWY tetravalente.' },
+    ]
+  },
+  {
+    id: '6a', label: '6 años', sublabel: 'Refuerzo DTPa y víricas',
+    intro: 'A los 6 años se refuerzan las vacunas de los primeros años. Es la última dosis de triple vírica y varicela del calendario estándar.',
+    vaccines: [
+      { id: 'dtpa',     dose: 'R', doseLabel: 'Refuerzo (baja carga)', note: 'Formulación dTpa (minúscula d) de baja carga antigénica, más adecuada a partir de los 4 años.' },
+      { id: 'tv',       dose: 2,   doseLabel: '2.ª dosis' },
+      { id: 'varicela', dose: 2,   doseLabel: '2.ª dosis', note: 'Completa la protección. Dos dosis ofrecen eficacia >98%.' },
+    ]
+  },
+  {
+    id: '12a', label: '12 años', sublabel: 'Adolescencia',
+    intro: 'Vacunación en adolescencia: VPH para niños y niñas (desde 2023 en el SNS para ambos sexos) y refuerzo de meningococo ACWY.',
+    vaccines: [
+      { id: 'hpv',  dose: 1, doseLabel: '1.ª dosis (2 dosis en total)', note: 'Pauta de 2 dosis con 6 meses de intervalo. Máxima eficacia si se pone antes del inicio de relaciones sexuales.' },
+      { id: 'mena', dose: 'R', doseLabel: 'Refuerzo ACWY', note: 'Segunda dosis de Men ACWY para mantener la protección en la adolescencia.' },
+    ]
+  },
+  {
+    id: '14a', label: '14–18 años', sublabel: 'Refuerzo tétanos y tosferina',
+    intro: 'Último refuerzo sistemático del calendario infantil. Mantiene la protección frente a difteria, tétanos y tosferina en la adolescencia y la vida adulta temprana.',
+    vaccines: [
+      { id: 'dtpa', dose: 'R', doseLabel: 'Refuerzo (baja carga)', note: 'Se repite cada 10 años en la vida adulta para el tétanos.' },
+    ]
+  },
+];
+
+// ── State ─────────────────────────────────────────────────────────
+let selectedVisit = '2m';
+
+// ── Build age pills ────────────────────────────────────────────────
+function buildPills() {
+  const wrap = document.getElementById('age-pills');
+  VISITS.forEach(v => {
+    const btn = document.createElement('button');
+    btn.className = 'age-pill' + (v.id === selectedVisit ? ' active' : '');
+    btn.textContent = v.label;
+    btn.addEventListener('click', () => {
+      selectedVisit = v.id;
+      document.querySelectorAll('.age-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderResults();
+    });
+    wrap.appendChild(btn);
+  });
+}
+
+// ── Dose color ─────────────────────────────────────────────────────
+function doseClass(d) {
+  if (d === 'R') return 'dose-r';
+  if (d === 1)   return 'dose-1';
+  if (d === 2)   return 'dose-2';
+  if (d === 3)   return 'dose-3';
+  if (d === 4)   return 'dose-4';
+  return 'dose-5';
+}
+
+// ── Render results ─────────────────────────────────────────────────
+function renderResults() {
+  const visit = VISITS.find(v => v.id === selectedVisit);
+  if (!visit) return;
+
+  const wrap = document.getElementById('results-wrap');
+  wrap.innerHTML = '';
+
+  // Visit hero
+  const hero = document.createElement('div');
+  hero.className = 'visit-hero';
+  hero.innerHTML = `
+    <span class="visit-label">💉 Vacunación a los ${visit.label}</span>
+    <div class="visit-title">${visit.sublabel}</div>
+    <div class="visit-sub">${visit.intro}</div>`;
+  wrap.appendChild(hero);
+
+  if (!visit.vaccines || visit.vaccines.length === 0) {
+    const nv = document.createElement('div');
+    nv.className = 'no-vax';
+    nv.innerHTML = `<span class="no-vax-icon">✅</span><p>No hay vacunas sistemáticas en esta edad según el calendario del SNS.</p>`;
+    wrap.appendChild(nv);
+    return;
+  }
+
+  // Count label
+  const countEl = document.createElement('div');
+  countEl.style.cssText = 'font-size:12px;color:var(--soft);margin-bottom:8px;padding-left:2px;';
+  countEl.textContent = `${visit.vaccines.length} vacuna${visit.vaccines.length !== 1 ? 's' : ''} en esta visita`;
+  wrap.appendChild(countEl);
+
+  // Vaccine cards
+  visit.vaccines.forEach((vv, i) => {
+    const vdef = VACCINES[vv.id];
+    if (!vdef) return;
+    const card = document.createElement('div');
+    card.className = 'vaccine-card';
+
+    card.innerHTML = `
+      <div class="vc-top">
+        <span class="vc-icon">${vdef.icon}</span>
+        <div class="vc-main">
+          <div class="vc-name">${vdef.name}</div>
+          <div class="vc-abbr">${vdef.abbr}</div>
+        </div>
+        <span class="vc-dose-badge ${doseClass(vv.dose)}">${vv.doseLabel}</span>
+        <span class="vc-chevron">›</span>
+      </div>
+      <div class="vc-detail">
+        <div class="vc-protects">
+          <span class="vc-protects-label">🛡️ Protege contra</span>
+          <p class="vc-protects-text">${vdef.protects}</p>
+        </div>
+        <div class="vc-sections">
+          <div class="vc-section">
+            <span class="vcs-label">Vía</span>
+            <span class="vcs-val">${vdef.route}</span>
+          </div>
+          <div class="vc-section">
+            <span class="vcs-label">Vacuna habitual</span>
+            <span class="vcs-val">${vdef.brand}</span>
+          </div>
+        </div>
+        ${vv.note ? `<div class="vc-section" style="margin-bottom:8px"><span class="vcs-label">Nota de esta dosis</span><span class="vcs-val">${vv.note}</span></div>` : ''}
+        <div class="vc-side">
+          <span class="vc-side-label">⚠️ Efectos secundarios habituales</span>
+          <p class="vc-side-text">${vdef.sides}</p>
+        </div>
+      </div>`;
+
+    card.addEventListener('click', () => {
+      card.classList.toggle('expanded');
+    });
+    wrap.appendChild(card);
+  });
+
+  // Highlight full table row
+  document.querySelectorAll('#sched-table tbody tr').forEach(tr => {
+    tr.style.background = tr.dataset.visit === selectedVisit ? 'var(--green-bg)' : '';
+  });
+}
+
+// ── Build full schedule table ──────────────────────────────────────
+function buildTable() {
+  const table = document.getElementById('sched-table');
+  // Header
+  const thead = document.createElement('thead');
+  thead.innerHTML = `<tr>
+    <th>Edad</th>
+    <th>Hexavalente</th>
+    <th>Men B</th>
+    <th>Neumococo</th>
+    <th>Men C/ACWY</th>
+    <th>Triple vírica</th>
+    <th>Varicela</th>
+    <th>VPH</th>
+    <th>dTpa</th>
+  </tr>`;
+  table.appendChild(thead);
+
+  const tbody = document.createElement('tbody');
+  const rows = [
+    { id:'rn',  label:'RN',      hex:'',  menb:'', neum:'', menc:'', tv:'', var:'', hpv:'', dtpa:'', hb:'D1' },
+    { id:'2m',  label:'2 m',     hex:'D1',menb:'D1',neum:'D1',menc:'',  tv:'', var:'', hpv:'', dtpa:'' },
+    { id:'4m',  label:'4 m',     hex:'D2',menb:'D2',neum:'D2',menc:'',  tv:'', var:'', hpv:'', dtpa:'' },
+    { id:'11m', label:'11–12 m', hex:'D3',menb:'D3',neum:'D3',menc:'D1',tv:'', var:'', hpv:'', dtpa:'' },
+    { id:'15m', label:'15 m',    hex:'',  menb:'', neum:'', menc:'',  tv:'D1',var:'D1',hpv:'', dtpa:'' },
+    { id:'3a',  label:'3 a',     hex:'',  menb:'', neum:'', menc:'R', tv:'', var:'', hpv:'', dtpa:'' },
+    { id:'6a',  label:'6 a',     hex:'',  menb:'', neum:'', menc:'',  tv:'D2',var:'D2',hpv:'', dtpa:'R' },
+    { id:'12a', label:'12 a',    hex:'',  menb:'', neum:'', menc:'R', tv:'', var:'', hpv:'D1',dtpa:'' },
+    { id:'14a', label:'14–18 a', hex:'',  menb:'', neum:'', menc:'',  tv:'', var:'', hpv:'', dtpa:'R' },
+  ];
+
+  rows.forEach(row => {
+    const tr = document.createElement('tr');
+    tr.dataset.visit = row.id;
+    const dot = v => v ? `<span class="dot" title="${v}"></span><span style="font-size:9px;color:var(--mid)">${v}</span>` : '—';
+    tr.innerHTML = `
+      <td>${row.label}</td>
+      <td>${dot(row.hex)}</td>
+      <td>${dot(row.menb)}</td>
+      <td>${dot(row.neum)}</td>
+      <td>${dot(row.menc)}</td>
+      <td>${dot(row.tv)}</td>
+      <td>${dot(row.var)}</td>
+      <td>${dot(row.hpv)}</td>
+      <td>${dot(row.dtpa)}</td>`;
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);
+}
+
+function toggleTable() {
+  const t   = document.getElementById('full-table');
+  const btn = document.querySelector('.table-toggle');
+  const open = t.classList.toggle('visible');
+  btn.textContent = open ? 'Ocultar calendario ↑' : 'Ver calendario completo ↓';
+  if (open) {
+    document.querySelectorAll('#sched-table tbody tr').forEach(tr => {
+      tr.style.background = tr.dataset.visit === selectedVisit ? 'var(--green-bg)' : '';
+    });
+  }
+}
+
+// ── Init ──────────────────────────────────────────────────────────
+buildPills();
+buildTable();
+renderResults();
+</script>
+</body>
+</html>

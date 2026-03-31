@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Dentición de leche · Cuándo salen los dientes del bebé · babyFAQ</title>
+<meta name="description" content="Cuándo salen los 20 dientes de leche de tu bebé mes a mes. Diagrama visual interactivo: selecciona la edad y ve cuáles han salido, cuáles están saliendo y cuáles quedan.">
+<meta property="og:title" content="Dentición de leche · Cuándo salen los dientes del bebé · babyFAQ">
+<meta property="og:description" content="Diagrama interactivo de los 20 dientes de leche. Selecciona la edad de tu bebé para ver qué dientes han salido, cuáles están saliendo y cuáles quedan por llegar.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f2f7fb">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f2f7fb;
+    --warm-white: #fafcff;
+    --teal: #3a8aaa;
+    --teal-bg: #d8eef8;
+    --teal-border: #8ac4de;
+    --deep: #1a2d3a;
+    --mid: #3a5060;
+    --soft: #7aaabb;
+    --gum: #f5b4b4;
+    --tooth-none-fill: #c8dde8;
+    --tooth-none-stroke: #9abdd0;
+    --tooth-erupting-fill: #f5c842;
+    --tooth-erupting-stroke: #d4a020;
+    --tooth-erupted-fill: #f0f8ff;
+    --tooth-erupted-stroke: #9ac0d4;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 320px; height: 320px; background: #a0ccec; top: -120px; right: -80px; opacity: 0.28; }
+  .blob-2 { width: 260px; height: 260px; background: #a0dcc0; bottom: -80px; left: -60px; opacity: 0.22; }
+
+  .container {
+    position: relative; z-index: 1;
+    max-width: 440px; margin: 0 auto;
+    padding: 40px 20px 64px;
+  }
+
+  /* ── Back link ── */
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--soft); text-decoration: none;
+    margin-bottom: 28px; transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--teal); }
+
+  /* ── Header ── */
+  header { text-align: center; margin-bottom: 32px; }
+  .badge {
+    display: inline-block; background: var(--teal-bg); color: var(--teal);
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 20px; margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif; font-weight: 300;
+    font-size: 28px; line-height: 1.2;
+    color: var(--deep); margin-bottom: 10px;
+  }
+  h1 em { font-style: italic; color: var(--teal); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.5; font-weight: 300; max-width: 340px; margin: 0 auto; }
+
+  @media (min-width: 480px) {
+    h1 { font-size: 36px; }
+    .subtitle { font-size: 14px; }
+    .container { padding: 56px 28px 80px; }
+  }
+  @media (min-width: 640px) {
+    h1 { font-size: 40px; }
+  }
+
+  /* ── Cards ── */
+  .card {
+    background: var(--warm-white); border-radius: 20px;
+    padding: 22px 18px; margin-bottom: 14px;
+    box-shadow: 0 2px 16px rgba(26,45,58,0.07);
+    border: 1px solid rgba(138,196,222,0.22);
+  }
+  .section-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--soft); margin-bottom: 14px;
+  }
+
+  /* ── Age selector ── */
+  .age-selector {
+    background: var(--cream); border-radius: 14px;
+    border: 1.5px solid rgba(138,196,222,0.38);
+    display: flex; align-items: center; height: 72px; padding: 0 6px;
+  }
+  .hold-btn {
+    width: 48px; height: 54px; flex-shrink: 0;
+    border-radius: 12px; border: none; background: transparent;
+    color: var(--teal); font-size: 26px; font-weight: 300;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    touch-action: manipulation; user-select: none; -webkit-user-select: none;
+    transition: background 0.1s; line-height: 1;
+  }
+  .hold-btn:active, .hold-btn.pressing { background: var(--teal-bg); }
+  .age-display { flex: 1; text-align: center; }
+  .age-value {
+    font-family: 'Fraunces', serif; font-size: 44px;
+    font-weight: 300; color: var(--deep); line-height: 1; display: block;
+  }
+  .age-unit { font-size: 13px; color: var(--soft); }
+  .age-sub { font-size: 11px; color: var(--soft); font-style: italic; display: block; margin-top: 2px; }
+
+  /* ── Dental chart ── */
+  .jaw-tag {
+    font-size: 9px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--teal); opacity: 0.7;
+    text-align: center; display: block;
+  }
+  .jaw-tag.upper { margin-bottom: 3px; }
+  .jaw-tag.lower { margin-top: 3px; }
+
+  #dental-svg { width: 100%; height: auto; display: block; }
+
+  @keyframes pulse-tooth {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.6; }
+  }
+  .tooth-erupting { animation: pulse-tooth 1.5s ease-in-out infinite; }
+
+  /* ── Selected tooth panel ── */
+  .sel-panel {
+    display: none; background: var(--teal-bg);
+    border-radius: 13px; padding: 12px 14px;
+    margin-top: 12px; border: 1.5px solid var(--teal-border);
+  }
+  .sel-panel.visible { display: block; animation: fadeUp 0.22s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+  .sel-name { font-size: 13px; font-weight: 500; color: var(--deep); margin-bottom: 9px; }
+  .sel-stats { display: flex; gap: 7px; }
+  .sel-stat {
+    flex: 1; background: var(--warm-white); border-radius: 10px;
+    padding: 8px 6px; text-align: center;
+  }
+  .sel-stat-label {
+    font-size: 9px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--soft);
+    display: block; margin-bottom: 3px;
+  }
+  .sel-stat-value { font-family: 'Fraunces', serif; font-size: 13px; font-weight: 400; color: var(--deep); }
+
+  /* ── Legend ── */
+  .legend { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 11px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--mid); }
+  .legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+
+  /* ── Count block ── */
+  .count-block { text-align: center; padding: 8px 0 14px; }
+  .count-big { font-family: 'Fraunces', serif; font-size: 54px; font-weight: 300; color: var(--teal); line-height: 1; }
+  .count-denom { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 300; color: var(--soft); }
+  .count-label { font-size: 12px; color: var(--soft); display: block; margin-top: 4px; }
+
+  /* ── Result sections ── */
+  .sub-section { margin-bottom: 13px; }
+  .sub-title {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--soft); margin-bottom: 7px;
+  }
+  .tooth-pill {
+    display: flex; align-items: center; gap: 8px;
+    padding: 7px 10px; background: var(--cream); border-radius: 10px;
+    margin-bottom: 5px; font-size: 13px; color: var(--deep);
+  }
+  .pill-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .pill-range { font-size: 11px; color: var(--soft); margin-left: auto; white-space: nowrap; }
+
+  /* ── Context note ── */
+  .context-note {
+    background: var(--cream); border-radius: 12px;
+    padding: 12px 14px; font-size: 12px; color: var(--mid);
+    line-height: 1.6; border: 1px solid rgba(138,196,222,0.22);
+  }
+  .context-note strong { color: var(--deep); font-weight: 500; }
+
+  /* ── Timeline ── */
+  .timeline-list { display: flex; flex-direction: column; gap: 6px; }
+  .tl-item {
+    display: flex; align-items: center; gap: 9px;
+    padding: 9px 11px; border-radius: 12px;
+    background: var(--cream); border: 1.5px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .tl-item.tl-active { background: var(--teal-bg); border-color: var(--teal-border); }
+  .tl-status-icon { font-size: 15px; flex-shrink: 0; }
+  .tl-info { flex: 1; min-width: 0; }
+  .tl-name { font-size: 12px; font-weight: 500; color: var(--deep); }
+  .tl-sub { font-size: 10px; color: var(--soft); }
+  .tl-range { font-size: 11px; color: var(--mid); flex-shrink: 0; white-space: nowrap; }
+
+  /* ── Disclaimer ── */
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 22px; padding: 0 8px; }
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">Salud · Dentición</span>
+    <h1>¿Cuándo le salen<br>los <em>dientes</em>?</h1>
+    <p class="subtitle">Diagrama interactivo de los 20 dientes de leche. Ajusta la edad de tu bebé para ver qué dientes han salido, cuáles están en camino y cuáles faltan.</p>
+  </header>
+
+  <!-- Age selector -->
+  <div class="card">
+    <div class="section-label">Edad del bebé</div>
+    <div class="age-selector">
+      <button class="hold-btn" id="age-minus" data-dir="-1">−</button>
+      <div class="age-display">
+        <span class="age-value" id="age-val">8</span>
+        <span class="age-unit" id="age-unit">meses</span>
+        <span class="age-sub" id="age-sub"></span>
+      </div>
+      <button class="hold-btn" id="age-plus" data-dir="1">+</button>
+    </div>
+  </div>
+
+  <!-- Dental chart -->
+  <div class="card">
+    <div class="section-label">Diagrama de dentición de leche</div>
+
+    <span class="jaw-tag upper">↑ Maxilar superior</span>
+    <svg id="dental-svg" viewBox="0 0 270 120" xmlns="http://www.w3.org/2000/svg"
+         role="img" aria-label="Diagrama interactivo de dientes de leche"></svg>
+    <span class="jaw-tag lower">↓ Mandíbula inferior</span>
+
+    <!-- Selected tooth info -->
+    <div class="sel-panel" id="sel-panel">
+      <div class="sel-name" id="sel-name">—</div>
+      <div class="sel-stats">
+        <div class="sel-stat">
+          <span class="sel-stat-label">Sale</span>
+          <span class="sel-stat-value" id="sel-erupt">—</span>
+        </div>
+        <div class="sel-stat">
+          <span class="sel-stat-label">Se cae</span>
+          <span class="sel-stat-value" id="sel-fall">—</span>
+        </div>
+        <div class="sel-stat">
+          <span class="sel-stat-label">Estado</span>
+          <span class="sel-stat-value" id="sel-status">—</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#c8dde8;border:1.5px solid #9abdd0"></div>Sin salir
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#f5c842;border:1.5px solid #d4a020"></div>Saliendo ahora
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#f0f8ff;border:1.5px solid #9ac0d4"></div>Ya ha salido
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="card">
+    <div class="section-label">Resumen</div>
+
+    <div class="count-block">
+      <span class="count-big" id="count-num">0</span><span class="count-denom"> / 20</span>
+      <span class="count-label">dientes de leche han salido</span>
+    </div>
+
+    <div class="sub-section" id="erupting-sec">
+      <div class="sub-title">🟡 Saliendo ahora</div>
+      <div id="erupting-list"></div>
+    </div>
+
+    <div class="sub-section" id="next-sec">
+      <div class="sub-title">⬜ Próximos en llegar</div>
+      <div id="next-list"></div>
+    </div>
+
+    <div class="context-note" id="context-note"></div>
+  </div>
+
+  <!-- Full timeline -->
+  <div class="card">
+    <div class="section-label">Orden completo de erupción</div>
+    <div class="timeline-list" id="timeline-list"></div>
+  </div>
+
+  <p class="disclaimer">
+    Edades orientativas según la AAP y la AEP. Es normal que haya una variación de ±3 meses entre bebés.<br>
+    Los dientes de leche empiezan a caerse entre los 5 y los 7 años. Consulta con tu dentista o pediatra ante cualquier duda.
+  </p>
+
+</div>
+
+<script>
+// ── Tooth definitions ─────────────────────────────────────────────
+// pos: 0=outer left, 4=inner left, 5=inner right, 9=outer right (viewer's perspective)
+// Viewer's left = patient's right (dental convention)
+const TEETH = [
+  // Upper jaw
+  { id:'um2r', jaw:'upper', pos:0, name:'2.º molar superior derecho',      short:'2.º molar sup.',    type:'molar2',  eruptMin:25, eruptMax:33, fallMin:120, fallMax:132 },
+  { id:'um1r', jaw:'upper', pos:1, name:'1.er molar superior derecho',     short:'1.er molar sup.',   type:'molar1',  eruptMin:13, eruptMax:19, fallMin:96,  fallMax:120 },
+  { id:'ucr',  jaw:'upper', pos:2, name:'Canino superior derecho',         short:'Canino sup.',        type:'canine',  eruptMin:16, eruptMax:22, fallMin:96,  fallMax:132 },
+  { id:'ulr',  jaw:'upper', pos:3, name:'Inc. lateral superior derecho',   short:'Inc. lateral sup.', type:'lateral', eruptMin:9,  eruptMax:13, fallMin:84,  fallMax:96  },
+  { id:'ucir', jaw:'upper', pos:4, name:'Inc. central superior derecho',   short:'Inc. central sup.', type:'central', eruptMin:8,  eruptMax:12, fallMin:72,  fallMax:84  },
+  { id:'ucil', jaw:'upper', pos:5, name:'Inc. central superior izquierdo', short:'Inc. central sup.', type:'central', eruptMin:8,  eruptMax:12, fallMin:72,  fallMax:84  },
+  { id:'ull',  jaw:'upper', pos:6, name:'Inc. lateral superior izquierdo', short:'Inc. lateral sup.', type:'lateral', eruptMin:9,  eruptMax:13, fallMin:84,  fallMax:96  },
+  { id:'ucl',  jaw:'upper', pos:7, name:'Canino superior izquierdo',       short:'Canino sup.',        type:'canine',  eruptMin:16, eruptMax:22, fallMin:96,  fallMax:132 },
+  { id:'um1l', jaw:'upper', pos:8, name:'1.er molar superior izquierdo',   short:'1.er molar sup.',   type:'molar1',  eruptMin:13, eruptMax:19, fallMin:96,  fallMax:120 },
+  { id:'um2l', jaw:'upper', pos:9, name:'2.º molar superior izquierdo',    short:'2.º molar sup.',    type:'molar2',  eruptMin:25, eruptMax:33, fallMin:120, fallMax:132 },
+  // Lower jaw
+  { id:'lm2r', jaw:'lower', pos:0, name:'2.º molar inferior derecho',      short:'2.º molar inf.',    type:'molar2',  eruptMin:23, eruptMax:31, fallMin:108, fallMax:132 },
+  { id:'lm1r', jaw:'lower', pos:1, name:'1.er molar inferior derecho',     short:'1.er molar inf.',   type:'molar1',  eruptMin:14, eruptMax:18, fallMin:96,  fallMax:120 },
+  { id:'lcr',  jaw:'lower', pos:2, name:'Canino inferior derecho',         short:'Canino inf.',        type:'canine',  eruptMin:17, eruptMax:23, fallMin:96,  fallMax:120 },
+  { id:'llr',  jaw:'lower', pos:3, name:'Inc. lateral inferior derecho',   short:'Inc. lateral inf.', type:'lateral', eruptMin:10, eruptMax:16, fallMin:84,  fallMax:96  },
+  { id:'lcir', jaw:'lower', pos:4, name:'Inc. central inferior derecho',   short:'Inc. central inf.', type:'central', eruptMin:6,  eruptMax:10, fallMin:72,  fallMax:84  },
+  { id:'lcil', jaw:'lower', pos:5, name:'Inc. central inferior izquierdo', short:'Inc. central inf.', type:'central', eruptMin:6,  eruptMax:10, fallMin:72,  fallMax:84  },
+  { id:'lll',  jaw:'lower', pos:6, name:'Inc. lateral inferior izquierdo', short:'Inc. lateral inf.', type:'lateral', eruptMin:10, eruptMax:16, fallMin:84,  fallMax:96  },
+  { id:'lcl',  jaw:'lower', pos:7, name:'Canino inferior izquierdo',       short:'Canino inf.',        type:'canine',  eruptMin:17, eruptMax:23, fallMin:96,  fallMax:120 },
+  { id:'lm1l', jaw:'lower', pos:8, name:'1.er molar inferior izquierdo',   short:'1.er molar inf.',   type:'molar1',  eruptMin:14, eruptMax:18, fallMin:96,  fallMax:120 },
+  { id:'lm2l', jaw:'lower', pos:9, name:'2.º molar inferior izquierdo',    short:'2.º molar inf.',    type:'molar2',  eruptMin:23, eruptMax:31, fallMin:108, fallMax:132 },
+];
+
+// ── SVG geometry (viewBox 0 0 270 120) ────────────────────────────
+// Tooth x positions and widths — symmetric around center x=135
+// Left margin: 26px each side. Center gap: 8px.
+// pos: 0..4 = left side (M2→CI), 5..9 = right side (CI→M2)
+const POS_X = [26, 54, 78, 97, 115, 139, 157, 175, 194, 218];
+const POS_W = [26, 22, 17, 16,  16,  16,  16,  17,  22,  26];
+
+// Tooth heights: upper teeth hang down from y=12, lower teeth rise up to y=108
+const TYPE_H = { central: 35, lateral: 34, canine: 40, molar1: 28, molar2: 28 };
+const TYPE_LETTER = { central: 'I', lateral: 'L', canine: 'C', molar1: 'M', molar2: 'M' };
+
+function toothRect(tooth) {
+  const x = POS_X[tooth.pos];
+  const w = POS_W[tooth.pos];
+  const h = TYPE_H[tooth.type];
+  const y = tooth.jaw === 'upper' ? 12 : 108 - h;
+  return { x, y, w, h };
+}
+
+// ── Status ────────────────────────────────────────────────────────
+function getStatus(tooth, age) {
+  if (age > tooth.eruptMax)  return 'erupted';
+  if (age >= tooth.eruptMin) return 'erupting';
+  return 'not-yet';
+}
+function statusColors(status) {
+  if (status === 'erupted')  return { fill: '#f0f8ff', stroke: '#9ac0d4' };
+  if (status === 'erupting') return { fill: '#f5c842', stroke: '#d4a020' };
+  return { fill: '#c8dde8', stroke: '#9abdd0' };
+}
+
+// ── State ─────────────────────────────────────────────────────────
+let ageMonths = 8;
+let selectedId = null;
+
+// ── Build SVG (once) ──────────────────────────────────────────────
+function buildSVG() {
+  const svg = document.getElementById('dental-svg');
+  const ns = 'http://www.w3.org/2000/svg';
+
+  function el(tag, attrs, text) {
+    const e = document.createElementNS(ns, tag);
+    Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, String(v)));
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  // Gum bands
+  svg.appendChild(el('rect', { x:0, y:0, width:270, height:14, fill:'#f5b4b4', rx:3 }));
+  svg.appendChild(el('rect', { x:0, y:106, width:270, height:14, fill:'#f5b4b4', rx:3 }));
+
+  // Subtle center line
+  svg.appendChild(el('line', { x1:0, y1:60, x2:270, y2:60, stroke:'rgba(26,45,58,0.05)', 'stroke-width':1 }));
+
+  // Draw teeth
+  TEETH.forEach(tooth => {
+    const { x, y, w, h } = toothRect(tooth);
+    const status = getStatus(tooth, ageMonths);
+    const { fill, stroke } = statusColors(status);
+
+    const g = el('g', {
+      id: 'svgt-' + tooth.id,
+      cursor: 'pointer',
+      role: 'button',
+      'aria-label': tooth.name
+    });
+
+    const rect = el('rect', {
+      x, y, width: w, height: h, rx: 3, ry: 3,
+      fill, stroke, 'stroke-width': '1.5',
+      class: status === 'erupting' ? 'tooth-erupting' : ''
+    });
+    g.appendChild(rect);
+
+    // Letter label inside wider teeth
+    if (w >= 22) {
+      const labelY = tooth.jaw === 'upper' ? y + h - 6 : y + 11;
+      const textColor = status === 'not-yet' ? '#7a9aaa' : status === 'erupting' ? '#8a6010' : '#7aaabb';
+      const txt = el('text', {
+        x: x + w / 2, y: labelY,
+        'text-anchor': 'middle', fill: textColor,
+        'font-size': '8', 'font-family': 'DM Sans, sans-serif',
+        'font-weight': '500', 'pointer-events': 'none'
+      }, TYPE_LETTER[tooth.type]);
+      g.appendChild(txt);
+    }
+
+    g.addEventListener('click', () => handleToothClick(tooth.id));
+    g.addEventListener('touchstart', e => { e.preventDefault(); handleToothClick(tooth.id); }, { passive: false });
+
+    svg.appendChild(g);
+  });
+}
+
+// ── Update SVG colors ─────────────────────────────────────────────
+function updateSVG() {
+  TEETH.forEach(tooth => {
+    const g = document.getElementById('svgt-' + tooth.id);
+    if (!g) return;
+    const rect = g.querySelector('rect');
+    const txt  = g.querySelector('text');
+    const status = getStatus(tooth, ageMonths);
+    const { fill, stroke } = statusColors(status);
+
+    rect.setAttribute('fill', fill);
+    rect.setAttribute('stroke', stroke);
+    // Update animation class via baseVal (SVGAnimatedString)
+    rect.setAttribute('class', status === 'erupting' ? 'tooth-erupting' : '');
+
+    if (txt) {
+      txt.setAttribute('fill',
+        status === 'not-yet'  ? '#7a9aaa' :
+        status === 'erupting' ? '#8a6010' : '#7aaabb'
+      );
+    }
+  });
+}
+
+// ── Tooth click handler ───────────────────────────────────────────
+function handleToothClick(id) {
+  selectedId = id;
+  const tooth = TEETH.find(t => t.id === id);
+  if (!tooth) return;
+
+  const status = getStatus(tooth, ageMonths);
+  const statusLabel = status === 'erupted' ? '✅ Salido' : status === 'erupting' ? '🟡 Saliendo' : '⬜ Aún no';
+  const fallYearsMin = Math.floor(tooth.fallMin / 12);
+  const fallYearsMax = Math.ceil(tooth.fallMax / 12);
+
+  document.getElementById('sel-name').textContent = tooth.name;
+  document.getElementById('sel-erupt').textContent = `${tooth.eruptMin}–${tooth.eruptMax}m`;
+  document.getElementById('sel-fall').textContent = `${fallYearsMin}–${fallYearsMax} años`;
+  document.getElementById('sel-status').textContent = statusLabel;
+  document.getElementById('sel-panel').classList.add('visible');
+}
+
+// ── Timeline groups (ordered by eruption) ─────────────────────────
+const GROUPS = [
+  { name:'Incisivos centrales inferiores', count:2, eruptMin:6,  eruptMax:10, ids:['lcir','lcil'] },
+  { name:'Incisivos centrales superiores', count:2, eruptMin:8,  eruptMax:12, ids:['ucir','ucil'] },
+  { name:'Incisivos laterales superiores', count:2, eruptMin:9,  eruptMax:13, ids:['ulr','ull']   },
+  { name:'Incisivos laterales inferiores', count:2, eruptMin:10, eruptMax:16, ids:['llr','lll']   },
+  { name:'Primeros molares superiores',    count:2, eruptMin:13, eruptMax:19, ids:['um1r','um1l'] },
+  { name:'Primeros molares inferiores',    count:2, eruptMin:14, eruptMax:18, ids:['lm1r','lm1l'] },
+  { name:'Caninos superiores',             count:2, eruptMin:16, eruptMax:22, ids:['ucr','ucl']   },
+  { name:'Caninos inferiores',             count:2, eruptMin:17, eruptMax:23, ids:['lcr','lcl']   },
+  { name:'Segundos molares inferiores',    count:2, eruptMin:23, eruptMax:31, ids:['lm2r','lm2l'] },
+  { name:'Segundos molares superiores',    count:2, eruptMin:25, eruptMax:33, ids:['um2r','um2l'] },
+];
+
+function buildTimeline() {
+  const list = document.getElementById('timeline-list');
+  list.innerHTML = '';
+  GROUPS.forEach(g => {
+    const statuses = g.ids.map(id => getStatus(TEETH.find(t => t.id === id), ageMonths));
+    const allErupted  = statuses.every(s => s === 'erupted');
+    const anyErupting = statuses.some(s => s === 'erupting');
+    const icon = allErupted ? '✅' : anyErupting ? '🟡' : '⬜';
+
+    const item = document.createElement('div');
+    item.className = 'tl-item' + (anyErupting ? ' tl-active' : '');
+    item.innerHTML = `
+      <span class="tl-status-icon">${icon}</span>
+      <div class="tl-info">
+        <div class="tl-name">${g.name}</div>
+        <div class="tl-sub">${g.count} dientes</div>
+      </div>
+      <div class="tl-range">${g.eruptMin}–${g.eruptMax}m</div>`;
+    list.appendChild(item);
+  });
+}
+
+// ── Contextual tips ────────────────────────────────────────────────
+function getTip(age) {
+  if (age <= 4)
+    return 'Los dientes aún no han llegado. Puedes acostumbrar al bebé al cuidado bucal usando un dedal de silicona húmedo para limpiarle las encías.';
+  if (age <= 12)
+    return 'Los primeros dientes suelen ser los incisivos centrales inferiores (hacia los 6 meses). Síntomas típicos: más babeo, irritabilidad y necesidad de morder. Un mordedor frío y masajes suaves en las encías ayudan mucho.';
+  if (age <= 19)
+    return 'Época de primeros molares: suelen molestar más que los incisivos por ser más grandes. Si hay dolor intenso, consulta con tu pediatra sobre la dosis adecuada de paracetamol.';
+  if (age <= 24)
+    return 'Los caninos pueden ser especialmente incómodos. Evita los geles de benzocaína sin prescripción: no están recomendados en bebés y pueden tener efectos secundarios.';
+  if (age <= 33)
+    return 'Los segundos molares completan la dentición de leche. A partir del año de vida (o del primer diente) se recomienda la primera visita al dentista.';
+  return '¡Los 20 dientes de leche ya han salido! Empezarán a caerse entre los 5 y los 7 años para dejar paso a los dientes definitivos.';
+}
+
+// ── Main render ────────────────────────────────────────────────────
+function render() {
+  const age = ageMonths;
+
+  // Age display
+  document.getElementById('age-val').textContent = age;
+  document.getElementById('age-unit').textContent = age === 1 ? 'mes' : 'meses';
+  document.getElementById('age-sub').textContent =
+    age >= 24
+      ? (age % 12 === 0 ? `${age / 12} años` : `${Math.floor(age / 12)}a ${age % 12}m`)
+      : '';
+
+  // SVG
+  updateSVG();
+
+  // Count erupted
+  const erupted = TEETH.filter(t => getStatus(t, age) === 'erupted').length;
+  document.getElementById('count-num').textContent = erupted;
+
+  // Erupting list
+  const eruptingTeeth = TEETH.filter(t => getStatus(t, age) === 'erupting');
+  const eruptingSec = document.getElementById('erupting-sec');
+  if (eruptingTeeth.length > 0) {
+    eruptingSec.style.display = '';
+    const seen = new Set();
+    const unique = eruptingTeeth.filter(t => !seen.has(t.short) && seen.add(t.short));
+    document.getElementById('erupting-list').innerHTML = unique.map(t => `
+      <div class="tooth-pill">
+        <div class="pill-dot" style="background:#f5c842;border:1.5px solid #d4a020"></div>
+        ${t.short}
+        <span class="pill-range">${t.eruptMin}–${t.eruptMax}m</span>
+      </div>`).join('');
+  } else {
+    eruptingSec.style.display = 'none';
+  }
+
+  // Next up
+  const notYetTeeth = TEETH.filter(t => getStatus(t, age) === 'not-yet');
+  const nextSec = document.getElementById('next-sec');
+  if (notYetTeeth.length > 0) {
+    nextSec.style.display = '';
+    const minErupt = Math.min(...notYetTeeth.map(t => t.eruptMin));
+    const nextGroup = notYetTeeth.filter(t => t.eruptMin === minErupt);
+    const seen = new Set();
+    const unique = nextGroup.filter(t => !seen.has(t.short) && seen.add(t.short));
+    document.getElementById('next-list').innerHTML = unique.map(t => `
+      <div class="tooth-pill">
+        <div class="pill-dot" style="background:#c8dde8;border:1.5px solid #9abdd0"></div>
+        ${t.short}
+        <span class="pill-range">${t.eruptMin}–${t.eruptMax}m</span>
+      </div>`).join('');
+  } else {
+    nextSec.style.display = 'none';
+  }
+
+  // Tip
+  document.getElementById('context-note').innerHTML = `<strong>Ten en cuenta:</strong> ${getTip(age)}`;
+
+  // Timeline
+  buildTimeline();
+
+  // Refresh selected tooth panel status
+  if (selectedId) handleToothClick(selectedId);
+}
+
+// ── Hold-repeat engine ────────────────────────────────────────────
+function makeHoldBtn(el, onStep) {
+  let holdTimer = null, repeatTimer = null, step = 0;
+  function fire() { onStep(parseInt(el.dataset.dir)); }
+  function startHold() {
+    fire(); step = 1;
+    holdTimer = setTimeout(() => {
+      repeatTimer = setInterval(() => {
+        fire(); step++;
+        if (step === 10) { clearInterval(repeatTimer); repeatTimer = setInterval(fire, 60); }
+      }, 150);
+    }, 350);
+  }
+  function stopHold() {
+    clearTimeout(holdTimer); clearInterval(repeatTimer);
+    holdTimer = repeatTimer = null; step = 0;
+    el.classList.remove('pressing');
+  }
+  el.addEventListener('touchstart', e => { e.preventDefault(); el.classList.add('pressing'); startHold(); }, { passive: false });
+  el.addEventListener('touchend',    stopHold, { passive: true });
+  el.addEventListener('touchcancel', stopHold, { passive: true });
+  el.addEventListener('mousedown',   () => { el.classList.add('pressing'); startHold(); });
+  el.addEventListener('mouseup',     stopHold);
+  el.addEventListener('mouseleave',  stopHold);
+}
+
+makeHoldBtn(document.getElementById('age-minus'), dir => {
+  ageMonths = Math.max(0, ageMonths + dir);
+  render();
+});
+makeHoldBtn(document.getElementById('age-plus'), dir => {
+  ageMonths = Math.min(48, ageMonths + dir);
+  render();
+});
+
+// ── Init ──────────────────────────────────────────────────────────
+buildSVG();
+render();
+</script>
+</body>
+</html>

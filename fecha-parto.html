@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Calculadora fecha probable de parto · Semanas de embarazo · babyFAQ</title>
+<meta name="description" content="Calcula tu fecha probable de parto (FPP) a partir de la fecha de tu última regla. Descubre en qué semana de embarazo estás, el trimestre y los hitos clave.">
+<meta property="og:title" content="Calculadora fecha probable de parto · Semanas de embarazo · babyFAQ">
+<meta property="og:description" content="Introduce la fecha de tu última regla y calcula la fecha probable de parto, las semanas de embarazo, el trimestre y los hitos más importantes mes a mes.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fdf6ee">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf4f8; --warm-white: #fffbfd; --blush: #f2b8d0;
+    --rose: #c0537a; --deep: #2d1520; --mid: #6a3050; --soft: #c490a8;
+    --rose-bg: #faeaf2; --rose-border: #e8aac8;
+    --sage: #5a8a6a; --sage-bg: #edf5f0; --sage-border: #b2d9be;
+    --amber: #b07020; --amber-bg: #fdf3e0; --amber-border: #e8c870;
+    --purple: #7048a8; --purple-bg: #f0eaf8; --purple-border: #c8aae8;
+    --blue: #3a6aaa; --blue-bg: #e8f0fa; --blue-border: #a8c4e8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 340px; height: 340px; background: #f0b0d0; top: -120px; right: -80px; opacity: 0.3; }
+  .blob-2 { width: 260px; height: 260px; background: #b0d0f0; bottom: -80px; left: -60px; opacity: 0.22; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 20px 64px; }
+
+  /* ── Back ── */
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 28px; transition: color 0.2s; }
+  .back-link:hover { color: var(--rose); }
+
+  /* ── Header ── */
+  header { text-align: center; margin-bottom: 32px; }
+  .badge { display: inline-block; background: var(--rose-bg); color: var(--rose); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 10px; }
+  h1 em { font-style: italic; color: var(--rose); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.5; font-weight: 300; max-width: 340px; margin: 0 auto; }
+
+  @media (min-width: 480px) { h1 { font-size: 34px; } .subtitle { font-size: 14px; } }
+  @media (min-width: 640px) { h1 { font-size: 38px; } .container { padding: 56px 28px 80px; } }
+
+  /* ── Card ── */
+  .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,21,32,0.07); border: 1px solid rgba(196,144,168,0.2); }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 14px; }
+
+  /* ── Date input ── */
+  .date-input-wrap { position: relative; }
+  .date-input {
+    width: 100%; background: var(--cream);
+    border: 1.5px solid rgba(196,144,168,0.4); border-radius: 14px;
+    padding: 16px 18px; font-size: 18px; font-family: 'Fraunces', serif;
+    font-weight: 300; color: var(--deep); outline: none;
+    transition: border-color 0.2s; cursor: pointer;
+    -webkit-appearance: none; appearance: none;
+  }
+  .date-input:focus { border-color: var(--rose); }
+  .date-hint { font-size: 11px; color: var(--soft); margin-top: 8px; display: block; }
+
+  /* ── Cycle length selector ── */
+  .cycle-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+  .cycle-label { font-size: 12px; color: var(--mid); flex-shrink: 0; }
+  .cycle-sel { display: flex; align-items: center; gap: 6px; background: var(--cream); border: 1.5px solid rgba(196,144,168,0.35); border-radius: 12px; padding: 0 8px; height: 44px; }
+  .cycle-btn { width: 32px; height: 36px; border-radius: 8px; border: none; background: transparent; color: var(--rose); font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: background 0.1s; }
+  .cycle-btn:active { background: var(--blush); }
+  .cycle-val { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 300; color: var(--deep); min-width: 28px; text-align: center; }
+  .cycle-unit { font-size: 11px; color: var(--soft); }
+
+  /* ── Empty state ── */
+  .empty-state { text-align: center; padding: 32px 16px; color: var(--soft); }
+  .empty-icon { font-size: 42px; display: block; margin-bottom: 10px; }
+  .empty-text { font-size: 13px; line-height: 1.6; }
+
+  /* ── Results (hidden until date entered) ── */
+  #results { display: none; }
+  #results.visible { display: block; }
+
+  /* ── FPP hero ── */
+  .fpp-hero { background: var(--rose-bg); border: 1.5px solid var(--rose-border); border-radius: 20px; padding: 22px 20px; margin-bottom: 14px; text-align: center; animation: fadeUp 0.35s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .fpp-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); margin-bottom: 8px; display: block; }
+  .fpp-date { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 400; color: var(--deep); line-height: 1; display: block; margin-bottom: 4px; }
+  .fpp-sub { font-size: 13px; color: var(--mid); }
+
+  @media (min-width: 480px) { .fpp-date { font-size: 42px; } }
+
+  /* ── Stats grid ── */
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; animation: fadeUp 0.35s ease; }
+  .stat-block { background: var(--warm-white); border-radius: 16px; padding: 16px 14px; text-align: center; border: 1px solid rgba(196,144,168,0.2); box-shadow: 0 1px 8px rgba(45,21,32,0.05); }
+  .stat-block.tri-1 { background: var(--sage-bg);   border-color: var(--sage-border); }
+  .stat-block.tri-2 { background: var(--amber-bg);  border-color: var(--amber-border); }
+  .stat-block.tri-3 { background: var(--purple-bg); border-color: var(--purple-border); }
+  .stat-block.full  { grid-column: 1 / -1; background: var(--blue-bg); border-color: var(--blue-border); }
+
+  .stat-label { font-size: 9px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 6px; }
+  .stat-value { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 400; color: var(--deep); display: block; line-height: 1; }
+  .stat-sub { font-size: 11px; color: var(--soft); display: block; margin-top: 4px; }
+  .stat-block.tri-1 .stat-value { color: var(--sage); }
+  .stat-block.tri-2 .stat-value { color: var(--amber); }
+  .stat-block.tri-3 .stat-value { color: var(--purple); }
+  .stat-block.full  .stat-value { color: var(--blue); font-size: 22px; }
+
+  /* ── Progress bar ── */
+  .progress-wrap { margin-bottom: 14px; animation: fadeUp 0.35s ease; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--soft); margin-bottom: 6px; }
+  .progress-track { height: 10px; background: rgba(196,144,168,0.2); border-radius: 5px; overflow: hidden; position: relative; }
+  .progress-fill { height: 100%; border-radius: 5px; background: linear-gradient(90deg, var(--sage) 0%, var(--amber) 50%, var(--purple) 100%); transition: width 0.5s cubic-bezier(0.34,1.56,0.64,1); }
+  .progress-marker { position: absolute; top: 50%; transform: translate(-50%, -50%); width: 16px; height: 16px; background: white; border: 2.5px solid var(--deep); border-radius: 50%; box-shadow: 0 1px 4px rgba(0,0,0,0.2); transition: left 0.5s cubic-bezier(0.34,1.56,0.64,1); }
+  .trimester-labels { display: flex; font-size: 9px; color: var(--soft); margin-top: 4px; }
+  .tri-lbl { flex: 1; }
+  .tri-lbl:nth-child(2) { text-align: center; }
+  .tri-lbl:nth-child(3) { text-align: right; }
+
+  /* ── Current week card ── */
+  .week-card { background: var(--warm-white); border-radius: 20px; padding: 20px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,21,32,0.07); border: 1px solid rgba(196,144,168,0.2); animation: fadeUp 0.35s ease; }
+  .week-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .week-num { font-family: 'Fraunces', serif; font-size: 52px; font-weight: 300; color: var(--rose); line-height: 1; }
+  .week-info { flex: 1; }
+  .week-title { font-size: 13px; font-weight: 500; color: var(--deep); margin-bottom: 3px; }
+  .week-tri { font-size: 11px; color: var(--soft); }
+
+  .baby-size { display: flex; align-items: center; gap: 8px; background: var(--cream); border-radius: 10px; padding: 9px 12px; margin-bottom: 10px; }
+  .baby-size-icon { font-size: 22px; flex-shrink: 0; }
+  .baby-size-info { flex: 1; }
+  .baby-size-label { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); display: block; }
+  .baby-size-val { font-size: 13px; font-weight: 500; color: var(--deep); }
+
+  .week-desc { font-size: 12px; color: var(--mid); line-height: 1.6; }
+
+  /* ── Milestones timeline ── */
+  .milestones-list { display: flex; flex-direction: column; gap: 6px; }
+  .milestone-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border-radius: 13px; background: var(--cream); border: 1.5px solid transparent; transition: all 0.2s; }
+  .milestone-item.past    { opacity: 0.55; }
+  .milestone-item.current { background: var(--rose-bg); border-color: var(--rose-border); }
+  .milestone-item.future  { }
+  .ms-week { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 400; color: var(--rose); flex-shrink: 0; width: 36px; }
+  .ms-item.past .ms-week  { color: var(--soft); }
+  .ms-body { flex: 1; }
+  .ms-title { font-size: 12px; font-weight: 500; color: var(--deep); margin-bottom: 2px; }
+  .ms-sub { font-size: 11px; color: var(--soft); line-height: 1.4; }
+  .ms-icon { font-size: 18px; flex-shrink: 0; }
+
+  /* ── Countdown ── */
+  .countdown-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .cd-block { background: var(--cream); border-radius: 12px; padding: 12px 8px; text-align: center; }
+  .cd-val { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 400; color: var(--rose); display: block; line-height: 1; }
+  .cd-label { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); display: block; margin-top: 4px; }
+
+  /* ── Already born ── */
+  .born-banner { background: var(--sage-bg); border: 1.5px solid var(--sage-border); border-radius: 16px; padding: 20px; text-align: center; margin-bottom: 14px; }
+  .born-icon { font-size: 40px; display: block; margin-bottom: 10px; }
+  .born-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; color: var(--sage); margin-bottom: 6px; }
+  .born-sub { font-size: 13px; color: var(--mid); }
+
+  .context-note { background: var(--cream); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: var(--mid); line-height: 1.6; border: 1px solid rgba(196,144,168,0.2); margin-top: 14px; }
+  .context-note strong { color: var(--deep); font-weight: 500; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 22px; padding: 0 8px; }
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">Embarazo</span>
+    <h1>¿Cuándo llega<br>el <em>bebé</em>?</h1>
+    <p class="subtitle">Calcula la fecha probable de parto, las semanas de embarazo y los hitos más importantes de tu gestación.</p>
+  </header>
+
+  <!-- Input -->
+  <div class="card">
+    <div class="section-label">Fecha de la última regla (FUR)</div>
+    <div class="date-input-wrap">
+      <input class="date-input" type="date" id="lmp-date" oninput="calculate()">
+    </div>
+    <span class="date-hint">Primer día de tu última menstruación · Método de Naegele (estándar OMS)</span>
+
+    <div class="cycle-row">
+      <span class="cycle-label">Duración del ciclo:</span>
+      <div class="cycle-sel">
+        <button class="cycle-btn" id="cycle-minus" onclick="changeCycle(-1)">−</button>
+        <span class="cycle-val" id="cycle-val">28</span>
+        <span class="cycle-unit">días</span>
+        <button class="cycle-btn" id="cycle-plus" onclick="changeCycle(1)">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty state -->
+  <div id="empty-state">
+    <div class="empty-state">
+      <span class="empty-icon">🌸</span>
+      <p class="empty-text">Introduce la fecha del primer día<br>de tu última regla para ver los resultados.</p>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div id="results">
+
+    <!-- Already born banner (shown if FPP is past) -->
+    <div id="born-banner" class="born-banner" style="display:none">
+      <span class="born-icon">🎉</span>
+      <div class="born-title" id="born-title">¡Ya ha nacido!</div>
+      <div class="born-sub" id="born-sub"></div>
+    </div>
+
+    <!-- FPP hero -->
+    <div class="fpp-hero" id="fpp-hero" style="display:none">
+      <span class="fpp-label">Fecha probable de parto</span>
+      <span class="fpp-date" id="fpp-date">—</span>
+      <span class="fpp-sub"  id="fpp-sub">—</span>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid" id="stats-grid">
+      <div class="stat-block" id="stat-weeks">
+        <span class="stat-label">Semana actual</span>
+        <span class="stat-value" id="sv-weeks">—</span>
+        <span class="stat-sub"   id="ss-weeks">—</span>
+      </div>
+      <div class="stat-block" id="stat-tri">
+        <span class="stat-label">Trimestre</span>
+        <span class="stat-value" id="sv-tri">—</span>
+        <span class="stat-sub"   id="ss-tri">—</span>
+      </div>
+      <div class="stat-block full">
+        <span class="stat-label">Periodo a término (37–42 semanas)</span>
+        <span class="stat-value" id="sv-term">—</span>
+        <span class="stat-sub"   id="ss-term">—</span>
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-wrap card" style="padding:18px 18px 14px">
+      <div class="section-label" style="margin-bottom:10px">Progreso del embarazo</div>
+      <div class="progress-label">
+        <span id="prog-start">—</span>
+        <span id="prog-pct">—</span>
+        <span id="prog-end">—</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+        <div class="progress-marker" id="prog-marker" style="left:0%"></div>
+      </div>
+      <div class="trimester-labels">
+        <span class="tri-lbl">1.er trimestre</span>
+        <span class="tri-lbl">2.º trimestre</span>
+        <span class="tri-lbl">3.er trimestre</span>
+      </div>
+    </div>
+
+    <!-- Countdown -->
+    <div class="card" id="countdown-card">
+      <div class="section-label">Faltan</div>
+      <div class="countdown-grid">
+        <div class="cd-block">
+          <span class="cd-val" id="cd-weeks">—</span>
+          <span class="cd-label">semanas</span>
+        </div>
+        <div class="cd-block">
+          <span class="cd-val" id="cd-days">—</span>
+          <span class="cd-label">días</span>
+        </div>
+        <div class="cd-block">
+          <span class="cd-val" id="cd-total">—</span>
+          <span class="cd-label">días totales</span>
+        </div>
+      </div>
+      <div class="context-note" id="week-note"></div>
+    </div>
+
+    <!-- Current week detail -->
+    <div class="week-card" id="week-card">
+      <div class="section-label">Esta semana</div>
+      <div class="week-header">
+        <div class="week-num" id="wc-num">—</div>
+        <div class="week-info">
+          <div class="week-title" id="wc-title">—</div>
+          <div class="week-tri"   id="wc-tri">—</div>
+        </div>
+      </div>
+      <div class="baby-size">
+        <span class="baby-size-icon" id="wc-icon">🫘</span>
+        <div class="baby-size-info">
+          <span class="baby-size-label">Tamaño del bebé</span>
+          <span class="baby-size-val"  id="wc-size">—</span>
+        </div>
+      </div>
+      <div class="week-desc" id="wc-desc">—</div>
+    </div>
+
+    <!-- Milestones -->
+    <div class="card">
+      <div class="section-label">Hitos del embarazo</div>
+      <div class="milestones-list" id="milestones-list"></div>
+    </div>
+
+  </div><!-- /results -->
+
+  <p class="disclaimer">
+    Calculado mediante la regla de Naegele (FUR + 280 días), ajustada a la duración de tu ciclo.<br>
+    La FPP es una estimación: solo el 5% de los bebés nacen exactamente en esa fecha. El rango normal es la semana 37–42.<br>
+    Esta herramienta es orientativa. Tu ginecólogo o matrona ajustará la fecha con la ecografía de la semana 12.
+  </p>
+
+</div>
+
+<script>
+// ── Week data ─────────────────────────────────────────────────────
+const WEEK_DATA = [
+  { w:4,  icon:'🌱', size:'Semilla de amapola (1–2 mm)', desc:'El óvulo fecundado se ha implantado en el útero. El embrión tiene el tamaño de una semilla. Empieza a formarse el saco amniótico.' },
+  { w:5,  icon:'🫐', size:'Semilla de sésamo (2 mm)',    desc:'El corazón primitivo empieza a latir. Se forman los tres capas embrionarias que darán lugar a todos los órganos.' },
+  { w:6,  icon:'🫐', size:'Lenteja (4 mm)',              desc:'El corazón late unas 150 veces por minuto. Empiezan a formarse los brotes de brazos y piernas. El cerebro se desarrolla rápidamente.' },
+  { w:7,  icon:'🫐', size:'Arándano (1 cm)',             desc:'Los órganos principales están en formación. Aparecen los primeros rasgos faciales: ojos, nariz y boca primitivos.' },
+  { w:8,  icon:'🫘', size:'Judía (1,6 cm)',              desc:'Ya es un embrión con todos los órganos esenciales esbozados. Los dedos empiezan a diferenciarse. El cerebro crece muy rápido.' },
+  { w:9,  icon:'🍇', size:'Uva (2,3 cm)',                desc:'Los músculos ya se mueven, aunque no lo notarás todavía. Los párpados están formados. Los dientes de leche empiezan a desarrollarse.' },
+  { w:10, icon:'🍓', size:'Fresa (3 cm)',                desc:'Técnicamente ya es un feto. Todos los órganos esenciales están formados. Las uñas empiezan a crecer. Los genitales externos se están diferenciando.' },
+  { w:11, icon:'🍋', size:'Lima (4 cm)',                 desc:'El feto ya puede abrir y cerrar los puños. Los riñones empiezan a producir orina. El riesgo de malformaciones disminuye significativamente.' },
+  { w:12, icon:'🥝', size:'Kiwi (5,4 cm)',              desc:'Semana de la primera ecografía. Se puede ver al bebé moverse. Los reflejos son activos. Las cuerdas vocales están formadas.' },
+  { w:13, icon:'🍑', size:'Melocotón (7,4 cm)',         desc:'Empieza el segundo trimestre. La placenta asume el control hormonal. Las huellas dactilares ya están formadas.' },
+  { w:14, icon:'🍋', size:'Limón (8,7 cm)',             desc:'El pelo y las cejas empiezan a crecer. El bebé puede hacer muecas y chuparse el dedo. Los riñones producen orina activamente.' },
+  { w:15, icon:'🍎', size:'Manzana (10 cm)',            desc:'El esqueleto se está osificando. El bebé ya tiene el sentido del gusto. Puede percibir la luz a través del útero.' },
+  { w:16, icon:'🥑', size:'Aguacate (11,6 cm)',         desc:'Los movimientos son más coordinados. Es posible que empieces a notar los primeros movimientos (si es tu segundo embarazo). Ecografía morfológica en breve.' },
+  { w:17, icon:'🍐', size:'Pera (13 cm)',               desc:'La grasa subcutánea empieza a acumularse. El bebé puede oír sonidos del exterior. El cordón umbilical es más grueso y resistente.' },
+  { w:18, icon:'🫑', size:'Pimiento (14,2 cm)',         desc:'El bebé bosteza, estira y tiene hipo. Las primeras madres suelen notar los movimientos esta semana. Los genitales ya son visibles en ecografía.' },
+  { w:19, icon:'🥭', size:'Mango (15,3 cm)',            desc:'Se está formando el vérnix caseosa, una sustancia grasa protectora. Los sentidos del olfato, gusto, vista y oído se desarrollan.' },
+  { w:20, icon:'🍌', size:'Plátano (16,4 cm)',          desc:'¡Mitad del embarazo! Semana de la ecografía morfológica (18–22 semanas). Se pueden ver todos los órganos en detalle.' },
+  { w:21, icon:'🥕', size:'Zanahoria (26,7 cm)',        desc:'El bebé ya tiene ciclos de sueño y vigilia. Los movimientos son más perceptibles y regulares. Los párpados siguen sellados.' },
+  { w:22, icon:'🌽', size:'Mazorca de maíz (27,8 cm)', desc:'El cerebro y los pulmones se desarrollan intensamente. El bebé puede oír tu voz con claridad y reconocerá tu voz al nacer.' },
+  { w:23, icon:'🍆', size:'Berenjena (28,9 cm)',        desc:'Los pulmones producen surfactante, esencial para respirar al nacer. El bebé tiene períodos de sueño profundo y ligero.' },
+  { w:24, icon:'🌽', size:'Mazorca grande (30 cm)',     desc:'Semana de viabilidad: a partir de ahora los bebés pueden sobrevivir fuera del útero con cuidados intensivos. Los pulmones siguen madurando.' },
+  { w:25, icon:'🫑', size:'Pimiento grande (34,6 cm)', desc:'El bebé está ganando grasa y músculo. La piel deja de ser translúcida. El cerebelo, encargado del equilibrio, crece rápidamente.' },
+  { w:26, icon:'🥬', size:'Col rizada (35,6 cm)',       desc:'Los ojos empiezan a abrirse. El cerebro está muy activo. El bebé ya reacciona a la luz y al sonido de forma más precisa.' },
+  { w:27, icon:'🥦', size:'Brócoli (36,6 cm)',          desc:'Último mes del segundo trimestre. Los pulmones y el sistema inmune se fortalecen. El bebé puede soñar (fase REM).' },
+  { w:28, icon:'🍆', size:'Berenjena grande (37,6 cm)',desc:'Empieza el tercer trimestre. El cerebro tiene ya sus circunvolucionescaracterísticas. Los pulmones casi completados. La posición del bebé empieza a importar.' },
+  { w:29, icon:'🧅', size:'Calabacín (38,6 cm)',        desc:'El bebé acumula más grasa. Los huesos están totalmente formados aunque aún blandos. Los movimientos pueden ser más notorios y regulares.' },
+  { w:30, icon:'🥥', size:'Coco (39,9 cm)',             desc:'El cerebro crece muy rápido. Los pulmones siguen madurando. El bebé se coloca habitualmente en posición cefálica (cabeza abajo).' },
+  { w:31, icon:'🍍', size:'Piña pequeña (41,1 cm)',     desc:'El bebé tiene el iris con color. El sistema digestivo está casi listo. Los patrones de movimiento son ahora predecibles.' },
+  { w:32, icon:'🍍', size:'Piña (42,4 cm)',             desc:'Los pulmones ya pueden respirar aire si el bebé naciera ahora. El lanugo (pelo fino) empieza a desaparecer. Gana unos 200g por semana.' },
+  { w:33, icon:'🍍', size:'Piña grande (43,7 cm)',      desc:'Los huesos del cráneo no están soldados para facilitar el parto. El bebé ya distingue la voz de su madre. Los reflejos están casi completados.' },
+  { w:34, icon:'🎃', size:'Calabaza mediana (45 cm)',   desc:'El sistema nervioso central está maduro. Los pulmones son funcionales. El bebé descansa muchas horas preparándose para el esfuerzo del parto.' },
+  { w:35, icon:'🎃', size:'Calabaza (46,2 cm)',         desc:'Semana de la última ecografía de seguimiento en muchos protocolos. El espacio en el útero es cada vez más limitado.' },
+  { w:36, icon:'🎃', size:'Calabaza grande (47,4 cm)', desc:'El bebé es "prematuro tardío": nacería con muy buen pronóstico. Los pulmones siguen madurando. Se coloca en el canal del parto.' },
+  { w:37, icon:'👶', size:'Sandía pequeña (48,6 cm)',  desc:'¡A término temprano! El bebé está listo para nacer. El peso oscila entre 2,7 y 3,5 kg. Puede nacer en cualquier momento.' },
+  { w:38, icon:'👶', size:'Sandía (49,8 cm)',           desc:'A término completo. Todos los órganos están maduros. El bebé sigue ganando peso (30g/día). Las contracciones de Braxton Hicks son más frecuentes.' },
+  { w:39, icon:'👶', size:'Melón grande (50,7 cm)',     desc:'A término completo. El sistema inmune recibe los últimos anticuerpos maternos. El bebé puede nacer cualquier día.' },
+  { w:40, icon:'👶', size:'Sandía grande (51,2 cm)',    desc:'Semana de la FPP. Pero solo el 5% nace exactamente hoy. Es normal llegar hasta la semana 42. Mantén la calma y las visitas de control.' },
+  { w:41, icon:'👶', size:'Calabaza grande (51,5 cm)', desc:'Postérmino temprano. Tu ginecólogo monitorizará al bebé más de cerca. Se hablará de inducción si no hay parto espontáneo antes de la semana 42.' },
+  { w:42, icon:'👶', size:'Bebé a término (51,7 cm)',  desc:'Semana máxima de espera habitual. La mayoría de protocolos indican inducción o cesárea esta semana si el parto no ha comenzado.' },
+];
+
+// ── Milestones ─────────────────────────────────────────────────────
+const MILESTONES = [
+  { week: 6,  icon:'❤️', title:'Primer latido del corazón',              sub:'El corazón primitivo empieza a latir' },
+  { week: 8,  icon:'🧬', title:'Todos los órganos esbozados',            sub:'Pasa de embrión a feto' },
+  { week: 10, icon:'🤏', title:'Se mueven los dedos',                    sub:'Los músculos están activos' },
+  { week: 12, icon:'🔬', title:'1.ª Ecografía (10–14 semanas)',          sub:'Translucencia nucal y bienestar fetal' },
+  { week: 13, icon:'🌤️', title:'Inicio del 2.º trimestre',             sub:'Bajan los riesgos y la fatiga' },
+  { week: 16, icon:'💜', title:'Primeros movimientos (2.º embarazo)',    sub:'Las mamás con hijos previos lo notan antes' },
+  { week: 18, icon:'👀', title:'Ecografía morfológica (18–22 sem.)',     sub:'Se revisan todos los órganos' },
+  { week: 20, icon:'🌟', title:'¡Mitad del embarazo!',                  sub:'Semana 20 de 40' },
+  { week: 22, icon:'👂', title:'El bebé te oye con claridad',           sub:'Reconocerá tu voz al nacer' },
+  { week: 24, icon:'🏥', title:'Semana de viabilidad',                  sub:'El bebé podría sobrevivir fuera del útero' },
+  { week: 28, icon:'🌙', title:'Inicio del 3.er trimestre',            sub:'El bebé puede soñar' },
+  { week: 32, icon:'💨', title:'Pulmones casi maduros',                 sub:'Podría respirar si naciera ahora' },
+  { week: 36, icon:'📍', title:'El bebé encaja en el canal del parto',  sub:'Prematuro tardío: muy buen pronóstico' },
+  { week: 37, icon:'✅', title:'A término temprano',                    sub:'El bebé está listo para nacer' },
+  { week: 40, icon:'🎉', title:'Fecha probable de parto',               sub:'Momento estimado de llegada' },
+];
+
+// ── State ─────────────────────────────────────────────────────────
+let cycleDays = 28;
+
+function changeCycle(d) {
+  cycleDays = Math.max(21, Math.min(35, cycleDays + d));
+  document.getElementById('cycle-val').textContent = cycleDays;
+  calculate();
+}
+
+// ── Date helpers ──────────────────────────────────────────────────
+function parseLocalDate(str) {
+  const [y, m, d] = str.split('-').map(Number);
+  return new Date(y, m - 1, d);
+}
+
+function addDays(date, n) {
+  const d = new Date(date);
+  d.setDate(d.getDate() + n);
+  return d;
+}
+
+function daysBetween(a, b) {
+  return Math.round((b - a) / 86400000);
+}
+
+const MONTHS_ES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+const DAYS_ES   = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+
+function formatDate(d) {
+  return `${d.getDate()} de ${MONTHS_ES[d.getMonth()]} de ${d.getFullYear()}`;
+}
+function formatDateShort(d) {
+  return `${d.getDate()} ${MONTHS_ES[d.getMonth()].slice(0,3)}. ${d.getFullYear()}`;
+}
+
+// ── Get week data ─────────────────────────────────────────────────
+function getWeekData(w) {
+  const clamped = Math.max(4, Math.min(42, w));
+  return WEEK_DATA.find(wd => wd.w === clamped) || WEEK_DATA[WEEK_DATA.length - 1];
+}
+
+// ── Main calculate ────────────────────────────────────────────────
+function calculate() {
+  const input = document.getElementById('lmp-date').value;
+  if (!input) {
+    document.getElementById('empty-state').style.display = '';
+    document.getElementById('results').classList.remove('visible');
+    return;
+  }
+
+  const lmp  = parseLocalDate(input);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // Naegele adjusted for cycle length
+  const cycleAdj = cycleDays - 28;
+  const fpp = addDays(lmp, 280 + cycleAdj);
+
+  // Days since LMP
+  const daysPregnant = daysBetween(lmp, today);
+  const weeksRaw = daysPregnant / 7;
+  const weeksCurrent = Math.floor(weeksRaw);
+  const daysCurrent  = Math.floor((weeksRaw - weeksCurrent) * 7);
+
+  // Days to FPP
+  const daysToFPP = daysBetween(today, fpp);
+  const weeksToFPP = Math.floor(Math.abs(daysToFPP) / 7);
+  const remDaysToFPP = Math.abs(daysToFPP) % 7;
+
+  // Trimester
+  let tri = 1, triLabel = '1.er trimestre', triClass = 'tri-1';
+  if (weeksCurrent >= 28) { tri = 3; triLabel = '3.er trimestre'; triClass = 'tri-3'; }
+  else if (weeksCurrent >= 13) { tri = 2; triLabel = '2.º trimestre'; triClass = 'tri-2'; }
+
+  // Progress 0–100% (out of 40 weeks)
+  const pct = Math.max(0, Math.min(100, (daysPregnant / 280) * 100));
+
+  // Term window
+  const term37 = addDays(lmp, 259 + cycleAdj);
+  const term42 = addDays(lmp, 294 + cycleAdj);
+
+  // Show / hide sections
+  document.getElementById('empty-state').style.display = 'none';
+  document.getElementById('results').classList.add('visible');
+
+  const alreadyBorn = daysToFPP < -14; // more than 2 weeks past FPP = likely born
+  const past        = daysPregnant < 0;  // LMP is in the future (wrong input)
+
+  if (past) {
+    document.getElementById('empty-state').style.display = '';
+    document.getElementById('results').classList.remove('visible');
+    return;
+  }
+
+  // Already born banner
+  const bornBanner = document.getElementById('born-banner');
+  const fppHero    = document.getElementById('fpp-hero');
+  const cdCard     = document.getElementById('countdown-card');
+  const weekCard   = document.getElementById('week-card');
+
+  if (alreadyBorn) {
+    bornBanner.style.display = '';
+    fppHero.style.display    = 'none';
+    cdCard.style.display     = 'none';
+    document.getElementById('born-title').textContent = '¡Ya ha nacido!';
+    document.getElementById('born-sub').textContent   =
+      `Tu FPP fue el ${formatDate(fpp)}. Si tu bebé ya está en el mundo, ¡enhorabuena! Explora el resto de herramientas de babyFAQ.`;
+  } else {
+    bornBanner.style.display = 'none';
+    fppHero.style.display    = '';
+    cdCard.style.display     = '';
+
+    // FPP
+    document.getElementById('fpp-date').textContent =
+      `${DAYS_ES[fpp.getDay()].charAt(0).toUpperCase() + DAYS_ES[fpp.getDay()].slice(1)}, ${formatDate(fpp)}`;
+    document.getElementById('fpp-sub').textContent =
+      daysToFPP > 0
+        ? `Faltan ${daysToFPP} días · a término ${formatDateShort(term37)} – ${formatDateShort(term42)}`
+        : daysToFPP === 0 ? '🎉 ¡Hoy es tu fecha probable de parto!'
+        : `La FPP fue hace ${Math.abs(daysToFPP)} días`;
+
+    // Countdown
+    document.getElementById('cd-weeks').textContent = weeksToFPP;
+    document.getElementById('cd-days').textContent  = remDaysToFPP;
+    document.getElementById('cd-total').textContent = Math.abs(daysToFPP);
+
+    // Week note
+    const notes = {
+      1: '¡Todo acaba de empezar! Es normal no tener síntomas aún.',
+      2: 'Técnicamente aún no hay embarazo — la semana 1–2 se cuenta desde la regla.',
+      3: 'La fecundación ocurrió hace unos días. El embrión viaja hacia el útero.',
+    };
+    document.getElementById('week-note').innerHTML =
+      `<strong>Ten en cuenta:</strong> La fecha probable de parto es una estimación — el 95% de los bebés no nacen exactamente ese día. El rango normal de parto a término es entre la semana 37 y la 42.`;
+  }
+
+  // Weeks / trimester stats
+  document.getElementById('sv-weeks').textContent = weeksCurrent < 4 ? '< 4' : weeksCurrent;
+  document.getElementById('ss-weeks').textContent = `+${daysCurrent} día${daysCurrent !== 1 ? 's' : ''}`;
+  document.getElementById('stat-weeks').className = `stat-block ${triClass}`;
+
+  document.getElementById('sv-tri').textContent = `${tri}.º`;
+  document.getElementById('ss-tri').textContent = triLabel;
+  document.getElementById('stat-tri').className = `stat-block ${triClass}`;
+
+  document.getElementById('sv-term').textContent = `${formatDateShort(term37)} – ${formatDateShort(term42)}`;
+  document.getElementById('ss-term').textContent = 'Semanas 37–42';
+
+  // Progress bar
+  document.getElementById('prog-fill').style.width   = pct + '%';
+  document.getElementById('prog-marker').style.left  = pct + '%';
+  document.getElementById('prog-start').textContent  = formatDateShort(lmp);
+  document.getElementById('prog-end').textContent    = formatDateShort(fpp);
+  document.getElementById('prog-pct').textContent    = Math.round(pct) + '%';
+
+  // Current week detail
+  const wc = weeksCurrent >= 4 ? getWeekData(weeksCurrent) : getWeekData(4);
+  document.getElementById('wc-num').textContent   = weeksCurrent < 4 ? '<4' : weeksCurrent;
+  document.getElementById('wc-title').textContent = `Semana ${wc.w} de embarazo`;
+  document.getElementById('wc-tri').textContent   = triLabel;
+  document.getElementById('wc-icon').textContent  = wc.icon;
+  document.getElementById('wc-size').textContent  = wc.size;
+  document.getElementById('wc-desc').textContent  = wc.desc;
+
+  // Milestones
+  const msList = document.getElementById('milestones-list');
+  msList.innerHTML = '';
+  MILESTONES.forEach(ms => {
+    const state = weeksCurrent > ms.week ? 'past' : weeksCurrent === ms.week ? 'current' : 'future';
+    const stateIcon = state === 'past' ? '✅' : state === 'current' ? '📍' : '○';
+    const li = document.createElement('div');
+    li.className = `milestone-item ${state}`;
+    li.innerHTML = `
+      <span class="ms-week">S${ms.week}</span>
+      <div class="ms-body">
+        <div class="ms-title">${ms.title}</div>
+        <div class="ms-sub">${ms.sub}</div>
+      </div>
+      <span class="ms-icon">${state === 'current' ? ms.icon : stateIcon === '✅' ? '✅' : ms.icon}</span>`;
+    msList.appendChild(li);
+  });
+
+  // Limit future milestones shown (show next 5 only unless already past)
+  const futureMsItems = msList.querySelectorAll('.milestone-item.future');
+  futureMsItems.forEach((el, i) => {
+    if (i >= 5) el.style.display = 'none';
+  });
+}
+
+// ── Set default date to today - 8 weeks (nice demo state) ─────────
+// Don't set default — let user enter their own date.
+
+// ── Init ──────────────────────────────────────────────────────────
+// Set max date to today (can't be pregnant if LMP is future)
+const todayStr = new Date().toISOString().split('T')[0];
+document.getElementById('lmp-date').setAttribute('max', todayStr);
+// Set min (10 months ago = ~42 weeks back)
+const minDate = new Date();
+minDate.setDate(minDate.getDate() - 294);
+document.getElementById('lmp-date').setAttribute('min', minDate.toISOString().split('T')[0]);
+</script>
+</body>
+</html>
