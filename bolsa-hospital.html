@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Bolsa del hospital para el parto · Checklist completo · babyFAQ</title>
+<meta name="description" content="Checklist interactivo de qué llevar a la bolsa del hospital para el parto. Todo lo que necesitas tú, tu acompañante y el bebé. Imprimible y con progreso guardado.">
+<meta property="og:title" content="Bolsa del hospital para el parto · Checklist completo · babyFAQ">
+<meta property="og:description" content="¿Qué meto en la bolsa del hospital? Lista completa e interactiva de lo que necesitas tú, tu pareja y el bebé para el parto. Marca lo que ya tienes preparado.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fdf4f8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf4f8; --warm-white: #fffbfd; --blush: #f2b8d0;
+    --rose: #c0537a; --deep: #2d1520; --mid: #6a3050; --soft: #c490a8;
+    --rose-bg: #faeaf2; --rose-border: #e8aac8;
+    --sage: #5a8a6a; --sage-bg: #edf5f0; --sage-border: #b2d9be;
+    --blue: #3a6aaa; --blue-bg: #e8f0fa; --blue-border: #a8c4e8;
+    --amber: #b07020; --amber-bg: #fdf3e0; --amber-border: #e8c870;
+    --purple: #7048a8; --purple-bg: #f0eaf8; --purple-border: #c8aae8;
+    --green: #3a7a4a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 340px; height: 340px; background: #f0b0d0; top: -120px; right: -80px; opacity: 0.28; }
+  .blob-2 { width: 260px; height: 260px; background: #b0d0f0; bottom: -80px; left: -60px; opacity: 0.2; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 20px 64px; }
+
+  /* ── Back ── */
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 28px; transition: color 0.2s; }
+  .back-link:hover { color: var(--rose); }
+
+  /* ── Header ── */
+  header { text-align: center; margin-bottom: 32px; }
+  .badge { display: inline-block; background: var(--rose-bg); color: var(--rose); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 10px; }
+  h1 em { font-style: italic; color: var(--rose); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.5; font-weight: 300; max-width: 340px; margin: 0 auto; }
+
+  @media (min-width: 480px) { h1 { font-size: 34px; } .subtitle { font-size: 14px; } }
+  @media (min-width: 640px) { h1 { font-size: 38px; } .container { padding: 56px 28px 80px; } }
+
+  /* ── Progress hero ── */
+  .progress-hero { background: var(--warm-white); border-radius: 20px; padding: 20px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,21,32,0.07); border: 1px solid rgba(196,144,168,0.2); }
+  .ph-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .ph-counts { display: flex; gap: 14px; }
+  .ph-count { text-align: center; }
+  .ph-num { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 400; color: var(--rose); display: block; line-height: 1; }
+  .ph-lbl { font-size: 9px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); display: block; margin-top: 2px; }
+  .ph-pct { font-family: 'Fraunces', serif; font-size: 42px; font-weight: 300; color: var(--deep); }
+  .progress-track { height: 8px; background: rgba(196,144,168,0.2); border-radius: 4px; overflow: hidden; }
+  .progress-fill  { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--blush), var(--rose)); transition: width 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+  .ph-reset { background: transparent; border: none; font-size: 11px; color: var(--soft); cursor: pointer; padding: 4px 0; text-decoration: underline; text-underline-offset: 2px; display: block; margin-top: 8px; }
+  .ph-reset:hover { color: var(--rose); }
+
+  /* ── Filter tabs ── */
+  .filter-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+  .filter-tab { padding: 7px 13px; border-radius: 20px; border: 1.5px solid rgba(196,144,168,0.3); background: var(--warm-white); font-size: 12px; font-weight: 500; color: var(--mid); cursor: pointer; transition: all 0.15s; white-space: nowrap; touch-action: manipulation; display: flex; align-items: center; gap: 5px; }
+  .filter-tab:hover { border-color: var(--rose); color: var(--rose); }
+  .filter-tab.active { background: var(--rose); border-color: var(--rose); color: white; }
+  .filter-tab .tab-count { font-size: 10px; background: rgba(255,255,255,0.25); border-radius: 10px; padding: 1px 5px; }
+  .filter-tab:not(.active) .tab-count { background: rgba(196,144,168,0.15); color: var(--soft); }
+
+  /* ── Section ── */
+  .section-block { margin-bottom: 14px; }
+  .section-header { display: flex; align-items: center; gap: 10px; padding: 0 2px; margin-bottom: 8px; cursor: pointer; user-select: none; }
+  .section-icon  { font-size: 18px; }
+  .section-title { font-size: 12px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; flex: 1; }
+  .section-prog  { font-size: 11px; color: var(--soft); }
+  .section-chevron { font-size: 13px; color: var(--soft); transition: transform 0.2s; }
+  .section-block.collapsed .section-chevron { transform: rotate(-90deg); }
+  .section-items { display: flex; flex-direction: column; gap: 6px; }
+  .section-block.collapsed .section-items { display: none; }
+
+  /* ── Check item ── */
+  .check-item { display: flex; align-items: flex-start; gap: 11px; background: var(--warm-white); border-radius: 13px; padding: 11px 13px; border: 1.5px solid rgba(196,144,168,0.15); cursor: pointer; transition: all 0.18s; user-select: none; -webkit-user-select: none; box-shadow: 0 1px 4px rgba(45,21,32,0.04); }
+  .check-item:hover { border-color: rgba(196,144,168,0.4); }
+  .check-item.done { background: var(--sage-bg); border-color: var(--sage-border); box-shadow: none; }
+  .check-item.optional { opacity: 0.85; }
+  .check-item.optional.done { opacity: 1; }
+
+  .check-box { width: 22px; height: 22px; border-radius: 6px; border: 2px solid rgba(196,144,168,0.45); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.18s; margin-top: 1px; }
+  .check-item.done .check-box { background: var(--sage); border-color: var(--sage); }
+  .check-tick { font-size: 13px; color: white; display: none; line-height: 1; }
+  .check-item.done .check-tick { display: block; }
+
+  .check-body { flex: 1; min-width: 0; }
+  .check-name { font-size: 13px; font-weight: 500; color: var(--deep); line-height: 1.4; margin-bottom: 2px; }
+  .check-item.done .check-name { color: var(--sage); text-decoration: line-through; text-decoration-color: rgba(90,138,106,0.5); }
+  .check-sub { font-size: 11px; color: var(--mid); line-height: 1.5; }
+  .check-tags { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; }
+  .check-tag { font-size: 9px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 6px; border-radius: 20px; }
+  .tag-optional { background: rgba(176,112,32,0.1); color: var(--amber); }
+  .tag-important { background: rgba(192,83,122,0.1); color: var(--rose); }
+  .tag-docs { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-border); }
+
+  /* ── All done banner ── */
+  .all-done { display: none; background: var(--sage-bg); border: 1.5px solid var(--sage-border); border-radius: 18px; padding: 22px 20px; margin-bottom: 14px; text-align: center; animation: fadeUp 0.4s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .all-done.visible { display: block; }
+  .ad-icon  { font-size: 44px; display: block; margin-bottom: 10px; }
+  .ad-title { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; color: var(--green); margin-bottom: 6px; }
+  .ad-sub   { font-size: 13px; color: var(--mid); }
+
+  /* ── Tips ── */
+  .tip-list { display: flex; flex-direction: column; gap: 8px; }
+  .tip-item { display: flex; gap: 10px; align-items: flex-start; background: var(--cream); border-radius: 12px; padding: 11px 12px; }
+  .tip-icon { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+  .tip-body { flex: 1; }
+  .tip-title { font-size: 12px; font-weight: 500; color: var(--deep); margin-bottom: 2px; }
+  .tip-text  { font-size: 12px; color: var(--mid); line-height: 1.5; }
+
+  /* ── Card ── */
+  .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,21,32,0.07); border: 1px solid rgba(196,144,168,0.2); }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 14px; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 22px; padding: 0 8px; }
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">Embarazo · Parto</span>
+    <h1>La bolsa del<br><em>hospital</em></h1>
+    <p class="subtitle">Checklist completo de todo lo que necesitas tú, tu acompañante y el bebé. Marca lo que ya tienes preparado — el progreso se guarda.</p>
+  </header>
+
+  <!-- Progress hero -->
+  <div class="progress-hero">
+    <div class="ph-top">
+      <div class="ph-counts">
+        <div class="ph-count">
+          <span class="ph-num" id="done-count">0</span>
+          <span class="ph-lbl">Preparado</span>
+        </div>
+        <div class="ph-count">
+          <span class="ph-num" id="left-count" style="color:var(--soft)">0</span>
+          <span class="ph-lbl">Quedan</span>
+        </div>
+      </div>
+      <div class="ph-pct" id="pct-display">0%</div>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+    </div>
+    <button class="ph-reset" onclick="resetAll()">Reiniciar checklist</button>
+  </div>
+
+  <!-- All done banner -->
+  <div class="all-done" id="all-done">
+    <span class="ad-icon">🎉</span>
+    <div class="ad-title">¡La bolsa está lista!</div>
+    <p class="ad-sub">Todo preparado. Coloca la bolsa en un sitio visible y asegúrate de que tu acompañante sabe dónde está. ¡Mucho ánimo!</p>
+  </div>
+
+  <!-- Filter tabs -->
+  <div class="filter-tabs" id="filter-tabs"></div>
+
+  <!-- Lists -->
+  <div id="sections-wrap"></div>
+
+  <!-- Tips card -->
+  <div class="card">
+    <div class="section-label">Consejos para preparar la bolsa</div>
+    <div class="tip-list">
+      <div class="tip-item">
+        <span class="tip-icon">📅</span>
+        <div class="tip-body">
+          <div class="tip-title">Tenla lista a partir de la semana 36</div>
+          <div class="tip-text">Los partos prematuros son poco frecuentes, pero pueden ocurrir. A partir de la semana 36 la bolsa debe estar preparada y en un lugar accesible.</div>
+        </div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">🎒</span>
+        <div class="tip-body">
+          <div class="tip-title">Usa dos bolsas si puedes</div>
+          <div class="tip-text">Una para el parto (pijama, calcetines, documentación, snacks) y otra para el postparto (ropa para volver a casa, cosas del bebé). Así no tienes que rebuscar en el momento más intenso.</div>
+        </div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">👔</span>
+        <div class="tip-body">
+          <div class="tip-title">La ropa del bebé: talla 50 o 56</div>
+          <div class="tip-text">Muchos bebés nacen ya muy grandes para la talla 50. Lleva ropa en ambas tallas o asegúrate de que la que llevas es elástica. La ropa sin botones en la espalda es mucho más fácil de poner.</div>
+        </div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">📱</span>
+        <div class="tip-body">
+          <div class="tip-title">Cargadores y batería extra</div>
+          <div class="tip-text">El móvil se convierte en tu herramienta principal. Lleva cargador y considera una batería externa — los enchufes del hospital no siempre están cerca de la cama.</div>
+        </div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">🍫</span>
+        <div class="tip-body">
+          <div class="tip-title">Snacks para el acompañante</div>
+          <div class="tip-text">Los partos pueden durar muchas horas. El acompañante también necesita energía — y las cafeterías del hospital no siempre están abiertas de madrugada.</div>
+        </div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">🏠</span>
+        <div class="tip-body">
+          <div class="tip-title">Deja la silla de coche instalada antes</div>
+          <div class="tip-text">La silla del bebé tiene que estar instalada en el coche antes del parto. No podrás llevar al bebé a casa sin ella. Muchos hospitales lo comprueban antes del alta.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="disclaimer">
+    Lista orientativa basada en recomendaciones habituales de matronas y hospitales españoles.<br>
+    Cada hospital tiene sus propias normas — consulta con tu matrona o el hospital lo que permiten y lo que ya proporcionan ellos (compresas, pañales, bata...).
+  </p>
+
+</div>
+
+<script>
+// ── Data ──────────────────────────────────────────────────────────
+// tags: 'important' | 'optional' | 'docs'
+// who: 'mama' | 'bebe' | 'acompanante' | 'docs'
+
+const SECTIONS = [
+  {
+    id: 'docs',
+    title: 'Documentación',
+    icon: '📄',
+    color: 'var(--blue)',
+    who: 'docs',
+    items: [
+      { id:'d1', name:'Tarjeta sanitaria (mamá)',         sub:'La de tu comunidad autónoma.', tags:['important'] },
+      { id:'d2', name:'DNI o pasaporte',                  sub:'El tuyo y el del acompañante.', tags:['important'] },
+      { id:'d3', name:'Cartilla del embarazo',            sub:'Con todas las analíticas, ecografías y seguimiento.', tags:['important'] },
+      { id:'d4', name:'Plan de parto (si lo tienes)',     sub:'Imprímelo y entrégalo al equipo médico al llegar.', tags:['optional'] },
+      { id:'d5', name:'Datos del seguro (si es privado)', sub:'Tarjeta y número de póliza.', tags:['optional'] },
+      { id:'d6', name:'Número de teléfono del hospital',  sub:'Por si hay que llamar de camino.', tags:['important'] },
+    ]
+  },
+  {
+    id: 'mama-parto',
+    title: 'Mamá · Durante el parto',
+    icon: '🤱',
+    color: 'var(--rose)',
+    who: 'mama',
+    items: [
+      { id:'m1', name:'Pijama o camisón abierto por delante', sub:'Para el parto y para las primeras horas. Abierto por delante facilita el piel con piel y la lactancia.', tags:['important'] },
+      { id:'m2', name:'Calcetines gruesos antideslizantes', sub:'Los paritorios están fríos. Los calcetines con suela de goma son perfectos.', tags:['important'] },
+      { id:'m3', name:'Bata o ropa cómoda para deambular', sub:'Para moverte durante las contracciones.', tags:[] },
+      { id:'m4', name:'Zapatillas o chanclas de ducha',     sub:'Para el baño del hospital.', tags:[] },
+      { id:'m5', name:'Goma o horquillas para el pelo',     sub:'El pelo suelto durante el parto es muy incómodo.', tags:['important'] },
+      { id:'m6', name:'Bolsa de aseo: gel, champú, desodorante', sub:'Los básicos de higiene para la estancia.', tags:[] },
+      { id:'m7', name:'Cepillo y pasta de dientes',         sub:'No lo olvidarás, pero ponlo en la lista igualmente.', tags:[] },
+      { id:'m8', name:'Crema hidratante y bálsamo labial',  sub:'El parto reseca mucho los labios. El bálsamo es muy agradecido.', tags:['optional'] },
+      { id:'m9', name:'Auriculares y playlist o podcast',   sub:'Música o meditación durante las contracciones. Muy recomendado.', tags:['optional'] },
+      { id:'m10',name:'Snacks energéticos',                 sub:'Dátiles, frutos secos, barritas. Para mantener la energía en partos largos.', tags:['optional'] },
+      { id:'m11',name:'Botella de agua con pajita',         sub:'Con pajita es mucho más fácil beber tumbada o en posiciones de parto.', tags:['important'] },
+      { id:'m12',name:'Ventilador de mano o abanico',       sub:'Los paritorios pueden estar caldeados. Muy valorado durante las contracciones.', tags:['optional'] },
+      { id:'m13',name:'Pelota de parto (si la tienes)',     sub:'Algunos hospitales la tienen, pero si la tuya ya está trabajada, llévala.', tags:['optional'] },
+    ]
+  },
+  {
+    id: 'mama-postparto',
+    title: 'Mamá · Postparto y vuelta a casa',
+    icon: '💜',
+    color: 'var(--purple)',
+    who: 'mama',
+    items: [
+      { id:'mp1', name:'Compresas postparto de tamaño XXL', sub:'Los hospitales suelen dar, pero llevar las tuyas garantiza comodidad. Las de algodón son más suaves.', tags:[] },
+      { id:'mp2', name:'Braguitas de malla o desechables',  sub:'Las que da el hospital son para usar y tirar. Tener 5–6 extras es muy práctico.', tags:[] },
+      { id:'mp3', name:'Sujetador de lactancia (x2)',       sub:'Cómodo, sin aros, con apertura frontal. Uno puesto, uno de repuesto.', tags:['important'] },
+      { id:'mp4', name:'Discos de lactancia',               sub:'Para las pérdidas de leche, especialmente los primeros días.', tags:[] },
+      { id:'mp5', name:'Crema para pezones (lanolina)',     sub:'Muy útil si se produce dolor en los primeros días de lactancia.', tags:['optional'] },
+      { id:'mp6', name:'Ropa cómoda para el postparto',     sub:'Pantalón de chándal o leggins, camiseta de lactancia. Para estar en planta.', tags:[] },
+      { id:'mp7', name:'Ropa para volver a casa',           sub:'Recuerda que el abdomen tarda semanas en reducirse — lleva ropa holgada.', tags:['important'] },
+      { id:'mp8', name:'Faja postparto (opcional)',         sub:'Si la usarás, tenla a mano. Consulta con la matrona antes.', tags:['optional'] },
+      { id:'mp9', name:'Cargador de móvil',                sub:'Imprescindible. Las fotos del recién nacido llenan la memoria rápido.', tags:['important'] },
+      { id:'mp10',name:'Batería externa',                  sub:'Por si no hay enchufe cerca o tienes una estancia larga.', tags:['optional'] },
+    ]
+  },
+  {
+    id: 'bebe',
+    title: 'Para el bebé',
+    icon: '👶',
+    color: 'var(--sage)',
+    who: 'bebe',
+    items: [
+      { id:'b1', name:'Bodies de manga larga (x3)',         sub:'Talla 50 y 56 si es posible. Sin botones en la espalda para no tumbarlo para cambiarlo.', tags:['important'] },
+      { id:'b2', name:'Pijamas con pies (x2)',              sub:'Los hospitales suelen estar frescos. Con pies es más cómodo que con calcetines sueltos.', tags:['important'] },
+      { id:'b3', name:'Gorrito de recién nacido (x2)',      sub:'Para las primeras horas — los recién nacidos pierden mucho calor por la cabeza.', tags:['important'] },
+      { id:'b4', name:'Calcetines o manoplas (x2)',         sub:'Las manoplas evitan arañazos en los primeros días. Los calcetines para cuando quite las manoplas.', tags:[] },
+      { id:'b5', name:'Pañales talla recién nacido o talla 1', sub:'El hospital suele dar, pero llevar 6–8 garantiza no quedarse sin. Algunos bebés ya nacen para talla 1.', tags:[] },
+      { id:'b6', name:'Toallitas húmedas sin perfume',      sub:'Para los cambios. Las del hospital no siempre son las más suaves.', tags:[] },
+      { id:'b7', name:'Crema de pañal (óxido de zinc)',     sub:'Para proteger desde el primer cambio.', tags:['optional'] },
+      { id:'b8', name:'Manta o arrullo',                    sub:'Para las primeras horas y para ir envuelto a casa.', tags:['important'] },
+      { id:'b9', name:'Ropa para salir del hospital',       sub:'Un conjunto bonito para la foto, cómodo y fácil de poner. Tiene que caber con el arnés de la silla.', tags:['important'] },
+      { id:'b10',name:'Chupete (si lo usaréis)',            sub:'Opcional según vuestra decisión. Si lo lleváis, llevad dos — se caen siempre.', tags:['optional'] },
+    ]
+  },
+  {
+    id: 'acompanante',
+    title: 'Para el acompañante',
+    icon: '🧑',
+    color: 'var(--blue)',
+    who: 'acompanante',
+    items: [
+      { id:'a1', name:'Ropa cómoda para una noche o más',   sub:'Camiseta, pantalón de chándal. Contar con quedarse al menos una noche.', tags:[] },
+      { id:'a2', name:'Neceser básico',                     sub:'Cepillo, pasta, desodorante. Lo mínimo para sentirse humano.', tags:[] },
+      { id:'a3', name:'Cargador de móvil propio',           sub:'Para tener el móvil disponible y poder avisar a la familia.', tags:['important'] },
+      { id:'a4', name:'Snacks y algo de comer',             sub:'Frutos secos, barritas, chocolate. Las cafeterías del hospital no siempre están abiertas.', tags:['important'] },
+      { id:'a5', name:'Dinero en efectivo',                 sub:'Para la máquina expendedora o la cafetería. Muchos hospitales no admiten tarjeta en todos los sitios.', tags:['optional'] },
+      { id:'a6', name:'Lista de personas a avisar',         sub:'Con los nombres y teléfonos — en el momento del parto la cabeza no funciona bien.', tags:['optional'] },
+      { id:'a7', name:'Cámara de fotos o móvil con espacio', sub:'Borrar fotos del móvil antes de ir. Las primeras horas pasan muy rápido.', tags:[] },
+      { id:'a8', name:'Libro, tablet o algo de entretenimiento', sub:'Los partos pueden ser muy largos. Tener algo para los ratos de espera ayuda a no ponerse nervioso.', tags:['optional'] },
+    ]
+  },
+  {
+    id: 'vuelta-casa',
+    title: 'Para volver a casa',
+    icon: '🏠',
+    color: 'var(--amber)',
+    who: 'mama',
+    items: [
+      { id:'vc1', name:'Silla de coche instalada (i-Size)', sub:'Imprescindible y obligatorio. Contramarcha. Muchos hospitales comprueban que esté instalada antes del alta.', tags:['important'] },
+      { id:'vc2', name:'Capazo o moisés preparado en casa', sub:'El sitio donde dormirá el bebé debe estar listo antes de llegar a casa.', tags:['important'] },
+      { id:'vc3', name:'Pañales y toallitas en casa',       sub:'Al menos un paquete grande de cada. No querrás salir a comprar el primer día.', tags:['important'] },
+      { id:'vc4', name:'Biberones y fórmula (si no lactancia)', sub:'Si habéis decidido no dar el pecho, tenerlo preparado evita estrés.', tags:['optional'] },
+      { id:'vc5', name:'Número de tu matrona o centro de salud', sub:'Para preguntas sobre lactancia, cicatriz, o cualquier duda de los primeros días.', tags:['important'] },
+    ]
+  },
+];
+
+// ── State ──────────────────────────────────────────────────────────
+const STORAGE_KEY = 'babyfaq_bolsa_v1';
+let checked = {};
+let activeFilter = 'all';
+
+// All items flat
+const ALL_ITEMS = SECTIONS.flatMap(s => s.items.map(i => ({ ...i, sectionId: s.id, who: s.who })));
+const ESSENTIAL_IDS = ALL_ITEMS.filter(i => !i.tags.includes('optional')).map(i => i.id);
+
+// Load from localStorage
+function loadState() {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) checked = JSON.parse(stored);
+  } catch(e) { checked = {}; }
+  ALL_ITEMS.forEach(i => { if (checked[i.id] === undefined) checked[i.id] = false; });
+}
+
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(checked)); } catch(e) {}
+}
+
+function resetAll() {
+  ALL_ITEMS.forEach(i => { checked[i.id] = false; });
+  saveState();
+  buildUI();
+  updateProgress();
+}
+
+// ── Filter tabs ────────────────────────────────────────────────────
+const FILTERS = [
+  { id: 'all',         label: 'Todo',         icon: '📋' },
+  { id: 'docs',        label: 'Documentos',   icon: '📄' },
+  { id: 'mama',        label: 'Mamá',         icon: '🤱' },
+  { id: 'bebe',        label: 'Bebé',         icon: '👶' },
+  { id: 'acompanante', label: 'Acompañante',  icon: '🧑' },
+  { id: 'vuelta-casa', label: 'Casa',         icon: '🏠' },
+];
+
+function buildFilterTabs() {
+  const wrap = document.getElementById('filter-tabs');
+  wrap.innerHTML = '';
+  FILTERS.forEach(f => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-tab' + (f.id === activeFilter ? ' active' : '');
+
+    // Count items for this filter
+    let count;
+    if (f.id === 'all') {
+      count = ALL_ITEMS.length;
+    } else if (f.id === 'mama') {
+      count = ALL_ITEMS.filter(i => i.sectionId === 'mama-parto' || i.sectionId === 'mama-postparto' || i.sectionId === 'vuelta-casa').length;
+    } else {
+      count = SECTIONS.find(s => s.id === f.id)?.items.length || 0;
+    }
+
+    btn.innerHTML = `${f.icon} ${f.label} <span class="tab-count">${count}</span>`;
+    btn.addEventListener('click', () => {
+      activeFilter = f.id;
+      buildFilterTabs();
+      buildSections();
+    });
+    wrap.appendChild(btn);
+  });
+}
+
+// ── Build sections ─────────────────────────────────────────────────
+function buildSections() {
+  const wrap = document.getElementById('sections-wrap');
+  wrap.innerHTML = '';
+
+  const visibleSections = SECTIONS.filter(s => {
+    if (activeFilter === 'all') return true;
+    if (activeFilter === 'mama') return s.id === 'mama-parto' || s.id === 'mama-postparto';
+    if (activeFilter === 'vuelta-casa') return s.id === 'vuelta-casa';
+    return s.id === activeFilter;
+  });
+
+  visibleSections.forEach(section => {
+    const doneInSection = section.items.filter(i => checked[i.id]).length;
+    const total = section.items.length;
+
+    const block = document.createElement('div');
+    block.className = 'section-block';
+    block.id = 'section-' + section.id;
+
+    const header = document.createElement('div');
+    header.className = 'section-header';
+    header.style.color = section.color;
+    header.innerHTML = `
+      <span class="section-icon">${section.icon}</span>
+      <span class="section-title">${section.title}</span>
+      <span class="section-prog">${doneInSection}/${total}</span>
+      <span class="section-chevron">›</span>`;
+    header.addEventListener('click', () => {
+      block.classList.toggle('collapsed');
+    });
+
+    const itemsWrap = document.createElement('div');
+    itemsWrap.className = 'section-items';
+
+    section.items.forEach(item => {
+      const div = document.createElement('div');
+      div.className = `check-item${item.tags.includes('optional') ? ' optional' : ''}${checked[item.id] ? ' done' : ''}`;
+      div.id = 'ci-' + item.id;
+      div.innerHTML = `
+        <div class="check-box"><span class="check-tick">✓</span></div>
+        <div class="check-body">
+          <div class="check-name">${item.name}</div>
+          ${item.sub ? `<div class="check-sub">${item.sub}</div>` : ''}
+          <div class="check-tags">
+            ${item.tags.includes('important') ? '<span class="check-tag tag-important">⭐ Esencial</span>' : ''}
+            ${item.tags.includes('optional')  ? '<span class="check-tag tag-optional">Opcional</span>'   : ''}
+          </div>
+        </div>`;
+
+      const toggle = () => {
+        checked[item.id] = !checked[item.id];
+        div.classList.toggle('done', checked[item.id]);
+        saveState();
+        updateProgress();
+        // Update section counter
+        const newDone = section.items.filter(i => checked[i.id]).length;
+        header.querySelector('.section-prog').textContent = `${newDone}/${total}`;
+      };
+
+      div.addEventListener('click', toggle);
+      div.addEventListener('touchstart', e => { e.preventDefault(); }, { passive: false });
+      div.addEventListener('touchend', e => { e.preventDefault(); toggle(); });
+
+      itemsWrap.appendChild(div);
+    });
+
+    block.appendChild(header);
+    block.appendChild(itemsWrap);
+    wrap.appendChild(block);
+  });
+}
+
+// ── Update progress ────────────────────────────────────────────────
+function updateProgress() {
+  const total = ALL_ITEMS.length;
+  const done  = ALL_ITEMS.filter(i => checked[i.id]).length;
+  const pct   = total > 0 ? Math.round((done / total) * 100) : 0;
+
+  document.getElementById('done-count').textContent  = done;
+  document.getElementById('left-count').textContent  = total - done;
+  document.getElementById('pct-display').textContent = pct + '%';
+  document.getElementById('progress-fill').style.width = pct + '%';
+
+  const allDone = document.getElementById('all-done');
+  allDone.classList.toggle('visible', pct === 100);
+}
+
+// ── Build all ──────────────────────────────────────────────────────
+function buildUI() {
+  buildFilterTabs();
+  buildSections();
+}
+
+// ── Init ──────────────────────────────────────────────────────────
+loadState();
+buildUI();
+updateProgress();
+</script>
+</body>
+</html>
