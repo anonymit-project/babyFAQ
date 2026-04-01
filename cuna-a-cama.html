@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>¿Cuándo pasar de cuna a cama? · Guía y señales · babyFAQ</title>
+<meta name="description" content="¿Es el momento de pasar de cuna a cama? Descubre las señales que indican que tu hijo está listo, la edad recomendada, cómo hacer la transición y qué esperar.">
+<meta property="og:title" content="¿Cuándo pasar de cuna a cama? · Guía y señales · babyFAQ">
+<meta property="og:description" content="Checklist interactivo de señales de preparación, edad recomendada, tipos de cama y consejos para que la transición de cuna a cama sea lo más fácil posible.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f5f0fa">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0fa; --warm-white: #fdfbff; --blush: #d4b8f0;
+    --purple: #7a5aaa; --deep: #2b1f3d; --mid: #5c4a7a; --soft: #a898c4;
+    --indigo-bg: #eeeaf8; --indigo-border: #c4b4e8;
+    --sage: #5a8a6a; --sage-bg: #edf5f0; --sage-border: #b2d9be;
+    --amber: #b07020; --amber-bg: #fdf3e0; --amber-border: #e8c870;
+    --red: #a83030; --red-bg: #fdf0f0; --red-border: #e8a8a8;
+    --blue: #3a6aaa; --blue-bg: #e8f0fa; --blue-border: #a8c4e8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 320px; height: 320px; background: #c8b0f0; top: -120px; right: -80px; opacity: 0.28; }
+  .blob-2 { width: 260px; height: 260px; background: #b0c8f0; bottom: -80px; left: -60px; opacity: 0.22; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 20px 64px; }
+
+  /* ── Back ── */
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 28px; transition: color 0.2s; }
+  .back-link:hover { color: var(--purple); }
+
+  /* ── Header ── */
+  header { text-align: center; margin-bottom: 32px; }
+  .badge { display: inline-block; background: var(--indigo-bg); color: var(--purple); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 10px; }
+  h1 em { font-style: italic; color: var(--purple); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.5; font-weight: 300; max-width: 340px; margin: 0 auto; }
+
+  @media (min-width: 480px) { h1 { font-size: 34px; } .subtitle { font-size: 14px; } }
+  @media (min-width: 640px) { h1 { font-size: 38px; } .container { padding: 56px 28px 80px; } }
+
+  /* ── Card ── */
+  .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(43,31,61,0.07); border: 1px solid rgba(168,152,196,0.22); }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 14px; }
+
+  /* ── Age selector ── */
+  .age-selector { background: var(--cream); border-radius: 14px; border: 1.5px solid rgba(168,152,196,0.38); display: flex; align-items: center; height: 76px; padding: 0 6px; }
+  .hold-btn { width: 50px; height: 58px; flex-shrink: 0; border-radius: 12px; border: none; background: transparent; color: var(--purple); font-size: 28px; font-weight: 300; cursor: pointer; display: flex; align-items: center; justify-content: center; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: background 0.1s; line-height: 1; }
+  .hold-btn:active, .hold-btn.pressing { background: var(--blush); }
+  .age-display { flex: 1; text-align: center; }
+  .age-val { font-family: 'Fraunces', serif; font-size: 48px; font-weight: 300; color: var(--deep); line-height: 1; display: block; }
+  .age-unit { font-size: 13px; color: var(--soft); }
+  .age-sub { font-size: 11px; color: var(--soft); font-style: italic; display: block; margin-top: 2px; }
+
+  /* ── Readiness meter ── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .readiness-hero { border-radius: 20px; padding: 22px 20px; margin-bottom: 14px; text-align: center; animation: fadeUp 0.3s ease; border: 1.5px solid transparent; }
+  .readiness-hero.not-yet  { background: var(--blue-bg);  border-color: var(--blue-border); }
+  .readiness-hero.soon     { background: var(--amber-bg); border-color: var(--amber-border); }
+  .readiness-hero.ready    { background: var(--sage-bg);  border-color: var(--sage-border); }
+  .readiness-hero.overdue  { background: var(--red-bg);   border-color: var(--red-border); }
+
+  .rh-icon  { font-size: 44px; display: block; margin-bottom: 10px; }
+  .rh-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+  .readiness-hero.not-yet  .rh-label { color: var(--blue); }
+  .readiness-hero.soon     .rh-label { color: var(--amber); }
+  .readiness-hero.ready    .rh-label { color: var(--sage); }
+  .readiness-hero.overdue  .rh-label { color: var(--red); }
+
+  .rh-title { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; color: var(--deep); margin-bottom: 8px; }
+  .rh-desc  { font-size: 12px; color: var(--mid); line-height: 1.6; }
+
+  /* ── Checklist ── */
+  .checklist { display: flex; flex-direction: column; gap: 8px; }
+
+  .check-item { display: flex; align-items: flex-start; gap: 12px; background: var(--cream); border-radius: 13px; padding: 12px 14px; border: 1.5px solid transparent; cursor: pointer; transition: all 0.18s; user-select: none; -webkit-user-select: none; }
+  .check-item:hover { border-color: rgba(168,152,196,0.4); }
+  .check-item.checked { background: var(--sage-bg); border-color: var(--sage-border); }
+  .check-item.negative.checked { background: var(--red-bg); border-color: var(--red-border); }
+
+  .check-box { width: 22px; height: 22px; border-radius: 6px; border: 2px solid rgba(168,152,196,0.5); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.18s; margin-top: 1px; }
+  .check-item.checked .check-box { background: var(--sage); border-color: var(--sage); }
+  .check-item.negative.checked .check-box { background: var(--red); border-color: var(--red); }
+  .check-tick { font-size: 12px; color: white; display: none; }
+  .check-item.checked .check-tick { display: block; }
+
+  .check-body { flex: 1; }
+  .check-text { font-size: 13px; font-weight: 500; color: var(--deep); line-height: 1.4; margin-bottom: 2px; }
+  .check-sub  { font-size: 11px; color: var(--mid); line-height: 1.5; }
+  .check-tag  { font-size: 9px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; padding: 2px 7px; border-radius: 20px; display: inline-block; margin-top: 4px; }
+  .tag-safety { background: rgba(168,48,48,0.1); color: var(--red); }
+  .tag-ready  { background: rgba(90,138,106,0.12); color: var(--sage); }
+
+  /* ── Score bar ── */
+  .score-wrap { margin-top: 12px; }
+  .score-label { font-size: 11px; color: var(--soft); margin-bottom: 6px; display: flex; justify-content: space-between; }
+  .score-track { height: 8px; background: rgba(168,152,196,0.2); border-radius: 4px; overflow: hidden; }
+  .score-fill  { height: 100%; border-radius: 4px; transition: width 0.4s cubic-bezier(0.34,1.56,0.64,1); background: linear-gradient(90deg, var(--amber), var(--sage)); }
+
+  /* ── Transition tips ── */
+  .tips-list { display: flex; flex-direction: column; gap: 8px; }
+  .tip-item { display: flex; gap: 10px; align-items: flex-start; background: var(--cream); border-radius: 12px; padding: 11px 12px; }
+  .tip-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .tip-body { flex: 1; }
+  .tip-title { font-size: 12px; font-weight: 500; color: var(--deep); margin-bottom: 2px; }
+  .tip-text  { font-size: 12px; color: var(--mid); line-height: 1.5; }
+
+  /* ── Bed types ── */
+  .bed-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .bed-card { background: var(--cream); border-radius: 14px; padding: 13px 12px; border: 1.5px solid transparent; }
+  .bed-card.recommended { background: var(--indigo-bg); border-color: var(--indigo-border); }
+  .bed-icon  { font-size: 24px; display: block; margin-bottom: 6px; }
+  .bed-name  { font-size: 12px; font-weight: 500; color: var(--deep); margin-bottom: 3px; }
+  .bed-desc  { font-size: 11px; color: var(--mid); line-height: 1.5; }
+  .bed-badge { font-size: 9px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--purple); background: var(--blush); padding: 2px 7px; border-radius: 20px; display: inline-block; margin-top: 4px; }
+
+  /* ── Context note ── */
+  .context-note { background: var(--cream); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: var(--mid); line-height: 1.6; border: 1px solid rgba(168,152,196,0.2); }
+  .context-note strong { color: var(--deep); font-weight: 500; }
+
+  /* ── FAQ ── */
+  .faq-list { display: flex; flex-direction: column; gap: 6px; }
+  .faq-item { border-radius: 13px; border: 1.5px solid rgba(168,152,196,0.2); overflow: hidden; }
+  .faq-q { display: flex; align-items: center; justify-content: space-between; padding: 13px 14px; cursor: pointer; background: var(--cream); font-size: 13px; font-weight: 500; color: var(--deep); gap: 10px; user-select: none; }
+  .faq-chevron { color: var(--soft); font-size: 14px; transition: transform 0.2s; flex-shrink: 0; }
+  .faq-item.open .faq-chevron { transform: rotate(90deg); }
+  .faq-a { display: none; padding: 0 14px 13px; font-size: 12px; color: var(--mid); line-height: 1.6; background: var(--cream); }
+  .faq-item.open .faq-a { display: block; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 22px; padding: 0 8px; }
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">Sueño</span>
+    <h1>¿Ya es momento de<br>pasar a la <em>cama</em>?</h1>
+    <p class="subtitle">Marca las señales que ves en tu hijo y descubre si está listo para dejar la cuna. Guía completa con consejos para una transición tranquila.</p>
+  </header>
+
+  <!-- Age selector -->
+  <div class="card">
+    <div class="section-label">Edad del niño</div>
+    <div class="age-selector">
+      <button class="hold-btn" id="age-minus" data-dir="-1">−</button>
+      <div class="age-display">
+        <span class="age-val"  id="age-val">24</span>
+        <span class="age-unit" id="age-unit">meses</span>
+        <span class="age-sub"  id="age-sub">(2 años)</span>
+      </div>
+      <button class="hold-btn" id="age-plus" data-dir="1">+</button>
+    </div>
+  </div>
+
+  <!-- Readiness hero (dynamic) -->
+  <div class="readiness-hero" id="readiness-hero">
+    <span class="rh-icon"  id="rh-icon">🛏️</span>
+    <span class="rh-label" id="rh-label">—</span>
+    <div class="rh-title"  id="rh-title">—</div>
+    <div class="rh-desc"   id="rh-desc">—</div>
+  </div>
+
+  <!-- Checklist -->
+  <div class="card">
+    <div class="section-label">Señales de que está listo — marca las que ves</div>
+    <div class="checklist" id="checklist"></div>
+    <div class="score-wrap">
+      <div class="score-label">
+        <span id="score-text">0 señales marcadas</span>
+        <span id="score-pct">0%</span>
+      </div>
+      <div class="score-track">
+        <div class="score-fill" id="score-fill" style="width:0%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tips for transition -->
+  <div class="card">
+    <div class="section-label">Cómo hacer la transición más fácil</div>
+    <div class="tips-list">
+      <div class="tip-item">
+        <span class="tip-icon">📅</span>
+        <div class="tip-body">
+          <div class="tip-title">Elige un momento tranquilo</div>
+          <div class="tip-text">No hagas el cambio justo antes de un hermano nuevo, un cambio de casa o el inicio del cole. Espera a que la vida familiar esté estable.</div>
+        </div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">🛏️</span>
+        <div class="tip-body">
+          <div class="tip-title">Empieza con siesta, no con la noche</div>
+          <div class="tip-text">Introduce la cama nueva primero para la siesta del día durante 1–2 semanas. Si va bien, pasa a la noche. El cerebro aprende mejor con cambios graduales.</div>
+        </div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">🧸</span>
+        <div class="tip-body">
+          <div class="tip-title">Involúcrale en el proceso</div>
+          <div class="tip-text">Llévale a elegir las sábanas o el protector. Que sienta que la cama es "suya" acelera la aceptación enormemente.</div>
+        </div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">🔒</span>
+        <div class="tip-body">
+          <div class="tip-title">Asegura el entorno antes del primer día</div>
+          <div class="tip-text">Barrera de seguridad si hay riesgo de caída, protectores de enchufes, seguros en ventanas y puertas peligrosas. Un niño que puede salir de la cama solo, explorará.</div>
+        </div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">🌙</span>
+        <div class="tip-body">
+          <div class="tip-title">Mantén la rutina de siempre</div>
+          <div class="tip-text">El cambio de cuna a cama no debe cambiar la rutina de sueño. Mismo orden, mismo horario, misma canción. La rutina es el ancla del sueño infantil.</div>
+        </div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">🚪</span>
+        <div class="tip-body">
+          <div class="tip-title">Gestiona las salidas de la cama</div>
+          <div class="tip-text">Es normal que al principio salga varias veces. Decide de antemano cómo responderás y sé consistente. La mayoría de niños aprenden en 1–3 semanas.</div>
+        </div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-icon">⏪</span>
+        <div class="tip-body">
+          <div class="tip-title">Si no funciona, no pasa nada</div>
+          <div class="tip-text">Si tras 2 semanas el sueño empeora mucho, volver a la cuna no es un fracaso — es escuchar a tu hijo. Inténtalo de nuevo en 4–6 semanas.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bed types -->
+  <div class="card">
+    <div class="section-label">¿Qué tipo de cama elegir?</div>
+    <div class="bed-grid">
+      <div class="bed-card recommended">
+        <span class="bed-icon">🛏️</span>
+        <div class="bed-name">Cama baja / montessori</div>
+        <div class="bed-desc">A ras del suelo. Si se cae no hay riesgo. Favorece la autonomía — puede subir y bajar solo.</div>
+        <span class="bed-badge">Recomendada</span>
+      </div>
+      <div class="bed-card recommended">
+        <span class="bed-icon">🛡️</span>
+        <div class="bed-name">Cama con barrera lateral</div>
+        <div class="bed-desc">Cama estándar con protector antipídia. Buena opción si la cama ya está en casa.</div>
+        <span class="bed-badge">Recomendada</span>
+      </div>
+      <div class="bed-card">
+        <span class="bed-icon">🚗</span>
+        <div class="bed-name">Cama temática (coche, castillo…)</div>
+        <div class="bed-desc">Muy motivadora para el niño. Asegúrate de que sea baja y tenga bordes seguros.</div>
+      </div>
+      <div class="bed-card">
+        <span class="bed-icon">📦</span>
+        <div class="bed-name">Colchón en el suelo</div>
+        <div class="bed-desc">La opción más segura y económica para empezar. Cero riesgo de caída. Puedes subir el colchón más adelante.</div>
+      </div>
+    </div>
+    <div class="context-note" style="margin-top:12px">
+      <strong>Nota de seguridad:</strong> Cualquier cama debe tener una barrera lateral o estar a ras del suelo. El estándar de seguridad europeo (EN 747) aplica a literas; para camas bajas comprueba que no haya huecos donde el niño pueda quedar atrapado.
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="card">
+    <div class="section-label">Preguntas frecuentes</div>
+    <div class="faq-list" id="faq-list"></div>
+  </div>
+
+  <p class="disclaimer">
+    Basado en recomendaciones de la AAP, la AEP y la Sleep Foundation.<br>
+    No hay una edad universal "correcta" — la preparación del niño es más importante que el número en el calendario.
+  </p>
+
+</div>
+
+<script>
+// ── Age state ──────────────────────────────────────────────────────
+let ageMonths = 24;
+
+// ── Readiness states by age ────────────────────────────────────────
+function getAgeReadiness(age) {
+  if (age < 18) return {
+    state: 'not-yet',
+    icon: '🛡️',
+    label: 'Aún no es el momento',
+    title: 'La cuna es lo más seguro ahora',
+    desc: 'Antes de los 18 meses la cuna es lo más seguro. La AAP y la AEP recomiendan esperar a que el niño muestre señales claras de preparación, que raramente aparecen antes de los 18 meses. No hay prisa — la cuna no tiene inconvenientes a esta edad.',
+  };
+  if (age < 24) return {
+    state: 'soon',
+    icon: '⏳',
+    label: 'Quizás pronto',
+    title: 'Depende de las señales de tu hijo',
+    desc: 'Entre los 18 y los 24 meses algunos niños están listos, pero la mayoría no. Fíjate en las señales de preparación: si se salta la cuna habitualmente o lo pide, puede que sea el momento. Si no muestra interés, espera.',
+  };
+  if (age <= 36) return {
+    state: 'ready',
+    icon: '✅',
+    label: 'Edad habitual para el cambio',
+    title: 'Entre los 2 y los 3 años es lo más común',
+    desc: 'La mayoría de niños hacen la transición entre los 2 y los 3 años. No hay una fecha exacta — las señales del niño son mucho más fiables que el calendario. Marca las señales que ves para tener una idea más clara.',
+  };
+  return {
+    state: 'overdue',
+    icon: '🔔',
+    label: 'Ya podría estar en cama',
+    title: 'A los 3+ años la mayoría está en cama',
+    desc: 'Si tu hijo tiene más de 3 años y sigue en la cuna, no hay ningún problema — pero si la cuna ya le queda pequeña o la escala habitualmente, es una señal clara de que es el momento. El principal riesgo de la cuna a partir de aquí es la caída.',
+  };
+}
+
+// ── Checklist items ────────────────────────────────────────────────
+const CHECKLIST = [
+  {
+    id: 'c1', positive: true,
+    text: 'Es capaz de salir de la cuna solo',
+    sub: 'Si ya escala la cuna, el riesgo de caída hace urgente el cambio independientemente de la edad.',
+    tag: 'safety',
+  },
+  {
+    id: 'c2', positive: true,
+    text: 'Ha pedido una cama o muestra interés',
+    sub: 'Habla de "la cama de los mayores", señala la cama de sus padres o hermanos con entusiasmo.',
+    tag: 'ready',
+  },
+  {
+    id: 'c3', positive: true,
+    text: 'Tiene 2 años o más',
+    sub: 'La edad más habitual de transición es entre los 24 y los 36 meses.',
+    tag: 'ready',
+  },
+  {
+    id: 'c4', positive: true,
+    text: 'La cuna le queda pequeña',
+    sub: 'Sus pies llegan a las barras o ya no tiene espacio para girarse con comodidad.',
+    tag: 'ready',
+  },
+  {
+    id: 'c5', positive: true,
+    text: 'Duerme bien en general',
+    sub: 'Un niño con un sueño razonablemente estable se adapta mejor al cambio. Evita hacerlo en una mala racha.',
+    tag: 'ready',
+  },
+  {
+    id: 'c6', positive: true,
+    text: 'Entiende instrucciones sencillas y las sigue',
+    sub: 'Necesitará entender "quédate en la cama" para que la transición funcione.',
+    tag: 'ready',
+  },
+  {
+    id: 'c7', positive: true,
+    text: 'No hay cambios grandes en el horizonte',
+    sub: 'Hermano nuevo, mudanza, inicio del cole… Los grandes cambios conviene espaciarlos.',
+    tag: 'ready',
+  },
+  {
+    id: 'c8', positive: false,
+    text: 'Hay un hermanito en camino que necesitará la cuna',
+    sub: 'Ojo: si el bebé llega pronto, haz el cambio con al menos 6–8 semanas de antelación o espera después del nacimiento. Nunca justo antes.',
+    tag: null,
+  },
+];
+
+// ── Checked state ──────────────────────────────────────────────────
+const checked = {};
+CHECKLIST.forEach(c => checked[c.id] = false);
+
+// ── Build checklist ────────────────────────────────────────────────
+function buildChecklist() {
+  const wrap = document.getElementById('checklist');
+  CHECKLIST.forEach(item => {
+    const div = document.createElement('div');
+    div.className = `check-item${item.positive ? '' : ' negative'}`;
+    div.id = 'ci-' + item.id;
+    div.innerHTML = `
+      <div class="check-box"><span class="check-tick">✓</span></div>
+      <div class="check-body">
+        <div class="check-text">${item.text}</div>
+        <div class="check-sub">${item.sub}</div>
+        ${item.tag ? `<span class="check-tag tag-${item.tag}">${item.tag === 'safety' ? '⚠️ Seguridad' : '✅ Señal de preparación'}</span>` : ''}
+      </div>`;
+    div.addEventListener('click', () => {
+      checked[item.id] = !checked[item.id];
+      div.classList.toggle('checked', checked[item.id]);
+      updateScore();
+    });
+    div.addEventListener('touchstart', e => { e.preventDefault(); }, { passive: false });
+    div.addEventListener('touchend', e => {
+      e.preventDefault();
+      checked[item.id] = !checked[item.id];
+      div.classList.toggle('checked', checked[item.id]);
+      updateScore();
+    });
+    wrap.appendChild(div);
+  });
+}
+
+function updateScore() {
+  const positiveItems = CHECKLIST.filter(c => c.positive);
+  const checkedPositive = positiveItems.filter(c => checked[c.id]).length;
+  const total = positiveItems.length;
+  const pct = Math.round((checkedPositive / total) * 100);
+
+  document.getElementById('score-text').textContent = `${checkedPositive} de ${total} señales marcadas`;
+  document.getElementById('score-pct').textContent  = pct + '%';
+  document.getElementById('score-fill').style.width = pct + '%';
+
+  // Safety override: if c1 (escala la cuna) is checked, emphasize urgency
+  if (checked['c1']) {
+    document.getElementById('rh-icon').textContent  = '⚠️';
+    document.getElementById('rh-label').textContent = 'Acción recomendada';
+    document.getElementById('rh-title').textContent = 'Escala la cuna: el cambio es urgente';
+    document.getElementById('rh-desc').textContent  = 'Un niño que escala la cuna tiene riesgo real de caída. Independientemente de la edad o de cuántas señales más hayas marcado, este es el momento de pasar a la cama o de bajar el colchón de la cuna al máximo.';
+    const hero = document.getElementById('readiness-hero');
+    hero.className = 'readiness-hero overdue';
+    return;
+  }
+
+  // Restore age-based state
+  renderAgeHero();
+}
+
+// ── Render age hero ────────────────────────────────────────────────
+function renderAgeHero() {
+  const r = getAgeReadiness(ageMonths);
+  const hero = document.getElementById('readiness-hero');
+  hero.className = `readiness-hero ${r.state}`;
+  document.getElementById('rh-icon').textContent  = r.icon;
+  document.getElementById('rh-label').textContent = r.label;
+  document.getElementById('rh-title').textContent = r.title;
+  document.getElementById('rh-desc').textContent  = r.desc;
+}
+
+// ── Render age display ─────────────────────────────────────────────
+function renderAge() {
+  const a = ageMonths;
+  document.getElementById('age-val').textContent  = a;
+  document.getElementById('age-unit').textContent = a === 1 ? 'mes' : 'meses';
+  document.getElementById('age-sub').textContent  =
+    a < 12  ? '' :
+    a === 12 ? '(1 año)' :
+    a % 12 === 0 ? `(${a/12} años)` :
+    `(${Math.floor(a/12)}a ${a%12}m)`;
+  renderAgeHero();
+}
+
+// ── FAQ ────────────────────────────────────────────────────────────
+const FAQS = [
+  { q: '¿A qué edad exacta hay que pasar de cuna a cama?', a: 'No existe una edad exacta. La AAP y la AEP hablan de un rango entre los 18 meses y los 3 años. Lo más importante son las señales del niño, especialmente si escala la cuna (riesgo de caída) o si la cuna ya le resulta incómoda. La mayoría de familias hacen el cambio entre los 2 y los 3 años.' },
+  { q: '¿Qué hago si mi hijo sale de la cama continuamente?', a: 'Es normal durante las primeras semanas. Decide una respuesta consistente y mantenla: puedes devolverle a la cama en silencio sin interacción, usar una valla de seguridad en la puerta de la habitación, o una luz nocturna como referencia visual de "aún es de noche". La consistencia es la clave — variando la respuesta se alarga el proceso.' },
+  { q: '¿Puedo volver a la cuna si no funciona?', a: 'Sí, sin ningún problema. Si tras 2 semanas el sueño ha empeorado mucho y el niño está agotado, volver a la cuna no es un fracaso. Simplemente significa que aún no estaba listo. Espera 4–6 semanas y vuelve a intentarlo.' },
+  { q: '¿Hace falta barrera de seguridad en la cama nueva?', a: 'Depende de la altura de la cama. Si usas una cama baja o un colchón en el suelo, no hace falta. Si la cama tiene altura estándar, sí se recomienda una barrera lateral durante al menos los primeros meses. Asegúrate de que la barrera no deje huecos donde el niño pueda quedar atrapado.' },
+  { q: '¿Y si viene un hermanito y necesitamos la cuna?', a: 'Si el bebé llega en menos de 2 meses, es mejor comprar otra cuna o usar un moisés para el recién nacido y hacer el cambio del mayor más adelante. Si tienes más tiempo, haz el cambio con al menos 6–8 semanas de antelación para que el mayor no asocie la pérdida de la cuna con la llegada del hermano.' },
+  { q: '¿Las camas Montessori son mejores?', a: 'Las camas a ras del suelo son más seguras (cero riesgo de caída) y favorecen la autonomía del niño — puede subir y bajar solo. No son imprescindibles, pero son una opción muy práctica para esta transición. Una cama estándar con una buena barrera lateral funciona igual de bien.' },
+];
+
+function buildFAQ() {
+  const list = document.getElementById('faq-list');
+  FAQS.forEach(faq => {
+    const item = document.createElement('div');
+    item.className = 'faq-item';
+    item.innerHTML = `
+      <div class="faq-q">${faq.q}<span class="faq-chevron">›</span></div>
+      <div class="faq-a">${faq.a}</div>`;
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+    list.appendChild(item);
+  });
+}
+
+// ── Hold-repeat engine ────────────────────────────────────────────
+function makeHoldBtn(el, onStep) {
+  let holdTimer = null, repeatTimer = null, step = 0;
+  function fire() { onStep(parseInt(el.dataset.dir)); }
+  function startHold() {
+    fire(); step = 1;
+    holdTimer = setTimeout(() => {
+      repeatTimer = setInterval(() => {
+        fire(); step++;
+        if (step === 10) { clearInterval(repeatTimer); repeatTimer = setInterval(fire, 60); }
+      }, 150);
+    }, 350);
+  }
+  function stopHold() {
+    clearTimeout(holdTimer); clearInterval(repeatTimer);
+    holdTimer = repeatTimer = null; step = 0;
+    el.classList.remove('pressing');
+  }
+  el.addEventListener('touchstart', e => { e.preventDefault(); el.classList.add('pressing'); startHold(); }, { passive: false });
+  el.addEventListener('touchend',    stopHold, { passive: true });
+  el.addEventListener('touchcancel', stopHold, { passive: true });
+  el.addEventListener('mousedown',   () => { el.classList.add('pressing'); startHold(); });
+  el.addEventListener('mouseup',     stopHold);
+  el.addEventListener('mouseleave',  stopHold);
+}
+
+makeHoldBtn(document.getElementById('age-minus'), dir => {
+  ageMonths = Math.max(12, ageMonths + dir);
+  renderAge();
+});
+makeHoldBtn(document.getElementById('age-plus'), dir => {
+  ageMonths = Math.min(60, ageMonths + dir);
+  renderAge();
+});
+
+// ── Init ──────────────────────────────────────────────────────────
+buildChecklist();
+buildFAQ();
+renderAge();
+</script>
+</body>
+</html>
