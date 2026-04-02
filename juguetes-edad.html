@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Juguetes para bebé por edad · ¿Qué juguete le viene bien? · babyFAQ</title>
+<meta name="description" content="¿Qué juguetes son mejores para tu bebé según los meses que tiene? Recomendaciones por edad con los beneficios para el desarrollo motor, cognitivo y del lenguaje.">
+<meta property="og:title" content="Juguetes para bebé por edad · ¿Qué juguete le viene bien? · babyFAQ">
+<meta property="og:description" content="Guía de juguetes recomendados para cada etapa: 0–3 meses, 3–6 meses, 6–9 meses, 9–12 meses, 1–2 años y 2–3 años. Qué estimula, qué evitar y por qué.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fdf8f2">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf8f2; --warm-white: #fffcf8;
+    --terracota: #c97a5e; --deep: #2d1a10; --mid: #6a3a20; --soft: #c4987a;
+    --terra-bg: #faeade; --terra-border: #e8c4a8; --blush: #f2c4b0;
+    --sage: #5a8a6a; --sage-bg: #edf5f0; --sage-border: #b2d9be;
+    --blue: #3a6aaa; --blue-bg: #e8f0fa; --blue-border: #a8c4e8;
+    --amber: #b07020; --amber-bg: #fdf3e0; --amber-border: #e8c870;
+    --purple: #7048a8; --purple-bg: #f0eaf8; --purple-border: #c8aae8;
+    --red: #a83030; --red-bg: #fdf0f0; --red-border: #e8a8a8;
+    --green: #3a7a4a; --green-bg: #e8f5ec; --green-border: #a8d8b0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 300px; height: 300px; background: #f7c4a0; top: -100px; right: -80px; opacity: 0.35; }
+  .blob-2 { width: 250px; height: 250px; background: #a0d4c0; bottom: -80px; left: -60px; opacity: 0.25; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 20px 64px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 28px; transition: color 0.2s; }
+  .back-link:hover { color: var(--terracota); }
+
+  header { text-align: center; margin-bottom: 32px; }
+  .badge { display: inline-block; background: var(--terra-bg); color: var(--terracota); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 10px; }
+  h1 em { font-style: italic; color: var(--terracota); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.5; font-weight: 300; max-width: 340px; margin: 0 auto; }
+
+  @media (min-width: 480px) { h1 { font-size: 34px; } .subtitle { font-size: 14px; } }
+  @media (min-width: 640px) { h1 { font-size: 38px; } .container { padding: 56px 28px 80px; } }
+
+  .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,26,16,0.07); border: 1px solid rgba(196,152,122,0.22); }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 14px; }
+
+  /* ── Age selector pills ── */
+  .age-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+  .age-pill { padding: 8px 14px; border-radius: 20px; border: 1.5px solid rgba(196,152,122,0.3); background: var(--cream); font-size: 12px; font-weight: 500; color: var(--mid); cursor: pointer; transition: all 0.15s; white-space: nowrap; touch-action: manipulation; }
+  .age-pill:hover { border-color: var(--terracota); color: var(--terracota); }
+  .age-pill.active { background: var(--terracota); border-color: var(--terracota); color: white; }
+
+  /* ── Stage hero ── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .stage-hero { background: var(--terra-bg); border: 1.5px solid var(--terra-border); border-radius: 20px; padding: 20px 18px; margin-bottom: 14px; animation: fadeUp 0.3s ease; }
+  .sh-top { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+  .sh-emoji { font-size: 36px; flex-shrink: 0; }
+  .sh-info  { flex: 1; }
+  .sh-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terracota); display: block; margin-bottom: 3px; }
+  .sh-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--deep); }
+  .sh-desc  { font-size: 12px; color: var(--mid); line-height: 1.6; }
+
+  /* ── Dev tags ── */
+  .dev-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 10px; }
+  .dev-tag  { font-size: 10px; font-weight: 500; padding: 3px 9px; border-radius: 20px; }
+  .dt-motor-g { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+  .dt-motor-f { background: var(--blue-bg);  color: var(--blue);  border: 1px solid var(--blue-border); }
+  .dt-lang    { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+  .dt-social  { background: var(--terra-bg); color: var(--terracota); border: 1px solid var(--terra-border); }
+  .dt-cog     { background: var(--purple-bg);color: var(--purple);border: 1px solid var(--purple-border); }
+  .dt-sensory { background: var(--sage-bg);  color: var(--sage);  border: 1px solid var(--sage-border); }
+
+  /* ── Toy cards ── */
+  .toys-wrap { display: flex; flex-direction: column; gap: 10px; }
+
+  .toy-card { background: var(--warm-white); border-radius: 16px; border: 1.5px solid rgba(196,152,122,0.18); box-shadow: 0 1px 8px rgba(45,26,16,0.05); overflow: hidden; transition: border-color 0.2s; }
+  .toy-card:hover { border-color: rgba(196,152,122,0.4); }
+
+  .toy-top { display: flex; align-items: center; gap: 12px; padding: 14px; cursor: pointer; }
+  .toy-icon { font-size: 24px; flex-shrink: 0; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: var(--cream); }
+  .toy-main { flex: 1; min-width: 0; }
+  .toy-name { font-size: 13px; font-weight: 500; color: var(--deep); margin-bottom: 3px; }
+  .toy-cats { display: flex; gap: 4px; flex-wrap: wrap; }
+  .toy-cat  { font-size: 9px; font-weight: 500; padding: 2px 6px; border-radius: 20px; }
+  .toy-essential { font-size: 9px; font-weight: 500; color: var(--terracota); background: var(--terra-bg); border: 1px solid var(--terra-border); padding: 2px 8px; border-radius: 20px; flex-shrink: 0; white-space: nowrap; }
+  .toy-chevron { color: rgba(45,26,16,0.3); font-size: 14px; transition: transform 0.2s; flex-shrink: 0; }
+  .toy-card.open .toy-chevron { transform: rotate(90deg); }
+
+  .toy-detail { display: none; border-top: 1px solid rgba(196,152,122,0.12); padding: 0 14px 14px; }
+  .toy-card.open .toy-detail { display: block; }
+
+  .toy-why { font-size: 12px; color: var(--mid); line-height: 1.6; margin-top: 12px; margin-bottom: 10px; }
+  .toy-how-label { font-size: 9px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 6px; }
+  .toy-how-list  { display: flex; flex-direction: column; gap: 4px; }
+  .toy-how-item  { font-size: 12px; color: var(--mid); display: flex; gap: 7px; line-height: 1.5; }
+  .toy-how-item::before { content: '→'; color: var(--soft); flex-shrink: 0; }
+
+  .toy-safety { background: var(--red-bg); border-radius: 10px; padding: 8px 11px; margin-top: 10px; font-size: 11px; color: var(--red); line-height: 1.5; display: flex; gap: 6px; }
+  .toy-safety::before { content: '⚠️'; flex-shrink: 0; }
+
+  /* ── What to avoid ── */
+  .avoid-list { display: flex; flex-direction: column; gap: 7px; }
+  .avoid-item { display: flex; gap: 10px; align-items: flex-start; background: var(--red-bg); border-radius: 12px; padding: 10px 12px; border: 1px solid var(--red-border); }
+  .avoid-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .avoid-body { flex: 1; }
+  .avoid-name { font-size: 12px; font-weight: 500; color: var(--red); margin-bottom: 2px; }
+  .avoid-desc { font-size: 11px; color: var(--mid); line-height: 1.5; }
+
+  /* ── Principles ── */
+  .principle-list { display: flex; flex-direction: column; gap: 8px; }
+  .principle-item { display: flex; gap: 10px; align-items: flex-start; background: var(--cream); border-radius: 12px; padding: 11px 12px; }
+  .pi-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .pi-body { flex: 1; }
+  .pi-title { font-size: 12px; font-weight: 500; color: var(--deep); margin-bottom: 2px; }
+  .pi-text  { font-size: 12px; color: var(--mid); line-height: 1.5; }
+
+  /* ── Affiliate note ── */
+  .affiliate-note { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 10px; padding: 10px 12px; background: var(--cream); border-radius: 12px; border: 1px solid rgba(196,152,122,0.2); }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 22px; padding: 0 8px; }
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">Juego y estimulación</span>
+    <h1>¿Qué juguete<br>le viene <em>bien</em>?</h1>
+    <p class="subtitle">Juguetes recomendados para cada etapa con los beneficios reales para el desarrollo. Sin relleno, sin juguetes inútiles.</p>
+  </header>
+
+  <!-- Age selector -->
+  <div class="card">
+    <div class="section-label">Elige la etapa</div>
+    <div class="age-pills" id="age-pills"></div>
+  </div>
+
+  <!-- Stage hero -->
+  <div class="stage-hero" id="stage-hero">
+    <div class="sh-top">
+      <span class="sh-emoji" id="sh-emoji">🌱</span>
+      <div class="sh-info">
+        <span class="sh-label" id="sh-label">—</span>
+        <div class="sh-title" id="sh-title">—</div>
+      </div>
+    </div>
+    <div class="sh-desc" id="sh-desc">—</div>
+    <div class="dev-tags" id="dev-tags"></div>
+  </div>
+
+  <!-- Toys -->
+  <div class="card">
+    <div class="section-label" id="toys-label">Juguetes recomendados · Toca para ver por qué y cómo usarlos</div>
+    <div class="toys-wrap" id="toys-wrap"></div>
+  </div>
+
+  <!-- What to avoid -->
+  <div class="card">
+    <div class="section-label">Qué evitar a esta edad</div>
+    <div class="avoid-list" id="avoid-list"></div>
+  </div>
+
+  <!-- Universal principles -->
+  <div class="card">
+    <div class="section-label">Lo que de verdad importa, a cualquier edad</div>
+    <div class="principle-list">
+      <div class="principle-item">
+        <span class="pi-icon">👀</span>
+        <div class="pi-body">
+          <div class="pi-title">Tú eres el mejor juguete</div>
+          <div class="pi-text">Ningún juguete iguala el valor de la interacción con un adulto atento. Hablarle, imitarle, responder a sus señales — eso es lo que más estimula el cerebro de un bebé.</div>
+        </div>
+      </div>
+      <div class="principle-item">
+        <span class="pi-icon">🪵</span>
+        <div class="pi-body">
+          <div class="pi-title">Menos juguetes, más juego</div>
+          <div class="pi-text">Los estudios muestran que con menos juguetes los niños juegan de forma más creativa y durante más tiempo. La sobreabundancia de juguetes produce el efecto contrario al deseado.</div>
+        </div>
+      </div>
+      <div class="principle-item">
+        <span class="pi-icon">🏡</span>
+        <div class="pi-body">
+          <div class="pi-title">Los mejores juguetes no lo parecen</div>
+          <div class="pi-text">Un cazo, una cuchara de madera, un trozo de tela, una caja de cartón. Los objetos cotidianos estimulan la creatividad más que los juguetes diseñados con "demasiada intención".</div>
+        </div>
+      </div>
+      <div class="principle-item">
+        <span class="pi-icon">📵</span>
+        <div class="pi-body">
+          <div class="pi-title">Las pantallas no son juguetes (antes de los 2 años)</div>
+          <div class="pi-text">La OMS y la AAP recomiendan cero pantallas antes de los 18–24 meses (excepto videollamadas). El contenido en pantalla no estimula el desarrollo — lo desplaza.</div>
+        </div>
+      </div>
+      <div class="principle-item">
+        <span class="pi-icon">✅</span>
+        <div class="pi-body">
+          <div class="pi-title">Seguridad ante todo</div>
+          <div class="pi-text">Todo juguete para menores de 3 años debe cumplir la norma CE EN 71. Evita piezas pequeñas (diámetro menor de 3,1 cm), cuerdas largas y pinturas con metales pesados.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="affiliate-note">
+    ℹ️ Esta página participa en el programa de afiliados de Amazon. Si compras a través de nuestros enlaces, recibimos una pequeña comisión sin coste extra para ti. Solo recomendamos lo que realmente vale la pena.
+  </div>
+
+  <p class="disclaimer">
+    Recomendaciones basadas en guías de estimulación temprana de la AAP, la AEP y Zero to Three.<br>
+    Cada bebé es diferente — estas son orientaciones generales, no prescripciones.
+  </p>
+
+</div>
+
+<script>
+// ── Stage data ─────────────────────────────────────────────────────
+const STAGES = [
+  {
+    id: 's0',
+    label: '0–3 meses',
+    emoji: '🌱',
+    title: 'El mundo como estímulo',
+    desc: 'A esta edad el bebé está absorbiendo el mundo a través de los sentidos. Su visión es limitada (ve mejor a 20–30 cm), distingue contrastes fuertes y está fascinado por las caras humanas. El juguete más potente eres tú.',
+    devAreas: ['sensory', 'social', 'motor-g'],
+    toys: [
+      {
+        icon: '⚫⚪', name: 'Tarjetas o móvil de contrastes blanco y negro',
+        cats: ['sensory'],
+        essential: true,
+        why: 'A los 0–3 meses el sistema visual aún está madurando. Los contrastes fuertes (blanco y negro, rojo) son los únicos que el bebé percibe con claridad. Estimulan las conexiones neuronales visuales en un momento crítico.',
+        how: ['Colócalas a 20–30 cm de la cara — esa es su distancia de enfoque', 'Sesiones cortas de 3–5 minutos, varias veces al día', 'Cambia las tarjetas cada semana para mantener el interés'],
+      },
+      {
+        icon: '🎵', name: 'Sonajeros ligeros',
+        cats: ['sensory', 'motor-f'],
+        essential: false,
+        why: 'El sonido localizado estimula la audición y el seguimiento con los ojos. A partir de las 8 semanas empieza a abrir la mano voluntariamente — el sonajero facilita el primer agarre intencional.',
+        how: ['Hazle sonar a su lado para que gire la cabeza hacia el sonido', 'Ponlo en su mano abierta — no lo fuerces', 'Elige sonajeros de silicona o madera sin piezas pequeñas'],
+      },
+      {
+        icon: '🪞', name: 'Espejo irrompible',
+        cats: ['social', 'cog'],
+        essential: true,
+        why: 'Los bebés están genéticamente programados para fijarse en caras. Un espejo irrompible en la zona de tummy time les da una "cara" que observar y estimula la exploración visual y social.',
+        how: ['Colócalo en posición vertical frente a la cara durante el tummy time', 'A partir de las 6 semanas verás que sonríe a su propio reflejo', 'Los espejos irrompibles de tela o acrílico son los más seguros'],
+      },
+      {
+        icon: '🤸', name: 'Esterilla de juego / gimnasio de actividades',
+        cats: ['motor-g', 'sensory'],
+        essential: true,
+        why: 'La base para el tummy time y la estimulación visual-motora. Los arcos con objetos colgantes estimulan el seguimiento visual y los primeros manotazos. Imprescindible desde el primer mes.',
+        how: ['Úsala para el tummy time desde las primeras semanas', 'Los objetos colgantes deben quedar a la altura de sus manos', 'Rota los objetos colgantes para mantener el interés'],
+        safety: 'Los arcos y cuerdas que sujetan los juguetes deben tener menos de 30 cm de longitud.',
+      },
+      {
+        icon: '📚', name: 'Libros de tela con texturas',
+        cats: ['sensory', 'lang'],
+        essential: false,
+        why: 'Aunque aún no "leen", los libros de tela con páginas crujientes, texturas y colores vivos estimulan todos los sentidos. Leerles desde el primer día crea el hábito y el vínculo emocional con los libros.',
+        how: ['Describe lo que ves: "mira, un gatito rojo"', 'Deja que lo toque, lo chupe y lo agite — así aprenden', 'No busques que "preste atención" — el contacto es suficiente'],
+      },
+    ],
+    avoid: [
+      { icon: '📺', name: 'Pantallas y tablets', desc: 'Ningún contenido en pantalla es beneficioso antes de los 18–24 meses. Desplazan la interacción humana, que es lo que realmente desarrolla el cerebro.' },
+      { icon: '🔊', name: 'Juguetes con sonidos electrónicos muy intensos', desc: 'Más de 85 dB cerca del oído puede dañar la audición. Muchos juguetes electrónicos baratos superan este límite. Si tienes que gritar para hablar mientras suena, es demasiado fuerte.' },
+      { icon: '🤸', name: 'Hamacas o saltadores como sustitutos del suelo', desc: 'El tiempo en suelo boca abajo (tummy time) es esencial para el desarrollo motor. Las hamacas son útiles para momentos puntuales, no como posición principal.' },
+    ],
+  },
+  {
+    id: 's1',
+    label: '3–6 meses',
+    emoji: '✋',
+    title: 'Descubriendo las manos',
+    desc: 'El bebé ya sonríe, ríe y tiene momentos de alerta más largos. Descubre sus manos y empieza a agarrar objetos intencionalmente. Todo va directo a la boca — es su principal órgano de exploración.',
+    devAreas: ['motor-f', 'sensory', 'social'],
+    toys: [
+      {
+        icon: '🦷', name: 'Mordedores de silicona o madera',
+        cats: ['sensory', 'motor-f'],
+        essential: true,
+        why: 'A los 3–4 meses los primeros dientes empiezan su camino (aunque no salgan aún) y las encías pican. El mordedor calma y estimula la coordinación mano-boca, que es el gran hito de esta etapa.',
+        how: ['El mordedor frío (no congelado) alivia más que el de temperatura ambiente', 'Elige mordedores con diferentes texturas en distintas zonas', 'Sin BPA ni ftalatos — comprueba el etiquetado'],
+        safety: 'Nunca ates el mordedor al cuello del bebé. Sin cordones ni cadenas largas.',
+      },
+      {
+        icon: '🌀', name: 'Juguetes de agarre (anillas, llaves)',
+        cats: ['motor-f', 'cog'],
+        essential: true,
+        why: 'El agarre intencionado aparece entre los 3 y los 5 meses. Los objetos fáciles de sostener (anillas, formas redondeadas) permiten practicar el cierre de la mano y la coordinación ojo-mano.',
+        how: ['Ponlos en su campo visual y deja que intente alcanzarlos', 'Hazlos sonar o moverlos para captar su atención', 'Múltiples texturas en el mismo juguete son más estimulantes'],
+      },
+      {
+        icon: '🧦', name: 'Calcetines con sonajero para los pies',
+        cats: ['motor-g', 'sensory', 'cog'],
+        essential: false,
+        why: 'Entre los 3 y los 5 meses el bebé descubre sus pies. Los calcetines con sonajero capturan su atención visual y auditiva cuando los mueve, estimulando la coordinación y la exploración corporal.',
+        how: ['Ponlos durante el tiempo de juego en el suelo', 'El bebé intentará llevarse el pie a la boca — es completamente normal', 'Retíralos al dormir'],
+      },
+      {
+        icon: '🎵', name: 'Juguetes de causa-efecto simples',
+        cats: ['cog', 'motor-f'],
+        essential: false,
+        why: 'A los 4–5 meses el bebé empieza a entender que sus acciones tienen consecuencias. Un juguete que hace música o luz al tocarlo es la primera lección de causa-efecto.',
+        how: ['Guía su mano las primeras veces para que entienda la relación', 'Celebra el resultado con entusiasmo — refuerza el aprendizaje', 'Elige versiones con volumen regulable'],
+        safety: 'Volumen máximo 75 dB a 50 cm de distancia.',
+      },
+      {
+        icon: '📚', name: 'Libros de baño o cartón grueso',
+        cats: ['lang', 'sensory'],
+        essential: false,
+        why: 'Los libros de cartón duro ya aguantan el agarre. Los de baño añaden el elemento del agua. Leer a diario desde esta edad tiene el mayor impacto comprobado en el desarrollo del lenguaje a largo plazo.',
+        how: ['Señala y nombra lo que ves con entusiasmo', 'Deja que pase las páginas aunque las arrugue', 'Repite los mismos libros — la repetición es como aprenden'],
+      },
+    ],
+    avoid: [
+      { icon: '🪀', name: 'Andadores (tacatás)', desc: 'Prohibidos en Canadá y desaconsejados por la AAP. Retrasan el gateo y la marcha natural, y son peligrosos cerca de escaleras. No ofrecen ningún beneficio para el desarrollo.' },
+      { icon: '🔇', name: 'Juguetes "educativos" con muchos botones y sonidos', desc: 'Los juguetes que hacen todo solos no enseñan nada — el bebé es un espectador pasivo. Los juguetes abiertos (sin pilas) estimulan mucho más la creatividad y la exploración activa.' },
+      { icon: '🪑', name: 'Exceso de tiempo en hamaca o bouncer', desc: 'Máximo 30 minutos seguidos. El tiempo en el suelo es imprescindible para el desarrollo motor. La hamaca es una herramienta, no una posición de vida.' },
+    ],
+  },
+  {
+    id: 's2',
+    label: '6–9 meses',
+    emoji: '🐾',
+    title: 'Explorando el espacio',
+    desc: 'Se sienta, intenta gatear y explora el mundo tridimensionalmente. Transfiere objetos entre manos, golpea superficies y empieza a entender que los objetos siguen existiendo aunque no los vea.',
+    devAreas: ['motor-g', 'motor-f', 'cog'],
+    toys: [
+      {
+        icon: '🧱', name: 'Bloques apilables grandes',
+        cats: ['motor-f', 'cog'],
+        essential: true,
+        why: 'Apilar, derribar, volver a apilar: la repetición es exactamente como aprende el cerebro infantil. Los bloques grandes son seguros, permiten practicar la precisión motora y la primera comprensión de la física.',
+        how: ['Apila tú primero y luego deja que lo derrumbe — le encantará', 'Nombra lo que haces: "uno, dos, tres... ¡pum!"', 'Los bloques de tela son perfectos para esta edad — seguros y lavables'],
+      },
+      {
+        icon: '🥣', name: 'Recipientes para vaciar y llenar',
+        cats: ['cog', 'motor-f'],
+        essential: true,
+        why: 'Vaciar una cesta y volver a llenarla es una de las actividades más compulsivas de esta etapa — y una de las más ricas para el desarrollo. Enseña volumen, cantidad, causa-efecto y coordinación.',
+        how: ['Una cesta de mimbre con objetos cotidianos seguros (cucharas, boles) es perfecta', 'Cambia los objetos para mantener el interés', 'No compres nada — usa lo que tienes en casa'],
+      },
+      {
+        icon: '🎵', name: 'Instrumentos de percusión simples',
+        cats: ['sensory', 'motor-g', 'cog'],
+        essential: false,
+        why: 'Golpear produce sonido — causa-efecto en su máxima expresión. Los instrumentos de percusión simples estimulan la coordinación bilateral, el ritmo y la comprensión de que las acciones tienen efectos.',
+        how: ['Un tambor, unas maracas o dos cucharas de madera son suficientes', 'Juega tú también — el juego conjunto es mucho más estimulante', 'Pon música y golpea siguiendo el ritmo'],
+        safety: 'Sin piezas pequeñas. Verifica que el instrumento no tiene aristas.',
+      },
+      {
+        icon: '🧩', name: 'Juguete de permanencia del objeto (cubo con pelotas)',
+        cats: ['cog'],
+        essential: false,
+        why: 'Alrededor de los 8 meses aparece la permanencia del objeto — el bebé entiende que las cosas siguen existiendo aunque no las vea. Un cubo donde meter y sacar pelotas es perfecto para practicarlo.',
+        how: ['Esconde un juguete bajo un trapo y anímale a buscarlo', 'Celebra cada vez que encuentra el objeto', 'El cubo con formas vendrá más adelante — ahora solo necesita meter y sacar'],
+      },
+      {
+        icon: '📚', name: 'Libros con solapas (flap books)',
+        cats: ['lang', 'cog'],
+        essential: false,
+        why: 'Las solapas son el primer formato interactivo del libro. Levantar la solapa y descubrir lo que hay debajo es juego + lenguaje + causa-efecto en una sola acción.',
+        how: ['Deja que sea él quien levante las solapas — aunque le cueste al principio', 'Nombra lo que aparece con entusiasmo exagerado', 'Los libros de cartón duro aguantan mejor el manejo intenso de esta etapa'],
+      },
+    ],
+    avoid: [
+      { icon: '🧸', name: 'Peluches con ojos de botón o accesorios pequeños', desc: 'Cualquier pieza menor de 3,1 cm de diámetro es un riesgo de asfixia. Los peluches con ojos de botón o accesorios pegados son peligrosos para bebés que meten todo en la boca.' },
+      { icon: '📺', name: 'Pantallas y "vídeos educativos"', desc: 'Los vídeos de Baby Einstein y similares no tienen ningún beneficio probado para el desarrollo antes de los 2 años. La Academia Americana de Pediatría es explícita en esto.' },
+      { icon: '🪀', name: 'Andadores', desc: 'Siguen siendo peligrosos y contraproducentes. El gateo es una etapa crucial del desarrollo neurológico — los andadores la saltan.' },
+    ],
+  },
+  {
+    id: 's3',
+    label: '9–12 meses',
+    emoji: '🚶',
+    title: 'A punto de caminar',
+    desc: 'Gateo a toda velocidad, se pone de pie, "navega" agarrado a los muebles y quizás da sus primeros pasos. La pinza índice-pulgar está lista para recoger objetos minúsculos del suelo.',
+    devAreas: ['motor-g', 'motor-f', 'lang', 'cog'],
+    toys: [
+      {
+        icon: '🚂', name: 'Andador de empuje (correpasillos)',
+        cats: ['motor-g'],
+        essential: true,
+        why: 'El correpasillos (que se empuja, no en el que se sienta) es la mejor herramienta para aprender a caminar. Da apoyo y equilibrio mientras el bebé practica los pasos, sin sustituir el esfuerzo natural.',
+        how: ['Espera a que se ponga de pie solo antes de introducirlo', 'En casa con suelo liso — en moqueta es más difícil', 'Busca uno con base ancha y peso suficiente para no volcar fácilmente'],
+        safety: 'Solo correpasillos que se empuja desde detrás. Nunca andadores en los que el bebé se sienta — esos sí están desaconsejados.',
+      },
+      {
+        icon: '🥣', name: 'Cubos apilables / encajables',
+        cats: ['motor-f', 'cog'],
+        essential: true,
+        why: 'Apilar ya no es solo derribar — ahora intentan construir. Los cubos de diferentes tamaños que encajan unos dentro de otros añaden la dimensión del orden por tamaño (seriación), un hito cognitivo importante.',
+        how: ['Demuestra cómo se apilan y deja que intente imitarte', 'No corrijas — deja que descubra la lógica por ensayo y error', 'Nombra los tamaños: grande, pequeño, más grande'],
+      },
+      {
+        icon: '🎨', name: 'Pinturas de dedo no tóxicas',
+        cats: ['sensory', 'motor-f', 'cog'],
+        essential: false,
+        why: 'Los trazos con pintura de dedo no son arte — son exploración sensorial intensa. La textura, el color, el movimiento de la mano y el resultado visible son estímulos cognitivos y sensoriales de gran valor.',
+        how: ['Papel grande en el suelo o directamente en la bañera', 'Viste ropa que pueda mancharse o directamente en bañador', 'No guíes la mano — deja que explore libremente'],
+        safety: 'Solo pinturas certificadas no tóxicas (AP Seal o norma CE). El bebé se las llevará a la boca.',
+      },
+      {
+        icon: '📦', name: 'Clasificador de formas',
+        cats: ['motor-f', 'cog'],
+        essential: false,
+        why: 'Encajar la forma correcta en el agujero correcto exige coordinación fina, reconocimiento visual y resolución de problemas. Es frustrante al principio — y esa frustración gestionada es aprendizaje.',
+        how: ['Empieza con versiones simples (círculo, cuadrado, triángulo)', 'Si se frustra mucho, ayuda pero sin hacerlo tú — guía la mano', 'Celebra cada éxito con entusiasmo'],
+      },
+      {
+        icon: '🎸', name: 'Xilófono o piano de juguete',
+        cats: ['motor-f', 'sensory', 'cog'],
+        essential: false,
+        why: 'Golpear las teclas y oír el resultado: causa-efecto musical. A los 10–11 meses el bebé empieza a "buscar" notas concretas, lo que requiere memoria, coordinación y atención.',
+        how: ['Toca tú una secuencia sencilla e invítale a imitarte', 'Nómbrales los colores de las teclas', 'El volumen debe ser regulable — los xilófonos de juguete pueden ser muy estridentes'],
+        safety: 'Comprueba que las barras metálicas no tienen bordes afilados.',
+      },
+    ],
+    avoid: [
+      { icon: '🧩', name: 'Puzzles de muchas piezas pequeñas', desc: 'Los puzzles con piezas pequeñas son un riesgo de asfixia hasta los 3 años. A esta edad los puzzles deben tener piezas grandes con agarraderas (knob puzzles) de 2–3 piezas máximo.' },
+      { icon: '🎮', name: 'Tablets y juguetes con pantalla', desc: 'Incluyendo los juguetes con pantallitas integradas. La AAP mantiene la recomendación de cero pantallas antes de los 18–24 meses.' },
+    ],
+  },
+  {
+    id: 's4',
+    label: '1–2 años',
+    emoji: '🏃',
+    title: 'Movimiento y primeras palabras',
+    desc: 'Camina, corre, sube escaleras. El vocabulario explota entre los 18 y los 24 meses. El juego simbólico empieza: da de comer al muñeco, habla por el teléfono de juguete. La imitación es su principal herramienta de aprendizaje.',
+    devAreas: ['motor-g', 'lang', 'social', 'cog'],
+    toys: [
+      {
+        icon: '🏠', name: 'Juguetes de imitación (cocina, herramientas, carrito)',
+        cats: ['social', 'lang', 'cog'],
+        essential: true,
+        why: 'El juego simbólico — "hacer como si" — es el indicador de desarrollo cognitivo más importante de esta etapa. Imitar acciones del adulto (cocinar, barrer, cuidar) es exactamente como el cerebro construye la comprensión del mundo.',
+        how: ['Juega con él — el juego paralelo con un adulto es mucho más rico', 'Ponle nombre a lo que hace: "estás dando de comer al muñeco"', 'Los juguetes de imitación más simples funcionan mejor — el cerebro pone el resto'],
+      },
+      {
+        icon: '🧱', name: 'Bloques de construcción (madera, LEGO Duplo)',
+        cats: ['motor-f', 'cog', 'lang'],
+        essential: true,
+        why: 'A los 12–15 meses apilan 2–3 bloques. A los 24 meses construyen torres de 6 o más. Los bloques desarrollan la comprensión espacial, la planificación y la coordinación fina de forma continua durante años.',
+        how: ['Construye con él sin dirigir demasiado', 'LEGO Duplo es adecuado a partir de los 18 meses con supervisión', 'Los bloques de madera son más seguros y tienen un tacto más rico'],
+        safety: 'Los bloques de madera no deben tener astillas ni bordes sin lijar.',
+      },
+      {
+        icon: '🎨', name: 'Ceras gruesas y papel grande',
+        cats: ['motor-f', 'cog'],
+        essential: false,
+        why: 'Los trazos evolucionan: de garabatos aleatorios a líneas intencionadas. Las ceras triangulares o jumbo son fáciles de sostener y ayudan a desarrollar el agarre correcto para escribir más adelante.',
+        how: ['Papel grande (rollo de papel de embalar) en el suelo', 'No corrijas ni guíes — la exploración libre es el objetivo', 'Las ceras de cera de abeja son más seguras si se las lleva a la boca'],
+      },
+      {
+        icon: '📚', name: 'Libros con historias simples',
+        cats: ['lang', 'cog', 'social'],
+        essential: true,
+        why: 'Es la actividad con más evidencia científica para el desarrollo del lenguaje. A los 18 meses puede señalar objetos cuando se los nombras. A los 24 meses puede recontar partes de la historia.',
+        how: ['Pregunta: "¿dónde está el perro?" en vez de solo nombrar', 'Deja que pase las páginas y decida cuándo avanzar', 'Los mismos libros repetidos muchas veces son más efectivos que muchos libros distintos'],
+      },
+      {
+        icon: '⚽', name: 'Pelota grande blanda',
+        cats: ['motor-g', 'social'],
+        essential: false,
+        why: 'Rodar, dar patadas y lanzar una pelota desarrolla la coordinación, el equilibrio y las bases del juego social. A los 18 meses empieza a dar patadas; a los 24 meses ya lanza con cierta dirección.',
+        how: ['Ruédala hacia él y espera que la devuelva — es su primer juego de turnos', 'En exterior siempre que puedas', 'La pelota grande es más fácil de golpear y menos peligrosa que las pequeñas'],
+      },
+    ],
+    avoid: [
+      { icon: '📱', name: 'Tablets y teléfonos como juguete', desc: 'Aunque la AAP abre ligeramente la mano a los 18–24 meses para videollamadas, los juegos en tablet no son recomendables. Desplazan el juego activo y el lenguaje en interacción.' },
+      { icon: '🪀', name: 'Juguetes con piezas menores de 3 cm', desc: 'La regla del tubo de papel de cocina: si cabe dentro, puede asfixiar. Hasta los 3 años, ningún juguete con piezas pequeñas sin supervisión directa.' },
+      { icon: '🎠', name: 'Juguetes que "hacen todo solos"', desc: 'Los juguetes que se limitan a producir luces y sonidos cuando pulsas un botón no estimulan la creatividad ni el pensamiento. El cerebro aprende más con juguetes "tontos" que requieren que el niño los use activamente.' },
+    ],
+  },
+  {
+    id: 's5',
+    label: '2–3 años',
+    emoji: '🎨',
+    title: 'Imaginación y primeros amigos',
+    desc: 'Corre, salta, trepa. El lenguaje explota — frases completas, preguntas constantes. El juego imaginativo se vuelve elaborado: los bloques son casas, las sillas son coches. Empieza el juego con otros niños.',
+    devAreas: ['lang', 'social', 'cog', 'motor-g'],
+    toys: [
+      {
+        icon: '🧸', name: 'Muñecos y figuras articuladas',
+        cats: ['social', 'lang', 'cog'],
+        essential: true,
+        why: 'El juego de rol con muñecos es la forma más compleja de juego simbólico. El niño asigna roles, crea narrativas y practica escenarios sociales. Es el antecedente directo de la empatía y la teoría de la mente.',
+        how: ['Únete al juego siguiendo su narrativa, sin dirigirla', 'Haz preguntas: "¿qué le pasa al muñeco?", "¿dónde va?"', 'Los muñecos más simples (sin electrónica) generan más juego imaginativo'],
+      },
+      {
+        icon: '🏗️', name: 'LEGO Duplo o bloques de construcción grandes',
+        cats: ['motor-f', 'cog', 'lang'],
+        essential: true,
+        why: 'A los 2–3 años las construcciones ya tienen intención: "voy a hacer una casa para el dinosaurio". La planificación, la resolución de problemas y el pensamiento espacial se desarrollan con cada torre.',
+        how: ['Construid juntos con un objetivo compartido', 'Fotografía las construcciones antes de desmontarlas — le hace sentir valorado', 'No construyas tú y le des el resultado — el proceso es lo importante'],
+      },
+      {
+        icon: '🖌️', name: 'Set de pintura, arcilla o plastilina',
+        cats: ['motor-f', 'cog', 'sensory'],
+        essential: false,
+        why: 'La arcilla y la plastilina desarrollan la fuerza de la mano necesaria para escribir. La pintura libre estimula la creatividad sin estructura. A esta edad el proceso importa más que el resultado.',
+        how: ['Sin modelos ni correcciones — arte libre', 'La arcilla natural (secado al aire) es más rica táctilmente que la plastilina comercial', 'Dedica un espacio "para mancharse" y deja que fluya'],
+      },
+      {
+        icon: '🧩', name: 'Puzzles de 6–12 piezas',
+        cats: ['cog', 'motor-f'],
+        essential: false,
+        why: 'La resolución de puzzles requiere reconocimiento visual, memoria espacial y perseverancia. A los 2 años dominan puzzles de 4 piezas; a los 3, de 12–15.',
+        how: ['Empieza con puzzles de piezas grandes con agarradera (knob)', 'Si se frustra, da pistas sin resolver el puzzle tú', 'Los puzzles con objetos familiares (animales, vehículos) generan más motivación'],
+      },
+      {
+        icon: '🚲', name: 'Bicicleta sin pedales (balance bike)',
+        cats: ['motor-g'],
+        essential: false,
+        why: 'La bicicleta sin pedales enseña equilibrio antes que el pedaleo, lo que hace que aprender a ir en bici "de verdad" sea mucho más fácil y rápido. Muchos niños que empiezan con balance bike nunca necesitan ruedines.',
+        how: ['A partir de los 18–24 meses si ya camina bien', 'Asegúrate de que los pies llegan al suelo completamente', 'Casco desde el primer día — crea el hábito'],
+        safety: 'Casco homologado siempre, aunque sea en el parque.',
+      },
+    ],
+    avoid: [
+      { icon: '📺', name: 'Televisión y tablets más de 1 hora al día', desc: 'La OMS recomienda máximo 1 hora de pantalla al día para los 3–4 años, con contenido de calidad y siempre con un adulto presente para comentar lo que ven.' },
+      { icon: '🎰', name: 'Juegos con mecánicas de recompensa aleatoria (loot boxes, sorpresas)', desc: 'Los mecanismos de recompensa aleatoria (huevos sorpresa coleccionables, loot boxes en apps) activan los mismos circuitos de dopamina que las máquinas tragaperras. Evitar la exposición a estas mecánicas en la infancia.' },
+    ],
+  },
+];
+
+// ── State ──────────────────────────────────────────────────────────
+let selectedStage = 's0';
+
+// ── Dev area metadata ──────────────────────────────────────────────
+const DEV_META = {
+  'motor-g': { label: 'Motor grueso', cls: 'dt-motor-g' },
+  'motor-f': { label: 'Motor fino',   cls: 'dt-motor-f' },
+  'lang':    { label: 'Lenguaje',     cls: 'dt-lang'    },
+  'social':  { label: 'Social',       cls: 'dt-social'  },
+  'cog':     { label: 'Cognitivo',    cls: 'dt-cog'     },
+  'sensory': { label: 'Sensorial',    cls: 'dt-sensory' },
+};
+
+const CAT_META = {
+  'motor-g': { label: 'Motor grueso', cls: 'dt-motor-g' },
+  'motor-f': { label: 'Motor fino',   cls: 'dt-motor-f' },
+  'lang':    { label: 'Lenguaje',     cls: 'dt-lang'    },
+  'social':  { label: 'Social',       cls: 'dt-social'  },
+  'cog':     { label: 'Cognitivo',    cls: 'dt-cog'     },
+  'sensory': { label: 'Sensorial',    cls: 'dt-sensory' },
+};
+
+// ── Build pills ────────────────────────────────────────────────────
+function buildPills() {
+  const wrap = document.getElementById('age-pills');
+  STAGES.forEach(s => {
+    const btn = document.createElement('button');
+    btn.className = 'age-pill' + (s.id === selectedStage ? ' active' : '');
+    btn.textContent = s.label;
+    btn.addEventListener('click', () => {
+      selectedStage = s.id;
+      document.querySelectorAll('.age-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderStage();
+    });
+    wrap.appendChild(btn);
+  });
+}
+
+// ── Render stage ───────────────────────────────────────────────────
+function renderStage() {
+  const stage = STAGES.find(s => s.id === selectedStage);
+  if (!stage) return;
+
+  // Hero
+  document.getElementById('sh-emoji').textContent = stage.emoji;
+  document.getElementById('sh-label').textContent = stage.label;
+  document.getElementById('sh-title').textContent = stage.title;
+  document.getElementById('sh-desc').textContent  = stage.desc;
+
+  const devTagsWrap = document.getElementById('dev-tags');
+  devTagsWrap.innerHTML = '';
+  stage.devAreas.forEach(area => {
+    const m = DEV_META[area];
+    if (!m) return;
+    const span = document.createElement('span');
+    span.className = `dev-tag ${m.cls}`;
+    span.textContent = m.label;
+    devTagsWrap.appendChild(span);
+  });
+
+  // Toys
+  const toysWrap = document.getElementById('toys-wrap');
+  toysWrap.innerHTML = '';
+  stage.toys.forEach(toy => {
+    const card = document.createElement('div');
+    card.className = 'toy-card';
+
+    const cats = toy.cats.map(c => {
+      const m = CAT_META[c];
+      return m ? `<span class="toy-cat ${m.cls}">${m.label}</span>` : '';
+    }).join('');
+
+    card.innerHTML = `
+      <div class="toy-top">
+        <div class="toy-icon">${toy.icon}</div>
+        <div class="toy-main">
+          <div class="toy-name">${toy.name}</div>
+          <div class="toy-cats">${cats}</div>
+        </div>
+        ${toy.essential ? '<span class="toy-essential">⭐ Esencial</span>' : ''}
+        <span class="toy-chevron">›</span>
+      </div>
+      <div class="toy-detail">
+        <div class="toy-why">${toy.why}</div>
+        <span class="toy-how-label">💡 Cómo aprovecharlo al máximo</span>
+        <div class="toy-how-list">${toy.how.map(h => `<div class="toy-how-item">${h}</div>`).join('')}</div>
+        ${toy.safety ? `<div class="toy-safety">${toy.safety}</div>` : ''}
+      </div>`;
+
+    card.querySelector('.toy-top').addEventListener('click', () => card.classList.toggle('open'));
+    toysWrap.appendChild(card);
+  });
+
+  // Avoid
+  const avoidList = document.getElementById('avoid-list');
+  avoidList.innerHTML = '';
+  stage.avoid.forEach(a => {
+    const div = document.createElement('div');
+    div.className = 'avoid-item';
+    div.innerHTML = `
+      <span class="avoid-icon">${a.icon}</span>
+      <div class="avoid-body">
+        <div class="avoid-name">${a.name}</div>
+        <div class="avoid-desc">${a.desc}</div>
+      </div>`;
+    avoidList.appendChild(div);
+  });
+}
+
+// ── Init ──────────────────────────────────────────────────────────
+buildPills();
+renderStage();
+</script>
+</body>
+</html>
