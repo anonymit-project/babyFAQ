@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador de patadas del bebé · babyFAQ</title>
+  <meta name="description" content="Cuenta los movimientos fetales de tu bebé con el método Cardiff. Registra 10 patadas y mide el tiempo. Herramienta orientativa para el tercer trimestre.">
+  <meta property="og:title" content="Contador de patadas del bebé · babyFAQ">
+  <meta property="og:description" content="Registra los movimientos de tu bebé con el método Cardiff. Cuenta 10 patadas y anota el tiempo. Gratis, sin app, desde el móvil.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#fdf6ee">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-55NR11957W');
+  </script>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Contador de patadas del bebé",
+    "description": "Registra los movimientos fetales de tu bebé con el método Cardiff durante el tercer trimestre del embarazo.",
+    "url": "https://babyfaq.es/patadas.html",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "es",
+    "isPartOf": { "@type": "WebSite", "url": "https://babyfaq.es" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+  }
+  </script>
+
+  <style>
+    :root {
+      --cream: #fdf6ee;
+      --warm-white: #fffcf8;
+      --blush: #f2c4b0;
+      --terracota: #c97a5e;
+      --deep: #3d2b1f;
+      --mid: #7a5c4e;
+      --soft: #c4a898;
+      /* Rose accent for pregnancy/patadas */
+      --rose: #b85c7a;
+      --rose-light: #f2d4df;
+      --rose-mid: #d4889f;
+      --rose-bg: #fdf0f4;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--deep);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Noise texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Decorative blobs */
+    .blob-1, .blob-2 {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .blob-1 {
+      width: 320px; height: 320px;
+      background: var(--rose-light);
+      top: -80px; right: -80px;
+      opacity: 0.45;
+    }
+    .blob-2 {
+      width: 260px; height: 260px;
+      background: var(--blush);
+      bottom: 60px; left: -60px;
+      opacity: 0.3;
+    }
+
+    .container {
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Back link */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--mid);
+      text-decoration: none;
+      margin-bottom: 28px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--rose); }
+    .back-link svg { width: 14px; height: 14px; }
+
+    /* Header */
+    header { text-align: center; margin-bottom: 32px; }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rose);
+      background: var(--rose-light);
+      border: 1px solid rgba(184, 92, 122, 0.2);
+      border-radius: 20px;
+      padding: 4px 12px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: 28px;
+      line-height: 1.2;
+      color: var(--deep);
+      margin-bottom: 12px;
+    }
+    @media (min-width: 480px) { h1 { font-size: 34px; } }
+    @media (min-width: 640px) { h1 { font-size: 38px; } }
+
+    h1 em {
+      font-style: italic;
+      color: var(--rose);
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: var(--mid);
+      max-width: 340px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    @media (min-width: 480px) { .subtitle { font-size: 14px; } }
+
+    /* Card base */
+    .card {
+      background: var(--warm-white);
+      border-radius: 20px;
+      box-shadow: 0 2px 16px rgba(61, 43, 31, 0.07);
+      border: 1px solid rgba(196, 168, 152, 0.25);
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    /* Section label */
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-bottom: 16px;
+    }
+
+    /* ── TAP BUTTON ── */
+    .tap-area {
+      text-align: center;
+      padding: 8px 0 4px;
+    }
+
+    .tap-btn {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: none;
+      background: var(--rose-light);
+      border: 3px solid rgba(184, 92, 122, 0.2);
+      cursor: pointer;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      position: relative;
+      transition: transform 0.1s, background 0.15s, box-shadow 0.15s;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      box-shadow: 0 4px 20px rgba(184, 92, 122, 0.15);
+    }
+    .tap-btn:active, .tap-btn.tapped {
+      transform: scale(0.93);
+      background: rgba(212, 136, 159, 0.35);
+      box-shadow: 0 2px 8px rgba(184, 92, 122, 0.25);
+    }
+    .tap-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .tap-btn .btn-emoji {
+      font-size: 40px;
+      line-height: 1;
+      display: block;
+      transition: transform 0.15s;
+    }
+    .tap-btn.tapped .btn-emoji {
+      transform: scale(1.25);
+    }
+    .tap-btn .btn-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--rose);
+      letter-spacing: 0.02em;
+    }
+    .tap-btn .btn-hint {
+      font-size: 10px;
+      color: var(--mid);
+      opacity: 0.7;
+    }
+
+    /* Ripple */
+    .tap-btn::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid var(--rose-mid);
+      opacity: 0;
+      transform: scale(0.9);
+      transition: none;
+    }
+    .tap-btn.tapped::after {
+      animation: ripple 0.4s ease-out forwards;
+    }
+    @keyframes ripple {
+      0%   { opacity: 0.6; transform: scale(0.9); }
+      100% { opacity: 0;   transform: scale(1.15); }
+    }
+
+    /* Progress row */
+    .progress-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .kick-dots {
+      display: flex;
+      gap: 6px;
+      flex: 1;
+      flex-wrap: wrap;
+    }
+    .kick-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(184, 92, 122, 0.12);
+      border: 1.5px solid rgba(184, 92, 122, 0.2);
+      transition: background 0.25s, transform 0.2s, border-color 0.25s;
+      flex-shrink: 0;
+    }
+    .kick-dot.active {
+      background: var(--rose);
+      border-color: var(--rose);
+      transform: scale(1.12);
+    }
+    .kick-dot.active:last-child {
+      animation: lastKick 0.35s ease;
+    }
+    @keyframes lastKick {
+      0%   { transform: scale(1.12); }
+      50%  { transform: scale(1.45); }
+      100% { transform: scale(1.12); }
+    }
+
+    .kick-count-label {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: 28px;
+      color: var(--rose);
+      min-width: 48px;
+      text-align: right;
+    }
+    .kick-count-label span {
+      font-size: 13px;
+      color: var(--soft);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* Timer */
+    .timer-row {
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      gap: 6px;
+      margin-top: 16px;
+    }
+    .timer-display {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: 38px;
+      color: var(--deep);
+      letter-spacing: 0.02em;
+      line-height: 1;
+    }
+    .timer-label {
+      font-size: 11px;
+      color: var(--soft);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Controls */
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .btn-secondary {
+      flex: 1;
+      padding: 11px 16px;
+      border-radius: 12px;
+      border: 1.5px solid rgba(184, 92, 122, 0.25);
+      background: transparent;
+      color: var(--rose);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn-secondary:active { transform: scale(0.97); }
+    .btn-secondary:hover { background: var(--rose-light); }
+    .btn-primary {
+      background: var(--rose);
+      color: white;
+      border-color: var(--rose);
+    }
+    .btn-primary:hover { background: #a04d6b; }
+
+    /* Result card */
+    .result-card {
+      background: linear-gradient(135deg, var(--rose-bg) 0%, var(--warm-white) 100%);
+      border-radius: 20px;
+      box-shadow: 0 2px 16px rgba(184, 92, 122, 0.12);
+      border: 1px solid rgba(184, 92, 122, 0.2);
+      padding: 24px;
+      margin-bottom: 16px;
+      text-align: center;
+      display: none;
+    }
+    .result-card.visible {
+      display: block;
+      animation: fadeUp 0.4s ease forwards;
+    }
+    .result-emoji { font-size: 36px; margin-bottom: 8px; }
+    .result-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: 20px;
+      color: var(--deep);
+      margin-bottom: 6px;
+    }
+    .result-time {
+      font-family: 'Fraunces', serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--rose);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .result-time-label { font-size: 12px; color: var(--soft); margin-bottom: 16px; }
+    .result-tag {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .result-tag.good { background: #e8f7ee; color: #2d7a4f; }
+    .result-tag.warn { background: #fff4e0; color: #b06a00; }
+    .result-tag.alert { background: #fde8e8; color: #a02020; }
+
+    /* History */
+    .history-list { display: flex; flex-direction: column; gap: 10px; }
+    .history-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: var(--cream);
+      border-radius: 12px;
+      border: 1px solid rgba(196, 168, 152, 0.2);
+      animation: fadeUp 0.3s ease forwards;
+    }
+    .history-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--rose-mid);
+      flex-shrink: 0;
+    }
+    .history-dot.slow { background: #e8a640; }
+    .history-dot.fast { background: #52a87a; }
+    .history-info { flex: 1; }
+    .history-date { font-size: 11px; color: var(--soft); }
+    .history-kicks { font-size: 13px; font-weight: 500; color: var(--deep); }
+    .history-time {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: 18px;
+      color: var(--mid);
+    }
+    .no-history {
+      font-size: 13px;
+      color: var(--soft);
+      text-align: center;
+      padding: 8px 0;
+    }
+
+    /* Context note */
+    .context-note {
+      background: var(--cream);
+      border-radius: 16px;
+      border: 1px solid rgba(196, 168, 152, 0.3);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .context-note-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--deep);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .context-note p {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.65;
+      margin-bottom: 8px;
+    }
+    .context-note p:last-child { margin-bottom: 0; }
+
+    /* Expandable */
+    .expand-toggle {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .expand-toggle:hover .expand-label { color: var(--rose); }
+    .expand-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--deep);
+      transition: color 0.2s;
+    }
+    .expand-chevron {
+      width: 18px; height: 18px;
+      color: var(--soft);
+      transition: transform 0.25s;
+    }
+    .expand-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .expand-body.open { max-height: 400px; }
+    .expand-content { padding-top: 12px; }
+
+    /* Disclaimer */
+    .disclaimer {
+      font-size: 11px;
+      color: var(--soft);
+      line-height: 1.6;
+      text-align: center;
+      padding: 0 8px;
+    }
+    .disclaimer a { color: var(--mid); }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Stagger header */
+    header { animation: fadeUp 0.5s ease both; }
+    .card:nth-child(2) { animation: fadeUp 0.5s 0.05s ease both; }
+    .card:nth-child(3) { animation: fadeUp 0.5s 0.1s  ease both; }
+    .context-note      { animation: fadeUp 0.5s 0.15s ease both; }
+  </style>
+</head>
+<body>
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+
+  <div class="container">
+
+    <!-- Back link -->
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 12L6 8l4-4"/>
+      </svg>
+      Volver al inicio
+    </a>
+
+    <!-- Header -->
+    <header>
+      <div class="badge">🤰 Embarazo · Tercer trimestre</div>
+      <h1>Cuenta las <em>patadas</em><br>de tu bebé</h1>
+      <p class="subtitle">Método Cardiff: registra cuánto tarda tu bebé en hacer 10 movimientos. Una rutina diaria de tranquilidad.</p>
+    </header>
+
+    <!-- Main counter card -->
+    <div class="card" id="counterCard">
+      <div class="section-label">Sesión activa</div>
+
+      <div class="tap-area">
+        <button class="tap-btn" id="tapBtn" aria-label="Registrar patada">
+          <span class="btn-emoji">👶</span>
+          <span class="btn-label">¡Patada!</span>
+          <span class="btn-hint">Toca cada movimiento</span>
+        </button>
+      </div>
+
+      <div class="progress-row">
+        <div class="kick-dots" id="kickDots" aria-label="Progreso de movimientos"></div>
+        <div class="kick-count-label" id="kickCountLabel">0<span>/10</span></div>
+      </div>
+
+      <div class="timer-row">
+        <div>
+          <div class="timer-display" id="timerDisplay">00:00</div>
+          <div class="timer-label" style="text-align:center">tiempo transcurrido</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn-secondary" id="undoBtn" onclick="undoKick()" disabled>↩ Deshacer</button>
+        <button class="btn-secondary btn-primary" id="resetBtn" onclick="resetSession()">Nueva sesión</button>
+      </div>
+    </div>
+
+    <!-- Result card -->
+    <div class="result-card" id="resultCard" role="status" aria-live="polite">
+      <div class="result-emoji" id="resultEmoji">🎉</div>
+      <div class="result-title">¡10 movimientos registrados!</div>
+      <div class="result-time" id="resultTime">--:--</div>
+      <div class="result-time-label">minutos en completar 10 patadas</div>
+      <div class="result-tag" id="resultTag">Evaluando...</div>
+    </div>
+
+    <!-- History card -->
+    <div class="card" id="historyCard">
+      <div class="section-label">Historial reciente</div>
+      <div class="history-list" id="historyList">
+        <p class="no-history">Aún no hay sesiones guardadas. ¡Empieza la primera!</p>
+      </div>
+    </div>
+
+    <!-- Context note -->
+    <div class="context-note">
+      <button class="expand-toggle" onclick="toggleExpand(this)" aria-expanded="false">
+        <span class="expand-label">💡 ¿Cómo y cuándo contar patadas?</span>
+        <svg class="expand-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 6l4 4 4-4"/>
+        </svg>
+      </button>
+      <div class="expand-body">
+        <div class="expand-content">
+          <p><strong>¿Cuándo empezar?</strong> A partir de la semana 28 (o antes si tu matrona lo indica). Hazlo una vez al día, a la misma hora —tras comer o por la noche el bebé suele estar más activo.</p>
+          <p><strong>¿Qué cuenta como movimiento?</strong> Patadas, giros, empujones o golpes. El hipo <em>no</em> cuenta porque es involuntario.</p>
+          <p><strong>Método Cardiff:</strong> Tumbada de lado izquierdo, anota la hora y empieza a contar. Cuando llegues a 10 movimientos, para el cronómetro. Lo normal es alcanzarlos en menos de 2 horas.</p>
+          <p><strong>¿Cuándo llamar a tu matrona?</strong> Si en 2 horas no llegas a 10 movimientos, si notas una bajada significativa respecto a días anteriores, o si simplemente tienes la sensación de que el bebé se mueve menos de lo habitual. No esperes, llama.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <p class="disclaimer">
+      Basado en el método Cardiff de monitorización de movimientos fetales (RCOG, SEGO). Esta herramienta es orientativa y no sustituye el seguimiento de tu matrona o ginecólogo. Ante cualquier duda, consulta siempre a tu equipo médico.
+    </p>
+
+  </div><!-- /container -->
+
+  <script>
+    // ── STATE ──────────────────────────────────────────────
+    const STORAGE_KEY = 'babyfaq_patadas_v1';
+    let kicks = 0;
+    let timerInterval = null;
+    let startTime = null;
+    let elapsedMs = 0;
+    let sessionDone = false;
+
+    // ── DOM ────────────────────────────────────────────────
+    const tapBtn       = document.getElementById('tapBtn');
+    const kickDots     = document.getElementById('kickDots');
+    const kickLabel    = document.getElementById('kickCountLabel');
+    const timerDisplay = document.getElementById('timerDisplay');
+    const undoBtn      = document.getElementById('undoBtn');
+    const resultCard   = document.getElementById('resultCard');
+    const resultTime   = document.getElementById('resultTime');
+    const resultTag    = document.getElementById('resultTag');
+    const resultEmoji  = document.getElementById('resultEmoji');
+    const historyList  = document.getElementById('historyList');
+
+    // ── INIT DOTS ──────────────────────────────────────────
+    function buildDots() {
+      kickDots.innerHTML = '';
+      for (let i = 0; i < 10; i++) {
+        const d = document.createElement('div');
+        d.className = 'kick-dot' + (i < kicks ? ' active' : '');
+        kickDots.appendChild(d);
+      }
+    }
+    buildDots();
+
+    // ── TIMER ──────────────────────────────────────────────
+    function formatMs(ms) {
+      const totalSec = Math.floor(ms / 1000);
+      const m = Math.floor(totalSec / 60).toString().padStart(2, '0');
+      const s = (totalSec % 60).toString().padStart(2, '0');
+      return `${m}:${s}`;
+    }
+
+    function startTimer() {
+      if (timerInterval) return;
+      startTime = Date.now() - elapsedMs;
+      timerInterval = setInterval(() => {
+        elapsedMs = Date.now() - startTime;
+        timerDisplay.textContent = formatMs(elapsedMs);
+      }, 500);
+    }
+
+    function stopTimer() {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      elapsedMs = Date.now() - startTime;
+      timerDisplay.textContent = formatMs(elapsedMs);
+    }
+
+    // ── TAP ────────────────────────────────────────────────
+    function registerKick() {
+      if (sessionDone) return;
+      if (kicks === 0) startTimer();
+      kicks = Math.min(kicks + 1, 10);
+
+      // Animate button
+      tapBtn.classList.add('tapped');
+      setTimeout(() => tapBtn.classList.remove('tapped'), 300);
+
+      buildDots();
+      kickLabel.innerHTML = `${kicks}<span>/10</span>`;
+      undoBtn.disabled = false;
+
+      if (kicks === 10) finishSession();
+    }
+
+    tapBtn.addEventListener('click', registerKick);
+    tapBtn.addEventListener('touchend', (e) => { e.preventDefault(); registerKick(); });
+
+    // ── UNDO ───────────────────────────────────────────────
+    function undoKick() {
+      if (kicks <= 0 || sessionDone) return;
+      kicks--;
+      buildDots();
+      kickLabel.innerHTML = `${kicks}<span>/10</span>`;
+      undoBtn.disabled = kicks === 0;
+      if (kicks === 0) {
+        stopTimer();
+        elapsedMs = 0;
+        timerDisplay.textContent = '00:00';
+        startTime = null;
+      }
+    }
+
+    // ── FINISH ─────────────────────────────────────────────
+    function finishSession() {
+      stopTimer();
+      sessionDone = true;
+      tapBtn.disabled = true;
+      undoBtn.disabled = true;
+
+      const totalMin = elapsedMs / 60000;
+      let emoji, tag, tagClass;
+
+      if (totalMin <= 30) {
+        emoji = '✨'; tag = 'Muy activo · < 30 min'; tagClass = 'good';
+      } else if (totalMin <= 120) {
+        emoji = '💚'; tag = 'Normal · < 2 horas'; tagClass = 'good';
+      } else {
+        emoji = '⚠️'; tag = 'Llama a tu matrona · > 2 horas'; tagClass = 'alert';
+      }
+
+      const m = Math.floor(totalMin);
+      const s = Math.round((totalMin - m) * 60);
+      const displayStr = m > 0
+        ? `${m}m ${s.toString().padStart(2,'0')}s`
+        : `${Math.round(elapsedMs / 1000)}s`;
+
+      resultEmoji.textContent = emoji;
+      resultTime.textContent = displayStr;
+      resultTag.textContent = tag;
+      resultTag.className = `result-tag ${tagClass}`;
+      resultCard.classList.add('visible');
+
+      saveSession(elapsedMs, tagClass);
+      renderHistory();
+    }
+
+    // ── RESET ──────────────────────────────────────────────
+    function resetSession() {
+      kicks = 0;
+      elapsedMs = 0;
+      startTime = null;
+      sessionDone = false;
+      clearInterval(timerInterval);
+      timerInterval = null;
+
+      buildDots();
+      kickLabel.innerHTML = `0<span>/10</span>`;
+      timerDisplay.textContent = '00:00';
+      tapBtn.disabled = false;
+      undoBtn.disabled = true;
+      resultCard.classList.remove('visible');
+    }
+
+    // ── STORAGE ────────────────────────────────────────────
+    function loadSessions() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+      catch { return []; }
+    }
+
+    function saveSession(ms, tagClass) {
+      const sessions = loadSessions();
+      sessions.unshift({ ms, tagClass, ts: Date.now() });
+      if (sessions.length > 10) sessions.pop();
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(sessions)); } catch {}
+    }
+
+    function renderHistory() {
+      const sessions = loadSessions();
+      if (!sessions.length) {
+        historyList.innerHTML = '<p class="no-history">Aún no hay sesiones guardadas. ¡Empieza la primera!</p>';
+        return;
+      }
+      historyList.innerHTML = '';
+      sessions.slice(0, 5).forEach(s => {
+        const totalMin = s.ms / 60000;
+        const m = Math.floor(totalMin);
+        const sec = Math.round((totalMin - m) * 60);
+        const timeStr = m > 0 ? `${m}m ${sec.toString().padStart(2,'0')}s` : `${Math.round(s.ms/1000)}s`;
+
+        const date = new Date(s.ts);
+        const dateStr = date.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short' });
+        const timeOfDay = date.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+
+        const dotClass = s.tagClass === 'good' && totalMin <= 30 ? 'fast'
+                       : s.tagClass === 'alert' ? 'slow' : '';
+
+        const item = document.createElement('div');
+        item.className = 'history-item';
+        item.innerHTML = `
+          <div class="history-dot ${dotClass}"></div>
+          <div class="history-info">
+            <div class="history-kicks">10 movimientos · ${dateStr}, ${timeOfDay}</div>
+          </div>
+          <div class="history-time">${timeStr}</div>
+        `;
+        historyList.appendChild(item);
+      });
+    }
+
+    renderHistory();
+
+    // ── EXPAND ─────────────────────────────────────────────
+    function toggleExpand(btn) {
+      const body = btn.nextElementSibling;
+      const chevron = btn.querySelector('.expand-chevron');
+      const isOpen = body.classList.toggle('open');
+      chevron.style.transform = isOpen ? 'rotate(-180deg)' : '';
+      btn.setAttribute('aria-expanded', isOpen);
+    }
+  </script>
+</body>
+</html>
