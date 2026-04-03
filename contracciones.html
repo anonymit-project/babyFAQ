@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador de contracciones del parto · babyFAQ</title>
+  <meta name="description" content="Cronometra tus contracciones y sabe cuándo ir al hospital. Registra duración e intervalo con un solo toque. Gratis, sin app, desde el móvil.">
+  <meta property="og:title" content="Contador de contracciones del parto · babyFAQ">
+  <meta property="og:description" content="Mide la duración e intervalo de tus contracciones y descubre cuándo ir al hospital según la regla 5-1-1.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#fdf6ee">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-55NR11957W');
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Contador de contracciones del parto",
+    "description": "Cronometra la duración e intervalo de tus contracciones y sabe cuándo ir al hospital con la regla 5-1-1.",
+    "url": "https://babyfaq.es/contracciones.html",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "es",
+    "isPartOf": { "@type": "WebSite", "url": "https://babyfaq.es" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+  }
+  </script>
+
+  <style>
+    :root {
+      --cream: #fdf6ee;
+      --warm-white: #fffcf8;
+      --blush: #f2c4b0;
+      --deep: #3d2b1f;
+      --mid: #7a5c4e;
+      --soft: #c4a898;
+      /* Purple accent for parto/contracciones */
+      --plum: #7c4d9e;
+      --plum-light: #f0eaf8;
+      --plum-mid: #a97cc7;
+      --plum-pale: #f8f4fc;
+      --plum-dark: #5c3478;
+      /* Status colors */
+      --ok-bg: #edf7f0; --ok: #2d7a4f;
+      --warn-bg: #fff8e6; --warn: #b07800;
+      --alert-bg: #fdecea; --alert: #b82020;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--deep);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025; pointer-events: none; z-index: 0;
+    }
+
+    .blob-1, .blob-2 {
+      position: fixed; border-radius: 50%;
+      filter: blur(80px); pointer-events: none; z-index: 0;
+    }
+    .blob-1 { width: 340px; height: 340px; background: #e8d8f8; top: -80px; right: -80px; opacity: 0.45; }
+    .blob-2 { width: 260px; height: 260px; background: var(--blush); bottom: 60px; left: -60px; opacity: 0.28; }
+
+    .container {
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+      position: relative; z-index: 1;
+    }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; color: var(--mid); text-decoration: none;
+      margin-bottom: 28px; transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--plum); }
+    .back-link svg { width: 14px; height: 14px; }
+
+    header { text-align: center; margin-bottom: 32px; animation: fadeUp 0.5s ease both; }
+
+    .badge {
+      display: inline-block; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--plum); background: var(--plum-light);
+      border: 1px solid rgba(124, 77, 158, 0.2);
+      border-radius: 20px; padding: 4px 12px; margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'Fraunces', serif; font-weight: 300;
+      font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 12px;
+    }
+    @media (min-width: 480px) { h1 { font-size: 34px; } }
+    @media (min-width: 640px) { h1 { font-size: 38px; } }
+    h1 em { font-style: italic; color: var(--plum); }
+
+    .subtitle {
+      font-size: 13px; color: var(--mid);
+      max-width: 340px; margin: 0 auto; line-height: 1.6;
+    }
+    @media (min-width: 480px) { .subtitle { font-size: 14px; } }
+
+    /* ── MAIN BUTTON ── */
+    .main-btn-wrap {
+      text-align: center;
+      margin-bottom: 20px;
+      animation: fadeUp 0.5s 0.08s ease both;
+    }
+
+    .main-btn {
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      border: 3px solid rgba(124, 77, 158, 0.25);
+      background: var(--plum-light);
+      cursor: pointer;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      position: relative;
+      transition: transform 0.15s, background 0.2s, border-color 0.2s, box-shadow 0.2s;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      box-shadow: 0 4px 24px rgba(124, 77, 158, 0.12);
+    }
+
+    .main-btn:hover { background: rgba(169, 124, 199, 0.2); }
+    .main-btn:active { transform: scale(0.95); }
+
+    .main-btn.active-contraction {
+      background: var(--plum);
+      border-color: var(--plum-dark);
+      box-shadow: 0 0 0 0 rgba(124, 77, 158, 0.4);
+      animation: pulse-ring 1.8s ease infinite;
+    }
+    .main-btn.active-contraction .btn-icon { filter: brightness(10); }
+    .main-btn.active-contraction .btn-label { color: white; }
+    .main-btn.active-contraction .btn-sub { color: rgba(255,255,255,0.75); }
+
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(124, 77, 158, 0.4); }
+      70%  { box-shadow: 0 0 0 22px rgba(124, 77, 158, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(124, 77, 158, 0); }
+    }
+
+    .btn-icon { font-size: 44px; line-height: 1; }
+    .btn-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px; font-weight: 600;
+      color: var(--plum); letter-spacing: 0.01em;
+    }
+    .btn-sub { font-size: 11px; color: var(--soft); }
+
+    /* Live timer on button */
+    .btn-live-timer {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: 32px;
+      color: white;
+      display: none;
+      line-height: 1;
+    }
+    .main-btn.active-contraction .btn-live-timer { display: block; }
+    .main-btn.active-contraction .btn-icon { display: none; }
+
+    /* ── STATS ROW ── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+      animation: fadeUp 0.5s 0.1s ease both;
+    }
+    .stat-card {
+      background: var(--warm-white);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(61,43,31,0.06);
+      border: 1px solid rgba(196,168,152,0.2);
+      padding: 14px 10px;
+      text-align: center;
+    }
+    .stat-value {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: 22px;
+      color: var(--plum);
+      display: block;
+      line-height: 1.1;
+    }
+    .stat-label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--soft);
+      display: block;
+      margin-top: 3px;
+    }
+
+    /* ── STATUS CARD ── */
+    .status-card {
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid transparent;
+      transition: background 0.4s, border-color 0.4s;
+      animation: fadeUp 0.5s 0.12s ease both;
+      background: var(--warm-white);
+      border-color: rgba(196,168,152,0.2);
+      box-shadow: 0 2px 12px rgba(61,43,31,0.06);
+    }
+    .status-card.ok    { background: var(--ok-bg);   border-color: rgba(45,122,79,0.2); }
+    .status-card.warn  { background: var(--warn-bg);  border-color: rgba(176,120,0,0.2); }
+    .status-card.alert { background: var(--alert-bg); border-color: rgba(184,32,32,0.25); }
+
+    .status-icon { font-size: 28px; flex-shrink: 0; }
+    .status-text { flex: 1; }
+    .status-title {
+      font-size: 13px; font-weight: 600;
+      color: var(--deep); margin-bottom: 2px;
+    }
+    .status-desc { font-size: 12px; color: var(--mid); line-height: 1.5; }
+
+    /* ── HISTORY ── */
+    .history-card {
+      background: var(--warm-white);
+      border-radius: 20px;
+      box-shadow: 0 2px 16px rgba(61,43,31,0.07);
+      border: 1px solid rgba(196,168,152,0.25);
+      padding: 20px 20px 16px;
+      margin-bottom: 16px;
+      animation: fadeUp 0.5s 0.14s ease both;
+    }
+    .section-label {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--soft); margin-bottom: 14px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .clear-btn {
+      font-size: 11px; color: var(--soft);
+      background: none; border: none; cursor: pointer;
+      padding: 0; font-family: 'DM Sans', sans-serif;
+      transition: color 0.2s;
+    }
+    .clear-btn:hover { color: var(--alert); }
+
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .history-table th {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--soft); text-align: left;
+      padding-bottom: 8px;
+    }
+    .history-table th:not(:first-child) { text-align: right; }
+    .history-table td {
+      padding: 8px 0;
+      border-top: 1px solid rgba(196,168,152,0.15);
+      font-size: 13px; color: var(--mid);
+      vertical-align: middle;
+    }
+    .history-table td:not(:first-child) { text-align: right; }
+    .history-table td:first-child { color: var(--deep); font-weight: 500; }
+    .history-row-new td { animation: fadeUp 0.3s ease; }
+    .dur-pill {
+      display: inline-block;
+      background: var(--plum-light);
+      color: var(--plum);
+      border-radius: 8px;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .interval-pill {
+      display: inline-block;
+      border-radius: 8px;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .interval-ok   { background: var(--ok-bg);   color: var(--ok); }
+    .interval-warn { background: var(--warn-bg);  color: var(--warn); }
+    .interval-alert{ background: var(--alert-bg); color: var(--alert); }
+
+    .no-history {
+      text-align: center; font-size: 13px;
+      color: var(--soft); padding: 12px 0;
+    }
+
+    /* ── CONTEXT ── */
+    .context-note {
+      background: var(--cream);
+      border-radius: 16px;
+      border: 1px solid rgba(196,168,152,0.3);
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      animation: fadeUp 0.5s 0.18s ease both;
+    }
+    .expand-toggle {
+      width: 100%; background: none; border: none; padding: 0;
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; -webkit-tap-highlight-color: transparent;
+    }
+    .expand-label {
+      font-size: 13px; font-weight: 600; color: var(--deep);
+      transition: color 0.2s; text-align: left;
+    }
+    .expand-toggle:hover .expand-label { color: var(--plum); }
+    .expand-chevron {
+      width: 18px; height: 18px; color: var(--soft);
+      transition: transform 0.25s; flex-shrink: 0;
+    }
+    .expand-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .expand-body.open { max-height: 500px; }
+    .expand-content { padding-top: 12px; }
+    .expand-content p { font-size: 13px; color: var(--mid); line-height: 1.65; margin-bottom: 8px; }
+    .expand-content p:last-child { margin-bottom: 0; }
+    .expand-content strong { color: var(--deep); }
+
+    .disclaimer {
+      font-size: 11px; color: var(--soft);
+      line-height: 1.6; text-align: center; padding: 0 8px;
+      animation: fadeUp 0.5s 0.22s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+
+  <div class="container">
+
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 12L6 8l4-4"/>
+      </svg>
+      Volver al inicio
+    </a>
+
+    <header>
+      <div class="badge">🏥 Parto · Contracciones</div>
+      <h1>Cronometra tus<br><em>contracciones</em></h1>
+      <p class="subtitle">Pulsa al inicio y al fin de cada contracción. Te diremos cuándo ir al hospital.</p>
+    </header>
+
+    <!-- Main button -->
+    <div class="main-btn-wrap">
+      <button class="main-btn" id="mainBtn" onclick="toggleContraction()" aria-label="Iniciar o finalizar contracción">
+        <span class="btn-icon">🌊</span>
+        <span class="btn-live-timer" id="liveDur">0:00</span>
+        <span class="btn-label" id="btnLabel">Empieza aquí</span>
+        <span class="btn-sub" id="btnSub">Toca al inicio de cada contracción</span>
+      </button>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-value" id="statCount">—</span>
+        <span class="stat-label">Contracciones</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="statAvgDur">—</span>
+        <span class="stat-label">Duración media</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="statAvgInt">—</span>
+        <span class="stat-label">Intervalo medio</span>
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="status-card" id="statusCard">
+      <span class="status-icon" id="statusIcon">⏳</span>
+      <div class="status-text">
+        <div class="status-title" id="statusTitle">Esperando datos</div>
+        <div class="status-desc" id="statusDesc">Registra al menos 3 contracciones para analizar el patrón.</div>
+      </div>
+    </div>
+
+    <!-- History -->
+    <div class="history-card">
+      <div class="section-label">
+        Registro
+        <button class="clear-btn" onclick="clearAll()">Borrar todo</button>
+      </div>
+      <div id="historyWrap">
+        <p class="no-history" id="noHistory">Aún no hay contracciones registradas.</p>
+        <table class="history-table" id="historyTable" style="display:none">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Hora</th>
+              <th>Duración</th>
+              <th>Intervalo</th>
+            </tr>
+          </thead>
+          <tbody id="historyBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Context -->
+    <div class="context-note">
+      <button class="expand-toggle" onclick="toggleExpand(this)" aria-expanded="false">
+        <span class="expand-label">💡 Regla 5-1-1: ¿cuándo ir al hospital?</span>
+        <svg class="expand-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 6l4 4 4-4"/>
+        </svg>
+      </button>
+      <div class="expand-body">
+        <div class="expand-content">
+          <p><strong>Regla 5-1-1 (primigestas):</strong> Contracciones cada <strong>5 minutos</strong>, de <strong>1 minuto</strong> de duración, durante <strong>1 hora</strong>. Es el momento de ir al hospital.</p>
+          <p><strong>Regla 4-1-1 o antes (multíparas):</strong> Si ya has dado a luz antes, el parto suele ser más rápido. Algunos obstetras recomiendan ir con contracciones cada 4 minutos.</p>
+          <p><strong>Ve al hospital de inmediato si:</strong> rompes aguas, sangras, el bebé se mueve menos de lo habitual, o tienes dolor intenso continuo sin pausa.</p>
+          <p><strong>Contracciones de Braxton Hicks</strong> (falsas): son irregulares, no aumentan en intensidad y suelen desaparecer al caminar o cambiar de posición. Las de parto real son regulares, aumentan y no cesan.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="disclaimer">
+      Basado en las guías de parto normal del SNS y SEGO. La regla 5-1-1 es orientativa: sigue siempre las indicaciones de tu matrona o ginecólogo. Ante cualquier duda, llama al hospital.
+    </p>
+
+  </div>
+
+  <script>
+    // ── STATE ───────────────────────────────────────────────
+    const STORAGE_KEY = 'babyfaq_contracciones_v1';
+    let isContracting = false;
+    let contractionStart = null;
+    let liveTimer = null;
+    let contractions = []; // { start, end, duration, interval }
+
+    // ── DOM ─────────────────────────────────────────────────
+    const mainBtn    = document.getElementById('mainBtn');
+    const btnLabel   = document.getElementById('btnLabel');
+    const btnSub     = document.getElementById('btnSub');
+    const liveDur    = document.getElementById('liveDur');
+    const statCount  = document.getElementById('statCount');
+    const statAvgDur = document.getElementById('statAvgDur');
+    const statAvgInt = document.getElementById('statAvgInt');
+    const statusCard = document.getElementById('statusCard');
+    const statusIcon = document.getElementById('statusIcon');
+    const statusTitle= document.getElementById('statusTitle');
+    const statusDesc = document.getElementById('statusDesc');
+    const noHistory  = document.getElementById('noHistory');
+    const histTable  = document.getElementById('historyTable');
+    const histBody   = document.getElementById('historyBody');
+
+    // ── LOAD FROM STORAGE ───────────────────────────────────
+    function load() {
+      try { contractions = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+      catch { contractions = []; }
+      renderAll();
+    }
+
+    function save() {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(contractions)); } catch {}
+    }
+
+    // ── TOGGLE CONTRACTION ──────────────────────────────────
+    function toggleContraction() {
+      if (!isContracting) {
+        // START
+        isContracting = true;
+        contractionStart = Date.now();
+        mainBtn.classList.add('active-contraction');
+        btnLabel.textContent = 'Terminó';
+        btnSub.textContent = 'Toca cuando acabe la contracción';
+
+        liveTimer = setInterval(() => {
+          const s = Math.floor((Date.now() - contractionStart) / 1000);
+          liveDur.textContent = fmt(s);
+        }, 500);
+
+      } else {
+        // END
+        isContracting = false;
+        clearInterval(liveTimer);
+        liveTimer = null;
+
+        const end = Date.now();
+        const duration = Math.round((end - contractionStart) / 1000); // seconds
+
+        // Interval = time from START of previous to START of this
+        let interval = null;
+        if (contractions.length > 0) {
+          interval = Math.round((contractionStart - contractions[contractions.length - 1].start) / 1000);
+        }
+
+        contractions.push({ start: contractionStart, end, duration, interval });
+        // Keep last 20
+        if (contractions.length > 20) contractions.shift();
+        save();
+
+        mainBtn.classList.remove('active-contraction');
+        btnLabel.textContent = 'Siguiente';
+        btnSub.textContent = 'Toca al inicio de la próxima';
+        liveDur.textContent = '0:00';
+
+        renderAll();
+      }
+    }
+
+    // ── FORMAT ──────────────────────────────────────────────
+    function fmt(sec) {
+      const m = Math.floor(sec / 60);
+      const s = (sec % 60).toString().padStart(2, '0');
+      return m > 0 ? `${m}:${s}` : `0:${s}`;
+    }
+    function fmtMin(sec) {
+      if (!sec) return '—';
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return m > 0 ? `${m}m ${s}s` : `${s}s`;
+    }
+
+    // ── RENDER ──────────────────────────────────────────────
+    function renderAll() {
+      renderStats();
+      renderStatus();
+      renderTable();
+    }
+
+    function renderStats() {
+      const n = contractions.length;
+      statCount.textContent = n > 0 ? n : '—';
+
+      if (n > 0) {
+        const avgDur = Math.round(contractions.reduce((a, c) => a + c.duration, 0) / n);
+        statAvgDur.textContent = fmtMin(avgDur);
+      } else {
+        statAvgDur.textContent = '—';
+      }
+
+      const withInt = contractions.filter(c => c.interval !== null);
+      if (withInt.length > 0) {
+        const avgInt = Math.round(withInt.reduce((a, c) => a + c.interval, 0) / withInt.length);
+        statAvgInt.textContent = fmtMin(avgInt);
+      } else {
+        statAvgInt.textContent = '—';
+      }
+    }
+
+    function renderStatus() {
+      const n = contractions.length;
+      statusCard.className = 'status-card';
+
+      if (n < 3) {
+        statusIcon.textContent  = '⏳';
+        statusTitle.textContent = 'Esperando datos';
+        statusDesc.textContent  = `Registra al menos 3 contracciones para analizar el patrón. Llevas ${n}.`;
+        return;
+      }
+
+      // Use last 3 contractions for analysis
+      const recent = contractions.slice(-3);
+      const avgDur = Math.round(recent.reduce((a, c) => a + c.duration, 0) / recent.length);
+      const recWithInt = recent.filter(c => c.interval !== null);
+      const avgInt = recWithInt.length > 0
+        ? Math.round(recWithInt.reduce((a, c) => a + c.interval, 0) / recWithInt.length)
+        : null;
+
+      const avgIntMin = avgInt ? avgInt / 60 : null;
+      const avgDurMin = avgDur / 60;
+
+      // 5-1-1 rule: interval ≤5 min, duration ≥1 min
+      if (avgIntMin !== null && avgIntMin <= 5.5 && avgDurMin >= 0.85) {
+        statusCard.classList.add('alert');
+        statusIcon.textContent  = '🚨';
+        statusTitle.textContent = '¡Ve al hospital ahora!';
+        statusDesc.textContent  = `Contracciones cada ~${fmtMin(avgInt)}, duración ~${fmtMin(avgDur)}. Cumples la regla 5-1-1. Llama a tu matrona y ve al hospital.`;
+      } else if (avgIntMin !== null && avgIntMin <= 8 && avgDurMin >= 0.6) {
+        statusCard.classList.add('warn');
+        statusIcon.textContent  = '⚠️';
+        statusTitle.textContent = 'Patrón avanzando — prepárate';
+        statusDesc.textContent  = `Contracciones cada ~${fmtMin(avgInt)}, duración ~${fmtMin(avgDur)}. Avisa a tu acompañante y ten la bolsa lista.`;
+      } else if (avgDurMin >= 0.4) {
+        statusCard.classList.add('ok');
+        statusIcon.textContent  = '✅';
+        statusTitle.textContent = 'Patrón regular — continúa en casa';
+        statusDesc.textContent  = `Contracciones cada ~${avgIntMin !== null ? fmtMin(avgInt) : '—'}, duración ~${fmtMin(avgDur)}. Sigue registrando y descansa entre contracciones.`;
+      } else {
+        statusIcon.textContent  = '🔍';
+        statusTitle.textContent = 'Contracciones cortas — puede ser Braxton Hicks';
+        statusDesc.textContent  = `Duración media ~${fmtMin(avgDur)}. Las contracciones de parto real suelen durar más de 45 segundos.`;
+      }
+    }
+
+    function renderTable() {
+      if (contractions.length === 0) {
+        noHistory.style.display = 'block';
+        histTable.style.display = 'none';
+        return;
+      }
+      noHistory.style.display = 'none';
+      histTable.style.display = 'table';
+
+      histBody.innerHTML = '';
+      // Show newest first
+      const rev = [...contractions].reverse();
+      rev.forEach((c, i) => {
+        const num = contractions.length - i;
+        const time = new Date(c.start).toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        const intSec = c.interval;
+        const intMin = intSec ? intSec / 60 : null;
+
+        let intClass = '';
+        if (intMin !== null) {
+          if (intMin <= 5.5) intClass = 'interval-alert';
+          else if (intMin <= 8) intClass = 'interval-warn';
+          else intClass = 'interval-ok';
+        }
+
+        const tr = document.createElement('tr');
+        if (i === 0) tr.classList.add('history-row-new');
+        tr.innerHTML = `
+          <td>${num}</td>
+          <td>${time}</td>
+          <td><span class="dur-pill">${fmtMin(c.duration)}</span></td>
+          <td>${intSec ? `<span class="interval-pill ${intClass}">${fmtMin(intSec)}</span>` : '<span style="color:var(--soft)">—</span>'}</td>
+        `;
+        histBody.appendChild(tr);
+      });
+    }
+
+    // ── CLEAR ───────────────────────────────────────────────
+    function clearAll() {
+      if (isContracting) {
+        clearInterval(liveTimer);
+        isContracting = false;
+        mainBtn.classList.remove('active-contraction');
+        btnLabel.textContent = 'Empieza aquí';
+        btnSub.textContent = 'Toca al inicio de cada contracción';
+        liveDur.textContent = '0:00';
+      }
+      contractions = [];
+      save();
+      renderAll();
+    }
+
+    // ── EXPAND ──────────────────────────────────────────────
+    function toggleExpand(btn) {
+      const body = btn.nextElementSibling;
+      const chevron = btn.querySelector('.expand-chevron');
+      const isOpen = body.classList.toggle('open');
+      chevron.style.transform = isOpen ? 'rotate(-180deg)' : '';
+      btn.setAttribute('aria-expanded', isOpen);
+    }
+
+    // ── INIT ────────────────────────────────────────────────
+    load();
+  </script>
+</body>
+</html>
