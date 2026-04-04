@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Edad corregida bebé prematuro · Calculadora · babyFAQ</title>
+<meta name="description" content="Calcula la edad corregida de tu bebé prematuro. Introduce las semanas de gestación y la edad actual para obtener la edad ajustada, hitos de desarrollo y cuándo dejar de usarla.">
+<meta property="og:title" content="Edad corregida bebé prematuro · Calculadora · babyFAQ">
+<meta property="og:description" content="Calcula la edad corregida de tu bebé prematuro. Introduce las semanas de gestación y la edad actual para obtener la edad ajustada, hitos de desarrollo y cuándo dejar de usarla.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f6f4fa">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f6f4fa;
+    --warm-white: #fdfcff;
+    --blush: #d4b8f0;
+    --accent: #7a5aaa;
+    --deep: #2a1f3d;
+    --mid: #5a4a7a;
+    --soft: #a898c4;
+    --accent-bg: #ede8f8;
+    --accent-border: #c4b0e8;
+    --green: #4a8a5a;
+    --green-bg: #edf5f0;
+    --green-border: #a8d8b0;
+    --amber: #b07820;
+    --amber-bg: #fdf3e0;
+    --amber-border: #f0cc8a;
+    --blue-bg: #eef3fc;
+    --blue: #3a6aaa;
+    --blue-border: #a8c0e8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 320px; height: 320px; background: #c8b0f0; top: -120px; right: -80px; opacity: 0.3; }
+  .blob-2 { width: 260px; height: 260px; background: #b0c8f0; bottom: -80px; left: -60px; opacity: 0.25; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--accent); }
+
+  header { text-align: center; margin-bottom: 32px; }
+  .badge { display: inline-block; background: var(--accent-bg); color: var(--accent); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
+  @media (min-width: 480px) { h1 { font-size: 34px; } }
+  @media (min-width: 640px) { h1 { font-size: 38px; } }
+  h1 em { font-style: italic; color: var(--accent); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300; }
+
+  .card { background: var(--warm-white); border-radius: 20px; padding: 24px 20px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(42,31,61,0.07); border: 1px solid rgba(168,152,196,0.22); }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 14px; }
+
+  /* ── Hold selectors ── */
+  .selectors-row { display: flex; gap: 12px; }
+  .hold-sel-wrap { flex: 1; }
+  .hold-sel-title { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); margin-bottom: 8px; display: block; text-align: center; }
+
+  .hold-sel { background: var(--cream); border-radius: 14px; border: 1.5px solid rgba(168,152,196,0.35); display: flex; align-items: center; height: 68px; padding: 0 4px; }
+  .hold-btn { width: 44px; height: 52px; flex-shrink: 0; border-radius: 10px; border: none; background: transparent; color: var(--accent); font-size: 24px; font-weight: 300; cursor: pointer; display: flex; align-items: center; justify-content: center; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: background 0.1s; line-height: 1; }
+  .hold-btn:active, .hold-btn.pressing { background: var(--blush); }
+  .hold-center { flex: 1; text-align: center; }
+  .hold-val { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 300; color: var(--deep); display: block; line-height: 1; }
+  .hold-unit { font-size: 11px; color: var(--soft); }
+
+  .gest-note { font-size: 11px; color: var(--mid); text-align: center; margin-top: 8px; font-style: italic; min-height: 16px; }
+
+  /* ── Result card ── */
+  .result-card { background: var(--warm-white); border-radius: 20px; padding: 24px 20px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(42,31,61,0.07); border: 1px solid rgba(168,152,196,0.22); animation: fadeUp 0.3s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Big corrected display */
+  .corrected-main { text-align: center; background: var(--accent-bg); border-radius: 16px; border: 1.5px solid var(--accent-border); padding: 22px 16px; margin-bottom: 16px; }
+  .corrected-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 6px; }
+  .corrected-value { font-family: 'Fraunces', serif; font-size: 44px; font-weight: 300; color: var(--deep); line-height: 1; display: block; }
+  .corrected-sub { font-size: 12px; color: var(--mid); display: block; margin-top: 6px; }
+
+  /* Stats grid */
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+  .stat-block { background: var(--cream); border-radius: 13px; padding: 13px 10px; text-align: center; }
+  .stat-label { font-size: 9px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 5px; }
+  .stat-value { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; color: var(--deep); display: block; line-height: 1; }
+  .stat-sub { font-size: 10px; color: var(--soft); display: block; margin-top: 3px; }
+
+  /* Progress bar */
+  .progress-wrap { margin-bottom: 16px; }
+  .progress-label { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 8px; }
+  .progress-track { background: rgba(168,152,196,0.2); border-radius: 6px; height: 10px; overflow: hidden; margin-bottom: 6px; position: relative; }
+  .progress-fill { height: 100%; border-radius: 6px; background: linear-gradient(to right, var(--blush), var(--accent)); transition: width 0.45s cubic-bezier(0.34,1.2,0.64,1); }
+  .progress-note { font-size: 11px; color: var(--mid); line-height: 1.5; }
+
+  /* Milestone */
+  .milestone-block { background: var(--green-bg); border: 1px solid var(--green-border); border-radius: 13px; padding: 14px 14px; margin-bottom: 12px; }
+  .milestone-title { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); display: block; margin-bottom: 7px; }
+  .milestone-text { font-size: 13px; color: var(--deep); line-height: 1.65; }
+
+  /* Context note */
+  .context-note { background: var(--cream); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: var(--mid); line-height: 1.65; border: 1px solid rgba(168,152,196,0.2); }
+  .context-note strong { color: var(--deep); font-weight: 500; }
+
+  /* Notices */
+  .notice { border-radius: 14px; padding: 16px 16px; margin-bottom: 4px; font-size: 13px; line-height: 1.65; }
+  .notice-amber { background: var(--amber-bg); border: 1px solid var(--amber-border); color: #7a5010; }
+  .notice-green  { background: var(--green-bg);  border: 1px solid var(--green-border);  color: #3a6a4a; }
+  .notice-blue   { background: var(--blue-bg);   border: 1px solid var(--blue-border);   color: var(--blue); }
+
+  /* ── Info section (texto al final) ── */
+  .info-section { background: var(--warm-white); border-radius: 20px; padding: 28px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(42,31,61,0.07); border: 1px solid rgba(168,152,196,0.22); }
+  .info-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
+  .info-section h2 em { font-style: italic; color: var(--accent); }
+  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; }
+  .info-section p:last-child { margin-bottom: 0; }
+  .info-section strong { color: var(--deep); font-weight: 500; }
+  .info-divider { height: 1px; background: rgba(168,152,196,0.22); margin: 22px 0; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.65; margin-top: 20px; padding: 0 8px; }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">Prematuros</span>
+    <h1>¿Cuál es su<br><em>edad corregida</em>?</h1>
+    <p class="subtitle">Para bebés prematuros, la edad corregida es la referencia real para valorar el desarrollo, los hitos de crecimiento y cuándo introducir cada etapa.</p>
+  </header>
+
+  <!-- Semanas de gestación -->
+  <div class="card">
+    <div class="section-label">Semanas de gestación al nacer</div>
+    <div class="hold-sel">
+      <button class="hold-btn" id="gest-m" data-dir="-1">−</button>
+      <div class="hold-center">
+        <span class="hold-val" id="gest-v">32</span>
+        <span class="hold-unit">semanas de gestación</span>
+      </div>
+      <button class="hold-btn" id="gest-p" data-dir="1">+</button>
+    </div>
+    <p class="gest-note" id="gest-note"></p>
+  </div>
+
+  <!-- Edad actual -->
+  <div class="card">
+    <div class="section-label">Edad actual desde el nacimiento</div>
+    <div class="selectors-row">
+      <div class="hold-sel-wrap">
+        <span class="hold-sel-title">Meses</span>
+        <div class="hold-sel">
+          <button class="hold-btn" id="am-m" data-dir="-1">−</button>
+          <div class="hold-center">
+            <span class="hold-val" id="am-v">4</span>
+            <span class="hold-unit">meses</span>
+          </div>
+          <button class="hold-btn" id="am-p" data-dir="1">+</button>
+        </div>
+      </div>
+      <div class="hold-sel-wrap">
+        <span class="hold-sel-title">Semanas extra</span>
+        <div class="hold-sel">
+          <button class="hold-btn" id="aw-m" data-dir="-1">−</button>
+          <div class="hold-center">
+            <span class="hold-val" id="aw-v">0</span>
+            <span class="hold-unit">semanas</span>
+          </div>
+          <button class="hold-btn" id="aw-p" data-dir="1">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resultado -->
+  <div class="result-card" id="result-card">
+
+    <!-- Aviso: aún no ha llegado al término -->
+    <div class="notice notice-amber" id="notice-preterm" style="display:none">
+      ⏳ <strong>Tu bebé aún no ha llegado a la semana 40.</strong> Todavía está en el período equivalente al embarazo. Sigue las indicaciones del equipo de neonatología — la edad corregida empieza a contarse desde la semana 40.
+    </div>
+
+    <!-- Aviso: ya superó los 2 años corregidos -->
+    <div class="notice notice-green" id="notice-exceeded" style="display:none">
+      ✅ <strong>Tu bebé ya ha superado los 2 años de edad corregida.</strong> A partir de ahora se usa la edad cronológica como referencia para el desarrollo. ¡Un gran hito para toda la familia!
+    </div>
+
+    <!-- Resultados principales -->
+    <div id="main-results">
+
+      <div class="corrected-main">
+        <span class="corrected-label">Edad corregida</span>
+        <span class="corrected-value" id="corr-val">—</span>
+        <span class="corrected-sub" id="corr-sub"></span>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-block">
+          <span class="stat-label">Edad cronológica</span>
+          <span class="stat-value" id="chron-val">—</span>
+          <span class="stat-sub">desde el nacimiento</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-label">Semanas prematuro</span>
+          <span class="stat-value" id="prem-val">—</span>
+          <span class="stat-sub">antes del término</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-label">Diferencia real</span>
+          <span class="stat-value" id="diff-val">—</span>
+          <span class="stat-sub">menos que cronológica</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-label">Hasta los 2 años</span>
+          <span class="stat-value" id="until-val">—</span>
+          <span class="stat-sub" id="until-sub">meses restantes</span>
+        </div>
+      </div>
+
+      <div class="progress-wrap">
+        <span class="progress-label">Progreso hacia los 2 años corregidos</span>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+        </div>
+        <p class="progress-note" id="progress-note"></p>
+      </div>
+
+      <div class="milestone-block">
+        <span class="milestone-title">🌱 Hitos esperados ahora · edad corregida</span>
+        <p class="milestone-text" id="milestone-text">—</p>
+      </div>
+
+      <div class="context-note" id="context-note"></div>
+
+    </div>
+  </div>
+
+  <!-- ── Sección de texto informativo ── -->
+  <div class="info-section">
+
+    <h2>¿Qué es la <em>edad corregida</em>?</h2>
+    <p>La edad corregida (también llamada edad ajustada o edad postconcepcional) es la edad que tendría tu bebé si hubiera nacido en la semana 40 de gestación. Se calcula restando a la edad real desde el nacimiento las semanas que nació antes de término.</p>
+    <p>Por ejemplo, un bebé nacido en la semana 32 —ocho semanas antes del término— que ahora tiene 5 meses de vida tiene una <strong>edad corregida de 3 meses</strong>. Eso significa que su sistema nervioso central, su desarrollo motor y su madurez cognitiva deben compararse con los de un bebé de 3 meses, no de 5. Usar la edad cronológica como referencia llevaría sistemáticamente a diagnósticos erróneos.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>¿Hasta cuándo se <em>utiliza</em>?</h2>
+    <p>La edad corregida se usa como referencia principal <strong>hasta los 2 años de edad corregida</strong>. A partir de ese momento, el cerebro del niño ha tenido tiempo suficiente para compensar el adelanto del nacimiento y el desarrollo tiende a equipararse con el de los nacidos a término.</p>
+    <p>En la práctica, muchos neonatólogos empiezan a introducir progresivamente la edad cronológica a partir del año corregido, especialmente para el lenguaje y las habilidades sociales, donde la brecha se cierra antes. La transición no es brusca: se van usando las dos referencias en paralelo hasta que se unifican.</p>
+    <p>Para bebés muy prematuros (antes de la semana 28) el seguimiento suele extenderse más allá de los 2 años corregidos y lo lleva de forma individualizada el equipo de neonatología del hospital de referencia.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>¿Para qué sirve en el <em>día a día</em>?</h2>
+    <p><strong>Percentiles y crecimiento:</strong> el peso, la talla y el perímetro craneal deben compararse con las curvas de crecimiento usando la edad corregida, no la cronológica. Muchos pediatras lo hacen automáticamente, pero es importante que los padres también lo entiendan para no generar comparaciones que no corresponden.</p>
+    <p><strong>Hitos de desarrollo:</strong> la sonrisa social, el sostén cefálico, el gateo, las primeras palabras o los primeros pasos se esperan según la edad corregida. Un bebé prematuro que "tarda más" que sus amigos nacidos a término puede estar completamente dentro de la normalidad ajustada.</p>
+    <p><strong>Alimentación complementaria:</strong> la introducción de sólidos también se planifica en torno a los <strong>6 meses de edad corregida</strong>, no cronológica, aunque siempre con flexibilidad según las señales del bebé y la orientación del pediatra o neonatólogo.</p>
+    <p><strong>Vacunas:</strong> a diferencia del desarrollo, el calendario vacunal sigue la edad cronológica desde el nacimiento, independientemente de las semanas de gestación. Las vacunas no se retrasan por prematuridad.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>La prematuridad <em>no es un límite</em></h2>
+    <p>La gran mayoría de bebés prematuros, con el seguimiento adecuado, alcanzan un desarrollo completamente normal en los primeros años de vida. El cerebro del recién nacido tiene una plasticidad extraordinaria, especialmente cuando el entorno es estable, estimulante y lleno de vínculo afectivo.</p>
+    <p>Las primeras semanas pueden ser emocionalmente muy intensas para las familias, con estancias en UCIN, monitores y procedimientos que generan ansiedad comprensible. Saber que los hitos tardarán más —pero llegarán— ayuda a mantener una perspectiva realista y serena.</p>
+    <p>Si tienes dudas sobre el desarrollo de tu bebé, el neonatólogo o el equipo de seguimiento de prematuros de tu hospital son siempre la mejor fuente de información. Esta herramienta es orientativa y no sustituye la valoración clínica individualizada.</p>
+
+  </div>
+
+  <p class="disclaimer">
+    Basado en los criterios de la Sociedad Española de Neonatología (SENeo) y la Academia Americana de Pediatría (AAP).<br>
+    Las vacunas siguen el calendario cronológico con independencia de la edad corregida. Consulta siempre con tu equipo de neonatología.
+  </p>
+
+</div>
+
+<script>
+// ── State ──────────────────────────────────────────────────────────
+let gestWeeks = 32;
+let ageMonths = 4;
+let ageExtraWeeks = 0;
+
+const GEST_MIN = 24, GEST_MAX = 36;
+const AGE_M_MIN = 0,  AGE_M_MAX = 30;
+const AGE_W_MIN = 0,  AGE_W_MAX = 3;
+
+// ── Gestational labels ─────────────────────────────────────────────
+const GEST_LABELS = {
+  24: 'Microprematuro extremo — cuidados intensivos neonatales',
+  25: 'Microprematuro extremo',
+  26: 'Gran prematuro',
+  27: 'Gran prematuro',
+  28: 'Gran prematuro',
+  29: 'Prematuro moderado',
+  30: 'Prematuro moderado',
+  31: 'Prematuro moderado',
+  32: 'Prematuro moderado',
+  33: 'Prematuro tardío',
+  34: 'Prematuro tardío',
+  35: 'Prematuro tardío',
+  36: 'Prematuro tardío — cerca del término',
+};
+
+// ── Milestones by corrected age (months) ───────────────────────────
+const MILESTONES = [
+  { from: 0,  to: 1,  text: 'Reflejos primitivos activos: succión, prensión, moro. Fija la mirada en caras a 20–30 cm. Reacciona a sonidos bruscos. El sueño ocupa la mayor parte del día.' },
+  { from: 1,  to: 2,  text: 'Empieza a seguir objetos en movimiento con la mirada. Primeros arrullos y vocalizaciones suaves. Puede sostener la cabeza brevemente en posición boca abajo.' },
+  { from: 2,  to: 3,  text: 'Aparece la sonrisa social: responde con una sonrisa al ver una cara conocida. El sostén cefálico mejora progresivamente. Balbucea y responde a la voz de sus cuidadores.' },
+  { from: 3,  to: 4,  text: 'Sigue objetos con fluidez. Se lleva las manos a la boca. Levanta el pecho apoyándose en los antebrazos en boca abajo. Coge objetos si se los acercas a la mano.' },
+  { from: 4,  to: 5,  text: 'Ríe a carcajadas. Coge objetos y empieza a pasarlos de una mano a otra. Puede darse la vuelta de boca abajo a boca arriba. Explora todo con la mirada.' },
+  { from: 5,  to: 6,  text: 'Se sienta con apoyo. Transfiere objetos entre manos con más soltura. Balbucea con más variedad de sonidos (ba, ma, da). Muestra interés por lo que comen los adultos.' },
+  { from: 6,  to: 7,  text: 'Momento habitual para introducir la alimentación complementaria (edad corregida). Se sienta con apoyo estable. Reconoce su nombre. El juego cara a cara le fascina.' },
+  { from: 7,  to: 9,  text: 'Gateo emergente (primero reptando, luego a cuatro patas). Pinza digital en desarrollo. Dice "mamá" o "papá" sin significado concreto. Aparece la ansiedad de separación.' },
+  { from: 9,  to: 12, text: 'Gateo consolidado. Se pone de pie agarrándose a muebles. Pinza fina desarrollada. Entiende el "no" y algunas palabras. Busca objetos escondidos (permanencia del objeto).' },
+  { from: 12, to: 15, text: 'Primeros pasos (puede llegar hasta los 15–18 meses corregidos en la normalidad). Primera palabra con significado claro. Señala con el dedo índice para pedir o mostrar.' },
+  { from: 15, to: 18, text: 'Camina con más seguridad, aunque se cae. Vocabulario de 5–15 palabras. Juego simbólico sencillo (da de comer a un muñeco, habla por teléfono de juguete). Sube escaleras con ayuda.' },
+  { from: 18, to: 21, text: 'Vocabulario en expansión rápida. Primeras combinaciones de dos palabras ("mamá agua", "más pan"). Corre aunque con poca estabilidad. Muestra frustración con claridad.' },
+  { from: 21, to: 24, text: 'Frases de dos palabras consolidadas. Nombra objetos y personas conocidas. Corre, salta y trepa. Juego paralelo con otros niños. Interés emergente por el control de esfínteres.' },
+];
+
+function getMilestone(corrMonths) {
+  return MILESTONES.find(m => corrMonths >= m.from && corrMonths < m.to)
+    || MILESTONES[MILESTONES.length - 1];
+}
+
+// ── Hold-repeat engine ─────────────────────────────────────────────
+function makeHoldBtn(el, onStep) {
+  let holdTimer = null, repeatTimer = null, step = 0;
+  function fire() { onStep(parseInt(el.dataset.dir)); }
+  function startHold() {
+    fire(); step = 1;
+    holdTimer = setTimeout(() => {
+      repeatTimer = setInterval(() => {
+        fire(); step++;
+        if (step === 10) { clearInterval(repeatTimer); repeatTimer = setInterval(fire, 60); }
+      }, 150);
+    }, 350);
+  }
+  function stopHold() {
+    clearTimeout(holdTimer); clearInterval(repeatTimer);
+    holdTimer = repeatTimer = null; step = 0;
+    el.classList.remove('pressing');
+  }
+  el.addEventListener('touchstart', e => { e.preventDefault(); el.classList.add('pressing'); startHold(); }, { passive: false });
+  el.addEventListener('touchend',    stopHold, { passive: true });
+  el.addEventListener('touchcancel', stopHold, { passive: true });
+  el.addEventListener('mousedown', () => { el.classList.add('pressing'); startHold(); });
+  el.addEventListener('mouseup',   stopHold);
+  el.addEventListener('mouseleave',stopHold);
+}
+
+makeHoldBtn(document.getElementById('gest-m'), d => { gestWeeks = Math.max(GEST_MIN, Math.min(GEST_MAX, gestWeeks + d)); render(); });
+makeHoldBtn(document.getElementById('gest-p'), d => { gestWeeks = Math.max(GEST_MIN, Math.min(GEST_MAX, gestWeeks + d)); render(); });
+makeHoldBtn(document.getElementById('am-m'),   d => { ageMonths = Math.max(AGE_M_MIN, Math.min(AGE_M_MAX, ageMonths + d)); render(); });
+makeHoldBtn(document.getElementById('am-p'),   d => { ageMonths = Math.max(AGE_M_MIN, Math.min(AGE_M_MAX, ageMonths + d)); render(); });
+makeHoldBtn(document.getElementById('aw-m'),   d => { ageExtraWeeks = Math.max(AGE_W_MIN, Math.min(AGE_W_MAX, ageExtraWeeks + d)); render(); });
+makeHoldBtn(document.getElementById('aw-p'),   d => { ageExtraWeeks = Math.max(AGE_W_MIN, Math.min(AGE_W_MAX, ageExtraWeeks + d)); render(); });
+
+// ── Helpers ────────────────────────────────────────────────────────
+function fmtMonths(m) {
+  const mo = Math.floor(m);
+  const wk = Math.round((m - mo) * 4.333);
+  if (mo === 0 && wk === 0) return '0 meses';
+  if (mo === 0) return `${wk} sem.`;
+  if (wk === 0) return `${mo} mes${mo !== 1 ? 'es' : ''}`;
+  return `${mo}m ${wk}sem.`;
+}
+
+// ── Render ─────────────────────────────────────────────────────────
+function render() {
+  // Update selector displays
+  document.getElementById('gest-v').textContent = gestWeeks;
+  document.getElementById('am-v').textContent   = ageMonths;
+  document.getElementById('aw-v').textContent   = ageExtraWeeks;
+  document.getElementById('gest-note').textContent = GEST_LABELS[gestWeeks] || '';
+
+  const premWeeks  = 40 - gestWeeks;                          // weeks before term
+  const chronWeeks = ageMonths * 4.333 + ageExtraWeeks;       // current age in weeks
+  const corrWeeks  = chronWeeks - premWeeks;                  // corrected age in weeks
+  const corrMonths = corrWeeks / 4.333;                       // corrected age in months
+
+  const preNot  = document.getElementById('notice-preterm');
+  const excNot  = document.getElementById('notice-exceeded');
+  const mainRes = document.getElementById('main-results');
+
+  // ── Baby hasn't reached term yet ──
+  if (corrWeeks < 0) {
+    preNot.style.display  = 'block';
+    excNot.style.display  = 'none';
+    mainRes.style.display = 'none';
+    return;
+  }
+  preNot.style.display = 'none';
+
+  // ── Beyond 2 corrected years ──
+  const MAX_CORR = 24; // months
+  if (corrMonths > MAX_CORR) {
+    excNot.style.display  = 'block';
+    mainRes.style.display = 'none';
+    return;
+  }
+  excNot.style.display  = 'none';
+  mainRes.style.display = 'block';
+
+  // Corrected age label
+  document.getElementById('corr-val').textContent = fmtMonths(corrMonths);
+  document.getElementById('corr-sub').textContent = `(${Math.round(corrWeeks)} semanas corregidas · nació en sem. ${gestWeeks})`;
+
+  // Stats
+  const chronStr = fmtMonths(chronWeeks / 4.333);
+  document.getElementById('chron-val').textContent = chronStr;
+  document.getElementById('prem-val').textContent  = `${premWeeks} sem.`;
+  document.getElementById('diff-val').textContent  = fmtMonths(premWeeks / 4.333);
+
+  const monthsLeft = Math.max(0, MAX_CORR - corrMonths);
+  document.getElementById('until-val').textContent = monthsLeft < 1
+    ? '<1 mes' : `${Math.round(monthsLeft)} m.`;
+  document.getElementById('until-sub').textContent = monthsLeft < 1
+    ? 'casi llegando' : 'hasta los 2 años corr.';
+
+  // Progress bar
+  const pct = Math.min(100, (corrMonths / MAX_CORR) * 100);
+  document.getElementById('progress-fill').style.width = pct.toFixed(1) + '%';
+  document.getElementById('progress-note').textContent =
+    `${Math.round(pct)}% del camino hasta los 2 años corregidos — cuando se pasa a usar la edad real.`;
+
+  // Milestone
+  document.getElementById('milestone-text').textContent = getMilestone(corrMonths).text;
+
+  // Context note
+  const notes = [
+    { range: [0, 3],   text: 'Los prematuros tardíos (sem. 34–36) a menudo parecen "bebés a término" pero su cerebro aún madura. La edad corregida es igual de importante para ellos.' },
+    { range: [3, 6],   text: 'El percentil de peso y talla debe calcularse siempre con la edad corregida. Un bebé prematuro que parece "pequeño" puede estar exactamente donde corresponde.' },
+    { range: [6, 9],   text: 'La introducción de sólidos se planifica según la edad corregida. No es necesario apresurar nada por la edad cronológica — sigue las señales del bebé.' },
+    { range: [9, 14],  text: 'El gateo y los primeros pasos pueden llegar más tarde que en bebés a término. Dentro de la normalidad corregida no hay nada de qué preocuparse.' },
+    { range: [14, 20], text: 'El lenguaje es uno de los hitos que más tiempo tarda en equipararse. Si hay dudas, un logopeda especializado en prematuros puede ser de gran ayuda.' },
+    { range: [20, 24], text: 'Estás llegando al final del período de corrección. A partir de los 2 años corregidos el desarrollo se valora con la edad cronológica.' },
+  ];
+  const noteEntry = notes.find(n => corrMonths >= n.range[0] && corrMonths < n.range[1])
+    || notes[notes.length - 1];
+  document.getElementById('context-note').innerHTML =
+    `<strong>Ten en cuenta:</strong> ${noteEntry.text}`;
+}
+
+render();
+</script>
+</body>
+</html>
