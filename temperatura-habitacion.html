@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Temperatura habitación bebé · Qué saco de dormir usar · Togs · babyFAQ</title>
+<meta name="description" content="Calcula qué saco de dormir necesita tu bebé según la temperatura de la habitación. Guía de togs, cómo vestir al bebé para dormir y temperatura ideal del cuarto.">
+<meta property="og:title" content="Temperatura habitación bebé · Qué saco de dormir usar · Togs · babyFAQ">
+<meta property="og:description" content="Calcula qué saco de dormir necesita tu bebé según la temperatura de la habitación. Guía de togs, cómo vestir al bebé para dormir y temperatura ideal del cuarto.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f5f0fa">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0fa;
+    --warm-white: #fdfcff;
+    --blush: #d4b8f0;
+    --accent: #7a5aaa;
+    --deep: #2a1f3d;
+    --mid: #5a4a7a;
+    --soft: #a898c4;
+    --accent-bg: #ede8f8;
+    --accent-border: #c4b0e8;
+
+    --cold: #3a6aaa;
+    --cold-bg: #eef3fc;
+    --cold-border: #a8c0e8;
+
+    --cool: #3a8a6a;
+    --cool-bg: #edf5f0;
+    --cool-border: #a8d8b8;
+
+    --ideal: #5a8a3a;
+    --ideal-bg: #f0f8e8;
+    --ideal-border: #b8d898;
+
+    --warm: #b07020;
+    --warm-bg: #fdf3e0;
+    --warm-border: #f0cc8a;
+
+    --hot: #c03030;
+    --hot-bg: #fdf0f0;
+    --hot-border: #f0a8a8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 320px; height: 320px; background: #c8b0f0; top: -120px; right: -80px; opacity: 0.28; }
+  .blob-2 { width: 260px; height: 260px; background: #b0c8f0; bottom: -80px; left: -60px; opacity: 0.22; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--accent); }
+
+  header { text-align: center; margin-bottom: 28px; }
+  .badge { display: inline-block; background: var(--accent-bg); color: var(--accent); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
+  @media (min-width: 480px) { h1 { font-size: 34px; } }
+  @media (min-width: 640px) { h1 { font-size: 38px; } }
+  h1 em { font-style: italic; color: var(--accent); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300; }
+
+  .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(42,31,61,0.07); border: 1px solid rgba(168,152,196,0.22); }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 14px; }
+
+  /* ── Thermometer selector ── */
+  .temp-selector { background: var(--cream); border-radius: 16px; border: 1.5px solid rgba(168,152,196,0.35); display: flex; align-items: center; height: 80px; padding: 0 6px; }
+  .hold-btn { width: 52px; height: 60px; flex-shrink: 0; border-radius: 12px; border: none; background: transparent; color: var(--accent); font-size: 28px; font-weight: 300; cursor: pointer; display: flex; align-items: center; justify-content: center; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: background 0.1s; line-height: 1; }
+  .hold-btn:active, .hold-btn.pressing { background: var(--blush); }
+  .temp-display { flex: 1; text-align: center; }
+  .temp-value { font-family: 'Fraunces', serif; font-size: 52px; font-weight: 300; color: var(--deep); line-height: 1; display: block; transition: color 0.3s; }
+  .temp-unit { font-size: 14px; color: var(--soft); }
+  .temp-feel { font-size: 12px; color: var(--soft); display: block; margin-top: 3px; font-style: italic; transition: color 0.3s; }
+
+  /* ── Result card ── */
+  .result-card { border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(42,31,61,0.07); border: 1.5px solid transparent; animation: fadeUp 0.3s ease; transition: background 0.35s, border-color 0.35s; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Zone colors */
+  .zone-cold   { background: var(--cold-bg);  border-color: var(--cold-border); }
+  .zone-cool   { background: var(--cool-bg);  border-color: var(--cool-border); }
+  .zone-ideal  { background: var(--ideal-bg); border-color: var(--ideal-border); }
+  .zone-warm   { background: var(--warm-bg);  border-color: var(--warm-border); }
+  .zone-hot    { background: var(--hot-bg);   border-color: var(--hot-border); }
+
+  /* Tog display */
+  .tog-main { text-align: center; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid rgba(168,152,196,0.18); }
+  .tog-value { font-family: 'Fraunces', serif; font-size: 60px; font-weight: 300; line-height: 1; display: block; }
+  .zone-cold  .tog-value { color: var(--cold); }
+  .zone-cool  .tog-value { color: var(--cool); }
+  .zone-ideal .tog-value { color: var(--ideal); }
+  .zone-warm  .tog-value { color: var(--warm); }
+  .zone-hot   .tog-value { color: var(--hot); }
+  .tog-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); display: block; margin-top: 4px; }
+  .tog-name { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 300; color: var(--deep); display: block; margin-top: 6px; font-style: italic; }
+
+  /* What to wear */
+  .wear-block { margin-bottom: 14px; }
+  .wear-title { font-size: 10px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); margin-bottom: 9px; display: block; }
+  .wear-items { display: flex; flex-direction: column; gap: 6px; }
+  .wear-item { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--mid); line-height: 1.5; }
+  .wear-icon { font-size: 18px; flex-shrink: 0; width: 28px; text-align: center; }
+
+  /* Warning note */
+  .warn-note { border-radius: 12px; padding: 12px 14px; font-size: 12px; line-height: 1.65; }
+  .zone-cold  .warn-note { background: rgba(58,106,170,0.1); color: #1a3a6a; }
+  .zone-cool  .warn-note { background: rgba(58,138,106,0.1); color: #1a4a32; }
+  .zone-ideal .warn-note { background: rgba(90,138,58,0.1);  color: #2a4a10; }
+  .zone-warm  .warn-note { background: rgba(176,112,32,0.12); color: #5a3a08; }
+  .zone-hot   .warn-note { background: rgba(192,48,48,0.1);  color: #5a1010; }
+  .warn-note strong { font-weight: 600; }
+
+  /* ── Tog guide ── */
+  .tog-guide { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(42,31,61,0.07); border: 1px solid rgba(168,152,196,0.22); }
+  .tog-bars { display: flex; flex-direction: column; gap: 8px; }
+  .tog-bar-row { display: flex; align-items: center; gap: 10px; }
+  .tog-bar-label { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--deep); width: 36px; flex-shrink: 0; text-align: right; }
+  .tog-bar-track { flex: 1; height: 10px; border-radius: 5px; overflow: hidden; }
+  .tog-bar-fill { height: 100%; border-radius: 5px; }
+  .tog-bar-info { flex: 1; }
+  .tog-bar-name { font-size: 12px; font-weight: 500; color: var(--deep); }
+  .tog-bar-temp { font-size: 11px; color: var(--soft); }
+
+  .tog-0 .tog-bar-fill { background: var(--hot);   width: 15%; }
+  .tog-05 .tog-bar-fill { background: var(--warm);  width: 30%; }
+  .tog-1 .tog-bar-fill  { background: var(--ideal); width: 50%; }
+  .tog-25 .tog-bar-fill { background: var(--cool);  width: 75%; }
+  .tog-35 .tog-bar-fill { background: var(--cold);  width: 100%; }
+
+  /* ── Signs ── */
+  .signs-card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(42,31,61,0.07); border: 1px solid rgba(168,152,196,0.22); }
+  .signs-row { display: flex; gap: 10px; }
+  .sign-block { flex: 1; border-radius: 14px; padding: 14px 12px; }
+  .sign-block.hot-sign  { background: var(--hot-bg);  border: 1px solid var(--hot-border); }
+  .sign-block.cold-sign { background: var(--cold-bg); border: 1px solid var(--cold-border); }
+  .sign-title { font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 9px; display: block; }
+  .sign-block.hot-sign  .sign-title { color: var(--hot); }
+  .sign-block.cold-sign .sign-title { color: var(--cold); }
+  .sign-items { display: flex; flex-direction: column; gap: 5px; }
+  .sign-item { font-size: 12px; line-height: 1.5; padding-left: 12px; position: relative; }
+  .sign-block.hot-sign  .sign-item { color: #7a1010; }
+  .sign-block.cold-sign .sign-item { color: #1a3a6a; }
+  .sign-item::before { content: '·'; position: absolute; left: 3px; font-weight: 700; }
+
+  /* ── Info section ── */
+  .info-section { background: var(--warm-white); border-radius: 20px; padding: 28px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(42,31,61,0.07); border: 1px solid rgba(168,152,196,0.22); }
+  .info-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
+  .info-section h2 em { font-style: italic; color: var(--accent); }
+  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; }
+  .info-section p:last-child { margin-bottom: 0; }
+  .info-section strong { color: var(--deep); font-weight: 500; }
+  .info-divider { height: 1px; background: rgba(168,152,196,0.2); margin: 20px 0; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.65; margin-top: 20px; padding: 0 8px; }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">Sueño seguro</span>
+    <h1>¿Qué saco de<br>dormir le <em>pongo</em>?</h1>
+    <p class="subtitle">Introduce la temperatura de su habitación y obtén el tog adecuado y cómo vestirle debajo. La temperatura ideal está entre 18 y 20°C.</p>
+  </header>
+
+  <!-- Selector temperatura -->
+  <div class="card">
+    <div class="section-label">Temperatura de la habitación</div>
+    <div class="temp-selector">
+      <button class="hold-btn" id="temp-m" data-dir="-1">−</button>
+      <div class="temp-display">
+        <span class="temp-value" id="temp-val">19</span>
+        <span class="temp-unit">°C</span>
+        <span class="temp-feel" id="temp-feel"></span>
+      </div>
+      <button class="hold-btn" id="temp-p" data-dir="1">+</button>
+    </div>
+  </div>
+
+  <!-- Resultado -->
+  <div class="result-card" id="result-card">
+
+    <div class="tog-main">
+      <span class="tog-value" id="tog-val">—</span>
+      <span class="tog-label">tog</span>
+      <span class="tog-name" id="tog-name">—</span>
+    </div>
+
+    <div class="wear-block">
+      <span class="wear-title">🧸 Cómo vestirle debajo del saco</span>
+      <div class="wear-items" id="wear-items"></div>
+    </div>
+
+    <div class="warn-note" id="warn-note"></div>
+
+  </div>
+
+  <!-- Guía de togs -->
+  <div class="tog-guide">
+    <div class="section-label">Guía de togs — qué significa cada valor</div>
+    <div class="tog-bars">
+      <div class="tog-bar-row tog-0">
+        <span class="tog-bar-label">0</span>
+        <div class="tog-bar-track"><div class="tog-bar-fill"></div></div>
+        <div class="tog-bar-info">
+          <div class="tog-bar-name">Sin aislamiento</div>
+          <div class="tog-bar-temp">Más de 27°C · verano caluroso</div>
+        </div>
+      </div>
+      <div class="tog-bar-row tog-05">
+        <span class="tog-bar-label">0,5</span>
+        <div class="tog-bar-track"><div class="tog-bar-fill"></div></div>
+        <div class="tog-bar-info">
+          <div class="tog-bar-name">Muy ligero</div>
+          <div class="tog-bar-temp">24–27°C · verano suave</div>
+        </div>
+      </div>
+      <div class="tog-bar-row tog-1">
+        <span class="tog-bar-label">1</span>
+        <div class="tog-bar-track"><div class="tog-bar-fill"></div></div>
+        <div class="tog-bar-info">
+          <div class="tog-bar-name">Ligero</div>
+          <div class="tog-bar-temp">21–23°C · primavera / otoño</div>
+        </div>
+      </div>
+      <div class="tog-bar-row tog-25">
+        <span class="tog-bar-label">2,5</span>
+        <div class="tog-bar-track"><div class="tog-bar-fill"></div></div>
+        <div class="tog-bar-info">
+          <div class="tog-bar-name">Estándar</div>
+          <div class="tog-bar-temp">16–20°C · la mayoría del año</div>
+        </div>
+      </div>
+      <div class="tog-bar-row tog-35">
+        <span class="tog-bar-label">3,5</span>
+        <div class="tog-bar-track"><div class="tog-bar-fill"></div></div>
+        <div class="tog-bar-info">
+          <div class="tog-bar-name">Muy cálido</div>
+          <div class="tog-bar-temp">Menos de 16°C · invierno frío</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Señales -->
+  <div class="signs-card">
+    <div class="section-label">Cómo saber si tiene frío o calor</div>
+    <div class="signs-row">
+      <div class="sign-block hot-sign">
+        <span class="sign-title">🥵 Tiene calor</span>
+        <div class="sign-items">
+          <div class="sign-item">Nuca sudada o húmeda</div>
+          <div class="sign-item">Piel enrojecida</div>
+          <div class="sign-item">Inquieto y molesto</div>
+          <div class="sign-item">Pecho caliente al tacto</div>
+          <div class="sign-item">Respira con más rapidez</div>
+        </div>
+      </div>
+      <div class="sign-block cold-sign">
+        <span class="sign-title">🥶 Tiene frío</span>
+        <div class="sign-items">
+          <div class="sign-item">Nuca fría al tacto</div>
+          <div class="sign-item">Manos y pies muy fríos</div>
+          <div class="sign-item">Piel pálida o moteada</div>
+          <div class="sign-item">Llanto persistente</div>
+          <div class="sign-item">Labios ligeramente azulados</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:11px;color:var(--soft);margin-top:10px;line-height:1.6;">
+      💡 El termómetro de referencia es siempre la <strong>nuca</strong>, no las manos ni los pies. Manos y pies fríos son normales — no indican que tenga frío si la nuca está templada.
+    </p>
+  </div>
+
+  <!-- Info section -->
+  <div class="info-section">
+
+    <h2>Qué es el <em>tog</em> y por qué importa</h2>
+    <p>El tog es la unidad que mide la <strong>capacidad de aislamiento térmico</strong> de un tejido. Cuanto mayor es el tog, más calor retiene. Se usa principalmente para edredones, sacos de dormir y ropa de cama en Reino Unido y Europa del norte, y en los últimos años se ha extendido a toda la industria de productos para bebés.</p>
+    <p>La escala práctica para sacos de bebé va de <strong>0 tog</strong> (prácticamente sin aislamiento, solo para verano muy caluroso) hasta <strong>3,5 tog</strong> (máximo aislamiento, para habitaciones frías en invierno). El valor <strong>2,5 tog</strong> es el estándar más vendido porque cubre la mayor parte del año en viviendas con calefacción central.</p>
+    <p>A diferencia de las mantas sueltas —que el bebé puede desplazarse encima o enrollarse—, el saco de dormir permanece en su sitio durante toda la noche. Esta es la razón por la que la <strong>AAP y la AEP recomiendan el saco como alternativa segura a las mantas</strong> en el entorno de sueño del bebé.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>Por qué la <em>temperatura ideal</em> es 18–20°C</h2>
+    <p>Los bebés tienen una termorregulación inmadura. A diferencia de los adultos, no pueden sudar de forma eficiente para bajar su temperatura ni tiritar para subirla. Esto los hace especialmente vulnerables tanto al sobrecalentamiento como al frío.</p>
+    <p>El <strong>sobrecalentamiento</strong> es el riesgo mayor. Varios estudios han encontrado asociación entre la temperatura elevada durante el sueño y el síndrome de muerte súbita del lactante (SMSL). Por eso la recomendación oficial es mantener la habitación fresca, entre 18 y 20°C, que a los adultos puede parecer fría pero es óptima para el bebé.</p>
+    <p>A 18–20°C, un bebé con un saco de 2,5 tog y un body de manga corta o larga debería mantener una temperatura corporal perfectamente regulada durante toda la noche. Si la habitación es más fría, se añade ropa debajo del saco en lugar de aumentar el tog o añadir mantas.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>Mantas sueltas: <em>por qué no</em></h2>
+    <p>Las mantas sueltas, los edredones, los cojines, los posicionadores y cualquier objeto blando en la cuna aumentan el riesgo de SMSL. El bebé puede desplazarse durante el sueño y acabar con la cara cubierta sin poder liberarse. <strong>La cuna segura es la cuna vacía</strong>: solo el colchón firme, la sábana ajustada y el saco de dormir.</p>
+    <p>Esto no cambia aunque haga mucho frío: la solución es siempre más ropa debajo del saco o un saco de mayor tog, nunca añadir mantas por encima. A partir de los 12–18 meses, cuando el bebé tiene más movilidad y control motor, el riesgo de las mantas disminuye, pero el saco sigue siendo la opción más cómoda y segura.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>El truco de la <em>nuca</em></h2>
+    <p>Para saber si tu bebé tiene la temperatura correcta durante el sueño, toca su nuca con la palma de la mano. Debería estar <strong>templada y seca</strong>. Si está caliente o sudada, tiene demasiado calor. Si está fría, puede necesitar más abrigo.</p>
+    <p>Las manos y los pies fríos no son una señal de alarma en bebés: la circulación periférica es diferente a la de los adultos y es normal que las extremidades estén más frías que el tronco. El error más frecuente es añadir capas innecesarias porque "tiene las manos frías", lo que lleva al sobrecalentamiento.</p>
+
+  </div>
+
+  <p class="disclaimer">
+    Basado en las recomendaciones de la AAP, la AEP y la Lullaby Trust sobre sueño seguro.<br>
+    Estas indicaciones son orientativas. Cada bebé y cada habitación son diferentes — observa siempre las señales de tu bebé.
+  </p>
+
+</div>
+
+<script>
+// ── Data ───────────────────────────────────────────────────────────
+const ZONES = [
+  {
+    maxTemp: 15,
+    zone: 'cold',
+    feel: 'Muy fría',
+    tog: '3,5',
+    togNum: 3.5,
+    togName: 'Saco muy cálido',
+    wear: [
+      { icon: '👕', text: 'Body de manga larga de algodón o térmica' },
+      { icon: '🧦', text: 'Calcetines o pijama de una pieza con pies' },
+      { icon: '🩳', text: 'Capa intermedia: pijama grueso o pelele' },
+      { icon: '🛏️', text: 'Saco de 3,5 tog encima' },
+    ],
+    note: '<strong>Habitación muy fría.</strong> Lo ideal es subir la calefacción a 18°C. Si no es posible, añade capas debajo del saco en lugar de usar mantas sueltas. Nunca pongas mantas por encima del saco.',
+  },
+  {
+    maxTemp: 17,
+    zone: 'cold',
+    feel: 'Fría',
+    tog: '3,5',
+    togNum: 3.5,
+    togName: 'Saco muy cálido',
+    wear: [
+      { icon: '👕', text: 'Body de manga larga' },
+      { icon: '🩱', text: 'Pijama de una pieza o pelele' },
+      { icon: '🛏️', text: 'Saco de 3,5 tog encima' },
+    ],
+    note: '<strong>Algo por debajo de la temperatura ideal.</strong> Con un saco de 3,5 tog y ropa interior cálida debería estar bien. Comprueba la nuca al cabo de unos minutos.',
+  },
+  {
+    maxTemp: 20,
+    zone: 'ideal',
+    feel: '✓ Temperatura ideal',
+    tog: '2,5',
+    togNum: 2.5,
+    togName: 'Saco estándar',
+    wear: [
+      { icon: '👕', text: 'Body de manga corta o larga según tu sensación' },
+      { icon: '🛏️', text: 'Saco de 2,5 tog encima' },
+    ],
+    note: '<strong>Temperatura perfecta para dormir.</strong> El saco de 2,5 tog con un body es la combinación estándar recomendada. La habitación está en el rango óptimo de 18–20°C.',
+  },
+  {
+    maxTemp: 23,
+    zone: 'cool',
+    feel: 'Templada',
+    tog: '1',
+    togNum: 1,
+    togName: 'Saco ligero',
+    wear: [
+      { icon: '👕', text: 'Body de manga corta o camiseta ligera' },
+      { icon: '🛏️', text: 'Saco de 1 tog encima' },
+    ],
+    note: '<strong>Algo más cálido de lo ideal.</strong> Un saco de 1 tog es suficiente. Con un body de manga corta debería estar cómodo sin acalorarse. Ventila la habitación si puedes.',
+  },
+  {
+    maxTemp: 26,
+    zone: 'warm',
+    feel: 'Cálida',
+    tog: '0,5',
+    togNum: 0.5,
+    togName: 'Saco de verano',
+    wear: [
+      { icon: '👕', text: 'Solo body de manga corta o pelele fino' },
+      { icon: '🛏️', text: 'Saco de 0,5 tog (muselina o bambú)' },
+    ],
+    note: '<strong>Habitación cálida.</strong> Usa el saco más fino disponible. Algunos bebés toleran bien el calor; otros se despiertan más. Ventila la habitación con ventilador (nunca directo al bebé).',
+  },
+  {
+    maxTemp: 99,
+    zone: 'hot',
+    feel: 'Muy calurosa',
+    tog: '0',
+    togNum: 0,
+    togName: 'Sin saco o saco ventilado',
+    wear: [
+      { icon: '👕', text: 'Solo pañal o body muy fino de manga corta' },
+      { icon: '🌬️', text: 'Sin saco, o saco de muselina abierta sin aislamiento' },
+    ],
+    note: '<strong>Temperatura demasiado alta.</strong> El sobrecalentamiento es el mayor riesgo. No uses saco o usa solo una muselina envuelta sin apretar. Ventila la habitación. Si supera los 30°C, consulta si el bebé está bien hidratado.',
+  },
+];
+
+// ── State ──────────────────────────────────────────────────────────
+const TEMP_MIN = 14;
+const TEMP_MAX = 30;
+let temp = 19;
+
+// ── Hold-repeat ────────────────────────────────────────────────────
+function makeHoldBtn(el, onStep) {
+  let holdTimer = null, repeatTimer = null, step = 0;
+  function fire() { onStep(parseInt(el.dataset.dir)); }
+  function startHold() {
+    fire(); step = 1;
+    holdTimer = setTimeout(() => {
+      repeatTimer = setInterval(() => {
+        fire(); step++;
+        if (step === 10) { clearInterval(repeatTimer); repeatTimer = setInterval(fire, 80); }
+      }, 180);
+    }, 350);
+  }
+  function stopHold() {
+    clearTimeout(holdTimer); clearInterval(repeatTimer);
+    holdTimer = repeatTimer = null; step = 0;
+    el.classList.remove('pressing');
+  }
+  el.addEventListener('touchstart', e => { e.preventDefault(); el.classList.add('pressing'); startHold(); }, { passive: false });
+  el.addEventListener('touchend',    stopHold, { passive: true });
+  el.addEventListener('touchcancel', stopHold, { passive: true });
+  el.addEventListener('mousedown', () => { el.classList.add('pressing'); startHold(); });
+  el.addEventListener('mouseup',   stopHold);
+  el.addEventListener('mouseleave',stopHold);
+}
+
+makeHoldBtn(document.getElementById('temp-m'), d => { temp = Math.max(TEMP_MIN, Math.min(TEMP_MAX, temp + d)); render(); });
+makeHoldBtn(document.getElementById('temp-p'), d => { temp = Math.max(TEMP_MIN, Math.min(TEMP_MAX, temp + d)); render(); });
+
+// ── Render ─────────────────────────────────────────────────────────
+function getZone(t) {
+  return ZONES.find(z => t <= z.maxTemp) || ZONES[ZONES.length - 1];
+}
+
+const TEMP_COLORS = {
+  cold:  '#3a6aaa',
+  cool:  '#3a8a6a',
+  ideal: '#5a8a3a',
+  warm:  '#b07020',
+  hot:   '#c03030',
+};
+
+function render() {
+  const z = getZone(temp);
+
+  // Temp display
+  document.getElementById('temp-val').textContent = temp;
+  document.getElementById('temp-val').style.color = TEMP_COLORS[z.zone];
+  document.getElementById('temp-feel').textContent = z.feel;
+  document.getElementById('temp-feel').style.color = TEMP_COLORS[z.zone];
+
+  // Result card zone
+  const card = document.getElementById('result-card');
+  card.className = 'result-card zone-' + z.zone;
+
+  // Tog
+  document.getElementById('tog-val').textContent = z.tog;
+  document.getElementById('tog-name').textContent = z.togName;
+
+  // Wear items
+  const wearEl = document.getElementById('wear-items');
+  wearEl.innerHTML = z.wear.map(w =>
+    `<div class="wear-item"><span class="wear-icon">${w.icon}</span><span>${w.text}</span></div>`
+  ).join('');
+
+  // Note
+  document.getElementById('warn-note').innerHTML = z.note;
+}
+
+render();
+</script>
+</body>
+</html>

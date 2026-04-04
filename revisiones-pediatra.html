@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Revisiones del pediatra · Qué pasa en cada visita · babyFAQ</title>
+<meta name="description" content="Calendario oficial de revisiones pediátricas en España según la AEP. Qué se hace en cada visita, qué vacunas toca y qué preguntar al pediatra de 0 a 6 años.">
+<meta property="og:title" content="Revisiones del pediatra · Qué pasa en cada visita · babyFAQ">
+<meta property="og:description" content="Calendario oficial de revisiones pediátricas en España según la AEP. Qué se hace en cada visita, qué vacunas toca y qué preguntar al pediatra de 0 a 6 años.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f4f8f4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f4f8f4;
+    --warm-white: #fafdfb;
+    --mint: #a8d8b0;
+    --green: #3a7a4a;
+    --deep: #1f2d22;
+    --mid: #4a6a52;
+    --soft: #8ab090;
+    --green-bg: #edf5f0;
+    --green-border: #a8d8b0;
+    --amber: #b07020;
+    --amber-bg: #fdf3e0;
+    --amber-border: #f0cc8a;
+    --blue: #3a6aaa;
+    --blue-bg: #eef3fc;
+    --blue-border: #a8c0e8;
+    --purple: #7a5aaa;
+    --purple-bg: #ede8f8;
+    --purple-border: #c4b0e8;
+    --red: #a83030;
+    --red-bg: #fdf0f0;
+    --red-border: #e8a8a8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 300px; height: 300px; background: #b8e0c0; top: -100px; right: -80px; opacity: 0.35; }
+  .blob-2 { width: 250px; height: 250px; background: #c0d8f0; bottom: -80px; left: -60px; opacity: 0.3; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--green); }
+
+  header { text-align: center; margin-bottom: 32px; }
+  .badge { display: inline-block; background: var(--green-bg); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
+  @media (min-width: 480px) { h1 { font-size: 34px; } }
+  @media (min-width: 640px) { h1 { font-size: 38px; } }
+  h1 em { font-style: italic; color: var(--green); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300; }
+
+  /* ── Timeline selector ── */
+  .timeline-wrap { margin-bottom: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+  .timeline-wrap::-webkit-scrollbar { height: 3px; }
+  .timeline-wrap::-webkit-scrollbar-track { background: transparent; }
+  .timeline-wrap::-webkit-scrollbar-thumb { background: var(--mint); border-radius: 2px; }
+
+  .timeline { display: flex; gap: 6px; padding: 2px 2px; min-width: max-content; }
+
+  .timeline-item { display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; touch-action: manipulation; }
+  .tl-dot { width: 36px; height: 36px; border-radius: 50%; border: 2px solid rgba(138,176,144,0.35); background: var(--warm-white); display: flex; align-items: center; justify-content: center; font-size: 14px; transition: all 0.18s; flex-shrink: 0; }
+  .tl-label { font-size: 9px; font-weight: 500; color: var(--soft); letter-spacing: 0.04em; text-align: center; white-space: nowrap; transition: color 0.18s; }
+  .timeline-item.active .tl-dot { background: var(--green); border-color: var(--green); box-shadow: 0 2px 10px rgba(58,122,74,0.3); }
+  .timeline-item.active .tl-label { color: var(--green); font-weight: 600; }
+  .timeline-item:not(.active):hover .tl-dot { border-color: var(--mint); }
+
+  /* connector line between dots */
+  .tl-line { width: 14px; height: 2px; background: rgba(138,176,144,0.3); margin-top: 17px; flex-shrink: 0; }
+
+  /* ── Visit card ── */
+  .visit-card { background: var(--warm-white); border-radius: 20px; padding: 24px 20px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(31,45,34,0.07); border: 1px solid rgba(138,176,144,0.22); animation: fadeUp 0.25s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .visit-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid rgba(138,176,144,0.2); }
+  .visit-icon { width: 52px; height: 52px; border-radius: 14px; background: var(--green-bg); border: 1.5px solid var(--green-border); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+  .visit-meta { flex: 1; }
+  .visit-age { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; color: var(--deep); line-height: 1.1; }
+  .visit-type { font-size: 11px; color: var(--soft); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 3px; }
+
+  .section-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 10px; }
+
+  /* What happens */
+  .happens-list { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+  .happens-item { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: var(--mid); line-height: 1.55; }
+  .happens-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; margin-top: 5px; }
+
+  /* Vaccines badge */
+  .vaccines-block { background: var(--blue-bg); border: 1px solid var(--blue-border); border-radius: 13px; padding: 13px 14px; margin-bottom: 14px; }
+  .vaccines-label { font-size: 10px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--blue); margin-bottom: 7px; display: block; }
+  .vaccine-pill-wrap { display: flex; flex-wrap: wrap; gap: 5px; }
+  .vaccine-pill { background: white; border: 1px solid var(--blue-border); border-radius: 20px; font-size: 11px; font-weight: 500; color: var(--blue); padding: 3px 10px; }
+  .no-vaccine { font-size: 12px; color: var(--blue); opacity: 0.7; font-style: italic; }
+
+  /* Ask the pediatrician */
+  .ask-block { background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: 13px; padding: 13px 14px; margin-bottom: 14px; }
+  .ask-label { font-size: 10px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; display: block; }
+  .ask-list { display: flex; flex-direction: column; gap: 6px; }
+  .ask-item { font-size: 12px; color: #7a5010; line-height: 1.55; padding-left: 14px; position: relative; }
+  .ask-item::before { content: '→'; position: absolute; left: 0; color: var(--amber); font-size: 11px; }
+
+  /* Context note */
+  .context-note { background: var(--cream); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: var(--mid); line-height: 1.65; border: 1px solid rgba(138,176,144,0.2); }
+  .context-note strong { color: var(--deep); font-weight: 500; }
+
+  /* Navigation arrows */
+  .nav-row { display: flex; gap: 10px; margin-bottom: 14px; }
+  .nav-btn { flex: 1; background: var(--warm-white); border: 1.5px solid rgba(138,176,144,0.35); border-radius: 14px; padding: 12px; font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--mid); cursor: pointer; transition: border-color 0.2s, color 0.2s; touch-action: manipulation; }
+  .nav-btn:hover { border-color: var(--green); color: var(--green); }
+  .nav-btn:disabled { opacity: 0.35; cursor: default; pointer-events: none; }
+  .nav-btn.next { font-weight: 500; }
+
+  /* ── Info section ── */
+  .info-section { background: var(--warm-white); border-radius: 20px; padding: 28px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(31,45,34,0.07); border: 1px solid rgba(138,176,144,0.22); }
+  .info-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
+  .info-section h2 em { font-style: italic; color: var(--green); }
+  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; }
+  .info-section p:last-child { margin-bottom: 0; }
+  .info-section strong { color: var(--deep); font-weight: 500; }
+  .info-divider { height: 1px; background: rgba(138,176,144,0.2); margin: 22px 0; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.65; margin-top: 20px; padding: 0 8px; }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">Salud · AEP</span>
+    <h1>¿Qué pasa en la<br>revisión del <em>pediatra</em>?</h1>
+    <p class="subtitle">Calendario oficial de seguimiento pediátrico en España. Qué se hace en cada visita, qué vacunas toca y qué preguntas llevar preparadas.</p>
+  </header>
+
+  <!-- Timeline -->
+  <div class="timeline-wrap" id="timeline-wrap">
+    <div class="timeline" id="timeline"></div>
+  </div>
+
+  <!-- Visit card -->
+  <div class="visit-card" id="visit-card">
+    <div class="visit-header">
+      <div class="visit-icon" id="v-icon"></div>
+      <div class="visit-meta">
+        <div class="visit-age" id="v-age"></div>
+        <div class="visit-type" id="v-type"></div>
+      </div>
+    </div>
+
+    <div class="section-label">Qué se hace en esta visita</div>
+    <div class="happens-list" id="v-happens"></div>
+
+    <div class="vaccines-block">
+      <span class="vaccines-label">💉 Vacunas en esta visita</span>
+      <div class="vaccine-pill-wrap" id="v-vaccines"></div>
+    </div>
+
+    <div class="ask-block">
+      <span class="ask-label">💬 Preguntas que puedes llevar preparadas</span>
+      <div class="ask-list" id="v-ask"></div>
+    </div>
+
+    <div class="context-note" id="v-note"></div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-row">
+    <button class="nav-btn" id="btn-prev" onclick="navigate(-1)">← Visita anterior</button>
+    <button class="nav-btn next" id="btn-next" onclick="navigate(1)">Siguiente visita →</button>
+  </div>
+
+  <!-- Info section -->
+  <div class="info-section">
+
+    <h2>El <em>programa de salud</em> infantil en España</h2>
+    <p>El calendario de revisiones pediátricas en España está definido por la <strong>Asociación Española de Pediatría (AEP)</strong> y recogido en el Programa de Salud Infantil del Sistema Nacional de Salud. Aunque cada comunidad autónoma tiene cierta autonomía para adaptarlo, el esquema básico es homogéneo en todo el país.</p>
+    <p>Las visitas están diseñadas para coincidir con los momentos de mayor cambio en el desarrollo: cuando aparecen nuevos hitos motores, cognitivos o sociales que el pediatra puede valorar en consulta, y cuando toca administrar las vacunas del calendario oficial.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>¿Qué <em>valora</em> el pediatra exactamente?</h2>
+    <p>Más allá de pesar y medir, cada revisión incluye una <strong>exploración física completa</strong>: auscultación cardiopulmonar, palpación abdominal, revisión de caderas, genitales externos, piel, fontanela y reflejos. El pediatra busca alteraciones que no serían visibles para los padres.</p>
+    <p>La <strong>valoración del desarrollo</strong> es otro eje fundamental. Se observa si el bebé hace lo que se espera para su edad: sostén cefálico, sonrisa social, seguimiento visual, balbuceo, pinza, gateo, marcha, lenguaje… Cada visita tiene sus hitos de referencia.</p>
+    <p>Por último, el pediatra revisa la <strong>alimentación</strong> (lactancia, introducción de sólidos, diversificación), el <strong>sueño</strong>, el <strong>entorno familiar</strong> y los <strong>hábitos de seguridad</strong> en el hogar. Es también el momento para resolver dudas y preguntar todo lo que te ronde por la cabeza.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>Cómo <em>aprovechar</em> bien la visita</h2>
+    <p><strong>Lleva las dudas apuntadas.</strong> Es muy habitual que en la sala de espera o durante la exploración se olvide la mitad de lo que querías preguntar. Una nota en el móvil con 2 o 3 preguntas concretas es suficiente.</p>
+    <p><strong>Trae la libreta de salud</strong> (carnet de vacunación) aunque no toque ninguna vacuna. El pediatra anota el peso, la talla y el perímetro cefálico en cada visita, y ese registro longitudinal es muy valioso.</p>
+    <p><strong>No compares hitos</strong> con otros bebés de la guardería o de tu grupo de WhatsApp. El pediatra valora la curva de tu bebé específico, no si llegó antes o después que los demás. Un hito que llega "tarde" pero dentro del rango normal no tiene importancia clínica.</p>
+    <p><strong>Si algo te preocupa entre revisiones, no esperes.</strong> El calendario de seguimiento es el mínimo recomendado, no el máximo. Ante fiebre persistente, rechazo del alimento, cambio brusco de comportamiento o cualquier señal que te inquiete, consulta sin esperar a la próxima cita programada.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>Vacunas: el <em>calendario más importante</em></h2>
+    <p>España tiene uno de los calendarios vacunales más completos del mundo. Las vacunas del calendario oficial son <strong>gratuitas, seguras y altamente efectivas</strong>. La protección que generan no es solo individual: al vacunar a tu bebé contribuyes a mantener la inmunidad de grupo que protege a quienes no pueden vacunarse (recién nacidos, inmunodeprimidos, personas con alergias a componentes vacunales).</p>
+    <p>Las vacunas se administran en las visitas de los 2, 4, 6, 11–12, 15–18 meses y en la revisión de los 3–4 años. Las reacciones más habituales —enrojecimiento en el punto de inyección, fiebre leve, irritabilidad— son temporales y son señal de que el sistema inmune está respondiendo correctamente.</p>
+    <p>Si tienes dudas sobre vacunas, el mejor interlocutor es tu pediatra. Hay mucha desinformación en internet sobre este tema; la evidencia científica disponible es abrumadoramente favorable a la vacunación.</p>
+
+  </div>
+
+  <p class="disclaimer">
+    Basado en el Programa de Salud Infantil de la AEP (2024) y el calendario vacunal del SNS.<br>
+    El calendario puede variar ligeramente según la comunidad autónoma. Tu pediatra de cabecera es siempre la referencia más fiable.
+  </p>
+
+</div>
+
+<script>
+// ── Visit data ─────────────────────────────────────────────────────
+const VISITS = [
+  {
+    id: 'rn',
+    age: 'Recién nacido',
+    ageShort: 'RN',
+    icon: '👶',
+    type: 'Primera semana de vida',
+    happens: [
+      'Exploración física completa: peso, talla, perímetro cefálico, fontanela, caderas y reflejos primitivos.',
+      'Cribado neonatal (talón): fenilcetonuria, hipotiroidismo, fibrosis quística y otras enfermedades metabólicas.',
+      'Cribado auditivo universal con otoemisiones acústicas.',
+      'Revisión del ombligo, circuncisión si procede y genitales externos.',
+      'Valoración de la lactancia: agarre, número de tomas, hidratación, pérdida de peso fisiológica (normal hasta un 10%).',
+      'Primera dosis de vitamina K (si no se dio en la maternidad) y vitamina D.',
+    ],
+    vaccines: [],
+    noVaccine: 'En muchas maternidades se administra la hepatitis B al nacer. Consulta si se hizo.',
+    ask: [
+      '¿Está perdiendo el peso normal o hay que preocuparse?',
+      '¿El agarre al pecho es correcto? ¿Cómo sé si está comiendo suficiente?',
+      '¿Qué señales deben hacerme ir a urgencias sin esperar?',
+      '¿Cuándo recuperará el peso del nacimiento?',
+    ],
+    note: 'Esta primera visita puede realizarla la matrona de atención primaria. El pediatra suele hacer la primera exploración formal en torno a los 15 días o al mes.',
+  },
+  {
+    id: '1m',
+    age: '1 mes',
+    ageShort: '1m',
+    icon: '🌱',
+    type: 'Primera revisión con pediatra',
+    happens: [
+      'Peso, talla y perímetro cefálico. El bebé debería haber recuperado y superado el peso del nacimiento.',
+      'Exploración física: auscultación cardiaca, caderas (test de Ortolani/Barlow), piel y tono muscular.',
+      'Valoración del desarrollo: fija la mirada, reacciona a sonidos, puede sostener brevemente la cabeza.',
+      'Revisión de la lactancia o tipo de fórmula.',
+      'Instrucciones sobre posición para dormir (boca arriba, siempre) y prevención de muerte súbita.',
+    ],
+    vaccines: ['Meningococo B (MenB) · 1.ª dosis'],
+    ask: [
+      '¿Está creciendo bien o debo ajustar algo en la alimentación?',
+      '¿Cuántas tomas al día son normales a esta edad?',
+      '¿Es normal que llore tanto? ¿Puede tener cólicos?',
+      '¿La vitamina D hay que darla todos los días?',
+    ],
+    note: 'La vacuna del meningococo B no está financiada en todas las CCAA. Consulta la situación en tu comunidad o si merece la pena costearla de forma privada.',
+  },
+  {
+    id: '2m',
+    age: '2 meses',
+    ageShort: '2m',
+    icon: '😊',
+    type: 'Primera ronda vacunal',
+    happens: [
+      'Peso, talla y perímetro cefálico.',
+      'Valoración del desarrollo: sonrisa social, sigue objetos con la mirada, vocaliza.',
+      'Exploración física completa.',
+      'Revisión de la alimentación y valoración de la lactancia.',
+      'Recordatorio de seguridad: nunca zarandear al bebé, posición de dormir.',
+    ],
+    vaccines: ['Hexavalente · 1.ª dosis (DTPa-VPI-Hib-HB)', 'Neumococo conjugado · 1.ª dosis', 'Rotavirus · 1.ª dosis (oral)', 'Meningococo B · 2.ª dosis'],
+    ask: [
+      '¿Qué reacciones son normales tras las vacunas y cuánto duran?',
+      '¿Puedo darle paracetamol si tiene fiebre después?',
+      '¿Está bien desarrollado para su edad?',
+      '¿Cuándo empieza a ser más predecible su rutina de sueño?',
+    ],
+    note: 'Es normal que el bebé esté más irritable y con fiebre leve las 24–48 horas siguientes a las vacunas. El paracetamol a dosis correcta alivia el malestar. Si la fiebre supera los 38°C en menores de 3 meses, consulta.',
+  },
+  {
+    id: '4m',
+    age: '4 meses',
+    ageShort: '4m',
+    icon: '🤲',
+    type: 'Segunda ronda vacunal',
+    happens: [
+      'Peso, talla y perímetro cefálico.',
+      'Valoración del desarrollo: sostiene la cabeza, se apoya en antebrazos boca abajo, coge objetos, ríe.',
+      'Exploración física completa.',
+      'Primera conversación sobre el momento de introducir sólidos (aún no — se espera a los 6 meses).',
+      'Prevención del síndrome de cabeza plana: tiempo boca abajo vigilado, cambiar posición de la cabeza al dormir.',
+    ],
+    vaccines: ['Hexavalente · 2.ª dosis', 'Neumococo conjugado · 2.ª dosis', 'Rotavirus · 2.ª dosis (oral)', 'Meningococo B · 3.ª dosis'],
+    ask: [
+      '¿Cuándo y cómo debo empezar con los sólidos?',
+      '¿El tiempo boca abajo lo hago bien? ¿Cuánto rato?',
+      '¿Es normal la regresión del sueño de los 4 meses?',
+      '¿Debo preocuparme si no ha empezado a darse la vuelta?',
+    ],
+    note: 'La regresión del sueño de los 4 meses es muy real y muy frecuente. Coincide con una maduración importante de la arquitectura del sueño del bebé. El pediatra puede orientarte sobre estrategias.',
+  },
+  {
+    id: '6m',
+    age: '6 meses',
+    ageShort: '6m',
+    icon: '🥣',
+    type: 'Tercera ronda vacunal',
+    happens: [
+      'Peso, talla y perímetro cefálico. El bebé suele haber duplicado el peso del nacimiento.',
+      'Valoración del desarrollo: se sienta con apoyo, transfiere objetos, balbucea.',
+      'Exploración física completa.',
+      'Guía anticipatoria sobre alimentación complementaria: qué alimentos, cómo empezar, BLW vs purés.',
+      'Revisión de la erupción dental (pueden empezar los primeros dientes).',
+    ],
+    vaccines: ['Hexavalente · 3.ª dosis', 'Rotavirus · 3.ª dosis (oral, solo algunos preparados)'],
+    ask: [
+      '¿Por qué alimento empiezo? ¿En qué orden?',
+      '¿Puedo hacer BLW o necesito triturados?',
+      '¿Cuánta agua necesita a partir de ahora?',
+      '¿Los primeros dientes requieren algún cuidado especial?',
+    ],
+    note: 'Es el momento de la alimentación complementaria. No hay un orden de alimentos obligatorio: la evidencia actual no apoya retrasar los alérgenos en bebés sanos. Introduce un alimento nuevo cada 2–3 días para identificar posibles reacciones.',
+  },
+  {
+    id: '9m',
+    age: '9 meses',
+    ageShort: '9m',
+    icon: '🐛',
+    type: 'Revisión sin vacunas',
+    happens: [
+      'Peso, talla y perímetro cefálico.',
+      'Valoración del desarrollo: gatea o está a punto, pinza digital emergente, dice "mamá/papá" sin significado, ansiedad de separación.',
+      'Exploración física completa, con especial atención a los oídos (frecuencia de otitis).',
+      'Revisión de la alimentación complementaria: variedad, texturas, progreso.',
+      'Orientación sobre seguridad del hogar: barreras, enchufes, cajones, escaleras.',
+    ],
+    vaccines: [],
+    noVaccine: 'No toca ninguna vacuna en esta visita.',
+    ask: [
+      '¿Es normal que no gatee todavía? ¿Hay alternativas al gateo?',
+      '¿Cuándo puedo introducir el pescado y el huevo?',
+      '¿La ansiedad de separación es normal? ¿Qué hago cuando llora al dejarlo?',
+      '¿Qué medidas de seguridad son prioritarias en casa ahora que se mueve?',
+    ],
+    note: 'El gateo no es imprescindible para el desarrollo — algunos bebés pasan directamente a ponerse de pie. Lo importante es el movimiento y la exploración, no la forma concreta de desplazarse.',
+  },
+  {
+    id: '12m',
+    age: '12 meses',
+    ageShort: '1 año',
+    icon: '🎂',
+    type: 'Primer cumpleaños',
+    happens: [
+      'Peso, talla y perímetro cefálico.',
+      'Valoración del desarrollo: de pie con apoyo o ya da pasos, pinza fina, dice alguna palabra con significado, señala con el dedo índice.',
+      'Exploración física completa, incluyendo revisión ocular básica.',
+      'Transición nutricional: leche materna o de continuación, introducción de la leche entera de vaca.',
+      'Revisión del sueño y orientación si hay problemas persistentes.',
+    ],
+    vaccines: ['Triple vírica · 1.ª dosis (SRP: sarampión, rubeola, parotiditis)', 'Varicela · 1.ª dosis', 'Meningococo C · 1.ª dosis'],
+    ask: [
+      '¿Cuándo dará los primeros pasos? ¿Debo preocuparme si aún no lo hace?',
+      '¿Puedo darle ya leche entera de vaca?',
+      '¿Cuánto tiempo puede seguir con lactancia materna?',
+      '¿Cuándo retirar el chupete?',
+    ],
+    note: 'Los primeros pasos pueden llegar entre los 9 y los 18 meses dentro de la normalidad. No hay que acelerar nada. Si a los 18 meses aún no camina, el pediatra derivará para valoración.',
+  },
+  {
+    id: '15m',
+    age: '15 meses',
+    ageShort: '15m',
+    icon: '🚶',
+    type: 'Cuarta ronda vacunal',
+    happens: [
+      'Peso, talla y perímetro cefálico.',
+      'Valoración del desarrollo: camina, sube escaleras con ayuda, vocabulario de 5–10 palabras, juego simbólico.',
+      'Exploración física completa.',
+      'Revisión de la alimentación: dieta variada, introducción de la mesa familiar, autonomía con la cuchara.',
+      'Orientación sobre el control de esfínteres (aún no es el momento — entre 2 y 3 años).',
+    ],
+    vaccines: ['Hexavalente · 4.ª dosis (recuerdo)', 'Neumococo conjugado · 3.ª dosis (recuerdo)', 'Meningococo B · 4.ª dosis (recuerdo)'],
+    ask: [
+      '¿Cuántas palabras debería decir ya? ¿Cuándo hay que preocuparse?',
+      '¿Es normal que coma tan poco? ¿Cuándo pasa la neofobia alimentaria?',
+      '¿Cuándo empezamos con el control de esfínteres?',
+      '¿El chupete sigue siendo compatible con el desarrollo del lenguaje?',
+    ],
+    note: 'La neofobia alimentaria (rechazo a alimentos nuevos) es muy frecuente entre los 12 y los 36 meses. Es normal y no requiere intervención — la exposición repetida sin presión es la estrategia más efectiva.',
+  },
+  {
+    id: '18m',
+    age: '18 meses',
+    ageShort: '18m',
+    icon: '🗣️',
+    type: 'Revisión del desarrollo',
+    happens: [
+      'Peso, talla y perímetro cefálico.',
+      'Valoración del desarrollo del lenguaje: debería decir al menos 10–20 palabras.',
+      'Cribado de señales de alerta de TEA (trastorno del espectro autista): contacto visual, atención conjunta, respuesta al nombre.',
+      'Exploración física completa.',
+      'Orientación sobre la rabietas y el desarrollo de la autonomía.',
+    ],
+    vaccines: ['Triple vírica · 2.ª dosis (recuerdo SRP)', 'Varicela · 2.ª dosis', 'Meningococo ACWY · 1.ª dosis'],
+    ask: [
+      '¿Tiene suficiente vocabulario para su edad?',
+      '¿Cómo gestiono las rabietas sin reforzarlas?',
+      '¿Las pantallas son ya aceptables a esta edad?',
+      '¿Cuándo empezamos a preparar el control de esfínteres?',
+    ],
+    note: 'Las señales de alerta de TEA incluyen: no responde a su nombre de forma consistente, no señala para pedir o mostrar, no tiene juego simbólico, regresión en habilidades adquiridas. Si observas alguna, coméntalo con el pediatra sin esperar.',
+  },
+  {
+    id: '2y',
+    age: '2 años',
+    ageShort: '2a',
+    icon: '🧒',
+    type: 'Revisión del terrible two',
+    happens: [
+      'Peso, talla y perímetro cefálico.',
+      'Valoración del desarrollo: frases de 2–3 palabras, corre, sube escaleras, juego paralelo con otros niños.',
+      'Exploración física completa, incluyendo evaluación visual y auditiva.',
+      'Revisión del control de esfínteres si ya está en marcha.',
+      'Orientación sobre hábitos de pantalla, sueño y alimentación en la etapa toddler.',
+    ],
+    vaccines: [],
+    noVaccine: 'No toca ninguna vacuna en esta visita.',
+    ask: [
+      '¿El control de esfínteres va bien o necesito cambiar el enfoque?',
+      '¿Cuánto tiempo de pantalla es aceptable?',
+      '¿Es normal que las rabietas sean tan intensas?',
+      '¿Cuándo debería pasar de la cuna a la cama?',
+    ],
+    note: 'El "terrible two" es una fase del desarrollo completamente normal. La autonomía emergente y la frustración por no poder comunicarse bien son la raíz de muchas rabietas. No es un problema de disciplina — es desarrollo neurológico.',
+  },
+  {
+    id: '3-4y',
+    age: '3–4 años',
+    ageShort: '3-4a',
+    icon: '🎨',
+    type: 'Revisión preescolar',
+    happens: [
+      'Peso, talla e índice de masa corporal (IMC).',
+      'Valoración del lenguaje y la comunicación: frases complejas, inteligible para extraños.',
+      'Exploración visual completa (agudeza visual) y auditiva.',
+      'Exploración física general.',
+      'Orientación sobre preparación para la escuela, hábitos de higiene dental y alimentación saludable.',
+    ],
+    vaccines: ['DTPa · 2.ª dosis recuerdo (difteria, tétanos, tos ferina)', 'VPI · 2.ª dosis recuerdo (polio)', 'Varicela · recuerdo en CCAA que lo incluyan'],
+    ask: [
+      '¿El lenguaje es el adecuado para su edad o necesita valoración logopédica?',
+      '¿Cómo ayudo a mi hijo a prepararse emocionalmente para la escuela?',
+      '¿Cuándo se hace la revisión visual y qué busca exactamente?',
+      '¿Tiene que saber ya escribir su nombre o atarse los zapatos?',
+    ],
+    note: 'Esta revisión suele ser la más completa desde el punto de vista sensorial: la exploración visual es especialmente importante porque una ambliopía (ojo vago) detectada antes de los 6 años tiene mucho mejor pronóstico.',
+  },
+  {
+    id: '6y',
+    age: '6 años',
+    ageShort: '6a',
+    icon: '🎒',
+    type: 'Revisión escolar',
+    happens: [
+      'Peso, talla e IMC. Primer cribado de obesidad infantil.',
+      'Valoración del desarrollo psicomotor, la atención y el aprendizaje.',
+      'Exploración visual y auditiva.',
+      'Revisión de la dentición: pérdida de los primeros dientes de leche.',
+      'Orientación sobre actividad física, alimentación y tiempo de pantalla.',
+    ],
+    vaccines: ['Td · recuerdo (tétanos y difteria de baja carga antigénica)', 'Meningococo ACWY · recuerdo en algunas CCAA'],
+    ask: [
+      '¿Cómo detecto si tiene dificultades de aprendizaje o atención (TDAH)?',
+      '¿La mochila del cole puede afectar a su espalda? ¿Cuánto peso máximo?',
+      '¿Cuánto deporte es recomendable a esta edad?',
+      '¿Cuándo hay que hacer la primera revisión con el dentista?',
+    ],
+    note: 'A los 6 años empiezan a notarse en la escuela posibles dificultades de aprendizaje. Si los profesores o los padres detectan señales (dificultad con la lectura, atención muy dispersa, frustración frecuente), la revisión pediátrica es el primer paso para una valoración.',
+  },
+];
+
+// ── State ──────────────────────────────────────────────────────────
+let currentIdx = 0;
+
+// ── Build timeline ─────────────────────────────────────────────────
+function buildTimeline() {
+  const tl = document.getElementById('timeline');
+  tl.innerHTML = '';
+  VISITS.forEach((v, i) => {
+    if (i > 0) {
+      const line = document.createElement('div');
+      line.className = 'tl-line';
+      tl.appendChild(line);
+    }
+    const item = document.createElement('div');
+    item.className = 'timeline-item' + (i === currentIdx ? ' active' : '');
+    item.innerHTML = `
+      <div class="tl-dot">${v.icon}</div>
+      <div class="tl-label">${v.ageShort}</div>`;
+    item.addEventListener('click', () => { currentIdx = i; render(); });
+    tl.appendChild(item);
+  });
+
+  // Scroll active dot into view
+  setTimeout(() => {
+    const activeItem = tl.querySelectorAll('.timeline-item')[currentIdx];
+    if (activeItem) activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }, 50);
+}
+
+// ── Render visit ───────────────────────────────────────────────────
+function render() {
+  const v = VISITS[currentIdx];
+
+  // Timeline highlight
+  document.querySelectorAll('.timeline-item').forEach((el, i) => {
+    el.classList.toggle('active', i === currentIdx);
+  });
+
+  // Scroll active into view
+  const tl = document.getElementById('timeline');
+  const activeItem = tl.querySelectorAll('.timeline-item')[currentIdx];
+  if (activeItem) activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+  // Header
+  document.getElementById('v-icon').textContent = v.icon;
+  document.getElementById('v-age').textContent   = v.age;
+  document.getElementById('v-type').textContent  = v.type;
+
+  // Happens
+  const happensList = document.getElementById('v-happens');
+  happensList.innerHTML = v.happens.map(h =>
+    `<div class="happens-item"><div class="happens-dot"></div><span>${h}</span></div>`
+  ).join('');
+
+  // Vaccines
+  const vaccWrap = document.getElementById('v-vaccines');
+  if (v.vaccines && v.vaccines.length > 0) {
+    vaccWrap.innerHTML = v.vaccines.map(vac =>
+      `<span class="vaccine-pill">${vac}</span>`
+    ).join('');
+  } else {
+    vaccWrap.innerHTML = `<span class="no-vaccine">${v.noVaccine || 'Sin vacunas en esta visita.'}</span>`;
+  }
+
+  // Ask
+  const askList = document.getElementById('v-ask');
+  askList.innerHTML = v.ask.map(q =>
+    `<div class="ask-item">${q}</div>`
+  ).join('');
+
+  // Note
+  document.getElementById('v-note').innerHTML = `<strong>Ten en cuenta:</strong> ${v.note}`;
+
+  // Nav buttons
+  document.getElementById('btn-prev').disabled = currentIdx === 0;
+  document.getElementById('btn-next').disabled = currentIdx === VISITS.length - 1;
+
+  // Prev/next labels
+  if (currentIdx > 0)
+    document.getElementById('btn-prev').textContent = `← ${VISITS[currentIdx - 1].age}`;
+  if (currentIdx < VISITS.length - 1)
+    document.getElementById('btn-next').textContent = `${VISITS[currentIdx + 1].age} →`;
+
+  // Re-animate card
+  const card = document.getElementById('visit-card');
+  card.style.animation = 'none';
+  card.offsetHeight;
+  card.style.animation = '';
+}
+
+function navigate(dir) {
+  const next = currentIdx + dir;
+  if (next >= 0 && next < VISITS.length) {
+    currentIdx = next;
+    render();
+  }
+}
+
+buildTimeline();
+render();
+</script>
+</body>
+</html>

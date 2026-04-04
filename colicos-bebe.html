@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Cólicos del bebé · Técnicas para calmarlos · babyFAQ</title>
+<meta name="description" content="Guía de técnicas para calmar los cólicos del bebé con temporizador. Postura en balón, masaje abdominal, ruido blanco y más. Qué son, cuándo pasan y cómo sobrevivir.">
+<meta property="og:title" content="Cólicos del bebé · Técnicas para calmarlos · babyFAQ">
+<meta property="og:description" content="Guía de técnicas para calmar los cólicos del bebé con temporizador. Postura en balón, masaje abdominal, ruido blanco y más. Qué son, cuándo pasan y cómo sobrevivir.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fdf6ee">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6ee;
+    --warm-white: #fffcf8;
+    --blush: #f2c4b0;
+    --terracota: #c97a5e;
+    --deep: #3d2b1f;
+    --mid: #7a5c4e;
+    --soft: #c4a898;
+    --peach-bg: #fdf0e8;
+    --peach-border: #e8c4a8;
+    --green: #3a7a4a;
+    --green-bg: #edf5f0;
+    --green-border: #a8d8b0;
+    --amber: #b07020;
+    --amber-bg: #fdf3e0;
+    --amber-border: #f0cc8a;
+    --purple: #7a5aaa;
+    --purple-bg: #ede8f8;
+    --purple-border: #c4b0e8;
+    --blue: #3a6aaa;
+    --blue-bg: #eef3fc;
+    --blue-border: #a8c0e8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 300px; height: 300px; background: #f7d5c4; top: -100px; right: -80px; opacity: 0.45; }
+  .blob-2 { width: 250px; height: 250px; background: #d4e8d8; bottom: -80px; left: -60px; opacity: 0.35; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--terracota); }
+
+  header { text-align: center; margin-bottom: 28px; }
+  .badge { display: inline-block; background: var(--peach-bg); color: var(--terracota); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
+  @media (min-width: 480px) { h1 { font-size: 34px; } }
+  @media (min-width: 640px) { h1 { font-size: 38px; } }
+  h1 em { font-style: italic; color: var(--terracota); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300; }
+
+  /* ── Regla del 3 ── */
+  .rule-card {
+    background: var(--warm-white); border-radius: 20px;
+    padding: 20px 18px; margin-bottom: 14px;
+    box-shadow: 0 2px 16px rgba(61,43,31,0.06);
+    border: 1px solid rgba(196,168,152,0.2);
+  }
+  .rule-row { display: flex; gap: 8px; }
+  .rule-block {
+    flex: 1; background: var(--peach-bg); border-radius: 14px;
+    padding: 14px 10px; text-align: center;
+    border: 1.5px solid var(--peach-border);
+  }
+  .rule-num { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 300; color: var(--terracota); line-height: 1; display: block; }
+  .rule-label { font-size: 10px; color: var(--mid); font-weight: 500; display: block; margin-top: 4px; letter-spacing: 0.04em; }
+  .rule-note { font-size: 11px; color: var(--soft); text-align: center; margin-top: 10px; line-height: 1.5; font-style: italic; }
+
+  /* ── Técnicas ── */
+  .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(61,43,31,0.06); border: 1px solid rgba(196,168,152,0.2); }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 14px; }
+
+  .technique-grid { display: flex; flex-direction: column; gap: 8px; }
+
+  .technique {
+    border-radius: 16px; border: 2px solid transparent;
+    overflow: hidden; transition: border-color 0.2s;
+    cursor: pointer;
+  }
+  .technique.active { border-color: var(--terracota); }
+
+  .technique-header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 16px; background: var(--cream);
+    user-select: none; touch-action: manipulation;
+  }
+  .technique.active .technique-header { background: var(--peach-bg); }
+
+  .tech-emoji { font-size: 24px; flex-shrink: 0; }
+  .tech-info { flex: 1; }
+  .tech-name { font-size: 14px; font-weight: 500; color: var(--deep); }
+  .tech-tagline { font-size: 11px; color: var(--soft); margin-top: 2px; }
+  .tech-chevron { font-size: 12px; color: var(--soft); transition: transform 0.2s; flex-shrink: 0; }
+  .technique.active .tech-chevron { transform: rotate(90deg); }
+
+  .technique-body { display: none; background: var(--warm-white); padding: 16px 16px 18px; }
+  .technique.active .technique-body { display: block; }
+
+  /* Timer */
+  .timer-wrap { text-align: center; margin-bottom: 16px; }
+  .timer-circle {
+    width: 120px; height: 120px; border-radius: 50%;
+    border: 4px solid var(--blush);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    margin: 0 auto 12px;
+    position: relative;
+    background: var(--peach-bg);
+    transition: border-color 0.3s;
+  }
+  .timer-circle.running { border-color: var(--terracota); }
+  .timer-circle.done    { border-color: var(--green); background: var(--green-bg); }
+  .timer-time { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 300; color: var(--deep); line-height: 1; }
+  .timer-label { font-size: 10px; color: var(--soft); font-weight: 500; letter-spacing: 0.06em; margin-top: 3px; }
+  .timer-circle.done .timer-time { color: var(--green); font-size: 28px; }
+
+  .timer-btns { display: flex; gap: 8px; justify-content: center; }
+  .timer-btn {
+    padding: 10px 20px; border-radius: 12px; border: none;
+    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+    cursor: pointer; touch-action: manipulation; transition: background 0.15s, transform 0.1s;
+  }
+  .timer-btn:active { transform: scale(0.97); }
+  .timer-btn.start { background: var(--terracota); color: white; }
+  .timer-btn.start:hover { background: #b56a4e; }
+  .timer-btn.reset { background: var(--cream); color: var(--mid); border: 1.5px solid rgba(196,168,152,0.4); }
+
+  /* Steps */
+  .steps-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+  .step {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 13px; color: var(--mid); line-height: 1.6;
+  }
+  .step-num {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--blush); color: var(--terracota);
+    font-size: 11px; font-weight: 700; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 1px;
+  }
+
+  /* Tip chip */
+  .tip-chip {
+    background: var(--amber-bg); border: 1px solid var(--amber-border);
+    border-radius: 10px; padding: 10px 12px;
+    font-size: 12px; color: #7a5010; line-height: 1.6;
+  }
+  .tip-chip strong { color: var(--deep); font-weight: 500; }
+
+  /* ── Cuándo preocuparse ── */
+  .warn-card {
+    background: var(--warm-white); border-radius: 20px;
+    padding: 20px 18px; margin-bottom: 14px;
+    box-shadow: 0 2px 16px rgba(61,43,31,0.06);
+    border: 1.5px solid #f0a8a8;
+    background: #fdf0f0;
+  }
+  .warn-title { font-size: 13px; font-weight: 600; color: #a83030; margin-bottom: 10px; display: flex; align-items: center; gap: 7px; }
+  .warn-list { display: flex; flex-direction: column; gap: 6px; }
+  .warn-item { font-size: 12px; color: #7a2020; line-height: 1.6; padding-left: 14px; position: relative; }
+  .warn-item::before { content: '·'; position: absolute; left: 4px; font-weight: 700; }
+
+  /* ── Supervivencia ── */
+  .survival-card {
+    background: var(--purple-bg); border-radius: 20px;
+    padding: 20px 18px; margin-bottom: 14px;
+    border: 1px solid var(--purple-border);
+  }
+  .survival-title { font-size: 11px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--purple); margin-bottom: 12px; }
+  .survival-items { display: flex; flex-direction: column; gap: 8px; }
+  .survival-item { font-size: 13px; color: var(--mid); line-height: 1.6; display: flex; gap: 8px; align-items: flex-start; }
+  .survival-icon { flex-shrink: 0; font-size: 16px; }
+
+  /* ── Info section ── */
+  .info-section { background: var(--warm-white); border-radius: 20px; padding: 28px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(61,43,31,0.06); border: 1px solid rgba(196,168,152,0.2); }
+  .info-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
+  .info-section h2 em { font-style: italic; color: var(--terracota); }
+  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; }
+  .info-section p:last-child { margin-bottom: 0; }
+  .info-section strong { color: var(--deep); font-weight: 500; }
+  .info-divider { height: 1px; background: rgba(196,168,152,0.2); margin: 20px 0; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.65; margin-top: 20px; padding: 0 8px; }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">0–4 meses</span>
+    <h1>Cólicos del <em>bebé</em>:<br>qué hacer ahora</h1>
+    <p class="subtitle">Técnicas con temporizador para calmar el llanto. Porque a las 2 de la mañana no hay tiempo para leer artículos.</p>
+  </header>
+
+  <!-- Regla del 3 -->
+  <div class="rule-card">
+    <div class="section-label">La regla del tres</div>
+    <div class="rule-row">
+      <div class="rule-block">
+        <span class="rule-num">3</span>
+        <span class="rule-label">horas al día</span>
+      </div>
+      <div class="rule-block">
+        <span class="rule-num">3</span>
+        <span class="rule-label">días a la semana</span>
+      </div>
+      <div class="rule-block">
+        <span class="rule-num">3</span>
+        <span class="rule-label">semanas seguidas</span>
+      </div>
+    </div>
+    <p class="rule-note">Si se cumplen los tres criterios, se considera cólico del lactante. Afecta al 10–40% de los bebés y <strong>siempre desaparece solo</strong> hacia las 3–4 meses.</p>
+  </div>
+
+  <!-- Técnicas -->
+  <div class="card">
+    <div class="section-label">Técnicas para calmarle · toca una para empezar</div>
+    <div class="technique-grid" id="techniques"></div>
+  </div>
+
+  <!-- Cuándo preocuparse -->
+  <div class="warn-card">
+    <div class="warn-title">🚨 Esto NO es un cólico — ve al pediatra</div>
+    <div class="warn-list">
+      <div class="warn-item">Fiebre ≥ 38°C en menor de 3 meses.</div>
+      <div class="warn-item">Llanto inconsolable más de 3 horas sin ninguna pausa.</div>
+      <div class="warn-item">Abdomen visiblemente hinchado o muy duro al tacto.</div>
+      <div class="warn-item">Sangre en las heces o vómito con bilis (verde).</div>
+      <div class="warn-item">El bebé no come en absoluto o tiene muy mal color.</div>
+      <div class="warn-item">El llanto es muy diferente al habitual — agudo, de dolor real.</div>
+    </div>
+  </div>
+
+  <!-- Supervivencia para padres -->
+  <div class="survival-card">
+    <div class="survival-title">💜 Para quien está al límite ahora mismo</div>
+    <div class="survival-items">
+      <div class="survival-item">
+        <span class="survival-icon">🔄</span>
+        <span><strong>Túrnate.</strong> Si hay dos cuidadores, cambia cada 20–30 minutos. Nadie puede mantener la calma indefinidamente con un bebé llorando.</span>
+      </div>
+      <div class="survival-item">
+        <span class="survival-icon">🛏️</span>
+        <span><strong>Déjalo seguro y sal un momento.</strong> Si estás al límite, pon al bebé boca arriba en su cuna y tómate 2–3 minutos fuera. Es la decisión más sensata.</span>
+      </div>
+      <div class="survival-item">
+        <span class="survival-icon">📅</span>
+        <span><strong>Tiene fecha de caducidad.</strong> Los cólicos casi siempre desaparecen entre las 12 y las 16 semanas. No es para siempre, aunque ahora lo parezca.</span>
+      </div>
+      <div class="survival-item">
+        <span class="survival-icon">🤝</span>
+        <span><strong>Pide ayuda.</strong> A la familia, a amigos, a tu matrona. No tienes que aguantar esto solo. El agotamiento severo es un problema de salud real.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info section -->
+  <div class="info-section">
+
+    <h2>Qué son los <em>cólicos</em> del lactante</h2>
+    <p>El cólico del lactante es uno de los motivos de consulta pediátrica más frecuentes en los primeros meses de vida. Se define clínicamente por la <strong>regla del tres</strong>: llanto intenso de al menos 3 horas al día, al menos 3 días a la semana, durante al menos 3 semanas consecutivas, en un bebé por lo demás sano y bien alimentado.</p>
+    <p>A pesar de lo angustiante que resulta para los padres, los cólicos no tienen consecuencias a largo plazo para el bebé. No indican ninguna enfermedad, no afectan al desarrollo neurológico y no dejan ninguna secuela. Son una fase del desarrollo que el bebé supera.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>Por qué <em>nadie sabe</em> exactamente qué los causa</h2>
+    <p>Después de décadas de investigación, la causa exacta del cólico del lactante sigue siendo desconocida. Las hipótesis más estudiadas incluyen la <strong>inmadurez del sistema digestivo</strong> (el intestino aún aprende a moverse de forma coordinada), la <strong>microbiota intestinal</strong> en desarrollo, la <strong>hipersensibilidad a la estimulación</strong> del entorno, y factores relacionados con la <strong>regulación del sistema nervioso autónomo</strong>.</p>
+    <p>Ninguna de estas teorías explica completamente el fenómeno, lo que en la práctica significa que tampoco existe un tratamiento que funcione de forma universal. Lo que sí está claro es que el cólico no está causado por la leche materna, por los gases, ni por la alimentación de la madre salvo en casos muy concretos de alergia a la proteína de leche de vaca.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>Qué <em>no funciona</em> (aunque lo veas por todas partes)</h2>
+    <p><strong>Las gotas de simeticona</strong> (Aerored, Lefax) son el "remedio" más vendido para los cólicos en España. Sin embargo, los estudios controlados no demuestran que sean más eficaces que el placebo. La AEP no las recomienda específicamente para el cólico del lactante.</p>
+    <p><strong>Cambiar la fórmula</strong> sin indicación médica tampoco suele ayudar en bebés sin alergia confirmada a la proteína de leche de vaca. El cambio constante de fórmula puede generar más problemas digestivos de los que resuelve.</p>
+    <p><strong>Restringir la dieta de la madre</strong> que da el pecho (evitar coles, legumbres, lácteos) tampoco tiene respaldo científico sólido salvo en casos de alergia diagnosticada. Privar a la madre de nutrientes importantes sin evidencia clara no es una buena estrategia.</p>
+    <p>Lo que sí tiene algo de respaldo son los <strong>probióticos con Lactobacillus reuteri</strong> en bebés con lactancia materna exclusiva: algunos estudios muestran reducción del tiempo de llanto, aunque los resultados no son definitivos. Consúltalo con tu pediatra antes de usarlos.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>Cuándo <em>desaparecen</em> los cólicos</h2>
+    <p>La buena noticia — y es genuinamente buena — es que los cólicos del lactante tienen una fecha de caducidad bastante precisa. La gran mayoría desaparecen <strong>entre las 12 y las 16 semanas de vida</strong>, independientemente de lo que hagas o dejes de hacer. Algunos bebés los superan antes, y una pequeña minoría los mantiene hasta el cuarto mes.</p>
+    <p>Este final espontáneo coincide con la maduración del sistema nervioso del bebé, el desarrollo de mejores mecanismos de autorregulación y el establecimiento de una microbiota intestinal más estable. No es que el tratamiento que estés usando haya funcionado — es que el bebé ha madurado.</p>
+
+  </div>
+
+  <p class="disclaimer">
+    Información basada en las recomendaciones de la AEP y la evidencia pediátrica actual.<br>
+    Si tienes dudas sobre si tu bebé tiene cólicos o algo más, consulta con tu pediatra o matrona.
+  </p>
+
+</div>
+
+<script>
+const TECHNIQUES = [
+  {
+    emoji: '🏈',
+    name: 'Postura en balón de rugby',
+    tagline: 'La más efectiva · presión abdominal suave',
+    duration: 5 * 60,
+    durationLabel: '5 min',
+    steps: [
+      'Pon al bebé boca abajo sobre tu antebrazo, con la cabeza cerca de tu codo y las piernas a ambos lados de tu mano.',
+      'La presión suave sobre el abdomen alivia la sensación de gases y tensión intestinal.',
+      'Puedes caminar suavemente o balancearte mientras lo sostienes en esta postura.',
+      'Asegúrate de que la cabeza quede siempre un poco más alta que el resto del cuerpo.',
+    ],
+    tip: '<strong>Funciona mejor</strong> si añades un movimiento suave de vaivén mientras caminas. El movimiento + presión es más eficaz que solo la postura.',
+  },
+  {
+    emoji: '🔊',
+    name: 'Ruido blanco',
+    tagline: 'Imita el sonido del útero · muy efectivo',
+    duration: 10 * 60,
+    durationLabel: '10 min',
+    steps: [
+      'Pon ruido blanco a un volumen moderado, a unos 50 cm del bebé (nunca directamente en el oído).',
+      'El sonido del secador, el extractor de cocina o una app de ruido blanco funcionan igual.',
+      'El ruido blanco imita el ambiente sonoro constante del útero, que el bebé reconoce.',
+      'Combínalo con la postura en balón o el movimiento para mayor eficacia.',
+    ],
+    tip: '<strong>Volumen:</strong> no más alto de lo que hablarías normalmente. Si tienes que subir la voz para hablar, baja el volumen.',
+  },
+  {
+    emoji: '🤲',
+    name: 'Masaje abdominal',
+    tagline: 'Movimiento de las agujas del reloj · alivia gases',
+    duration: 5 * 60,
+    durationLabel: '5 min',
+    steps: [
+      'Pon al bebé boca arriba sobre una superficie cálida y asegúrate de que tus manos estén calientes.',
+      'Con los dedos juntos, traza círculos suaves en el sentido de las agujas del reloj sobre su barriga.',
+      'Empieza en el lado derecho (a tu izquierda), sube hacia el ombligo, cruza hacia la izquierda y baja.',
+      'Presión muy suave — no es un masaje de adulto. Observa si el bebé se relaja o se tensa más.',
+    ],
+    tip: '<strong>Sentido horario siempre:</strong> así sigues la dirección del intestino grueso y ayudas a mover los gases hacia la salida.',
+  },
+  {
+    emoji: '🚲',
+    name: 'Bicicleta con las piernas',
+    tagline: 'Mueve el gas hacia afuera · activo y efectivo',
+    duration: 3 * 60,
+    durationLabel: '3 min',
+    steps: [
+      'Pon al bebé boca arriba y sujeta sus piernas por las pantorrillas.',
+      'Mueve las piernas como si pedaleara en bicicleta: una hacia el pecho mientras la otra se extiende.',
+      'Ritmo suave y constante, sin forzar los movimientos.',
+      'Puedes alternar con momentos en que doblas las dos rodillas hacia el pecho a la vez y mantienes 3–4 segundos.',
+    ],
+    tip: '<strong>Doblar ambas piernas a la vez</strong> hacia el pecho con una suave presión es especialmente efectivo para liberar gases.',
+  },
+  {
+    emoji: '🌊',
+    name: 'Movimiento rítmico',
+    tagline: 'Balanceo suave · activa el sistema vestibular',
+    duration: 8 * 60,
+    durationLabel: '8 min',
+    steps: [
+      'Sostén al bebé cerca de tu pecho, bien sujeto, cabeza apoyada en tu hombro.',
+      'Balancea suavemente de lado a lado o de adelante a atrás con un ritmo constante.',
+      'El movimiento rítmico activa el sistema vestibular, que tiene un efecto calmante documentado.',
+      'Caminar con el bebé en brazos también funciona: el movimiento de la marcha es muy efectivo.',
+    ],
+    tip: '<strong>Constancia sobre intensidad:</strong> un movimiento suave y continuo calma más que sacudidas más fuertes. Nunca sacudas al bebé.',
+  },
+  {
+    emoji: '🛁',
+    name: 'Baño templado',
+    tagline: 'Calor + agua · relaja la musculatura intestinal',
+    duration: 10 * 60,
+    durationLabel: '10 min',
+    steps: [
+      'Prepara el agua a 37°C (temperatura corporal, que se siente neutra al codo).',
+      'Sumerge al bebé suavemente, sujetando siempre la cabeza y la nuca.',
+      'El calor del agua relaja la musculatura abdominal y puede aliviar la tensión del cólico.',
+      'Habla o canta con voz suave mientras lo bañas para añadir el efecto calmante de tu voz.',
+    ],
+    tip: '<strong>Funciona mejor</strong> si el cólico ha empezado hace poco. Con llanto muy intenso, puede ser difícil bañarlo de forma segura — espera a que ceda un poco.',
+  },
+  {
+    emoji: '🫁',
+    name: 'Contacto piel con piel',
+    tagline: 'Calor corporal + latido · el entorno más familiar',
+    duration: 15 * 60,
+    durationLabel: '15 min',
+    steps: [
+      'Sientate cómodamente y pon al bebé sobre tu pecho desnudo, piel con piel.',
+      'Cubre la espalda del bebé con una manta ligera si la habitación no está muy caliente.',
+      'Tu latido, tu calor y tu olor son los estímulos más familiares para el bebé — los conoce desde el útero.',
+      'Respira profundamente y de forma regular: el bebé sincroniza su respiración con la tuya.',
+    ],
+    tip: '<strong>Funciona para cuidadores de cualquier sexo:</strong> el contacto piel con piel no es exclusivo de la lactancia. El latido y el calor son igual de efectivos.',
+  },
+];
+
+// Timer state per technique
+const timerState = {};
+TECHNIQUES.forEach((t, i) => {
+  timerState[i] = { remaining: t.duration, running: false, interval: null };
+});
+
+let openIdx = null;
+
+function buildTechniques() {
+  const grid = document.getElementById('techniques');
+  TECHNIQUES.forEach((t, i) => {
+    const div = document.createElement('div');
+    div.className = 'technique';
+    div.id = 'tech-' + i;
+
+    div.innerHTML = `
+      <div class="technique-header" onclick="toggleTech(${i})">
+        <span class="tech-emoji">${t.emoji}</span>
+        <div class="tech-info">
+          <div class="tech-name">${t.name}</div>
+          <div class="tech-tagline">${t.tagline}</div>
+        </div>
+        <span class="tech-chevron">›</span>
+      </div>
+      <div class="technique-body">
+        <div class="timer-wrap">
+          <div class="timer-circle" id="circle-${i}">
+            <span class="timer-time" id="time-${i}">${fmtTime(t.duration)}</span>
+            <span class="timer-label" id="tlabel-${i}">${t.durationLabel}</span>
+          </div>
+          <div class="timer-btns">
+            <button class="timer-btn start" id="startbtn-${i}" onclick="toggleTimer(${i})">▶ Iniciar</button>
+            <button class="timer-btn reset" onclick="resetTimer(${i})">↩ Reiniciar</button>
+          </div>
+        </div>
+        <div class="steps-list">
+          ${t.steps.map((s, n) => `
+            <div class="step">
+              <div class="step-num">${n + 1}</div>
+              <span>${s}</span>
+            </div>`).join('')}
+        </div>
+        <div class="tip-chip">💡 ${t.tip}</div>
+      </div>`;
+
+    grid.appendChild(div);
+  });
+}
+
+function toggleTech(i) {
+  const el = document.getElementById('tech-' + i);
+  const isOpen = el.classList.contains('active');
+
+  // Close all
+  document.querySelectorAll('.technique').forEach(t => t.classList.remove('active'));
+
+  if (!isOpen) {
+    el.classList.add('active');
+    openIdx = i;
+  } else {
+    openIdx = null;
+  }
+}
+
+// ── Timer ──────────────────────────────────────────────────────────
+function fmtTime(secs) {
+  const m = Math.floor(secs / 60);
+  const s = secs % 60;
+  return `${m}:${String(s).padStart(2, '0')}`;
+}
+
+function toggleTimer(i) {
+  const ts = timerState[i];
+  if (ts.running) {
+    clearInterval(ts.interval);
+    ts.running = false;
+    document.getElementById('startbtn-' + i).textContent = '▶ Continuar';
+  } else {
+    if (ts.remaining <= 0) return;
+    ts.running = true;
+    document.getElementById('startbtn-' + i).textContent = '⏸ Pausar';
+    document.getElementById('circle-' + i).classList.add('running');
+    document.getElementById('circle-' + i).classList.remove('done');
+
+    ts.interval = setInterval(() => {
+      ts.remaining--;
+      document.getElementById('time-' + i).textContent = fmtTime(ts.remaining);
+
+      if (ts.remaining <= 0) {
+        clearInterval(ts.interval);
+        ts.running = false;
+        const circle = document.getElementById('circle-' + i);
+        circle.classList.remove('running');
+        circle.classList.add('done');
+        document.getElementById('time-' + i).textContent = '✓';
+        document.getElementById('tlabel-' + i).textContent = '¡Listo!';
+        document.getElementById('startbtn-' + i).textContent = '▶ Iniciar';
+      }
+    }, 1000);
+  }
+}
+
+function resetTimer(i) {
+  const ts = timerState[i];
+  clearInterval(ts.interval);
+  ts.running = false;
+  ts.remaining = TECHNIQUES[i].duration;
+  const circle = document.getElementById('circle-' + i);
+  circle.classList.remove('running', 'done');
+  document.getElementById('time-' + i).textContent = fmtTime(ts.remaining);
+  document.getElementById('tlabel-' + i).textContent = TECHNIQUES[i].durationLabel;
+  document.getElementById('startbtn-' + i).textContent = '▶ Iniciar';
+}
+
+buildTechniques();
+</script>
+</body>
+</html>
