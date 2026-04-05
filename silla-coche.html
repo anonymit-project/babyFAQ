@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Silla de coche para bebé · Guía de grupos e i-Size · babyFAQ</title>
+<meta name="description" content="Guía completa de sillas de coche para bebés y niños. Normativa i-Size, grupos ECE, contramarcha, errores frecuentes y cuándo cambiar de silla. De 0 a 12 años.">
+<meta property="og:title" content="Silla de coche para bebé · Guía de grupos i-Size · babyFAQ">
+<meta property="og:description" content="Guía completa de sillas de coche para bebés. Normativa i-Size, grupos, cuándo cambiar y los errores más peligrosos. Todo lo que necesitas saber antes de comprar.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f4f6fb">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f4f6fb;
+    --warm-white: #fafbff;
+    --blue: #3a5aaa;
+    --blue-soft: #c0ccf0;
+    --deep: #1a2040;
+    --mid: #3a4a70;
+    --soft: #8a9ac4;
+    --blue-bg: #eaedfa;
+    --blue-border: #b0bcec;
+    --green: #3a7a4a;
+    --green-bg: #eaf5f0;
+    --green-border: #a8d8b0;
+    --amber: #b07020;
+    --amber-bg: #fdf3e0;
+    --amber-border: #f0cc8a;
+    --red: #a83030;
+    --red-bg: #fdf0f0;
+    --red-border: #f0a8a8;
+    --purple: #7a4aaa;
+    --purple-bg: #f0e8fc;
+    --purple-border: #c8a8ec;
+    --terracota: #c97a5e;
+    --blush: #f2c4b0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 300px; height: 300px; background: #b0c0f0; top: -100px; right: -80px; opacity: 0.3; }
+  .blob-2 { width: 250px; height: 250px; background: #b0d8f0; bottom: -80px; left: -60px; opacity: 0.25; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--blue); }
+
+  header { text-align: center; margin-bottom: 28px; }
+  .badge { display: inline-block; background: var(--blue-bg); color: var(--blue); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
+  @media (min-width: 480px) { h1 { font-size: 34px; } }
+  @media (min-width: 640px) { h1 { font-size: 38px; } }
+  h1 em { font-style: italic; color: var(--blue); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300; }
+
+  .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,32,64,0.07); border: 1px solid rgba(138,154,196,0.2); }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 12px; }
+
+  /* ── Selector de edad/peso ── */
+  .toggle-row { display: flex; gap: 7px; margin-bottom: 14px; }
+  .toggle-btn { flex: 1; padding: 9px 6px; border-radius: 12px; border: 1.5px solid rgba(138,154,196,0.3); background: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; color: var(--mid); cursor: pointer; transition: all 0.18s; text-align: center; touch-action: manipulation; }
+  .toggle-btn.active { background: var(--warm-white); border-color: var(--blue); color: var(--deep); box-shadow: 0 2px 8px rgba(58,90,170,0.15); }
+
+  .hold-sel { background: var(--cream); border-radius: 14px; border: 1.5px solid rgba(138,154,196,0.35); display: flex; align-items: center; height: 72px; padding: 0 4px; }
+  .hold-btn { width: 48px; height: 56px; flex-shrink: 0; border-radius: 10px; border: none; background: transparent; color: var(--blue); font-size: 26px; font-weight: 300; cursor: pointer; display: flex; align-items: center; justify-content: center; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: background 0.1s; line-height: 1; }
+  .hold-btn:active, .hold-btn.pressing { background: var(--blue-soft); }
+  .hold-center { flex: 1; text-align: center; }
+  .hold-val { font-family: 'Fraunces', serif; font-size: 38px; font-weight: 300; color: var(--deep); display: block; line-height: 1; }
+  .hold-unit { font-size: 12px; color: var(--soft); }
+
+  /* ── Result silla ── */
+  .silla-card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,32,64,0.07); border: 1px solid rgba(138,154,196,0.2); animation: fadeUp 0.3s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+
+  .silla-header { background: var(--blue-bg); border: 1.5px solid var(--blue-border); border-radius: 16px; padding: 18px 16px; margin-bottom: 16px; text-align: center; }
+  .silla-group { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 400; color: var(--blue); display: block; margin-bottom: 4px; letter-spacing: 0.02em; }
+  .silla-name  { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 300; color: var(--deep); display: block; line-height: 1.1; }
+  .silla-range { font-size: 11px; color: var(--soft); display: block; margin-top: 6px; }
+
+  .silla-stats { display: flex; gap: 8px; margin-bottom: 14px; }
+  .silla-stat  { flex: 1; background: var(--cream); border-radius: 12px; padding: 11px 8px; text-align: center; }
+  .ss-label { font-size: 9px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 4px; }
+  .ss-value { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 400; color: var(--deep); display: block; line-height: 1.2; }
+
+  /* Instalación */
+  .install-block { margin-bottom: 12px; }
+  .install-title { font-size: 10px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 8px; }
+  .install-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .install-chip { background: var(--green-bg); border: 1px solid var(--green-border); border-radius: 20px; font-size: 11px; font-weight: 500; color: var(--green); padding: 4px 11px; }
+  .install-chip.required { background: var(--blue-bg); border-color: var(--blue-border); color: var(--blue); }
+
+  /* Contramarcha badge */
+  .contra-block { border-radius: 13px; padding: 13px 14px; margin-bottom: 12px; }
+  .contra-block.yes { background: var(--green-bg); border: 1px solid var(--green-border); }
+  .contra-block.no  { background: var(--cream);    border: 1px solid rgba(138,154,196,0.25); }
+  .contra-title { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 5px; }
+  .contra-block.yes .contra-title { color: var(--green); }
+  .contra-block.no  .contra-title { color: var(--soft); }
+  .contra-text { font-size: 12px; color: var(--mid); line-height: 1.6; }
+
+  /* Context note */
+  .context-note { background: var(--cream); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: var(--mid); line-height: 1.65; border: 1px solid rgba(138,154,196,0.2); }
+  .context-note strong { color: var(--deep); font-weight: 500; }
+
+  /* ── Timeline de sillas ── */
+  .timeline-card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,32,64,0.07); border: 1px solid rgba(138,154,196,0.2); }
+  .timeline-list { display: flex; flex-direction: column; gap: 0; }
+  .tl-item { display: flex; gap: 14px; position: relative; }
+  .tl-item:not(:last-child)::before { content: ''; position: absolute; left: 15px; top: 32px; bottom: -8px; width: 2px; background: rgba(138,154,196,0.25); z-index: 0; }
+  .tl-dot-wrap { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; padding-top: 6px; z-index: 1; }
+  .tl-dot { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; border: 2px solid transparent; }
+  .tl-dot.g0  { background: var(--purple-bg); border-color: var(--purple-border); }
+  .tl-dot.g1  { background: var(--blue-bg);   border-color: var(--blue-border); }
+  .tl-dot.g2  { background: var(--green-bg);  border-color: var(--green-border); }
+  .tl-dot.g3  { background: var(--amber-bg);  border-color: var(--amber-border); }
+  .tl-body { flex: 1; padding: 4px 0 20px; }
+  .tl-group { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); margin-bottom: 2px; }
+  .tl-name  { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 400; color: var(--deep); margin-bottom: 3px; }
+  .tl-range { font-size: 12px; color: var(--mid); }
+  .tl-note  { font-size: 11px; color: var(--soft); margin-top: 4px; line-height: 1.5; font-style: italic; }
+
+  /* ── Errores ── */
+  .errors-list { display: flex; flex-direction: column; gap: 8px; }
+  .error-row { display: flex; align-items: flex-start; gap: 10px; background: var(--red-bg); border: 1px solid var(--red-border); border-radius: 13px; padding: 12px 13px; }
+  .error-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .error-body { flex: 1; }
+  .error-title { font-size: 13px; font-weight: 600; color: var(--red); margin-bottom: 3px; }
+  .error-desc  { font-size: 12px; color: #7a1a1a; line-height: 1.55; }
+
+  /* ── Info section ── */
+  .info-section { background: var(--warm-white); border-radius: 20px; padding: 28px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,32,64,0.07); border: 1px solid rgba(138,154,196,0.2); }
+  .info-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
+  .info-section h2 em { font-style: italic; color: var(--blue); }
+  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; }
+  .info-section p:last-child { margin-bottom: 0; }
+  .info-section strong { color: var(--deep); font-weight: 500; }
+  .info-divider { height: 1px; background: rgba(138,154,196,0.2); margin: 20px 0; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.65; margin-top: 20px; padding: 0 8px; }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">Seguridad vial · i-Size</span>
+    <h1>¿Qué silla de<br>coche <em>necesito</em>?</h1>
+    <p class="subtitle">Normativa i-Size, grupos, contramarcha y cuándo cambiar. Todo lo que necesitas saber antes de comprar.</p>
+  </header>
+
+  <!-- Selector -->
+  <div class="card">
+    <div class="section-label">Busca por edad o por peso</div>
+    <div class="toggle-row">
+      <button class="toggle-btn active" id="btn-edad" onclick="setMode('edad')">🗓️ Por edad</button>
+      <button class="toggle-btn" id="btn-peso" onclick="setMode('peso')">⚖️ Por peso</button>
+    </div>
+
+    <div id="sel-edad">
+      <div class="hold-sel">
+        <button class="hold-btn" id="edad-m" data-dir="-1">−</button>
+        <div class="hold-center">
+          <span class="hold-val" id="edad-v">6</span>
+          <span class="hold-unit" id="edad-u">meses</span>
+        </div>
+        <button class="hold-btn" id="edad-p" data-dir="1">+</button>
+      </div>
+    </div>
+
+    <div id="sel-peso" style="display:none">
+      <div class="hold-sel">
+        <button class="hold-btn" id="peso-m" data-dir="-1">−</button>
+        <div class="hold-center">
+          <span class="hold-val" id="peso-v">8</span>
+          <span class="hold-unit">kg</span>
+        </div>
+        <button class="hold-btn" id="peso-p" data-dir="1">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resultado -->
+  <div class="silla-card" id="silla-result"></div>
+
+  <!-- Timeline completa -->
+  <div class="timeline-card">
+    <div class="section-label">Todas las etapas de silla</div>
+    <div class="timeline-list">
+      <div class="tl-item">
+        <div class="tl-dot-wrap"><div class="tl-dot g0">🐣</div></div>
+        <div class="tl-body">
+          <div class="tl-group">Grupo 0 / i-Size R129 · 40–75 cm</div>
+          <div class="tl-name">Capazo o maxi-cosi</div>
+          <div class="tl-range">Nacimiento → ~6 meses · hasta ~13 kg</div>
+          <div class="tl-note">Siempre en contramarcha. El capazo es horizontal — ideal para viajes largos con recién nacido.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap"><div class="tl-dot g0">🌱</div></div>
+        <div class="tl-body">
+          <div class="tl-group">Grupo 0+ / i-Size · hasta 87 cm</div>
+          <div class="tl-name">Silla de bebé (bucket seat)</div>
+          <div class="tl-range">Nacimiento → ~15 meses · hasta ~13 kg</div>
+          <div class="tl-note">Siempre en contramarcha. Puede trasladarse del coche al carrito con adaptador.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap"><div class="tl-dot g1">🧒</div></div>
+        <div class="tl-body">
+          <div class="tl-group">Grupo 1 / i-Size · 76–105 cm</div>
+          <div class="tl-name">Silla convertible</div>
+          <div class="tl-range">~9 meses → ~4 años · 9–18 kg</div>
+          <div class="tl-note">En contramarcha hasta los 15 meses obligatorio (R129), recomendado hasta los 4 años o el límite de altura.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap"><div class="tl-dot g2">🎒</div></div>
+        <div class="tl-body">
+          <div class="tl-group">Grupo 2–3 / i-Size · 100–150 cm</div>
+          <div class="tl-name">Silla con respaldo + arnés o cinturón</div>
+          <div class="tl-range">~4 años → ~10–12 años · 15–36 kg</div>
+          <div class="tl-note">Marcha adelante. Mantén el respaldo el máximo tiempo posible — los alzadores sin respaldo son menos seguros.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap"><div class="tl-dot g3">🚗</div></div>
+        <div class="tl-body">
+          <div class="tl-group">Sin silla especial</div>
+          <div class="tl-name">Cinturón del coche</div>
+          <div class="tl-range">A partir de 135–150 cm de altura</div>
+          <div class="tl-note">La ley española exige silla hasta 135 cm o 12 años. El cinturón debe cruzar el pecho, no el cuello.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Errores frecuentes -->
+  <div class="card">
+    <div class="section-label">Errores que pueden costar la vida</div>
+    <div class="errors-list">
+      <div class="error-row">
+        <span class="error-icon">🔄</span>
+        <div class="error-body">
+          <div class="error-title">Pasar a marcha adelante demasiado pronto</div>
+          <div class="error-desc">La normativa R129 exige contramarcha hasta los 15 meses. Lo recomendado es mantenerla hasta los 3–4 años o el límite de la silla. En contramarcha, la energía de un impacto frontal se distribuye por toda la espalda.</div>
+        </div>
+      </div>
+      <div class="error-row">
+        <span class="error-icon">🔓</span>
+        <div class="error-body">
+          <div class="error-title">Arnés demasiado flojo o mal colocado</div>
+          <div class="error-desc">El arnés debe ir justo: no deberías poder pasar más de dos dedos entre el arnés y el pecho del niño. Las hebillas nunca deben quedar sobre el abdomen, sino sobre el esternón.</div>
+        </div>
+      </div>
+      <div class="error-row">
+        <span class="error-icon">🧥</span>
+        <div class="error-body">
+          <div class="error-title">Poner al niño con abrigo grueso</div>
+          <div class="error-desc">El relleno del abrigo comprime en un impacto, dejando al niño con mucho espacio libre dentro del arnés. Quita el abrigo en el coche y usa una manta por encima del arnés ya abrochado.</div>
+        </div>
+      </div>
+      <div class="error-row">
+        <span class="error-icon">📦</span>
+        <div class="error-body">
+          <div class="error-title">Comprar una silla de segunda mano sin historial</div>
+          <div class="error-desc">Una silla que ha sufrido un accidente, aunque sea leve, puede tener microfracturas invisibles que la inutilizan. Nunca compres una silla sin saber su historial completo.</div>
+        </div>
+      </div>
+      <div class="error-row">
+        <span class="error-icon">🪑</span>
+        <div class="error-body">
+          <div class="error-title">Usar un alzador sin respaldo antes de los 6 años</div>
+          <div class="error-desc">Los alzadores sin respaldo ofrecen mucha menos protección lateral en impactos. Mantén el respaldo el máximo tiempo posible — al menos hasta los 6 años o mientras la silla lo permita.</div>
+        </div>
+      </div>
+      <div class="error-row">
+        <span class="error-icon">🚗</span>
+        <div class="error-body">
+          <div class="error-title">No instalar la silla con Isofix cuando está disponible</div>
+          <div class="error-desc">La instalación con Isofix es hasta un 70% más segura que con el cinturón solo, porque elimina el margen de error humano. Si tu coche tiene Isofix, úsalo siempre.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info section -->
+  <div class="info-section">
+
+    <h2>R44 vs <em>i-Size (R129)</em>: cuál es cuál</h2>
+    <p>Hasta hace unos años, todas las sillas se clasificaban por la normativa <strong>ECE R44</strong>, que organiza las sillas en grupos según el peso del niño (0, 0+, 1, 2, 3). Esta normativa sigue siendo legal en Europa, pero está siendo progresivamente reemplazada por la normativa <strong>R129, conocida como i-Size</strong>.</p>
+    <p>Las diferencias clave son tres. La i-Size clasifica las sillas <strong>por altura en lugar de por peso</strong>, lo que es más preciso. Exige <strong>contramarcha hasta los 15 meses</strong> de forma obligatoria. Y requiere pruebas de impacto lateral más exigentes. Si tienes que elegir entre una silla R44 y una i-Size equivalente, la i-Size es la opción más moderna y segura.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>Por qué la <em>contramarcha</em> es tan importante</h2>
+    <p>En un accidente frontal —el más frecuente y el más grave— la energía del impacto se transmite con enorme violencia hacia delante. Si el niño va en marcha adelante, toda esa energía se concentra en el punto donde el arnés cruza el pecho y el cuello, que son las zonas más vulnerables.</p>
+    <p>En contramarcha, la espalda del niño está apoyada contra la silla y el impacto se distribuye por <strong>toda la superficie de la espalda, la nuca y la cabeza</strong>. Es como la diferencia entre chocar contra una pared de frente o de espaldas — el resultado es radicalmente diferente.</p>
+    <p>La normativa R129 exige contramarcha hasta los 15 meses, pero la recomendación de los organismos de seguridad vial europeos va mucho más lejos: <strong>mantener la contramarcha hasta los 3–4 años</strong>, o hasta que el niño supere el límite de altura de la silla en esa posición.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>Isofix: <em>qué es y cuándo usarlo</em></h2>
+    <p>Isofix es un sistema de anclaje rígido que conecta la silla directamente a la estructura del coche mediante dos barras de acero que encajan en unas guías situadas entre el asiento y el respaldo. La mayoría de coches fabricados desde 2003 tienen Isofix, aunque no siempre es visible a primera vista.</p>
+    <p>La ventaja de Isofix frente a la instalación con cinturón es que <strong>elimina casi por completo el margen de error humano</strong>. Con el cinturón, una silla mal instalada puede parecer correcta pero fallar en el momento del impacto. Con Isofix, cuando la silla hace "clic", sabes que está bien puesta.</p>
+    <p>Algunas sillas combinan Isofix con una <strong>pata de apoyo</strong> (support leg) que se apoya en el suelo del coche, o con un <strong>anclaje superior</strong> (top tether) que va al gancho del maletero. Ambas opciones añaden estabilidad adicional y son recomendables cuando están disponibles.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>Cuándo <em>cambiar</em> de silla</h2>
+    <p>La señal para cambiar de silla no es la edad —es la talla. <strong>Hay que cambiar de silla cuando la cabeza del niño supera el borde superior del respaldo</strong>, o cuando sus hombros quedan por encima de las ranuras más altas del arnés. Seguir usando una silla que se ha quedado pequeña es tan peligroso como no usar ninguna.</p>
+    <p>Un error común es cambiar antes de tiempo pensando que el niño "ya es mayor para la silla pequeña". Mientras el niño cabe en la silla y está dentro de los límites de peso y altura indicados por el fabricante, esa es la silla más segura para él.</p>
+
+  </div>
+
+  <p class="disclaimer">
+    Basado en la normativa ECE R129 (i-Size) y las recomendaciones de la DGT y la RACE.<br>
+    La legislación puede variar. Consulta siempre el manual de tu silla y las instrucciones de tu vehículo.
+  </p>
+
+</div>
+
+<script>
+// ── Silla data ─────────────────────────────────────────────────────
+const SILLAS = [
+  {
+    id: 'capazo',
+    nombre: 'Capazo o silla de bebé',
+    grupo: 'Grupo 0 / i-Size · R129',
+    rangoEdad: 'Nacimiento – ~6 meses',
+    rangoPeso: '0 – ~9 kg',
+    rangoAltura: 'Hasta 75 cm',
+    edadMin: 0, edadMax: 7,
+    pesoMin: 0, pesoMax: 10,
+    instalacion: ['Isofix obligatorio (R129)', 'Siempre sin airbag delantero'],
+    contramarcha: true,
+    contranota: 'Siempre en contramarcha. Es obligatorio y es la posición más segura para el recién nacido. Si el asiento del copiloto tiene airbag y colocas la silla ahí, el airbag DEBE estar desactivado.',
+    note: 'El capazo permite al bebé viajar en posición horizontal, ideal para viajes largos en recién nacidos. La silla tipo "bucket" es más práctica para el día a día y puede trasladarse al carrito.',
+  },
+  {
+    id: 'grupo0plus',
+    nombre: 'Silla de bebé · Bucket seat',
+    grupo: 'Grupo 0+ / i-Size · hasta 87 cm',
+    rangoEdad: 'Nacimiento – ~15–18 meses',
+    rangoPeso: '0 – 13 kg',
+    rangoAltura: 'Hasta 87 cm',
+    edadMin: 0, edadMax: 17,
+    pesoMin: 0, pesoMax: 13,
+    instalacion: ['Isofix recomendado', 'Con o sin base Isofix', 'Sin airbag si va en copiloto'],
+    contramarcha: true,
+    contranota: 'Siempre en contramarcha. La normativa R129 exige contramarcha hasta los 15 meses. Aunque el niño tenga las piernas largas o dobladas, es más seguro así.',
+    note: 'Es la silla más vendida en España. Permite trasladar al bebé dormido del coche al carrito sin despertarlo. Cuando la cabeza supere el borde de la silla, es hora de cambiar.',
+  },
+  {
+    id: 'convertible',
+    nombre: 'Silla convertible',
+    grupo: 'Grupo 1 / i-Size · 76–105 cm',
+    rangoEdad: '~9 meses – ~4 años',
+    rangoPeso: '9 – 18 kg',
+    rangoAltura: '76 – 105 cm',
+    edadMin: 9, edadMax: 52,
+    pesoMin: 9, pesoMax: 18,
+    instalacion: ['Isofix recomendado', 'Pata de apoyo o top tether', 'Cinturón del coche como alternativa'],
+    contramarcha: true,
+    contranota: 'Mantén la contramarcha el máximo tiempo posible — idealmente hasta los 3–4 años o hasta que el niño supere el límite de altura de la silla en esa posición. En España, la normativa R129 exige contramarcha hasta los 15 meses.',
+    note: 'Las sillas convertibles permiten usar contramarcha hasta los 3–4 años y luego girarla a marcha adelante. Son la opción más segura y rentable a largo plazo.',
+  },
+  {
+    id: 'grupo23',
+    nombre: 'Silla con respaldo',
+    grupo: 'Grupo 2–3 / i-Size · 100–150 cm',
+    rangoEdad: '~4 – ~12 años',
+    rangoPeso: '15 – 36 kg',
+    rangoAltura: '100 – 150 cm',
+    edadMin: 48, edadMax: 144,
+    pesoMin: 15, pesoMax: 36,
+    instalacion: ['Isofix opcional según modelo', 'Cinturón del coche', 'Algunos con top tether'],
+    contramarcha: false,
+    contranota: 'A partir de esta etapa, la silla va en marcha adelante. Mantén el respaldo el máximo tiempo posible — al menos hasta los 6 años. Los alzadores sin respaldo protegen menos en impactos laterales.',
+    note: 'Cuando el niño supere el límite de altura de esta silla (o alcance los 135–150 cm), puede usar el cinturón de seguridad del coche sin necesidad de silla. La ley española exige silla hasta 135 cm o 12 años.',
+  },
+];
+
+// ── State ──────────────────────────────────────────────────────────
+let mode    = 'edad';
+let edadVal = 6;   // meses, 0–144
+let pesoVal = 8;   // kg, 1–36
+
+const EDAD_MIN = 0, EDAD_MAX = 144;
+const PESO_MIN = 1, PESO_MAX = 36;
+
+// ── Hold-repeat ────────────────────────────────────────────────────
+function makeHoldBtn(el, onStep) {
+  let holdTimer = null, repeatTimer = null, step = 0;
+  function fire() { onStep(parseInt(el.dataset.dir)); }
+  function startHold() {
+    fire(); step = 1;
+    holdTimer = setTimeout(() => {
+      repeatTimer = setInterval(() => {
+        fire(); step++;
+        if (step === 10) { clearInterval(repeatTimer); repeatTimer = setInterval(fire, 60); }
+      }, 150);
+    }, 350);
+  }
+  function stopHold() {
+    clearTimeout(holdTimer); clearInterval(repeatTimer);
+    holdTimer = repeatTimer = null; step = 0;
+    el.classList.remove('pressing');
+  }
+  el.addEventListener('touchstart', e => { e.preventDefault(); el.classList.add('pressing'); startHold(); }, { passive: false });
+  el.addEventListener('touchend',    stopHold, { passive: true });
+  el.addEventListener('touchcancel', stopHold, { passive: true });
+  el.addEventListener('mousedown', () => { el.classList.add('pressing'); startHold(); });
+  el.addEventListener('mouseup',   stopHold);
+  el.addEventListener('mouseleave',stopHold);
+}
+
+makeHoldBtn(document.getElementById('edad-m'), d => { edadVal = Math.max(EDAD_MIN, Math.min(EDAD_MAX, edadVal + d)); renderEdad(); render(); });
+makeHoldBtn(document.getElementById('edad-p'), d => { edadVal = Math.max(EDAD_MIN, Math.min(EDAD_MAX, edadVal + d)); renderEdad(); render(); });
+makeHoldBtn(document.getElementById('peso-m'), d => { pesoVal = Math.max(PESO_MIN, Math.min(PESO_MAX, pesoVal + d)); renderPeso(); render(); });
+makeHoldBtn(document.getElementById('peso-p'), d => { pesoVal = Math.max(PESO_MIN, Math.min(PESO_MAX, pesoVal + d)); renderPeso(); render(); });
+
+function setMode(m) {
+  mode = m;
+  document.getElementById('btn-edad').classList.toggle('active', m === 'edad');
+  document.getElementById('btn-peso').classList.toggle('active', m === 'peso');
+  document.getElementById('sel-edad').style.display = m === 'edad' ? '' : 'none';
+  document.getElementById('sel-peso').style.display = m === 'peso' ? '' : 'none';
+  render();
+}
+
+function fmtEdad(m) {
+  if (m === 0) return ['0', 'meses (recién nacido)'];
+  if (m < 24)  return [m, m === 1 ? 'mes' : 'meses'];
+  const y = Math.floor(m / 12), mo = m % 12;
+  if (mo === 0) return [y, y === 1 ? 'año' : 'años'];
+  return [`${y}a ${mo}m`, ''];
+}
+
+function renderEdad() {
+  const [v, u] = fmtEdad(edadVal);
+  document.getElementById('edad-v').textContent = v;
+  document.getElementById('edad-u').textContent = u;
+}
+
+function renderPeso() {
+  document.getElementById('peso-v').textContent = pesoVal;
+}
+
+// ── Find silla ─────────────────────────────────────────────────────
+function getSilla() {
+  if (mode === 'edad') {
+    return SILLAS.find(s => edadVal >= s.edadMin && edadVal <= s.edadMax)
+      || SILLAS[SILLAS.length - 1];
+  }
+  return SILLAS.find(s => pesoVal >= s.pesoMin && pesoVal <= s.pesoMax)
+    || SILLAS[SILLAS.length - 1];
+}
+
+// ── Render result ──────────────────────────────────────────────────
+function render() {
+  const s   = getSilla();
+  const el  = document.getElementById('silla-result');
+
+  el.innerHTML = `
+    <div class="silla-header">
+      <span class="silla-group">${s.grupo}</span>
+      <span class="silla-name">${s.nombre}</span>
+      <span class="silla-range">${s.rangoEdad} · ${s.rangoPeso}</span>
+    </div>
+
+    <div class="silla-stats">
+      <div class="silla-stat">
+        <span class="ss-label">Edad ref.</span>
+        <span class="ss-value">${s.rangoEdad}</span>
+      </div>
+      <div class="silla-stat">
+        <span class="ss-label">Peso</span>
+        <span class="ss-value">${s.rangoPeso}</span>
+      </div>
+      <div class="silla-stat">
+        <span class="ss-label">Altura</span>
+        <span class="ss-value">${s.rangoAltura}</span>
+      </div>
+    </div>
+
+    <div class="install-block">
+      <span class="install-title">💡 Instalación recomendada</span>
+      <div class="install-chips">
+        ${s.instalacion.map(i => `<span class="install-chip">${i}</span>`).join('')}
+      </div>
+    </div>
+
+    <div class="contra-block ${s.contramarcha ? 'yes' : 'no'}">
+      <span class="contra-title">${s.contramarcha ? '✅ Contramarcha — obligatorio y recomendado' : '➡️ Marcha adelante'}</span>
+      <p class="contra-text">${s.contranota}</p>
+    </div>
+
+    <div class="context-note"><strong>Ten en cuenta:</strong> ${s.note}</div>`;
+}
+
+renderEdad();
+renderPeso();
+render();
+</script>
+</body>
+</html>

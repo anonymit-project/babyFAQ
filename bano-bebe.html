@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Cómo bañar al bebé · Temperatura, frecuencia y técnica · babyFAQ</title>
+<meta name="description" content="Guía completa para bañar a tu bebé: temperatura del agua, con qué frecuencia, cómo sujetarlo, qué productos usar y cuándo pasar a la bañera grande. De 0 a 12 meses.">
+<meta property="og:title" content="Cómo bañar al bebé · Temperatura, frecuencia y técnica · babyFAQ">
+<meta property="og:description" content="Guía completa para bañar a tu bebé: temperatura del agua, con qué frecuencia, cómo sujetarlo, qué productos usar y cuándo pasar a la bañera grande. De 0 a 12 meses.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#eef6fb">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #eef6fb;
+    --warm-white: #fafeff;
+    --blue-soft: #c0dff0;
+    --blue: #3a7aaa;
+    --deep: #1a2d3d;
+    --mid: #3a5a7a;
+    --soft: #88aac4;
+    --blue-bg: #e8f3fb;
+    --blue-border: #a8ccec;
+    --green: #3a7a5a;
+    --green-bg: #eaf5f0;
+    --green-border: #a8d8c0;
+    --amber: #b07020;
+    --amber-bg: #fdf3e0;
+    --amber-border: #f0cc8a;
+    --red: #a83030;
+    --red-bg: #fdf0f0;
+    --red-border: #f0a8a8;
+    --purple: #7a5aaa;
+    --purple-bg: #ede8f8;
+    --purple-border: #c4b0e8;
+    --terracota: #c97a5e;
+    --blush: #f2c4b0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 300px; height: 300px; background: #a8d0f0; top: -100px; right: -80px; opacity: 0.35; }
+  .blob-2 { width: 250px; height: 250px; background: #a8e0c8; bottom: -80px; left: -60px; opacity: 0.3; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--blue); }
+
+  header { text-align: center; margin-bottom: 28px; }
+  .badge { display: inline-block; background: var(--blue-bg); color: var(--blue); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
+  @media (min-width: 480px) { h1 { font-size: 34px; } }
+  @media (min-width: 640px) { h1 { font-size: 38px; } }
+  h1 em { font-style: italic; color: var(--blue); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300; }
+
+  .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,45,61,0.07); border: 1px solid rgba(136,170,196,0.22); }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 12px; }
+
+  /* ── Temperatura selector ── */
+  .temp-sel { background: var(--cream); border-radius: 16px; border: 1.5px solid rgba(136,170,196,0.35); display: flex; align-items: center; height: 80px; padding: 0 6px; margin-bottom: 12px; }
+  .hold-btn { width: 52px; height: 60px; flex-shrink: 0; border-radius: 12px; border: none; background: transparent; color: var(--blue); font-size: 28px; font-weight: 300; cursor: pointer; display: flex; align-items: center; justify-content: center; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: background 0.1s; line-height: 1; }
+  .hold-btn:active, .hold-btn.pressing { background: var(--blue-soft); }
+  .temp-display { flex: 1; text-align: center; }
+  .temp-value { font-family: 'Fraunces', serif; font-size: 52px; font-weight: 300; color: var(--deep); line-height: 1; display: block; transition: color 0.3s; }
+  .temp-unit  { font-size: 14px; color: var(--soft); }
+  .temp-feel  { font-size: 12px; color: var(--soft); display: block; margin-top: 3px; font-style: italic; transition: color 0.3s; }
+
+  /* Temp result */
+  .temp-result { border-radius: 13px; padding: 13px 15px; font-size: 13px; line-height: 1.6; transition: background 0.3s, border-color 0.3s; border: 1.5px solid transparent; }
+  .temp-result.cold  { background: var(--blue-bg);  border-color: var(--blue-border);  color: #1a3a5a; }
+  .temp-result.ideal { background: var(--green-bg); border-color: var(--green-border); color: #1a4a2a; }
+  .temp-result.warm  { background: var(--amber-bg); border-color: var(--amber-border); color: #5a3a08; }
+  .temp-result.hot   { background: var(--red-bg);   border-color: var(--red-border);   color: #5a1010; }
+  .temp-result strong { font-weight: 600; }
+
+  /* ── Edad tabs ── */
+  .age-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+  .age-tab { padding: 7px 13px; border-radius: 20px; border: 1.5px solid rgba(136,170,196,0.3); background: var(--warm-white); font-size: 12px; font-weight: 500; color: var(--mid); cursor: pointer; transition: all 0.15s; touch-action: manipulation; white-space: nowrap; }
+  .age-tab.active { background: var(--blue); border-color: var(--blue); color: white; }
+
+  /* ── Age card ── */
+  .age-card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,45,61,0.07); border: 1px solid rgba(136,170,196,0.22); animation: fadeUp 0.25s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .age-header { display: flex; align-items: center; gap: 13px; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid rgba(136,170,196,0.2); }
+  .age-icon { width: 50px; height: 50px; border-radius: 14px; background: var(--blue-bg); border: 1.5px solid var(--blue-border); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+  .age-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--deep); }
+  .age-subtitle { font-size: 11px; color: var(--soft); margin-top: 2px; }
+
+  /* Stats row */
+  .stats-row { display: flex; gap: 8px; margin-bottom: 16px; }
+  .stat-block { flex: 1; background: var(--cream); border-radius: 13px; padding: 12px 8px; text-align: center; }
+  .stat-label { font-size: 9px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 5px; }
+  .stat-value { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 400; color: var(--deep); display: block; line-height: 1.1; }
+  .stat-sub { font-size: 10px; color: var(--soft); display: block; margin-top: 3px; }
+
+  /* Steps */
+  .steps-title { font-size: 10px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); margin-bottom: 10px; display: block; }
+  .steps-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+  .step { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--mid); line-height: 1.6; }
+  .step-num { width: 22px; height: 22px; border-radius: 50%; background: var(--blue-bg); color: var(--blue); font-size: 11px; font-weight: 700; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 1px; border: 1px solid var(--blue-border); }
+
+  /* Tip */
+  .tip-chip { background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: 10px; padding: 10px 12px; font-size: 12px; color: #7a5010; line-height: 1.6; }
+  .tip-chip strong { color: var(--deep); font-weight: 500; }
+
+  /* ── Productos ── */
+  .products-list { display: flex; flex-direction: column; gap: 8px; }
+  .product-row { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--mid); line-height: 1.55; }
+  .product-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 7px; border-radius: 10px; flex-shrink: 0; margin-top: 2px; }
+  .badge-ok  { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-border); }
+  .badge-no  { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-border); }
+  .badge-tip { background: var(--amber-bg);  color: var(--amber);  border: 1px solid var(--amber-border); }
+
+  /* ── Seguridad ── */
+  .safety-list { display: flex; flex-direction: column; gap: 7px; }
+  .safety-item { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: var(--mid); line-height: 1.6; }
+  .safety-icon { font-size: 16px; flex-shrink: 0; width: 22px; text-align: center; margin-top: 1px; }
+
+  /* ── Info section ── */
+  .info-section { background: var(--warm-white); border-radius: 20px; padding: 28px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,45,61,0.07); border: 1px solid rgba(136,170,196,0.22); }
+  .info-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
+  .info-section h2 em { font-style: italic; color: var(--blue); }
+  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; }
+  .info-section p:last-child { margin-bottom: 0; }
+  .info-section strong { color: var(--deep); font-weight: 500; }
+  .info-divider { height: 1px; background: rgba(136,170,196,0.2); margin: 20px 0; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.65; margin-top: 20px; padding: 0 8px; }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">Higiene · 0–12 meses</span>
+    <h1>Cómo bañar<br>a tu <em>bebé</em></h1>
+    <p class="subtitle">Temperatura del agua, frecuencia, cómo sujetarlo y qué productos usar. Todo lo que nadie te explica antes de llegar a casa.</p>
+  </header>
+
+  <!-- Temperatura del agua -->
+  <div class="card">
+    <div class="section-label">Temperatura del agua</div>
+    <div class="temp-sel">
+      <button class="hold-btn" id="temp-m" data-dir="-1">−</button>
+      <div class="temp-display">
+        <span class="temp-value" id="temp-val">37</span>
+        <span class="temp-unit">°C</span>
+        <span class="temp-feel" id="temp-feel"></span>
+      </div>
+      <button class="hold-btn" id="temp-p" data-dir="1">+</button>
+    </div>
+    <div class="temp-result" id="temp-result"></div>
+  </div>
+
+  <!-- Por edad -->
+  <div class="section-label" style="padding-left:2px">Guía por etapa</div>
+  <div class="age-tabs" id="age-tabs"></div>
+  <div id="age-content"></div>
+
+  <!-- Productos -->
+  <div class="card">
+    <div class="section-label">Qué usar (y qué no) en el baño</div>
+    <div class="products-list">
+      <div class="product-row"><span class="product-badge badge-ok">✓ Sí</span><span><strong>Gel sin jabón (syndet)</strong> — específico para bebé, pH neutro o ligeramente ácido. Una vez a la semana es suficiente para lavar el cuerpo.</span></div>
+      <div class="product-row"><span class="product-badge badge-ok">✓ Sí</span><span><strong>Champú sin lágrimas</strong> — para el cabello. No es necesario usarlo en cada baño; 1–2 veces por semana es suficiente.</span></div>
+      <div class="product-row"><span class="product-badge badge-ok">✓ Sí</span><span><strong>Agua sola</strong> — perfectamente válida para la mayoría de los baños. La piel del bebé no necesita jabón a diario.</span></div>
+      <div class="product-row"><span class="product-badge badge-tip">→ Opcional</span><span><strong>Crema hidratante post-baño</strong> — útil si el bebé tiene la piel seca. Aplica inmediatamente al salir del agua, antes de que la piel se seque del todo.</span></div>
+      <div class="product-row"><span class="product-badge badge-no">✗ No</span><span><strong>Jabón de adultos</strong> — el pH es demasiado alcalino y daña la barrera cutánea del bebé.</span></div>
+      <div class="product-row"><span class="product-badge badge-no">✗ No</span><span><strong>Esponjas o manoplas abrasivas</strong> — la piel del bebé se limpia perfectamente con la mano. Las esponjas acumulan bacterias.</span></div>
+      <div class="product-row"><span class="product-badge badge-no">✗ No</span><span><strong>Bastoncillos de algodón</strong> — nunca en el canal auditivo. El oído se limpia solo; solo seca el pabellón externo con una toalla.</span></div>
+      <div class="product-row"><span class="product-badge badge-no">✗ No</span><span><strong>Colonias o perfumes</strong> — contienen alcohol y fragancias que irritan la piel sensible del bebé.</span></div>
+    </div>
+  </div>
+
+  <!-- Seguridad -->
+  <div class="card">
+    <div class="section-label">Reglas de seguridad en el baño</div>
+    <div class="safety-list">
+      <div class="safety-item"><span class="safety-icon">👀</span><span><strong>Nunca dejes al bebé solo en el agua</strong>, ni un segundo. Si suena el teléfono o el timbre, ignóralo o lleva al bebé contigo.</span></div>
+      <div class="safety-item"><span class="safety-icon">🌡️</span><span><strong>Mide siempre la temperatura</strong> antes de meter al bebé. El codo o el termómetro de baño — nunca confíes solo en la mano.</span></div>
+      <div class="safety-item"><span class="safety-icon">💧</span><span><strong>Llena primero el agua fría</strong> y luego añade la caliente. Nunca al revés — si el bebé cae mientras llenas con agua caliente, las quemaduras son graves.</span></div>
+      <div class="safety-item"><span class="safety-icon">🛁</span><span><strong>Nivel del agua bajo</strong> — 5 a 8 cm es suficiente. El bebé no necesita estar sumergido.</span></div>
+      <div class="safety-item"><span class="safety-icon">🧴</span><span><strong>Ten todo preparado antes</strong> de empezar: toalla, pañal, ropa, crema. No busques cosas con el bebé en el agua.</span></div>
+      <div class="safety-item"><span class="safety-icon">🚿</span><span><strong>Antideslizante en la bañera grande</strong> desde que empiece a sentarse. Las caídas en el baño son una causa frecuente de traumatismo infantil.</span></div>
+    </div>
+  </div>
+
+  <!-- Info section -->
+  <div class="info-section">
+
+    <h2>¿Cada cuánto hay que <em>bañar al bebé</em>?</h2>
+    <p>Una de las preguntas más frecuentes de los primerizos —y una de las que más presión social acumula— es la frecuencia del baño. La respuesta de la pediatría es clara: <strong>no hace falta bañar al bebé todos los días</strong>. Tres veces por semana es suficiente para mantener una higiene adecuada en los primeros meses.</p>
+    <p>La piel del recién nacido tiene una barrera cutánea inmadura que se está desarrollando activamente durante las primeras semanas. El exceso de baños y de jabón puede alterar el microbioma cutáneo y el pH natural de la piel, favoreciendo la sequedad y la dermatitis. Lo que sí hay que limpiar a diario, sin necesidad de baño completo, es la cara, el cuello, las manos y la zona del pañal.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>El <em>cordón umbilical</em>: lo que realmente funciona</h2>
+    <p>Durante las primeras semanas, el cordón umbilical requiere cuidados específicos. La recomendación actual de la OMS y de la AEP es la <strong>cura seca</strong>: simplemente mantener el cordón limpio y al aire, sin aplicar alcohol, antisépticos ni ningún producto sobre él.</p>
+    <p>Estudios controlados han demostrado que la cura seca reduce el tiempo de caída del cordón y la tasa de infecciones frente al uso de alcohol. Si el cordón se moja accidentalmente, simplemente sécalo bien. Señales de alarma que requieren consultar al pediatra: enrojecimiento que se extiende a la piel alrededor del ombligo, mal olor, supuración abundante o fiebre.</p>
+    <p>El cordón cae típicamente entre los 7 y los 21 días. Hasta que caiga, los baños deben ser por partes o con mucho cuidado de no mojar la zona umbilical.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>La <em>costra láctea</em>: no rascues</h2>
+    <p>La costra láctea (dermatitis seborreica del lactante) aparece en muchos bebés en las primeras semanas como escamas amarillentas o marronáceas en el cuero cabelludo. Es completamente benigna, no pica, no molesta al bebé y desaparece sola en los primeros meses.</p>
+    <p>Si quieres tratar la costra láctea, la técnica más sencilla es aplicar un poco de aceite de oliva o de almendras en el cuero cabelludo 15–20 minutos antes del baño, luego lavar con champú suave y peinar con un cepillo de cerdas blandas para retirar las escamas reblandecidas. Nunca arranques las costras directamente con las uñas.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>El baño como <em>rutina de sueño</em></h2>
+    <p>A partir del primer mes, el baño nocturno puede convertirse en un elemento poderoso de la rutina previa al sueño. El agua caliente sube ligeramente la temperatura corporal del bebé; al salir del agua, la temperatura baja de forma natural, lo que <strong>activa la producción de melatonina</strong> y facilita la conciliación del sueño.</p>
+    <p>Para aprovechar este efecto, el baño debe hacerse entre 30 y 60 minutos antes del momento en que quieres que el bebé duerma, y debe ir seguido de una rutina predecible: masaje, pijama, oscuridad, alimentación y cuna. La consistencia de la secuencia es más importante que ningún elemento aislado.</p>
+
+  </div>
+
+  <p class="disclaimer">
+    Basado en las recomendaciones de la AEP, la AAP y la OMS sobre higiene infantil.<br>
+    Ante cualquier duda sobre la piel o la higiene de tu bebé, consulta con tu pediatra o enfermera pediátrica.
+  </p>
+
+</div>
+
+<script>
+// ── Temperature data ───────────────────────────────────────────────
+const TEMP_MIN = 30, TEMP_MAX = 42;
+let waterTemp = 37;
+
+const TEMP_ZONES = [
+  { max: 34, cls: 'cold',  feel: 'Demasiado fría',   text: '<strong>Agua demasiado fría.</strong> Por debajo de 35°C el bebé puede quedarse frío rápidamente y el baño será incómodo. Añade agua caliente antes de meterlo.' },
+  { max: 36, cls: 'cold',  feel: 'Un poco fría',      text: '<strong>Un poco por debajo de lo ideal.</strong> El bebé no estará en peligro pero puede notar el frío. Sube un par de grados.' },
+  { max: 38, cls: 'ideal', feel: '✓ Temperatura ideal', text: '<strong>Temperatura perfecta.</strong> Entre 36 y 38°C es el rango recomendado — cercano a la temperatura corporal del bebé. Usa siempre un termómetro de baño para confirmarlo.' },
+  { max: 40, cls: 'warm',  feel: 'Un poco caliente',  text: '<strong>Algo por encima de lo ideal.</strong> El bebé puede tolerarlo bien, pero es mejor no superar los 38°C para evitar el riesgo de quemaduras en pieles muy sensibles.' },
+  { max: 99, cls: 'hot',   feel: '⚠️ Peligrosamente caliente', text: '<strong>Agua demasiado caliente — peligro de quemadura.</strong> La piel del bebé es mucho más sensible que la del adulto. Por encima de 40°C hay riesgo real de quemadura. Enfría el agua antes de meter al bebé.' },
+];
+
+// ── Age stages ─────────────────────────────────────────────────────
+const AGES = [
+  {
+    id: '0-4s',
+    label: '0–4 semanas',
+    icon: '🐣',
+    title: 'Recién nacido',
+    subtitle: 'Baño por partes · cordón presente',
+    freq: '2–3×',
+    freqSub: 'por semana',
+    duration: '5 min',
+    durationSub: 'máximo',
+    banyera: 'Esponja',
+    banyeraSub: 'o palangana',
+    steps: [
+      'Prepara todo antes: toalla, pañal limpio, ropa, aceite si lo usas. La habitación debe estar a 22–24°C.',
+      'Empieza por la cara: con una gasa o algodón humedecido en agua tibia, limpia los ojos de dentro hacia fuera (usa una gasa distinta para cada ojo).',
+      'Limpia el cuello, detrás de las orejas y los pliegues (axilas, ingles) donde se acumula la humedad y la descamación.',
+      'Si el cordón aún está presente, evita mojar la zona umbilical. Baño de esponja o por partes hasta que caiga.',
+      'Lava el cuero cabelludo con la mano o una gasa húmeda si hay costra láctea, con mucho cuidado.',
+      'Seca inmediatamente con toalla suave a toquecitos — nunca frotar. Presta especial atención a los pliegues.',
+    ],
+    tip: '<strong>El baño de esponja</strong> es la opción más segura mientras el cordón no haya caído. No hay prisa para el baño de inmersión — espera a que el ombligo esté completamente cicatrizado.',
+  },
+  {
+    id: '1-3m',
+    label: '1–3 meses',
+    icon: '🛁',
+    title: '1 a 3 meses',
+    subtitle: 'Primer baño de inmersión · apoyo total',
+    freq: '3×',
+    freqSub: 'por semana',
+    duration: '5–10 min',
+    durationSub: 'máximo',
+    banyera: 'Bañera bebé',
+    banyeraSub: 'con hamaca o reductor',
+    steps: [
+      'Llena la bañera con 5–8 cm de agua a 36–38°C. Comprueba la temperatura con el termómetro o el codo.',
+      'Sostén la cabeza y la nuca del bebé con una mano en todo momento. La otra mano queda libre para lavar.',
+      'Introduce al bebé con suavidad, empezando por los pies. Habla con voz tranquila durante todo el proceso.',
+      'Lava primero la cara y el cuero cabelludo, luego el cuerpo de arriba a abajo, y por último la zona del pañal.',
+      'El gel o champú solo si es necesario — el agua sola es suficiente la mayoría de días.',
+      'Saca al bebé envuelto en la toalla y sécalo rápidamente para que no se enfríe. Los bebés pierden calor muy deprisa.',
+    ],
+    tip: '<strong>El agarre seguro:</strong> tu muñeca pasa por detrás del cuello del bebé, los dedos sujetan el hombro más alejano. El peso del bebé descansa sobre tu antebrazo. Practica en seco antes del primer baño.',
+  },
+  {
+    id: '3-6m',
+    label: '3–6 meses',
+    icon: '😊',
+    title: '3 a 6 meses',
+    subtitle: 'Más interactivo · empieza a disfrutarlo',
+    freq: '3×',
+    freqSub: 'por semana',
+    duration: '10 min',
+    durationSub: 'aproximado',
+    banyera: 'Bañera bebé',
+    banyeraSub: 'sin hamaca ya',
+    steps: [
+      'El bebé ya tiene más tono muscular — puede que no necesite la hamaca interior. Prueba sin ella, siempre con apoyo manual.',
+      'A esta edad el baño empieza a ser un momento de juego. Puedes dejar que patee el agua y explore con las manos.',
+      'Introduce juguetes de baño seguros: objetos que floten, tazas pequeñas para verter agua.',
+      'Sigue sosteniendo la cabeza y la espalda, pero el bebé puede estar algo más incorporado.',
+      'Aprovecha el baño para estimular el lenguaje: cuéntale lo que estás haciendo, pon nombres a las partes del cuerpo.',
+    ],
+    tip: '<strong>El baño empieza a ser divertido</strong> a esta edad. Si el bebé disfruta, puedes alargar un poco el tiempo — el juego en el agua tiene beneficios para el desarrollo sensorial y motor.',
+  },
+  {
+    id: '6-12m',
+    label: '6–12 meses',
+    icon: '🚿',
+    title: '6 a 12 meses',
+    subtitle: 'Se sienta solo · transición a bañera grande',
+    freq: '3–5×',
+    freqSub: 'por semana',
+    duration: '10–15 min',
+    durationSub: 'con juego',
+    banyera: 'Bañera grande',
+    banyeraSub: 'con antideslizante',
+    steps: [
+      'Cuando el bebé se siente solo con estabilidad (alrededor de los 7–8 meses) puede pasar a la bañera grande.',
+      'Pon siempre una esterilla antideslizante en el fondo de la bañera. Las caídas en el baño son la causa más frecuente de traumatismo a esta edad.',
+      'El nivel del agua sigue siendo bajo: 8–10 cm máximo. No necesita más para disfrutar.',
+      'Nunca te alejes del borde de la bañera, aunque el bebé se siente bien. Un bebé puede ahogarse en muy poca agua en segundos.',
+      'Introduce más juguetes: tazas, regaderas pequeñas, animales de goma. El juego libre en el agua desarrolla la coordinación.',
+      'La hora del baño puede incorporarse a la rutina de sueño: baño → masaje → pijama → alimentación → cuna.',
+    ],
+    tip: '<strong>Cubre el grifo</strong> con una funda protectora de goma antes de que el bebé empiece a moverse en la bañera. Es uno de los puntos de impacto más peligrosos.',
+  },
+];
+
+// ── State ──────────────────────────────────────────────────────────
+let activeAge = '1-3m';
+
+// ── Hold-repeat ────────────────────────────────────────────────────
+function makeHoldBtn(el, onStep) {
+  let holdTimer = null, repeatTimer = null, step = 0;
+  function fire() { onStep(parseInt(el.dataset.dir)); }
+  function startHold() {
+    fire(); step = 1;
+    holdTimer = setTimeout(() => {
+      repeatTimer = setInterval(() => {
+        fire(); step++;
+        if (step === 10) { clearInterval(repeatTimer); repeatTimer = setInterval(fire, 80); }
+      }, 180);
+    }, 350);
+  }
+  function stopHold() {
+    clearTimeout(holdTimer); clearInterval(repeatTimer);
+    holdTimer = repeatTimer = null; step = 0;
+    el.classList.remove('pressing');
+  }
+  el.addEventListener('touchstart', e => { e.preventDefault(); el.classList.add('pressing'); startHold(); }, { passive: false });
+  el.addEventListener('touchend',    stopHold, { passive: true });
+  el.addEventListener('touchcancel', stopHold, { passive: true });
+  el.addEventListener('mousedown', () => { el.classList.add('pressing'); startHold(); });
+  el.addEventListener('mouseup',   stopHold);
+  el.addEventListener('mouseleave',stopHold);
+}
+
+makeHoldBtn(document.getElementById('temp-m'), d => { waterTemp = Math.max(TEMP_MIN, Math.min(TEMP_MAX, waterTemp + d)); renderTemp(); });
+makeHoldBtn(document.getElementById('temp-p'), d => { waterTemp = Math.max(TEMP_MIN, Math.min(TEMP_MAX, waterTemp + d)); renderTemp(); });
+
+// ── Render temp ────────────────────────────────────────────────────
+const TEMP_COLORS = { cold: '#3a7aaa', ideal: '#3a7a5a', warm: '#b07020', hot: '#a83030' };
+
+function renderTemp() {
+  const zone = TEMP_ZONES.find(z => waterTemp <= z.max) || TEMP_ZONES[TEMP_ZONES.length - 1];
+  document.getElementById('temp-val').textContent   = waterTemp;
+  document.getElementById('temp-val').style.color   = TEMP_COLORS[zone.cls];
+  document.getElementById('temp-feel').textContent  = zone.feel;
+  document.getElementById('temp-feel').style.color  = TEMP_COLORS[zone.cls];
+  const res = document.getElementById('temp-result');
+  res.className = 'temp-result ' + zone.cls;
+  res.innerHTML = zone.text;
+}
+
+// ── Build age tabs ─────────────────────────────────────────────────
+function buildTabs() {
+  const wrap = document.getElementById('age-tabs');
+  AGES.forEach(a => {
+    const btn = document.createElement('button');
+    btn.className = 'age-tab' + (a.id === activeAge ? ' active' : '');
+    btn.textContent = a.label;
+    btn.addEventListener('click', () => {
+      activeAge = a.id;
+      document.querySelectorAll('.age-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderAge();
+    });
+    wrap.appendChild(btn);
+  });
+}
+
+// ── Render age card ────────────────────────────────────────────────
+function renderAge() {
+  const a   = AGES.find(x => x.id === activeAge);
+  const el  = document.getElementById('age-content');
+  el.innerHTML = `
+    <div class="age-card">
+      <div class="age-header">
+        <div class="age-icon">${a.icon}</div>
+        <div>
+          <div class="age-title">${a.title}</div>
+          <div class="age-subtitle">${a.subtitle}</div>
+        </div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-block">
+          <span class="stat-label">Frecuencia</span>
+          <span class="stat-value">${a.freq}</span>
+          <span class="stat-sub">${a.freqSub}</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-label">Duración</span>
+          <span class="stat-value">${a.duration}</span>
+          <span class="stat-sub">${a.durationSub}</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-label">Bañera</span>
+          <span class="stat-value" style="font-size:14px;line-height:1.2">${a.banyera}</span>
+          <span class="stat-sub">${a.banyeraSub}</span>
+        </div>
+      </div>
+      <span class="steps-title">Paso a paso</span>
+      <div class="steps-list">
+        ${a.steps.map((s, i) => `
+          <div class="step">
+            <div class="step-num">${i + 1}</div>
+            <span>${s}</span>
+          </div>`).join('')}
+      </div>
+      <div class="tip-chip">💡 ${a.tip}</div>
+    </div>`;
+}
+
+renderTemp();
+buildTabs();
+renderAge();
+</script>
+</body>
+</html>

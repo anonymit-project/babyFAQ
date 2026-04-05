@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Sonidos normales del bebé · ¿Es normal este ruido? · babyFAQ</title>
+<meta name="description" content="Guía de los sonidos más frecuentes del bebé: hipo, gruñidos, ronquidos, respiración ruidosa, estornudos y más. Cuándo es normal y cuándo consultar al pediatra.">
+<meta property="og:title" content="Sonidos normales del bebé · ¿Es normal este ruido? · babyFAQ">
+<meta property="og:description" content="Guía de los sonidos más frecuentes del bebé: hipo, gruñidos, ronquidos, respiración ruidosa, estornudos y más. Cuándo es normal y cuándo consultar.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f4f8f6">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f4f8f6;
+    --warm-white: #fafdfb;
+    --green: #3a7a5a;
+    --green-soft: #b8d8c8;
+    --deep: #1a2d22;
+    --mid: #3a5a48;
+    --soft: #88b098;
+    --green-bg: #e8f5ee;
+    --green-border: #a8d8bc;
+    --amber: #b07020;
+    --amber-bg: #fdf3e0;
+    --amber-border: #f0cc8a;
+    --red: #a83030;
+    --red-bg: #fdf0f0;
+    --red-border: #f0a8a8;
+    --blue: #3a6aaa;
+    --blue-bg: #eef3fc;
+    --blue-border: #a8c0e8;
+    --purple: #7a5aaa;
+    --purple-bg: #ede8f8;
+    --purple-border: #c4b0e8;
+    --terracota: #c97a5e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 300px; height: 300px; background: #a8d8c0; top: -100px; right: -80px; opacity: 0.3; }
+  .blob-2 { width: 250px; height: 250px; background: #a8c8f0; bottom: -80px; left: -60px; opacity: 0.25; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--green); }
+
+  header { text-align: center; margin-bottom: 28px; }
+  .badge { display: inline-block; background: var(--green-bg); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
+  @media (min-width: 480px) { h1 { font-size: 34px; } }
+  @media (min-width: 640px) { h1 { font-size: 38px; } }
+  h1 em { font-style: italic; color: var(--green); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300; }
+
+  /* ── Search ── */
+  .search-wrap { position: relative; margin-bottom: 12px; }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 15px; opacity: 0.4; pointer-events: none; }
+  .search-input { width: 100%; background: var(--warm-white); border: 1.5px solid rgba(136,176,152,0.35); border-radius: 14px; padding: 13px 14px 13px 42px; font-size: 15px; font-family: 'DM Sans', sans-serif; color: var(--deep); outline: none; transition: border-color 0.2s; box-shadow: 0 2px 10px rgba(26,45,34,0.05); }
+  .search-input::placeholder { color: var(--soft); }
+  .search-input:focus { border-color: var(--green); }
+
+  /* ── Category pills ── */
+  .cat-pills { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+  .cat-pill { padding: 5px 12px; border-radius: 20px; border: 1.5px solid rgba(136,176,152,0.3); background: var(--warm-white); font-size: 12px; font-weight: 500; color: var(--mid); cursor: pointer; transition: all 0.15s; touch-action: manipulation; }
+  .cat-pill.active { background: var(--green); border-color: var(--green); color: white; }
+
+  /* ── Sound card ── */
+  .sound-section { margin-bottom: 8px; }
+
+  .sound-header { display: flex; align-items: center; gap: 11px; background: var(--warm-white); border-radius: 14px; padding: 14px 16px; cursor: pointer; border: 1px solid rgba(136,176,152,0.18); box-shadow: 0 1px 6px rgba(26,45,34,0.05); user-select: none; transition: border-color 0.15s; }
+  .sound-header:hover { border-color: var(--green-soft); }
+  .sound-header.open { border-color: var(--green-border); border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: transparent; }
+
+  .sound-emoji { font-size: 24px; flex-shrink: 0; }
+  .sound-info  { flex: 1; min-width: 0; }
+  .sound-name  { font-size: 14px; font-weight: 500; color: var(--deep); }
+  .sound-tag   { font-size: 11px; color: var(--soft); margin-top: 2px; }
+
+  .alarm-dots { display: flex; gap: 4px; flex-shrink: 0; align-items: center; }
+  .alarm-dot  { width: 8px; height: 8px; border-radius: 50%; }
+  .alarm-dot.green  { background: var(--green); }
+  .alarm-dot.amber  { background: var(--amber); }
+  .alarm-dot.red    { background: var(--red); }
+
+  .sound-chevron { font-size: 12px; color: var(--soft); transition: transform 0.2s; flex-shrink: 0; margin-left: 4px; }
+  .sound-header.open .sound-chevron { transform: rotate(90deg); }
+
+  /* ── Sound body ── */
+  .sound-body { display: none; background: var(--warm-white); border: 1px solid var(--green-border); border-top: none; border-bottom-left-radius: 14px; border-bottom-right-radius: 14px; padding: 16px 16px 18px; margin-bottom: 2px; }
+  .sound-body.open { display: block; }
+
+  .verdict-block { border-radius: 12px; padding: 13px 14px; margin-bottom: 12px; }
+  .verdict-block.normal { background: var(--green-bg);  border: 1px solid var(--green-border); }
+  .verdict-block.watch  { background: var(--amber-bg);  border: 1px solid var(--amber-border); }
+  .verdict-block.urgent { background: var(--red-bg);    border: 1px solid var(--red-border);   }
+
+  .verdict-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+  .verdict-block.normal .verdict-label { color: var(--green); }
+  .verdict-block.watch  .verdict-label { color: var(--amber); }
+  .verdict-block.urgent .verdict-label { color: var(--red);   }
+
+  .verdict-items { display: flex; flex-direction: column; gap: 5px; }
+  .verdict-item  { font-size: 12px; line-height: 1.6; padding-left: 14px; position: relative; }
+  .verdict-block.normal .verdict-item { color: #1a4a2a; }
+  .verdict-block.watch  .verdict-item { color: #5a3a08; }
+  .verdict-block.urgent .verdict-item { color: #7a1a1a; }
+  .verdict-item::before { content: '·'; position: absolute; left: 4px; font-weight: 700; }
+
+  .sound-explain { font-size: 13px; color: var(--mid); line-height: 1.7; margin-bottom: 12px; }
+  .sound-explain strong { color: var(--deep); font-weight: 500; }
+
+  .sound-tip { background: var(--cream); border-radius: 10px; padding: 10px 12px; font-size: 12px; color: var(--mid); line-height: 1.6; border: 1px solid rgba(136,176,152,0.2); }
+  .sound-tip strong { color: var(--deep); font-weight: 500; }
+
+  /* ── No results ── */
+  .no-results { text-align: center; padding: 40px 20px; color: var(--soft); font-size: 14px; }
+  .no-results-icon { font-size: 36px; display: block; margin-bottom: 10px; }
+
+  /* ── Alerta respiración ── */
+  .alert-card { background: var(--red-bg); border: 1.5px solid var(--red-border); border-radius: 20px; padding: 20px 18px; margin-bottom: 14px; }
+  .alert-title { font-size: 13px; font-weight: 600; color: var(--red); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .alert-items { display: flex; flex-direction: column; gap: 6px; }
+  .alert-item  { font-size: 12px; color: #7a1a1a; line-height: 1.6; padding-left: 14px; position: relative; }
+  .alert-item::before { content: '·'; position: absolute; left: 4px; font-weight: 700; }
+
+  /* ── Info section ── */
+  .info-section { background: var(--warm-white); border-radius: 20px; padding: 28px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,45,34,0.06); border: 1px solid rgba(136,176,152,0.2); }
+  .info-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
+  .info-section h2 em { font-style: italic; color: var(--green); }
+  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; }
+  .info-section p:last-child { margin-bottom: 0; }
+  .info-section strong { color: var(--deep); font-weight: 500; }
+  .info-divider { height: 1px; background: rgba(136,176,152,0.2); margin: 20px 0; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.65; margin-top: 20px; padding: 0 8px; }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">0–12 meses</span>
+    <h1>¿Es normal<br>este <em>ruido</em>?</h1>
+    <p class="subtitle">Los bebés hacen sonidos que a los primerizos nos asustan. La mayoría son completamente normales. Aquí te explicamos cuáles son cuáles.</p>
+  </header>
+
+  <!-- Alerta respiración -->
+  <div class="alert-card">
+    <div class="alert-title">🚨 Llama al 112 si ves esto</div>
+    <div class="alert-items">
+      <div class="alert-item">Labios, uñas o cara con color azulado o grisáceo.</div>
+      <div class="alert-item">Hundimiento visible entre las costillas o en el cuello al respirar (tiraje).</div>
+      <div class="alert-item">Respiración muy rápida y trabajosa que no cede en reposo.</div>
+      <div class="alert-item">El bebé no puede llorar, mamar ni hacer ruido con normalidad.</div>
+    </div>
+  </div>
+
+  <!-- Buscador + filtros -->
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" type="text" id="search" placeholder="Busca un sonido… hipo, ronquido, gruñido…" oninput="applyFilters()">
+  </div>
+  <div class="cat-pills" id="cat-pills"></div>
+
+  <!-- Lista de sonidos -->
+  <div id="sounds-output"></div>
+
+  <!-- Info section -->
+  <div class="info-section">
+
+    <h2>Por qué los bebés hacen <em>tantos ruidos</em></h2>
+    <p>Los recién nacidos son animales sorprendentemente ruidosos. Gruñen, resuellan, hacen chasquidos, se quejan, suspiran y respiran con sonidos que a los padres primerizos les parecen alarmantes pero que en la inmensa mayoría de casos son completamente normales.</p>
+    <p>La razón es anatómica: <strong>las vías respiratorias del bebé son mucho más estrechas que las del adulto</strong>, tanto en proporción al cuerpo como en términos absolutos. Un milímetro de mucosidad o de inflamación que en un adulto pasaría inadvertido puede producir en un bebé un ruido considerable. Además, el tejido cartilaginoso de la laringe y la tráquea es más blando y flexible, lo que hace que vibre con la respiración.</p>
+    <p>A esto se suma que los bebés tienen el reflejo de succión muy activo, que pasan mucho tiempo tumbados (lo que facilita el reflujo y los ruidos digestivos), y que aún no pueden sonarse la nariz. El resultado es una sinfonía de sonidos que mejoran progresivamente con la maduración.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>Cómo evaluar la <em>respiración</em> de tu bebé</h2>
+    <p>El indicador más fiable del estado respiratorio del bebé no es el sonido que hace, sino su <strong>frecuencia respiratoria y su esfuerzo</strong>. Una respiración normal en un recién nacido es de 40 a 60 respiraciones por minuto — lo que parece muy rápido para los estándares de adulto pero es completamente normal.</p>
+    <p>Lo que hay que observar son los signos de trabajo respiratorio: <strong>tiraje</strong> (hundimiento visible entre las costillas o en la base del cuello con cada respiración), <strong>aleteo nasal</strong> (las aletas de la nariz se abren y cierran de forma exagerada), o <strong>quejido espiratorio</strong> (un sonido al exhalar, diferente al inspiratorio). Si aparece cualquiera de estos signos, consulta sin esperar.</p>
+    <p>El color del bebé es otro indicador clave. Un bebé con buena oxigenación tiene los labios rosados y la piel con buen tono. La palidez intensa o el tinte azulado en los labios son señales de alarma que requieren atención urgente.</p>
+
+  </div>
+
+  <p class="disclaimer">
+    Información orientativa. No sustituye la valoración médica presencial.<br>
+    Si tienes dudas sobre la respiración de tu bebé, consulta siempre con tu pediatra.
+  </p>
+
+</div>
+
+<script>
+const CATEGORIES = [
+  { id: 'all',          label: 'Todos' },
+  { id: 'respiracion',  label: '💨 Respiración' },
+  { id: 'digestivo',    label: '🫃 Digestivo' },
+  { id: 'sueno',        label: '😴 Durmiendo' },
+  { id: 'general',      label: '🔊 General' },
+];
+
+// alarm: 'normal' | 'watch' | 'urgent'
+const SOUNDS = [
+  // ── RESPIRACIÓN ────────────────────────────────────────────────
+  {
+    cat: 'respiracion', emoji: '🌬️', name: 'Respiración ruidosa o irregular',
+    tag: 'Muy frecuente en recién nacidos',
+    tags: ['respirar','respiracion','respiración','ruidosa','irregular','ruido respirar'],
+    explain: 'Los recién nacidos respiran de forma muy diferente a los adultos. Su patrón puede ser irregular: rápido durante unos segundos, luego más lento, con pequeñas pausas de hasta 5–10 segundos que son completamente normales. Las vías respiratorias son estrechas y el tejido es blando, lo que produce sonidos audibles con facilidad.',
+    tip: '<strong>Frecuencia normal:</strong> 40–60 respiraciones por minuto en recién nacidos, 30–40 en bebés de 1–12 meses. Si respira mucho más rápido y parece esforzarse, consulta.',
+    verdicts: [
+      { type: 'normal', label: '✅ Normal si…', items: ['Respira entre 30 y 60 veces por minuto en reposo.', 'Tiene buen color (labios rosados, piel con buen tono).', 'El ruido desaparece o disminuye cuando el bebé cambia de posición.', 'Come, llora y se mueve con normalidad.'] },
+      { type: 'urgent', label: '🚨 Consulta urgente si…', items: ['Tiraje: se hunden las costillas o el cuello con cada respiración.', 'Aleteo nasal exagerado al respirar.', 'Labios o uñas con tinte azulado.', 'Respira más de 70 veces por minuto en reposo.'] },
+    ],
+  },
+  {
+    cat: 'respiracion', emoji: '🔊', name: 'Estridor (ruido agudo al inspirar)',
+    tag: 'Puede ser laringomalacia — muy frecuente',
+    tags: ['estridor','pitido','silbido','inspirar','laringomalacia','ruido agudo','chirriido'],
+    explain: 'El estridor es un sonido agudo, parecido a un silbido, que se produce al coger aire. En bebés, la causa más frecuente es la <strong>laringomalacia</strong>: el cartílago de la laringe es demasiado blando y colapsa ligeramente al respirar. Afecta al 45–75% de los bebés con estridor congénito. Suele aparecer en las primeras semanas y mejorar progresivamente hasta desaparecer sola hacia los 18–24 meses.',
+    tip: '<strong>La laringomalacia</strong> suele empeorar cuando el bebé llora, está excitado o tiene reflujo. Si el estridor aparece de forma brusca sin causa anterior, puede ser un objeto extraño — actúa de inmediato.',
+    verdicts: [
+      { type: 'normal', label: '✅ Probablemente normal si…', items: ['El ruido es suave y estable desde las primeras semanas.', 'Empeora al llorar o comer pero el bebé come y crece bien.', 'No hay signos de dificultad respiratoria.', 'Ya ha sido evaluado por el pediatra.'] },
+      { type: 'watch', label: '⏰ Consulta al pediatra si…', items: ['El estridor es nuevo y no ha sido evaluado.', 'El bebé come mal o no gana peso bien.', 'El estridor empeora progresivamente.'] },
+      { type: 'urgent', label: '🚨 Urgente si…', items: ['Aparición brusca, especialmente si el bebé estaba comiendo o jugando con objetos pequeños.', 'Acompañado de tiraje, color azulado o dificultad respiratoria marcada.'] },
+    ],
+  },
+  {
+    cat: 'respiracion', emoji: '😤', name: 'Congestión nasal sin resfriado',
+    tag: 'Rinitis del recién nacido — muy normal',
+    tags: ['congestion','congestión','nariz tapada','mocos','moco','respirar nariz','ronroneo nasal'],
+    explain: 'Muchos recién nacidos suenan como si siempre tuvieran la nariz tapada, aunque no estén resfriados. Esto se llama <strong>rinitis del recién nacido</strong> y es completamente fisiológica: la mucosa nasal del bebé produce más moco de lo habitual como respuesta al cambio de entorno (del líquido amniótico al aire). Además, los bebés son respiradores nasales obligados y cualquier pequeña obstrucción se nota mucho.',
+    tip: '<strong>Los lavados nasales con suero fisiológico</strong> en cada fosa nasal ayudan mucho. Hazlos antes de las tomas para que el bebé pueda mamar o biberonear sin dificultad.',
+    verdicts: [
+      { type: 'normal', label: '✅ Normal si…', items: ['La congestión es leve y no impide comer ni dormir.', 'No hay fiebre ni secreción amarilla o verde abundante.', 'El bebé sigue comiendo con normalidad.'] },
+      { type: 'watch', label: '⏰ Consulta al pediatra si…', items: ['La congestión impide que el bebé mame o tome el biberón.', 'Aparece fiebre (≥ 38°C en menores de 3 meses: urgente).', 'Las secreciones son muy espesas, amarillas o verdes con fiebre.'] },
+    ],
+  },
+  {
+    cat: 'respiracion', emoji: '💨', name: 'Pausas en la respiración (apneas cortas)',
+    tag: 'Normal hasta 10 segundos en recién nacidos',
+    tags: ['apnea','pausa','deja de respirar','no respira','respira pausa'],
+    explain: 'Los recién nacidos tienen un patrón respiratorio llamado <strong>respiración periódica</strong>: ciclos de respiración rápida seguidos de pausas de hasta 5–10 segundos, luego otra serie de respiraciones. Es un patrón inmaduro del sistema nervioso central completamente normal en las primeras semanas de vida.',
+    tip: '<strong>La diferencia clave:</strong> en una pausa normal el bebé mantiene buen color y retoma la respiración solo. Si la pausa dura más de 20 segundos o va con palidez o cianosis, actúa de inmediato.',
+    verdicts: [
+      { type: 'normal', label: '✅ Normal si…', items: ['La pausa dura menos de 10 segundos.', 'El bebé retoma la respiración solo sin estimulación.', 'Mantiene buen color durante la pausa.', 'Ocurre mientras duerme y el resto del tiempo respira bien.'] },
+      { type: 'urgent', label: '🚨 Urgente si…', items: ['La pausa dura más de 20 segundos.', 'El bebé se pone pálido, azulado o flácido durante la pausa.', 'Necesitas estimularlo para que retome la respiración.', 'Las pausas son frecuentes o van en aumento.'] },
+    ],
+  },
+
+  // ── DIGESTIVO ──────────────────────────────────────────────────
+  {
+    cat: 'digestivo', emoji: '😮‍💨', name: 'Hipo',
+    tag: 'Muy frecuente · completamente normal',
+    tags: ['hipo','hipar','hipa'],
+    explain: 'El hipo en los bebés es <strong>extremadamente frecuente</strong> y no indica ningún problema. El diafragma del bebé es inmaduro y se irrita fácilmente, especialmente después de las tomas. Muchos bebés ya tenían hipo dentro del útero. El hipo no les molesta tan intensamente como a los adultos — a menudo siguen durmiendo tranquilamente mientras hacen hipo.',
+    tip: '<strong>No hace falta hacer nada</strong> para pararlo. Cede solo en pocos minutos. Algunos bebés tienen menos hipo si se les hace eructar bien a mitad de la toma.',
+    verdicts: [
+      { type: 'normal', label: '✅ Normal en casi todos los casos', items: ['El hipo aparece después de comer o cuando el estómago está lleno.', 'Cede solo en pocos minutos.', 'El bebé no parece incómodo o sigue durmiendo.', 'Ocurre varias veces al día en los primeros meses.'] },
+      { type: 'watch', label: '⏰ Comenta al pediatra si…', items: ['El hipo es tan frecuente e intenso que interfiere con la alimentación.', 'Va siempre acompañado de regurgitación abundante o llanto de dolor.'] },
+    ],
+  },
+  {
+    cat: 'digestivo', emoji: '🫃', name: 'Gruñidos y esfuerzo al hacer caca',
+    tag: 'Disquecia del lactante — normal hasta los 3 meses',
+    tags: ['gruñido','grune','grunido','grune','esfuerzo','caca','defecar','disquecia','estreñimiento'],
+    explain: 'Es uno de los sonidos que más asustan: el bebé se pone rojo, gruñe, empuja, llora... y luego hace una caca completamente blanda. Esto se llama <strong>disquecia del lactante</strong> y es completamente normal. El bebé todavía no ha aprendido a coordinar la relajación del esfínter anal con la contracción del abdomen. No es estreñimiento — es una cuestión de coordinación motora que se resuelve sola antes de los 3 meses.',
+    tip: '<strong>No uses supositorios ni estimulación rectal</strong> para la disquecia — interfieren con el aprendizaje del bebé. Si las heces son duras o en bolitas (eso sí sería estreñimiento real), entonces sí hay que consultar.',
+    verdicts: [
+      { type: 'normal', label: '✅ Normal (disquecia) si…', items: ['Las heces que salen son blandas o líquidas, aunque el bebé se esfuerce mucho.', 'El episodio de esfuerzo dura menos de 10 minutos.', 'Ocurre en bebés de 0–3 meses principalmente.', 'El bebé come y crece bien.'] },
+      { type: 'watch', label: '⏰ Consulta al pediatra si…', items: ['Las heces son duras o en forma de bolitas (estreñimiento real).', 'El bebé no hace caca en más de 5–7 días (en alimentados con fórmula) o hay signos de malestar intenso.', 'Hay sangre en las heces.'] },
+    ],
+  },
+  {
+    cat: 'digestivo', emoji: '💨', name: 'Gases y ruidos intestinales',
+    tag: 'Borborigmos — completamente normal',
+    tags: ['gases','pedos','flatulencias','ruido barriga','borborigmos','intestino','tripas'],
+    explain: 'El sistema digestivo del bebé está en pleno proceso de colonización por bacterias (microbiota) durante los primeros meses. Este proceso de fermentación produce gases de forma natural. Además, los bebés tragan aire durante las tomas, especialmente en biberón. Los ruidos intestinales (borborigmos) son señal de que el intestino está trabajando activamente — son normales y deseables.',
+    tip: '<strong>Para reducir los gases:</strong> eructos frecuentes durante la toma, posición semi-incorporada, asegúrate de que el agarre al pecho o la tetina del biberón sea correcto para evitar tragar aire de más.',
+    verdicts: [
+      { type: 'normal', label: '✅ Normal si…', items: ['El bebé tiene gases pero se calma después de expulsarlos.', 'Come y crece con normalidad.', 'El abdomen no está visiblemente distendido o muy duro.'] },
+      { type: 'watch', label: '⏰ Consulta al pediatra si…', items: ['El bebé llora inconsolablemente más de 3 horas al día por aparente dolor de gases.', 'El abdomen está visiblemente hinchado y duro.', 'Los gases van acompañados de sangre en heces o vómitos biliosos.'] },
+    ],
+  },
+  {
+    cat: 'digestivo', emoji: '🤮', name: 'Regurgitación y ruidos de reflujo',
+    tag: 'Muy común hasta los 6 meses',
+    tags: ['regurgitacion','regurgitación','reflujo','devuelve','vomita','gorgoteo','eructo'],
+    explain: 'La regurgitación en los bebés es <strong>extremadamente frecuente</strong>: hasta el 70% de los bebés de 3–4 meses regurgita al menos una vez al día. El esfínter esofágico inferior (la válvula entre el esófago y el estómago) es inmaduro y se relaja con facilidad, permitiendo que el contenido del estómago suba. Los gorgoteos que escuchas en el pecho o la garganta del bebé son el sonido de ese reflujo ascendiendo.',
+    tip: '<strong>La posición ayuda:</strong> mantén al bebé incorporado 20–30 minutos después de cada toma. El reflujo fisiológico mejora mucho cuando el bebé empieza a tomar sólidos y a estar más tiempo sentado (6 meses).',
+    verdicts: [
+      { type: 'normal', label: '✅ Normal si…', items: ['El bebé regurgita pero come bien y gana peso (el "bebé feliz que vomita").', 'La regurgitación es pequeña y sin esfuerzo.', 'No hay señales de dolor intenso asociado.'] },
+      { type: 'watch', label: '⏰ Consulta al pediatra si…', items: ['El bebé llora mucho antes, durante o después de las tomas de forma sistemática.', 'No gana peso correctamente.', 'Regurgita con mucha fuerza o en gran cantidad en cada toma.', 'La regurgitación tiene color verde o sangre.'] },
+    ],
+  },
+
+  // ── DURMIENDO ──────────────────────────────────────────────────
+  {
+    cat: 'sueno', emoji: '😴', name: 'Ronquidos suaves al dormir',
+    tag: 'Normal en muchos bebés',
+    tags: ['ronquido','roncar','ronca','ronquido','dormido','durmiendo'],
+    explain: 'Un ronquido suave y ocasional durante el sueño es normal en bebés, especialmente cuando están resfriados o tienen la nariz congestionada. Las vías respiratorias estrechas vibran ligeramente con la respiración profunda del sueño. No tiene nada que ver con los ronquidos del adulto asociados a la apnea del sueño.',
+    tip: '<strong>Si el bebé ronca siempre</strong>, independientemente de si está resfriado, y hace pausas en la respiración mientras duerme, coméntalo con el pediatra — podría indicar hipertrofia de adenoides.',
+    verdicts: [
+      { type: 'normal', label: '✅ Normal si…', items: ['El ronquido es suave y no siempre presente.', 'Aparece principalmente cuando está resfriado.', 'No hay pausas respiratorias.', 'El bebé duerme con aparente comodidad.'] },
+      { type: 'watch', label: '⏰ Consulta al pediatra si…', items: ['Ronca todas las noches, incluso sin estar resfriado.', 'Hay pausas visibles en la respiración durante el sueño.', 'Parece agotado durante el día a pesar de dormir muchas horas.'] },
+    ],
+  },
+  {
+    cat: 'sueno', emoji: '😮', name: 'Quejidos y gemidos dormido',
+    tag: 'Actividad durante el sueño activo (REM)',
+    tags: ['quejido','gemido','gemidos','quejidos','dormido','durmiendo','sueno activo','rem'],
+    explain: 'Los bebés pasan mucho más tiempo en sueño REM (sueño activo) que los adultos — hasta el 50% de su tiempo de sueño frente al 20–25% del adulto. Durante el sueño REM es normal que hagan muecas, sonrían, succionen, muevan los ojos, agiten los brazos y emitan quejidos o gemidos. No están teniendo pesadillas ni pasándolo mal — están procesando la información del día.',
+    tip: '<strong>No intervengas inmediatamente</strong> si escuchas quejidos. Espera unos segundos — la mayoría de veces el bebé se vuelve a calmar solo sin haberse despertado realmente. Si intervienes demasiado pronto, puedes despertarle sin necesidad.',
+    verdicts: [
+      { type: 'normal', label: '✅ Normal si…', items: ['Los quejidos son breves y el bebé los hace sin despertarse.', 'Va acompañado de movimientos, muecas o succiones.', 'Se calma solo en pocos segundos.'] },
+      { type: 'watch', label: '⏰ Consulta al pediatra si…', items: ['El quejido es continuo y no cede, y el bebé parece incómodo aunque duerma.', 'Va acompañado de fiebre.', 'El bebé se despierta muy frecuentemente con llanto intenso.'] },
+    ],
+  },
+  {
+    cat: 'sueno', emoji: '💨', name: 'Suspiros profundos al dormir',
+    tag: 'Completamente normal · autorregulación',
+    tags: ['suspiro','suspirar','suspira','dormido','durmiendo'],
+    explain: 'Los suspiros profundos y periódicos durante el sueño son un mecanismo fisiológico normal. Se llaman <strong>suspiros de insuflación</strong> y sirven para reabrir las pequeñas vías respiratorias (alvéolos) que tienden a colapsarse ligeramente durante la respiración superficial del sueño. Es el pulmón reinflándose solo — exactamente lo que debe hacer.',
+    tip: 'No hay nada que hacer. Es una señal de que el sistema respiratorio del bebé funciona correctamente.',
+    verdicts: [
+      { type: 'normal', label: '✅ Normal siempre que…', items: ['El suspiro sea esporádico (cada varios minutos).', 'El bebé retome la respiración normal inmediatamente.', 'No vaya acompañado de color azulado ni de esfuerzo.'] },
+    ],
+  },
+
+  // ── GENERAL ────────────────────────────────────────────────────
+  {
+    cat: 'general', emoji: '🤧', name: 'Estornudos frecuentes',
+    tag: 'Mecanismo de limpieza — muy normal',
+    tags: ['estornudo','estornudar','estornudos','alérgico','alergia'],
+    explain: 'Los recién nacidos estornudan con frecuencia, a veces en salvas de varios estornudos seguidos. Es su único mecanismo para limpiar las fosas nasales de partículas, mucosidad y restos de líquido amniótico. También estornudan como respuesta a la luz brillante (reflejo fótico). No indica resfriado ni alergia.',
+    tip: '<strong>Los estornudos frecuentes sin otros síntomas</strong> son completamente normales. Si van acompañados de mucosidad verdosa, fiebre o dificultad para comer, entonces sí hay que consultar.',
+    verdicts: [
+      { type: 'normal', label: '✅ Normal si…', items: ['Estornuda frecuentemente sin otros síntomas.', 'No tiene fiebre ni parece encontrarse mal.', 'Come y duerme con normalidad.'] },
+      { type: 'watch', label: '⏰ Consulta al pediatra si…', items: ['Los estornudos van acompañados de moco verde o amarillo abundante.', 'Hay fiebre o dificultad para comer.', 'El bebé parece muy irritable o no es su comportamiento habitual.'] },
+    ],
+  },
+  {
+    cat: 'general', emoji: '🔔', name: 'Chasquidos al mamar',
+    tag: 'Puede indicar agarre incorrecto',
+    tags: ['chasquido','chasca','mamar','pecho','lactancia','agarre','ruido mamar'],
+    explain: 'Un chasquido ocasional al mamar puede ser normal. Sin embargo, si los chasquidos son frecuentes o persistentes suelen indicar que el agarre al pecho no es perfecto: el bebé está perdiendo el sello y entrando aire. Esto puede causar más gases, más hipo y menos leche extraída por toma.',
+    tip: '<strong>Una matrona o asesora de lactancia</strong> puede evaluar el agarre en pocos minutos y corregirlo. Es una de las consultas más valiosas del primer mes — no esperes si tienes dudas sobre la lactancia.',
+    verdicts: [
+      { type: 'normal', label: '✅ Probablemente normal si…', items: ['Ocurre ocasionalmente y el bebé gana peso bien.', 'No va acompañado de dolor en el pezón.'] },
+      { type: 'watch', label: '⏰ Consulta a la matrona si…', items: ['Los chasquidos son frecuentes en casi todas las tomas.', 'Tienes dolor en el pezón durante o después de mamar.', 'El bebé parece no quedar satisfecho después de las tomas.', 'No gana peso correctamente.'] },
+    ],
+  },
+  {
+    cat: 'general', emoji: '😢', name: 'Llanto con diferentes tonos',
+    tag: 'El lenguaje del bebé — normal y esperado',
+    tags: ['llanto','llora','llorando','queja','quejido','llanto agudo','llanto distinto'],
+    explain: 'Los bebés tienen diferentes tipos de llanto para comunicar diferentes necesidades: hambre, sueño, dolor, aburrimiento o necesidad de contacto. Con el tiempo los padres aprenden a distinguirlos. Un llanto <strong>agudo y estridente</strong> diferente al habitual — que el bebé no puede parar y que suena a dolor real — siempre merece atención.',
+    tip: 'Consulta <strong>llanto-bebe</strong> en babyFAQ para una guía más completa sobre los tipos de llanto y cómo responder a cada uno.',
+    verdicts: [
+      { type: 'normal', label: '✅ Normal si…', items: ['El llanto responde a tus intervenciones (comer, cambiar, coger en brazos).', 'Entre episodios de llanto el bebé está tranquilo.', 'No dura más de 3 horas al día de forma sistemática (más podría ser cólico).'] },
+      { type: 'watch', label: '⏰ Consulta al pediatra si…', items: ['El llanto es muy agudo y diferente al habitual y no cede.', 'Va acompañado de fiebre.', 'El bebé llora más de 3 horas al día durante más de 3 días seguidos.'] },
+    ],
+  },
+];
+
+// ── State ──────────────────────────────────────────────────────────
+let activeCat = 'all';
+let searchQ   = '';
+const openSounds = new Set();
+
+// ── Build pills ────────────────────────────────────────────────────
+function buildPills() {
+  const wrap = document.getElementById('cat-pills');
+  CATEGORIES.forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'cat-pill' + (c.id === activeCat ? ' active' : '');
+    btn.textContent = c.label;
+    btn.addEventListener('click', () => {
+      activeCat = c.id;
+      document.querySelectorAll('.cat-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilters();
+    });
+    wrap.appendChild(btn);
+  });
+}
+
+// ── Render ─────────────────────────────────────────────────────────
+function applyFilters() {
+  searchQ = document.getElementById('search').value.toLowerCase().trim();
+  const out = document.getElementById('sounds-output');
+  out.innerHTML = '';
+
+  const matching = SOUNDS.filter(s => {
+    if (activeCat !== 'all' && s.cat !== activeCat) return false;
+    if (searchQ) {
+      const nm = s.name.toLowerCase().includes(searchQ);
+      const tg = (s.tags || []).some(t => t.includes(searchQ));
+      if (!nm && !tg) return false;
+    }
+    return true;
+  });
+
+  if (matching.length === 0) {
+    out.innerHTML = `<div class="no-results"><span class="no-results-icon">🤔</span>No hemos encontrado "${searchQ}".<br>Prueba con otra palabra o navega por categorías.</div>`;
+    return;
+  }
+
+  matching.forEach(s => {
+    const isOpen = openSounds.has(s.name);
+    // Alarm dots: get unique types
+    const types = [...new Set(s.verdicts.map(v => v.type))];
+
+    const sec = document.createElement('div');
+    sec.className = 'sound-section';
+
+    const dotsHtml = types.map(t => {
+      const cls = t === 'normal' ? 'green' : t === 'watch' ? 'amber' : 'red';
+      return `<span class="alarm-dot ${cls}"></span>`;
+    }).join('');
+
+    const headerDiv = document.createElement('div');
+    headerDiv.className = 'sound-header' + (isOpen ? ' open' : '');
+    headerDiv.innerHTML = `
+      <span class="sound-emoji">${s.emoji}</span>
+      <div class="sound-info">
+        <div class="sound-name">${s.name}</div>
+        <div class="sound-tag">${s.tag}</div>
+      </div>
+      <div class="alarm-dots">${dotsHtml}</div>
+      <span class="sound-chevron">›</span>`;
+
+    const bodyDiv = document.createElement('div');
+    bodyDiv.className = 'sound-body' + (isOpen ? ' open' : '');
+    bodyDiv.innerHTML = `
+      <p class="sound-explain">${s.explain}</p>
+      ${s.verdicts.map(v => `
+        <div class="verdict-block ${v.type}">
+          <span class="verdict-label">${v.label}</span>
+          <div class="verdict-items">
+            ${v.items.map(i => `<div class="verdict-item">${i}</div>`).join('')}
+          </div>
+        </div>`).join('')}
+      <div class="sound-tip">💡 ${s.tip}</div>`;
+
+    headerDiv.addEventListener('click', () => {
+      const nowOpen = bodyDiv.classList.toggle('open');
+      headerDiv.classList.toggle('open', nowOpen);
+      if (nowOpen) openSounds.add(s.name);
+      else openSounds.delete(s.name);
+    });
+
+    sec.appendChild(headerDiv);
+    sec.appendChild(bodyDiv);
+    out.appendChild(sec);
+  });
+}
+
+buildPills();
+applyFilters();
+</script>
+</body>
+</html>
