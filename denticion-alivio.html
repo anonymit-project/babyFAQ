@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Aliviar la dentición del bebé · Síntomas y remedios · babyFAQ</title>
+<meta name="description" content="Cómo aliviar el dolor de la dentición del bebé. Síntomas reales vs mitos, qué funciona de verdad, mordedores, masaje de encías y cuándo ir al pediatra.">
+<meta property="og:title" content="Aliviar la dentición del bebé · Síntomas y remedios · babyFAQ">
+<meta property="og:description" content="Síntomas reales de la dentición, qué alivia de verdad y qué es mito. Técnicas con temporizador para calmar al bebé cuando le salen los dientes.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fdf8f0">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf8f0;
+    --warm-white: #fffdf8;
+    --amber: #c08020;
+    --amber-soft: #f0d090;
+    --deep: #2d2010;
+    --mid: #6a5030;
+    --soft: #c4a870;
+    --amber-bg: #fdf3e0;
+    --amber-border: #f0cc8a;
+    --amber-dark: #7a4a10;
+    --green: #3a7a4a;
+    --green-bg: #edf5f0;
+    --green-border: #a8d8b0;
+    --red: #a83030;
+    --red-bg: #fdf0f0;
+    --red-border: #f0a8a8;
+    --blue: #3a6aaa;
+    --blue-bg: #eef3fc;
+    --blue-border: #a8c0e8;
+    --terracota: #c97a5e;
+    --blush: #f2c4b0;
+    --peach-bg: #fdf0e8;
+    --peach-border: #e8c4a8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 300px; height: 300px; background: #f7d8a0; top: -100px; right: -80px; opacity: 0.4; }
+  .blob-2 { width: 250px; height: 250px; background: #d4e8d8; bottom: -80px; left: -60px; opacity: 0.3; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--amber); }
+
+  header { text-align: center; margin-bottom: 28px; }
+  .badge { display: inline-block; background: var(--amber-bg); color: var(--amber); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
+  @media (min-width: 480px) { h1 { font-size: 34px; } }
+  @media (min-width: 640px) { h1 { font-size: 38px; } }
+  h1 em { font-style: italic; color: var(--amber); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300; }
+
+  .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,32,16,0.07); border: 1px solid rgba(196,168,112,0.22); }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 12px; }
+
+  /* ── Cuándo empieza ── */
+  .when-row { display: flex; gap: 8px; }
+  .when-block { flex: 1; background: var(--amber-bg); border: 1.5px solid var(--amber-border); border-radius: 14px; padding: 14px 10px; text-align: center; }
+  .when-val { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 300; color: var(--amber); display: block; line-height: 1; }
+  .when-label { font-size: 10px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--mid); display: block; margin-top: 5px; }
+  .when-sub { font-size: 11px; color: var(--soft); display: block; margin-top: 3px; }
+  .when-note { font-size: 11px; color: var(--mid); text-align: center; margin-top: 10px; line-height: 1.6; font-style: italic; }
+
+  /* ── Síntomas reales vs mitos ── */
+  .symptoms-row { display: flex; gap: 8px; margin-bottom: 6px; }
+  .sym-block { flex: 1; border-radius: 13px; padding: 13px 11px; }
+  .sym-block.real { background: var(--green-bg); border: 1px solid var(--green-border); }
+  .sym-block.myth { background: var(--red-bg);   border: 1px solid var(--red-border); }
+  .sym-title { font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; display: block; margin-bottom: 8px; }
+  .sym-block.real .sym-title { color: var(--green); }
+  .sym-block.myth .sym-title { color: var(--red); }
+  .sym-items { display: flex; flex-direction: column; gap: 5px; }
+  .sym-item { font-size: 12px; line-height: 1.5; padding-left: 12px; position: relative; }
+  .sym-block.real .sym-item { color: #1a4a2a; }
+  .sym-block.myth .sym-item { color: #7a1a1a; }
+  .sym-item::before { content: '·'; position: absolute; left: 3px; font-weight: 700; }
+  .sym-note { font-size: 11px; color: var(--mid); margin-top: 10px; line-height: 1.6; background: var(--cream); border-radius: 10px; padding: 9px 12px; border: 1px solid rgba(196,168,112,0.2); }
+
+  /* ── Técnicas con temporizador ── */
+  .technique-list { display: flex; flex-direction: column; gap: 8px; }
+  .technique { border-radius: 16px; border: 2px solid transparent; overflow: hidden; cursor: pointer; background: var(--warm-white); box-shadow: 0 1px 8px rgba(45,32,16,0.06); }
+  .technique.active { border-color: var(--amber); }
+  .tech-header { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--warm-white); user-select: none; touch-action: manipulation; }
+  .technique.active .tech-header { background: var(--amber-bg); }
+  .tech-emoji { font-size: 24px; flex-shrink: 0; }
+  .tech-info { flex: 1; }
+  .tech-name { font-size: 14px; font-weight: 500; color: var(--deep); }
+  .tech-tag  { font-size: 11px; color: var(--soft); margin-top: 2px; }
+  .tech-chevron { font-size: 12px; color: var(--soft); transition: transform 0.2s; flex-shrink: 0; }
+  .technique.active .tech-chevron { transform: rotate(90deg); }
+  .tech-body { display: none; padding: 16px 16px 18px; background: var(--warm-white); }
+  .technique.active .tech-body { display: block; }
+
+  /* Timer */
+  .timer-wrap { text-align: center; margin-bottom: 16px; }
+  .timer-circle { width: 110px; height: 110px; border-radius: 50%; border: 4px solid var(--amber-soft); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 12px; background: var(--amber-bg); transition: border-color 0.3s, background 0.3s; }
+  .timer-circle.running { border-color: var(--amber); }
+  .timer-circle.done    { border-color: var(--green); background: var(--green-bg); }
+  .timer-time  { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 300; color: var(--deep); line-height: 1; }
+  .timer-unit  { font-size: 10px; color: var(--soft); font-weight: 500; letter-spacing: 0.06em; margin-top: 3px; }
+  .timer-circle.done .timer-time { color: var(--green); font-size: 26px; }
+  .timer-btns  { display: flex; gap: 8px; justify-content: center; }
+  .timer-btn   { padding: 10px 20px; border-radius: 12px; border: none; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; touch-action: manipulation; transition: background 0.15s, transform 0.1s; }
+  .timer-btn:active { transform: scale(0.97); }
+  .timer-btn.start { background: var(--amber); color: white; }
+  .timer-btn.start:hover { background: #a06818; }
+  .timer-btn.reset { background: var(--cream); color: var(--mid); border: 1.5px solid rgba(196,168,112,0.4); }
+
+  /* Steps */
+  .steps-list { display: flex; flex-direction: column; gap: 7px; margin-bottom: 12px; }
+  .step { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--mid); line-height: 1.6; }
+  .step-num { width: 22px; height: 22px; border-radius: 50%; background: var(--amber-bg); color: var(--amber); font-size: 11px; font-weight: 700; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 1px; border: 1px solid var(--amber-border); }
+
+  /* Tip */
+  .tip-chip { background: var(--peach-bg); border: 1px solid var(--peach-border); border-radius: 10px; padding: 10px 12px; font-size: 12px; color: #7a3a20; line-height: 1.6; }
+  .tip-chip strong { color: var(--deep); font-weight: 500; }
+
+  /* ── Lo que NO funciona ── */
+  .nope-list { display: flex; flex-direction: column; gap: 8px; }
+  .nope-row { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--mid); line-height: 1.55; }
+  .nope-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 7px; border-radius: 10px; flex-shrink: 0; margin-top: 2px; background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+
+  /* ── Info section ── */
+  .info-section { background: var(--warm-white); border-radius: 20px; padding: 28px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,32,16,0.06); border: 1px solid rgba(196,168,112,0.2); }
+  .info-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
+  .info-section h2 em { font-style: italic; color: var(--amber); }
+  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; }
+  .info-section p:last-child { margin-bottom: 0; }
+  .info-section strong { color: var(--deep); font-weight: 500; }
+  .info-divider { height: 1px; background: rgba(196,168,112,0.2); margin: 20px 0; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.65; margin-top: 20px; padding: 0 8px; }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">4–30 meses</span>
+    <h1>Le están saliendo<br>los <em>dientes</em></h1>
+    <p class="subtitle">Qué es de verdad la dentición, qué síntomas son reales y cuáles son mitos, y qué alivia de verdad el dolor de encías.</p>
+  </header>
+
+  <!-- Cuándo empieza -->
+  <div class="card">
+    <div class="section-label">Cuándo esperar cada etapa</div>
+    <div class="when-row">
+      <div class="when-block">
+        <span class="when-val">4–7</span>
+        <span class="when-label">Primeros síntomas</span>
+        <span class="when-sub">meses</span>
+      </div>
+      <div class="when-block">
+        <span class="when-val">6–10</span>
+        <span class="when-label">Primer diente</span>
+        <span class="when-sub">meses</span>
+      </div>
+      <div class="when-block">
+        <span class="when-val">25–33</span>
+        <span class="when-label">Dentición completa</span>
+        <span class="when-sub">meses</span>
+      </div>
+    </div>
+    <p class="when-note">Hay una variabilidad enorme entre bebés. Algunos nacen ya con un diente; otros no tienen ninguno al año. Ambos extremos son normales si el pediatra no observa ninguna alteración.</p>
+  </div>
+
+  <!-- Síntomas reales vs mitos -->
+  <div class="card">
+    <div class="section-label">Síntomas reales vs mitos muy extendidos</div>
+    <div class="symptoms-row">
+      <div class="sym-block real">
+        <span class="sym-title">✅ Síntomas reales</span>
+        <div class="sym-items">
+          <div class="sym-item">Encías hinchadas o enrojecidas</div>
+          <div class="sym-item">Babeo excesivo</div>
+          <div class="sym-item">Necesidad de morder todo</div>
+          <div class="sym-item">Irritabilidad leve</div>
+          <div class="sym-item">Sarpullido leve en barbilla (por el babeo)</div>
+          <div class="sym-item">Leve rechazo del alimento</div>
+          <div class="sym-item">Sueño algo más agitado</div>
+        </div>
+      </div>
+      <div class="sym-block myth">
+        <span class="sym-title">❌ Mitos extendidos</span>
+        <div class="sym-items">
+          <div class="sym-item">Fiebre alta (≥ 38°C)</div>
+          <div class="sym-item">Diarrea intensa</div>
+          <div class="sym-item">Vómitos repetidos</div>
+          <div class="sym-item">Infecciones de oído</div>
+          <div class="sym-item">Convulsiones febriles</div>
+          <div class="sym-item">Bronquitis o catarros</div>
+        </div>
+      </div>
+    </div>
+    <p class="sym-note">⚠️ Si tu bebé tiene fiebre alta durante la dentición, no la atribuyas a los dientes — <strong>busca siempre otra causa</strong>. La dentición puede causar febrícula leve (37–37,5°C) como mucho. La fiebre real siempre tiene otra explicación.</p>
+  </div>
+
+  <!-- Técnicas -->
+  <div class="card">
+    <div class="section-label">Técnicas para aliviar · toca una para empezar</div>
+    <div class="technique-list" id="techniques"></div>
+  </div>
+
+  <!-- Lo que NO funciona -->
+  <div class="card">
+    <div class="section-label">Lo que NO debes usar</div>
+    <div class="nope-list">
+      <div class="nope-row">
+        <span class="nope-badge">❌ Evitar</span>
+        <span><strong>Geles de dentición con lidocaína o benzocaína</strong> — la FDA y la EMA alertan de riesgo de metahemoglobinemia (reducción del oxígeno en sangre) en bebés. Especialmente peligrosos los de venta libre.</span>
+      </div>
+      <div class="nope-row">
+        <span class="nope-badge">❌ Evitar</span>
+        <span><strong>Geles homeopáticos de dentición</strong> — sin evidencia de eficacia. Algunos contienen belladona en cantidades no reguladas, lo que ha provocado alertas de la FDA.</span>
+      </div>
+      <div class="nope-row">
+        <span class="nope-badge">❌ Evitar</span>
+        <span><strong>Ámbar báltico (collar de ámbar)</strong> — sin ninguna evidencia científica de eficacia. Son un riesgo real de estrangulamiento y asfixia. La AEP desaconseja expresamente su uso.</span>
+      </div>
+      <div class="nope-row">
+        <span class="nope-badge">❌ Evitar</span>
+        <span><strong>Alcohol frotado en las encías</strong> — tóxico para bebés. No tiene efecto analgésico y puede causar intoxicación etílica.</span>
+      </div>
+      <div class="nope-row">
+        <span class="nope-badge">❌ Evitar</span>
+        <span><strong>Mordedores rellenos de líquido</strong> — pueden romperse y liberar el líquido interior. Usa siempre mordedores sólidos de silicona o caucho natural certificado.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info section -->
+  <div class="info-section">
+
+    <h2>Por qué la dentición <em>duele</em> de verdad</h2>
+    <p>La erupción dental es un proceso en el que el diente, empujado por la presión de la raíz en crecimiento, va abriendo camino a través del hueso alveolar y la encía. La encía se inflama, se tensa y se irrita en la zona de erupción días o semanas antes de que el diente sea visible. Esta inflamación local es la causa del dolor real — no es un mito.</p>
+    <p>El dolor suele ser <strong>intermitente</strong>: más intenso en los días inmediatamente anteriores a la erupción y durante ella, y mucho más leve el resto del tiempo. Los molares (que salen entre los 12 y los 30 meses) suelen ser más dolorosos que los incisivos porque tienen una superficie de corte mayor y requieren más tiempo para atravesar la encía.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>La higiene dental desde el <em>primer diente</em></h2>
+    <p>En cuanto aparece el primer diente, empieza la higiene dental. No hace falta esperar a que haya varios. Usa un <strong>cepillo de dientes específico para bebés</strong> (cabezal muy pequeño, cerdas muy suaves) o un dedal de silicona los primeros meses.</p>
+    <p>La <strong>pasta de dientes con flúor</strong> se recomienda desde el primer diente, no desde los 2 años como se creía antes. La cantidad es clave: para bebés hasta los 3 años, una cantidad equivalente a un grano de arroz es suficiente. A partir de los 3 años, el tamaño de un guisante. El flúor a estas dosis es seguro y muy efectivo para prevenir la caries.</p>
+    <p>La caries en dientes de leche no es un problema menor — afecta a la mordida, al espacio para los dientes definitivos y puede causar infecciones dolorosas. Además, los dientes de leche acompañan al niño hasta los 10–12 años. Merece la pena cuidarlos desde el principio.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>Cuándo ir al <em>dentista pediátrico</em></h2>
+    <p>La recomendación actual de las sociedades de odontología pediátrica es la <strong>primera visita al dentista al año de vida</strong>, o en los 6 meses siguientes a la erupción del primer diente (lo que ocurra antes). No es una visita para tratar problemas — es para establecer una línea base, revisar el frenillo, evaluar el hábito de succión y dar pautas de higiene y alimentación.</p>
+    <p>Consulta al dentista o al pediatra antes si observas: manchas blancas o marrones en los dientes (posible caries precoz), un diente que no sale después de los 18 meses, sangrado espontáneo de encías sin causa traumática, o asimetría en la erupción (un diente en un lado sin su homólogo en el otro pasado un tiempo razonable).</p>
+
+  </div>
+
+  <p class="disclaimer">
+    Basado en las recomendaciones de la AEP, la Sociedad Española de Odontopediatría y la FDA/EMA sobre productos para la dentición.<br>
+    Ante cualquier duda sobre la dentición de tu bebé, consulta con tu pediatra o dentista pediátrico.
+  </p>
+
+</div>
+
+<script>
+const TECHNIQUES = [
+  {
+    emoji: '🧊',
+    name: 'Frío en las encías',
+    tag: 'El método más efectivo · vasoconstricción natural',
+    duration: 2 * 60,
+    durationLabel: '2 min',
+    steps: [
+      'Moja una gasa o un paño limpio en agua fría y enfríalo en el frigorífico (no en el congelador) durante 15–20 minutos.',
+      'Envuelve el dedo índice con la gasa fría y masajea suavemente la encía en la zona de erupción.',
+      'Presión firme pero suave, en círculos o de lado a lado. El frío reduce la inflamación y entumece ligeramente la zona.',
+      'Puedes repetirlo cada 1–2 horas durante los días de mayor molestia.',
+    ],
+    tip: '<strong>Nunca hielo directo</strong> sobre la encía — puede causar quemaduras por frío. El frigorífico es suficiente. La diferencia de temperatura con el hielo es demasiado brusca para la mucosa oral del bebé.',
+  },
+  {
+    emoji: '🦷',
+    name: 'Mordedor frío',
+    tag: 'Presión + frío · dejar que el bebé se autogestione',
+    duration: 10 * 60,
+    durationLabel: '10 min',
+    steps: [
+      'Mete el mordedor en el frigorífico (nunca en el congelador) durante al menos 30 minutos antes de dárselo.',
+      'Ofrécelo al bebé y deja que lo maneje solo — la clave es que el bebé controle la presión que ejerce sobre la encía.',
+      'El mordedor debe ser de silicona sólida o caucho natural, sin líquido interior y con certificado CE.',
+      'Vigila siempre al bebé mientras usa el mordedor para evitar riesgos de atragantamiento.',
+    ],
+    tip: '<strong>El tamaño importa:</strong> el mordedor debe ser suficientemente grande para que no pueda metérselo entero en la boca pero con partes que alcancen las encías posteriores (donde salen los molares).',
+  },
+  {
+    emoji: '🤲',
+    name: 'Masaje de encías',
+    tag: 'Presión manual · contraestimulación del dolor',
+    duration: 3 * 60,
+    durationLabel: '3 min',
+    steps: [
+      'Lávate bien las manos. Con el dedo índice limpio, localiza la zona de la encía donde el diente está a punto de salir — estará más rosada o inflamada.',
+      'Aplica una presión firme y constante sobre esa zona durante 10–15 segundos. No frotes — presiona.',
+      'La presión actúa por el mecanismo de contraestimulación: una señal de presión intensa "tapa" la señal de dolor en la vía nerviosa.',
+      'Alterna con pequeños círculos suaves. Observa la reacción del bebé — si se relaja, estás en el sitio correcto.',
+    ],
+    tip: '<strong>La presión firme funciona mejor que la suave.</strong> Intuitivamente tendemos a ser demasiado suaves — el bebé necesita una presión real para que la contraestimulación sea efectiva.',
+  },
+  {
+    emoji: '🍌',
+    name: 'Alimentos fríos para morder',
+    tag: 'A partir de los 6 meses · frío + textura',
+    duration: 5 * 60,
+    durationLabel: '5 min',
+    steps: [
+      'Mete un trozo grande de fruta blanda (plátano, pera muy madura, melón) en el frigorífico durante 30 minutos.',
+      'Ofrécelo al bebé en una malla de alimentación (feeder) o en trozos grandes suficientemente grandes para que no pueda atragantarse.',
+      'El frío alivia la inflamación y la textura de la fruta da la presión que el bebé busca al morder.',
+      'Supervisa siempre al bebé mientras come — especialmente importante con frutas que puedan ablandarse demasiado.',
+    ],
+    tip: '<strong>Solo a partir de los 6 meses</strong> y cuando ya haya empezado la alimentación complementaria. La malla de alimentación es la opción más segura para los más pequeños.',
+  },
+  {
+    emoji: '🌿',
+    name: 'Infusión de manzanilla fría (en gasa)',
+    tag: 'Antiinflamatorio natural suave · desde los 6 meses',
+    duration: 2 * 60,
+    durationLabel: '2 min',
+    steps: [
+      'Prepara una infusión de manzanilla suave (sin azúcar) y déjala enfriar completamente en el frigorífico.',
+      'Moja una gasa o paño limpio en la infusión fría.',
+      'Masajea suavemente la encía del bebé con la gasa, igual que con el método de la gasa de agua fría.',
+      'La manzanilla tiene propiedades antiinflamatorias leves. El efecto principal sigue siendo el frío.',
+    ],
+    tip: '<strong>Sin azúcar, sin miel.</strong> La miel está prohibida antes de los 12 meses por riesgo de botulismo. Esta técnica es complementaria — el frío es el componente activo principal.',
+  },
+  {
+    emoji: '💊',
+    name: 'Paracetamol o ibuprofeno',
+    tag: 'Para los días de más dolor · siempre con dosis correcta',
+    duration: 0,
+    durationLabel: '',
+    steps: [
+      'Si las técnicas no farmacológicas no son suficientes y el bebé está claramente incómodo, el paracetamol o el ibuprofeno son seguros y efectivos.',
+      'Usa siempre la dosis correcta por peso — consulta la herramienta de dosis de babyFAQ o el prospecto.',
+      'El ibuprofeno tiene además efecto antiinflamatorio, lo que puede ser especialmente útil en los días de mayor inflamación de encías.',
+      'El ibuprofeno solo a partir de los 6 meses de edad y siempre con el pediatra informado si hay dudas.',
+    ],
+    tip: '<strong>No uses analgésicos de forma preventiva</strong> ni de forma rutinaria. Son para los momentos de dolor real que no ceden con otras medidas. La dentición dura meses — reserva la medicación para cuando realmente la necesite.',
+  },
+];
+
+const timerState = {};
+TECHNIQUES.forEach((t, i) => {
+  timerState[i] = { remaining: t.duration, running: false, interval: null };
+});
+
+let openIdx = null;
+
+function buildTechniques() {
+  const list = document.getElementById('techniques');
+  TECHNIQUES.forEach((t, i) => {
+    const div = document.createElement('div');
+    div.className = 'technique';
+    div.id = 'tech-' + i;
+
+    const hasTimer = t.duration > 0;
+    const timerHTML = hasTimer ? `
+      <div class="timer-wrap">
+        <div class="timer-circle" id="circle-${i}">
+          <span class="timer-time" id="time-${i}">${fmtTime(t.duration)}</span>
+          <span class="timer-unit" id="tunit-${i}">${t.durationLabel}</span>
+        </div>
+        <div class="timer-btns">
+          <button class="timer-btn start" id="startbtn-${i}" onclick="toggleTimer(${i})">▶ Iniciar</button>
+          <button class="timer-btn reset" onclick="resetTimer(${i})">↩ Reiniciar</button>
+        </div>
+      </div>` : '';
+
+    div.innerHTML = `
+      <div class="tech-header" onclick="toggleTech(${i})">
+        <span class="tech-emoji">${t.emoji}</span>
+        <div class="tech-info">
+          <div class="tech-name">${t.name}</div>
+          <div class="tech-tag">${t.tag}</div>
+        </div>
+        <span class="tech-chevron">›</span>
+      </div>
+      <div class="tech-body">
+        ${timerHTML}
+        <div class="steps-list">
+          ${t.steps.map((s, n) => `
+            <div class="step">
+              <div class="step-num">${n + 1}</div>
+              <span>${s}</span>
+            </div>`).join('')}
+        </div>
+        <div class="tip-chip">💡 ${t.tip}</div>
+      </div>`;
+
+    list.appendChild(div);
+  });
+}
+
+function toggleTech(i) {
+  const el = document.getElementById('tech-' + i);
+  const isOpen = el.classList.contains('active');
+  document.querySelectorAll('.technique').forEach(t => t.classList.remove('active'));
+  if (!isOpen) el.classList.add('active');
+}
+
+function fmtTime(s) {
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+}
+
+function toggleTimer(i) {
+  const ts = timerState[i];
+  if (ts.running) {
+    clearInterval(ts.interval);
+    ts.running = false;
+    document.getElementById('startbtn-' + i).textContent = '▶ Continuar';
+  } else {
+    if (ts.remaining <= 0) return;
+    ts.running = true;
+    document.getElementById('startbtn-' + i).textContent = '⏸ Pausar';
+    document.getElementById('circle-' + i).classList.add('running');
+    document.getElementById('circle-' + i).classList.remove('done');
+    ts.interval = setInterval(() => {
+      ts.remaining--;
+      document.getElementById('time-' + i).textContent = fmtTime(ts.remaining);
+      if (ts.remaining <= 0) {
+        clearInterval(ts.interval);
+        ts.running = false;
+        document.getElementById('circle-' + i).classList.remove('running');
+        document.getElementById('circle-' + i).classList.add('done');
+        document.getElementById('time-' + i).textContent = '✓';
+        document.getElementById('tunit-' + i).textContent = '¡Listo!';
+        document.getElementById('startbtn-' + i).textContent = '▶ Iniciar';
+      }
+    }, 1000);
+  }
+}
+
+function resetTimer(i) {
+  const ts = timerState[i];
+  clearInterval(ts.interval);
+  ts.running   = false;
+  ts.remaining = TECHNIQUES[i].duration;
+  const c = document.getElementById('circle-' + i);
+  if (c) {
+    c.classList.remove('running', 'done');
+    document.getElementById('time-' + i).textContent  = fmtTime(ts.remaining);
+    document.getElementById('tunit-' + i).textContent = TECHNIQUES[i].durationLabel;
+    document.getElementById('startbtn-' + i).textContent = '▶ Iniciar';
+  }
+}
+
+buildTechniques();
+</script>
+</body>
+</html>

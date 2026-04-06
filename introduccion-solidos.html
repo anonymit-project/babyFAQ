@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Introducción de sólidos · BLW vs purés · Cómo empezar · babyFAQ</title>
+<meta name="description" content="Guía completa para introducir los sólidos al bebé. BLW vs purés, señales de preparación, cómo empezar, qué dar en cada etapa y cantidades orientativas.">
+<meta property="og:title" content="Introducción de sólidos · BLW vs purés · babyFAQ">
+<meta property="og:description" content="Cómo introducir los sólidos al bebé: BLW vs purés, señales de preparación, qué dar en cada etapa y cantidades. Guía basada en las recomendaciones actuales.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f4faf0">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f4faf0;
+    --warm-white: #fafdfb;
+    --green: #3a7a3a;
+    --green-soft: #b8d8b0;
+    --deep: #1a2d1a;
+    --mid: #3a5a3a;
+    --soft: #88b088;
+    --green-bg: #e8f5e8;
+    --green-border: #a8d8a8;
+    --amber: #b07820;
+    --amber-bg: #fdf3e0;
+    --amber-border: #f0cc8a;
+    --red: #a83030;
+    --red-bg: #fdf0f0;
+    --red-border: #f0a8a8;
+    --blue: #3a6aaa;
+    --blue-bg: #eef3fc;
+    --blue-border: #a8c0e8;
+    --purple: #7a5aaa;
+    --purple-bg: #ede8f8;
+    --purple-border: #c4b0e8;
+    --terracota: #c97a5e;
+    --blush: #f2c4b0;
+    --peach-bg: #fdf0e8;
+    --peach-border: #e8c4a8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 300px; height: 300px; background: #b0d8a0; top: -100px; right: -80px; opacity: 0.35; }
+  .blob-2 { width: 250px; height: 250px; background: #f0d8a0; bottom: -80px; left: -60px; opacity: 0.3; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--green); }
+
+  header { text-align: center; margin-bottom: 28px; }
+  .badge { display: inline-block; background: var(--green-bg); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
+  @media (min-width: 480px) { h1 { font-size: 34px; } }
+  @media (min-width: 640px) { h1 { font-size: 38px; } }
+  h1 em { font-style: italic; color: var(--green); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300; }
+
+  .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,45,26,0.07); border: 1px solid rgba(136,176,136,0.22); }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 12px; }
+
+  /* ── Señales de preparación ── */
+  .signals-grid { display: flex; flex-direction: column; gap: 7px; }
+  .signal-item { display: flex; align-items: flex-start; gap: 10px; background: var(--green-bg); border: 1px solid var(--green-border); border-radius: 12px; padding: 11px 13px; }
+  .signal-icon { font-size: 20px; flex-shrink: 0; }
+  .signal-text { flex: 1; font-size: 13px; color: var(--mid); line-height: 1.55; }
+  .signal-text strong { color: var(--deep); font-weight: 500; display: block; margin-bottom: 2px; }
+  .signal-note { font-size: 11px; color: var(--mid); margin-top: 10px; background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: 10px; padding: 9px 12px; line-height: 1.6; }
+
+  /* ── BLW vs purés ── */
+  .method-tabs { display: flex; gap: 8px; margin-bottom: 14px; }
+  .method-tab { flex: 1; padding: 12px 8px; border-radius: 14px; border: 2px solid transparent; background: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; color: var(--mid); cursor: pointer; transition: all 0.18s; text-align: center; touch-action: manipulation; }
+  .method-tab .m-icon { display: block; font-size: 24px; margin-bottom: 5px; }
+  .method-tab.active-blw  { background: var(--green-bg);  border-color: var(--green-border);  color: var(--green); }
+  .method-tab.active-pure { background: var(--peach-bg);  border-color: var(--peach-border);  color: var(--terracota); }
+  .method-tab.active-mix  { background: var(--blue-bg);   border-color: var(--blue-border);   color: var(--blue); }
+
+  .method-body { animation: fadeUp 0.25s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+  .method-header { border-radius: 14px; padding: 14px 15px; margin-bottom: 12px; }
+  .method-header.blw  { background: var(--green-bg);  border: 1.5px solid var(--green-border); }
+  .method-header.pure { background: var(--peach-bg);  border: 1.5px solid var(--peach-border); }
+  .method-header.mix  { background: var(--blue-bg);   border: 1.5px solid var(--blue-border); }
+  .method-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--deep); margin-bottom: 4px; }
+  .method-desc  { font-size: 12px; color: var(--mid); line-height: 1.6; }
+
+  .pros-cons { display: flex; gap: 8px; margin-bottom: 12px; }
+  .pros, .cons { flex: 1; border-radius: 12px; padding: 12px 11px; }
+  .pros { background: var(--green-bg); border: 1px solid var(--green-border); }
+  .cons { background: var(--amber-bg); border: 1px solid var(--amber-border); }
+  .pc-title { font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 7px; }
+  .pros .pc-title { color: var(--green); }
+  .cons .pc-title { color: var(--amber); }
+  .pc-items { display: flex; flex-direction: column; gap: 4px; }
+  .pc-item  { font-size: 12px; line-height: 1.5; padding-left: 12px; position: relative; color: var(--mid); }
+  .pc-item::before { content: '·'; position: absolute; left: 3px; font-weight: 700; }
+
+  .method-tip { background: var(--cream); border-radius: 10px; padding: 10px 12px; font-size: 12px; color: var(--mid); line-height: 1.6; border: 1px solid rgba(136,176,136,0.2); }
+  .method-tip strong { color: var(--deep); font-weight: 500; }
+
+  /* ── Etapas por edad ── */
+  .age-nav { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+  .age-btn { padding: 6px 12px; border-radius: 20px; border: 1.5px solid rgba(136,176,136,0.3); background: var(--warm-white); font-size: 12px; font-weight: 500; color: var(--mid); cursor: pointer; transition: all 0.15s; touch-action: manipulation; }
+  .age-btn.active { background: var(--green); border-color: var(--green); color: white; }
+
+  .stage-card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,45,26,0.07); border: 1px solid rgba(136,176,136,0.22); animation: fadeUp 0.25s ease; }
+
+  .stage-header { display: flex; align-items: center; gap: 13px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid rgba(136,176,136,0.2); }
+  .stage-icon  { width: 50px; height: 50px; border-radius: 14px; background: var(--green-bg); border: 1.5px solid var(--green-border); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+  .stage-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--deep); }
+  .stage-sub   { font-size: 11px; color: var(--soft); margin-top: 2px; }
+
+  .amounts-row { display: flex; gap: 8px; margin-bottom: 14px; }
+  .amount-block { flex: 1; background: var(--cream); border-radius: 12px; padding: 11px 8px; text-align: center; }
+  .am-label { font-size: 9px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 4px; }
+  .am-value { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--deep); display: block; line-height: 1.1; }
+  .am-sub { font-size: 10px; color: var(--soft); display: block; margin-top: 3px; }
+
+  .foods-block { margin-bottom: 12px; }
+  .foods-title { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 8px; }
+  .foods-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+  .food-chip { padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 500; }
+  .food-chip.ok     { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-border); }
+  .food-chip.caution { background: var(--amber-bg); color: var(--amber);  border: 1px solid var(--amber-border); }
+  .food-chip.no     { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-border); }
+
+  .texture-note { background: var(--green-bg); border: 1px solid var(--green-border); border-radius: 12px; padding: 12px 13px; margin-bottom: 12px; font-size: 12px; color: #1a4a1a; line-height: 1.65; }
+  .texture-note strong { font-weight: 600; }
+
+  .stage-tip { background: var(--cream); border-radius: 10px; padding: 10px 12px; font-size: 12px; color: var(--mid); line-height: 1.6; border: 1px solid rgba(136,176,136,0.2); }
+  .stage-tip strong { color: var(--deep); font-weight: 500; }
+
+  /* ── Info section ── */
+  .info-section { background: var(--warm-white); border-radius: 20px; padding: 28px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,45,26,0.06); border: 1px solid rgba(136,176,136,0.2); }
+  .info-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
+  .info-section h2 em { font-style: italic; color: var(--green); }
+  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; }
+  .info-section p:last-child { margin-bottom: 0; }
+  .info-section strong { color: var(--deep); font-weight: 500; }
+  .info-divider { height: 1px; background: rgba(136,176,136,0.2); margin: 20px 0; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.65; margin-top: 20px; padding: 0 8px; }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">Alimentación · 6–12 meses</span>
+    <h1>¿Cómo empiezo<br>con los <em>sólidos</em>?</h1>
+    <p class="subtitle">BLW, purés o método mixto — señales de preparación, cómo empezar, qué dar en cada etapa y cuánto. Todo lo que necesitas saber antes del primer bocado.</p>
+  </header>
+
+  <!-- Señales de preparación -->
+  <div class="card">
+    <div class="section-label">¿Está preparado? Las 4 señales clave</div>
+    <div class="signals-grid">
+      <div class="signal-item">
+        <span class="signal-icon">📅</span>
+        <div class="signal-text">
+          <strong>Alrededor de los 6 meses</strong>
+          La OMS y la AEP recomiendan esperar a los 6 meses. Antes de los 4 meses el sistema digestivo no está preparado. Entre 4 y 6 meses, solo si el pediatra lo indica expresamente.
+        </div>
+      </div>
+      <div class="signal-item">
+        <span class="signal-icon">🪑</span>
+        <div class="signal-text">
+          <strong>Se sienta con apoyo y sostiene la cabeza</strong>
+          Necesita estabilidad suficiente para comer sentado. No tiene que sentarse solo — con soporte es suficiente.
+        </div>
+      </div>
+      <div class="signal-item">
+        <span class="signal-icon">👁️</span>
+        <div class="signal-text">
+          <strong>Muestra interés por la comida</strong>
+          Mira lo que comes, intenta agarrar alimentos, abre la boca cuando ve que comes. No confundas esto con mirar tu plato por curiosidad general.
+        </div>
+      </div>
+      <div class="signal-item">
+        <span class="signal-icon">👅</span>
+        <div class="signal-text">
+          <strong>Ha perdido el reflejo de extrusión</strong>
+          El reflejo de extrusión (sacar la lengua cuando algo toca la boca) protege al bebé en los primeros meses. Cuando desaparece, el bebé puede empezar a tragar alimentos sólidos.
+        </div>
+      </div>
+    </div>
+    <p class="signal-note">⚠️ <strong>El interés por la comida solo no es suficiente.</strong> Muchos bebés de 4 meses miran los platos con curiosidad — eso no significa que estén preparados. Deben cumplirse todas las señales.</p>
+  </div>
+
+  <!-- BLW vs purés -->
+  <div class="card">
+    <div class="section-label">Elige tu método</div>
+    <div class="method-tabs">
+      <button class="method-tab active-blw" id="tab-blw" onclick="setMethod('blw')">
+        <span class="m-icon">🥦</span>BLW
+      </button>
+      <button class="method-tab" id="tab-pure" onclick="setMethod('pure')">
+        <span class="m-icon">🥣</span>Purés
+      </button>
+      <button class="method-tab" id="tab-mix" onclick="setMethod('mix')">
+        <span class="m-icon">🔀</span>Mixto
+      </button>
+    </div>
+    <div id="method-body"></div>
+  </div>
+
+  <!-- Por etapa -->
+  <div class="section-label" style="padding-left:2px">Qué dar en cada etapa</div>
+  <div class="age-nav" id="age-nav"></div>
+  <div id="stage-output"></div>
+
+  <!-- Info section -->
+  <div class="info-section">
+
+    <h2>Por qué <em>6 meses</em> y no antes</h2>
+    <p>La recomendación de esperar a los 6 meses tiene respaldo científico sólido. Antes de esa edad, el sistema digestivo del bebé no produce suficiente amilasa salival para procesar almidones, la barrera intestinal aún tiene una permeabilidad elevada (lo que facilita el paso de alérgenos), y el sistema inmune no está suficientemente maduro para gestionar la variedad antigénica de los alimentos.</p>
+    <p>Introducir sólidos antes de los 4 meses está contraindicado. Entre los 4 y los 6 meses queda en una zona gris donde solo debe hacerse si el pediatra lo indica expresamente por motivos clínicos concretos. La presión social de "ya puede" basada en el peso o en el interés visual del bebé no es criterio suficiente.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>La <em>alergia alimentaria</em> y cuándo introducir alérgenos</h2>
+    <p>El enfoque ha cambiado radicalmente en los últimos años. La evidencia actual — reflejada en las guías de la ESPGHAN (2017) y la AEP — indica que <strong>retrasar los alérgenos no previene alergias</strong> y puede incluso aumentar el riesgo. La introducción temprana de los principales alérgenos (huevo, cacahuete, pescado, gluten, frutos secos molidos) a partir de los 6 meses, de forma gradual, es la estrategia recomendada.</p>
+    <p>La excepción son los bebés con eczema grave o alergia ya diagnosticada a algún alimento — en esos casos debe consultarse con el alergólogo pediátrico antes de introducir los alérgenos relacionados. Para el resto, la recomendación es introducirlos uno a uno, con 2–3 días de margen entre cada uno nuevo, observando posibles reacciones.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>La leche sigue siendo <em>lo principal</em></h2>
+    <p>Un error frecuente al empezar con sólidos es reducir demasiado rápido la leche. Durante los primeros meses de alimentación complementaria, los sólidos son <strong>complementarios</strong> — no sustitutos. La leche (materna o de fórmula) sigue aportando la mayor parte de la energía y los nutrientes hasta los 9–12 meses.</p>
+    <p>La regla práctica es ofrecer el pecho o el biberón antes de los sólidos en los primeros meses. Así el bebé llega a la comida con algo de hambre pero no famélico, y la leche garantiza que cubra sus necesidades nutritivas independientemente de cuánto coma de sólido.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>El <em>gagging</em> (arcadas) no es atragantamiento</h2>
+    <p>Uno de los momentos que más asustan a los padres que empiezan con BLW son las arcadas. El bebé hace una mueca intensa, puede ponerse rojo, parece que va a vomitar — y luego lo mastica o lo escupe tranquilamente. Esto es el <strong>reflejo de gag</strong> (arcadas), y es un mecanismo de seguridad completamente normal.</p>
+    <p>En bebés, el punto de gatillo del reflejo de gag está mucho más adelante en la lengua que en adultos — exactamente para protegerles del atragantamiento. Las arcadas son señal de que el sistema de seguridad funciona. No intervengas salvo que el bebé esté claramente sin poder respirar, no haga ruido y se ponga azul — eso sí sería atragantamiento real.</p>
+    <p>Las arcadas se vuelven menos frecuentes con la práctica, a medida que el bebé aprende a manejar diferentes texturas y tamaños. En general, después de 2–4 semanas de práctica el bebé maneja mucho mejor los alimentos.</p>
+
+  </div>
+
+  <p class="disclaimer">
+    Basado en las recomendaciones de la ESPGHAN (2017), la AEP y la OMS sobre alimentación complementaria.<br>
+    Cada bebé es diferente. Tu pediatra o enfermera pediátrica son siempre la referencia más fiable para tu caso concreto.
+  </p>
+
+</div>
+
+<script>
+// ── Methods ────────────────────────────────────────────────────────
+const METHODS = {
+  blw: {
+    cls: 'blw',
+    title: 'BLW · Baby-Led Weaning',
+    desc: 'El bebé se alimenta solo desde el principio, con trozos de comida adaptados que puede agarrar y llevar a la boca. No hay purés ni triturados — el bebé lleva el ritmo.',
+    pros: ['Desarrolla la autonomía y la relación con la comida', 'Facilita la aceptación de texturas variadas', 'El bebé come lo que come la familia (adaptado)', 'Favorece la autorregulación del apetito'],
+    cons: ['Más suciedad y desorden al principio', 'Más arcadas (normales) que con purés', 'Difícil controlar exactamente cuánto come', 'Requiere más supervisión constante'],
+    tip: '<strong>El BLW no significa "darle cualquier cosa".</strong> Los alimentos deben tener el tamaño y la forma adecuados: bastones del tamaño del puño del bebé, lo suficientemente grandes para agarrar pero que no quepan enteros en la boca.',
+  },
+  pure: {
+    cls: 'pure',
+    title: 'Purés y triturados',
+    desc: 'Los alimentos se ofrecen triturados, en puré o en texturas progresivamente más gruesas. El adulto controla la cuchara y el ritmo del bebé.',
+    pros: ['Control más claro de las cantidades ingeridas', 'Menos desorden al principio', 'Más fácil introducir alimentos que el bebé rechazaría en trozo', 'Tradición bien establecida y conocida'],
+    cons: ['Transición a trozos puede ser más lenta', 'Más trabajo de preparación', 'El bebé tiene menos autonomía en la comida', 'Puede crear dependencia de texturas suaves'],
+    tip: '<strong>Los purés no tienen que ser eternos.</strong> La ESPGHAN recomienda introducir texturas grumosas y trozos blandos a partir de los 8–9 meses. Prolongar los triturados más allá del año puede dificultar la aceptación de texturas.',
+  },
+  mix: {
+    cls: 'mix',
+    title: 'Método mixto',
+    desc: 'Combinación de purés y trozos según el momento, el alimento y lo que funcione mejor para tu bebé. La mayoría de familias acaba aquí sin etiquetarlo.',
+    pros: ['Flexibilidad total según el día y el alimento', 'El bebé practica ambas habilidades', 'Se adapta mejor a diferentes entornos', 'Sin presión de hacer las cosas "de una manera"'],
+    cons: ['Menos estructura puede generar más dudas', 'Requiere preparar dos tipos de presentación', 'Más difícil seguir guías concretas'],
+    tip: '<strong>No hay un método "correcto".</strong> Lo más importante es que el bebé esté expuesto a variedad de alimentos, texturas y sabores — y que la hora de comer sea un momento agradable para todos.',
+  },
+};
+
+// ── Stages ─────────────────────────────────────────────────────────
+const STAGES = [
+  {
+    id: '6m',
+    label: '6 meses',
+    icon: '🌱',
+    title: '6 meses',
+    sub: 'El primer bocado',
+    meals: '1 comida',
+    mealsSub: 'al día',
+    amount: '2–3 cucharadas',
+    amountSub: 'por comida',
+    milk: 'Leche principal',
+    milkSub: '4–6 tomas',
+    texture: '<strong>Purés muy finos o trozos blandos</strong> que se deshagan al presionar con los dedos. La consistencia del puré debe ser como un yogur espeso — no líquido.',
+    foods: [
+      { name: 'Verduras cocidas', type: 'ok' },
+      { name: 'Frutas maduras', type: 'ok' },
+      { name: 'Cereales sin gluten', type: 'ok' },
+      { name: 'Gluten (trigo)', type: 'ok' },
+      { name: 'Carne (pollo, ternera)', type: 'ok' },
+      { name: 'Legumbres (bien cocidas)', type: 'ok' },
+      { name: 'Pescado blanco', type: 'ok' },
+      { name: 'Huevo (cocinado)', type: 'ok' },
+      { name: 'Sal y azúcar', type: 'no' },
+      { name: 'Miel', type: 'no' },
+      { name: 'Leche de vaca (bebida)', type: 'no' },
+    ],
+    tip: '<strong>Un alimento nuevo cada 2–3 días.</strong> No hace falta seguir ningún orden obligatorio — empieza por lo que prefieras, incluidos los alérgenos. Sí hay que esperar entre alimentos nuevos para identificar posibles reacciones.',
+  },
+  {
+    id: '7-8m',
+    label: '7–8 meses',
+    icon: '🥕',
+    title: '7 a 8 meses',
+    sub: 'Más variedad, más textura',
+    meals: '2 comidas',
+    mealsSub: 'al día',
+    amount: '3–5 cucharadas',
+    amountSub: 'por comida',
+    milk: 'Leche importante',
+    milkSub: '3–4 tomas',
+    texture: '<strong>Purés con más consistencia o trozos blandos</strong> que el bebé pueda aplastar con las encías. Ya puede intentar llevarse trozos a la boca con la mano.',
+    foods: [
+      { name: 'Todo lo anterior', type: 'ok' },
+      { name: 'Pescado azul (1×/sem.)', type: 'ok' },
+      { name: 'Yema de huevo', type: 'ok' },
+      { name: 'Yogur natural', type: 'ok' },
+      { name: 'Queso fresco suave', type: 'ok' },
+      { name: 'Frutos secos (molidos)', type: 'caution' },
+      { name: 'Frutos secos enteros', type: 'no' },
+      { name: 'Sal', type: 'no' },
+    ],
+    tip: '<strong>Empieza a ofrecer el tenedor o la cuchara</strong> aunque no sepa usarlos todavía. La práctica con cubiertos desde pronto facilita mucho la transición a la autonomía posterior.',
+  },
+  {
+    id: '9-11m',
+    label: '9–11 meses',
+    icon: '🥑',
+    title: '9 a 11 meses',
+    sub: 'Trozos y texturas variadas',
+    meals: '3 comidas',
+    mealsSub: 'al día',
+    amount: '4–6 cucharadas',
+    amountSub: 'o un bol pequeño',
+    milk: 'Leche complementaria',
+    milkSub: '2–3 tomas',
+    texture: '<strong>Alimentos en trozos pequeños o machacados</strong> que pueda agarrar con la pinza digital (pulgar e índice). Empieza a aparecer la pinza fina — aprovéchala con alimentos pequeños y blandos.',
+    foods: [
+      { name: 'Todo lo anterior', type: 'ok' },
+      { name: 'Huevo entero cocinado', type: 'ok' },
+      { name: 'Pasta bien cocida', type: 'ok' },
+      { name: 'Arroz', type: 'ok' },
+      { name: 'Pan blando', type: 'ok' },
+      { name: 'Marisco (con precaución)', type: 'caution' },
+      { name: 'Uvas / fruta dura entera', type: 'no' },
+      { name: 'Frutos secos enteros', type: 'no' },
+    ],
+    tip: '<strong>A los 9 meses introduce grumosos y trozos aunque no haya dientes.</strong> Las encías son sorprendentemente eficaces para masticar alimentos blandos. Esperar a los dientes no es necesario ni recomendable.',
+  },
+  {
+    id: '12m',
+    label: '12 meses',
+    icon: '🍽️',
+    title: '12 meses',
+    sub: 'Comida familiar adaptada',
+    meals: '3 comidas + 1–2 snacks',
+    mealsSub: 'al día',
+    amount: 'Un plato pequeño',
+    amountSub: 'adaptado',
+    milk: 'Leche complementaria',
+    milkSub: '2 tomas mín.',
+    texture: '<strong>Básicamente lo que come la familia</strong>, adaptando tamaños y evitando sal, azúcar y alimentos de riesgo. El bebé puede comer casi todo con muy pocas restricciones.',
+    foods: [
+      { name: 'Comida familiar (sin sal)', type: 'ok' },
+      { name: 'Leche entera de vaca', type: 'ok' },
+      { name: 'Huevos en todas las formas', type: 'ok' },
+      { name: 'Pescados y mariscos', type: 'ok' },
+      { name: 'Miel (solo desde 12m)', type: 'caution' },
+      { name: 'Pez espada / cazón', type: 'no' },
+      { name: 'Sal añadida', type: 'no' },
+      { name: 'Azúcar añadido', type: 'no' },
+      { name: 'Frutos secos enteros', type: 'no' },
+    ],
+    tip: '<strong>A partir del año el bebé puede comer prácticamente todo</strong> lo que come el resto de la familia, adaptando tamaños y sin añadir sal ni azúcar. Simplifica la vida familiar enormemente.',
+  },
+];
+
+// ── State ──────────────────────────────────────────────────────────
+let activeMethod = 'blw';
+let activeStage  = '6m';
+
+// ── Methods ────────────────────────────────────────────────────────
+function setMethod(m) {
+  activeMethod = m;
+  ['blw','pure','mix'].forEach(id => {
+    const btn = document.getElementById('tab-' + id);
+    btn.className = 'method-tab' + (id === m ? ' active-' + id : '');
+  });
+  renderMethod();
+}
+
+function renderMethod() {
+  const d  = METHODS[activeMethod];
+  const el = document.getElementById('method-body');
+  el.innerHTML = `
+    <div class="method-body">
+      <div class="method-header ${d.cls}">
+        <div class="method-title">${d.title}</div>
+        <div class="method-desc">${d.desc}</div>
+      </div>
+      <div class="pros-cons">
+        <div class="pros">
+          <span class="pc-title">✅ A favor</span>
+          <div class="pc-items">${d.pros.map(p => `<div class="pc-item">${p}</div>`).join('')}</div>
+        </div>
+        <div class="cons">
+          <span class="pc-title">⚠️ A tener en cuenta</span>
+          <div class="pc-items">${d.cons.map(c => `<div class="pc-item">${c}</div>`).join('')}</div>
+        </div>
+      </div>
+      <div class="method-tip">💡 ${d.tip}</div>
+    </div>`;
+}
+
+// ── Stages ─────────────────────────────────────────────────────────
+function buildAgeNav() {
+  const nav = document.getElementById('age-nav');
+  STAGES.forEach(s => {
+    const btn = document.createElement('button');
+    btn.className = 'age-btn' + (s.id === activeStage ? ' active' : '');
+    btn.textContent = s.label;
+    btn.addEventListener('click', () => {
+      activeStage = s.id;
+      document.querySelectorAll('.age-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderStage();
+    });
+    nav.appendChild(btn);
+  });
+}
+
+function renderStage() {
+  const s  = STAGES.find(x => x.id === activeStage);
+  const el = document.getElementById('stage-output');
+
+  const foodsOk      = s.foods.filter(f => f.type === 'ok');
+  const foodsCaution = s.foods.filter(f => f.type === 'caution');
+  const foodsNo      = s.foods.filter(f => f.type === 'no');
+
+  el.innerHTML = `
+    <div class="stage-card">
+      <div class="stage-header">
+        <div class="stage-icon">${s.icon}</div>
+        <div>
+          <div class="stage-title">${s.title}</div>
+          <div class="stage-sub">${s.sub}</div>
+        </div>
+      </div>
+
+      <div class="amounts-row">
+        <div class="amount-block">
+          <span class="am-label">Comidas</span>
+          <span class="am-value">${s.meals}</span>
+          <span class="am-sub">${s.mealsSub}</span>
+        </div>
+        <div class="amount-block">
+          <span class="am-label">Cantidad</span>
+          <span class="am-value">${s.amount}</span>
+          <span class="am-sub">${s.amountSub}</span>
+        </div>
+        <div class="amount-block">
+          <span class="am-label">Leche</span>
+          <span class="am-value" style="font-size:13px;line-height:1.2">${s.milk}</span>
+          <span class="am-sub">${s.milkSub}</span>
+        </div>
+      </div>
+
+      <div class="texture-note"><strong>Textura recomendada:</strong> ${s.texture}</div>
+
+      <div class="foods-block">
+        <span class="foods-title">Alimentos en esta etapa</span>
+        <div class="foods-chips">
+          ${foodsOk.map(f => `<span class="food-chip ok">✓ ${f.name}</span>`).join('')}
+          ${foodsCaution.map(f => `<span class="food-chip caution">⚠ ${f.name}</span>`).join('')}
+          ${foodsNo.map(f => `<span class="food-chip no">✗ ${f.name}</span>`).join('')}
+        </div>
+      </div>
+
+      <div class="stage-tip">💡 ${s.tip}</div>
+    </div>`;
+}
+
+renderMethod();
+buildAgeNav();
+renderStage();
+</script>
+</body>
+</html>
