@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Primeros auxilios para bebés · RCP y atragantamiento · babyFAQ</title>
+<meta name="description" content="Guía paso a paso de primeros auxilios para bebés: RCP, maniobra de Heimlich, atragantamiento y cómo actuar en una emergencia. Para bebés de 0 a 12 meses.">
+<meta property="og:title" content="Primeros auxilios para bebés · RCP y atragantamiento · babyFAQ">
+<meta property="og:description" content="Guía paso a paso de primeros auxilios para bebés: RCP, atragantamiento y cómo actuar en emergencias. Aprende antes de necesitarlo.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fdf4f4">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf4f4;
+    --warm-white: #fffafa;
+    --red: #b83030;
+    --red-soft: #f0b0b0;
+    --deep: #2d1a1a;
+    --mid: #6a3a3a;
+    --soft: #c49898;
+    --red-bg: #fceaea;
+    --red-border: #f0a8a8;
+    --red-dark: #8a1a1a;
+    --amber: #b07020;
+    --amber-bg: #fdf3e0;
+    --amber-border: #f0cc8a;
+    --green: #3a7a4a;
+    --green-bg: #edf5f0;
+    --green-border: #a8d8b0;
+    --blue: #3a5aaa;
+    --blue-bg: #eaedfa;
+    --blue-border: #b0bcec;
+    --step-bg: #fff5f5;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 300px; height: 300px; background: #f0b8b8; top: -100px; right: -80px; opacity: 0.35; }
+  .blob-2 { width: 250px; height: 250px; background: #b8c8f0; bottom: -80px; left: -60px; opacity: 0.2; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--red); }
+
+  header { text-align: center; margin-bottom: 24px; }
+  .badge { display: inline-block; background: var(--red-bg); color: var(--red); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
+  @media (min-width: 480px) { h1 { font-size: 34px; } }
+  @media (min-width: 640px) { h1 { font-size: 38px; } }
+  h1 em { font-style: italic; color: var(--red); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300; }
+
+  /* ── 112 banner ── */
+  .emergency-banner { background: var(--red); border-radius: 16px; padding: 16px 18px; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .emergency-icon { font-size: 28px; flex-shrink: 0; }
+  .emergency-body { flex: 1; }
+  .emergency-title { font-size: 13px; font-weight: 600; color: white; margin-bottom: 3px; }
+  .emergency-sub { font-size: 12px; color: rgba(255,255,255,0.85); line-height: 1.5; }
+  .emergency-num { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 400; color: white; flex-shrink: 0; text-decoration: none; }
+
+  /* ── Aviso formación ── */
+  .training-note { background: var(--amber-bg); border: 1.5px solid var(--amber-border); border-radius: 16px; padding: 16px 18px; margin-bottom: 16px; font-size: 13px; color: #5a3a08; line-height: 1.65; }
+  .training-note strong { color: var(--deep); font-weight: 600; }
+
+  /* ── Selector de emergencia ── */
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 12px; }
+
+  .emergency-tabs { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+  .emergency-tab { display: flex; align-items: center; gap: 14px; background: var(--warm-white); border-radius: 16px; padding: 16px 18px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.18s, background 0.18s; touch-action: manipulation; user-select: none; box-shadow: 0 1px 8px rgba(45,26,26,0.07); }
+  .emergency-tab:hover { border-color: var(--red-soft); }
+  .emergency-tab.active { border-color: var(--red); background: var(--red-bg); }
+  .tab-emoji { font-size: 28px; flex-shrink: 0; }
+  .tab-info { flex: 1; }
+  .tab-title { font-size: 15px; font-weight: 600; color: var(--deep); }
+  .tab-sub { font-size: 12px; color: var(--soft); margin-top: 2px; }
+  .tab-chevron { font-size: 18px; color: var(--red-soft); flex-shrink: 0; }
+  .emergency-tab.active .tab-chevron { color: var(--red); }
+
+  /* ── Protocolo ── */
+  .protocol-card { background: var(--warm-white); border-radius: 20px; padding: 0; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,26,26,0.08); border: 1.5px solid var(--red-border); overflow: hidden; animation: fadeUp 0.25s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+
+  .protocol-header { background: var(--red); padding: 20px 20px 16px; }
+  .protocol-emoji  { font-size: 32px; display: block; margin-bottom: 8px; }
+  .protocol-title  { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: white; line-height: 1.2; margin-bottom: 4px; }
+  .protocol-age    { font-size: 12px; color: rgba(255,255,255,0.8); }
+
+  .protocol-body { padding: 20px 18px; }
+
+  /* Steps */
+  .steps-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+  .step-item { display: flex; gap: 13px; align-items: flex-start; }
+  .step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--red); color: white; font-size: 14px; font-weight: 700; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+  .step-content { flex: 1; }
+  .step-title { font-size: 14px; font-weight: 600; color: var(--deep); margin-bottom: 3px; }
+  .step-desc  { font-size: 13px; color: var(--mid); line-height: 1.65; }
+  .step-desc strong { color: var(--deep); font-weight: 500; }
+
+  /* Key highlight */
+  .key-highlight { background: var(--red-bg); border: 1.5px solid var(--red-border); border-radius: 13px; padding: 13px 14px; margin-bottom: 14px; }
+  .key-title { font-size: 10px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--red); display: block; margin-bottom: 8px; }
+  .key-items { display: flex; flex-direction: column; gap: 5px; }
+  .key-item  { font-size: 12px; color: var(--red-dark); line-height: 1.6; padding-left: 14px; position: relative; }
+  .key-item::before { content: '→'; position: absolute; left: 0; font-size: 11px; color: var(--red); }
+
+  /* After steps note */
+  .after-note { background: var(--green-bg); border: 1px solid var(--green-border); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: #1a4a2a; line-height: 1.65; }
+  .after-note strong { font-weight: 600; }
+
+  /* ── Diferencias bebé vs niño ── */
+  .diff-card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,26,26,0.07); border: 1px solid rgba(196,152,152,0.22); }
+  .diff-row { display: flex; gap: 8px; }
+  .diff-block { flex: 1; border-radius: 13px; padding: 13px 11px; }
+  .diff-block.baby { background: var(--red-bg);  border: 1px solid var(--red-border); }
+  .diff-block.child { background: var(--blue-bg); border: 1px solid var(--blue-border); }
+  .diff-title { font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; display: block; margin-bottom: 8px; }
+  .diff-block.baby .diff-title  { color: var(--red); }
+  .diff-block.child .diff-title { color: var(--blue); }
+  .diff-items { display: flex; flex-direction: column; gap: 5px; }
+  .diff-item  { font-size: 12px; line-height: 1.5; padding-left: 12px; position: relative; color: var(--mid); }
+  .diff-item::before { content: '·'; position: absolute; left: 3px; font-weight: 700; }
+
+  /* ── Info section ── */
+  .info-section { background: var(--warm-white); border-radius: 20px; padding: 28px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,26,26,0.07); border: 1px solid rgba(196,152,152,0.2); }
+  .info-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
+  .info-section h2 em { font-style: italic; color: var(--red); }
+  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; }
+  .info-section p:last-child { margin-bottom: 0; }
+  .info-section strong { color: var(--deep); font-weight: 500; }
+  .info-divider { height: 1px; background: rgba(196,152,152,0.2); margin: 20px 0; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.65; margin-top: 20px; padding: 0 8px; }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+
+  <a class="back-link" href="index.html">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">Emergencias · 0–12 meses</span>
+    <h1>Primeros auxilios<br>para tu <em>bebé</em></h1>
+    <p class="subtitle">Aprende los protocolos antes de necesitarlos. En una emergencia, los segundos cuentan y el pánico bloquea — la memoria muscular no.</p>
+  </header>
+
+  <!-- 112 -->
+  <div class="emergency-banner">
+    <span class="emergency-icon">🚨</span>
+    <div class="emergency-body">
+      <div class="emergency-title">En toda emergencia: llama al 112</div>
+      <div class="emergency-sub">Llámalos primero o pide a alguien que llame mientras actúas. El operador te guía en tiempo real.</div>
+    </div>
+    <a href="tel:112" class="emergency-num">112</a>
+  </div>
+
+  <!-- Aviso formación -->
+  <div class="training-note">
+    ⚠️ <strong>Esta guía es un recordatorio, no un sustituto.</strong> La forma más eficaz de aprender primeros auxilios es un curso presencial con maniquí. Cruz Roja, Protección Civil y muchos hospitales ofrecen cursos gratuitos o de bajo coste para padres. Hazlo una vez — puede salvar una vida.
+  </div>
+
+  <!-- Selector -->
+  <div class="section-label">Elige la situación</div>
+  <div class="emergency-tabs" id="tabs"></div>
+
+  <!-- Protocolo -->
+  <div id="protocol-output"></div>
+
+  <!-- Diferencias bebé vs niño mayor -->
+  <div class="diff-card">
+    <div class="section-label">Diferencias clave: bebé vs niño mayor</div>
+    <div class="diff-row">
+      <div class="diff-block baby">
+        <span class="diff-title">👶 Bebé (0–12m)</span>
+        <div class="diff-items">
+          <div class="diff-item">2 dedos en el centro del pecho para las compresiones</div>
+          <div class="diff-item">Profundidad: 4 cm</div>
+          <div class="diff-item">Boca cubre boca Y nariz a la vez</div>
+          <div class="diff-item">Golpes en la espalda: boca abajo sobre el antebrazo</div>
+          <div class="diff-item">No usar maniobra de Heimlich abdominal</div>
+        </div>
+      </div>
+      <div class="diff-block child">
+        <span class="diff-title">🧒 Niño (1–8 años)</span>
+        <div class="diff-items">
+          <div class="diff-item">Talón de una mano en el centro del pecho</div>
+          <div class="diff-item">Profundidad: 5 cm</div>
+          <div class="diff-item">Boca cubre solo la boca</div>
+          <div class="diff-item">Golpes en la espalda: inclinado hacia delante</div>
+          <div class="diff-item">Heimlich abdominal con dos manos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info section -->
+  <div class="info-section">
+
+    <h2>Por qué aprender esto <em>antes</em> de necesitarlo</h2>
+    <p>En una emergencia real, el cerebro entra en modo de pánico. La capacidad de razonamiento complejo se reduce drásticamente y el cuerpo busca respuestas automáticas que ya estén grabadas. <strong>Aprender un protocolo de emergencia funciona porque lo convierte en memoria procedimental</strong> — el mismo tipo de memoria que te permite montar en bici sin pensar.</p>
+    <p>Los estudios sobre supervivencia en parada cardiorrespiratoria muestran que la RCP iniciada por testigos antes de la llegada de los servicios de emergencia multiplica por dos o tres las posibilidades de supervivencia. En bebés, donde la pausa entre el colapso y la llegada del equipo puede ser crítica, la actuación inmediata de los padres es determinante.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>El <em>atragantamiento</em>: cuándo actuar y cuándo no</h2>
+    <p>La regla más importante ante un posible atragantamiento es esta: <strong>si el bebé puede toser, llorar o hacer algún ruido, no intervengas</strong>. Una tos efectiva genera mucha más presión en la vía respiratoria que cualquier maniobra que puedas hacer desde fuera. Anímale a seguir tosiendo.</p>
+    <p>Intervén solo cuando el bebé <strong>no puede toser, no hace ruido, o el ruido es muy débil</strong>. En ese momento cada segundo cuenta y la secuencia de 5 golpes en la espalda + 5 compresiones en el pecho debe empezar de inmediato mientras alguien llama al 112.</p>
+    <p>El miedo a actuar "mal" hace que muchos padres duden cuando no deberían. La alternativa a no actuar es peor. Si el bebé está inconsciente y no respira, hacer las maniobras incorrectamente tiene consecuencias mucho menores que no hacer nada.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>La <em>posición de recuperación</em> y cuándo usarla</h2>
+    <p>Si el bebé está inconsciente pero respira con normalidad —es decir, no necesita RCP— debe colocarse en <strong>posición lateral de seguridad</strong>: de lado, con la cabeza ligeramente inclinada hacia atrás para mantener la vía aérea abierta, y la boca orientada hacia abajo para que cualquier vómito pueda salir sin obstruir.</p>
+    <p>En bebés pequeños (menos de 12 meses), la posición de recuperación se realiza sosteniendo al bebé en brazos de lado, ya que aún no tienen la masa muscular necesaria para mantenerse solos en esa posición sobre una superficie.</p>
+    <p>Sigue monitorizando su respiración constantemente hasta que llegue el equipo de emergencias. Si en algún momento deja de respirar, inicia la RCP inmediatamente.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>Dónde aprender más y <em>practicar</em></h2>
+    <p>La Cruz Roja Española ofrece cursos de primeros auxilios pediátricos en muchas ciudades, algunos específicamente diseñados para padres y cuidadores. El coste suele ser bajo o gratuito y la duración es de 4 a 8 horas.</p>
+    <p>También puedes buscar cursos a través de tu hospital de referencia, tu centro de salud o tu ayuntamiento. Algunos centros de salud ofrecen talleres de RCP básica en el contexto del seguimiento pediátrico del primer año.</p>
+    <p>Si no puedes hacer un curso presencial a corto plazo, los vídeos del European Resuscitation Council (ERC) son una referencia de alta calidad y están disponibles en español. Busca siempre fuentes oficiales — hay mucho contenido desactualizado o incorrecto en internet sobre este tema.</p>
+
+  </div>
+
+  <p class="disclaimer">
+    Basado en las guías del European Resuscitation Council (ERC 2021) y la Cruz Roja Española.<br>
+    Esta guía es un recordatorio orientativo. No sustituye un curso presencial de primeros auxilios pediátricos.<br>
+    En toda emergencia, llama al 112 inmediatamente.
+  </p>
+
+</div>
+
+<script>
+const PROTOCOLS = [
+  {
+    id: 'atragan-bebe',
+    emoji: '🍼',
+    title: 'Atragantamiento · bebé 0–12 meses',
+    subtitle: 'No puede toser, no hace ruido o el ruido es muy débil',
+    tabTitle: 'Atragantamiento · bebé (0–12 meses)',
+    tabSub: 'Golpes en espalda + compresiones en pecho',
+    steps: [
+      {
+        title: 'Comprueba si puede toser',
+        desc: 'Si el bebé tose con fuerza, llora o hace ruido, <strong>no intervengas</strong> — la tos es más efectiva que cualquier maniobra. Anímale a seguir tosiendo y observa.',
+      },
+      {
+        title: 'Llama al 112 (o pide que llamen)',
+        desc: 'Si no puede toser, no hace ruido o el ruido es muy débil, <strong>empieza las maniobras ahora</strong> y pide a alguien que llame al 112. Si estás solo, llama tú primero — el operador te guiará mientras actúas.',
+      },
+      {
+        title: '5 golpes en la espalda',
+        desc: 'Pon al bebé boca abajo sobre tu antebrazo, con la cabeza más baja que el pecho y bien sujeta. Da <strong>5 golpes firmes entre los omóplatos</strong> con el talón de la mano. Los golpes deben ser secos y con fuerza suficiente para mover el objeto.',
+      },
+      {
+        title: '5 compresiones en el pecho',
+        desc: 'Gira al bebé boca arriba sobre tu otro antebrazo. Con <strong>2 dedos en el centro del pecho</strong> (justo debajo de la línea de los pezones), da 5 compresiones rápidas hacia abajo unos 4 cm. Más fuerte de lo que parece necesario.',
+      },
+      {
+        title: 'Alterna y repite',
+        desc: '<strong>Alterna: 5 golpes en espalda → 5 compresiones en pecho.</strong> Después de cada ciclo, mira la boca del bebé: si ves el objeto y puedes agarrarlo fácilmente, retíralo. Nunca hagas un barrido ciego con el dedo.',
+      },
+      {
+        title: 'Si el bebé pierde el conocimiento',
+        desc: 'Pon al bebé en una superficie firme e inicia <strong>RCP pediátrica</strong> (protocolo de abajo). Antes de cada ventilación, mira la boca — si ves el objeto y es accesible, retíralo.',
+      },
+    ],
+    keyPoints: [
+      'Nunca hagas barrido ciego con el dedo — puedes empujar el objeto más adentro.',
+      'Los golpes en la espalda deben ser firmes — más de lo que intuitivamente parece seguro.',
+      'En bebés NO se usa la maniobra de Heimlich abdominal — las compresiones en el pecho son la alternativa.',
+      'Si ves el objeto solo retíralo si es claramente accesible — nunca buscues a ciegas.',
+    ],
+    afterNote: 'Aunque el objeto salga y el bebé parezca bien, <strong>ve siempre al médico</strong> después. Las maniobras de desatragantamiento pueden causar lesiones internas que requieren valoración.',
+  },
+  {
+    id: 'atragan-nino',
+    emoji: '🧒',
+    title: 'Atragantamiento · niño mayor de 1 año',
+    subtitle: 'Heimlich + golpes en la espalda',
+    tabTitle: 'Atragantamiento · niño (1+ años)',
+    tabSub: 'Maniobra de Heimlich abdominal',
+    steps: [
+      {
+        title: 'Comprueba si puede toser',
+        desc: 'Si el niño tose con fuerza, llora o habla, <strong>no intervengas</strong>. Anímale a seguir tosiendo y observa de cerca.',
+      },
+      {
+        title: 'Llama al 112',
+        desc: 'Si no puede toser ni hablar o el ruido es muy débil, empieza las maniobras y llama al 112 o pide que llamen.',
+      },
+      {
+        title: '5 golpes en la espalda',
+        desc: 'Inclina al niño hacia delante. Con el talón de la mano, da <strong>5 golpes firmes entre los omóplatos</strong>. Comprueba la boca tras cada ciclo.',
+      },
+      {
+        title: 'Maniobra de Heimlich · 5 compresiones abdominales',
+        desc: 'Ponte detrás del niño, rodéale con los brazos. Coloca un puño cerrado (pulgar hacia dentro) justo por encima del ombligo y por debajo del esternón. Con la otra mano sobre el puño, da <strong>5 empujones secos hacia adentro y hacia arriba</strong>.',
+      },
+      {
+        title: 'Alterna y repite',
+        desc: '<strong>5 golpes en espalda → 5 compresiones abdominales.</strong> Sigue hasta que el objeto salga o el niño pierda el conocimiento.',
+      },
+      {
+        title: 'Si el niño pierde el conocimiento',
+        desc: 'Tumbarlo en el suelo e iniciar RCP. Antes de cada ventilación, mirar la boca y retirar el objeto si es visible y accesible.',
+      },
+    ],
+    keyPoints: [
+      'Las compresiones abdominales solo se usan en mayores de 1 año — en bebés pueden causar lesiones.',
+      'El puño debe quedar entre el ombligo y el esternón — nunca sobre las costillas ni el esternón.',
+      'En embarazadas u obesos: compresiones en el pecho en lugar de abdominales.',
+    ],
+    afterNote: 'Aunque el objeto salga, <strong>acude siempre al médico</strong>. Las compresiones abdominales pueden causar lesiones en órganos internos que requieren valoración.',
+  },
+  {
+    id: 'rcp-bebe',
+    emoji: '❤️',
+    title: 'RCP · bebé 0–12 meses',
+    subtitle: 'No respira o no tiene pulso detectable',
+    tabTitle: 'RCP · bebé (0–12 meses)',
+    tabSub: '30 compresiones · 2 ventilaciones',
+    steps: [
+      {
+        title: 'Comprueba la consciencia y la respiración',
+        desc: 'Llama al bebé por su nombre, dale un golpecito suave en la planta del pie. Si no responde y <strong>no respira o respira de forma anormal</strong> (boqueadas, muy lento), inicia la RCP. Si respira, pon en posición lateral de seguridad.',
+      },
+      {
+        title: 'Llama al 112 ahora',
+        desc: 'Grita pidiendo ayuda. Si hay alguien contigo, que llame al 112 mientras tú inicias las compresiones. Si estás solo: <strong>en bebés, da 1 minuto de RCP primero</strong> antes de ir a llamar — en la parada pediátrica el problema suele ser respiratorio.',
+      },
+      {
+        title: 'Abre la vía aérea',
+        desc: 'Pon al bebé en una superficie firme, boca arriba. Inclina suavemente la cabeza hacia atrás — <strong>muy poco</strong>, solo hasta posición neutra. En bebés la hiperextensión puede cerrar la vía aérea. Eleva la barbilla con un dedo.',
+      },
+      {
+        title: '2 ventilaciones de rescate',
+        desc: 'Cubre la boca Y la nariz del bebé con tu boca a la vez. Sopla suavemente durante 1 segundo — <strong>solo el aire de tus mejillas</strong>, no el de tus pulmones. Debes ver el pecho subir. Si no sube, recoloca la cabeza y repite.',
+      },
+      {
+        title: '30 compresiones cardíacas',
+        desc: 'Coloca <strong>2 dedos (índice y corazón) en el centro del pecho</strong>, justo debajo de la línea que une los dos pezones. Comprime hacia abajo <strong>4 cm</strong> a un ritmo de 100–120 por minuto. Deja que el pecho suba completamente entre compresión y compresión.',
+      },
+      {
+        title: 'Ciclo: 30 compresiones → 2 ventilaciones',
+        desc: 'Repite el ciclo <strong>30:2</strong> sin parar hasta que el bebé respire con normalidad, llegue el equipo de emergencias o estés físicamente agotado. No pares para comprobar el pulso — es muy difícil de detectar en bebés.',
+      },
+    ],
+    keyPoints: [
+      'Ritmo de compresiones: 100–120 por minuto. Imagina el ritmo de "Stayin\' Alive" de los Bee Gees.',
+      'Profundidad: 4 cm. Parece mucho — es lo correcto.',
+      'Las ventilaciones son muy suaves: solo el aire de tus mejillas, no el de los pulmones.',
+      'No pares para comprobar el pulso. Sigue hasta que respire o llegue ayuda.',
+      'Si solo hay un reanimador, da 1 minuto de RCP antes de llamar al 112.',
+    ],
+    afterNote: 'Aunque el bebé se recupere, <strong>debe ser evaluado urgentemente en el hospital</strong>. Las compresiones cardíacas pueden causar fracturas de costillas que requieren valoración, y la causa del paro debe identificarse.',
+  },
+  {
+    id: 'rcp-nino',
+    emoji: '💗',
+    title: 'RCP · niño de 1 a 8 años',
+    subtitle: 'No respira o no tiene pulso detectable',
+    tabTitle: 'RCP · niño (1–8 años)',
+    tabSub: '30 compresiones · 2 ventilaciones',
+    steps: [
+      {
+        title: 'Comprueba la consciencia y la respiración',
+        desc: 'Llama al niño por su nombre y sacúdele suavemente los hombros. Si no responde y <strong>no respira o respira de forma anormal</strong>, inicia la RCP.',
+      },
+      {
+        title: 'Llama al 112',
+        desc: 'Pide a alguien que llame al 112. Si estás solo: da <strong>1 minuto de RCP primero</strong> antes de ir a llamar — en paros pediátricos el origen suele ser respiratorio y ese minuto es crítico.',
+      },
+      {
+        title: 'Abre la vía aérea',
+        desc: 'Niño boca arriba en superficie firme. Inclina la cabeza hacia atrás (más que en bebés pero sin hiperextender) y eleva la barbilla. La vía aérea debe quedar recta.',
+      },
+      {
+        title: '2 ventilaciones de rescate',
+        desc: 'Sella tu boca sobre la boca del niño (solo la boca, no la nariz). Sopla suavemente durante 1 segundo hasta ver el pecho subir. <strong>2 ventilaciones.</strong> Si el pecho no sube, recoloca la cabeza.',
+      },
+      {
+        title: '30 compresiones cardíacas',
+        desc: 'Coloca el <strong>talón de una mano</strong> en el centro del pecho (mitad inferior del esternón). Comprime hacia abajo <strong>5 cm</strong> a 100–120 por minuto. Brazo recto, peso del cuerpo. Deja que el pecho suba completamente entre compresiones.',
+      },
+      {
+        title: 'Ciclo: 30 compresiones → 2 ventilaciones',
+        desc: 'Repite <strong>30:2</strong> sin parar hasta que el niño respire con normalidad o llegue el equipo de emergencias. En niños mayores de 8 años se puede usar la técnica de adulto con las dos manos.',
+      },
+    ],
+    keyPoints: [
+      'Profundidad: 5 cm. El esternón debe comprimir un tercio del diámetro del pecho.',
+      'Ritmo: 100–120 por minuto. Cuenta en voz alta para mantener el ritmo.',
+      'Una sola mano para niños pequeños, dos manos para los mayores.',
+      'No interrumpas las compresiones más de 10 segundos.',
+    ],
+    afterNote: 'Aunque el niño se recupere, <strong>lleva al hospital urgentemente</strong> para valoración. La causa del paro debe identificarse y tratarse.',
+  },
+  {
+    id: 'quemadura',
+    emoji: '🔥',
+    title: 'Quemadura',
+    subtitle: 'Agua fría corriente · nunca hielo ni cremas',
+    tabTitle: 'Quemadura',
+    tabSub: '20 minutos de agua fría corriente',
+    steps: [
+      {
+        title: 'Agua fría corriente inmediatamente',
+        desc: 'Pon la zona quemada bajo el grifo de agua fría corriente durante <strong>20 minutos exactos</strong>. Empieza lo antes posible — cada segundo cuenta para limitar el daño. El agua debe ser fría, no helada.',
+      },
+      {
+        title: 'Quita ropa y joyas con cuidado',
+        desc: 'Retira la ropa y los accesorios de la zona afectada <strong>si no están adheridos a la piel</strong>. Si hay ropa pegada, no la arranques — déjala y continúa con el agua.',
+      },
+      {
+        title: 'Cubre sin apretar',
+        desc: 'Tras los 20 minutos de agua, cubre con un apósito limpio no adherente o una gasa húmeda. <strong>No apliques cremas, mantequilla, aceite, pasta de dientes ni ningún remedio casero</strong> — empeoran el daño.',
+      },
+      {
+        title: 'Evalúa la gravedad',
+        desc: '<strong>Urgencias inmediatas si:</strong> la quemadura afecta cara, manos, pies, genitales o articulaciones; es mayor de 5 cm; la piel está blanca, marrón o negra; o el bebé tiene menos de 1 año. En cualquier quemadura en bebé, ve al médico.',
+      },
+    ],
+    keyPoints: [
+      '20 minutos de agua fría — ni más ni menos. Menos tiempo no es suficiente.',
+      'NUNCA: hielo, mantequilla, aceite, pasta de dientes, cremas hidratantes.',
+      'NUNCA revientes ampollas — protegen de infecciones.',
+      'Cualquier quemadura en bebé menor de 1 año: urgencias siempre.',
+    ],
+    afterNote: 'Las quemaduras en bebés siempre requieren valoración médica. La piel del bebé es más fina y las quemaduras progresan más rápido que en adultos.',
+  },
+  {
+    id: 'caida',
+    emoji: '🤕',
+    title: 'Caída y golpe en la cabeza',
+    subtitle: 'Cuándo actuar y qué vigilar',
+    tabTitle: 'Caída · golpe en la cabeza',
+    tabSub: 'Señales de alarma y vigilancia 24h',
+    steps: [
+      {
+        title: 'Mantén la calma y no muevas al bebé bruscamente',
+        desc: 'Si el bebé ha caído de altura o el golpe ha sido violento, <strong>no lo muevas hasta valorarlo</strong>. Comprueba que respira y está consciente.',
+      },
+      {
+        title: 'Llama al 112 si hay señales de alarma',
+        desc: 'Llama inmediatamente si: <strong>pérdida de consciencia aunque sea breve, convulsión, vómitos repetidos, pupila de distinto tamaño, sangrado por oídos o nariz, o caída de más de 1 metro</strong> en menores de 1 año.',
+      },
+      {
+        title: 'Si llora inmediatamente',
+        desc: 'El llanto inmediato tras el golpe es buena señal — indica consciencia. Calma al bebé y examina la zona del golpe. Un chichón blando es normal — indica que el golpe fue superficial y el sangrado quedó fuera del cráneo.',
+      },
+      {
+        title: 'Vigila durante 24 horas',
+        desc: 'Aunque parezca bien, observa durante 24 horas: <strong>irritabilidad inusual, somnolencia excesiva, vómitos, rechazo del alimento, llanto diferente al habitual o cambio de comportamiento.</strong> Cualquiera de estas señales: urgencias.',
+      },
+      {
+        title: 'Noche tras el golpe',
+        desc: 'Puedes dejar dormir al bebé, pero <strong>comprueba su estado cada 2–3 horas</strong> — asegúrate de que responde cuando lo estimulas suavemente. No necesitas despertarlo completamente.',
+      },
+    ],
+    keyPoints: [
+      'El chichón blando es buena señal — el sangrado está fuera del cráneo.',
+      'Un chichón que no sale o que está deprimido (hundido) es señal de alarma.',
+      'Caída de más de 1 metro en bebé menor de 1 año: urgencias siempre, aunque parezca bien.',
+      'Dos o más vómitos después del golpe: urgencias.',
+    ],
+    afterNote: 'La observación durante 24 horas es tan importante como la actuación inmediata. Muchas lesiones intracraneales tienen un período asintomático de horas antes de manifestarse.',
+  },
+];
+
+let activeId = 'atragan-bebe';
+
+function buildTabs() {
+  const wrap = document.getElementById('tabs');
+  PROTOCOLS.forEach(p => {
+    const div = document.createElement('div');
+    div.className = 'emergency-tab' + (p.id === activeId ? ' active' : '');
+    div.innerHTML = `
+      <span class="tab-emoji">${p.emoji}</span>
+      <div class="tab-info">
+        <div class="tab-title">${p.tabTitle}</div>
+        <div class="tab-sub">${p.tabSub}</div>
+      </div>
+      <span class="tab-chevron">›</span>`;
+    div.addEventListener('click', () => {
+      activeId = p.id;
+      document.querySelectorAll('.emergency-tab').forEach(t => t.classList.remove('active'));
+      div.classList.add('active');
+      renderProtocol();
+      document.getElementById('protocol-output').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    wrap.appendChild(div);
+  });
+}
+
+function renderProtocol() {
+  const p  = PROTOCOLS.find(x => x.id === activeId);
+  const el = document.getElementById('protocol-output');
+
+  el.innerHTML = `
+    <div class="protocol-card">
+      <div class="protocol-header">
+        <span class="protocol-emoji">${p.emoji}</span>
+        <div class="protocol-title">${p.title}</div>
+        <div class="protocol-age">${p.subtitle}</div>
+      </div>
+      <div class="protocol-body">
+        <div class="steps-list">
+          ${p.steps.map((s, i) => `
+            <div class="step-item">
+              <div class="step-num">${i + 1}</div>
+              <div class="step-content">
+                <div class="step-title">${s.title}</div>
+                <div class="step-desc">${s.desc}</div>
+              </div>
+            </div>`).join('')}
+        </div>
+        <div class="key-highlight">
+          <span class="key-title">⚡ Puntos clave para recordar</span>
+          <div class="key-items">
+            ${p.keyPoints.map(k => `<div class="key-item">${k}</div>`).join('')}
+          </div>
+        </div>
+        <div class="after-note"><strong>Después de la emergencia:</strong> ${p.afterNote}</div>
+      </div>
+    </div>`;
+}
+
+buildTabs();
+renderProtocol();
+</script>
+</body>
+</html>
