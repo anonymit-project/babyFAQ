@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<title>babyFAQ · Calculadoras y herramientas para padres primerizos</title>
-<meta name="description" content="Más de 40 herramientas interactivas para padres primerizos: percentiles OMS, tallas, sueño, alimentación, embarazo y más. En español, sin rodeos.">
+<title>babyFAQ · Herramientas para padres primerizos</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#fdf6ee">
@@ -48,7 +47,11 @@
     border: 1.5px solid transparent; text-decoration: none; color: inherit;
     transition: all 0.2s; box-shadow: 0 1px 8px rgba(61,43,31,0.05);
   }
-  .tool-card.is-active:hover { border-color: var(--blush); transform: translateY(-1px); }
+
+  /* ESTADO ACTIVO: Cambio de ratón y efectos hover */
+  .tool-card.is-active { cursor: pointer; }
+  .tool-card.is-active:hover { border-color: var(--blush); transform: translateY(-1px); background: #fff; }
+  
   .tool-card.is-soon { opacity: 0.5; cursor: default; }
   .tool-card.loading { opacity: 0; }
 
@@ -87,26 +90,25 @@
       <img class="logo-icon" src="/icons/icon-96x96.png" alt="babyFAQ">
       <span class="logo-text">baby<span>FAQ</span></span>
     </div>
-    <h1 class="hero-title">La respuesta que buscas, <br>sin <em>rodeos</em></h1>
-    <p class="hero-sub">Herramientas interactivas para padres. Sin artículos de 2.000 palabras.</p>
+    <h1 class="hero-title">Respuestas rápidas, <br>sin <em>rodeos</em></h1>
+    <p class="hero-sub">Más de 40 herramientas para padres. Ve directo al grano.</p>
   </div>
 
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
-    <input class="search-input" type="text" id="search-input" placeholder="Ej: fiebre, pañal, dormir...">
+    <input class="search-input" type="text" id="search-input" placeholder="Ej: paracetamol, talla, dormir...">
   </div>
 
   <div id="empty-state">
-    No encontramos esa herramienta... <br>
+    No hemos encontrado esa herramienta aún... <br>
     <a href="sugerir.html">¿Nos la sugieres aquí? 💡</a>
   </div>
 
   <div id="categories-wrap"></div>
 
   <footer>
-    Hecho para padres, por un padre.<br>
-    Información orientativa — consulta siempre con tu pediatra.<br><br>
-    <a href="sugerir.html">💡 Danos tu opinión</a>
+    Información orientativa — consulta siempre con tu pediatra.<br>
+    <a href="sugerir.html">💡 Sugerir herramienta</a>
   </footer>
 </div>
 
@@ -117,11 +119,11 @@ const CATEGORIES = [
     icon: '🤰',
     title: 'Embarazo',
     tools: [
-      { file: 'fecha-parto.html', emoji: '🗓️', name: 'Fecha probable de parto', desc: 'A partir de la última regla o FIV', createdAt: '2026-04-01', keywords: ['nacimiento', 'fiv', 'regla'] },
+      { file: 'fecha-parto.html', emoji: '🗓️', name: 'Fecha probable de parto', desc: 'Cálculo por última regla o FIV', createdAt: '2026-04-01', keywords: ['nacimiento', 'bebe', 'fiv'] },
       { file: 'semanas-a-meses.html', emoji: '🔄', name: 'Semanas a meses', desc: 'Conversor de gestación y trimestres', createdAt: '2026-04-01', keywords: ['tiempo', 'calendario'] },
-      { file: 'tamano-bebe.html', emoji: '🫐', name: 'Tamaño del bebé', desc: 'Frutas y verduras por semana', createdAt: '2026-04-01', keywords: ['peso', 'medidas', 'fruta'] },
-      { file: 'peso-embarazo.html', emoji: '⚖️', name: 'Ganancia de peso', desc: 'Peso normal según IMC previo', createdAt: '2026-04-01', keywords: ['kilos', 'engordar', 'bascula'] },
-      { file: 'patadas.html', emoji: '🦵', name: 'Contador de movimientos', desc: 'Registra las patadas del bebé', createdAt: '2026-04-01', keywords: ['patadas', 'movimientos', 'feto'] },
+      { file: 'tamano-bebe.html', emoji: '🫐', name: 'Tamaño del bebé', desc: 'Equivalencia en frutas por semana', createdAt: '2026-04-01', keywords: ['peso', 'medidas', 'fruta'] },
+      { file: 'peso-embarazo.html', emoji: '⚖️', name: 'Ganancia de peso', desc: 'Control según tu IMC previo', createdAt: '2026-04-01', keywords: ['kilos', 'engordar'] },
+      { file: 'patadas.html', emoji: '🦵', name: 'Contador de movimientos', desc: 'Registro de patadas del bebé', createdAt: '2026-04-01', keywords: ['patadas', 'movimientos', 'feto'] },
       { file: 'contracciones.html', emoji: '⏱️', name: 'Contador de contracciones', desc: '¿Cuándo ir al hospital?', createdAt: '2026-04-01', keywords: ['parto', 'dolor', 'dilatacion'] },
       { file: 'bolsa-hospital.html', emoji: '🧳', name: 'Lista bolsa hospital', desc: 'Todo lo necesario para el parto', createdAt: '2026-04-01', keywords: ['maleta', 'preparacion'] }
     ]
@@ -131,10 +133,10 @@ const CATEGORIES = [
     icon: '🍼',
     title: 'Lactancia y Alimentación',
     tools: [
-      { file: 'tomas-leche.html', emoji: '🤱', name: 'Tomas de leche', desc: 'Cantidad (ml) según peso y edad', createdAt: '2025-03-01', keywords: ['biberon', 'pecho', 'lactancia', 'leche'] },
-      { file: 'calculadora-lactancia.html', emoji: '🍷', name: 'Alcohol y lactancia', desc: 'Tiempo de espera para dar el pecho', createdAt: '2025-03-01', keywords: ['beber', 'cerveza', 'copa'] },
+      { file: 'tomas-leche.html', emoji: '🤱', name: 'Tomas de leche', desc: 'Cantidad (ml) según peso y edad', createdAt: '2025-03-01', keywords: ['biberon', 'pecho', 'lactancia'] },
+      { file: 'calculadora-lactancia.html', emoji: '🍷', name: 'Alcohol y lactancia', desc: 'Tiempo de espera recomendado', createdAt: '2025-03-01', keywords: ['beber', 'copa', 'cerveza'] },
       { file: 'alimentos-edad.html', emoji: '🥑', name: 'Alimentos por edad', desc: '¿Puede comer X con Y meses?', createdAt: '2025-03-01', keywords: ['comida', 'fruta', 'blw', 'papilla'] },
-      { file: 'solidos-agua.html', emoji: '🥣', name: '¿Cuándo introducir sólidos y agua?', desc: 'Línea de tiempo visual', createdAt: '2026-03-28', keywords: ['agua', 'comida', 'beber'] },
+      { file: 'solidos-agua.html', emoji: '🥣', name: '¿Cuándo introducir sólidos y agua?', desc: 'Línea de tiempo visual', createdAt: '2026-03-28', keywords: ['agua', 'comida', '6 meses'] },
       { file: 'introduccion-solidos.html', emoji: '🥄', name: 'Guía alimentación complementaria', desc: 'Paso a paso para empezar', createdAt: '2026-04-01', keywords: ['blw', 'papillas', 'comer'] }
     ]
   },
@@ -145,25 +147,25 @@ const CATEGORIES = [
     tools: [
       { file: 'sueno-bebe.html', emoji: '😴', name: 'Sueño por meses', desc: 'Siestas, ventanas y horas totales', createdAt: '2025-03-01', keywords: ['dormir', 'siesta', 'descanso'] },
       { file: 'hora-acostarse.html', emoji: '🕗', name: 'Hora de acostarse', desc: 'Ideal según edad y despertar', createdAt: '2026-04-01', keywords: ['dormir', 'noche', 'horario'] },
-      { file: 'regresiones-sueno.html', emoji: '😤', name: 'Regresiones del sueño', desc: 'Cuándo ocurren y cómo superarlas', createdAt: '2026-04-01', keywords: ['despertar', 'crisis'] },
+      { file: 'regresiones-sueno.html', emoji: '😤', name: 'Regresiones del sueño', desc: 'Cuándo ocurren y cómo superarlas', createdAt: '2026-04-01', keywords: ['despertar', 'crisis', 'insomnio'] },
       { file: 'cuna-a-cama.html', emoji: '🛏️', name: 'De cuna a cama', desc: 'Señales y edad recomendada', createdAt: '2026-04-01', keywords: ['dormir', 'habitacion', 'cambio'] },
-      { file: 'temperatura-habitacion.html', emoji: '❄️', name: 'Temperatura habitación', desc: 'Cómo vestirlo y qué saco elegir', createdAt: '2026-04-01', keywords: ['frio', 'calor', 'ropa', 'dormir', 'saco'] }
+      { file: 'temperatura-habitacion.html', emoji: '🌡️🏠', name: 'Temperatura habitación', desc: 'Cómo vestirlo y qué saco elegir', createdAt: '2026-04-01', keywords: ['frio', 'calor', 'ropa', 'saco', 'tog'] }
     ]
   },
   {
-    id: 'salud-seguridad',
+    id: 'salud',
     icon: '❤️',
-    title: 'Salud y Seguridad',
+    title: 'Salud',
     tools: [
-      { file: 'ruido-bebe.html', emoji: '🔊', name: 'Ruidos del bebé', desc: 'Sonidos y ruidos comunes', createdAt: '2026-04-01', keywords: ['sonidos', 'respiracion', 'gruñidos'] },
+      { file: 'ruido-bebe.html', emoji: '🔊', name: 'Ruidos del bebé', desc: 'Sonidos y ruidos comunes', createdAt: '2026-04-01', keywords: ['respiracion', 'gruñidos'] },
       { file: 'llanto-bebe.html', emoji: '😢', name: '¿Por qué llora?', desc: 'Interpreta sus quejas y llantos', createdAt: '2026-04-01', keywords: ['hambre', 'dolor', 'queja'] },
       { file: 'colicos-bebe.html', emoji: '😣', name: 'Cólicos del bebé', desc: 'Técnicas de alivio guiadas', createdAt: '2026-04-01', keywords: ['gases', 'dolor', 'panza', 'tripa'] },
-      { file: 'fiebre.html', emoji: '🌡️', name: '¿Es fiebre?', desc: 'Umbrales por edad y conversor', createdAt: '2026-03-27', keywords: ['temperatura', 'calentura', 'termometro'] },
-      { file: 'dosis-fiebre.html', emoji: '💊', name: 'Dosis de fármacos', desc: 'Paracetamol e ibuprofeno por peso', createdAt: '2026-03-28', keywords: ['apiretal', 'daltsy', 'medicamento'] },
+      { file: 'fiebre.html', emoji: '🌡️', name: '¿Es fiebre?', desc: 'Umbrales por edad y conversor', createdAt: '2026-03-27', keywords: ['temperatura', 'termometro', 'calentura'] },
+      { file: 'dosis-fiebre.html', emoji: '💊', name: 'Dosis de paracetamol/ibuprofeno', desc: 'Calculadora por peso', createdAt: '2026-03-28', keywords: ['apiretal', 'daltsy', 'medicamento'] },
       { file: 'cuando-urgencias.html', emoji: '🚨', name: '¿Cuándo ir a urgencias?', desc: 'Guía por síntomas y gravedad', createdAt: '2026-04-01', keywords: ['medico', 'peligro', 'hospital'] },
       { file: 'primeros-auxilios.html', emoji: '🆘', name: 'Primeros auxilios', desc: 'Atragantamientos y emergencias', createdAt: '2026-04-01', keywords: ['atragantar', 'rcp', 'golpe', 'caida'] },
-      { file: 'vacunas.html', emoji: '💉', name: 'Calendario vacunas', desc: 'Calendario oficial por edad', createdAt: '2026-04-01', keywords: ['pinchazo', 'pediatra', 'salud'] },
-      { file: 'revisiones-pediatra.html', emoji: '🩺', name: 'Revisiones pediátricas', desc: 'Cuándo son y qué se mira', createdAt: '2026-04-01', keywords: ['medico', 'control', 'salud'] }
+      { file: 'vacunas.html', emoji: '💉', name: 'Calendario vacunas', desc: 'Oficial español por edad', createdAt: '2026-04-01', keywords: ['pinchazo', 'pediatra', 'pinchazos'] },
+      { file: 'revisiones-pediatra.html', emoji: '🩺', name: 'Revisiones pediátricas', desc: 'Calendario de visitas y controles', createdAt: '2026-04-01', keywords: ['medico', 'control', 'pediatra'] }
     ]
   },
   {
@@ -173,31 +175,31 @@ const CATEGORIES = [
     tools: [
       { file: 'percentil.html', emoji: '⚖️', name: 'Percentil peso y altura', desc: 'Tablas OMS de 0 a 5 años', createdAt: '2025-03-01', keywords: ['crecimiento', 'talla', 'peso'] },
       { file: 'desarrollo.html', emoji: '🧠', name: 'Hitos del desarrollo', desc: 'Evolución por etapas', createdAt: '2026-04-01', keywords: ['andar', 'sentarse', 'gatear'] },
-      { file: 'denticion.html', emoji: '🦷', name: 'Calendario dentición', desc: 'Orden de salida de dientes', createdAt: '2026-04-01', keywords: ['dientes', 'boca', 'salida'] },
+      { file: 'denticion.html', emoji: '🦷', name: 'Calendario dentición', desc: 'Orden de salida de dientes', createdAt: '2026-04-01', keywords: ['dientes', 'boca', 'calendario'] },
       { file: 'edad-corregida.html', emoji: '📅', name: 'Edad corregida', desc: 'Para bebés prematuros', createdAt: '2026-04-01', keywords: ['prematuro', 'semanas'] },
-      { file: null, emoji: '💬', name: 'Hitos del lenguaje', desc: 'Evolución del habla por meses', createdAt: null, keywords: ['hablar', 'palabras', 'sonidos'] },
       { file: 'control-esfinteres.html', emoji: '🚽', name: 'Control de esfínteres', desc: '¿Cuándo dejar el pañal?', createdAt: '2026-04-01', keywords: ['pañal', 'orinal', 'pis', 'caca'] },
-      { file: 'juguetes-edad.html', emoji: '🧸', name: 'Juguetes por edad', desc: 'Recomendaciones según etapa', createdAt: '2026-04-01', keywords: ['jugar', 'estimulacion', 'regalos'] }
+      { file: 'juguetes-edad.html', emoji: '🧸', name: 'Juguetes por edad', desc: 'Recomendaciones según etapa', createdAt: '2026-04-01', keywords: ['jugar', 'estimulacion', 'regalos'] },
+      { file: null, emoji: '💬', name: 'Hitos del lenguaje', desc: 'Evolución del habla por meses', createdAt: null, keywords: ['hablar', 'palabras', 'sonidos'] }
     ]
   },
   {
-    id: 'higiene-cuidados',
+    id: 'higiene',
     icon: '🛁',
     title: 'Higiene y Cuidados',
     tools: [
       { file: 'bano-bebe.html', emoji: '🧼', name: 'Baño del bebé', desc: 'Temperatura y técnica paso a paso', createdAt: '2026-04-01', keywords: ['bañar', 'agua', 'limpieza'] },
       { file: 'masaje-bebe.html', emoji: '🤲', name: 'Masaje para bebés', desc: 'Beneficios y técnica por zona', createdAt: '2026-04-01', keywords: ['relajacion', 'tacto', 'masajes'] },
-      { file: 'denticion-alivio.html', emoji: '🧊', name: 'Alivio dentición', desc: 'Técnicas para calmar encías', createdAt: '2026-04-01', keywords: ['dientes', 'dolor', 'boca'] }
+      { file: 'denticion-alivio.html', emoji: '🧊', name: 'Alivio dentición', desc: 'Técnicas para calmar encías', createdAt: '2026-04-01', keywords: ['dientes', 'dolor', 'boca', 'babas'] }
     ]
   },
   {
-    id: 'tallas-compras',
+    id: 'compras',
     icon: '🛒',
-    title: 'Tallas y Compras',
+    title: 'Ropa y Compras',
     tools: [
-      { file: 'tallas-ropa.html', emoji: '👕', name: 'Tallas de ropa', desc: 'Conversor internacional', createdAt: '2025-03-01', keywords: ['body', 'pijama', 'vestir'] },
-      { file: 'talla-zapato.html', emoji: '👟', name: 'Talla de zapato', desc: 'Introduce cm y obtén talla', createdAt: '2025-03-01', keywords: ['calzado', 'pies', 'medir'] },
-      { file: 'talla-panal.html', emoji: '🧷', name: 'Talla de pañal', desc: 'Según el peso del bebé', createdAt: '2026-04-01', keywords: ['dodot', 'comprar', 'pis', 'caca'] },
+      { file: 'tallas-ropa.html', emoji: '👕', name: 'Tallas de ropa', desc: 'Conversor ES / US / UK', createdAt: '2025-03-01', keywords: ['body', 'pijama', 'vestir'] },
+      { file: 'talla-zapato.html', emoji: '👟', name: 'Talla de zapato', desc: 'De cm a talla internacional', createdAt: '2025-03-01', keywords: ['calzado', 'pies', 'medida'] },
+      { file: 'talla-panal.html', emoji: '🧷', name: 'Talla de pañal', desc: 'Según el peso actual', createdAt: '2026-04-01', keywords: ['dodot', 'comprar', 'pañales'] },
       { file: 'silla-coche.html', emoji: '🚗', name: 'Silla del coche', desc: 'Grupos y cambios de silla', createdAt: '2026-04-01', keywords: ['isofix', 'viaje', 'seguridad'] },
       { file: 'porteo.html', emoji: '🎒', name: 'Guía de porteo', desc: 'Portabebés y posiciones seguras', createdAt: '2026-04-01', keywords: ['mochila', 'fular', 'llevar'] },
       { file: 'checker-productos.html', emoji: '✅', name: 'Checker de productos', desc: 'Veredicto sobre qué comprar', createdAt: '2025-03-01', keywords: ['compras', 'ahorro', 'objetos'] }
@@ -205,6 +207,7 @@ const CATEGORIES = [
   }
 ];
 
+// LÓGICA DE BÚSQUEDA Y RENDERIZADO
 function normalizeText(text) {
   return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
@@ -240,14 +243,30 @@ function hydrateCards() {
       const el = document.getElementById(`tool-${cat.id}-${i}`);
       if (!el) return;
       el.classList.remove('loading');
+      
       if (tool.file) {
         el.classList.add('is-active');
         el.onclick = () => { window.location.href = tool.file; };
         const isNew = tool.createdAt && (Date.now() - new Date(tool.createdAt)) / 864e5 <= NEW_BADGE_DAYS;
-        el.innerHTML = `<div class="tool-emoji">${tool.emoji}</div><div class="tool-info"><div class="tool-name">${tool.name}</div><div class="tool-desc">${tool.desc}</div></div>${isNew ? '<span class="tool-badge badge-new">Nuevo</span>' : ''}<span class="tool-arrow">›</span>`;
+        el.innerHTML = `
+          <div class="tool-emoji">${tool.emoji}</div>
+          <div class="tool-info">
+            <div class="tool-name">${tool.name}</div>
+            <div class="tool-desc">${tool.desc}</div>
+          </div>
+          ${isNew ? '<span class="tool-badge badge-new">Nuevo</span>' : ''}
+          <span class="tool-arrow">›</span>
+        `;
       } else {
         el.classList.add('is-soon');
-        el.innerHTML = `<div class="tool-emoji">${tool.emoji}</div><div class="tool-info"><div class="tool-name">${tool.name}</div><div class="tool-desc">${tool.desc}</div></div><span class="tool-badge badge-soon">Pronto</span>`;
+        el.innerHTML = `
+          <div class="tool-emoji">${tool.emoji}</div>
+          <div class="tool-info">
+            <div class="tool-name">${tool.name}</div>
+            <div class="tool-desc">${tool.desc}</div>
+          </div>
+          <span class="tool-badge badge-soon">Pronto</span>
+        `;
       }
     });
   });
@@ -272,6 +291,7 @@ function filterTools(query) {
 }
 
 document.getElementById('search-input').addEventListener('input', e => filterTools(e.target.value));
+
 buildSkeleton();
 hydrateCards();
 </script>
