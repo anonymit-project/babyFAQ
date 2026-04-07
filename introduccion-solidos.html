@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<title>Introducción de sólidos · BLW vs purés · Cómo empezar · babyFAQ</title>
-<meta name="description" content="Guía completa para introducir los sólidos al bebé. BLW vs purés, señales de preparación, cómo empezar, qué dar en cada etapa y cantidades orientativas.">
-<meta property="og:title" content="Introducción de sólidos · BLW vs purés · babyFAQ">
+<title>Introducción a los sólidos · BLW vs purés · Cómo empezar · babyFAQ</title>
+<meta name="description" content="Guía interactiva para introducir los sólidos al bebé: BLW vs purés, señales de preparación, qué dar en cada etapa y cantidades. Empieza con seguridad.">
+<meta property="og:title" content="Introducción a los sólidos · BLW vs purés · babyFAQ">
 <meta property="og:description" content="Cómo introducir los sólidos al bebé: BLW vs purés, señales de preparación, qué dar en cada etapa y cantidades. Guía basada en las recomendaciones actuales.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#f4faf0">
+<meta name="theme-color" content="#fdf6ee">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://babyfaq.es/introduccion-solidos.html">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Guía de introducción a los sólidos",
+  "description": "Guía interactiva para introducir los sólidos al bebé: BLW vs purés, señales de preparación, qué dar en cada etapa y cantidades orientativas.",
+  "url": "https://babyfaq.es/introduccion-solidos.html",
+  "applicationCategory": "HealthApplication",
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "babyFAQ"
+  }
+}
+</script>
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -49,10 +66,19 @@
   .blob-1 { width: 300px; height: 300px; background: #b0d8a0; top: -100px; right: -80px; opacity: 0.35; }
   .blob-2 { width: 250px; height: 250px; background: #f0d8a0; bottom: -80px; left: -60px; opacity: 0.3; }
 
+  @media (min-width: 640px) {
+    .blob-1 { width: 420px; height: 420px; top: -140px; right: -120px; opacity: 0.25; }
+    .blob-2 { width: 360px; height: 360px; bottom: -120px; left: -100px; opacity: 0.2; }
+  }
+
   .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 24px 60px; }
 
+  @media (min-width: 640px) {
+    .container { max-width: 860px; padding: 48px 40px 72px; }
+  }
+
   .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
-  .back-link:hover { color: var(--green); }
+  .back-link:hover { color: var(--terracota); }
 
   header { text-align: center; margin-bottom: 28px; }
   .badge { display: inline-block; background: var(--green-bg); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
@@ -65,6 +91,13 @@
   .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,45,26,0.07); border: 1px solid rgba(136,176,136,0.22); }
   .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 12px; }
 
+  /* ── Desktop grid layout ── */
+  @media (min-width: 640px) {
+    .desktop-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .desktop-grid-2 > * { margin-bottom: 0; }
+    .desktop-full { grid-column: 1 / -1; }
+  }
+
   /* ── Señales de preparación ── */
   .signals-grid { display: flex; flex-direction: column; gap: 7px; }
   .signal-item { display: flex; align-items: flex-start; gap: 10px; background: var(--green-bg); border: 1px solid var(--green-border); border-radius: 12px; padding: 11px 13px; }
@@ -72,6 +105,10 @@
   .signal-text { flex: 1; font-size: 13px; color: var(--mid); line-height: 1.55; }
   .signal-text strong { color: var(--deep); font-weight: 500; display: block; margin-bottom: 2px; }
   .signal-note { font-size: 11px; color: var(--mid); margin-top: 10px; background: var(--amber-bg); border: 1px solid var(--amber-border); border-radius: 10px; padding: 9px 12px; line-height: 1.6; }
+
+  @media (min-width: 640px) {
+    .signals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+  }
 
   /* ── BLW vs purés ── */
   .method-tabs { display: flex; gap: 8px; margin-bottom: 14px; }
@@ -146,6 +183,21 @@
   .info-section strong { color: var(--deep); font-weight: 500; }
   .info-divider { height: 1px; background: rgba(136,176,136,0.2); margin: 20px 0; }
 
+  @media (min-width: 640px) {
+    .info-section { padding: 34px 30px; }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+    .info-grid .info-divider { grid-column: 1 / -1; }
+    .info-grid .info-full { grid-column: 1 / -1; }
+  }
+
+  /* ── Fuentes ── */
+  .sources-section { background: var(--warm-white); border-radius: 20px; padding: 22px 20px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,45,26,0.06); border: 1px solid rgba(136,176,136,0.2); }
+  .sources-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 16px; color: var(--deep); margin-bottom: 12px; }
+  .sources-list { display: flex; flex-direction: column; gap: 8px; }
+  .source-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--mid); }
+  .source-item a { color: var(--green); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .source-item a:hover { color: var(--terracota); }
+
   .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.65; margin-top: 20px; padding: 0 8px; }
 </style>
 <!-- Google tag (gtag.js) -->
@@ -165,7 +217,7 @@
 
 <div class="container">
 
-  <a class="back-link" href="index.html">← Volver al inicio</a>
+  <a class="back-link" href="/">← Volver al inicio</a>
 
   <header>
     <span class="badge">Alimentación · 6–12 meses</span>
@@ -213,13 +265,13 @@
   <div class="card">
     <div class="section-label">Elige tu método</div>
     <div class="method-tabs">
-      <button class="method-tab active-blw" id="tab-blw" onclick="setMethod('blw')">
+      <button class="method-tab active-blw" id="tab-blw" onclick="setMethod('blw')" aria-label="Método BLW: alimentación dirigida por el bebé">
         <span class="m-icon">🥦</span>BLW
       </button>
-      <button class="method-tab" id="tab-pure" onclick="setMethod('pure')">
+      <button class="method-tab" id="tab-pure" onclick="setMethod('pure')" aria-label="Método purés y triturados">
         <span class="m-icon">🥣</span>Purés
       </button>
-      <button class="method-tab" id="tab-mix" onclick="setMethod('mix')">
+      <button class="method-tab" id="tab-mix" onclick="setMethod('mix')" aria-label="Método mixto: combinar BLW y purés">
         <span class="m-icon">🔀</span>Mixto
       </button>
     </div>
@@ -233,35 +285,52 @@
 
   <!-- Info section -->
   <div class="info-section">
+    <div class="info-grid">
 
-    <h2>Por qué <em>6 meses</em> y no antes</h2>
-    <p>La recomendación de esperar a los 6 meses tiene respaldo científico sólido. Antes de esa edad, el sistema digestivo del bebé no produce suficiente amilasa salival para procesar almidones, la barrera intestinal aún tiene una permeabilidad elevada (lo que facilita el paso de alérgenos), y el sistema inmune no está suficientemente maduro para gestionar la variedad antigénica de los alimentos.</p>
-    <p>Introducir sólidos antes de los 4 meses está contraindicado. Entre los 4 y los 6 meses queda en una zona gris donde solo debe hacerse si el pediatra lo indica expresamente por motivos clínicos concretos. La presión social de "ya puede" basada en el peso o en el interés visual del bebé no es criterio suficiente.</p>
+      <div>
+        <h2>Por qué <em>6 meses</em> y no antes</h2>
+        <p>La recomendación de esperar a los 6 meses tiene respaldo científico sólido. Antes de esa edad, el sistema digestivo del bebé no produce suficiente amilasa salival para procesar almidones, la barrera intestinal aún tiene una permeabilidad elevada (lo que facilita el paso de alérgenos), y el sistema inmune no está suficientemente maduro para gestionar la variedad antigénica de los alimentos.</p>
+        <p>Introducir sólidos antes de los 4 meses está contraindicado. Entre los 4 y los 6 meses queda en una zona gris donde solo debe hacerse si el pediatra lo indica expresamente por motivos clínicos concretos. La presión social de "ya puede" basada en el peso o en el interés visual del bebé no es criterio suficiente.</p>
+      </div>
 
-    <div class="info-divider"></div>
+      <div>
+        <h2>La <em>alergia alimentaria</em> y cuándo introducir alérgenos</h2>
+        <p>El enfoque ha cambiado radicalmente en los últimos años. La evidencia actual — reflejada en las guías de la ESPGHAN (2017) y la AEP — indica que <strong>retrasar los alérgenos no previene alergias</strong> y puede incluso aumentar el riesgo. La introducción temprana de los principales alérgenos (huevo, cacahuete, pescado, gluten, frutos secos molidos) a partir de los 6 meses, de forma gradual, es la estrategia recomendada.</p>
+        <p>La excepción son los bebés con eczema grave o alergia ya diagnosticada a algún alimento — en esos casos debe consultarse con el alergólogo pediátrico antes de introducir los alérgenos relacionados. Para el resto, la recomendación es introducirlos uno a uno, con 2–3 días de margen entre cada uno nuevo, observando posibles reacciones.</p>
+      </div>
 
-    <h2>La <em>alergia alimentaria</em> y cuándo introducir alérgenos</h2>
-    <p>El enfoque ha cambiado radicalmente en los últimos años. La evidencia actual — reflejada en las guías de la ESPGHAN (2017) y la AEP — indica que <strong>retrasar los alérgenos no previene alergias</strong> y puede incluso aumentar el riesgo. La introducción temprana de los principales alérgenos (huevo, cacahuete, pescado, gluten, frutos secos molidos) a partir de los 6 meses, de forma gradual, es la estrategia recomendada.</p>
-    <p>La excepción son los bebés con eczema grave o alergia ya diagnosticada a algún alimento — en esos casos debe consultarse con el alergólogo pediátrico antes de introducir los alérgenos relacionados. Para el resto, la recomendación es introducirlos uno a uno, con 2–3 días de margen entre cada uno nuevo, observando posibles reacciones.</p>
+      <div class="info-divider info-full"></div>
 
-    <div class="info-divider"></div>
+      <div>
+        <h2>La leche sigue siendo <em>lo principal</em></h2>
+        <p>Un error frecuente al empezar con sólidos es reducir demasiado rápido la leche. Durante los primeros meses de alimentación complementaria, los sólidos son <strong>complementarios</strong> — no sustitutos. La leche (materna o de fórmula) sigue aportando la mayor parte de la energía y los nutrientes hasta los 9–12 meses.</p>
+        <p>La regla práctica es ofrecer el pecho o el biberón antes de los sólidos en los primeros meses. Así el bebé llega a la comida con algo de hambre pero no famélico, y la leche garantiza que cubra sus necesidades nutritivas independientemente de cuánto coma de sólido.</p>
+      </div>
 
-    <h2>La leche sigue siendo <em>lo principal</em></h2>
-    <p>Un error frecuente al empezar con sólidos es reducir demasiado rápido la leche. Durante los primeros meses de alimentación complementaria, los sólidos son <strong>complementarios</strong> — no sustitutos. La leche (materna o de fórmula) sigue aportando la mayor parte de la energía y los nutrientes hasta los 9–12 meses.</p>
-    <p>La regla práctica es ofrecer el pecho o el biberón antes de los sólidos en los primeros meses. Así el bebé llega a la comida con algo de hambre pero no famélico, y la leche garantiza que cubra sus necesidades nutritivas independientemente de cuánto coma de sólido.</p>
+      <div>
+        <h2>El <em>gagging</em> (arcadas) no es atragantamiento</h2>
+        <p>Uno de los momentos que más asustan a los padres que empiezan con BLW son las arcadas. El bebé hace una mueca intensa, puede ponerse rojo, parece que va a vomitar — y luego lo mastica o lo escupe tranquilamente. Esto es el <strong>reflejo de gag</strong> (arcadas), y es un mecanismo de seguridad completamente normal.</p>
+        <p>En bebés, el punto de gatillo del reflejo de gag está mucho más adelante en la lengua que en adultos — exactamente para protegerles del atragantamiento. Las arcadas son señal de que el sistema de seguridad funciona. No intervengas salvo que el bebé esté claramente sin poder respirar, no haga ruido y se ponga azul — eso sí sería atragantamiento real.</p>
+        <p>Las arcadas se vuelven menos frecuentes con la práctica, a medida que el bebé aprende a manejar diferentes texturas y tamaños. En general, después de 2–4 semanas de práctica el bebé maneja mucho mejor los alimentos.</p>
+      </div>
 
-    <div class="info-divider"></div>
+    </div>
+  </div>
 
-    <h2>El <em>gagging</em> (arcadas) no es atragantamiento</h2>
-    <p>Uno de los momentos que más asustan a los padres que empiezan con BLW son las arcadas. El bebé hace una mueca intensa, puede ponerse rojo, parece que va a vomitar — y luego lo mastica o lo escupe tranquilamente. Esto es el <strong>reflejo de gag</strong> (arcadas), y es un mecanismo de seguridad completamente normal.</p>
-    <p>En bebés, el punto de gatillo del reflejo de gag está mucho más adelante en la lengua que en adultos — exactamente para protegerles del atragantamiento. Las arcadas son señal de que el sistema de seguridad funciona. No intervengas salvo que el bebé esté claramente sin poder respirar, no haga ruido y se ponga azul — eso sí sería atragantamiento real.</p>
-    <p>Las arcadas se vuelven menos frecuentes con la práctica, a medida que el bebé aprende a manejar diferentes texturas y tamaños. En general, después de 2–4 semanas de práctica el bebé maneja mucho mejor los alimentos.</p>
-
+  <!-- Fuentes consultadas -->
+  <div class="sources-section">
+    <h2>📚 Fuentes consultadas</h2>
+    <div class="sources-list">
+      <div class="source-item">📖 <a href="https://www.who.int/health-topics/complementary-feeding" target="_blank" rel="noopener">OMS — Organización Mundial de la Salud</a>: recomendaciones sobre alimentación complementaria</div>
+      <div class="source-item">📖 <a href="https://www.aeped.es/comite-nutricion-y-lactancia-materna/nutricion-infantil/documentos/recomendaciones-introduccion-ali" target="_blank" rel="noopener">AEP — Asociación Española de Pediatría</a>: guía de introducción a la alimentación complementaria</div>
+      <div class="source-item">📖 <a href="https://www.espghan.org/" target="_blank" rel="noopener">ESPGHAN — European Society for Paediatric Gastroenterology</a>: guías 2017 sobre alimentación complementaria</div>
+      <div class="source-item">📖 <a href="https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/default.aspx" target="_blank" rel="noopener">AAP — American Academy of Pediatrics</a>: nutrición en el primer año de vida</div>
+    </div>
   </div>
 
   <p class="disclaimer">
-    Basado en las recomendaciones de la ESPGHAN (2017), la AEP y la OMS sobre alimentación complementaria.<br>
-    Cada bebé es diferente. Tu pediatra o enfermera pediátrica son siempre la referencia más fiable para tu caso concreto.
+    Esta herramienta es orientativa y no sustituye el consejo de tu pediatra o enfermera pediátrica.<br>
+    Cada bebé es diferente. Ante cualquier duda sobre la alimentación de tu hijo, consulta siempre con un profesional de la salud.
   </p>
 
 </div>
@@ -447,6 +516,7 @@ function buildAgeNav() {
     const btn = document.createElement('button');
     btn.className = 'age-btn' + (s.id === activeStage ? ' active' : '');
     btn.textContent = s.label;
+    btn.setAttribute('aria-label', `Ver qué dar a los ${s.label}`);
     btn.addEventListener('click', () => {
       activeStage = s.id;
       document.querySelectorAll('.age-btn').forEach(b => b.classList.remove('active'));
