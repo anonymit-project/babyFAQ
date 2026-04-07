@@ -11,7 +11,7 @@ Paleta: terracota #c97a5e · crema #fdf6ee · warm-white #fffcf8
 
 ---
 
-## Inventario completo de herramientas (38 ficheros)
+## Inventario completo de herramientas (41 ficheros)
 
 ### 🤰 Embarazo (7)
 - `fecha-parto.html` — Calculadora de fecha probable de parto
@@ -31,7 +31,7 @@ Paleta: terracota #c97a5e · crema #fdf6ee · warm-white #fffcf8
 - `introduccion-solidos.html` — Guía de introducción a la alimentación complementaria
 - `solidos-agua.html` — Cuándo introducir sólidos y agua, línea de tiempo
 
-### 🌙 Sueño (5)
+### 🌙 Sueño (6)
 - `sueno-bebe.html` — Horas, siestas y ventana de sueño por meses
 - `hora-acostarse.html` — Hora ideal de acostarse según edad y hora de despertar
 - `temperatura-habitacion.html`— Temperatura de la habitación y cómo vestirle
@@ -39,7 +39,7 @@ Paleta: terracota #c97a5e · crema #fdf6ee · warm-white #fffcf8
 - `cuna-a-cama.html` — Cuándo y cómo pasar de cuna a cama
 - `ruido-bebe.html` — Ruido blanco: volúmenes seguros y tipos recomendados
 
-### ❤️ Crecimiento y salud (12)
+### ❤️ Crecimiento y salud (13)
 - `percentil.html` — Percentil peso y altura según tablas OMS (0–5 años)
 - `desarrollo.html` — Hitos de desarrollo por etapas
 - `revisiones-pediatra.html` — Calendario de revisiones y qué se comprueba en cada una
