@@ -23,7 +23,7 @@ Paleta: terracota #c97a5e · crema #fdf6ee · warm-white #fffcf8
 - `bolsa-hospital.html` — Lista de cosas para la bolsa del hospital
 
 ### 🤱 Lactancia (2)
-- `tomas-leche.html` — ml por toma según edad y peso · ⚠️ NO encontrado en GitHub (verificar)
+- `tomas-leche.html` — ml por toma según edad y peso
 - `calculadora-lactancia.html` — Tiempo de espera tras beber alcohol para dar el pecho
 
 ### 🥣 Alimentación (3)
@@ -34,6 +34,7 @@ Paleta: terracota #c97a5e · crema #fdf6ee · warm-white #fffcf8
 ### 🌙 Sueño (5)
 - `sueno-bebe.html` — Horas, siestas y ventana de sueño por meses
 - `hora-acostarse.html` — Hora ideal de acostarse según edad y hora de despertar
+- `temperatura-habitacion.html`— Temperatura de la habitación y cómo vestirle
 - `regresiones-sueno.html` — Guía de regresiones: cuándo ocurren y cómo superarlas
 - `cuna-a-cama.html` — Cuándo y cómo pasar de cuna a cama
 - `ruido-bebe.html` — Ruido blanco: volúmenes seguros y tipos recomendados
@@ -42,6 +43,7 @@ Paleta: terracota #c97a5e · crema #fdf6ee · warm-white #fffcf8
 - `percentil.html` — Percentil peso y altura según tablas OMS (0–5 años)
 - `desarrollo.html` — Hitos de desarrollo por etapas
 - `revisiones-pediatra.html` — Calendario de revisiones y qué se comprueba en cada una
+- `vacunas.html` — Vacunas del calendario oficial español por edad
 - `edad-corregida.html` — Calculadora de edad corregida para bebés prematuros
 - `fiebre.html` — ¿Es fiebre? Umbral por edad y conversor °C/°F
 - `dosis-fiebre.html` — Dosis de paracetamol e ibuprofeno por peso/edad (no duplicar)
@@ -116,7 +118,7 @@ Paleta: terracota #c97a5e · crema #fdf6ee · warm-white #fffcf8
 
 ## Monetización
 Amazon Afiliados. Mayor potencial de integración en:
-`silla-coche.html` · `masaje-bebe.html` · `porteo.html` · `ruido-bebe.html`
+`silla-coche.html` · `masaje-bebe.html` · `porteo.html` · `ruido-bebe.html` · `juguetes-edad.html` · `temperatura-habitacion.html`
 (integrar enlaces a productos relevantes con `tag=` de Amazon)
 
 ---
@@ -130,7 +132,6 @@ Amazon Afiliados. Mayor potencial de integración en:
 - Reorganización del index completada en categorías (ver arriba)
 - Badge-new en herramientas recién añadidas al index
 - Pendiente revisar herramientas antiguas para aplicar estándares actuales (responsive desktop, fuentes, texto explicativo)
-- ⚠️ Verificar si `tomas-leche.html` existe en el repo (no aparece en el listado de GitHub)
 - `dosis-fiebre.html` ya cubre paracetamol e ibuprofeno — no crear herramienta separada
 
 ## Notas importantes
