@@ -224,13 +224,13 @@ function buildSkeleton() {
       <div class="cat-header"><span class="cat-title">${cat.title}</span></div>
       <div class="tools-list" id="tools-${cat.id}">
         ${cat.tools.map((t, i) => `
-          <div class="tool-card loading" id="tool-${cat.id}-${i}">
+          <a class="tool-card loading" id="tool-${cat.id}-${i}" ${t.file ? `href="${t.file}"` : ''}>
             <div class="tool-emoji">${t.emoji}</div>
             <div class="tool-info">
               <div class="tool-name">${t.name}</div>
               <div class="tool-desc">${t.desc}</div>
             </div>
-          </div>
+          </a>
         `).join('')}
       </div>`;
     wrap.appendChild(section);
@@ -247,7 +247,7 @@ function hydrateCards() {
       
       if (tool.file) {
         el.classList.add('is-active');
-        el.onclick = () => { window.location.href = tool.file; };
+        //el.onclick = () => { window.location.href = tool.file; };
         const isNew = tool.createdAt && (Date.now() - new Date(tool.createdAt)) / 864e5 <= NEW_BADGE_DAYS;
         el.innerHTML = `
           <div class="tool-emoji">${tool.emoji}</div>
