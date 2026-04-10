@@ -1,145 +1,407 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<title>¿A qué hora acostar al bebé? · Calculadora de sueño · babyFAQ</title>
-<meta name="description" content="Calcula la hora ideal de acostarse y de siestas según la edad y la hora a la que se despierta tu bebé. Basado en ventanas de sueño y ciclos de sueño infantil.">
-<meta property="og:title" content="¿A qué hora acostar al bebé? · Calculadora de sueño · babyFAQ">
-<meta property="og:description" content="Introduce la hora a la que se despierta tu bebé y su edad. Calcula al instante la hora de acostarse por la noche y las siestas del día.">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#f5f0fa">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿A qué hora acostar al bebé? Calculadora de sueño por edad · babyFAQ</title>
+  <meta name="description" content="Calcula la hora ideal de acostarse y las siestas según la edad y la hora de despertar de tu bebé. Basado en ventanas de sueño y ciclos recomendados por la NSF y la AAP.">
+  <meta property="og:title" content="¿A qué hora acostar al bebé? Calculadora de sueño por edad · babyFAQ">
+  <meta property="og:description" content="Introduce la hora a la que se despierta tu bebé y su edad. Calcula al instante la hora de acostarse por la noche y las siestas del día.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#fdf6ee">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://babyfaq.es/hora-acostarse.html">
 
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --cream: #f5f0fa; --warm-white: #fdfbff; --blush: #d4b8f0;
-    --purple: #7a5aaa; --deep: #2b1f3d; --mid: #5c4a7a; --soft: #a898c4;
-    --indigo-bg: #eeeaf8; --indigo-border: #c4b4e8;
-    --sage: #5a8a6a; --sage-bg: #edf5f0; --sage-border: #b2d9be;
-    --amber: #b07020; --amber-bg: #fdf3e0; --amber-border: #e8c870;
-    --blue: #3a6aaa; --blue-bg: #e8f0fa; --blue-border: #a8c4e8;
-    --night: #2a1a5a; --night-bg: #eae8f8;
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-55NR11957W');
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora de hora de acostarse para bebés y niños",
+    "description": "Calcula la hora ideal de acostarse y las siestas según la edad y la hora de despertar de tu bebé, basado en ventanas de sueño recomendadas.",
+    "url": "https://babyfaq.es/hora-acostarse.html",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "es",
+    "isPartOf": { "@type": "WebSite", "url": "https://babyfaq.es" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "publisher": { "@type": "Organization", "name": "babyFAQ", "url": "https://babyfaq.es" }
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+  </script>
 
-  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
-  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
-  .blob-1 { width: 320px; height: 320px; background: #c8b0f0; top: -120px; right: -80px; opacity: 0.28; }
-  .blob-2 { width: 260px; height: 260px; background: #b0c8f0; bottom: -80px; left: -60px; opacity: 0.22; }
+  <style>
+    :root {
+      --cream: #f5f0fa;
+      --warm-white: #fdfbff;
+      --blush: #d4b8f0;
+      --terracota: #c97a5e;
+      --purple: #7a5aaa;
+      --deep: #2b1f3d;
+      --mid: #5c4a7a;
+      --soft: #a898c4;
+      --indigo-bg: #eeeaf8;
+      --indigo-border: #c4b4e8;
+      --sage: #5a8a6a;
+      --sage-bg: #edf5f0;
+      --sage-border: #b2d9be;
+      --amber: #b07020;
+      --amber-bg: #fdf3e0;
+      --amber-border: #e8c870;
+      --blue: #3a6aaa;
+      --blue-bg: #e8f0fa;
+      --blue-border: #a8c4e8;
+      --night: #2a1a5a;
+      --night-bg: #eae8f8;
+    }
 
-  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 20px 64px; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* ── Back ── */
-  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 28px; transition: color 0.2s; }
-  .back-link:hover { color: var(--purple); }
+    body {
+      background: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--deep);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-  /* ── Header ── */
-  header { text-align: center; margin-bottom: 32px; }
-  .badge { display: inline-block; background: var(--indigo-bg); color: var(--purple); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
-  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 10px; }
-  h1 em { font-style: italic; color: var(--purple); }
-  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.5; font-weight: 300; max-width: 340px; margin: 0 auto; }
+    /* ── Noise + blobs ── */
+    .noise {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+    .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+    .blob-1 { width: 320px; height: 320px; background: #c8b0f0; top: -120px; right: -80px; opacity: 0.28; }
+    .blob-2 { width: 260px; height: 260px; background: #b0c8f0; bottom: -80px; left: -60px; opacity: 0.22; }
 
-  @media (min-width: 480px) { h1 { font-size: 34px; } .subtitle { font-size: 14px; } }
-  @media (min-width: 640px) { h1 { font-size: 38px; } .container { padding: 56px 28px 80px; } }
+    @media (min-width: 640px) {
+      .blob-1 { width: 420px; height: 420px; top: -140px; right: -60px; opacity: 0.2; }
+      .blob-2 { width: 340px; height: 340px; bottom: 120px; left: -80px; opacity: 0.16; }
+    }
 
-  /* ── Card ── */
-  .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(43,31,61,0.07); border: 1px solid rgba(168,152,196,0.22); }
-  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 14px; }
+    /* ── Layout ── */
+    .container {
+      position: relative; z-index: 1;
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
 
-  /* ── Age selector ── */
-  .age-pills { display: flex; gap: 7px; flex-wrap: wrap; }
-  .age-pill { padding: 8px 13px; border-radius: 20px; border: 1.5px solid rgba(168,152,196,0.3); background: var(--cream); font-size: 12px; font-weight: 500; color: var(--mid); cursor: pointer; transition: all 0.15s; white-space: nowrap; touch-action: manipulation; }
-  .age-pill:hover { border-color: var(--purple); color: var(--purple); }
-  .age-pill.active { background: var(--purple); border-color: var(--purple); color: white; }
+    @media (min-width: 640px) {
+      .container { max-width: 860px; padding: 48px 40px 80px; }
+    }
 
-  /* ── Time selector ── */
-  .time-selector { background: var(--cream); border-radius: 14px; border: 1.5px solid rgba(168,152,196,0.35); display: flex; align-items: center; height: 76px; padding: 0 6px; }
-  .hold-btn { width: 50px; height: 58px; flex-shrink: 0; border-radius: 12px; border: none; background: transparent; color: var(--purple); font-size: 28px; font-weight: 300; cursor: pointer; display: flex; align-items: center; justify-content: center; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: background 0.1s; line-height: 1; }
-  .hold-btn:active, .hold-btn.pressing { background: var(--blush); }
-  .time-display { flex: 1; text-align: center; }
-  .time-value { font-family: 'Fraunces', serif; font-size: 46px; font-weight: 300; color: var(--deep); line-height: 1; display: block; }
-  .time-label { font-size: 12px; color: var(--soft); display: block; margin-top: 2px; }
+    /* ── Back link ── */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; color: var(--soft);
+      text-decoration: none; margin-bottom: 28px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--terracota); }
+    .back-link svg { width: 14px; height: 14px; }
 
-  /* ── Results ── */
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    /* ── Header ── */
+    header { text-align: center; margin-bottom: 32px; }
 
-  /* ── Bedtime hero ── */
-  .bedtime-hero { background: var(--night-bg); border: 1.5px solid var(--indigo-border); border-radius: 20px; padding: 22px 20px; margin-bottom: 14px; text-align: center; animation: fadeUp 0.3s ease; }
-  .bh-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); display: block; margin-bottom: 8px; }
-  .bh-time { font-family: 'Fraunces', serif; font-size: 64px; font-weight: 300; color: var(--deep); line-height: 1; display: block; }
-  .bh-range { font-size: 13px; color: var(--soft); margin-top: 4px; display: block; }
-  .bh-note { font-size: 12px; color: var(--mid); margin-top: 10px; line-height: 1.5; background: rgba(168,152,196,0.12); border-radius: 10px; padding: 8px 12px; }
+    .badge {
+      display: inline-block; background: var(--indigo-bg); color: var(--purple);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 5px 14px;
+      border-radius: 20px; margin-bottom: 14px;
+    }
 
-  @media (min-width: 480px) { .bh-time { font-size: 76px; } }
+    h1 {
+      font-family: 'Fraunces', serif; font-weight: 300;
+      font-size: 28px; line-height: 1.2;
+      color: var(--deep); margin-bottom: 10px;
+    }
+    @media (min-width: 480px) { h1 { font-size: 34px; } }
+    @media (min-width: 640px) { h1 { font-size: 38px; } }
+    h1 em { font-style: italic; color: var(--purple); }
 
-  /* ── Nap schedule ── */
-  .nap-grid { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; animation: fadeUp 0.3s ease; }
+    .subtitle {
+      font-size: 13px; color: var(--mid); line-height: 1.5;
+      font-weight: 300; max-width: 340px; margin: 0 auto;
+      text-align: justify;
+    }
+    @media (min-width: 480px) { .subtitle { font-size: 14px; } }
+    @media (min-width: 640px) { .subtitle { max-width: 560px; } }
 
-  .nap-block { background: var(--warm-white); border-radius: 16px; padding: 14px 16px; border: 1.5px solid rgba(168,152,196,0.2); display: flex; align-items: center; gap: 12px; }
-  .nap-block.nap-color-1 { background: var(--sage-bg);  border-color: var(--sage-border); }
-  .nap-block.nap-color-2 { background: var(--amber-bg); border-color: var(--amber-border); }
-  .nap-block.nap-color-3 { background: var(--blue-bg);  border-color: var(--blue-border); }
+    /* ── Card ── */
+    .card {
+      background: var(--warm-white);
+      border-radius: 20px;
+      padding: 22px 18px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 16px rgba(43,31,61,0.07);
+      border: 1px solid rgba(168,152,196,0.22);
+    }
 
-  .nap-num { font-family: 'Fraunces', serif; font-size: 11px; font-weight: 400; color: var(--soft); flex-shrink: 0; min-width: 52px; }
-  .nap-info { flex: 1; }
-  .nap-time { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; color: var(--deep); display: block; line-height: 1; }
-  .nap-detail { font-size: 11px; color: var(--soft); margin-top: 2px; }
-  .nap-block.nap-color-1 .nap-time { color: var(--sage); }
-  .nap-block.nap-color-2 .nap-time { color: var(--amber); }
-  .nap-block.nap-color-3 .nap-time { color: var(--blue); }
+    .section-label {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--soft); margin-bottom: 14px;
+    }
 
-  /* ── Timeline visual ── */
-  .timeline-card { background: var(--warm-white); border-radius: 20px; padding: 20px 18px; margin-bottom: 14px; border: 1px solid rgba(168,152,196,0.22); box-shadow: 0 2px 16px rgba(43,31,61,0.07); animation: fadeUp 0.3s ease; }
+    /* ── Desktop: controls in 2-col ── */
+    @media (min-width: 640px) {
+      .controls-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-bottom: 0;
+      }
+      .controls-grid .card { margin-bottom: 0; }
+    }
 
-  .day-bar { position: relative; height: 32px; border-radius: 8px; background: var(--cream); overflow: hidden; margin-bottom: 8px; border: 1px solid rgba(168,152,196,0.2); }
-  .bar-seg { position: absolute; top: 0; height: 100%; display: flex; align-items: center; justify-content: center; }
-  .bar-seg.seg-awake { background: #f0e8a0; }
-  .bar-seg.seg-nap   { background: #a888d8; }
-  .bar-seg.seg-night { background: #2a1a5a; }
-  .bar-seg-label { font-size: 9px; font-weight: 500; color: white; white-space: nowrap; overflow: hidden; padding: 0 3px; }
-  .bar-seg.seg-awake .bar-seg-label { color: #7a6a10; }
+    /* ── Age pills ── */
+    .age-pills { display: flex; gap: 7px; flex-wrap: wrap; }
+    .age-pill {
+      padding: 8px 13px; border-radius: 20px;
+      border: 1.5px solid rgba(168,152,196,0.3);
+      background: var(--cream); font-size: 12px;
+      font-weight: 500; color: var(--mid);
+      cursor: pointer; transition: all 0.15s;
+      white-space: nowrap; touch-action: manipulation;
+    }
+    .age-pill:hover { border-color: var(--purple); color: var(--purple); }
+    .age-pill.active { background: var(--purple); border-color: var(--purple); color: white; }
 
-  .bar-ticks { display: flex; justify-content: space-between; }
-  .bar-tick { font-size: 9px; color: var(--soft); }
+    /* ── Time selector ── */
+    .time-selector {
+      background: var(--cream);
+      border-radius: 14px;
+      border: 1.5px solid rgba(168,152,196,0.35);
+      display: flex; align-items: center;
+      height: 76px; padding: 0 6px;
+    }
+    .hold-btn {
+      width: 50px; height: 58px; flex-shrink: 0;
+      border-radius: 12px; border: none;
+      background: transparent; color: var(--purple);
+      font-size: 28px; font-weight: 300;
+      cursor: pointer; display: flex;
+      align-items: center; justify-content: center;
+      touch-action: manipulation;
+      user-select: none; -webkit-user-select: none;
+      transition: background 0.1s; line-height: 1;
+    }
+    .hold-btn:active, .hold-btn.pressing { background: rgba(212,184,240,0.4); }
 
-  /* ── Stats ── */
-  .stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 14px; animation: fadeUp 0.3s ease; }
-  .stat-block { background: var(--warm-white); border-radius: 14px; padding: 13px 10px; text-align: center; border: 1px solid rgba(168,152,196,0.2); box-shadow: 0 1px 6px rgba(43,31,61,0.05); }
-  .stat-val { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; color: var(--purple); display: block; line-height: 1; }
-  .stat-lbl { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); display: block; margin-top: 5px; }
+    .time-display { flex: 1; text-align: center; }
+    .time-value { font-family: 'Fraunces', serif; font-size: 46px; font-weight: 300; color: var(--deep); line-height: 1; display: block; }
+    .time-label { font-size: 12px; color: var(--soft); display: block; margin-top: 2px; }
 
-  /* ── Window alert ── */
-  .window-alert { border-radius: 13px; padding: 11px 14px; font-size: 12px; line-height: 1.6; margin-bottom: 14px; display: flex; gap: 9px; align-items: flex-start; animation: fadeUp 0.3s ease; }
-  .window-alert.late { background: var(--amber-bg); border: 1px solid var(--amber-border); color: var(--amber); }
-  .window-alert.ok   { background: var(--sage-bg);  border: 1px solid var(--sage-border);  color: var(--sage); }
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-  /* ── Context note ── */
-  .context-note { background: var(--cream); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: var(--mid); line-height: 1.6; border: 1px solid rgba(168,152,196,0.2); }
-  .context-note strong { color: var(--deep); font-weight: 500; }
+    /* ── Desktop results grid ── */
+    @media (min-width: 640px) {
+      .results-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        align-items: start;
+      }
+      .results-grid .bedtime-hero { margin-bottom: 0; }
+      .results-grid .stats-row    { margin-bottom: 0; }
+      .results-col { display: flex; flex-direction: column; gap: 14px; }
+    }
 
-  /* ── Signs of overtiredness ── */
-  .signs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .sign-block { background: var(--cream); border-radius: 12px; padding: 11px 12px; }
-  .sign-title { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); margin-bottom: 6px; }
-  .sign-item { font-size: 12px; color: var(--mid); line-height: 1.6; display: flex; align-items: baseline; gap: 5px; }
-  .sign-item::before { content: '·'; color: var(--soft); flex-shrink: 0; }
+    /* ── Bedtime hero ── */
+    .bedtime-hero {
+      background: var(--night-bg);
+      border: 1.5px solid var(--indigo-border);
+      border-radius: 20px; padding: 22px 20px;
+      margin-bottom: 14px; text-align: center;
+      animation: fadeUp 0.3s ease;
+    }
+    .bh-label {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--purple);
+      display: block; margin-bottom: 8px;
+    }
+    .bh-time { font-family: 'Fraunces', serif; font-size: 64px; font-weight: 300; color: var(--deep); line-height: 1; display: block; }
+    .bh-range { font-size: 13px; color: var(--soft); margin-top: 4px; display: block; }
+    .bh-note {
+      font-size: 12px; color: var(--mid); margin-top: 10px; line-height: 1.5;
+      background: rgba(168,152,196,0.12); border-radius: 10px; padding: 8px 12px;
+      text-align: justify;
+    }
+    @media (min-width: 480px) { .bh-time { font-size: 76px; } }
 
-  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 22px; padding: 0 8px; }
-</style>
+    /* ── Stats ── */
+    .stats-row {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px; margin-bottom: 14px;
+      animation: fadeUp 0.3s ease;
+    }
+    .stat-block {
+      background: var(--warm-white); border-radius: 14px;
+      padding: 13px 10px; text-align: center;
+      border: 1px solid rgba(168,152,196,0.2);
+      box-shadow: 0 1px 6px rgba(43,31,61,0.05);
+    }
+    .stat-val { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; color: var(--purple); display: block; line-height: 1; }
+    .stat-lbl { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); display: block; margin-top: 5px; }
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag("js", new Date());
-  gtag("config", "G-55NR11957W");
-</script>
+    /* ── Window alert ── */
+    .window-alert {
+      border-radius: 13px; padding: 11px 14px;
+      font-size: 12px; line-height: 1.6;
+      margin-bottom: 14px; display: flex;
+      gap: 9px; align-items: flex-start;
+      animation: fadeUp 0.3s ease;
+      text-align: justify;
+    }
+    .window-alert.late { background: var(--amber-bg); border: 1px solid var(--amber-border); color: var(--amber); }
+    .window-alert.ok   { background: var(--sage-bg);  border: 1px solid var(--sage-border);  color: var(--sage); }
+
+    /* ── Nap schedule ── */
+    .nap-grid { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; animation: fadeUp 0.3s ease; }
+
+    .nap-block {
+      background: var(--warm-white); border-radius: 16px;
+      padding: 14px 16px; border: 1.5px solid rgba(168,152,196,0.2);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .nap-block.nap-color-1 { background: var(--sage-bg);  border-color: var(--sage-border); }
+    .nap-block.nap-color-2 { background: var(--amber-bg); border-color: var(--amber-border); }
+    .nap-block.nap-color-3 { background: var(--blue-bg);  border-color: var(--blue-border); }
+
+    .nap-num  { font-family: 'Fraunces', serif; font-size: 11px; font-weight: 400; color: var(--soft); flex-shrink: 0; min-width: 52px; }
+    .nap-info { flex: 1; }
+    .nap-time { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; color: var(--deep); display: block; line-height: 1; }
+    .nap-detail { font-size: 11px; color: var(--soft); margin-top: 2px; }
+    .nap-block.nap-color-1 .nap-time { color: var(--sage); }
+    .nap-block.nap-color-2 .nap-time { color: var(--amber); }
+    .nap-block.nap-color-3 .nap-time { color: var(--blue); }
+
+    /* ── Timeline ── */
+    .timeline-card {
+      background: var(--warm-white); border-radius: 20px;
+      padding: 20px 18px; margin-bottom: 14px;
+      border: 1px solid rgba(168,152,196,0.22);
+      box-shadow: 0 2px 16px rgba(43,31,61,0.07);
+      animation: fadeUp 0.3s ease;
+    }
+
+    .day-bar {
+      position: relative; height: 32px; border-radius: 8px;
+      background: var(--cream); overflow: hidden;
+      margin-bottom: 8px; border: 1px solid rgba(168,152,196,0.2);
+    }
+    .bar-seg { position: absolute; top: 0; height: 100%; display: flex; align-items: center; justify-content: center; }
+    .bar-seg.seg-awake { background: #f0e8a0; }
+    .bar-seg.seg-nap   { background: #a888d8; }
+    .bar-seg.seg-night { background: #2a1a5a; }
+    .bar-seg-label { font-size: 9px; font-weight: 500; color: white; white-space: nowrap; overflow: hidden; padding: 0 3px; }
+    .bar-seg.seg-awake .bar-seg-label { color: #7a6a10; }
+
+    .bar-ticks { display: flex; justify-content: space-between; }
+    .bar-tick  { font-size: 9px; color: var(--soft); }
+
+    /* ── Signs of overtiredness ── */
+    .signs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .sign-block { background: var(--cream); border-radius: 12px; padding: 11px 12px; }
+    .sign-title { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); margin-bottom: 6px; }
+    .sign-item  { font-size: 12px; color: var(--mid); line-height: 1.6; display: flex; align-items: baseline; gap: 5px; }
+    .sign-item::before { content: '·'; color: var(--soft); flex-shrink: 0; }
+
+    /* ── Context note ── */
+    .context-note {
+      background: var(--cream); border-radius: 12px;
+      padding: 12px 14px; font-size: 12px; color: var(--mid);
+      line-height: 1.6; border: 1px solid rgba(168,152,196,0.2);
+      text-align: justify;
+    }
+    .context-note strong { color: var(--deep); font-weight: 500; }
+
+    /* ── Info sections ── */
+    .info-section {
+      background: var(--warm-white);
+      border-radius: 20px;
+      padding: 22px 18px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 16px rgba(43,31,61,0.07);
+      border: 1px solid rgba(168,152,196,0.22);
+    }
+    .info-section h2 {
+      font-family: 'Fraunces', serif; font-weight: 400;
+      font-size: 18px; color: var(--deep);
+      margin-bottom: 12px; line-height: 1.3;
+    }
+    .info-section h2 em { font-style: italic; color: var(--purple); }
+    .info-section h3 { font-size: 13px; font-weight: 500; color: var(--deep); margin: 14px 0 6px; }
+    .info-section p {
+      font-size: 13px; color: var(--mid);
+      line-height: 1.7; margin-bottom: 10px;
+      text-align: justify;
+    }
+    .info-section p:last-child { margin-bottom: 0; }
+    .info-section strong { color: var(--deep); font-weight: 500; }
+
+    @media (min-width: 640px) {
+      .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .info-grid .info-section { margin-bottom: 0; }
+      .info-wide { grid-column: 1 / -1; }
+    }
+
+    /* ── Tips list (bullet) inside info ── */
+    .info-tips { list-style: none; margin-top: 8px; }
+    .info-tips li {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 12px; color: var(--mid); line-height: 1.6;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(168,152,196,0.15);
+      text-align: justify;
+    }
+    .info-tips li:last-child { border-bottom: none; }
+    .info-tips li span:first-child { flex-shrink: 0; }
+
+    /* ── Fuentes ── */
+    .fuentes-card {
+      background: var(--cream);
+      border-radius: 16px;
+      border: 1px solid rgba(168,152,196,0.25);
+      padding: 18px 20px;
+      margin-bottom: 14px;
+    }
+    .fuentes-card h3 {
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--soft); margin-bottom: 12px;
+    }
+    .fuentes-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .fuentes-list li { font-size: 12px; color: var(--mid); }
+    .fuentes-list a { color: var(--purple); text-decoration: none; transition: color 0.2s; }
+    .fuentes-list a:hover { color: var(--deep); text-decoration: underline; }
+
+    /* ── Disclaimer ── */
+    .disclaimer {
+      font-size: 11px; color: var(--soft);
+      text-align: center; line-height: 1.6;
+      margin-top: 8px; padding: 0 8px;
+    }
+  </style>
 </head>
 <body>
 
@@ -149,73 +411,87 @@
 
 <div class="container">
 
-  <a class="back-link" href="index.html">← Volver al inicio</a>
+  <a class="back-link" href="/">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M10 12L6 8l4-4"/>
+    </svg>
+    Volver al inicio
+  </a>
 
   <header>
-    <span class="badge">Sueño</span>
-    <h1>¿A qué hora lo<br><em>acuesto</em>?</h1>
+    <span class="badge">🌙 Sueño · Horarios</span>
+    <h1>¿A qué hora lo <em>acuesto</em>?</h1>
     <p class="subtitle">Introduce la edad y la hora a la que se despierta tu bebé para calcular la hora ideal de acostarse y las siestas del día.</p>
   </header>
 
-  <!-- Age -->
-  <div class="card">
-    <div class="section-label">Edad del bebé</div>
-    <div class="age-pills" id="age-pills"></div>
-  </div>
+  <!-- Controls: age + wake time -->
+  <div class="controls-grid" style="margin-bottom:14px">
+    <div class="card" style="margin-bottom:0">
+      <div class="section-label">Edad del bebé</div>
+      <div class="age-pills" id="age-pills" role="group" aria-label="Selecciona la edad del bebé"></div>
+    </div>
 
-  <!-- Wake time -->
-  <div class="card">
-    <div class="section-label">Hora a la que se despierta por la mañana</div>
-    <div class="time-selector">
-      <button class="hold-btn" id="time-minus" data-dir="-1">−</button>
-      <div class="time-display">
-        <span class="time-value" id="time-val">7:00</span>
-        <span class="time-label">hora de despertar</span>
+    <div class="card" style="margin-bottom:0">
+      <div class="section-label">Hora a la que se despierta por la mañana</div>
+      <div class="time-selector">
+        <button class="hold-btn" id="time-minus" data-dir="-1" aria-label="Adelantar hora de despertar">−</button>
+        <div class="time-display">
+          <span class="time-value" id="time-val">7:00</span>
+          <span class="time-label">hora de despertar</span>
+        </div>
+        <button class="hold-btn" id="time-plus" data-dir="1" aria-label="Retrasar hora de despertar">+</button>
       </div>
-      <button class="hold-btn" id="time-plus" data-dir="1">+</button>
     </div>
   </div>
 
-  <!-- Bedtime hero -->
-  <div class="bedtime-hero" id="bedtime-hero">
-    <span class="bh-label">🌙 Hora ideal de acostarse</span>
-    <span class="bh-time" id="bh-time">—</span>
-    <span class="bh-range" id="bh-range">—</span>
-    <div class="bh-note" id="bh-note"></div>
+  <!-- Window alert (full width always) -->
+  <div class="window-alert" id="window-alert" style="display:none" role="status" aria-live="polite">
+    <span aria-hidden="true">⚠️</span><span id="window-alert-text"></span>
   </div>
 
-  <!-- Stats -->
-  <div class="stats-row">
-    <div class="stat-block">
-      <span class="stat-val" id="stat-night">—</span>
-      <span class="stat-lbl">Sueño nocturno</span>
+  <!-- Results: bedtime hero + stats / nap schedule -->
+  <div class="results-grid">
+
+    <!-- Columna izquierda: hora + stats -->
+    <div class="results-col">
+      <div class="bedtime-hero" id="bedtime-hero" aria-live="polite">
+        <span class="bh-label">🌙 Hora ideal de acostarse</span>
+        <span class="bh-time" id="bh-time">—</span>
+        <span class="bh-range" id="bh-range">—</span>
+        <div class="bh-note" id="bh-note"></div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-block">
+          <span class="stat-val" id="stat-night">—</span>
+          <span class="stat-lbl">Sueño nocturno</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-val" id="stat-naps">—</span>
+          <span class="stat-lbl">Siestas</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-val" id="stat-window">—</span>
+          <span class="stat-lbl">Ventana máx.</span>
+        </div>
+      </div>
     </div>
-    <div class="stat-block">
-      <span class="stat-val" id="stat-naps">—</span>
-      <span class="stat-lbl">Siestas</span>
+
+    <!-- Columna derecha: siestas -->
+    <div class="results-col">
+      <div class="card" id="nap-card" style="margin-bottom:0">
+        <div class="section-label" id="nap-title">Siestas del día</div>
+        <div class="nap-grid" id="nap-grid"></div>
+        <div class="context-note" id="nap-note"></div>
+      </div>
     </div>
-    <div class="stat-block">
-      <span class="stat-val" id="stat-window">—</span>
-      <span class="stat-lbl">Ventana máx.</span>
-    </div>
-  </div>
 
-  <!-- Window alert -->
-  <div class="window-alert" id="window-alert" style="display:none">
-    <span>⚠️</span><span id="window-alert-text"></span>
-  </div>
+  </div><!-- /results-grid -->
 
-  <!-- Nap schedule -->
-  <div class="card" id="nap-card">
-    <div class="section-label" id="nap-title">Siestas del día</div>
-    <div class="nap-grid" id="nap-grid"></div>
-    <div class="context-note" id="nap-note"></div>
-  </div>
-
-  <!-- Day timeline -->
+  <!-- Day timeline (full width) -->
   <div class="timeline-card">
     <div class="section-label">Tu día orientativo</div>
-    <div class="day-bar" id="day-bar"></div>
+    <div class="day-bar" id="day-bar" role="img" aria-label="Línea de tiempo visual del día del bebé"></div>
     <div class="bar-ticks">
       <span class="bar-tick" id="tick-0"></span>
       <span class="bar-tick" id="tick-1"></span>
@@ -246,20 +522,68 @@
     </div>
   </div>
 
+
+  <!-- ── SECCIONES INFORMATIVAS ── -->
+  <div class="info-grid">
+
+    <div class="info-section">
+      <h2>La <em>ventana de sueño</em>: qué es y por qué importa</h2>
+      <p>La ventana de sueño es el período de tiempo durante el cual el bebé puede mantenerse despierto sin acumular demasiado cansancio. Cuando esta ventana se respeta, el bebé llega a la cuna en el momento justo: lo suficientemente cansado para dormirse, pero sin haber entrado en el estado de sobrecansancio que dificulta el inicio y la calidad del sueño.</p>
+      <p>Cada etapa del desarrollo tiene su propia ventana. En recién nacidos puede ser de apenas 45 minutos, mientras que en niños de 3 años puede superar las 5–6 horas. La calculadora usa estas ventanas para distribuir las siestas a lo largo del día y calcular la hora de acostarse más adecuada para cada bebé.</p>
+    </div>
+
+    <div class="info-section">
+      <h2>Por qué acostarse <em>pronto no hace despertar antes</em></h2>
+      <p>Uno de los mitos del sueño infantil más extendidos es que si el bebé se acuesta pronto, se despertará más temprano por la mañana. La realidad es la contraria: los bebés que se acuestan con sobrecansancio duermen peor y suelen despertarse antes, porque el cortisol acumulado interrumpe los ciclos de sueño profundo.</p>
+      <p>Un bebé que se acuesta entre las 18:30 y las 19:30 habitualmente duerme hasta las 6:00–7:00 de la mañana o incluso más, independientemente de la hora de acostarse. La hora de despertar está regulada por el ritmo circadiano y la luz solar, no por la hora a la que se durmió.</p>
+    </div>
+
+    <div class="info-section info-wide">
+      <h2>Las <em>transiciones de siestas</em>: cómo identificarlas</h2>
+      <p>Las transiciones de siestas son cambios en el número de siestas que el bebé necesita durante el día. Ocurren varias veces en el primer año y medio de vida y pueden ser momentos confusos para los padres, porque los bebés envían señales contradictorias durante semanas antes de que el cambio se consolide.</p>
+      <ul class="info-tips">
+        <li><span>😴</span><span><strong>De 4 a 3 siestas (2–3 meses):</strong> cuando el bebé empieza a tener ventanas de sueño de más de 1,5 horas de forma consistente, puede empezar a necesitar menos siestas al día.</span></li>
+        <li><span>😴</span><span><strong>De 3 a 2 siestas (5–8 meses):</strong> la tercera siesta empieza a resistirse o a desplazarse tan tarde que interfiere con el sueño nocturno. Cuando pasan dos semanas seguidas así, es la señal.</span></li>
+        <li><span>😴</span><span><strong>De 2 a 1 siesta (12–18 meses):</strong> la siesta de la mañana empieza a desaparecer. El niño puede aguantar hasta después de comer sin señales de sobrecansancio. Es la transición más larga y a menudo la más agotadora para los padres.</span></li>
+        <li><span>😴</span><span><strong>De 1 siesta a ninguna (3–5 años):</strong> la siesta empieza a retrasarse tanto o a ser tan corta que no compensa. Si la siesta provoca que tarde más de una hora en dormirse por la noche, puede que sea el momento de eliminarla gradualmente.</span></li>
+      </ul>
+      <p style="margin-top:10px">Durante las transiciones, es normal que el niño tenga días con siesta y días sin ella. Ofrece siempre la oportunidad de descansar y deja que el propio ritmo del bebé marque el camino.</p>
+    </div>
+
+    <div class="info-section">
+      <h2>La regresión del sueño <em>de los 4 meses</em></h2>
+      <p>La regresión del sueño de los 4 meses es probablemente la más comentada y temida, y con razón: es permanente. A esta edad, el cerebro del bebé madura y los ciclos de sueño cambian para parecerse más a los de un adulto. Esto significa que el bebé pasa por fases de sueño ligero con mayor frecuencia y, si no ha aprendido a unir ciclos solo, se despertará cada vez que termine uno.</p>
+      <p>Las siestas de 30 minutos exactos son la firma de esta regresión: el bebé despierta al final del primer ciclo de sueño. La forma más efectiva de superarla es acompañar al bebé hacia la autonomía para dormirse, aunque la estrategia concreta depende de los valores y las circunstancias de cada familia.</p>
+    </div>
+
+    <div class="info-section">
+      <h2>Rutina previa al sueño: <em>el ancla del sueño infantil</em></h2>
+      <p>Una rutina de sueño consistente —siempre los mismos pasos, en el mismo orden, a la misma hora— es la herramienta más poderosa para facilitar que el bebé se duerma. No necesita ser larga ni elaborada: 20–30 minutos es suficiente. Lo importante es la repetición.</p>
+      <p>Una rutina nocturna eficaz puede incluir baño (no es imprescindible cada noche), cambio de pañal o pijama, una toma si el bebé todavía mama o toma biberón, un rato de calma con poca estimulación, lectura de un cuento o una canción suave, y despedida breve pero consistente. El cerebro del bebé asocia estos pasos con el sueño y empieza a prepararse para dormir desde los primeros pasos de la rutina.</p>
+    </div>
+
+  </div><!-- /info-grid -->
+
+
+  <!-- Fuentes consultadas -->
+  <div class="fuentes-card">
+    <h3>📚 Fuentes consultadas</h3>
+    <ul class="fuentes-list">
+      <li>📖 <a href="https://www.sleepfoundation.org/baby-sleep" target="_blank" rel="noopener">National Sleep Foundation (NSF)</a> — Baby and toddler sleep recommendations</li>
+      <li>📖 <a href="https://www.aap.org/en/patient-care/healthy-sleep/" target="_blank" rel="noopener">American Academy of Pediatrics (AAP)</a> — Healthy sleep habits for infants and toddlers</li>
+      <li>📖 <a href="https://www.aeped.es" target="_blank" rel="noopener">Asociación Española de Pediatría (AEP)</a> — Sueño en la infancia: recomendaciones</li>
+      <li>📖 <a href="https://www.who.int/es/news-room/fact-sheets/detail/physical-activity" target="_blank" rel="noopener">Organización Mundial de la Salud (OMS)</a> — Directrices sobre actividad física, comportamiento sedentario y sueño para menores de 5 años</li>
+    </ul>
+  </div>
+
   <p class="disclaimer">
-    Basado en recomendaciones de la NSF (National Sleep Foundation), la AAP y la AEP.<br>
-    Las ventanas de sueño son orientativas — cada bebé tiene su propio ritmo. Si ves señales de sobrecansancio antes de la hora, acuéstalo antes.
+    Basado en recomendaciones de la NSF, la AAP y la AEP. Las ventanas de sueño son orientativas — cada bebé tiene su propio ritmo. Si ves señales de sobrecansancio antes de la hora calculada, acuéstalo antes. babyFAQ no proporciona consejo médico.
   </p>
 
-</div>
+</div><!-- /container -->
 
 <script>
 // ── Age groups with sleep parameters ─────────────────────────────
-// windowH: max awake window in hours
-// nightH: night sleep hours
-// naps: number of naps per day
-// napDur: each nap duration in hours (approx)
-// bedtimeOffsetH: hours before wake that bedtime falls (nightH back from next morning wake)
 const AGE_GROUPS = [
   { id:'0-1',  label:'0–1 m',   months:1,  windowH:0.75, nightH:9,  naps:4, napDur:0.75, note:'Con menos de 2 meses el ritmo es casi imprevisible. Las ventanas de sueño son muy cortas — en cuanto veas signos de cansancio, actúa.' },
   { id:'2-3',  label:'2–3 m',   months:3,  windowH:1.25, nightH:10, naps:4, napDur:0.75, note:'Las ventanas empiezan a alargarse un poco. Empieza a establecer una pequeña rutina antes de cada siesta y de la noche (oscuridad, canción, toma).' },
@@ -270,7 +594,7 @@ const AGE_GROUPS = [
   { id:'12-15',label:'12–15 m', months:15, windowH:4,    nightH:11, naps:1, napDur:1.5,  note:'Transición a 1 siesta. Puede haber una fase de fatiga a media mañana al principio — aguanta hasta después de comer. La siesta única a las 12:30–13:00 es lo ideal.' },
   { id:'15-18',label:'15–18 m', months:18, windowH:5,    nightH:11, naps:1, napDur:1.5,  note:'Con 1 siesta consolidada, la ventana de sueño antes de acostarse es larga. Si se acuesta tarde y le cuesta dormir, prueba adelantando 30 minutos.' },
   { id:'18-24',label:'18–24 m', months:24, windowH:5.5,  nightH:11, naps:1, napDur:1.25, note:'La siesta puede empezar a resistirse. Aunque no duerma, ofrece un rato de descanso tranquilo — ayuda a regular el ritmo y evita el sobrecansancio vespertino.' },
-  { id:'2-3a', label:'2–3 años',months:36, windowH:6,    nightH:11, naps:1, napDur:1,    note:'Algunos niños de 2–3 años dejan la siesta. Si la siesta provoca que tarde >1 hora en dormirse por la noche, prueba a eliminarla o acortarla.' },
+  { id:'2-3a', label:'2–3 años',months:36, windowH:6,    nightH:11, naps:1, napDur:1,    note:'Algunos niños de 2–3 años dejan la siesta. Si la siesta provoca que tarde más de 1 hora en dormirse por la noche, prueba a eliminarla o acortarla.' },
   { id:'3-5a', label:'3–5 años',months:60, windowH:null, nightH:11, naps:0, napDur:0,    note:'La mayoría deja la siesta entre los 3 y los 5 años. Sin siesta, la hora de acostarse puede adelantarse hasta las 19:00. Sigue siendo importante dormir 10–11 horas.' },
 ];
 
@@ -278,12 +602,10 @@ const AGE_GROUPS = [
 const TIME_VALUES = [];
 for (let h = 5; h <= 10; h++) {
   for (let m = 0; m < 60; m += 5) {
+    if (h === 10 && m > 0) break;
     TIME_VALUES.push({ h, m, label: `${h}:${m.toString().padStart(2,'0')}` });
   }
 }
-// Add 10:00
-if (!TIME_VALUES.find(t => t.h === 10 && t.m === 0))
-  TIME_VALUES.push({ h:10, m:0, label:'10:00' });
 
 let selectedAge = '6-7';
 let timeIdx = TIME_VALUES.findIndex(t => t.h === 7 && t.m === 0);
@@ -293,18 +615,12 @@ function addHours(h, m, hoursToAdd) {
   const totalMin = h * 60 + m + Math.round(hoursToAdd * 60);
   return { h: Math.floor(totalMin / 60) % 24, m: totalMin % 60 };
 }
-
 function subHours(h, m, hoursToSub) {
   let totalMin = h * 60 + m - Math.round(hoursToSub * 60);
   if (totalMin < 0) totalMin += 24 * 60;
   return { h: Math.floor(totalMin / 60) % 24, m: totalMin % 60 };
 }
-
-function fmt(h, m) {
-  return `${h}:${m.toString().padStart(2,'0')}`;
-}
-
-function toTotalMin(h, m) { return h * 60 + m; }
+function fmt(h, m) { return `${h}:${m.toString().padStart(2,'0')}`; }
 
 // ── Build age pills ───────────────────────────────────────────────
 function buildPills() {
@@ -313,10 +629,16 @@ function buildPills() {
     const btn = document.createElement('button');
     btn.className = 'age-pill' + (ag.id === selectedAge ? ' active' : '');
     btn.textContent = ag.label;
+    btn.setAttribute('aria-label', `Seleccionar edad ${ag.label}`);
+    btn.setAttribute('aria-pressed', ag.id === selectedAge ? 'true' : 'false');
     btn.addEventListener('click', () => {
       selectedAge = ag.id;
-      document.querySelectorAll('.age-pill').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.age-pill').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       render();
     });
     wrap.appendChild(btn);
@@ -328,13 +650,11 @@ function render() {
   const ag   = AGE_GROUPS.find(a => a.id === selectedAge);
   const wake = TIME_VALUES[timeIdx];
 
-  // Update time display
   document.getElementById('time-val').textContent = wake.label;
 
-  // Bedtime = wake time - nightH
-  const bt = subHours(wake.h, wake.m, ag.nightH);
-  const btEarly = subHours(bt.h, bt.m, 0.5); // 30 min earlier
-  const btLate  = addHours(bt.h, bt.m, 0.5); // 30 min later
+  const bt      = subHours(wake.h, wake.m, ag.nightH);
+  const btEarly = subHours(bt.h, bt.m, 0.5);
+  const btLate  = addHours(bt.h, bt.m, 0.5);
 
   document.getElementById('bh-time').textContent  = fmt(bt.h, bt.m);
   document.getElementById('bh-range').textContent = `Rango: ${fmt(btEarly.h, btEarly.m)} – ${fmt(btLate.h, btLate.m)}`;
@@ -372,21 +692,18 @@ function render() {
 
   if (ag.naps === 0) {
     document.getElementById('nap-title').textContent = 'Sin siestas';
-    napGrid.innerHTML = `<div style="font-size:13px;color:var(--soft);padding:4px 0">A esta edad la mayoría de niños ya no necesitan siesta. Sin embargo, si muestra señales de cansancio a primera hora de la tarde, un descanso quieto de 20–30 min puede ayudar.</div>`;
+    napGrid.innerHTML = `<div style="font-size:13px;color:var(--soft);padding:4px 0;text-align:justify">A esta edad la mayoría de niños ya no necesitan siesta. Sin embargo, si muestra señales de cansancio a primera hora de la tarde, un descanso quieto de 20–30 min puede ayudar.</div>`;
     document.getElementById('nap-note').textContent = '';
   } else {
     document.getElementById('nap-title').textContent = `Siestas del día (${ag.naps})`;
 
-    // Calculate nap times
-    // Awake window between events
-    // Pattern: wake → window → nap1 → window → [nap2] → window → bed
     const naps = [];
-    const totalAwakeH   = 24 - ag.nightH - ag.naps * ag.napDur;
-    const numGaps       = ag.naps + 1; // gaps between: wake, naps, bed
-    const gapH          = totalAwakeH / numGaps;
+    const totalAwakeH = 24 - ag.nightH - ag.naps * ag.napDur;
+    const numGaps     = ag.naps + 1;
+    const gapH        = totalAwakeH / numGaps;
 
     let cursor = { h: wake.h, m: wake.m };
-    cursor = addHours(cursor.h, cursor.m, gapH); // after wake gap
+    cursor = addHours(cursor.h, cursor.m, gapH);
     for (let i = 0; i < ag.naps; i++) {
       const napStart = { ...cursor };
       const napEnd   = addHours(napStart.h, napStart.m, ag.napDur);
@@ -394,7 +711,7 @@ function render() {
       cursor = addHours(napEnd.h, napEnd.m, i < ag.naps - 1 ? gapH : 0);
     }
 
-    const colors = ['nap-color-1', 'nap-color-2', 'nap-color-3'];
+    const colors   = ['nap-color-1', 'nap-color-2', 'nap-color-3'];
     const napNames = ag.naps === 1
       ? ['Siesta']
       : ag.naps === 2 ? ['Siesta de mañana', 'Siesta de tarde'] : ['1.ª siesta', '2.ª siesta', '3.ª siesta'];
@@ -414,7 +731,6 @@ function render() {
     document.getElementById('nap-note').textContent = ag.note;
   }
 
-  // Day timeline bar (24h starting from wake time)
   renderBar(wake, bt, ag);
 }
 
@@ -423,19 +739,9 @@ function renderBar(wake, bt, ag) {
   const bar = document.getElementById('day-bar');
   bar.innerHTML = '';
 
-  const totalH = 24;
-  const startH = wake.h + wake.m / 60; // bar starts at wake time
-  const btH    = bt.h + bt.m / 60;
+  const startH    = wake.h + wake.m / 60;
+  const btH       = bt.h + bt.m / 60;
 
-  // Night segment before wake (if any): from startH-24 to startH
-  // We show a 24h window starting at wake time
-  const segments = [];
-
-  // Night before: from 0 to startH (relative offset = 0)
-  // Actually we show from wake → 24h → wake next day
-  // So offset 0 = wake time, offset 24 = wake time next day
-
-  // Determine positions as offsets from wake
   function offsetFrom(h, m) {
     let diff = (h + m / 60) - startH;
     if (diff < 0) diff += 24;
@@ -444,29 +750,25 @@ function renderBar(wake, bt, ag) {
 
   const bedOffset = offsetFrom(bt.h, bt.m);
 
-  // Nap schedule for segments
   const naps = [];
   if (ag.naps > 0) {
     const totalAwakeH = 24 - ag.nightH - ag.naps * ag.napDur;
     const gapH = totalAwakeH / (ag.naps + 1);
-    let cursor = startH + gapH; // first nap starts gapH after wake
+    let cursor = startH + gapH;
     for (let i = 0; i < ag.naps; i++) {
       naps.push({ start: offsetFrom(Math.floor(cursor), Math.round((cursor % 1) * 60)), dur: ag.napDur });
       cursor += ag.napDur + (i < ag.naps - 1 ? gapH : 0);
     }
   }
 
-  // Build segments: awake → [nap → awake ...] → night
+  const segments = [];
   let pos = 0;
   let napIdx = 0;
 
   while (pos < bedOffset) {
     if (napIdx < naps.length && naps[napIdx].start <= bedOffset) {
       const nap = naps[napIdx];
-      // Awake before nap
-      if (nap.start > pos) {
-        segments.push({ type: 'awake', start: pos, dur: nap.start - pos });
-      }
+      if (nap.start > pos) segments.push({ type: 'awake', start: pos, dur: nap.start - pos });
       segments.push({ type: 'nap', start: nap.start, dur: Math.min(nap.dur, bedOffset - nap.start), label: ag.naps > 1 ? `S${napIdx+1}` : 'Siesta' });
       pos = nap.start + nap.dur;
       napIdx++;
@@ -475,7 +777,6 @@ function renderBar(wake, bt, ag) {
       break;
     }
   }
-  // Night
   segments.push({ type: 'night', start: bedOffset, dur: 24 - bedOffset });
 
   segments.forEach(seg => {
@@ -493,8 +794,6 @@ function renderBar(wake, bt, ag) {
     bar.appendChild(el);
   });
 
-  // Ticks
-  const bt2 = bt;
   const wake2 = TIME_VALUES[timeIdx];
   const ticks = [
     wake2.label,
