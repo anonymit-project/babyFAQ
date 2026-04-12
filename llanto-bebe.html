@@ -2,16 +2,34 @@
 <html lang="es">
 <head>
 <title>¿Por qué llora mi bebé? · Guía por edad y tipo de llanto · babyFAQ</title>
-<meta name="description" content="¿Por qué llora tu bebé? Guía interactiva para interpretar el llanto según la edad. Hambre, sueño, gases, estimulación excesiva y más. Consejos para calmarlo.">
+<meta name="description" content="Descubre por qué llora tu bebé según su edad. Hambre, sueño, gases, cólico y más. Toca cada causa para ver señales y cómo calmarle. Guía de la AEP y AAP.">
 <meta property="og:title" content="¿Por qué llora mi bebé? · Guía por edad y tipo de llanto · babyFAQ">
 <meta property="og:description" content="Identifica por qué llora tu bebé según su edad y las señales que acompañan al llanto. Causas más frecuentes, cómo calmarle y cuándo llamar al pediatra.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#fdf6ee">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://babyfaq.es/llanto-bebe.html">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "¿Por qué llora mi bebé? · Guía interactiva por edad",
+  "description": "Herramienta interactiva para interpretar el llanto del bebé según la edad. Causas más frecuentes, señales identificativas y técnicas de calma basadas en guías de la AEP y la AAP.",
+  "url": "https://babyfaq.es/llanto-bebe.html",
+  "applicationCategory": "HealthApplication",
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "babyFAQ"
+  }
+}
+</script>
+
 <style>
   :root {
     --cream: #fdf8f2; --warm-white: #fffcf8;
@@ -42,10 +60,22 @@
   .badge { display: inline-block; background: var(--terra-bg); color: var(--terracota); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
   h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 10px; }
   h1 em { font-style: italic; color: var(--terracota); }
-  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.5; font-weight: 300; max-width: 340px; margin: 0 auto; }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.5; font-weight: 300; max-width: 340px; margin: 0 auto; text-align: justify; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
   @media (min-width: 480px) { h1 { font-size: 34px; } .subtitle { font-size: 14px; } }
-  @media (min-width: 640px) { h1 { font-size: 38px; } .container { padding: 56px 28px 80px; } }
+  @media (min-width: 640px) {
+    h1 { font-size: 38px; }
+    .container { max-width: 860px; padding: 56px 40px 80px; }
+    .blob-1 { width: 420px; height: 420px; top: -160px; right: -140px; opacity: 0.18; }
+    .blob-2 { width: 360px; height: 360px; bottom: -120px; left: -140px; opacity: 0.12; }
+    .desktop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+    .desktop-col { display: flex; flex-direction: column; gap: 14px; }
+    .technique-grid { grid-template-columns: repeat(3, 1fr); }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .info-grid .info-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  }
 
   .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,26,16,0.07); border: 1px solid rgba(196,152,122,0.22); }
   .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 14px; }
@@ -60,15 +90,13 @@
   .age-sub  { font-size: 11px; color: var(--soft); font-style: italic; display: block; margin-top: 2px; }
 
   /* ── Age context banner ── */
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
   .age-banner { background: var(--terra-bg); border: 1.5px solid var(--terra-border); border-radius: 16px; padding: 14px 16px; margin-bottom: 14px; animation: fadeUp 0.3s ease; }
   .ab-label { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terracota); display: block; margin-bottom: 4px; }
   .ab-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--deep); margin-bottom: 4px; }
-  .ab-desc  { font-size: 12px; color: var(--mid); line-height: 1.6; }
+  .ab-desc  { font-size: 12px; color: var(--mid); line-height: 1.6; text-align: justify; }
 
   /* ── Cause cards ── */
   .causes-wrap { display: flex; flex-direction: column; gap: 8px; }
-
   .cause-card { border-radius: 16px; border: 1.5px solid transparent; overflow: hidden; cursor: pointer; transition: border-color 0.2s; }
   .cause-card.col-hunger  { background: var(--amber-bg);  border-color: var(--amber-border); }
   .cause-card.col-sleep   { background: var(--purple-bg); border-color: var(--purple-border); }
@@ -98,21 +126,19 @@
 
   .cause-detail { display: none; border-top: 1px solid rgba(45,26,16,0.07); padding: 0 14px 14px; }
   .cause-card.open .cause-detail { display: block; }
-
   .detail-section { margin-top: 11px; }
   .detail-label { font-size: 9px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 6px; }
   .signal-list { display: flex; flex-direction: column; gap: 4px; margin-bottom: 2px; }
-  .signal-item { font-size: 12px; color: var(--mid); display: flex; gap: 7px; line-height: 1.5; }
+  .signal-item { font-size: 12px; color: var(--mid); display: flex; gap: 7px; line-height: 1.5; text-align: left; }
   .signal-item::before { content: '→'; flex-shrink: 0; color: var(--soft); }
-
   .calming-list { display: flex; flex-direction: column; gap: 4px; }
-  .calming-item { font-size: 12px; color: var(--mid); display: flex; gap: 7px; line-height: 1.5; }
+  .calming-item { font-size: 12px; color: var(--mid); display: flex; gap: 7px; line-height: 1.5; text-align: left; }
   .calming-item::before { content: '✓'; flex-shrink: 0; color: var(--sage); font-weight: 700; }
 
   /* ── Red flags ── */
-  .red-flag-card { background: var(--red-bg); border: 1.5px solid var(--red-border); border-radius: 16px; padding: 16px; margin-bottom: 14px; }
+  .red-flag-card { background: var(--red-bg); border: 1.5px solid var(--red-border); border-radius: 20px; padding: 16px; margin-bottom: 14px; }
   .rf-label { font-size: 10px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
-  .rf-intro { font-size: 12px; color: var(--mid); margin-bottom: 10px; line-height: 1.6; }
+  .rf-intro { font-size: 12px; color: var(--mid); margin-bottom: 10px; line-height: 1.6; text-align: justify; }
   .rf-list  { display: flex; flex-direction: column; gap: 5px; }
   .rf-item  { font-size: 12px; color: var(--mid); display: flex; gap: 7px; line-height: 1.5; }
   .rf-item::before { content: '!'; font-weight: 700; color: var(--red); flex-shrink: 0; font-size: 11px; }
@@ -122,13 +148,35 @@
   .technique-block { background: var(--cream); border-radius: 13px; padding: 12px; border: 1.5px solid rgba(196,152,122,0.18); }
   .tb-icon  { font-size: 22px; display: block; margin-bottom: 6px; }
   .tb-title { font-size: 12px; font-weight: 500; color: var(--deep); margin-bottom: 3px; }
-  .tb-desc  { font-size: 11px; color: var(--mid); line-height: 1.5; }
+  .tb-desc  { font-size: 11px; color: var(--mid); line-height: 1.5; text-align: justify; }
 
   /* ── Self-care note ── */
-  .selfcare-note { background: var(--purple-bg); border: 1.5px solid var(--purple-border); border-radius: 16px; padding: 16px 18px; margin-bottom: 14px; }
-  .sn-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--deep); margin-bottom: 8px; }
-  .sn-text  { font-size: 12px; color: var(--mid); line-height: 1.7; }
+  .selfcare-note { background: var(--purple-bg); border: 1.5px solid var(--purple-border); border-radius: 20px; padding: 20px 18px; margin-bottom: 14px; }
+  .sn-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--deep); margin-bottom: 10px; }
+  .sn-text  { font-size: 13px; color: var(--mid); line-height: 1.7; text-align: justify; }
+  .sn-text + .sn-text { margin-top: 10px; }
 
+  /* ── Informational sections ── */
+  h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
+  h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 16px; color: var(--deep); margin-bottom: 6px; }
+  .info-card { background: var(--warm-white); border-radius: 20px; padding: 22px 20px; box-shadow: 0 2px 16px rgba(45,26,16,0.06); border: 1px solid rgba(196,152,122,0.18); margin-bottom: 14px; }
+  .info-card p { font-size: 13px; color: var(--mid); line-height: 1.7; text-align: justify; }
+  .info-card p + p { margin-top: 10px; }
+  .info-steps { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+  .info-step { display: flex; gap: 12px; align-items: flex-start; }
+  .step-num { width: 26px; height: 26px; border-radius: 50%; background: var(--terra-bg); color: var(--terracota); font-size: 12px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-content { font-size: 13px; color: var(--mid); line-height: 1.6; text-align: justify; }
+  .step-content strong { color: var(--deep); display: block; font-size: 13px; margin-bottom: 2px; }
+
+  /* ── Fuentes ── */
+  .fuentes-card { background: var(--sage-bg); border: 1.5px solid var(--sage-border); border-radius: 20px; padding: 20px; margin-bottom: 14px; }
+  .fuentes-title { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; }
+  .fuentes-list { display: flex; flex-direction: column; gap: 8px; }
+  .fuente-item { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); line-height: 1.5; }
+  .fuente-item a { color: var(--sage); text-decoration: none; font-weight: 500; }
+  .fuente-item a:hover { text-decoration: underline; }
+
+  /* ── Disclaimer ── */
   .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 22px; padding: 0 8px; }
 </style>
 
@@ -149,11 +197,11 @@
 
 <div class="container">
 
-  <a class="back-link" href="index.html">← Volver al inicio</a>
+  <a class="back-link" href="/">← Volver al inicio</a>
 
   <header>
-    <span class="badge">Cuidados</span>
-    <h1>¿Por qué<br><em>llora</em> mi bebé?</h1>
+    <span class="badge">Cuidados · Comunicación</span>
+    <h1>¿Por qué <em>llora</em> mi bebé?</h1>
     <p class="subtitle">Las causas más frecuentes según la edad, cómo identificarlas y qué hacer para calmarle.</p>
   </header>
 
@@ -161,13 +209,13 @@
   <div class="card">
     <div class="section-label">Edad del bebé</div>
     <div class="age-selector">
-      <button class="hold-btn" id="age-minus" data-dir="-1">−</button>
+      <button class="hold-btn" id="age-minus" data-dir="-1" aria-label="Reducir edad en un mes">−</button>
       <div class="age-display">
         <span class="age-val"  id="age-val">2</span>
         <span class="age-unit" id="age-unit">meses</span>
         <span class="age-sub"  id="age-sub"></span>
       </div>
-      <button class="hold-btn" id="age-plus" data-dir="1">+</button>
+      <button class="hold-btn" id="age-plus" data-dir="1" aria-label="Aumentar edad en un mes">+</button>
     </div>
   </div>
 
@@ -203,12 +251,12 @@
       <div class="technique-block">
         <span class="tb-icon">🔊</span>
         <div class="tb-title">Ruido blanco</div>
-        <div class="tb-desc">Imita el sonido del útero. Un "shhh" fuerte o una app de ruido blanco pueden calmarle en segundos.</div>
+        <div class="tb-desc">Imita el sonido del útero. Un «shhh» fuerte o una app de ruido blanco pueden calmarle en segundos.</div>
       </div>
       <div class="technique-block">
         <span class="tb-icon">🌀</span>
         <div class="tb-title">Movimiento rítmico</div>
-        <div class="tb-desc">Mecerle, caminar con él o una mochila portabebés. El ritmo constante activa el sistema nervioso parasimpático.</div>
+        <div class="tb-desc">Mecerle, caminar con él o una mochila portabebés. El ritmo constante calma el sistema nervioso.</div>
       </div>
       <div class="technique-block">
         <span class="tb-icon">🌯</span>
@@ -223,7 +271,7 @@
       <div class="technique-block">
         <span class="tb-icon">🌡️</span>
         <div class="tb-title">Cambiar el entorno</div>
-        <div class="tb-desc">Salir al exterior, pasar a otra habitación o apagar la televisión. El cambio de estímulos puede cortar el ciclo de llanto.</div>
+        <div class="tb-desc">Salir al exterior o pasar a otra habitación. El cambio de estímulos puede cortar el ciclo de llanto.</div>
       </div>
     </div>
   </div>
@@ -231,12 +279,67 @@
   <!-- Self-care -->
   <div class="selfcare-note">
     <div class="sn-title">Un recordatorio importante para ti</div>
-    <p class="sn-text">Si en algún momento sientes que pierdes el control o que el llanto te desborda, <strong>deja al bebé en un lugar seguro (su cuna, boca arriba) y sal de la habitación unos minutos.</strong> Respirar y calmarte tú primero es lo mejor que puedes hacer por él. El llanto no hace daño. Sacudir al bebé, sí.<br><br>Si el agotamiento o la angustia se acumulan durante días, habla con tu médico o matrona. El cólico y el llanto extremo son una de las principales causas de burnout parental — y pedir ayuda es lo más inteligente que puedes hacer.</p>
+    <p class="sn-text">Si en algún momento sientes que pierdes el control o que el llanto te desborda, <strong>deja al bebé en un lugar seguro —su cuna, boca arriba— y sal de la habitación unos minutos.</strong> Respirar y calmarte tú primero es lo mejor que puedes hacer por él. El llanto no hace daño. Sacudir al bebé, sí.</p>
+    <p class="sn-text">Si el agotamiento o la angustia se acumulan durante días, habla con tu médico o matrona. El cólico y el llanto extremo son una de las principales causas de burnout parental, y pedir ayuda es lo más inteligente que puedes hacer.</p>
+  </div>
+
+  <!-- ── Informational sections ──────────────────────────────── -->
+
+  <div class="info-card">
+    <h2>¿Cuánto llanto es normal?</h2>
+    <p>Un recién nacido puede llorar entre una y tres horas al día de media, y eso es completamente normal. El llanto alcanza su pico máximo alrededor de las seis u ocho semanas de vida y, en la mayoría de bebés, disminuye de forma progresiva a partir de los tres meses.</p>
+    <p>Durante los primeros meses, el llanto es el único recurso de comunicación del bebé: no puede regular sus emociones, no entiende el lenguaje verbal y depende por completo del adulto para calmarse. Responder rápido a ese llanto no crea dependencia, sino seguridad. La investigación en apego muestra que los bebés con respuesta consistente lloran menos a partir del cuarto mes.</p>
+    <p>A partir del año, el llanto empieza a incluir componentes emocionales y de frustración. Las rabietas no son manipulación: son la expresión de un cerebro que todavía no tiene herramientas para gestionar las emociones. La calma del cuidador es, en ese momento, la herramienta más eficaz.</p>
+  </div>
+
+  <div class="info-card">
+    <h2>El método de las 5 S (Harvey Karp)</h2>
+    <p>El pediatra Harvey Karp describió cinco técnicas que, usadas juntas, imitan las condiciones del útero y activan el «reflejo calmante» del bebé. Funcionan especialmente bien en los primeros tres meses:</p>
+    <div class="info-steps">
+      <div class="info-step">
+        <div class="step-num">1</div>
+        <div class="step-content"><strong>Swaddle — Envolver</strong>Envuelve al bebé firmemente en una mantita, con los brazos pegados al cuerpo. Reduce el reflejo de Moro y da sensación de contención.</div>
+      </div>
+      <div class="info-step">
+        <div class="step-num">2</div>
+        <div class="step-content"><strong>Side/Stomach — De lado o boca abajo</strong>Sobre tu antebrazo, boca abajo o de lado, siempre vigilado. Nunca como postura para dormir. Alivia los gases y la presión abdominal.</div>
+      </div>
+      <div class="info-step">
+        <div class="step-num">3</div>
+        <div class="step-content"><strong>Shush — Ruido blanco</strong>Un «shhh» fuerte junto a su oído, o ruido blanco a bajo volumen. El sonido del útero no era silencioso: era constante y envolvente.</div>
+      </div>
+      <div class="info-step">
+        <div class="step-num">4</div>
+        <div class="step-content"><strong>Swing — Movimiento</strong>Mecerle con movimientos pequeños y rítmicos —nada de sacudir—. El movimiento constante recuerda al que vivió durante nueve meses.</div>
+      </div>
+      <div class="info-step">
+        <div class="step-num">5</div>
+        <div class="step-content"><strong>Suck — Succión</strong>Ofrecer el pecho, el biberón o un chupete. La succión tiene un efecto calmante y analgésico bien documentado.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <h2>Cuándo el llanto puede ser una señal de algo más</h2>
+    <p>La mayoría de los llantos tienen causas sencillas: hambre, sueño, gases o necesidad de contacto. Sin embargo, hay situaciones en las que conviene llamar al pediatra sin esperar a la próxima cita. Conocer las diferencias te ayuda a actuar con calma cuando no hay urgencia real, y a actuar rápido cuando sí la hay.</p>
+    <p>El llamado «llanto de dolor» suele ser de tono más agudo que el habitual, más agitado y difícil de calmar con las técnicas habituales. Si tu bebé llora de una forma que nunca habías escuchado, confía en ese instinto: conoces a tu bebé mejor que nadie.</p>
+    <p>Presta especial atención si el llanto va acompañado de fiebre en un bebé menor de tres meses, rechazo total del alimento, letargia inusual, abdomen muy tenso o cualquier otro síntoma que no reconozcas. En esos casos, la consulta pediátrica no puede esperar.</p>
+  </div>
+
+  <!-- Fuentes consultadas -->
+  <div class="fuentes-card">
+    <div class="fuentes-title">📚 Fuentes consultadas</div>
+    <div class="fuentes-list">
+      <div class="fuente-item">📌 <a href="https://www.aeped.es" target="_blank" rel="noopener">Asociación Española de Pediatría (AEP)</a> — Guías de llanto, cólico del lactante y cuidados del recién nacido.</div>
+      <div class="fuente-item">📌 <a href="https://www.healthychildren.org" target="_blank" rel="noopener">American Academy of Pediatrics (AAP)</a> — Recursos sobre llanto, calmado de bebés y signos de alarma.</div>
+      <div class="fuente-item">📌 <a href="https://www.who.int/es" target="_blank" rel="noopener">Organización Mundial de la Salud (OMS)</a> — Recomendaciones sobre desarrollo infantil temprano y apego.</div>
+      <div class="fuente-item">📌 <a href="https://www.mscbs.gob.es" target="_blank" rel="noopener">Ministerio de Sanidad de España</a> — Guía de salud para el primer año de vida.</div>
+    </div>
   </div>
 
   <p class="disclaimer">
-    Información orientativa basada en guías de la AAP y la AEP.<br>
-    Ante cualquier duda sobre el estado de salud de tu bebé, consulta siempre con tu pediatra.
+    Información orientativa basada en guías de la AAP y la AEP. No sustituye la valoración de un profesional sanitario.<br>
+    Ante cualquier duda sobre el estado de salud de tu bebé, consulta siempre con tu pediatra o acude a urgencias.
   </p>
 
 </div>
@@ -247,7 +350,7 @@ function getAgeContext(age) {
   if (age <= 1) return {
     label: '0–1 mes',
     title: 'El llanto es su único lenguaje',
-    desc: 'Un recién nacido llora entre 1 y 3 horas al día de media. Es absolutamente normal. Aún no puedes "malcriarle" respondiendo siempre — los primeros meses la respuesta rápida construye seguridad.',
+    desc: 'Un recién nacido llora entre 1 y 3 horas al día de media. Es absolutamente normal. Aún no puedes «malcriarle» respondiendo siempre — los primeros meses la respuesta rápida construye seguridad.',
   };
   if (age <= 3) return {
     label: `${age} meses`,
@@ -272,7 +375,6 @@ function getAgeContext(age) {
 }
 
 // ── Cause database ─────────────────────────────────────────────────
-// minAge / maxAge: months (inclusive). If not set, applies to all ages.
 const ALL_CAUSES = [
   {
     id: 'hunger',
@@ -290,7 +392,7 @@ const ALL_CAUSES = [
     ],
     calming: [
       'Ofrece el pecho o el biberón',
-      'En bebés de pecho: ofrece aunque parezca que "acaba de comer" — los lactantes en brotes comen muy seguido',
+      'En bebés de pecho: ofrece aunque parezca que «acaba de comer» — los lactantes en brotes comen muy seguido',
       'Si ya come sólidos y rechaza la comida, puede ser otra causa',
     ],
   },
@@ -400,7 +502,7 @@ const ALL_CAUSES = [
       'Ha habido poco contacto o mucha actividad ese día',
     ],
     calming: [
-      'Cógele en brazos sin culpa — no le estás "malacostumbrando"',
+      'Cógele en brazos sin culpa — no le estás «malacostumbrando»',
       'Mochila portabebés: libera las manos y calma al bebé',
       'El contacto físico no crea dependencia — crea seguridad',
     ],
@@ -437,7 +539,7 @@ const ALL_CAUSES = [
     minAge: 0,
     signals: [
       'La nuca está muy caliente y sudada (demasiado calor)',
-      'Las manos y los pies muy fríos (puede indicar frío, aunque las extremidades siempre están más frías)',
+      'Las manos y los pies muy fríos (puede indicar frío)',
       'Pañal mojado o sucio',
       'Ropa con costuras o pliegues que pueden molestar',
       'Postura incómoda — un pelo o hilo enredado en un dedo puede causar llanto intenso',
@@ -492,19 +594,16 @@ let ageMonths = 2;
 function render() {
   const age = ageMonths;
 
-  // Age display
   document.getElementById('age-val').textContent  = age;
   document.getElementById('age-unit').textContent = age === 1 ? 'mes' : 'meses';
   document.getElementById('age-sub').textContent  =
     age >= 24 ? (age % 12 === 0 ? `(${age/12} años)` : `(${Math.floor(age/12)}a ${age%12}m)`) : '';
 
-  // Age banner
   const ctx = getAgeContext(age);
   document.getElementById('ab-label').textContent = ctx.label;
   document.getElementById('ab-title').textContent = ctx.title;
   document.getElementById('ab-desc').textContent  = ctx.desc;
 
-  // Filter causes by age
   const causes = ALL_CAUSES.filter(c =>
     (c.minAge === undefined || age >= c.minAge) &&
     (c.maxAge === undefined || age <= c.maxAge)
@@ -544,7 +643,6 @@ function render() {
     wrap.appendChild(card);
   });
 
-  // Red flags
   const rfList = document.getElementById('rf-list');
   rfList.innerHTML = RED_FLAGS.map(f => `<div class="rf-item">${f}</div>`).join('');
 }
