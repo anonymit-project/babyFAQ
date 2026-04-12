@@ -1,158 +1,394 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<title>Dosis paracetamol e ibuprofeno bebé · Por peso · babyFAQ</title>
-<meta name="description" content="Calcula la dosis exacta de paracetamol (Apiretal) e ibuprofeno (Dalsy) para tu bebé o niño según su peso. Concentraciones, alternancia y consejos de seguridad.">
-<meta property="og:title" content="Dosis paracetamol e ibuprofeno · babyFAQ">
-<meta property="og:description" content="Dosis exacta en mL de paracetamol e ibuprofeno por peso para bebés y niños.">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#fdf6ee">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dosis paracetamol e ibuprofeno para bebés · Por peso · babyFAQ</title>
+  <meta name="description" content="Calcula la dosis exacta de paracetamol e ibuprofeno para tu bebé según su peso. Apiretal, Dalsy, Junifen y otras concentraciones. Guía de alternancia segura.">
+  <meta property="og:title" content="Dosis paracetamol e ibuprofeno para bebés · Por peso · babyFAQ">
+  <meta property="og:description" content="Dosis exacta en mL de paracetamol e ibuprofeno por peso para bebés y niños. Concentraciones, alternancia y consejos de seguridad basados en la AEP.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#fdf6ee">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://babyfaq.es/dosis-fiebre.html">
 
-<!-- PWA -->
-<link rel="manifest" href="/manifest.json">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="babyFAQ">
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="babyFAQ">
 
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --cream: #fdf6ee; --warm-white: #fffcf8; --blush: #f2c4b0;
-    --terracota: #c97a5e; --deep: #3d2b1f; --mid: #7a5c4e; --soft: #c4a898;
-    /* Paracetamol */
-    --para: #c97a5e; --para-dk: #8a4a30;
-    --para-bg: #fff4ef; --para-border: #e8b498;
-    /* Ibuprofen */
-    --ibu: #6a52a8; --ibu-dk: #3a2878;
-    --ibu-bg: #f2eef9; --ibu-border: #c2b2e4;
-    /* Status */
-    --amber: #b07018; --amber-bg: #fdf0e0;
-    --red: #a83030; --red-bg: #fdf0f0;
-    --green-bg: #edf5f0;
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-55NR11957W');
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora de dosis paracetamol e ibuprofeno para bebés",
+    "description": "Calcula la dosis exacta en mL de paracetamol e ibuprofeno para bebés y niños según su peso. Incluye Apiretal, Dalsy y otras concentraciones.",
+    "url": "https://babyfaq.es/dosis-fiebre.html",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "es",
+    "isPartOf": { "@type": "WebSite", "url": "https://babyfaq.es" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "publisher": { "@type": "Organization", "name": "babyFAQ", "url": "https://babyfaq.es" }
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+  </script>
 
-  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
-  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
-  .blob-1 { width: 310px; height: 310px; background: #f7c4a0; top: -110px; right: -80px; opacity: 0.42; }
-  .blob-2 { width: 260px; height: 260px; background: #c0b2e8; bottom: -80px; left: -60px; opacity: 0.3; }
+  <style>
+    :root {
+      --cream: #fdf6ee;
+      --warm-white: #fffcf8;
+      --blush: #f2c4b0;
+      --terracota: #c97a5e;
+      --deep: #3d2b1f;
+      --mid: #7a5c4e;
+      --soft: #c4a898;
+      /* Paracetamol */
+      --para: #c97a5e;
+      --para-dk: #8a4a30;
+      --para-bg: #fff4ef;
+      --para-border: #e8b498;
+      /* Ibuprofen */
+      --ibu: #6a52a8;
+      --ibu-dk: #3a2878;
+      --ibu-bg: #f2eef9;
+      --ibu-border: #c2b2e4;
+      /* Status */
+      --amber: #b07018;
+      --amber-bg: #fdf0e0;
+      --red: #a83030;
+      --red-bg: #fdf0f0;
+      --green-bg: #edf5f0;
+    }
 
-  /* ── Offline banner ── */
-  .offline-banner { display: none; background: #3d2b1f; color: #f2c4b0; font-size: 12px; font-weight: 500; text-align: center; padding: 8px 16px; position: sticky; top: 0; z-index: 100; }
-  .offline-banner.show { display: block; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  .container { position: relative; z-index: 1; max-width: 420px; margin: 0 auto; padding: 36px 22px 60px; }
+    body {
+      background: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--deep);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
-  .back-link:hover { color: var(--terracota); }
-  
-  /* ── Header ── */
-  header { text-align: center; margin-bottom: 26px; }
-  .badge { display: inline-block; background: var(--blush); color: var(--terracota); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
-  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 30px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
-  h1 em { font-style: italic; color: var(--terracota); }
-  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.5; font-weight: 300; }
+    /* ── Noise + blobs ── */
+    .noise {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+    .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+    .blob-1 { width: 310px; height: 310px; background: #f7c4a0; top: -110px; right: -80px; opacity: 0.42; }
+    .blob-2 { width: 260px; height: 260px; background: #c0b2e8; bottom: -80px; left: -60px; opacity: 0.3; }
 
-  /* ── Cards ── */
-  .card { background: var(--warm-white); border-radius: 20px; padding: 18px 16px; margin-bottom: 12px; box-shadow: 0 2px 16px rgba(61,43,31,0.06); border: 1px solid rgba(196,168,152,0.2); }
-  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 12px; }
+    @media (min-width: 640px) {
+      .blob-1 { width: 420px; height: 420px; top: -130px; right: -60px; opacity: 0.3; }
+      .blob-2 { width: 340px; height: 340px; bottom: 120px; left: -80px; opacity: 0.22; }
+    }
 
-  /* ── Hold selector ── */
-  .inputs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .hold-sel-title { display: block; font-size: 10px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); text-align: center; margin-bottom: 6px; }
-  .hold-sel { background: var(--cream); border-radius: 13px; border: 1.5px solid rgba(196,168,152,0.35); display: flex; align-items: center; height: 66px; padding: 0 2px; }
-  .hold-btn { width: 38px; height: 50px; flex-shrink: 0; border-radius: 10px; border: none; background: transparent; color: var(--terracota); font-size: 22px; font-weight: 300; cursor: pointer; display: flex; align-items: center; justify-content: center; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: background 0.1s; line-height: 1; }
-  .hold-btn:active, .hold-btn.pressing { background: var(--blush); }
-  .hold-center { flex: 1; text-align: center; overflow: hidden; }
-  .hold-val { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300; color: var(--deep); display: block; line-height: 1; font-variant-numeric: tabular-nums; }
-  .hold-unit { font-size: 11px; color: var(--soft); font-family: 'DM Sans', sans-serif; }
-  .hold-sub { font-size: 10px; color: var(--soft); display: block; margin-top: 1px; font-style: italic; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+    /* ── Offline banner ── */
+    .offline-banner {
+      display: none; background: #3d2b1f; color: #f2c4b0;
+      font-size: 12px; font-weight: 500; text-align: center;
+      padding: 8px 16px; position: sticky; top: 0; z-index: 100;
+    }
+    .offline-banner.show { display: block; }
 
-  /* ── Heavy child note ── */
-  .heavy-note { display: none; background: var(--green-bg); border: 1px solid #b2d9be; border-radius: 12px; padding: 9px 13px; font-size: 12px; color: #3a6a4a; line-height: 1.5; margin-bottom: 12px; }
-  .heavy-note.show { display: block; }
+    /* ── Layout ── */
+    .container {
+      position: relative; z-index: 1;
+      max-width: 440px; margin: 0 auto;
+      padding: 36px 22px 60px;
+    }
 
-  /* ── Drug cards ── */
-  .drug-card { border-radius: 20px; padding: 18px 16px; margin-bottom: 12px; box-shadow: 0 2px 16px rgba(61,43,31,0.07); border: 1.5px solid transparent; }
-  .drug-card.para-card { background: var(--para-bg); border-color: var(--para-border); }
-  .drug-card.ibu-card  { background: var(--ibu-bg);  border-color: var(--ibu-border); }
+    @media (min-width: 640px) {
+      .container { max-width: 860px; padding: 48px 40px 80px; }
+    }
 
-  .drug-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 10px; }
-  .drug-name { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; }
-  .para-card .drug-name { color: var(--para); }
-  .ibu-card  .drug-name { color: var(--ibu); }
-  .drug-dose-ref { font-size: 11px; color: var(--soft); }
+    /* ── Back link ── */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; color: var(--soft);
+      text-decoration: none; margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--terracota); }
+    .back-link svg { width: 14px; height: 14px; }
 
-  /* ── Concentration toggle ── */
-  .conc-row { display: flex; gap: 6px; margin-bottom: 12px; }
-  .conc-btn { flex: 1; padding: 8px 6px; border-radius: 10px; border: 1.5px solid rgba(196,168,152,0.3); background: rgba(255,255,255,0.65); font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; color: var(--mid); cursor: pointer; transition: all 0.18s; text-align: center; touch-action: manipulation; line-height: 1.4; }
-  .conc-btn .cb-brand { display: block; font-size: 9px; font-weight: 400; color: var(--soft); margin-top: 2px; }
-  .para-card .conc-btn.active { background: var(--para); border-color: var(--para); color: white; }
-  .para-card .conc-btn.active .cb-brand { color: rgba(255,255,255,0.72); }
-  .ibu-card  .conc-btn.active { background: var(--ibu); border-color: var(--ibu); color: white; }
-  .ibu-card  .conc-btn.active .cb-brand { color: rgba(255,255,255,0.72); }
-  .conc-row.dimmed { opacity: 0.4; pointer-events: none; }
+    /* ── Header ── */
+    header { text-align: center; margin-bottom: 26px; }
 
-  /* ── Main dose display ── */
-  .dose-display { text-align: center; padding: 10px 0 14px; }
-  .dose-ml-row { display: flex; align-items: baseline; justify-content: center; gap: 7px; margin-bottom: 5px; }
-  .dose-ml { font-family: 'Fraunces', serif; font-size: 82px; font-weight: 300; line-height: 1; font-variant-numeric: tabular-nums; }
-  .para-card .dose-ml { color: var(--para); }
-  .ibu-card  .dose-ml { color: var(--ibu); }
-  .dose-unit { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 300; color: var(--soft); }
-  .dose-mg { font-size: 14px; color: var(--mid); }
+    .badge {
+      display: inline-block; background: var(--blush); color: var(--terracota);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 5px 14px;
+      border-radius: 20px; margin-bottom: 14px;
+    }
 
-  /* ── Info row ── */
-  .info-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
-  .info-block { background: rgba(255,255,255,0.55); border-radius: 10px; padding: 9px 5px; text-align: center; }
-  .info-lbl { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 3px; }
-  .info-val { font-size: 12px; font-weight: 500; display: block; }
-  .para-card .info-val { color: var(--para-dk); }
-  .ibu-card  .info-val { color: var(--ibu-dk); }
+    h1 {
+      font-family: 'Fraunces', serif; font-weight: 300;
+      font-size: 28px; line-height: 1.2;
+      color: var(--deep); margin-bottom: 8px;
+    }
+    @media (min-width: 480px) { h1 { font-size: 34px; } }
+    @media (min-width: 640px) { h1 { font-size: 38px; } }
+    h1 em { font-style: italic; color: var(--terracota); }
 
-  /* ── Blocked / warning states ── */
-  .drug-blocked { text-align: center; padding: 18px 8px 6px; }
-  .blocked-icon { font-size: 34px; display: block; margin-bottom: 8px; }
-  .blocked-txt { font-size: 13px; color: var(--mid); line-height: 1.55; }
-  .hidden { display: none !important; }
+    .subtitle {
+      font-size: 13px; color: var(--mid); line-height: 1.5;
+      font-weight: 300; max-width: 380px; margin: 0 auto;
+      text-align: justify;
+    }
+    @media (min-width: 640px) { .subtitle { max-width: 560px; } }
 
-  .mini-warn { display: none; background: var(--amber-bg); border: 1px solid #e8c470; border-radius: 10px; padding: 9px 12px; font-size: 12px; color: #8a5010; line-height: 1.5; margin-top: 10px; }
-  .mini-warn.show { display: block; }
+    /* ── Cards ── */
+    .card {
+      background: var(--warm-white); border-radius: 20px;
+      padding: 18px 16px; margin-bottom: 12px;
+      box-shadow: 0 2px 16px rgba(61,43,31,0.06);
+      border: 1px solid rgba(196,168,152,0.2);
+    }
 
-  /* ── Alternation guide ── */
-  .alt-guide { background: var(--warm-white); border-radius: 20px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 16px rgba(61,43,31,0.06); border: 1px solid rgba(196,168,152,0.2); }
-  .alt-title { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 12px; display: block; }
-  .alt-visual { display: flex; align-items: center; justify-content: center; gap: 0; margin-bottom: 12px; flex-wrap: nowrap; overflow-x: auto; }
-  .alt-pill { padding: 7px 10px; border-radius: 10px; font-size: 11px; font-weight: 500; color: white; white-space: nowrap; flex-shrink: 0; }
-  .alt-pill.para { background: var(--para); }
-  .alt-pill.ibu  { background: var(--ibu); }
-  .alt-gap { display: flex; flex-direction: column; align-items: center; padding: 0 5px; flex-shrink: 0; }
-  .alt-arrow { font-size: 10px; color: var(--soft); line-height: 1.2; }
-  .alt-time { font-size: 9px; color: var(--soft); font-weight: 500; letter-spacing: 0.04em; white-space: nowrap; }
-  .alt-note { font-size: 12px; color: var(--mid); line-height: 1.6; }
-  .alt-note strong { color: var(--deep); font-weight: 500; }
+    .section-label {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--soft); margin-bottom: 12px;
+    }
 
-  /* ── Warnings card ── */
-  .warnings { background: var(--red-bg); border-radius: 16px; padding: 14px 15px; margin-bottom: 12px; border: 1px solid #e4b4b4; }
-  .warn-title { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #a03030; margin-bottom: 9px; display: block; }
-  .warn-item { display: flex; gap: 8px; font-size: 12px; color: #7a2828; line-height: 1.55; margin-bottom: 6px; }
-  .warn-item:last-child { margin-bottom: 0; }
-  .wi { flex-shrink: 0; margin-top: 1px; font-size: 13px; }
+    /* ── Desktop: inputs + drugs side by side ── */
+    @media (min-width: 640px) {
+      .top-grid {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 12px;
+        align-items: start;
+        margin-bottom: 0;
+      }
+      .top-grid .card { margin-bottom: 0; }
+      .top-grid .heavy-note { margin-bottom: 0; }
 
-  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 20px; padding: 0 8px; }
-</style>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag("js", new Date()); gtag("config", "G-55NR11957W");
-</script>
+      .drugs-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        align-items: start;
+      }
+      .drugs-grid .drug-card { margin-bottom: 0; }
+    }
+
+    /* ── Hold selector ── */
+    .inputs-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
+    .hold-sel-title {
+      display: block; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--soft); text-align: center; margin-bottom: 6px;
+    }
+    .hold-sel {
+      background: var(--cream); border-radius: 13px;
+      border: 1.5px solid rgba(196,168,152,0.35);
+      display: flex; align-items: center; height: 66px; padding: 0 2px;
+    }
+    .hold-btn {
+      width: 38px; height: 50px; flex-shrink: 0;
+      border-radius: 10px; border: none; background: transparent;
+      color: var(--terracota); font-size: 22px; font-weight: 300;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      touch-action: manipulation; user-select: none; -webkit-user-select: none;
+      transition: background 0.1s; line-height: 1;
+    }
+    .hold-btn:active, .hold-btn.pressing { background: var(--blush); }
+
+    .hold-center { flex: 1; text-align: center; overflow: hidden; }
+    .hold-val  { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300; color: var(--deep); display: block; line-height: 1; font-variant-numeric: tabular-nums; }
+    .hold-unit { font-size: 11px; color: var(--soft); font-family: 'DM Sans', sans-serif; }
+    .hold-sub  { font-size: 10px; color: var(--soft); display: block; margin-top: 1px; font-style: italic; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+
+    /* ── Heavy child note ── */
+    .heavy-note {
+      display: none; background: var(--green-bg);
+      border: 1px solid #b2d9be; border-radius: 12px;
+      padding: 9px 13px; font-size: 12px; color: #3a6a4a;
+      line-height: 1.5; margin-bottom: 12px;
+      text-align: justify;
+    }
+    .heavy-note.show { display: block; }
+
+    /* ── Drug cards ── */
+    .drug-card {
+      border-radius: 20px; padding: 18px 16px; margin-bottom: 12px;
+      box-shadow: 0 2px 16px rgba(61,43,31,0.07); border: 1.5px solid transparent;
+    }
+    .drug-card.para-card { background: var(--para-bg); border-color: var(--para-border); }
+    .drug-card.ibu-card  { background: var(--ibu-bg);  border-color: var(--ibu-border); }
+
+    .drug-header {
+      display: flex; align-items: baseline;
+      justify-content: space-between; margin-bottom: 10px;
+    }
+    .drug-name { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; }
+    .para-card .drug-name { color: var(--para); }
+    .ibu-card  .drug-name { color: var(--ibu); }
+    .drug-dose-ref { font-size: 11px; color: var(--soft); }
+
+    /* ── Concentration toggle ── */
+    .conc-row { display: flex; gap: 6px; margin-bottom: 12px; }
+    .conc-btn {
+      flex: 1; padding: 8px 6px; border-radius: 10px;
+      border: 1.5px solid rgba(196,168,152,0.3);
+      background: rgba(255,255,255,0.65);
+      font-family: 'DM Sans', sans-serif; font-size: 11px;
+      font-weight: 500; color: var(--mid);
+      cursor: pointer; transition: all 0.18s;
+      text-align: center; touch-action: manipulation; line-height: 1.4;
+    }
+    .conc-btn .cb-brand { display: block; font-size: 9px; font-weight: 400; color: var(--soft); margin-top: 2px; }
+    .para-card .conc-btn.active { background: var(--para); border-color: var(--para); color: white; }
+    .para-card .conc-btn.active .cb-brand { color: rgba(255,255,255,0.72); }
+    .ibu-card  .conc-btn.active { background: var(--ibu);  border-color: var(--ibu);  color: white; }
+    .ibu-card  .conc-btn.active .cb-brand { color: rgba(255,255,255,0.72); }
+    .conc-row.dimmed { opacity: 0.4; pointer-events: none; }
+
+    /* ── Main dose display ── */
+    .dose-display { text-align: center; padding: 10px 0 14px; }
+    .dose-ml-row  { display: flex; align-items: baseline; justify-content: center; gap: 7px; margin-bottom: 5px; }
+    .dose-ml   { font-family: 'Fraunces', serif; font-size: 82px; font-weight: 300; line-height: 1; font-variant-numeric: tabular-nums; }
+    .para-card .dose-ml { color: var(--para); }
+    .ibu-card  .dose-ml { color: var(--ibu); }
+    .dose-unit { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 300; color: var(--soft); }
+    .dose-mg   { font-size: 14px; color: var(--mid); }
+
+    /* ── Info row ── */
+    .info-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+    .info-block { background: rgba(255,255,255,0.55); border-radius: 10px; padding: 9px 5px; text-align: center; }
+    .info-lbl { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 3px; }
+    .info-val { font-size: 12px; font-weight: 500; display: block; }
+    .para-card .info-val { color: var(--para-dk); }
+    .ibu-card  .info-val { color: var(--ibu-dk); }
+
+    /* ── Blocked / warning states ── */
+    .drug-blocked { text-align: center; padding: 18px 8px 6px; }
+    .blocked-icon { font-size: 34px; display: block; margin-bottom: 8px; }
+    .blocked-txt  { font-size: 13px; color: var(--mid); line-height: 1.55; }
+    .hidden { display: none !important; }
+
+    .mini-warn {
+      display: none; background: var(--amber-bg);
+      border: 1px solid #e8c470; border-radius: 10px;
+      padding: 9px 12px; font-size: 12px; color: #8a5010;
+      line-height: 1.5; margin-top: 10px; text-align: justify;
+    }
+    .mini-warn.show { display: block; }
+
+    /* ── Alternation guide ── */
+    .alt-guide {
+      background: var(--warm-white); border-radius: 20px;
+      padding: 16px; margin-bottom: 12px;
+      box-shadow: 0 2px 16px rgba(61,43,31,0.06);
+      border: 1px solid rgba(196,168,152,0.2);
+    }
+    .alt-title { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 12px; display: block; }
+    .alt-visual {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; margin-bottom: 12px; flex-wrap: nowrap; overflow-x: auto;
+    }
+    .alt-pill { padding: 7px 10px; border-radius: 10px; font-size: 11px; font-weight: 500; color: white; white-space: nowrap; flex-shrink: 0; }
+    .alt-pill.para { background: var(--para); }
+    .alt-pill.ibu  { background: var(--ibu); }
+    .alt-gap  { display: flex; flex-direction: column; align-items: center; padding: 0 5px; flex-shrink: 0; }
+    .alt-arrow { font-size: 10px; color: var(--soft); line-height: 1.2; }
+    .alt-time  { font-size: 9px; color: var(--soft); font-weight: 500; letter-spacing: 0.04em; white-space: nowrap; }
+    .alt-note  { font-size: 12px; color: var(--mid); line-height: 1.6; text-align: justify; }
+    .alt-note strong { color: var(--deep); font-weight: 500; }
+
+    /* ── Warnings card ── */
+    .warnings {
+      background: var(--red-bg); border-radius: 16px;
+      padding: 14px 15px; margin-bottom: 12px; border: 1px solid #e4b4b4;
+    }
+    .warn-title { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #a03030; margin-bottom: 9px; display: block; }
+    .warn-item  { display: flex; gap: 8px; font-size: 12px; color: #7a2828; line-height: 1.55; margin-bottom: 6px; text-align: justify; }
+    .warn-item:last-child { margin-bottom: 0; }
+    .wi { flex-shrink: 0; margin-top: 1px; font-size: 13px; }
+
+    /* ── Info sections ── */
+    .info-section {
+      background: var(--warm-white); border-radius: 20px;
+      padding: 22px 18px; margin-bottom: 12px;
+      box-shadow: 0 2px 16px rgba(61,43,31,0.06);
+      border: 1px solid rgba(196,168,152,0.2);
+    }
+    .info-section h2 {
+      font-family: 'Fraunces', serif; font-weight: 400;
+      font-size: 18px; color: var(--deep);
+      margin-bottom: 12px; line-height: 1.3;
+    }
+    .info-section h2 em { font-style: italic; color: var(--terracota); }
+    .info-section h3 { font-size: 13px; font-weight: 500; color: var(--deep); margin: 14px 0 6px; }
+    .info-section p {
+      font-size: 13px; color: var(--mid);
+      line-height: 1.7; margin-bottom: 10px;
+      text-align: justify;
+    }
+    .info-section p:last-child { margin-bottom: 0; }
+    .info-section strong { color: var(--deep); font-weight: 500; }
+
+    @media (min-width: 640px) {
+      .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .info-grid .info-section { margin-bottom: 0; }
+      .info-wide { grid-column: 1 / -1; }
+    }
+
+    /* ── Tips list inside info ── */
+    .info-tips { list-style: none; margin-top: 8px; }
+    .info-tips li {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 12px; color: var(--mid); line-height: 1.6;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(196,168,152,0.15);
+      text-align: justify;
+    }
+    .info-tips li:last-child { border-bottom: none; }
+    .info-tips li span:first-child { flex-shrink: 0; }
+
+    /* ── Fuentes ── */
+    .fuentes-card {
+      background: var(--cream); border-radius: 16px;
+      border: 1px solid rgba(196,168,152,0.25);
+      padding: 18px 20px; margin-bottom: 12px;
+    }
+    .fuentes-card h3 {
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--soft); margin-bottom: 12px;
+    }
+    .fuentes-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .fuentes-list li { font-size: 12px; color: var(--mid); }
+    .fuentes-list a { color: var(--terracota); text-decoration: none; transition: color 0.2s; }
+    .fuentes-list a:hover { color: var(--deep); text-decoration: underline; }
+
+    /* ── Disclaimer ── */
+    .disclaimer {
+      font-size: 11px; color: var(--soft); text-align: center;
+      line-height: 1.6; margin-top: 20px; padding: 0 8px;
+    }
+  </style>
 </head>
 <body>
 
@@ -160,163 +396,183 @@
 <div class="blob blob-1"></div>
 <div class="blob blob-2"></div>
 
-<div id="offline-banner" class="offline-banner">📴 Sin conexión — mostrando datos guardados</div>
+<div id="offline-banner" class="offline-banner" role="alert">📴 Sin conexión — mostrando datos guardados</div>
 
 <div class="container">
 
-  <a class="back-link" href="index.html">← Volver al inicio</a>
-  
+  <a class="back-link" href="/">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M10 12L6 8l4-4"/>
+    </svg>
+    Volver al inicio
+  </a>
+
   <header>
-    <span class="badge">Salud · Fiebre</span>
-    <h1>Paracetamol<br>e <em>ibuprofeno</em></h1>
+    <span class="badge">💊 Salud · Fiebre</span>
+    <h1>Paracetamol e <em>ibuprofeno</em></h1>
     <p class="subtitle">Dosis exacta en mL según el peso de tu bebé o niño. Apiretal, Dalsy y otras concentraciones.</p>
   </header>
 
-  <!-- ── Inputs ── -->
-  <div class="card">
-    <div class="section-label">Datos del niño o niña</div>
-    <div class="inputs-grid">
-      <div>
-        <span class="hold-sel-title">Peso</span>
-        <div class="hold-sel">
-          <button class="hold-btn" id="kg-m" data-dir="-1">−</button>
-          <div class="hold-center">
-            <span class="hold-val" id="kg-v">8.0</span>
-            <span class="hold-unit">kg</span>
+  <!-- Desktop: inputs (left) + drugs grid (right) -->
+  <div class="top-grid">
+
+    <!-- Columna izquierda: selector peso + edad -->
+    <div>
+      <div class="card">
+        <div class="section-label">Datos del niño o niña</div>
+        <div class="inputs-grid">
+          <div>
+            <span class="hold-sel-title">Peso</span>
+            <div class="hold-sel">
+              <button class="hold-btn" id="kg-m" data-dir="-1" aria-label="Reducir peso">−</button>
+              <div class="hold-center" aria-live="polite">
+                <span class="hold-val" id="kg-v">8.0</span>
+                <span class="hold-unit">kg</span>
+              </div>
+              <button class="hold-btn" id="kg-p" data-dir="1" aria-label="Aumentar peso">+</button>
+            </div>
           </div>
-          <button class="hold-btn" id="kg-p" data-dir="1">+</button>
-        </div>
-      </div>
-      <div>
-        <span class="hold-sel-title">Edad</span>
-        <div class="hold-sel">
-          <button class="hold-btn" id="age-m" data-dir="-1">−</button>
-          <div class="hold-center">
-            <span class="hold-val" id="age-v">8</span>
-            <span class="hold-unit" id="age-u">meses</span>
-            <span class="hold-sub" id="age-sub"></span>
+          <div>
+            <span class="hold-sel-title">Edad</span>
+            <div class="hold-sel">
+              <button class="hold-btn" id="age-m" data-dir="-1" aria-label="Reducir edad">−</button>
+              <div class="hold-center" aria-live="polite">
+                <span class="hold-val" id="age-v">8</span>
+                <span class="hold-unit" id="age-u">meses</span>
+                <span class="hold-sub" id="age-sub"></span>
+              </div>
+              <button class="hold-btn" id="age-p" data-dir="1" aria-label="Aumentar edad">+</button>
+            </div>
           </div>
-          <button class="hold-btn" id="age-p" data-dir="1">+</button>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- ── Note for big kids ── -->
-  <div class="heavy-note" id="heavy-note">
-    💡 A partir de los 30 kg se suelen usar comprimidos en lugar de jarabe o gotas. Consulta con tu pediatra o farmacéutico.
-  </div>
-
-  <!-- ══════════════════════ PARACETAMOL ══════════════════════ -->
-  <div class="drug-card para-card">
-    <div class="drug-header">
-      <span class="drug-name">Paracetamol</span>
-      <span class="drug-dose-ref">15 mg/kg / dosis</span>
-    </div>
-
-    <div class="conc-row" id="para-conc-row">
-      <button class="conc-btn active" id="para-btn-a" onclick="setConc('para','A')">
-        100 mg/mL
-        <span class="cb-brand">Apiretal · gotas</span>
-      </button>
-      <button class="conc-btn" id="para-btn-b" onclick="setConc('para','B')">
-        250 mg / 5 mL
-        <span class="cb-brand">Jarabe · 50 mg/mL</span>
-      </button>
-    </div>
-
-    <div class="dose-display">
-      <div class="dose-ml-row">
-        <span class="dose-ml" id="para-ml">1.2</span>
-        <span class="dose-unit">mL</span>
-      </div>
-      <div class="dose-mg" id="para-mg">= 120 mg</div>
-    </div>
-
-    <div class="info-row">
-      <div class="info-block">
-        <span class="info-lbl">Frecuencia</span>
-        <span class="info-val">cada 6–8h</span>
-      </div>
-      <div class="info-block">
-        <span class="info-lbl">Máx. dosis</span>
-        <span class="info-val">4 / día</span>
-      </div>
-      <div class="info-block">
-        <span class="info-lbl">Total / día</span>
-        <span class="info-val" id="para-daily">4.8 mL</span>
+      <div class="heavy-note" id="heavy-note">
+        💡 A partir de los 30 kg se suelen usar comprimidos en lugar de jarabe o gotas. Consulta con tu pediatra o farmacéutico.
       </div>
     </div>
 
-    <div class="mini-warn" id="para-warn">
-      ⚠️ En menores de 2 meses o menos de 4 kg, consulta con el pediatra antes de administrar.
-    </div>
-  </div>
+    <!-- Columna derecha: drug cards en grid 2 columnas (desktop) / columna (mobile) -->
+    <div class="drugs-grid">
 
-  <!-- ══════════════════════ IBUPROFENO ══════════════════════ -->
-  <div class="drug-card ibu-card">
-    <div class="drug-header">
-      <span class="drug-name">Ibuprofeno</span>
-      <span class="drug-dose-ref">10 mg/kg / dosis</span>
-    </div>
-
-    <div class="conc-row" id="ibu-conc-row">
-      <button class="conc-btn active" id="ibu-btn-a" onclick="setConc('ibu','A')">
-        20 mg/mL
-        <span class="cb-brand">Dalsy · Junifen</span>
-      </button>
-      <button class="conc-btn" id="ibu-btn-b" onclick="setConc('ibu','B')">
-        40 mg/mL
-        <span class="cb-brand">Actron · genérico</span>
-      </button>
-    </div>
-
-    <div id="ibu-content">
-      <div class="dose-display">
-        <div class="dose-ml-row">
-          <span class="dose-ml" id="ibu-ml">4.0</span>
-          <span class="dose-unit">mL</span>
+      <!-- ── PARACETAMOL ── -->
+      <div class="drug-card para-card" aria-live="polite">
+        <div class="drug-header">
+          <span class="drug-name">Paracetamol</span>
+          <span class="drug-dose-ref">15 mg/kg / dosis</span>
         </div>
-        <div class="dose-mg" id="ibu-mg">= 80 mg</div>
-      </div>
-      <div class="info-row">
-        <div class="info-block">
-          <span class="info-lbl">Frecuencia</span>
-          <span class="info-val">cada 6–8h</span>
+
+        <div class="conc-row" id="para-conc-row">
+          <button class="conc-btn active" id="para-btn-a"
+            onclick="setConc('para','A')"
+            aria-label="Seleccionar concentración 100 mg/mL — Apiretal gotas"
+            aria-pressed="true">
+            100 mg/mL
+            <span class="cb-brand">Apiretal · gotas</span>
+          </button>
+          <button class="conc-btn" id="para-btn-b"
+            onclick="setConc('para','B')"
+            aria-label="Seleccionar concentración 250 mg/5mL — Jarabe"
+            aria-pressed="false">
+            250 mg / 5 mL
+            <span class="cb-brand">Jarabe · 50 mg/mL</span>
+          </button>
         </div>
-        <div class="info-block">
-          <span class="info-lbl">Máx. dosis</span>
-          <span class="info-val">3 / día</span>
+
+        <div class="dose-display">
+          <div class="dose-ml-row">
+            <span class="dose-ml" id="para-ml">1.2</span>
+            <span class="dose-unit">mL</span>
+          </div>
+          <div class="dose-mg" id="para-mg">= 120 mg</div>
         </div>
-        <div class="info-block">
-          <span class="info-lbl">Total / día</span>
-          <span class="info-val" id="ibu-daily">12.0 mL</span>
+
+        <div class="info-row">
+          <div class="info-block">
+            <span class="info-lbl">Frecuencia</span>
+            <span class="info-val">cada 6–8h</span>
+          </div>
+          <div class="info-block">
+            <span class="info-lbl">Máx. dosis</span>
+            <span class="info-val">4 / día</span>
+          </div>
+          <div class="info-block">
+            <span class="info-lbl">Total / día</span>
+            <span class="info-val" id="para-daily">4.8 mL</span>
+          </div>
+        </div>
+
+        <div class="mini-warn" id="para-warn">
+          ⚠️ En menores de 2 meses o menos de 4 kg, consulta con el pediatra antes de administrar.
         </div>
       </div>
-    </div>
 
-    <div class="drug-blocked hidden" id="ibu-blocked">
-      <span class="blocked-icon">🚫</span>
-      <div class="blocked-txt" id="ibu-blocked-reason">
-        No recomendado antes de los 3 meses de edad.
+      <!-- ── IBUPROFENO ── -->
+      <div class="drug-card ibu-card" aria-live="polite">
+        <div class="drug-header">
+          <span class="drug-name">Ibuprofeno</span>
+          <span class="drug-dose-ref">10 mg/kg / dosis</span>
+        </div>
+
+        <div class="conc-row" id="ibu-conc-row">
+          <button class="conc-btn active" id="ibu-btn-a"
+            onclick="setConc('ibu','A')"
+            aria-label="Seleccionar concentración 20 mg/mL — Dalsy o Junifen"
+            aria-pressed="true">
+            20 mg/mL
+            <span class="cb-brand">Dalsy · Junifen</span>
+          </button>
+          <button class="conc-btn" id="ibu-btn-b"
+            onclick="setConc('ibu','B')"
+            aria-label="Seleccionar concentración 40 mg/mL — Actron o genérico"
+            aria-pressed="false">
+            40 mg/mL
+            <span class="cb-brand">Actron · genérico</span>
+          </button>
+        </div>
+
+        <div id="ibu-content">
+          <div class="dose-display">
+            <div class="dose-ml-row">
+              <span class="dose-ml" id="ibu-ml">4.0</span>
+              <span class="dose-unit">mL</span>
+            </div>
+            <div class="dose-mg" id="ibu-mg">= 80 mg</div>
+          </div>
+          <div class="info-row">
+            <div class="info-block">
+              <span class="info-lbl">Frecuencia</span>
+              <span class="info-val">cada 6–8h</span>
+            </div>
+            <div class="info-block">
+              <span class="info-lbl">Máx. dosis</span>
+              <span class="info-val">3 / día</span>
+            </div>
+            <div class="info-block">
+              <span class="info-lbl">Total / día</span>
+              <span class="info-val" id="ibu-daily">12.0 mL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="drug-blocked hidden" id="ibu-blocked">
+          <span class="blocked-icon">🚫</span>
+          <div class="blocked-txt" id="ibu-blocked-reason">No recomendado antes de los 3 meses de edad.</div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <!-- ── Alternation guide ── -->
+    </div><!-- /drugs-grid -->
+
+  </div><!-- /top-grid -->
+
+  <!-- ── Alternation guide (full width) ── -->
   <div class="alt-guide">
     <span class="alt-title">💊 ¿Puedo alternarlos?</span>
     <div class="alt-visual">
       <span class="alt-pill para">Paracetamol</span>
-      <div class="alt-gap">
-        <span class="alt-arrow">→</span>
-        <span class="alt-time">min. 4h</span>
-      </div>
+      <div class="alt-gap"><span class="alt-arrow">→</span><span class="alt-time">mín. 4h</span></div>
       <span class="alt-pill ibu">Ibuprofeno</span>
-      <div class="alt-gap">
-        <span class="alt-arrow">→</span>
-        <span class="alt-time">min. 4h</span>
-      </div>
+      <div class="alt-gap"><span class="alt-arrow">→</span><span class="alt-time">mín. 4h</span></div>
       <span class="alt-pill para">Paracetamol</span>
     </div>
     <p class="alt-note">
@@ -325,7 +581,7 @@
   </div>
 
   <!-- ── Warnings ── -->
-  <div class="warnings">
+  <div class="warnings" role="alert">
     <span class="warn-title">⚠️ Importante</span>
     <div class="warn-item">
       <span class="wi">🔴</span>
@@ -349,12 +605,65 @@
     </div>
   </div>
 
+
+  <!-- ── SECCIONES INFORMATIVAS ── -->
+  <div class="info-grid">
+
+    <div class="info-section">
+      <h2>Paracetamol: <em>cuándo y cómo</em></h2>
+      <p>El paracetamol (acetaminofén) es el analgésico y antipirético de primera elección para bebés y niños de cualquier edad, incluyendo los menores de 3 meses con indicación pediátrica. Actúa directamente en el sistema nervioso central bloqueando la percepción del dolor y reduciendo la temperatura corporal, sin efecto antiinflamatorio significativo.</p>
+      <p>La dosis estándar es de <strong>10–15 mg por kilogramo de peso</strong> por toma. En esta herramienta usamos 15 mg/kg, que es la dosis analgésica habitual. Puede administrarse cada 6–8 horas, con un máximo de 4 dosis al día. La presentación en gotas (100 mg/mL, como Apiretal) es más concentrada que el jarabe (50 mg/mL), por lo que requiere menos volumen — es importante no confundir las concentraciones.</p>
+    </div>
+
+    <div class="info-section">
+      <h2>Ibuprofeno: <em>cuándo y cómo</em></h2>
+      <p>El ibuprofeno es un antiinflamatorio no esteroideo (AINE) con efecto analgésico, antipirético y antiinflamatorio. Su efecto antiinflamatorio lo hace especialmente útil cuando la causa de la fiebre o el dolor tiene un componente inflamatorio (otitis, faringitis, dentición).</p>
+      <p>Se administra a <strong>10 mg por kilogramo de peso</strong> por toma, con un máximo de 400 mg por dosis y un máximo de 3 dosis al día. Solo está recomendado a partir de los <strong>3 meses de edad y 6 kg de peso</strong>. En niños con varicela, vómitos intensos o deshidratación, se prefiere el paracetamol porque el ibuprofeno puede agravar estos cuadros.</p>
+    </div>
+
+    <div class="info-section info-wide">
+      <h2>Cuándo tratar la fiebre y <em>cuándo no</em></h2>
+      <p>La fiebre es la respuesta del sistema inmune ante una infección — no es una enfermedad en sí misma. El objetivo del tratamiento no es necesariamente bajar la temperatura al valor "normal", sino mejorar el malestar del niño. Si el bebé tiene 38,5 °C pero está activo, juega y se alimenta con normalidad, no es obligatorio administrar ningún antitérmico.</p>
+      <ul class="info-tips">
+        <li><span>✅</span><span><strong>Trata la fiebre si</strong> el niño está claramente incómodo, con malestar general, dolor de cabeza, dificultad para dormir o rechazo del alimento, independientemente del número en el termómetro.</span></li>
+        <li><span>🔴</span><span><strong>Acude a urgencias si</strong> el bebé tiene menos de 3 meses y fiebre ≥ 38 °C, si la temperatura supera los 39,5 °C sin mejoría con antitérmico, o si hay convulsiones, dificultad respiratoria, manchas en la piel o apatía extrema.</span></li>
+        <li><span>🔴</span><span><strong>Acude al médico si</strong> la fiebre dura más de 72 horas sin diagnóstico conocido, si reaparece después de haber desaparecido, o si hay síntomas que no corresponden con una infección viral habitual.</span></li>
+        <li><span>🟡</span><span><strong>La febrícula (37–37,9 °C)</strong> no requiere tratamiento farmacológico en niños mayores de 3 meses salvo que haya malestar evidente. Mantén al niño bien hidratado y con ropa ligera.</span></li>
+        <li><span>🟡</span><span><strong>No uses métodos físicos agresivos</strong> como baños de agua fría, paños con alcohol o ventiladores directos — pueden provocar escalofríos y empeorar el malestar. Un baño tibio (1–2 °C por debajo de la temperatura corporal) puede ayudar como complemento al antitérmico.</span></li>
+      </ul>
+    </div>
+
+    <div class="info-section">
+      <h2>Errores frecuentes <em>al dosificar</em></h2>
+      <p>Los errores de dosificación en antitérmicos pediátricos son más frecuentes de lo que parece, y suelen ocurrir por confusión entre concentraciones, uso de cucharillas caseras en lugar de jeringuillas de precisión, o dosificación por edad en lugar de por peso.</p>
+      <p><strong>Nunca uses una cucharilla de cocina</strong> para medir la dosis — la variabilidad es enorme. Usa siempre la jeringuilla o el dosificador incluido con el medicamento. <strong>La dosis siempre se calcula por peso</strong>, no por edad: un niño de 2 años puede pesar 10 kg o 15 kg, y la dosis correcta es muy diferente en cada caso. <strong>No dobles la dosis</strong> si crees que la anterior no ha funcionado — espera al menos el tiempo mínimo entre tomas y consulta al pediatra si no hay respuesta.</p>
+    </div>
+
+    <div class="info-section">
+      <h2>La alternancia: <em>cuándo y cómo hacerla bien</em></h2>
+      <p>Alternar paracetamol e ibuprofeno es una práctica segura y recomendada en situaciones específicas: cuando la fiebre es muy alta y difícil de controlar con un solo medicamento, cuando el niño tiene mucho dolor y malestar, o cuando uno de los dos no está tolerando bien el efecto de un solo antitérmico.</p>
+      <p>La regla es sencilla: espera al menos 4 horas entre dosis de medicamentos diferentes, y respeta siempre el intervalo mínimo de 6–8 horas entre dos dosis del mismo medicamento. No los administres simultáneamente. Si tras 24 horas alternando el cuadro no mejora, o si necesitas seguir alternando, es el momento de llamar al pediatra para valorar si hay algo más detrás de la fiebre.</p>
+    </div>
+
+  </div><!-- /info-grid -->
+
+
+  <!-- Fuentes consultadas -->
+  <div class="fuentes-card">
+    <h3>📚 Fuentes consultadas</h3>
+    <ul class="fuentes-list">
+      <li>📖 <a href="https://www.aeped.es/comite-medicamentos/fichas-tecnicas" target="_blank" rel="noopener">Asociación Española de Pediatría (AEP)</a> — Fichas técnicas y recomendaciones de dosificación pediátrica</li>
+      <li>📖 <a href="https://www.aap.org/en/patient-care/fever/" target="_blank" rel="noopener">American Academy of Pediatrics (AAP)</a> — Fever and Antipyretics in Children</li>
+      <li>📖 <a href="https://www.aemps.gob.es/medicamentosUsoHumano/fichasTecnicas.do" target="_blank" rel="noopener">Agencia Española de Medicamentos (AEMPS)</a> — Fichas técnicas de paracetamol e ibuprofeno pediátricos</li>
+      <li>📖 <a href="https://www.mscbs.gob.es" target="_blank" rel="noopener">Ministerio de Sanidad de España (SNS)</a> — Uso racional de medicamentos en pediatría</li>
+    </ul>
+  </div>
+
   <p class="disclaimer">
-    Dosis calculadas según las recomendaciones de la AEP (Asociación Española de Pediatría) y las fichas técnicas oficiales de los medicamentos.<br><br>
-    Esta calculadora es una herramienta de apoyo y <strong>no sustituye el consejo médico</strong>. Consulta siempre con tu pediatra o farmacéutico ante cualquier duda.
+    Dosis calculadas según las recomendaciones de la AEP y las fichas técnicas oficiales de los medicamentos. Esta calculadora es una herramienta de apoyo y <strong>no sustituye el consejo médico</strong>. Consulta siempre con tu pediatra o farmacéutico ante cualquier duda. babyFAQ no proporciona consejo médico.
   </p>
 
-</div>
+</div><!-- /container -->
 
 <script>
 // ── Data ─────────────────────────────────────────────────────────
@@ -362,11 +671,11 @@ const KG_VALUES = [];
 for (let v = 3.0; v <= 50.0 + 1e-9; v = Math.round((v + 0.1) * 10) / 10)
   KG_VALUES.push(parseFloat(v.toFixed(1)));
 
-const PARA_CONC = { A: 100, B: 50  };  // mg/mL (B = 250mg/5mL = 50mg/mL)
+const PARA_CONC = { A: 100, B: 50  };  // mg/mL
 const IBU_CONC  = { A: 20,  B: 40  };  // mg/mL
 
-let kgIdx    = KG_VALUES.indexOf(8.0); // default 8 kg
-let ageVal   = 8;                       // default 8 months
+let kgIdx    = KG_VALUES.indexOf(8.0);
+let ageVal   = 8;
 let paraConc = 'A';
 let ibuConc  = 'A';
 
@@ -405,11 +714,15 @@ function setConc(drug, opt) {
   if (drug === 'para') {
     paraConc = opt;
     document.getElementById('para-btn-a').classList.toggle('active', opt === 'A');
+    document.getElementById('para-btn-a').setAttribute('aria-pressed', opt === 'A' ? 'true' : 'false');
     document.getElementById('para-btn-b').classList.toggle('active', opt === 'B');
+    document.getElementById('para-btn-b').setAttribute('aria-pressed', opt === 'B' ? 'true' : 'false');
   } else {
     ibuConc = opt;
     document.getElementById('ibu-btn-a').classList.toggle('active', opt === 'A');
+    document.getElementById('ibu-btn-a').setAttribute('aria-pressed', opt === 'A' ? 'true' : 'false');
     document.getElementById('ibu-btn-b').classList.toggle('active', opt === 'B');
+    document.getElementById('ibu-btn-b').setAttribute('aria-pressed', opt === 'B' ? 'true' : 'false');
   }
   render();
 }
@@ -418,10 +731,10 @@ function setConc(drug, opt) {
 function render() {
   const kg = KG_VALUES[kgIdx];
 
-  // ── Weight display ──
+  // Weight display
   document.getElementById('kg-v').textContent = kg.toFixed(1);
 
-  // ── Age display ──
+  // Age display
   const av = ageVal;
   document.getElementById('age-v').textContent = av;
   document.getElementById('age-u').textContent = av === 1 ? 'mes' : 'meses';
@@ -433,14 +746,14 @@ function render() {
   }
   document.getElementById('age-sub').textContent = sub;
 
-  // ── Heavy note ──
+  // Heavy note
   document.getElementById('heavy-note').classList.toggle('show', kg > 30);
 
   // ── PARACETAMOL ──
-  const pConc  = PARA_CONC[paraConc];
-  const pMg    = Math.min(Math.round(kg * 15 / 5) * 5, 1000);
-  const pMl    = Math.round(pMg / pConc * 10) / 10;
-  const pDay   = Math.round(pMl * 4 * 10) / 10;
+  const pConc = PARA_CONC[paraConc];
+  const pMg   = Math.min(Math.round(kg * 15 / 5) * 5, 1000);
+  const pMl   = Math.round(pMg / pConc * 10) / 10;
+  const pDay  = Math.round(pMl * 4 * 10) / 10;
 
   document.getElementById('para-ml').textContent    = pMl.toFixed(1);
   document.getElementById('para-mg').textContent    = `= ${pMg} mg`;
@@ -486,7 +799,6 @@ window.addEventListener('online',  () => offBanner.classList.remove('show'));
 window.addEventListener('offline', () => offBanner.classList.add('show'));
 if (!navigator.onLine) offBanner.classList.add('show');
 
-// ── PWA: register service worker ──────────────────────────────────
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').catch(() => {});
