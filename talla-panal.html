@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<title>Talla de pañal por peso · Todas las marcas · babyFAQ</title>
-<meta name="description" content="¿Qué talla de pañal le corresponde a tu bebé? Introduce el peso y consulta la talla en Dodot, Pampers, Huggies, Lidl y más marcas al instante.">
-<meta property="og:title" content="Talla de pañal por peso · Todas las marcas · babyFAQ">
+<title>Talla de pañal por peso · Comparativa Dodot, Pampers, Huggies · babyFAQ</title>
+<meta name="description" content="¿Qué talla de pañal le corresponde a tu bebé? Introduce el peso y consulta al instante la talla en Dodot, Pampers, Huggies, Lidl, Mercadona y más marcas.">
+<meta property="og:title" content="Talla de pañal por peso · Comparativa Dodot, Pampers, Huggies · babyFAQ">
 <meta property="og:description" content="Calculadora de talla de pañal por peso para bebés. Compara Dodot, Pampers, Huggies, Lidl, Mercadona y más marcas en un solo vistazo.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#fdf6ee">
+<link rel="canonical" href="https://babyfaq.es/talla-panal.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora talla de pañal por peso del bebé",
+  "description": "Herramienta interactiva para calcular la talla de pañal según el peso del bebé. Comparativa de tallas en Dodot, Pampers, Huggies, Lidl, Mercadona y Carrefour.",
+  "url": "https://babyfaq.es/talla-panal.html",
+  "applicationCategory": "HealthApplication",
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "babyFAQ"
+  }
+}
+</script>
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -39,10 +56,30 @@
   .badge { display: inline-block; background: #fde8c4; color: #b07030; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
   h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 10px; }
   h1 em { font-style: italic; color: var(--terracota); }
-  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.5; font-weight: 300; max-width: 340px; margin: 0 auto; }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.5; font-weight: 300; max-width: 340px; margin: 0 auto; text-align: justify; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
   @media (min-width: 480px) { h1 { font-size: 34px; } .subtitle { font-size: 14px; } }
-  @media (min-width: 640px) { h1 { font-size: 38px; } .container { padding: 56px 28px 80px; } }
+  @media (min-width: 640px) {
+    h1 { font-size: 38px; }
+    .container { max-width: 860px; padding: 56px 40px 80px; }
+    .blob-1 { width: 420px; height: 420px; top: -160px; right: -150px; opacity: 0.2; }
+    .blob-2 { width: 360px; height: 360px; bottom: -120px; left: -150px; opacity: 0.16; }
+    .desktop-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .desktop-right { position: sticky; top: 28px; }
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .info-grid .info-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  }
 
   /* ── Cards ── */
   .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(61,43,31,0.06); border: 1px solid rgba(196,168,152,0.2); }
@@ -65,10 +102,10 @@
   .size-info { flex: 1; min-width: 0; }
   .size-range { font-size: 15px; font-weight: 500; color: var(--deep); margin-bottom: 4px; }
   .size-age { font-size: 12px; color: var(--mid); margin-bottom: 8px; }
-  .size-tip { font-size: 11px; color: var(--mid); line-height: 1.5; background: rgba(90,138,106,0.1); border-radius: 8px; padding: 7px 10px; }
+  .size-tip { font-size: 11px; color: var(--mid); line-height: 1.5; background: rgba(90,138,106,0.1); border-radius: 8px; padding: 7px 10px; text-align: justify; }
 
   /* ── Change signal ── */
-  .change-signal { display: none; align-items: center; gap: 10px; border-radius: 13px; padding: 11px 14px; font-size: 12px; line-height: 1.5; margin-bottom: 14px; }
+  .change-signal { display: none; align-items: center; gap: 10px; border-radius: 13px; padding: 11px 14px; font-size: 12px; line-height: 1.5; margin-bottom: 14px; text-align: justify; }
   .change-signal.up   { display: flex; background: var(--amber-bg); border: 1px solid var(--amber-border); color: var(--amber); }
   .change-signal.next { display: flex; background: #f4f2ff; border: 1px solid #ccc4f0; color: #6048a8; }
 
@@ -86,7 +123,7 @@
 
   .size-chip { display: inline-block; font-family: 'Fraunces', serif; font-size: 16px; font-weight: 400; color: var(--deep); background: var(--cream); border-radius: 8px; padding: 3px 8px; border: 1.5px solid rgba(196,168,152,0.3); }
   .size-chip.highlight { background: var(--sage-bg); border-color: var(--sage-border); color: var(--sage); font-weight: 600; }
-  .size-chip.adjacent { background: #fdf3e0; border-color: var(--amber-border); color: var(--amber); }
+  .size-chip.adjacent  { background: #fdf3e0; border-color: var(--amber-border); color: var(--amber); }
   .size-range-chip { font-size: 10px; color: var(--soft); display: block; margin-top: 2px; }
 
   /* ── Signs section ── */
@@ -96,8 +133,8 @@
   .sign-item { font-size: 12px; color: var(--mid); line-height: 1.6; display: flex; align-items: baseline; gap: 5px; }
   .sign-item::before { content: '·'; color: var(--soft); flex-shrink: 0; }
 
-  /* ── Context note ── */
-  .context-note { background: var(--cream); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: var(--mid); line-height: 1.6; border: 1px solid rgba(196,168,152,0.2); }
+  /* ── Context / tip note ── */
+  .context-note { background: var(--cream); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: var(--mid); line-height: 1.6; border: 1px solid rgba(196,168,152,0.2); text-align: justify; }
   .context-note strong { color: var(--deep); font-weight: 500; }
 
   /* ── Full table toggle ── */
@@ -107,12 +144,30 @@
   .full-table.visible { display: block; }
   .ref-table { width: 100%; border-collapse: collapse; font-size: 12px; }
   .ref-table thead th { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); padding: 5px 6px; text-align: center; border-bottom: 1px solid rgba(196,168,152,0.25); }
-  .ref-table tbody td { padding: 6px 6px; text-align: center; font-family: 'Fraunces', serif; font-size: 13px; color: var(--deep); border-bottom: 1px solid rgba(196,168,152,0.1); }
+  .ref-table tbody td { padding: 6px; text-align: center; font-family: 'Fraunces', serif; font-size: 13px; color: var(--deep); border-bottom: 1px solid rgba(196,168,152,0.1); }
   .ref-table tbody td:first-child { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; color: var(--mid); }
   .ref-table tbody tr.highlight-row td { background: var(--sage-bg); color: var(--sage); }
   .ref-table tbody tr.highlight-row td:first-child { color: var(--mid); }
   .ref-table tbody tr:last-child td { border-bottom: none; }
 
+  /* ── Info sections ── */
+  h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 20px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
+  h2 em { font-style: italic; color: var(--terracota); }
+  h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 16px; color: var(--deep); margin-bottom: 6px; margin-top: 16px; }
+  .info-card { background: var(--warm-white); border-radius: 20px; padding: 24px 20px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(61,43,31,0.06); border: 1px solid rgba(196,168,152,0.18); }
+  .info-card p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; text-align: justify; }
+  .info-card p:last-child { margin-bottom: 0; }
+  .info-card strong { color: var(--deep); font-weight: 500; }
+
+  /* ── Fuentes ── */
+  .fuentes-card { background: var(--sage-bg); border: 1.5px solid var(--sage-border); border-radius: 20px; padding: 20px; margin-bottom: 14px; }
+  .fuentes-title { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; }
+  .fuentes-list { display: flex; flex-direction: column; gap: 8px; }
+  .fuente-item { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--mid); line-height: 1.5; }
+  .fuente-item a { color: var(--sage); text-decoration: none; font-weight: 500; }
+  .fuente-item a:hover { text-decoration: underline; }
+
+  /* ── Disclaimer ── */
   .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 22px; padding: 0 8px; }
 </style>
 
@@ -133,212 +188,261 @@
 
 <div class="container">
 
-  <a class="back-link" href="index.html">← Volver al inicio</a>
+  <a class="back-link" href="/">← Volver al inicio</a>
 
   <header>
-    <span class="badge">Pañales</span>
-    <h1>¿Qué talla de<br><em>pañal</em> le toca?</h1>
+    <span class="badge">Higiene · Pañales</span>
+    <h1>¿Qué talla de <em>pañal</em> le toca?</h1>
     <p class="subtitle">Introduce el peso de tu bebé y comprueba la talla en todas las marcas principales al instante.</p>
   </header>
 
-  <!-- Weight selector -->
-  <div class="card">
-    <div class="section-label">Peso del bebé</div>
-    <div class="weight-selector">
-      <button class="hold-btn" id="kg-minus" data-dir="-1">−</button>
-      <div class="weight-display">
-        <span class="weight-value" id="kg-val">7.0</span>
-        <span class="weight-unit">kg</span>
+  <!-- Desktop: left = controls + signals + signs | right = brand table (sticky) -->
+  <div class="desktop-grid">
+
+    <!-- LEFT COLUMN -->
+    <div>
+
+      <!-- Weight selector -->
+      <div class="card">
+        <div class="section-label">Peso del bebé</div>
+        <div class="weight-selector">
+          <button class="hold-btn" id="kg-minus" data-dir="-1" aria-label="Reducir peso 100 gramos">−</button>
+          <div class="weight-display">
+            <span class="weight-value" id="kg-val">7.0</span>
+            <span class="weight-unit">kg</span>
+          </div>
+          <button class="hold-btn" id="kg-plus" data-dir="1" aria-label="Aumentar peso 100 gramos">+</button>
+        </div>
       </div>
-      <button class="hold-btn" id="kg-plus" data-dir="1">+</button>
-    </div>
-  </div>
 
-  <!-- Size hero -->
-  <div class="size-hero" id="size-hero">
-    <div class="size-badge-wrap">
-      <span class="size-badge" id="main-size">—</span>
-      <span class="size-label-sm">Talla</span>
-    </div>
-    <div class="size-divider"></div>
-    <div class="size-info">
-      <div class="size-range" id="main-range">—</div>
-      <div class="size-age"  id="main-age">—</div>
-      <div class="size-tip"  id="main-tip">—</div>
-    </div>
-  </div>
-
-  <!-- Change signals -->
-  <div class="change-signal" id="signal-upper" >
-    ⬆️ <span id="signal-upper-text"></span>
-  </div>
-  <div class="change-signal next" id="signal-next">
-    ➡️ <span id="signal-next-text"></span>
-  </div>
-
-  <!-- Brand comparison -->
-  <div class="card">
-    <div class="section-label">Comparativa por marca</div>
-    <div class="brand-table-wrap">
-      <table id="brand-table">
-        <thead>
-          <tr>
-            <th>Marca</th>
-            <th>Talla actual</th>
-            <th>Rango kg</th>
-          </tr>
-        </thead>
-        <tbody id="brand-tbody"></tbody>
-      </table>
-    </div>
-
-    <button class="table-toggle" id="table-toggle" onclick="toggleRefTable()">Ver tabla de tallas completa ↓</button>
-    <div class="full-table" id="full-table">
-      <table class="ref-table" id="ref-table">
-        <thead>
-          <tr>
-            <th>Talla genérica</th>
-            <th>Rango kg</th>
-            <th>Edad aprox.</th>
-            <th>Dodot</th>
-            <th>Pampers</th>
-          </tr>
-        </thead>
-        <tbody id="ref-tbody"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- Signs it's time to change -->
-  <div class="card">
-    <div class="section-label">Señales de que la talla se queda pequeña</div>
-    <div class="signs-grid">
-      <div class="sign-block">
-        <div class="sign-title">👀 Visuales</div>
-        <div class="sign-item">Las marcas de las gomas están rojas o marcadas en la piel</div>
-        <div class="sign-item">Las pestañas no llegan al velcro o se pegan en los bordes</div>
-        <div class="sign-item">No cubre bien las nalgas por detrás</div>
+      <!-- Size hero -->
+      <div class="size-hero" id="size-hero">
+        <div class="size-badge-wrap">
+          <span class="size-badge" id="main-size">—</span>
+          <span class="size-label-sm">Talla</span>
+        </div>
+        <div class="size-divider"></div>
+        <div class="size-info">
+          <div class="size-range" id="main-range">—</div>
+          <div class="size-age"   id="main-age">—</div>
+          <div class="size-tip"   id="main-tip">—</div>
+        </div>
       </div>
-      <div class="sign-block">
-        <div class="sign-title">💦 Funcionales</div>
-        <div class="sign-item">Hay más fugas de las habituales aunque esté bien puesto</div>
-        <div class="sign-item">Se le escapa por las piernas aunque el velcro esté bien ajustado</div>
-        <div class="sign-item">Se acumula demasiado por delante</div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Tip card -->
-  <div class="card">
-    <div class="context-note" id="context-note"></div>
+      <!-- Change signals -->
+      <div class="change-signal" id="signal-upper">
+        ⬆️ <span id="signal-upper-text"></span>
+      </div>
+      <div class="change-signal next" id="signal-next">
+        ➡️ <span id="signal-next-text"></span>
+      </div>
+
+      <!-- Signs it's time to change -->
+      <div class="card">
+        <div class="section-label">Señales de que la talla se queda pequeña</div>
+        <div class="signs-grid">
+          <div class="sign-block">
+            <div class="sign-title">👀 Visuales</div>
+            <div class="sign-item">Las marcas de las gomas están rojas o marcadas en la piel</div>
+            <div class="sign-item">Las pestañas no llegan al velcro o se pegan en los bordes</div>
+            <div class="sign-item">No cubre bien las nalgas por detrás</div>
+          </div>
+          <div class="sign-block">
+            <div class="sign-title">💦 Funcionales</div>
+            <div class="sign-item">Hay más fugas de las habituales aunque esté bien puesto</div>
+            <div class="sign-item">Se le escapa por las piernas aunque el velcro esté bien ajustado</div>
+            <div class="sign-item">Se acumula demasiado por delante</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tip card -->
+      <div class="card">
+        <div class="context-note" id="context-note"></div>
+      </div>
+
+    </div><!-- /left col -->
+
+    <!-- RIGHT COLUMN (sticky) -->
+    <div class="desktop-right">
+
+      <!-- Brand comparison -->
+      <div class="card">
+        <div class="section-label">Comparativa por marca</div>
+        <div class="brand-table-wrap">
+          <table id="brand-table">
+            <thead>
+              <tr>
+                <th>Marca</th>
+                <th>Talla actual</th>
+                <th>Rango kg</th>
+              </tr>
+            </thead>
+            <tbody id="brand-tbody"></tbody>
+          </table>
+        </div>
+
+        <button class="table-toggle" id="table-toggle" onclick="toggleRefTable()" aria-label="Ver tabla de tallas completa">Ver tabla de tallas completa ↓</button>
+        <div class="full-table" id="full-table">
+          <table class="ref-table" id="ref-table">
+            <thead>
+              <tr>
+                <th>Talla</th>
+                <th>Rango kg</th>
+                <th>Edad aprox.</th>
+                <th>Dodot</th>
+                <th>Pampers</th>
+              </tr>
+            </thead>
+            <tbody id="ref-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /right col -->
+
+  </div><!-- /desktop-grid -->
+
+  <!-- ── Secciones informativas ── -->
+  <div class="info-grid">
+
+    <div class="info-card">
+      <h2>Por qué el <em>peso</em> es la guía principal</h2>
+      <p>Las tallas de pañal están diseñadas por peso, no por edad, porque el desarrollo físico de los bebés varía enormemente. Un bebé de tres meses puede pesar lo mismo que otro de cinco, y necesitar la misma talla de pañal aunque su edad sea diferente.</p>
+      <p>Las edades aproximadas que ves en las descripciones son solo una orientación estadística. Lo que determina la talla correcta es el peso real de tu bebé en ese momento, no los meses que tiene. Por eso esta calculadora usa únicamente el peso como variable de entrada.</p>
+      <p>Dentro del rango de una misma talla, también influye la <strong>forma del bebé</strong>: algunos tienen las piernas o la tripita más gruesas, y aunque el peso encaje, puede que el pañal no ajuste igual de bien. Si ves marcas rojas en la piel, sube de talla aunque el peso esté dentro del rango.</p>
+    </div>
+
+    <div class="info-card">
+      <h2>Pañal clásico vs. <em>pañal braguita</em></h2>
+      <p>A partir de la talla 4 o 4+, muchas marcas ofrecen pañales en formato braguita (también llamados pants o pull-up). Se diferencian del pañal clásico en que se suben y bajan como una braguita, sin velcros ni pestañas.</p>
+      <p>El pañal braguita es especialmente útil cuando el bebé empieza a moverse mucho, a gatear o a ponerse de pie, porque facilita el cambio sin necesidad de tumbarlo. También es la opción más habitual durante el aprendizaje del control de esfínteres, ya que el niño puede bajárselos solo.</p>
+      <p>El rendimiento de absorción es similar al pañal clásico en la mayoría de marcas. La elección entre uno y otro depende principalmente de la etapa del desarrollo y de la comodidad tanto del bebé como del cuidador durante el cambio.</p>
+    </div>
+
+    <div class="info-card">
+      <h2>Cuántos pañales gasta un bebé <em>al día</em></h2>
+      <p>La cantidad de pañales diarios varía mucho según la edad. Un recién nacido puede necesitar entre <strong>10 y 12 pañales al día</strong> —uno cada 2–3 horas—, mientras que un bebé de 6 meses suele usar entre 6 y 8, y uno de 12 meses entre 4 y 6.</p>
+      <p>Esta diferencia tiene implicaciones prácticas a la hora de comprar. Los pañales de recién nacido y talla 1 se consumen muy rápido y los bebés los superan en pocas semanas, por lo que conviene no hacer stock excesivo. En cambio, la <strong>talla 3 es la que más dura</strong> —algunos bebés la usan tres o cuatro meses— y donde más rentable es comprar grandes packs o en club.</p>
+      <p>Si tu bebé tiene heces frecuentes o está en dentición y moja más, el consumo puede aumentar temporalmente. Lo más importante es cambiar el pañal en cuanto esté sucio, para cuidar la piel y prevenir las irritaciones.</p>
+    </div>
+
+  </div><!-- /info-grid -->
+
+  <!-- Fuentes consultadas -->
+  <div class="fuentes-card">
+    <div class="fuentes-title">📚 Fuentes consultadas</div>
+    <div class="fuentes-list">
+      <div class="fuente-item">📌 <a href="https://www.aeped.es" target="_blank" rel="noopener">Asociación Española de Pediatría (AEP)</a> — Recomendaciones sobre higiene del bebé, piel del recién nacido y cambio de pañal.</div>
+      <div class="fuente-item">📌 <a href="https://www.mscbs.gob.es" target="_blank" rel="noopener">Ministerio de Sanidad de España</a> — Guía de salud para el primer año de vida y cuidados del lactante.</div>
+      <div class="fuente-item">📌 Fichas técnicas de Dodot, Pampers, Huggies, Lidl Lupilu, Mercadona Hacendado y Carrefour Baby — rangos de peso por talla verificados directamente en cada fabricante.</div>
+    </div>
   </div>
 
   <p class="disclaimer">
-    Los rangos varían según fabricante y línea de producto (Active Fit, Sensitive, Premium, etc.).<br>
-    Usa el peso como guía principal — la cintura y las piernas del bebé también cuentan.
+    Los rangos de peso varían según fabricante, línea de producto (Active Fit, Sensitive, Premium…) y lote de producción.<br>
+    Usa el peso como guía principal. La cintura y las piernas del bebé también cuentan — si hay marcas rojas, sube de talla.
   </p>
 
-</div>
+</div><!-- /container -->
 
 <script>
 // ── Size data ─────────────────────────────────────────────────────
-// Generic sizes (reference). kgMin inclusive, kgMax inclusive.
 const GENERIC = [
-  { size: 'RN', label: 'Recién nacido', kgMin: 0,   kgMax: 3,   age: 'Recién nacido',    tip: 'Los pañales de recién nacido duran muy poco — compra un paquete pequeño para probar. Muchos bebés pasan a la talla 1 en 2–3 semanas.' },
-  { size: '1',  label: 'Talla 1',       kgMin: 2,   kgMax: 5,   age: '0 – 1 mes aprox.', tip: 'La talla 1 es la primera que dura algo más. Si el bebé pesa más de 4 kg al nacer, empieza directamente aquí.' },
-  { size: '2',  label: 'Talla 2',       kgMin: 3,   kgMax: 6,   age: '1 – 3 meses aprox.',tip: 'El cambio de talla 1 a 2 suele ocurrir entre las 4 y 8 semanas. Fíjate en las marcas de las gomas: si quedan marcadas, es hora de cambiar.' },
-  { size: '3',  label: 'Talla 3',       kgMin: 4,   kgMax: 9,   age: '2 – 7 meses aprox.',tip: 'La talla 3 es la más larga en duración. Muchos bebés la usan varios meses. Es la más rentable de comprar en grandes packs.' },
-  { size: '4',  label: 'Talla 4',       kgMin: 7,   kgMax: 18,  age: '6 – 18 meses aprox.',tip: 'A partir de la talla 4 los pañales tipo pants (braguita) son una buena opción cuando el bebé empieza a moverse mucho.' },
-  { size: '4+', label: 'Talla 4+',      kgMin: 9,   kgMax: 20,  age: '9 – 24 meses aprox.',tip: 'No todas las marcas tienen talla 4+. Si no la encuentras, la talla 5 es equivalente en muchas marcas.' },
-  { size: '5',  label: 'Talla 5',       kgMin: 11,  kgMax: 25,  age: '12 – 36 meses aprox.',tip: 'Con la talla 5 muchos bebés hacen el control de esfínteres. Los pañales-braguita facilitan la transición porque se suben y bajan solos.' },
+  { size: 'RN', label: 'Recién nacido', kgMin: 0,   kgMax: 3,   age: 'Recién nacido',     tip: 'Los pañales de recién nacido duran muy poco — compra un paquete pequeño para probar. Muchos bebés pasan a la talla 1 en 2–3 semanas.' },
+  { size: '1',  label: 'Talla 1',       kgMin: 2,   kgMax: 5,   age: '0–1 mes aprox.',    tip: 'La talla 1 es la primera que dura algo más. Si el bebé pesa más de 4 kg al nacer, empieza directamente aquí.' },
+  { size: '2',  label: 'Talla 2',       kgMin: 3,   kgMax: 6,   age: '1–3 meses aprox.',  tip: 'El cambio de talla 1 a 2 suele ocurrir entre las 4 y 8 semanas. Fíjate en las marcas de las gomas: si quedan marcadas, es hora de cambiar.' },
+  { size: '3',  label: 'Talla 3',       kgMin: 4,   kgMax: 9,   age: '2–7 meses aprox.',  tip: 'La talla 3 es la más larga en duración. Muchos bebés la usan varios meses. Es la más rentable de comprar en grandes packs.' },
+  { size: '4',  label: 'Talla 4',       kgMin: 7,   kgMax: 18,  age: '6–18 meses aprox.', tip: 'A partir de la talla 4 los pañales tipo pants (braguita) son una buena opción cuando el bebé empieza a moverse mucho.' },
+  { size: '4+', label: 'Talla 4+',      kgMin: 9,   kgMax: 20,  age: '9–24 meses aprox.', tip: 'No todas las marcas tienen talla 4+. Si no la encuentras, la talla 5 es equivalente en muchas marcas.' },
+  { size: '5',  label: 'Talla 5',       kgMin: 11,  kgMax: 25,  age: '12–36 meses aprox.',tip: 'Con la talla 5 muchos bebés hacen el control de esfínteres. Los pañales-braguita facilitan la transición porque se suben y bajan solos.' },
   { size: '6',  label: 'Talla 6',       kgMin: 13,  kgMax: 35,  age: '+18 meses aprox.',  tip: 'La talla 6 suele usarse mientras dura el pañal. Algunas marcas tienen talla 7 para niños más grandes que aún los necesitan.' },
   { size: '7',  label: 'Talla 7',       kgMin: 17,  kgMax: 45,  age: '+2 años aprox.',    tip: 'Disponible en pocas marcas. Si tu bebé pesa más de 17 kg y sigue con pañal, busca pañales talla 6 XL o talla 7.' },
 ];
 
-// Brand-specific ranges. null = not available.
 const BRANDS = [
   {
-    name: 'Dodot',       sub: 'Activity Fit',
+    name: 'Dodot', sub: 'Activity Fit',
     sizes: [
-      { generic:'RN', size:'RN',  kgMin:0,  kgMax:3  },
-      { generic:'1',  size:'1',   kgMin:2,  kgMax:5  },
-      { generic:'2',  size:'2',   kgMin:3,  kgMax:6  },
-      { generic:'3',  size:'3',   kgMin:5,  kgMax:9  },
-      { generic:'4',  size:'4',   kgMin:8,  kgMax:16 },
-      { generic:'4+', size:'4+',  kgMin:9,  kgMax:20 },
-      { generic:'5',  size:'5',   kgMin:11, kgMax:25 },
-      { generic:'6',  size:'6',   kgMin:13, kgMax:35 },
-      { generic:'7',  size: null, kgMin:null,kgMax:null},
+      { generic:'RN', size:'RN',  kgMin:0,    kgMax:3    },
+      { generic:'1',  size:'1',   kgMin:2,    kgMax:5    },
+      { generic:'2',  size:'2',   kgMin:3,    kgMax:6    },
+      { generic:'3',  size:'3',   kgMin:5,    kgMax:9    },
+      { generic:'4',  size:'4',   kgMin:8,    kgMax:16   },
+      { generic:'4+', size:'4+',  kgMin:9,    kgMax:20   },
+      { generic:'5',  size:'5',   kgMin:11,   kgMax:25   },
+      { generic:'6',  size:'6',   kgMin:13,   kgMax:35   },
+      { generic:'7',  size:null,  kgMin:null, kgMax:null },
     ]
   },
   {
-    name: 'Pampers',     sub: 'Baby-Dry / Premium',
+    name: 'Pampers', sub: 'Baby-Dry / Premium',
     sizes: [
-      { generic:'RN', size:'RN', kgMin:0,  kgMax:3  },
-      { generic:'1',  size:'1',  kgMin:2,  kgMax:5  },
-      { generic:'2',  size:'2',  kgMin:3,  kgMax:6  },
-      { generic:'3',  size:'3',  kgMin:6,  kgMax:10 },
-      { generic:'4',  size:'4',  kgMin:9,  kgMax:14 },
-      { generic:'4+', size:'4+', kgMin:10, kgMax:15 },
-      { generic:'5',  size:'5',  kgMin:11, kgMax:23 },
-      { generic:'6',  size:'6',  kgMin:13, kgMax:25 },
-      { generic:'7',  size: null,kgMin:null,kgMax:null},
+      { generic:'RN', size:'RN',  kgMin:0,    kgMax:3    },
+      { generic:'1',  size:'1',   kgMin:2,    kgMax:5    },
+      { generic:'2',  size:'2',   kgMin:3,    kgMax:6    },
+      { generic:'3',  size:'3',   kgMin:6,    kgMax:10   },
+      { generic:'4',  size:'4',   kgMin:9,    kgMax:14   },
+      { generic:'4+', size:'4+',  kgMin:10,   kgMax:15   },
+      { generic:'5',  size:'5',   kgMin:11,   kgMax:23   },
+      { generic:'6',  size:'6',   kgMin:13,   kgMax:25   },
+      { generic:'7',  size:null,  kgMin:null, kgMax:null },
     ]
   },
   {
-    name: 'Huggies',     sub: 'Ultra Comfort',
+    name: 'Huggies', sub: 'Ultra Comfort',
     sizes: [
-      { generic:'RN', size:'RN', kgMin:0,  kgMax:3.5},
-      { generic:'1',  size:'1',  kgMin:2,  kgMax:5  },
-      { generic:'2',  size:'2',  kgMin:3,  kgMax:6  },
-      { generic:'3',  size:'3',  kgMin:4,  kgMax:9  },
-      { generic:'4',  size:'4',  kgMin:7,  kgMax:18 },
-      { generic:'4+', size: null,kgMin:null,kgMax:null},
-      { generic:'5',  size:'5',  kgMin:11, kgMax:25 },
-      { generic:'6',  size:'6',  kgMin:15, kgMax:30 },
-      { generic:'7',  size: null,kgMin:null,kgMax:null},
+      { generic:'RN', size:'RN',  kgMin:0,    kgMax:3.5  },
+      { generic:'1',  size:'1',   kgMin:2,    kgMax:5    },
+      { generic:'2',  size:'2',   kgMin:3,    kgMax:6    },
+      { generic:'3',  size:'3',   kgMin:4,    kgMax:9    },
+      { generic:'4',  size:'4',   kgMin:7,    kgMax:18   },
+      { generic:'4+', size:null,  kgMin:null, kgMax:null },
+      { generic:'5',  size:'5',   kgMin:11,   kgMax:25   },
+      { generic:'6',  size:'6',   kgMin:15,   kgMax:30   },
+      { generic:'7',  size:null,  kgMin:null, kgMax:null },
     ]
   },
   {
-    name: 'Lidl (Lupilu)',sub: 'Lidl / Lupilu',
+    name: 'Lidl (Lupilu)', sub: 'Lidl / Lupilu',
     sizes: [
-      { generic:'RN', size:'RN', kgMin:0,  kgMax:3  },
-      { generic:'1',  size:'1',  kgMin:2,  kgMax:5  },
-      { generic:'2',  size:'2',  kgMin:3,  kgMax:6  },
-      { generic:'3',  size:'3',  kgMin:4,  kgMax:9  },
-      { generic:'4',  size:'4',  kgMin:7,  kgMax:18 },
-      { generic:'4+', size:'4+', kgMin:9,  kgMax:20 },
-      { generic:'5',  size:'5',  kgMin:11, kgMax:25 },
-      { generic:'6',  size:'6',  kgMin:13, kgMax:30 },
-      { generic:'7',  size:'7',  kgMin:17, kgMax:45 },
+      { generic:'RN', size:'RN',  kgMin:0,    kgMax:3    },
+      { generic:'1',  size:'1',   kgMin:2,    kgMax:5    },
+      { generic:'2',  size:'2',   kgMin:3,    kgMax:6    },
+      { generic:'3',  size:'3',   kgMin:4,    kgMax:9    },
+      { generic:'4',  size:'4',   kgMin:7,    kgMax:18   },
+      { generic:'4+', size:'4+',  kgMin:9,    kgMax:20   },
+      { generic:'5',  size:'5',   kgMin:11,   kgMax:25   },
+      { generic:'6',  size:'6',   kgMin:13,   kgMax:30   },
+      { generic:'7',  size:'7',   kgMin:17,   kgMax:45   },
     ]
   },
   {
-    name: 'Mercadona',   sub: 'Hacendado',
+    name: 'Mercadona', sub: 'Hacendado',
     sizes: [
-      { generic:'RN', size:'RN', kgMin:0,  kgMax:3  },
-      { generic:'1',  size:'1',  kgMin:2,  kgMax:5  },
-      { generic:'2',  size:'2',  kgMin:3,  kgMax:6  },
-      { generic:'3',  size:'3',  kgMin:5,  kgMax:9  },
-      { generic:'4',  size:'4',  kgMin:8,  kgMax:16 },
-      { generic:'4+', size: null,kgMin:null,kgMax:null},
-      { generic:'5',  size:'5',  kgMin:11, kgMax:25 },
-      { generic:'6',  size:'6',  kgMin:13, kgMax:30 },
-      { generic:'7',  size: null,kgMin:null,kgMax:null},
+      { generic:'RN', size:'RN',  kgMin:0,    kgMax:3    },
+      { generic:'1',  size:'1',   kgMin:2,    kgMax:5    },
+      { generic:'2',  size:'2',   kgMin:3,    kgMax:6    },
+      { generic:'3',  size:'3',   kgMin:5,    kgMax:9    },
+      { generic:'4',  size:'4',   kgMin:8,    kgMax:16   },
+      { generic:'4+', size:null,  kgMin:null, kgMax:null },
+      { generic:'5',  size:'5',   kgMin:11,   kgMax:25   },
+      { generic:'6',  size:'6',   kgMin:13,   kgMax:30   },
+      { generic:'7',  size:null,  kgMin:null, kgMax:null },
     ]
   },
   {
-    name: 'Carrefour',   sub: 'Baby',
+    name: 'Carrefour', sub: 'Baby',
     sizes: [
-      { generic:'RN', size:'RN', kgMin:0,  kgMax:3  },
-      { generic:'1',  size:'1',  kgMin:2,  kgMax:5  },
-      { generic:'2',  size:'2',  kgMin:3,  kgMax:6  },
-      { generic:'3',  size:'3',  kgMin:4,  kgMax:9  },
-      { generic:'4',  size:'4',  kgMin:7,  kgMax:18 },
-      { generic:'4+', size: null,kgMin:null,kgMax:null},
-      { generic:'5',  size:'5',  kgMin:11, kgMax:25 },
-      { generic:'6',  size:'6',  kgMin:13, kgMax:30 },
-      { generic:'7',  size: null,kgMin:null,kgMax:null},
+      { generic:'RN', size:'RN',  kgMin:0,    kgMax:3    },
+      { generic:'1',  size:'1',   kgMin:2,    kgMax:5    },
+      { generic:'2',  size:'2',   kgMin:3,    kgMax:6    },
+      { generic:'3',  size:'3',   kgMin:4,    kgMax:9    },
+      { generic:'4',  size:'4',   kgMin:7,    kgMax:18   },
+      { generic:'4+', size:null,  kgMin:null, kgMax:null },
+      { generic:'5',  size:'5',   kgMin:11,   kgMax:25   },
+      { generic:'6',  size:'6',   kgMin:13,   kgMax:30   },
+      { generic:'7',  size:null,  kgMin:null, kgMax:null },
     ]
   },
 ];
@@ -352,7 +456,6 @@ let kgIdx = KG_VALUES.indexOf(7.0);
 
 // ── Find generic size for a given kg ─────────────────────────────
 function findGeneric(kg) {
-  // Return last generic that includes this weight
   let best = GENERIC[0];
   for (const g of GENERIC) {
     if (kg >= g.kgMin && kg <= g.kgMax) best = g;
@@ -382,7 +485,6 @@ function render() {
 
   const gen = findGeneric(kg);
 
-  // Size hero
   document.getElementById('main-size').textContent  = gen.size;
   document.getElementById('main-range').textContent = `${gen.kgMin}–${gen.kgMax} kg`;
   document.getElementById('main-age').textContent   = gen.age;
@@ -441,7 +543,6 @@ function render() {
     tr.classList.toggle('highlight-row', tr.dataset.size === gen.size);
   });
 
-  // Context note
   document.getElementById('context-note').innerHTML =
     `<strong>Consejo:</strong> Si tu bebé está entre dos tallas, elige <strong>la más grande</strong>. Un pañal muy justo fuga más y puede dejar marcas. El peso es la guía principal, pero también importa la forma del bebé — algunos tienen las piernas más gruesas aunque pesen poco.`;
 }
@@ -450,8 +551,8 @@ function render() {
 function buildRefTable() {
   const tbody = document.getElementById('ref-tbody');
   GENERIC.forEach(g => {
-    const dodot  = BRANDS[0].sizes.find(s => s.generic === g.size);
-    const pampers= BRANDS[1].sizes.find(s => s.generic === g.size);
+    const dodot   = BRANDS[0].sizes.find(s => s.generic === g.size);
+    const pampers = BRANDS[1].sizes.find(s => s.generic === g.size);
     const tr = document.createElement('tr');
     tr.dataset.size = g.size;
     tr.innerHTML = `
