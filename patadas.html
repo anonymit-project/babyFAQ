@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contador de patadas del bebé · babyFAQ</title>
-  <meta name="description" content="Cuenta los movimientos fetales de tu bebé con el método Cardiff. Registra 10 patadas y mide el tiempo. Herramienta orientativa para el tercer trimestre.">
-  <meta property="og:title" content="Contador de patadas del bebé · babyFAQ">
-  <meta property="og:description" content="Registra los movimientos de tu bebé con el método Cardiff. Cuenta 10 patadas y anota el tiempo. Gratis, sin app, desde el móvil.">
+  <title>Contador de patadas del bebé · Método Cardiff · babyFAQ</title>
+  <meta name="description" content="Cuenta los movimientos de tu bebé con el método Cardiff. Registra 10 patadas, mide el tiempo y guarda el historial. Herramienta gratuita para el embarazo.">
+  <meta property="og:title" content="Contador de patadas del bebé · Método Cardiff · babyFAQ">
+  <meta property="og:description" content="Cuenta los movimientos de tu bebé con el método Cardiff. Registra 10 patadas, mide el tiempo y guarda el historial. Herramienta gratuita para el embarazo.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://babyfaq.es/patadas.html">
   <meta name="theme-color" content="#fdf6ee">
+  <link rel="canonical" href="https://babyfaq.es/patadas.html">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
@@ -29,16 +27,24 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Contador de patadas del bebé",
-    "description": "Registra los movimientos fetales de tu bebé con el método Cardiff durante el tercer trimestre del embarazo.",
+    "name": "Contador de patadas del bebé · Método Cardiff",
+    "description": "Registra los movimientos fetales de tu bebé con el método Cardiff durante el tercer trimestre del embarazo. Cuenta 10 patadas y mide el tiempo transcurrido.",
     "url": "https://babyfaq.es/patadas.html",
     "applicationCategory": "HealthApplication",
-    "operatingSystem": "Web",
     "inLanguage": "es",
-    "isPartOf": { "@type": "WebSite", "url": "https://babyfaq.es" },
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "babyFAQ",
+      "url": "https://babyfaq.es"
+    }
   }
   </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -49,7 +55,6 @@
       --deep: #3d2b1f;
       --mid: #7a5c4e;
       --soft: #c4a898;
-      /* Rose accent for pregnancy/patadas */
       --rose: #b85c7a;
       --rose-light: #f2d4df;
       --rose-mid: #d4889f;
@@ -113,16 +118,15 @@
       align-items: center;
       gap: 6px;
       font-size: 13px;
-      color: var(--mid);
+      color: var(--soft);
       text-decoration: none;
       margin-bottom: 28px;
       transition: color 0.2s;
     }
-    .back-link:hover { color: var(--rose); }
-    .back-link svg { width: 14px; height: 14px; }
+    .back-link:hover { color: var(--terracota); }
 
     /* Header */
-    header { text-align: center; margin-bottom: 32px; }
+    header { text-align: center; margin-bottom: 32px; animation: fadeUp 0.5s ease both; }
 
     .badge {
       display: inline-block;
@@ -146,13 +150,7 @@
       color: var(--deep);
       margin-bottom: 12px;
     }
-    @media (min-width: 480px) { h1 { font-size: 34px; } }
-    @media (min-width: 640px) { h1 { font-size: 38px; } }
-
-    h1 em {
-      font-style: italic;
-      color: var(--rose);
-    }
+    h1 em { font-style: italic; color: var(--rose); }
 
     .subtitle {
       font-size: 13px;
@@ -160,8 +158,8 @@
       max-width: 340px;
       margin: 0 auto;
       line-height: 1.6;
+      text-align: justify;
     }
-    @media (min-width: 480px) { .subtitle { font-size: 14px; } }
 
     /* Card base */
     .card {
@@ -184,18 +182,13 @@
     }
 
     /* ── TAP BUTTON ── */
-    .tap-area {
-      text-align: center;
-      padding: 8px 0 4px;
-    }
+    .tap-area { text-align: center; padding: 8px 0 4px; }
 
     .tap-btn {
-      width: 160px;
-      height: 160px;
+      width: 160px; height: 160px;
       border-radius: 50%;
-      border: none;
-      background: var(--rose-light);
       border: 3px solid rgba(184, 92, 122, 0.2);
+      background: var(--rose-light);
       cursor: pointer;
       display: inline-flex;
       flex-direction: column;
@@ -218,28 +211,19 @@
       cursor: not-allowed;
       transform: none;
     }
-
     .tap-btn .btn-emoji {
-      font-size: 40px;
-      line-height: 1;
+      font-size: 40px; line-height: 1;
       display: block;
       transition: transform 0.15s;
     }
-    .tap-btn.tapped .btn-emoji {
-      transform: scale(1.25);
-    }
+    .tap-btn.tapped .btn-emoji { transform: scale(1.25); }
     .tap-btn .btn-label {
       font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 13px; font-weight: 600;
       color: var(--rose);
       letter-spacing: 0.02em;
     }
-    .tap-btn .btn-hint {
-      font-size: 10px;
-      color: var(--mid);
-      opacity: 0.7;
-    }
+    .tap-btn .btn-hint { font-size: 10px; color: var(--mid); opacity: 0.7; }
 
     /* Ripple */
     .tap-btn::after {
@@ -252,30 +236,17 @@
       transform: scale(0.9);
       transition: none;
     }
-    .tap-btn.tapped::after {
-      animation: ripple 0.4s ease-out forwards;
-    }
+    .tap-btn.tapped::after { animation: ripple 0.4s ease-out forwards; }
     @keyframes ripple {
       0%   { opacity: 0.6; transform: scale(0.9); }
       100% { opacity: 0;   transform: scale(1.15); }
     }
 
     /* Progress row */
-    .progress-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 20px;
-    }
-    .kick-dots {
-      display: flex;
-      gap: 6px;
-      flex: 1;
-      flex-wrap: wrap;
-    }
+    .progress-row { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
+    .kick-dots { display: flex; gap: 6px; flex: 1; flex-wrap: wrap; }
     .kick-dot {
-      width: 22px;
-      height: 22px;
+      width: 22px; height: 22px;
       border-radius: 50%;
       background: rgba(184, 92, 122, 0.12);
       border: 1.5px solid rgba(184, 92, 122, 0.2);
@@ -287,9 +258,7 @@
       border-color: var(--rose);
       transform: scale(1.12);
     }
-    .kick-dot.active:last-child {
-      animation: lastKick 0.35s ease;
-    }
+    .kick-dot.active:last-child { animation: lastKick 0.35s ease; }
     @keyframes lastKick {
       0%   { transform: scale(1.12); }
       50%  { transform: scale(1.45); }
@@ -298,68 +267,44 @@
 
     .kick-count-label {
       font-family: 'Fraunces', serif;
-      font-weight: 300;
-      font-size: 28px;
+      font-weight: 300; font-size: 28px;
       color: var(--rose);
-      min-width: 48px;
-      text-align: right;
+      min-width: 48px; text-align: right;
     }
-    .kick-count-label span {
-      font-size: 13px;
-      color: var(--soft);
-      font-family: 'DM Sans', sans-serif;
-    }
+    .kick-count-label span { font-size: 13px; color: var(--soft); font-family: 'DM Sans', sans-serif; }
 
     /* Timer */
     .timer-row {
-      display: flex;
-      justify-content: center;
-      align-items: baseline;
-      gap: 6px;
-      margin-top: 16px;
+      display: flex; justify-content: center;
+      align-items: baseline; gap: 6px; margin-top: 16px;
     }
     .timer-display {
       font-family: 'Fraunces', serif;
-      font-weight: 300;
-      font-size: 38px;
-      color: var(--deep);
-      letter-spacing: 0.02em;
-      line-height: 1;
+      font-weight: 300; font-size: 38px;
+      color: var(--deep); letter-spacing: 0.02em; line-height: 1;
     }
     .timer-label {
-      font-size: 11px;
-      color: var(--soft);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      font-size: 11px; color: var(--soft);
+      text-transform: uppercase; letter-spacing: 0.1em;
     }
 
     /* Controls */
-    .controls {
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
-    }
+    .controls { display: flex; gap: 10px; margin-top: 20px; }
     .btn-secondary {
-      flex: 1;
-      padding: 11px 16px;
+      flex: 1; padding: 11px 16px;
       border-radius: 12px;
       border: 1.5px solid rgba(184, 92, 122, 0.25);
       background: transparent;
       color: var(--rose);
       font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
+      font-size: 13px; font-weight: 500;
       cursor: pointer;
       transition: background 0.15s, transform 0.1s;
       -webkit-tap-highlight-color: transparent;
     }
     .btn-secondary:active { transform: scale(0.97); }
     .btn-secondary:hover { background: var(--rose-light); }
-    .btn-primary {
-      background: var(--rose);
-      color: white;
-      border-color: var(--rose);
-    }
+    .btn-primary { background: var(--rose); color: white; border-color: var(--rose); }
     .btn-primary:hover { background: #a04d6b; }
 
     /* Result card */
@@ -368,157 +313,171 @@
       border-radius: 20px;
       box-shadow: 0 2px 16px rgba(184, 92, 122, 0.12);
       border: 1px solid rgba(184, 92, 122, 0.2);
-      padding: 24px;
-      margin-bottom: 16px;
-      text-align: center;
-      display: none;
+      padding: 24px; margin-bottom: 16px;
+      text-align: center; display: none;
     }
-    .result-card.visible {
-      display: block;
-      animation: fadeUp 0.4s ease forwards;
-    }
+    .result-card.visible { display: block; animation: fadeUp 0.4s ease forwards; }
     .result-emoji { font-size: 36px; margin-bottom: 8px; }
     .result-title {
       font-family: 'Fraunces', serif;
-      font-weight: 300;
-      font-size: 20px;
-      color: var(--deep);
-      margin-bottom: 6px;
+      font-weight: 300; font-size: 20px;
+      color: var(--deep); margin-bottom: 6px;
     }
     .result-time {
       font-family: 'Fraunces', serif;
-      font-size: 42px;
-      font-weight: 300;
-      color: var(--rose);
-      line-height: 1.1;
-      margin-bottom: 4px;
+      font-size: 42px; font-weight: 300;
+      color: var(--rose); line-height: 1.1; margin-bottom: 4px;
     }
     .result-time-label { font-size: 12px; color: var(--soft); margin-bottom: 16px; }
     .result-tag {
-      display: inline-block;
-      padding: 5px 14px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
+      display: inline-block; padding: 5px 14px;
+      border-radius: 20px; font-size: 12px; font-weight: 500;
     }
-    .result-tag.good { background: #e8f7ee; color: #2d7a4f; }
-    .result-tag.warn { background: #fff4e0; color: #b06a00; }
+    .result-tag.good  { background: #e8f7ee; color: #2d7a4f; }
+    .result-tag.warn  { background: #fff4e0; color: #b06a00; }
     .result-tag.alert { background: #fde8e8; color: #a02020; }
 
     /* History */
     .history-list { display: flex; flex-direction: column; gap: 10px; }
     .history-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      display: flex; align-items: center; gap: 12px;
       padding: 12px 14px;
       background: var(--cream);
       border-radius: 12px;
       border: 1px solid rgba(196, 168, 152, 0.2);
       animation: fadeUp 0.3s ease forwards;
     }
-    .history-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--rose-mid);
-      flex-shrink: 0;
-    }
+    .history-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--rose-mid); flex-shrink: 0; }
     .history-dot.slow { background: #e8a640; }
     .history-dot.fast { background: #52a87a; }
     .history-info { flex: 1; }
-    .history-date { font-size: 11px; color: var(--soft); }
     .history-kicks { font-size: 13px; font-weight: 500; color: var(--deep); }
-    .history-time {
-      font-family: 'Fraunces', serif;
-      font-weight: 300;
-      font-size: 18px;
-      color: var(--mid);
-    }
-    .no-history {
-      font-size: 13px;
-      color: var(--soft);
-      text-align: center;
-      padding: 8px 0;
-    }
+    .history-time { font-family: 'Fraunces', serif; font-weight: 300; font-size: 18px; color: var(--mid); }
+    .no-history { font-size: 13px; color: var(--soft); text-align: center; padding: 8px 0; }
 
-    /* Context note */
+    /* Context note (expandable tip) */
     .context-note {
       background: var(--cream);
       border-radius: 16px;
       border: 1px solid rgba(196, 168, 152, 0.3);
-      padding: 20px;
-      margin-bottom: 16px;
-    }
-    .context-note-title {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--deep);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      padding: 20px; margin-bottom: 16px;
     }
     .context-note p {
-      font-size: 13px;
-      color: var(--mid);
-      line-height: 1.65;
-      margin-bottom: 8px;
+      font-size: 13px; color: var(--mid);
+      line-height: 1.65; margin-bottom: 8px;
+      text-align: justify;
     }
     .context-note p:last-child { margin-bottom: 0; }
-
-    /* Expandable */
     .expand-toggle {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
+      width: 100%; background: none; border: none; padding: 0;
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; -webkit-tap-highlight-color: transparent;
     }
     .expand-toggle:hover .expand-label { color: var(--rose); }
-    .expand-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--deep);
-      transition: color 0.2s;
-    }
-    .expand-chevron {
-      width: 18px; height: 18px;
-      color: var(--soft);
-      transition: transform 0.25s;
-    }
-    .expand-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease;
-    }
-    .expand-body.open { max-height: 400px; }
+    .expand-label { font-size: 13px; font-weight: 600; color: var(--deep); transition: color 0.2s; }
+    .expand-chevron { width: 18px; height: 18px; color: var(--soft); transition: transform 0.25s; }
+    .expand-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .expand-body.open { max-height: 600px; }
     .expand-content { padding-top: 12px; }
+
+    /* ── Info sections ── */
+    .info-section { margin-top: 40px; padding-top: 8px; border-top: 1px solid rgba(196, 152, 120, 0.25); }
+
+    .info-card {
+      background: var(--warm-white);
+      border-radius: 20px; padding: 24px 20px; margin-bottom: 16px;
+      box-shadow: 0 2px 20px rgba(45, 26, 14, 0.06);
+      border: 1px solid rgba(196, 152, 120, 0.2);
+    }
+    .info-card h2 {
+      font-family: 'Fraunces', serif; font-weight: 400;
+      font-size: 20px; color: var(--deep); margin-bottom: 14px; line-height: 1.3;
+    }
+    .info-card h3 {
+      font-family: 'Fraunces', serif; font-weight: 400;
+      font-size: 16px; color: var(--deep);
+      margin-bottom: 8px; margin-top: 20px; line-height: 1.3;
+    }
+    .info-card h3:first-of-type { margin-top: 0; }
+    .info-card p {
+      font-size: 14px; color: var(--mid);
+      line-height: 1.7; margin-bottom: 12px;
+      font-weight: 300; text-align: justify;
+    }
+    .info-card p:last-child { margin-bottom: 0; }
+    .info-card strong { color: var(--deep); font-weight: 500; }
+
+    /* Tabla */
+    .seo-table-wrap { overflow-x: auto; margin: 14px 0 4px; border-radius: 12px; }
+    .seo-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .seo-table thead th {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--soft);
+      padding: 8px 10px; text-align: left;
+      border-bottom: 1px solid rgba(196, 152, 120, 0.3);
+      background: var(--cream);
+    }
+    .seo-table tbody td {
+      padding: 8px 10px; font-size: 13px;
+      color: var(--mid); border-bottom: 1px solid rgba(196, 152, 120, 0.12);
+      vertical-align: top;
+    }
+    .seo-table tbody td:first-child { font-weight: 500; color: var(--deep); white-space: nowrap; }
+    .seo-table tbody tr:last-child td { border-bottom: none; }
+
+    /* Sources */
+    .sources-card {
+      background: var(--warm-white); border-radius: 20px;
+      padding: 20px; margin-bottom: 16px;
+      box-shadow: 0 2px 20px rgba(45, 26, 14, 0.06);
+      border: 1px solid rgba(196, 152, 120, 0.2);
+    }
+    .sources-card h2 {
+      font-family: 'Fraunces', serif; font-weight: 400;
+      font-size: 17px; color: var(--deep); margin-bottom: 12px;
+    }
+    .sources-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .sources-list li { font-size: 13px; color: var(--mid); }
+    .sources-list a { color: var(--terracota); text-decoration: none; font-weight: 500; transition: opacity 0.2s; }
+    .sources-list a:hover { opacity: 0.75; }
 
     /* Disclaimer */
     .disclaimer {
-      font-size: 11px;
-      color: var(--soft);
-      line-height: 1.6;
-      text-align: center;
-      padding: 0 8px;
+      font-size: 11px; color: var(--soft);
+      line-height: 1.6; text-align: center; padding: 0 8px;
     }
-    .disclaimer a { color: var(--mid); }
 
     /* Animations */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(8px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
-    /* Stagger header */
-    header { animation: fadeUp 0.5s ease both; }
     .card:nth-child(2) { animation: fadeUp 0.5s 0.05s ease both; }
-    .card:nth-child(3) { animation: fadeUp 0.5s 0.1s  ease both; }
+    .card:nth-child(3) { animation: fadeUp 0.5s 0.1s ease both; }
     .context-note      { animation: fadeUp 0.5s 0.15s ease both; }
+
+    /* ── h1 responsive ── */
+    @media (min-width: 480px) {
+      h1 { font-size: 34px; }
+      .subtitle { font-size: 14px; }
+    }
+    @media (min-width: 640px) { h1 { font-size: 38px; } }
+
+    /* ── Desktop layout ── */
+    @media (min-width: 640px) {
+      .container { max-width: 860px; padding: 48px 40px 80px; }
+      .blob-1 { width: 260px; height: 260px; top: -60px; right: 0; opacity: 0.28; }
+      .blob-2 { width: 200px; height: 200px; bottom: -30px; left: 0; opacity: 0.20; }
+      .page-grid {
+        display: grid;
+        grid-template-columns: 380px 1fr;
+        gap: 28px;
+        align-items: start;
+      }
+      .sticky-col { position: sticky; top: 28px; }
+      .subtitle { max-width: 480px; }
+      .info-card h2 { font-size: 22px; }
+    }
   </style>
 </head>
 <body>
@@ -527,89 +486,178 @@
 
   <div class="container">
 
-    <!-- Back link -->
-    <a href="index.html" class="back-link">
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M10 12L6 8l4-4"/>
-      </svg>
-      Volver al inicio
-    </a>
+    <a href="/" class="back-link">← Volver al inicio</a>
 
     <!-- Header -->
     <header>
       <div class="badge">🤰 Embarazo · Tercer trimestre</div>
-      <h1>Cuenta las <em>patadas</em><br>de tu bebé</h1>
-      <p class="subtitle">Método Cardiff: registra cuánto tarda tu bebé en hacer 10 movimientos. Una rutina diaria de tranquilidad.</p>
+      <h1>Cuenta las <em>patadas</em> de tu bebé</h1>
+      <p class="subtitle">Método Cardiff: registra cuánto tarda tu bebé en hacer 10 movimientos. Una rutina diaria de tranquilidad durante el embarazo.</p>
     </header>
 
-    <!-- Main counter card -->
-    <div class="card" id="counterCard">
-      <div class="section-label">Sesión activa</div>
+    <div class="page-grid">
+      <div class="left-col">
 
-      <div class="tap-area">
-        <button class="tap-btn" id="tapBtn" aria-label="Registrar patada">
-          <span class="btn-emoji">👶</span>
-          <span class="btn-label">¡Patada!</span>
-          <span class="btn-hint">Toca cada movimiento</span>
-        </button>
-      </div>
+        <!-- Main counter card -->
+        <div class="card" id="counterCard">
+          <div class="section-label">Sesión activa</div>
 
-      <div class="progress-row">
-        <div class="kick-dots" id="kickDots" aria-label="Progreso de movimientos"></div>
-        <div class="kick-count-label" id="kickCountLabel">0<span>/10</span></div>
-      </div>
+          <div class="tap-area">
+            <button class="tap-btn" id="tapBtn" aria-label="Registrar movimiento del bebé">
+              <span class="btn-emoji">👶</span>
+              <span class="btn-label">¡Patada!</span>
+              <span class="btn-hint">Toca cada movimiento</span>
+            </button>
+          </div>
 
-      <div class="timer-row">
-        <div>
-          <div class="timer-display" id="timerDisplay">00:00</div>
-          <div class="timer-label" style="text-align:center">tiempo transcurrido</div>
+          <div class="progress-row">
+            <div class="kick-dots" id="kickDots" aria-label="Progreso de movimientos registrados"></div>
+            <div class="kick-count-label" id="kickCountLabel" aria-live="polite">0<span>/10</span></div>
+          </div>
+
+          <div class="timer-row">
+            <div>
+              <div class="timer-display" id="timerDisplay" aria-label="Tiempo transcurrido">00:00</div>
+              <div class="timer-label" style="text-align:center">tiempo transcurrido</div>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button class="btn-secondary" id="undoBtn" onclick="undoKick()" disabled aria-label="Deshacer último movimiento registrado">↩ Deshacer</button>
+            <button class="btn-secondary btn-primary" id="resetBtn" onclick="resetSession()" aria-label="Iniciar una nueva sesión de conteo">Nueva sesión</button>
+          </div>
         </div>
-      </div>
 
-      <div class="controls">
-        <button class="btn-secondary" id="undoBtn" onclick="undoKick()" disabled>↩ Deshacer</button>
-        <button class="btn-secondary btn-primary" id="resetBtn" onclick="resetSession()">Nueva sesión</button>
-      </div>
-    </div>
-
-    <!-- Result card -->
-    <div class="result-card" id="resultCard" role="status" aria-live="polite">
-      <div class="result-emoji" id="resultEmoji">🎉</div>
-      <div class="result-title">¡10 movimientos registrados!</div>
-      <div class="result-time" id="resultTime">--:--</div>
-      <div class="result-time-label">minutos en completar 10 patadas</div>
-      <div class="result-tag" id="resultTag">Evaluando...</div>
-    </div>
-
-    <!-- History card -->
-    <div class="card" id="historyCard">
-      <div class="section-label">Historial reciente</div>
-      <div class="history-list" id="historyList">
-        <p class="no-history">Aún no hay sesiones guardadas. ¡Empieza la primera!</p>
-      </div>
-    </div>
-
-    <!-- Context note -->
-    <div class="context-note">
-      <button class="expand-toggle" onclick="toggleExpand(this)" aria-expanded="false">
-        <span class="expand-label">💡 ¿Cómo y cuándo contar patadas?</span>
-        <svg class="expand-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 6l4 4 4-4"/>
-        </svg>
-      </button>
-      <div class="expand-body">
-        <div class="expand-content">
-          <p><strong>¿Cuándo empezar?</strong> A partir de la semana 28 (o antes si tu matrona lo indica). Hazlo una vez al día, a la misma hora —tras comer o por la noche el bebé suele estar más activo.</p>
-          <p><strong>¿Qué cuenta como movimiento?</strong> Patadas, giros, empujones o golpes. El hipo <em>no</em> cuenta porque es involuntario.</p>
-          <p><strong>Método Cardiff:</strong> Tumbada de lado izquierdo, anota la hora y empieza a contar. Cuando llegues a 10 movimientos, para el cronómetro. Lo normal es alcanzarlos en menos de 2 horas.</p>
-          <p><strong>¿Cuándo llamar a tu matrona?</strong> Si en 2 horas no llegas a 10 movimientos, si notas una bajada significativa respecto a días anteriores, o si simplemente tienes la sensación de que el bebé se mueve menos de lo habitual. No esperes, llama.</p>
+        <!-- Context note (expandable) -->
+        <div class="context-note">
+          <button class="expand-toggle" onclick="toggleExpand(this)" aria-expanded="false" aria-label="Abrir instrucciones sobre cómo y cuándo contar patadas">
+            <span class="expand-label">💡 ¿Cómo y cuándo contar patadas?</span>
+            <svg class="expand-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 6l4 4 4-4"/>
+            </svg>
+          </button>
+          <div class="expand-body">
+            <div class="expand-content">
+              <p><strong>¿Cuándo empezar?</strong> A partir de la semana 28 (o antes si tu matrona lo indica). Hazlo una vez al día, a la misma hora —tras comer o por la noche el bebé suele estar más activo.</p>
+              <p><strong>¿Qué cuenta como movimiento?</strong> Patadas, giros, empujones o golpes. El hipo no cuenta porque es involuntario.</p>
+              <p><strong>Método Cardiff:</strong> Tumbada de lado izquierdo, anota la hora y empieza a contar. Cuando llegues a 10 movimientos, para el cronómetro. Lo normal es alcanzarlos en menos de 2 horas.</p>
+              <p><strong>¿Cuándo llamar a tu matrona?</strong> Si en 2 horas no llegas a 10 movimientos, si notas una bajada significativa respecto a días anteriores, o si simplemente tienes la sensación de que el bebé se mueve menos de lo habitual. No esperes, llama.</p>
+            </div>
+          </div>
         </div>
+
+      </div><!-- /left-col -->
+
+      <div class="sticky-col">
+
+        <!-- Result card -->
+        <div class="result-card" id="resultCard" role="status" aria-live="polite">
+          <div class="result-emoji" id="resultEmoji">🎉</div>
+          <div class="result-title">¡10 movimientos registrados!</div>
+          <div class="result-time" id="resultTime">--:--</div>
+          <div class="result-time-label">tiempo en completar 10 movimientos</div>
+          <div class="result-tag" id="resultTag">Evaluando...</div>
+        </div>
+
+        <!-- History card -->
+        <div class="card" id="historyCard">
+          <div class="section-label">Historial reciente</div>
+          <div class="history-list" id="historyList">
+            <p class="no-history">Aún no hay sesiones guardadas. ¡Empieza la primera!</p>
+          </div>
+        </div>
+
+      </div><!-- /sticky-col -->
+    </div><!-- /page-grid -->
+
+    <!-- ═══════════════════════════════════════
+         SECCIÓN INFORMATIVA
+         ═══════════════════════════════════════ -->
+    <div class="info-section">
+
+      <!-- Card 1: Qué es el método Cardiff -->
+      <div class="info-card">
+        <h2>¿Qué es el método Cardiff de conteo de movimientos?</h2>
+        <p>
+          El método Cardiff, también llamado «cuenta hasta diez», es la técnica de monitorización fetal más extendida para el tercer trimestre del embarazo. Fue desarrollado en Cardiff (Gales) en los años 70 y consiste en registrar el tiempo que tarda el bebé en realizar 10 movimientos perceptibles: patadas, giros, empujones o golpes. El objetivo no es contar muchos movimientos, sino detectar patrones y posibles cambios en la actividad habitual del bebé.
+        </p>
+        <p>
+          A diferencia de otros métodos que fijan un periodo de tiempo (por ejemplo, contar cuántos movimientos hay en una hora), el Cardiff mide cuánto tiempo necesita el bebé para alcanzar 10 movimientos. Si los completa en menos de 2 horas, se considera que la actividad es normal. Si supera ese umbral, se recomienda contactar con el equipo médico.
+        </p>
+        <p>
+          La rutina diaria de conteo ayuda a las madres a familiarizarse con el patrón de actividad de su bebé, lo que facilita detectar cualquier cambio llamativo. No se trata de una prueba diagnóstica definitiva, sino de un hábito de observación que, practicado con regularidad, puede dar información valiosa.
+        </p>
       </div>
+
+      <!-- Card 2: Cuándo y cómo contar -->
+      <div class="info-card">
+        <h2>¿Cuándo y cómo hacer el conteo correctamente?</h2>
+        <p>
+          El momento ideal para contar movimientos es después de una comida o por la tarde-noche, cuando el bebé suele estar más activo. Busca un momento tranquilo, siéntate o túmbate de lado (preferiblemente el izquierdo, para mejorar la circulación), y empieza a contar en cuanto notes el primer movimiento.
+        </p>
+        <h3>¿Qué cuenta como movimiento fetal?</h3>
+        <p>
+          Cuentan las patadas, los golpes, los empujones y los giros. Una racha de movimientos seguidos (por ejemplo, tres patadas rápidas) puede contarse como un solo movimiento o como varios, dependiendo del criterio de tu matrona. Lo importante es ser consistente de un día a otro. El hipo fetal, aunque es perceptible, <strong>no cuenta</strong> porque es un reflejo involuntario y no indica actividad voluntaria del bebé.
+        </p>
+        <h3>Tabla de referencia por tiempo</h3>
+        <div class="seo-table-wrap">
+          <table class="seo-table">
+            <thead>
+              <tr><th>Tiempo para 10 movimientos</th><th>Interpretación</th><th>Qué hacer</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Menos de 30 minutos</td><td>Bebé muy activo</td><td>Todo bien, sigue con tu rutina</td></tr>
+              <tr><td>30 min – 2 horas</td><td>Actividad normal</td><td>Todo bien, repite mañana</td></tr>
+              <tr><td>Más de 2 horas</td><td>Actividad reducida</td><td>Llama a tu matrona o ginecólogo</td></tr>
+              <tr><td>Sin 10 movimientos en 2 h</td><td>Posible reducción</td><td>Consulta médica sin esperar</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:12px">
+          Recuerda que los bebés tienen ciclos de sueño-vigilia de entre 20 y 40 minutos. Si llevas un rato sin sentir nada, espera un poco, toma algo dulce o cambia de posición. Si sigue sin moverse, contacta con tu equipo médico.
+        </p>
+      </div>
+
+      <!-- Card 3: Preguntas frecuentes -->
+      <div class="info-card">
+        <h2>Preguntas frecuentes sobre los movimientos del bebé</h2>
+
+        <h3>¿A partir de qué semana se sienten las patadas?</h3>
+        <p>
+          La mayoría de madres primerizas empiezan a notar movimientos entre las semanas 18 y 22 de gestación, aunque en embarazos previos puede sentirse antes, desde la semana 16. Al principio los movimientos son suaves y pueden confundirse con gases. A medida que avanza el embarazo se vuelven más reconocibles e intensos. El conteo sistemático con el método Cardiff suele comenzar a partir de la semana 28.
+        </p>
+
+        <h3>¿Es normal que el bebé tenga días más tranquilos?</h3>
+        <p>
+          Es habitual que la actividad varíe de un día a otro. Sin embargo, <strong>nunca debes normalizar una disminución brusca y prolongada</strong> de los movimientos. Si notas que hoy el bebé se mueve claramente menos que ayer o que los últimos días, y no completa los 10 movimientos en 2 horas, llama a tu matrona. Es mejor consultar y que todo esté bien que esperar. El equipo médico nunca considera estas consultas una molestia.
+        </p>
+
+        <h3>¿Los movimientos disminuyen al final del embarazo?</h3>
+        <p>
+          Es un mito muy extendido que el bebé se mueve menos al acercarse la fecha de parto porque «ya no tiene sitio». Lo que puede cambiar es el tipo de movimiento (más estiramientos, menos patadas vigorosas), pero la <strong>frecuencia no debería reducirse significativamente</strong>. Cualquier disminución notable en las últimas semanas merece una consulta inmediata con el ginecólogo o la matrona.
+        </p>
+
+        <h3>¿El estrés o el ruido afectan a los movimientos del bebé?</h3>
+        <p>
+          Sí. El bebé puede reaccionar a sonidos, a cambios de postura, a la luz intensa o a estados emocionales de la madre. Es normal que tras un susto o un momento de tensión el bebé dé un salto o se mueva más. Algunos bebés también se activan al escuchar la voz de sus padres. Sin embargo, si el bebé habitualmente activo de repente no reacciona a ningún estímulo, consulta con tu equipo médico.
+        </p>
+      </div>
+
+    </div><!-- /info-section -->
+
+    <!-- Fuentes consultadas -->
+    <div class="sources-card">
+      <h2>📚 Fuentes consultadas</h2>
+      <ul class="sources-list">
+        <li>📚 <a href="https://www.rcog.org.uk" target="_blank" rel="noopener">Royal College of Obstetricians and Gynaecologists (RCOG)</a> — guía sobre movimientos fetales reducidos</li>
+        <li>📚 <a href="https://www.sego.es" target="_blank" rel="noopener">Sociedad Española de Ginecología y Obstetricia (SEGO)</a> — protocolos de bienestar fetal</li>
+        <li>📚 <a href="https://www.aeped.es" target="_blank" rel="noopener">Asociación Española de Pediatría (AEP)</a> — seguimiento del embarazo y monitorización fetal</li>
+        <li>📚 <a href="https://www.who.int/es" target="_blank" rel="noopener">Organización Mundial de la Salud (OMS)</a> — recomendaciones para una atención prenatal positiva</li>
+      </ul>
     </div>
 
-    <!-- Disclaimer -->
     <p class="disclaimer">
-      Basado en el método Cardiff de monitorización de movimientos fetales (RCOG, SEGO). Esta herramienta es orientativa y no sustituye el seguimiento de tu matrona o ginecólogo. Ante cualquier duda, consulta siempre a tu equipo médico.
+      Basado en el método Cardiff de monitorización de movimientos fetales (RCOG, SEGO). Esta herramienta es orientativa y no sustituye el seguimiento de tu matrona o ginecólogo. Ante cualquier duda sobre los movimientos de tu bebé, consulta siempre a tu equipo médico sin esperar.
     </p>
 
   </div><!-- /container -->
@@ -676,7 +724,6 @@
       if (kicks === 0) startTimer();
       kicks = Math.min(kicks + 1, 10);
 
-      // Animate button
       tapBtn.classList.add('tapped');
       setTimeout(() => tapBtn.classList.remove('tapped'), 300);
 
@@ -780,7 +827,9 @@
         const totalMin = s.ms / 60000;
         const m = Math.floor(totalMin);
         const sec = Math.round((totalMin - m) * 60);
-        const timeStr = m > 0 ? `${m}m ${sec.toString().padStart(2,'0')}s` : `${Math.round(s.ms/1000)}s`;
+        const timeStr = m > 0
+          ? `${m}m ${sec.toString().padStart(2,'0')}s`
+          : `${Math.round(s.ms/1000)}s`;
 
         const date = new Date(s.ts);
         const dateStr = date.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short' });
