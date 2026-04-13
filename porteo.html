@@ -1,28 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<title>Porteo del bebé · Tipos, posiciones seguras y reglas TICKS · babyFAQ</title>
-<meta name="description" content="Guía completa de porteo para bebés. Tipos de portabebés, reglas de seguridad TICKS, posiciones correctas, desde cuándo portear y cómo elegir el portabebés adecuado.">
-<meta property="og:title" content="Porteo del bebé · Guía completa · babyFAQ">
-<meta property="og:description" content="Todo sobre portear a tu bebé: reglas TICKS de seguridad, tipos de portabebés, posiciones y desde cuándo empezar. Guía basada en recomendaciones actuales.">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#f5f0f8">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Porteo del bebé · Tipos, posiciones seguras y reglas TICKS · babyFAQ</title>
+<meta name="description" content="Guía completa de porteo: tipos de portabebés, reglas TICKS de seguridad, posición en M y desde cuándo empezar. Elige el portabebés adecuado para tu bebé.">
+<meta property="og:title" content="Porteo del bebé · Guía completa · babyFAQ">
+<meta property="og:description" content="Todo sobre portear a tu bebé: reglas TICKS de seguridad, tipos de portabebés, posición en M y desde cuándo empezar. Guía basada en recomendaciones actuales.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fdf6ee">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://babyfaq.es/porteo.html">
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Guía de porteo seguro · babyFAQ",
+  "description": "Guía interactiva de porteo para bebés: tipos de portabebés, reglas TICKS de seguridad, posición en M y desde cuándo empezar a portear.",
+  "url": "https://babyfaq.es/porteo.html",
+  "applicationCategory": "HealthApplication",
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "babyFAQ"
+  }
+}
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+
 <style>
   :root {
-    --cream: #f5f0f8;
-    --warm-white: #fdfbff;
-    --purple: #7a4aaa;
-    --purple-soft: #d4b8f0;
-    --deep: #2a1a3d;
-    --mid: #5a3a7a;
-    --soft: #a888c4;
-    --purple-bg: #ede8f8;
-    --purple-border: #c4b0e8;
+    --cream: #fdf6ee;
+    --warm-white: #fffcf8;
+    --terracota: #c97a5e;
+    --blush: #f2c4b0;
+    --peach-bg: #fdf0e8;
+    --peach-border: #f2c4b0;
+    --deep: #2d1a0e;
+    --mid: #8a6858;
+    --soft: #c4a090;
     --green: #3a7a5a;
     --green-bg: #edf5f0;
     --green-border: #a8d8c0;
@@ -32,116 +59,246 @@
     --red: #a83030;
     --red-bg: #fdf0f0;
     --red-border: #f0a8a8;
-    --blue: #3a6aaa;
-    --blue-bg: #eef3fc;
-    --blue-border: #a8c0e8;
-    --terracota: #c97a5e;
-    --blush: #f2c4b0;
-    --peach-bg: #fdf0e8;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
 
-  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  body {
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--deep);
+    min-height: 100vh;
+  }
+
+  /* ── Decorative ── */
+  .noise {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
   .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
-  .blob-1 { width: 300px; height: 300px; background: #c8a8f0; top: -100px; right: -80px; opacity: 0.3; }
-  .blob-2 { width: 250px; height: 250px; background: #a8c8f0; bottom: -80px; left: -60px; opacity: 0.25; }
+  .blob-1 { width: 300px; height: 300px; background: #f2c4b0; top: -100px; right: -80px; opacity: 0.35; }
+  .blob-2 { width: 250px; height: 250px; background: #fde8d0; bottom: -80px; left: -60px; opacity: 0.3; }
 
-  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 24px 60px; }
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.5s ease both; }
+  header.fade-up  { animation-delay: 0.05s; }
+  .card.fade-up:nth-of-type(2)  { animation-delay: 0.10s; }
+  .card.fade-up:nth-of-type(3)  { animation-delay: 0.15s; }
+  .card.fade-up:nth-of-type(4)  { animation-delay: 0.18s; }
+  .card.fade-up:nth-of-type(5)  { animation-delay: 0.21s; }
+  .mposition-card.fade-up { animation-delay: 0.13s; }
+  .info-section.fade-up   { animation-delay: 0.22s; }
+  .fuentes.fade-up        { animation-delay: 0.25s; }
 
-  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
-  .back-link:hover { color: var(--purple); }
+  /* ── Container ── */
+  .container {
+    position: relative; z-index: 1;
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+  }
 
+  /* ── Back link ── */
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--soft); text-decoration: none;
+    margin-bottom: 32px; transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--terracota); }
+
+  /* ── Header ── */
   header { text-align: center; margin-bottom: 28px; }
-  .badge { display: inline-block; background: var(--purple-bg); color: var(--purple); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
-  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
+  .badge {
+    display: inline-block; background: var(--peach-bg); color: var(--terracota);
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 20px; margin-bottom: 14px;
+    border: 1px solid var(--peach-border);
+  }
+  h1 {
+    font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px;
+    line-height: 1.2; color: var(--deep); margin-bottom: 8px;
+  }
   @media (min-width: 480px) { h1 { font-size: 34px; } }
   @media (min-width: 640px) { h1 { font-size: 38px; } }
-  h1 em { font-style: italic; color: var(--purple); }
-  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300; }
+  h1 em { font-style: italic; color: var(--terracota); }
+  .subtitle {
+    font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300;
+    text-align: justify;
+  }
 
-  .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(42,26,61,0.07); border: 1px solid rgba(168,136,196,0.22); }
-  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 12px; }
+  /* ── Cards ── */
+  .card {
+    background: var(--warm-white); border-radius: 20px; padding: 22px 18px;
+    margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,26,14,0.07);
+    border: 1px solid rgba(196,160,144,0.25);
+  }
+  .section-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--soft); margin-bottom: 12px;
+  }
 
   /* ── TICKS ── */
   .ticks-grid { display: flex; flex-direction: column; gap: 8px; }
-  .tick-item { display: flex; align-items: flex-start; gap: 12px; background: var(--purple-bg); border: 1px solid var(--purple-border); border-radius: 14px; padding: 13px 14px; }
-  .tick-letter { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; color: var(--purple); flex-shrink: 0; line-height: 1; width: 32px; text-align: center; }
+  .tick-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: var(--peach-bg); border: 1px solid var(--peach-border);
+    border-radius: 14px; padding: 13px 14px;
+  }
+  .tick-letter {
+    font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400;
+    color: var(--terracota); flex-shrink: 0; line-height: 1; width: 32px; text-align: center;
+  }
   .tick-body { flex: 1; }
   .tick-title { font-size: 13px; font-weight: 600; color: var(--deep); margin-bottom: 3px; }
-  .tick-desc  { font-size: 12px; color: var(--mid); line-height: 1.6; }
+  .tick-desc  { font-size: 12px; color: var(--mid); line-height: 1.6; text-align: justify; }
 
   /* ── Tipos selector ── */
   .types-list { display: flex; flex-direction: column; gap: 8px; }
-  .type-item { border-radius: 16px; border: 2px solid transparent; overflow: hidden; cursor: pointer; background: var(--warm-white); box-shadow: 0 1px 8px rgba(42,26,61,0.06); }
-  .type-item.active { border-color: var(--purple); }
-  .type-header { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--warm-white); user-select: none; touch-action: manipulation; }
-  .type-item.active .type-header { background: var(--purple-bg); }
-  .type-emoji { font-size: 26px; flex-shrink: 0; }
-  .type-info  { flex: 1; }
-  .type-name  { font-size: 14px; font-weight: 500; color: var(--deep); }
-  .type-tag   { font-size: 11px; color: var(--soft); margin-top: 2px; }
+  .type-item {
+    border-radius: 16px; border: 2px solid transparent; overflow: hidden;
+    cursor: pointer; background: var(--warm-white);
+    box-shadow: 0 1px 8px rgba(45,26,14,0.06);
+  }
+  .type-item.active { border-color: var(--terracota); }
+  .type-header {
+    display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+    background: var(--warm-white); user-select: none; touch-action: manipulation;
+  }
+  .type-item.active .type-header { background: var(--peach-bg); }
+  .type-emoji  { font-size: 26px; flex-shrink: 0; }
+  .type-info   { flex: 1; }
+  .type-name   { font-size: 14px; font-weight: 500; color: var(--deep); }
+  .type-tag    { font-size: 11px; color: var(--soft); margin-top: 2px; }
   .type-chevron { font-size: 12px; color: var(--soft); transition: transform 0.2s; flex-shrink: 0; }
   .type-item.active .type-chevron { transform: rotate(90deg); }
   .type-body { display: none; padding: 4px 16px 16px; }
   .type-item.active .type-body { display: block; }
-
-  .type-detail { font-size: 13px; color: var(--mid); line-height: 1.7; margin-bottom: 10px; }
+  .type-detail {
+    font-size: 13px; color: var(--mid); line-height: 1.7;
+    margin-bottom: 10px; text-align: justify;
+  }
   .type-detail strong { color: var(--deep); font-weight: 500; }
-
   .type-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
-  .type-chip { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; }
-  .chip-green  { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-border); }
-  .chip-amber  { background: var(--amber-bg);  color: var(--amber);  border: 1px solid var(--amber-border); }
-  .chip-purple { background: var(--purple-bg); color: var(--purple); border: 1px solid var(--purple-border); }
-
-  .type-tip { background: var(--cream); border-radius: 10px; padding: 10px 12px; font-size: 12px; color: var(--mid); line-height: 1.6; border: 1px solid rgba(168,136,196,0.2); }
+  .type-chip  { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; }
+  .chip-green     { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-border); }
+  .chip-amber     { background: var(--amber-bg);  color: var(--amber);  border: 1px solid var(--amber-border); }
+  .chip-terracota { background: var(--peach-bg);  color: var(--terracota); border: 1px solid var(--peach-border); }
+  .type-tip {
+    background: var(--cream); border-radius: 10px; padding: 10px 12px;
+    font-size: 12px; color: var(--mid); line-height: 1.6;
+    border: 1px solid rgba(196,160,144,0.25); text-align: justify;
+  }
   .type-tip strong { color: var(--deep); font-weight: 500; }
 
   /* ── Posición M ── */
-  .mposition-card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(42,26,61,0.07); border: 1px solid rgba(168,136,196,0.22); }
-  .m-visual { background: var(--purple-bg); border: 1.5px solid var(--purple-border); border-radius: 16px; padding: 20px 16px; text-align: center; margin-bottom: 16px; }
+  .mposition-card {
+    background: var(--warm-white); border-radius: 20px; padding: 22px 18px;
+    margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,26,14,0.07);
+    border: 1px solid rgba(196,160,144,0.25);
+  }
+  .m-visual {
+    background: var(--peach-bg); border: 1.5px solid var(--peach-border);
+    border-radius: 16px; padding: 20px 16px; text-align: center; margin-bottom: 16px;
+  }
   .m-diagram { font-size: 48px; display: block; margin-bottom: 10px; }
-  .m-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 300; color: var(--deep); margin-bottom: 6px; }
-  .m-desc   { font-size: 12px; color: var(--mid); line-height: 1.6; }
-  .m-checks { display: flex; flex-direction: column; gap: 6px; }
-  .m-check  { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: var(--mid); line-height: 1.55; }
+  .m-title   { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 300; color: var(--deep); margin-bottom: 6px; }
+  .m-desc    { font-size: 12px; color: var(--mid); line-height: 1.6; text-align: justify; }
+  .m-checks  { display: flex; flex-direction: column; gap: 6px; }
+  .m-check   { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: var(--mid); line-height: 1.55; }
   .m-check-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
 
   /* ── No hacer ── */
   .danger-list { display: flex; flex-direction: column; gap: 8px; }
-  .danger-item { display: flex; align-items: flex-start; gap: 10px; background: var(--red-bg); border: 1px solid var(--red-border); border-radius: 12px; padding: 11px 13px; }
+  .danger-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    background: var(--red-bg); border: 1px solid var(--red-border);
+    border-radius: 12px; padding: 11px 13px;
+  }
   .danger-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-  .danger-text { flex: 1; font-size: 12px; color: #7a1a1a; line-height: 1.6; }
+  .danger-text { flex: 1; font-size: 12px; color: #7a1a1a; line-height: 1.6; text-align: justify; }
   .danger-text strong { color: var(--red); font-weight: 600; display: block; margin-bottom: 2px; }
 
   /* ── Desde cuándo ── */
   .when-list { display: flex; flex-direction: column; gap: 8px; }
-  .when-item { display: flex; align-items: center; gap: 12px; background: var(--cream); border-radius: 13px; padding: 12px 14px; border: 1px solid rgba(168,136,196,0.2); }
-  .when-age  { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; color: var(--purple); flex-shrink: 0; min-width: 70px; }
-  .when-text { font-size: 13px; color: var(--mid); line-height: 1.5; }
+  .when-item {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--cream); border-radius: 13px; padding: 12px 14px;
+    border: 1px solid rgba(196,160,144,0.25);
+  }
+  .when-age  {
+    font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400;
+    color: var(--terracota); flex-shrink: 0; min-width: 70px;
+  }
+  .when-text { font-size: 13px; color: var(--mid); line-height: 1.5; text-align: justify; }
   .when-text strong { color: var(--deep); font-weight: 500; }
 
   /* ── Info section ── */
-  .info-section { background: var(--warm-white); border-radius: 20px; padding: 28px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(42,26,61,0.06); border: 1px solid rgba(168,136,196,0.2); }
-  .info-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
-  .info-section h2 em { font-style: italic; color: var(--purple); }
-  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; }
+  .info-section {
+    background: var(--warm-white); border-radius: 20px; padding: 28px 22px;
+    margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,26,14,0.06);
+    border: 1px solid rgba(196,160,144,0.2);
+  }
+  .info-section h2 {
+    font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px;
+    color: var(--deep); margin-bottom: 10px; line-height: 1.3;
+  }
+  .info-section h2 em { font-style: italic; color: var(--terracota); }
+  .info-section p {
+    font-size: 13px; color: var(--mid); line-height: 1.75;
+    margin-bottom: 12px; text-align: justify;
+  }
   .info-section p:last-child { margin-bottom: 0; }
   .info-section strong { color: var(--deep); font-weight: 500; }
-  .info-divider { height: 1px; background: rgba(168,136,196,0.2); margin: 20px 0; }
+  .info-divider { height: 1px; background: rgba(196,160,144,0.2); margin: 20px 0; }
 
-  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.65; margin-top: 20px; padding: 0 8px; }
+  /* ── Fuentes consultadas ── */
+  .fuentes {
+    background: var(--warm-white); border-radius: 20px; padding: 22px 20px;
+    margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,26,14,0.06);
+    border: 1px solid rgba(196,160,144,0.2);
+  }
+  .fuentes h2 {
+    font-family: 'Fraunces', serif; font-weight: 300; font-size: 17px;
+    color: var(--deep); margin-bottom: 12px;
+  }
+  .fuentes ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .fuentes li { font-size: 12px; color: var(--mid); }
+  .fuentes a {
+    color: var(--terracota); text-decoration: none;
+    border-bottom: 1px solid var(--blush); transition: color 0.2s;
+  }
+  .fuentes a:hover { color: var(--deep); }
+
+  /* ── Disclaimer ── */
+  .disclaimer {
+    font-size: 11px; color: var(--soft); text-align: center;
+    line-height: 1.65; margin-top: 20px; padding: 0 8px;
+  }
+
+  /* ── Desktop ── */
+  @media (min-width: 640px) {
+    .container { max-width: 860px; padding: 48px 40px 80px; }
+
+    .blob-1 { width: 450px; height: 450px; top: -160px; right: -120px; opacity: 0.2; }
+    .blob-2 { width: 380px; height: 380px; bottom: -120px; left: -120px; opacity: 0.18; }
+
+    .ticks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    .when-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    .danger-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    .info-section { padding: 32px 30px; }
+    .info-section h2 { font-size: 22px; }
+
+    .m-visual { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center; text-align: left; }
+    .m-diagram { font-size: 56px; margin-bottom: 0; }
+  }
 </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag("js", new Date());
-  gtag("config", "G-55NR11957W");
-</script>
 </head>
 <body>
 
@@ -151,16 +308,16 @@
 
 <div class="container">
 
-  <a class="back-link" href="index.html">← Volver al inicio</a>
+  <a class="back-link" href="/">← Volver al inicio</a>
 
-  <header>
+  <header class="fade-up">
     <span class="badge">Vínculo · Movilidad</span>
-    <h1>Guía de<br><em>porteo</em> seguro</h1>
-    <p class="subtitle">Tipos de portabebés, reglas de seguridad TICKS, posición correcta y desde cuándo puedes empezar a portear.</p>
+    <h1>Guía de <em>porteo</em> seguro</h1>
+    <p class="subtitle">Tipos de portabebés, reglas de seguridad TICKS, posición correcta y desde cuándo puedes empezar a portear a tu bebé.</p>
   </header>
 
   <!-- TICKS -->
-  <div class="card">
+  <div class="card fade-up">
     <div class="section-label">Las 5 reglas TICKS · siempre en todo porteo</div>
     <div class="ticks-grid">
       <div class="tick-item">
@@ -181,39 +338,41 @@
         <span class="tick-letter">C</span>
         <div class="tick-body">
           <div class="tick-title">Close enough to kiss · Cerca para besar</div>
-          <div class="tick-desc">La cabeza del bebé debe estar lo suficientemente cerca de tu barbilla para que puedas besarle la cabeza sin esfuerzo. Si tienes que inclinar mucho el cuello, el bebé va demasiado bajo.</div>
+          <div class="tick-desc">La cabeza del bebé debe estar lo suficientemente cerca de tu barbilla para que puedas besarle sin esfuerzo. Si tienes que inclinar mucho el cuello, el bebé va demasiado bajo.</div>
         </div>
       </div>
       <div class="tick-item">
         <span class="tick-letter">K</span>
         <div class="tick-body">
           <div class="tick-title">Keep chin off chest · Barbilla separada del pecho</div>
-          <div class="tick-desc">La barbilla del bebé nunca debe tocar su propio pecho. Esa posición comprime la vía aérea. Debe haber al menos el espacio de un dedo entre la barbilla y el pecho.</div>
+          <div class="tick-desc">La barbilla del bebé nunca debe tocar su propio pecho. Esa posición comprime la vía aérea. Debe haber al menos el espacio de un dedo entre la barbilla y el pecho del bebé.</div>
         </div>
       </div>
       <div class="tick-item">
         <span class="tick-letter">S</span>
         <div class="tick-body">
           <div class="tick-title">Supported back · Espalda apoyada</div>
-          <div class="tick-desc">La espalda del bebé debe estar apoyada en una curva natural — no doblada hacia atrás ni excesivamente arqueada. La posición M garantiza esto correctamente.</div>
+          <div class="tick-desc">La espalda del bebé debe estar apoyada en una curva natural — no doblada hacia atrás ni excesivamente arqueada. La posición en M garantiza esto correctamente.</div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Tipos de portabebés -->
-  <div class="card">
+  <div class="card fade-up">
     <div class="section-label">Tipos de portabebés · cuál elegir</div>
     <div class="types-list" id="types-list"></div>
   </div>
 
   <!-- Posición M -->
-  <div class="mposition-card">
+  <div class="mposition-card fade-up">
     <div class="section-label">La posición M · la única posición segura</div>
     <div class="m-visual">
       <span class="m-diagram">🦵〰️🦵</span>
-      <div class="m-title">Posición en M · Squat position</div>
-      <div class="m-desc">Las rodillas del bebé quedan más altas que el culete, con las piernas abiertas y dobladas formando una M. El culete queda hundido como en cuclillas, no colgando.</div>
+      <div>
+        <div class="m-title">Posición en M · Squat position</div>
+        <div class="m-desc">Las rodillas del bebé quedan más altas que el culete, con las piernas abiertas y dobladas formando una M. El culete queda hundido como en cuclillas, no colgando.</div>
+      </div>
     </div>
     <div class="m-checks">
       <div class="m-check"><span class="m-check-icon">✅</span><span><strong>Rodillas más altas que el culete</strong> — el ángulo de la cadera debe ser de 90–110°.</span></div>
@@ -225,7 +384,7 @@
   </div>
 
   <!-- Cuándo portear -->
-  <div class="card">
+  <div class="card fade-up">
     <div class="section-label">Desde cuándo y hasta cuándo</div>
     <div class="when-list">
       <div class="when-item">
@@ -242,7 +401,7 @@
       </div>
       <div class="when-item">
         <span class="when-age">6+ meses</span>
-        <div class="when-text"><strong>Posición de cara al mundo posible.</strong> Solo cuando el bebé tiene cuello firme y buen tono. La posición de cara al mundo debe ser breve — sobreestimula al bebé.</div>
+        <div class="when-text"><strong>Posición de cara al mundo posible.</strong> Solo cuando el bebé tiene cuello firme y buen tono. Esta posición debe ser breve — sobreestimula al bebé fácilmente.</div>
       </div>
       <div class="when-item">
         <span class="when-age">6m–3 años</span>
@@ -256,7 +415,7 @@
   </div>
 
   <!-- Lo que NO debes hacer -->
-  <div class="card">
+  <div class="card fade-up">
     <div class="section-label">Errores que ponen al bebé en riesgo</div>
     <div class="danger-list">
       <div class="danger-item">
@@ -270,14 +429,14 @@
         <span class="danger-icon">⚠️</span>
         <div class="danger-text">
           <strong>Barbilla apoyada en el pecho</strong>
-          La flexión del cuello comprime la tráquea. Un bebé con la barbilla en el pecho puede asfixiarse en minutos. Comprueba siempre que hay espacio entre barbilla y pecho.
+          La flexión del cuello comprime la tráquea. Un bebé con la barbilla en el pecho puede asfixiarse en minutos. Comprueba siempre que hay espacio entre la barbilla y el pecho.
         </div>
       </div>
       <div class="danger-item">
         <span class="danger-icon">⚠️</span>
         <div class="danger-text">
           <strong>Cara enterrada en la tela o en tu cuerpo</strong>
-          La nariz y la boca deben estar despejadas. Si la cara del bebé queda hundida en la tela o contra tu pecho, hay riesgo de reinhalar CO₂.
+          La nariz y la boca deben estar despejadas. Si la cara del bebé queda hundida en la tela o contra tu pecho, hay riesgo de reinhalar CO₂ y de asfixia.
         </div>
       </div>
       <div class="danger-item">
@@ -291,37 +450,47 @@
         <span class="danger-icon">⚠️</span>
         <div class="danger-text">
           <strong>Portabebés de segunda mano sin inspección</strong>
-          Las costuras y el tejido pueden estar debilitados por el uso. Inspecciona siempre con cuidado, especialmente costuras de los puntos de unión. Ante la duda, no uses.
+          Las costuras y el tejido pueden estar debilitados por el uso. Inspecciona siempre con cuidado, especialmente las costuras de los puntos de unión. Ante la duda, no uses.
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Info section -->
-  <div class="info-section">
+  <!-- Secciones informativas -->
+  <div class="info-section fade-up">
 
     <h2>Los <em>beneficios</em> del porteo que sí tienen evidencia</h2>
     <p>El porteo tiene beneficios documentados tanto para el bebé como para los cuidadores. En bebés, se asocia con <strong>menor llanto</strong> (estudios muestran una reducción de hasta el 43% en bebés porteados), mejor regulación de la temperatura corporal en recién nacidos, estimulación vestibular que favorece el desarrollo neurológico, y mayor facilidad para la lactancia en posición de porteo.</p>
-    <p>Para los cuidadores, el porteo libera las manos, facilita el vínculo afectivo especialmente en padres que no dan el pecho, y reduce el estrés parental. En bebés prematuros, el porteo (método canguro) está respaldado por amplia evidencia científica y es parte del protocolo estándar de cuidados en UCIN.</p>
+    <p>Para los cuidadores, el porteo libera las manos, facilita el vínculo afectivo especialmente en padres que no dan el pecho, y reduce el estrés parental. En bebés prematuros, el porteo (método canguro) está respaldado por amplia evidencia científica y es parte del protocolo estándar de cuidados en UCIN en todo el mundo.</p>
 
     <div class="info-divider"></div>
 
     <h2>La <em>cadera</em> del bebé y el porteo ergonómico</h2>
-    <p>La cadera del bebé al nacer es muy plástica — el acetábulo (cavidad de la articulación) no está completamente osificado y se moldea según la posición en que se mantiene al bebé durante los primeros meses. Una posición incorrecta y prolongada puede contribuir a la displasia de cadera.</p>
+    <p>La cadera del bebé al nacer es muy plástica — el acetábulo (cavidad de la articulación) no está completamente osificado y se moldea según la posición en que se mantiene al bebé durante los primeros meses. Una posición incorrecta y prolongada puede contribuir a la displasia de cadera, una de las malformaciones más frecuentes en la infancia.</p>
     <p>La posición en M (rodillas más altas que el culete, muslos completamente apoyados) es la posición anatómicamente correcta — es la misma que adopta el bebé de forma natural cuando lo coges en brazos. La International Hip Dysplasia Institute avala explícitamente esta posición como favorable para el desarrollo de la cadera.</p>
-    <p>Los portabebés que hacen sentar al bebé con las piernas juntas y colgando verticalmente —los llamados "de posición frontal clásica"— concentran todo el peso en la entrepierna y no están recomendados. La diferencia visual entre un portabebés ergonómico y uno no ergonómico es clara: en el ergonómico, el culete queda más bajo que las rodillas; en el otro, el bebé queda perpendicular como sentado en una silla.   </p>
+    <p>Los portabebés que hacen sentar al bebé con las piernas juntas y colgando verticalmente —los llamados "de posición frontal clásica"— concentran todo el peso en la entrepierna y no están recomendados. La diferencia visual es clara: en el ergonómico, el culete queda más bajo que las rodillas; en el otro, el bebé queda perpendicular como sentado en una silla.</p>
 
     <div class="info-divider"></div>
 
     <h2>¿Necesito <em>asesoría de porteo</em>?</h2>
-    <p>Para un fular elástico con recién nacido, la asesoría presencial es muy recomendable para las primeras atadas. Las asesoras de porteo (muchas ofrecen sesiones gratuitas o de bajo coste a través de grupos de crianza y asociaciones) pueden verificar en persona que la posición y la tensión son correctas.</p>
-    <p>Para mochilas con clip estructurado, el ajuste suele ser más intuitivo, aunque vale la pena revisar en un vídeo de referencia. Muchas marcas de mochilas ergonómicas (Ergobaby, Babybjörn, Tula, LÍLLÉbaby) tienen tutoriales de ajuste muy detallados en sus webs. Busca siempre demostraciones con bebés de edad y peso similares al tuyo.</p>
+    <p>Para un fular elástico con recién nacido, la asesoría presencial es muy recomendable para las primeras atadas. Las asesoras de porteo — muchas ofrecen sesiones gratuitas o de bajo coste a través de grupos de crianza y asociaciones — pueden verificar en persona que la posición y la tensión son correctas, algo que ningún tutorial en vídeo puede garantizar con la misma seguridad.</p>
+    <p>Para mochilas con clip estructurado, el ajuste suele ser más intuitivo, aunque vale la pena revisar un vídeo de referencia. Muchas marcas de mochilas ergonómicas (Ergobaby, Babybjörn, Tula, LÍLLÉbaby) tienen tutoriales de ajuste muy detallados en sus webs oficiales. Busca siempre demostraciones con bebés de edad y peso similares al tuyo para una referencia más precisa.</p>
 
   </div>
 
+  <!-- Fuentes consultadas -->
+  <div class="fuentes fade-up">
+    <h2>📚 Fuentes consultadas</h2>
+    <ul>
+      <li>🌐 <a href="https://www.who.int/publications/i/item/9789241503693" target="_blank" rel="noopener">Organización Mundial de la Salud (OMS) — Guía del método madre canguro</a></li>
+      <li>🌐 <a href="https://www.aeped.es/comite-lactancia-materna/documentos/lactancia-materna-y-porteo" target="_blank" rel="noopener">Asociación Española de Pediatría (AEP) — Lactancia y porteo</a></li>
+      <li>🌐 <a href="https://hipdysplasia.org/developmental-dysplasia-of-the-hip/hip-healthy-products/baby-carriers-seats-and-other-equipment/" target="_blank" rel="noopener">International Hip Dysplasia Institute — Portabebés ergonómicos</a></li>
+      <li>🌐 <a href="https://www.unicef.org/documents/kangaroo-mother-care-practical-guide" target="_blank" rel="noopener">UNICEF — Guía práctica del método canguro</a></li>
+    </ul>
+  </div>
+
   <p class="disclaimer">
-    Basado en las recomendaciones de la International Babywearing School, la International Hip Dysplasia Institute y el consenso de asesoras de porteo certificadas.<br>
-    Para porteo con recién nacidos o bebés prematuros, se recomienda asesoría presencial.
+    Esta guía tiene carácter informativo y no sustituye el consejo de un profesional sanitario ni de una asesora de porteo certificada. Para porteo con recién nacidos o bebés prematuros se recomienda asesoría presencial especializada.
   </p>
 
 </div>
@@ -336,8 +505,8 @@ const TYPES = [
     chips: [
       { label: 'Desde RN', cls: 'chip-green' },
       { label: 'Hasta ~8 kg', cls: 'chip-amber' },
-      { label: 'Posición koala', cls: 'chip-purple' },
-      { label: 'Posición cuna', cls: 'chip-purple' },
+      { label: 'Posición koala', cls: 'chip-terracota' },
+      { label: 'Posición cuna', cls: 'chip-terracota' },
     ],
     tip: '<strong>Aprende a atarlo antes de que llegue el bebé.</strong> Con un peluche como bebé de prueba, practica el nudo básico hasta que puedas hacerlo sin instrucciones. Con el bebé real y el cansancio, agradecerás haberlo practicado.',
   },
@@ -345,13 +514,13 @@ const TYPES = [
     emoji: '🪡',
     name: 'Fular tejido (rígido)',
     tag: 'Máxima versatilidad · para expertos',
-    detail: 'Similar al elástico en forma pero de tejido rígido, que no se estira. <strong>Permite más posiciones y dura más tiempo</strong> (aguanta más kg), pero requiere más habilidad para conseguir la tensión correcta. Es el favorito de los porteadores expertos y el que más posibilidades ofrece.',
+    detail: 'Similar al elástico en forma pero de tejido rígido, que no se estira. <strong>Permite más posiciones y dura más tiempo</strong> (aguanta más kg), pero requiere más habilidad para conseguir la tensión correcta. Es el favorito de los porteadores expertos y el que más posibilidades ofrece a largo plazo.',
     chips: [
       { label: 'Desde RN', cls: 'chip-green' },
       { label: 'Hasta 20+ kg', cls: 'chip-green' },
-      { label: 'Posición frontal', cls: 'chip-purple' },
-      { label: 'Posición espalda', cls: 'chip-purple' },
-      { label: 'Posición cadera', cls: 'chip-purple' },
+      { label: 'Posición frontal', cls: 'chip-terracota' },
+      { label: 'Posición espalda', cls: 'chip-terracota' },
+      { label: 'Posición cadera', cls: 'chip-terracota' },
     ],
     tip: '<strong>No empieces por aquí si eres primerizo.</strong> El fular rígido tiene la curva de aprendizaje más alta de todos los portabebés. Si ya tienes experiencia con el elástico, es el paso natural siguiente.',
   },
@@ -359,25 +528,25 @@ const TYPES = [
     emoji: '🎒',
     name: 'Mochila ergonómica con clip',
     tag: 'La más práctica · fácil de poner y quitar',
-    detail: 'Portabebés estructurado con clips y ajustes, sin necesidad de atar. <strong>La opción más práctica para el día a día</strong> porque se pone y quita en segundos. Fundamental que sea ergonómica (posición en M) — no todas las mochilas del mercado lo son. Las marcas más recomendadas: Ergobaby, Tula, Babybjörn One, LÍLLÉbaby.',
+    detail: 'Portabebés estructurado con clips y ajustes, sin necesidad de atar. <strong>La opción más práctica para el día a día</strong> porque se pone y quita en segundos. Fundamental que sea ergonómica (posición en M) — no todas las mochilas del mercado lo son. Marcas más recomendadas: Ergobaby, Tula, Babybjörn One, LÍLLÉbaby.',
     chips: [
       { label: 'Desde 3,5 kg aprox.', cls: 'chip-amber' },
       { label: 'Hasta 20 kg', cls: 'chip-green' },
-      { label: 'Posición frontal', cls: 'chip-purple' },
-      { label: 'Posición espalda', cls: 'chip-purple' },
+      { label: 'Posición frontal', cls: 'chip-terracota' },
+      { label: 'Posición espalda', cls: 'chip-terracota' },
     ],
-    tip: '<strong>Verifica que sea realmente ergonómica</strong> antes de comprar. Busca que la mochila soporte de rodilla a rodilla, que tenga asiento en hamaca (culete más bajo que rodillas) y que el panel sea lo suficientemente alto para apoyar la cabeza del bebé.',
+    tip: '<strong>Verifica que sea realmente ergonómica</strong> antes de comprar. Busca que soporte de rodilla a rodilla, que tenga asiento en hamaca (culete más bajo que rodillas) y que el panel sea lo suficientemente alto para apoyar la cabeza del bebé.',
   },
   {
     emoji: '💫',
     name: 'Mei tai',
     tag: 'Intermedio entre fular y mochila',
-    detail: 'Un portabebés de tela estructurada con cuatro tiras largas que se atan alrededor del cuerpo. <strong>Más fácil que el fular pero más versátil que la mochila.</strong> Es muy popular en culturas asiáticas y combina la adaptabilidad del fular con la practicidad de la mochila. Se ajusta bien a diferentes tallas de adulto.',
+    detail: 'Un portabebés de tela estructurada con cuatro tiras largas que se atan alrededor del cuerpo. <strong>Más fácil que el fular pero más versátil que la mochila.</strong> Muy popular en culturas asiáticas, combina la adaptabilidad del fular con la practicidad de la mochila. Se ajusta bien a diferentes tallas de adulto.',
     chips: [
       { label: 'Desde 3–4 meses', cls: 'chip-amber' },
       { label: 'Hasta 15–20 kg', cls: 'chip-green' },
-      { label: 'Posición frontal', cls: 'chip-purple' },
-      { label: 'Posición espalda', cls: 'chip-purple' },
+      { label: 'Posición frontal', cls: 'chip-terracota' },
+      { label: 'Posición espalda', cls: 'chip-terracota' },
     ],
     tip: '<strong>Buena opción si quieres algo intermedio.</strong> Es más fácil de aprender que el fular rígido y más adaptable que la mochila. Especialmente bueno si hay varios adultos de diferente talla que van a portear al mismo bebé.',
   },
@@ -389,14 +558,12 @@ const TYPES = [
     chips: [
       { label: 'Desde RN', cls: 'chip-green' },
       { label: 'Hasta ~10–12 kg', cls: 'chip-amber' },
-      { label: 'Posición cadera', cls: 'chip-purple' },
-      { label: 'Posición frontal', cls: 'chip-purple' },
+      { label: 'Posición cadera', cls: 'chip-terracota' },
+      { label: 'Posición frontal', cls: 'chip-terracota' },
     ],
     tip: '<strong>No para porteos de más de 30–40 minutos</strong> de forma regular — la asimetría puede causar molestias en el hombro y la espalda. Perfecto como complemento de otro portabebés principal.',
   },
 ];
-
-let openType = null;
 
 function buildTypes() {
   const list = document.getElementById('types-list');
@@ -404,9 +571,8 @@ function buildTypes() {
     const div = document.createElement('div');
     div.className = 'type-item';
     div.id = 'type-' + i;
-
     div.innerHTML = `
-      <div class="type-header" onclick="toggleType(${i})">
+      <div class="type-header" onclick="toggleType(${i})" aria-label="Ver detalles de ${t.name}" role="button">
         <span class="type-emoji">${t.emoji}</span>
         <div class="type-info">
           <div class="type-name">${t.name}</div>
@@ -414,14 +580,13 @@ function buildTypes() {
         </div>
         <span class="type-chevron">›</span>
       </div>
-      <div class="type-body">
+      <div class="type-body" role="region" aria-label="Detalles de ${t.name}">
         <p class="type-detail">${t.detail}</p>
         <div class="type-chips">
           ${t.chips.map(c => `<span class="type-chip ${c.cls}">${c.label}</span>`).join('')}
         </div>
         <div class="type-tip">💡 ${t.tip}</div>
       </div>`;
-
     list.appendChild(div);
   });
 }
