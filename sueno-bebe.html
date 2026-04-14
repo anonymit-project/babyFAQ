@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<title>Sueño bebé por meses · Siestas y horas totales · babyFAQ</title>
-<meta name="description" content="Cuánto debe dormir tu bebé según los meses que tiene. Número de siestas, horas totales, ventana de sueño y hora de acostarse.">
-<meta property="og:title" content="Sueño bebé por meses · Siestas y horas totales · babyFAQ">
-<meta property="og:description" content="Cuánto debe dormir tu bebé según los meses que tiene. Número de siestas, horas totales, ventana de sueño y hora de acostarse.">
+<title>Sueño bebé por meses · Horas, siestas y ventana · babyFAQ</title>
+<meta name="description" content="¿Cuánto debe dormir tu bebé? Consulta horas totales, siestas, ventana de sueño y hora de acostarse según su edad. Basado en recomendaciones de NSF y AAP.">
+<meta property="og:title" content="Sueño bebé por meses · Horas, siestas y ventana · babyFAQ">
+<meta property="og:description" content="¿Cuánto debe dormir tu bebé? Consulta horas totales, siestas, ventana de sueño y hora de acostarse según su edad. Basado en recomendaciones de NSF y AAP.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://babyfaq.es/sueno-bebe.html">
 <meta name="theme-color" content="#fdf6ee">
-<link rel="manifest" href="/manifest.json">
-<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="babyFAQ">
 <link rel="canonical" href="https://babyfaq.es/sueno-bebe.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -28,7 +21,7 @@
   "description": "Consulta cuánto debe dormir tu bebé según su edad: horas totales recomendadas, número de siestas, ventana de sueño máxima y hora ideal de acostarse. Basado en las recomendaciones de la NSF y la AAP.",
   "url": "https://babyfaq.es/sueno-bebe.html",
   "applicationCategory": "HealthApplication",
-  "inLanguage": "es-ES",
+  "inLanguage": "es",
   "isAccessibleForFree": true,
   "offers": {
     "@type": "Offer",
@@ -101,93 +94,240 @@
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
+
 <style>
   :root {
-    --cream: #f5f0fa; --warm-white: #fdfbff; --blush: #d4b8f0;
-    --purple: #7a5aaa; --deep: #2b1f3d; --mid: #5c4a7a; --soft: #a898c4;
-    --indigo-bg: #eeeaf8; --indigo-border: #c4b4e8;
-    --sage: #5a8a6a; --sage-bg: #edf5f0; --sage-border: #b2d9be;
-    --amber: #c97a2a; --amber-bg: #fdf0e0;
+    --terracota: #c97a5e;
+    --cream: #f5f0fa;
+    --warm-white: #fdfbff;
+    --blush: #d4b8f0;
+    --purple: #7a5aaa;
+    --deep: #2b1f3d;
+    --mid: #5c4a7a;
+    --soft: #a898c4;
+    --indigo-bg: #eeeaf8;
+    --indigo-border: #c4b4e8;
+    --sage: #5a8a6a;
+    --sage-bg: #edf5f0;
+    --sage-border: #b2d9be;
+    --amber: #c97a2a;
+    --amber-bg: #fdf0e0;
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
 
-  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .noise {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
   .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
   .blob-1 { width: 320px; height: 320px; background: #c8b0f0; top: -120px; right: -80px; opacity: 0.3; }
   .blob-2 { width: 260px; height: 260px; background: #b0c8f0; bottom: -80px; left: -60px; opacity: 0.25; }
 
-  .container { position: relative; z-index: 1; max-width: 420px; margin: 0 auto; padding: 40px 24px 60px; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.5s ease both; }
 
-  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
-  .back-link:hover { color: var(--purple); }
+  .container {
+    position: relative; z-index: 1;
+    max-width: 440px; margin: 0 auto; padding: 40px 24px 60px;
+  }
 
+  /* ── Back-link ── */
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--soft); text-decoration: none;
+    margin-bottom: 32px; transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--terracota); }
+
+  /* ── Header ── */
   header { text-align: center; margin-bottom: 36px; }
-  .badge { display: inline-block; background: var(--indigo-bg); color: var(--purple); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; }
-  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 32px; line-height: 1.2; color: var(--deep); margin-bottom: 10px; }
+  .badge {
+    display: inline-block; background: var(--indigo-bg); color: var(--purple);
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 20px; margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif; font-weight: 300;
+    font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 10px;
+  }
   h1 em { font-style: italic; color: var(--purple); }
-  .subtitle { font-size: 14px; color: var(--mid); line-height: 1.5; font-weight: 300; }
+  .subtitle {
+    font-size: 14px; color: var(--mid); line-height: 1.5; font-weight: 300;
+    text-align: justify;
+  }
 
-  .card { background: var(--warm-white); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; box-shadow: 0 2px 20px rgba(43,31,61,0.07); border: 1px solid rgba(168,152,196,0.2); }
-  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 16px; }
+  @media (min-width: 480px) { h1 { font-size: 34px; } }
 
-  .age-selector { background: var(--cream); border-radius: 16px; border: 1.5px solid rgba(168,152,196,0.35); display: flex; align-items: center; height: 72px; padding: 0 6px; }
-  .hold-btn { width: 48px; height: 54px; flex-shrink: 0; border-radius: 12px; border: none; background: transparent; color: var(--purple); font-size: 26px; font-weight: 300; cursor: pointer; display: flex; align-items: center; justify-content: center; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: background 0.1s; line-height: 1; }
+  /* ── Cards ── */
+  .card {
+    background: var(--warm-white); border-radius: 20px; padding: 24px 20px;
+    margin-bottom: 16px; box-shadow: 0 2px 20px rgba(43,31,61,0.07);
+    border: 1px solid rgba(168,152,196,0.2);
+  }
+  .section-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--soft); margin-bottom: 16px;
+  }
+
+  /* ── Age selector ── */
+  .age-selector {
+    background: var(--cream); border-radius: 16px;
+    border: 1.5px solid rgba(168,152,196,0.35);
+    display: flex; align-items: center; height: 72px; padding: 0 6px;
+  }
+  .hold-btn {
+    width: 48px; height: 54px; flex-shrink: 0; border-radius: 12px;
+    border: none; background: transparent; color: var(--purple);
+    font-size: 26px; font-weight: 300; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    touch-action: manipulation; user-select: none; -webkit-user-select: none;
+    transition: background 0.1s; line-height: 1;
+  }
   .hold-btn:active, .hold-btn.pressing { background: var(--blush); }
   .age-display { flex: 1; text-align: center; }
-  .age-value { font-family: 'Fraunces', serif; font-size: 46px; font-weight: 300; color: var(--deep); line-height: 1; display: block; }
+  .age-value {
+    font-family: 'Fraunces', serif; font-size: 46px; font-weight: 300;
+    color: var(--deep); line-height: 1; display: block;
+  }
   .age-unit { font-size: 13px; color: var(--soft); }
   .age-sublabel { font-size: 11px; color: var(--soft); font-style: italic; display: block; margin-top: 1px; }
 
+  /* ── Results grid ── */
   .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
-  .result-block { background: var(--cream); border-radius: 14px; padding: 14px 12px; text-align: center; border: 1.5px solid transparent; }
+  .result-block {
+    background: var(--cream); border-radius: 14px; padding: 14px 12px;
+    text-align: center; border: 1.5px solid transparent;
+  }
   .result-block.highlight { background: var(--indigo-bg); border-color: var(--indigo-border); }
   .result-block.full { grid-column: 1 / -1; }
 
-  .r-label { font-size: 9px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 6px; }
-  .r-value { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 400; color: var(--deep); display: block; line-height: 1; }
+  .r-label {
+    font-size: 9px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--soft); display: block; margin-bottom: 6px;
+  }
+  .r-value {
+    font-family: 'Fraunces', serif; font-size: 26px; font-weight: 400;
+    color: var(--deep); display: block; line-height: 1;
+  }
   .result-block.highlight .r-value { color: var(--purple); font-size: 32px; }
   .r-sub { font-size: 11px; color: var(--soft); display: block; margin-top: 3px; }
 
+  /* ── Schedule bar ── */
   .schedule-wrap { margin-top: 4px; }
-  .schedule-title { font-size: 10px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); margin-bottom: 10px; display: block; }
-  .schedule-bar { position: relative; height: 36px; background: var(--cream); border-radius: 10px; overflow: hidden; margin-bottom: 8px; border: 1px solid rgba(168,152,196,0.2); }
-  .bar-segment { position: absolute; top: 0; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 500; color: white; overflow: hidden; transition: all 0.3s ease; }
+  .schedule-title {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--soft); margin-bottom: 10px; display: block;
+  }
+  .schedule-bar {
+    position: relative; height: 36px; background: var(--cream);
+    border-radius: 10px; overflow: hidden; margin-bottom: 8px;
+    border: 1px solid rgba(168,152,196,0.2);
+  }
+  .bar-segment {
+    position: absolute; top: 0; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 500; color: white; overflow: hidden;
+    transition: all 0.3s ease;
+  }
   .bar-segment.awake { background: #f0e8a0; color: #7a6a10; }
   .bar-segment.night { background: #5a3a8a; }
-  .bar-segment.nap { background: #a888d8; }
+  .bar-segment.nap   { background: #a888d8; }
   .bar-label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 4px; }
   .schedule-legend { display: flex; gap: 12px; flex-wrap: wrap; }
   .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--mid); }
   .legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
 
-  .context-note { background: var(--cream); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: var(--mid); line-height: 1.6; border: 1px solid rgba(168,152,196,0.2); margin-top: 12px; }
+  /* ── Context note ── */
+  .context-note {
+    background: var(--cream); border-radius: 12px; padding: 12px 14px;
+    font-size: 12px; color: var(--mid); line-height: 1.6;
+    border: 1px solid rgba(168,152,196,0.2); margin-top: 12px;
+    text-align: justify;
+  }
   .context-note strong { color: var(--deep); font-weight: 500; }
 
-  .regression-badge { display: none; align-items: center; gap: 8px; background: var(--amber-bg); border: 1px solid #f0cc8a; border-radius: 12px; padding: 10px 14px; font-size: 12px; color: var(--amber); margin-bottom: 12px; }
+  /* ── Regression badge ── */
+  .regression-badge {
+    display: none; align-items: center; gap: 8px;
+    background: var(--amber-bg); border: 1px solid #f0cc8a; border-radius: 12px;
+    padding: 10px 14px; font-size: 12px; color: var(--amber); margin-bottom: 12px;
+    text-align: justify;
+  }
   .regression-badge.visible { display: flex; }
 
-  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 24px; padding: 0 8px; }
-
-  /* ── SEO section ── */
-  .seo-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(168,152,196,0.25); }
-  .seo-section h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; color: var(--deep); margin-bottom: 12px; line-height: 1.3; }
-  .seo-section h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 17px; color: var(--deep); margin-bottom: 8px; margin-top: 24px; line-height: 1.3; }
-  .seo-section p { font-size: 14px; color: var(--mid); line-height: 1.7; margin-bottom: 14px; font-weight: 300; text-align: justify; }
+  /* ── SEO / Info section ── */
+  .seo-section {
+    margin-top: 40px; padding-top: 32px;
+    border-top: 1px solid rgba(168,152,196,0.25);
+  }
+  .seo-section h2 {
+    font-family: 'Fraunces', serif; font-weight: 400;
+    font-size: 22px; color: var(--deep); margin-bottom: 12px; line-height: 1.3;
+  }
+  .seo-section h3 {
+    font-family: 'Fraunces', serif; font-weight: 400;
+    font-size: 17px; color: var(--deep); margin-bottom: 8px; margin-top: 24px; line-height: 1.3;
+  }
+  .seo-section p {
+    font-size: 14px; color: var(--mid); line-height: 1.7;
+    margin-bottom: 14px; font-weight: 300; text-align: justify;
+  }
   .seo-section strong { color: var(--deep); font-weight: 500; }
   .faq-item { margin-bottom: 20px; }
   .faq-item h3 { margin-top: 0; }
 
+  /* ── Resumen table ── */
   .seo-table-wrap { overflow-x: auto; margin: 16px 0 24px; }
   .seo-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .seo-table thead th { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); padding: 8px 10px; text-align: left; border-bottom: 1px solid rgba(168,152,196,0.3); background: var(--warm-white); }
-  .seo-table tbody td { padding: 8px 10px; font-size: 13px; color: var(--mid); border-bottom: 1px solid rgba(168,152,196,0.12); vertical-align: top; }
+  .seo-table thead th {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--soft); padding: 8px 10px; text-align: left;
+    border-bottom: 1px solid rgba(168,152,196,0.3); background: var(--warm-white);
+  }
+  .seo-table tbody td {
+    padding: 8px 10px; font-size: 13px; color: var(--mid);
+    border-bottom: 1px solid rgba(168,152,196,0.12); vertical-align: top;
+  }
   .seo-table tbody td:first-child { font-weight: 500; color: var(--deep); white-space: nowrap; }
   .seo-table tbody tr:last-child td { border-bottom: none; }
 
-  /* ── Desktop layout ── */
-  @media (min-width: 768px) {
-    .container { max-width: 920px; padding: 48px 40px 80px; }
+  /* ── Fuentes ── */
+  .sources-section {
+    margin-top: 32px; padding: 20px; background: var(--warm-white);
+    border-radius: 20px; border: 1px solid rgba(168,152,196,0.2);
+  }
+  .sources-section h2 {
+    font-family: 'Fraunces', serif; font-weight: 400;
+    font-size: 17px; color: var(--deep); margin-bottom: 14px;
+  }
+  .sources-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .sources-list li { font-size: 13px; color: var(--mid); display: flex; align-items: flex-start; gap: 8px; }
+  .sources-list a { color: var(--purple); text-decoration: none; }
+  .sources-list a:hover { text-decoration: underline; color: var(--terracota); }
+
+  /* ── Disclaimer ── */
+  .disclaimer {
+    font-size: 11px; color: var(--soft); text-align: center;
+    line-height: 1.6; margin-top: 24px; padding: 0 8px;
+  }
+
+  /* ── Desktop ── */
+  @media (min-width: 640px) {
+    .container { max-width: 860px; padding: 48px 40px 80px; }
+    h1 { font-size: 38px; }
     .page-grid {
       display: grid;
       grid-template-columns: 300px 1fr;
@@ -196,15 +336,10 @@
     }
     .right-col { position: sticky; top: 28px; }
     .right-col .card { margin-bottom: 0; }
+    .blob-1 { top: -80px; right: 60px; opacity: 0.2; }
+    .blob-2 { bottom: -40px; left: 80px; opacity: 0.18; }
   }
 </style>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag("config", "G-55NR11957W");
-  </script>
 </head>
 <body>
 
@@ -214,102 +349,96 @@
 
 <div class="container">
 
-  <a class="back-link" href="index.html">← Volver al inicio</a>
+  <a class="back-link" href="/">← Volver al inicio</a>
 
-  <header>
+  <header class="fade-up">
     <span class="badge">Sueño</span>
-    <h1>¿Cuánto debería<br><em>dormir</em> ahora?</h1>
+    <h1>¿Cuánto debería <em>dormir</em> ahora?</h1>
     <p class="subtitle">Horas totales, siestas, ventana de sueño y hora de acostarse según la edad de tu bebé.</p>
   </header>
 
-  <div class="page-grid"><div class="left-col">
+  <div class="page-grid">
+    <div class="left-col fade-up" style="animation-delay:0.1s">
 
-  <div class="card">
-    <div class="section-label">Edad del bebé</div>
-    <div class="age-selector">
-      <button class="hold-btn" id="age-minus" data-dir="-1">−</button>
-      <div class="age-display">
-        <span class="age-value" id="age-val">3</span>
-        <span class="age-unit">meses</span>
-        <span class="age-sublabel" id="age-sub"></span>
+      <div class="card">
+        <div class="section-label">Edad del bebé</div>
+        <div class="age-selector">
+          <button class="hold-btn" id="age-minus" data-dir="-1" aria-label="Disminuir edad">−</button>
+          <div class="age-display">
+            <span class="age-value" id="age-val">3</span>
+            <span class="age-unit">meses</span>
+            <span class="age-sublabel" id="age-sub"></span>
+          </div>
+          <button class="hold-btn" id="age-plus" data-dir="1" aria-label="Aumentar edad">+</button>
+        </div>
       </div>
-      <button class="hold-btn" id="age-plus" data-dir="1">+</button>
-    </div>
-  </div>
 
-  </div><!-- /left-col -->
-  <div class="right-col">
+    </div><!-- /left-col -->
+    <div class="right-col fade-up" style="animation-delay:0.2s">
 
-  <div class="card" id="result-card">
-    <div class="section-label">Guía orientativa</div>
+      <div class="card" id="result-card">
+        <div class="section-label">Guía orientativa</div>
 
-    <div class="regression-badge" id="regression-badge">
-      ⚠️ <span id="regression-text"></span>
-    </div>
+        <div class="regression-badge" id="regression-badge">
+          ⚠️ <span id="regression-text"></span>
+        </div>
 
-    <div class="results-grid">
-      <div class="result-block highlight full">
-        <span class="r-label">Sueño total al día</span>
-        <span class="r-value" id="r-total">—</span>
-        <span class="r-sub" id="r-total-sub"></span>
+        <div class="results-grid">
+          <div class="result-block highlight full">
+            <span class="r-label">Sueño total al día</span>
+            <span class="r-value" id="r-total">—</span>
+            <span class="r-sub" id="r-total-sub"></span>
+          </div>
+          <div class="result-block">
+            <span class="r-label">Sueño nocturno</span>
+            <span class="r-value" id="r-night">—</span>
+            <span class="r-sub">horas</span>
+          </div>
+          <div class="result-block">
+            <span class="r-label">Siestas al día</span>
+            <span class="r-value" id="r-naps">—</span>
+            <span class="r-sub" id="r-nap-dur"></span>
+          </div>
+          <div class="result-block">
+            <span class="r-label">Ventana de sueño</span>
+            <span class="r-value" id="r-window">—</span>
+            <span class="r-sub">máx. despierto seguido</span>
+          </div>
+          <div class="result-block">
+            <span class="r-label">Hora de acostarse</span>
+            <span class="r-value" id="r-bedtime">—</span>
+            <span class="r-sub">aprox.</span>
+          </div>
+        </div>
+
+        <div class="schedule-wrap">
+          <span class="schedule-title">Distribución orientativa del día (6:00 → 6:00)</span>
+          <div class="schedule-bar" id="schedule-bar"></div>
+          <div class="schedule-legend">
+            <div class="legend-item"><div class="legend-dot" style="background:#5a3a8a"></div>Noche</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#a888d8"></div>Siesta</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#f0e8a0"></div>Despierto</div>
+          </div>
+        </div>
+
+        <div class="context-note" id="context-note"></div>
       </div>
-      <div class="result-block">
-        <span class="r-label">Sueño nocturno</span>
-        <span class="r-value" id="r-night">—</span>
-        <span class="r-sub">horas</span>
-      </div>
-      <div class="result-block">
-        <span class="r-label">Siestas al día</span>
-        <span class="r-value" id="r-naps">—</span>
-        <span class="r-sub" id="r-nap-dur"></span>
-      </div>
-      <div class="result-block">
-        <span class="r-label">Ventana de sueño</span>
-        <span class="r-value" id="r-window">—</span>
-        <span class="r-sub">máx. despierto seguido</span>
-      </div>
-      <div class="result-block">
-        <span class="r-label">Hora de acostarse</span>
-        <span class="r-value" id="r-bedtime">—</span>
-        <span class="r-sub">aprox.</span>
-      </div>
-    </div>
 
-    <div class="schedule-wrap">
-      <span class="schedule-title">Distribución orientativa del día (6:00 → 6:00)</span>
-      <div class="schedule-bar" id="schedule-bar"></div>
-      <div class="schedule-legend">
-        <div class="legend-item"><div class="legend-dot" style="background:#5a3a8a"></div>Noche</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#a888d8"></div>Siesta</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#f0e8a0"></div>Despierto</div>
-      </div>
-    </div>
-
-    <div class="context-note" id="context-note"></div>
-  </div>
-
-  </div><!-- /right-col -->
+    </div><!-- /right-col -->
   </div><!-- /page-grid -->
 
-  <p class="disclaimer">
-    Basado en recomendaciones de la NSF (National Sleep Foundation) y la AAP.<br>
-    Cada bebé tiene su propio ritmo. Consulta con tu pediatra si tienes dudas sobre el sueño.
-  </p>
-
-
   <!-- ══════════════════════════════════════════════════════════
-       SECCIÓN SEO
+       SECCIÓN INFORMATIVA
        ══════════════════════════════════════════════════════════ -->
-  <div class="seo-section">
+  <div class="seo-section fade-up" style="animation-delay:0.3s">
 
     <h2>¿Cuánto debe dormir un bebé según su edad?</h2>
     <p>
       Las necesidades de sueño cambian drásticamente durante el primer año y medio de vida.
-      Un recién nacido puede dormir hasta 17 horas al día en tandas de 2-3 horas,
-      mientras que un bebé de 12 meses ya concentra la mayor parte de su sueño en la noche
-      con solo 1-2 siestas diurnas. Conocer los rangos orientativos para cada etapa
-      ayuda a distinguir cuándo el sueño de tu bebé es normal y cuándo vale la pena
-      consultar con el pediatra.
+      Un recién nacido puede dormir hasta 17 horas al día en tandas de 2–3 horas, mientras que
+      un bebé de 12 meses ya concentra la mayor parte de su sueño en la noche con solo 1–2 siestas
+      diurnas. Conocer los rangos orientativos para cada etapa ayuda a distinguir cuándo el sueño
+      de tu bebé es normal y cuándo vale la pena consultar con el pediatra.
     </p>
     <p>
       Esta herramienta está basada en las recomendaciones de la
@@ -358,10 +487,24 @@
     </p>
     <p>
       Las más frecuentes e intensas ocurren aproximadamente a los
-      <strong>4 meses, 8-10 meses, 12 meses, 15 meses, 18 meses y 2 años</strong>.
+      <strong>4 meses, 8–10 meses, 12 meses, 15 meses, 18 meses y 2 años</strong>.
       La de los 4 meses es permanente (la arquitectura del sueño cambia para siempre),
       mientras que las demás son temporales y suelen durar entre 2 y 6 semanas.
       Mantener la rutina de sueño con consistencia es la estrategia más efectiva durante estos períodos.
+    </p>
+
+    <h2>La ventana de sueño: la clave que muchos padres no conocen</h2>
+    <p>
+      La ventana de sueño es el tiempo máximo que tu bebé puede estar despierto seguido sin acumular
+      sobrecansancio. Cuando se supera, el cuerpo libera cortisol para mantenerse alerta, lo que
+      paradójicamente dificulta conciliar el sueño. Respetar la ventana de sueño —especialmente
+      antes de las siestas y antes de la noche— es uno de los ajustes más efectivos para mejorar
+      el sueño sin ningún método de entrenamiento.
+    </p>
+    <p>
+      En recién nacidos, la ventana es de apenas 45–60 minutos. A los 6 meses sube a 2–2,5 horas.
+      A los 12 meses puede llegar a 3,5–4 horas. Usar el selector de arriba te muestra la ventana
+      recomendada para la edad exacta de tu bebé.
     </p>
 
     <h2>Preguntas frecuentes sobre el sueño del bebé</h2>
@@ -409,49 +552,63 @@
         por debajo del rango mínimo para su edad durante más de dos semanas,
         si tiene dificultades respiratorias durante el sueño (ronquidos fuertes, pausas),
         o si el cansancio acumulado afecta claramente a su humor y desarrollo diurno.
-        Un despertador o un período de regresión puntual, por agotador que sea, no suele
+        Un desvelo puntual o un período de regresión, por agotador que sea, no suele
         requerir intervención médica.
       </p>
     </div>
 
     <div class="faq-item">
-      <h3>¿Qué es exactamente la ventana de sueño?</h3>
+      <h3>¿Cuándo pasan los bebés de 2 siestas a 1?</h3>
       <p>
-        Es el tiempo máximo que tu bebé puede estar despierto seguido sin acumular
-        sobrecansancio. Cuando se supera, el cuerpo libera cortisol para mantenerse alerta,
-        lo que dificulta conciliar el sueño. Respetar la ventana de sueño —especialmente
-        antes de las siestas y antes de la noche— es uno de los ajustes más efectivos
-        para mejorar el sueño sin ningún método de entrenamiento. Usa el selector de arriba
-        para ver la ventana recomendada para la edad de tu bebé.
+        La transición de 2 siestas a 1 ocurre generalmente entre los <strong>12 y los 18 meses</strong>.
+        Las señales de que está listo son: rechazar consistentemente la siesta de la mañana durante
+        más de una semana, tardar mucho en dormirse para la siesta o para la noche, o despertarse
+        muy pronto por la mañana. No conviene adelantar esta transición — hacerla demasiado pronto
+        suele provocar sobrecansancio y, paradójicamente, peor sueño nocturno.
       </p>
     </div>
 
-  </div>
-  <!-- fin seo-section -->
+  </div><!-- /seo-section -->
 
-</div>
+  <!-- ── Fuentes consultadas ── -->
+  <div class="sources-section fade-up" style="animation-delay:0.35s">
+    <h2>📚 Fuentes consultadas</h2>
+    <ul class="sources-list">
+      <li>📄 <a href="https://www.sleepfoundation.org/how-sleep-works/how-much-sleep-do-we-really-need" target="_blank" rel="noopener">National Sleep Foundation (NSF) — Recomendaciones de horas de sueño por edad</a></li>
+      <li>📄 <a href="https://www.healthychildren.org/English/healthy-living/sleep/Pages/healthy-sleep-habits-how-many-hours-does-your-child-need.aspx" target="_blank" rel="noopener">American Academy of Pediatrics (AAP) — Hábitos de sueño saludables</a></li>
+      <li>📄 <a href="https://www.aeped.es/sites/default/files/documentos/guia_trastornos_sueno.pdf" target="_blank" rel="noopener">Asociación Española de Pediatría (AEP) — Guía de trastornos del sueño en la infancia</a></li>
+      <li>📄 <a href="https://www.who.int/news-room/fact-sheets/detail/physical-activity" target="_blank" rel="noopener">Organización Mundial de la Salud (OMS) — Directrices sobre actividad física, sedentarismo y sueño en menores de 5 años</a></li>
+    </ul>
+  </div>
+
+  <p class="disclaimer">
+    Esta herramienta ofrece información orientativa basada en fuentes pediátricas de referencia.<br>
+    Cada bebé tiene su propio ritmo. Consulta siempre con tu pediatra ante cualquier duda sobre el sueño de tu hijo.
+  </p>
+
+</div><!-- /container -->
 
 <script>
 const SLEEP_DATA = [
-  { month: 0,  label: 'Recién nacido',  totalMin: 14, totalMax: 17, nightH: '8–9',  naps: 4,  napDurMin: '30–60',  windowH: '45–60 min', bedtime: '21:00–23:00', regression: false, note: 'Los recién nacidos no distinguen el día de la noche. El sueño es completamente irregular. Duerme cuando el bebé duerme — tú también lo necesitas.' },
-  { month: 1,  label: '1 mes',          totalMin: 14, totalMax: 17, nightH: '8–9',  naps: 4,  napDurMin: '30–60',  windowH: '45–60 min', bedtime: '21:00–23:00', regression: false, note: 'Poco a poco empieza a diferenciarse el día de la noche. Exponer al bebé a la luz natural durante el día ayuda a regular el ritmo circadiano.' },
-  { month: 2,  label: '2 meses',        totalMin: 14, totalMax: 16, nightH: '9–10', naps: 4,  napDurMin: '30–60',  windowH: '1–1.5 h',  bedtime: '20:30–22:00', regression: false, note: 'Algunos bebés empiezan a hacer un tramo nocturno más largo (4–5 horas seguidas). Cuando ocurra, aprovéchalo.' },
-  { month: 3,  label: '3 meses',        totalMin: 14, totalMax: 16, nightH: '10',   naps: 3,  napDurMin: '45–90',  windowH: '1.5–2 h',  bedtime: '20:00–21:30', regression: false, note: 'Buen momento para empezar una rutina suave antes de dormir (baño, canción, oscuridad). La consistencia es clave.' },
-  { month: 4,  label: '4 meses',        totalMin: 12, totalMax: 15, nightH: '10–11',naps: 3,  napDurMin: '30–45',  windowH: '1.5–2 h',  bedtime: '19:30–21:00', regression: true,  regressionText: 'Regresión del sueño de los 4 meses. Es la más intensa — el cerebro del bebé madura y cambia su arquitectura del sueño. Puede durar 2–6 semanas.', note: 'Las siestas pueden volverse cortas (30 min exactos). Es normal y pasajero. Mantén la rutina aunque sea difícil.' },
-  { month: 5,  label: '5 meses',        totalMin: 12, totalMax: 15, nightH: '10–11',naps: 3,  napDurMin: '45–90',  windowH: '2 h',      bedtime: '19:30–20:30', regression: false, note: 'Muchos bebés ya encadenan ciclos de sueño mejor. Las siestas pueden alargarse. Buen momento de consolidar rutinas.' },
-  { month: 6,  label: '6 meses',        totalMin: 12, totalMax: 15, nightH: '11',   naps: 2,  napDurMin: '60–120', windowH: '2–2.5 h',  bedtime: '19:00–20:30', regression: false, note: 'Transición típica de 3 a 2 siestas. La siesta de la mañana y la de la tarde. Si el bebé rechaza la tercera, ya está listo para el cambio.' },
-  { month: 7,  label: '7 meses',        totalMin: 12, totalMax: 15, nightH: '11',   naps: 2,  napDurMin: '60–120', windowH: '2.5–3 h',  bedtime: '19:00–20:00', regression: false, note: 'Con 2 siestas consolidadas la rutina es más predecible. Intenta que la segunda siesta no acabe muy tarde (antes de las 16:00).' },
-  { month: 8,  label: '8 meses',        totalMin: 12, totalMax: 15, nightH: '11',   naps: 2,  napDurMin: '60–120', windowH: '3 h',      bedtime: '18:30–20:00', regression: true,  regressionText: 'Posible regresión de los 8–10 meses por el desarrollo de la ansiedad de separación y los hitos motores (gateo, ponerse de pie).', note: 'La ansiedad de separación es normal y sana. Una rutina predecible antes de dormir ayuda al bebé a sentirse seguro.' },
-  { month: 9,  label: '9 meses',        totalMin: 12, totalMax: 14, nightH: '11',   naps: 2,  napDurMin: '60–90',  windowH: '3 h',      bedtime: '18:30–20:00', regression: false, note: 'El bebé puede empezar a ponerse de pie en la cuna. Es un hito emocionante que puede perturbar el sueño temporalmente.' },
-  { month: 10, label: '10 meses',       totalMin: 12, totalMax: 14, nightH: '11',   naps: 2,  napDurMin: '60–90',  windowH: '3–3.5 h',  bedtime: '18:30–20:00', regression: false, note: 'Algunos bebés empiezan a mostrar señales de querer pasar a 1 siesta, pero la mayoría todavía necesita 2. No lo adelantes.' },
-  { month: 11, label: '11 meses',       totalMin: 12, totalMax: 14, nightH: '11',   naps: 2,  napDurMin: '60–90',  windowH: '3.5 h',    bedtime: '18:30–19:30', regression: false, note: 'La segunda siesta puede ir acortándose. Si le cuesta dormirse por la noche, prueba a adelantar la hora de acostarse, no retrasarla.' },
-  { month: 12, label: '12 meses',       totalMin: 11, totalMax: 14, nightH: '11',   naps: 2,  napDurMin: '60–90',  windowH: '3.5–4 h',  bedtime: '18:30–19:30', regression: true,  regressionText: 'Regresión del primer año. Coincide con grandes hitos de desarrollo: primeros pasos, primeras palabras. Puede durar 2–4 semanas.', note: 'La transición a 1 siesta suele ocurrir entre los 12 y 18 meses. Espera señales claras antes de hacerla.' },
-  { month: 13, label: '13 meses',       totalMin: 11, totalMax: 14, nightH: '11',   naps: 2,  napDurMin: '60–90',  windowH: '4 h',      bedtime: '18:30–19:30', regression: false, note: 'Si el bebé rechaza la siesta de la mañana consistentemente más de una semana, puede ser el momento de pasar a 1 siesta.' },
-  { month: 14, label: '14 meses',       totalMin: 11, totalMax: 14, nightH: '11',   naps: '1–2', napDurMin: '60–120', windowH: '4–5 h', bedtime: '18:30–19:30', regression: false, note: 'Período de transición a 1 siesta. Puede haber días de 1 y días de 2 siestas. Sigue sus señales de cansancio.' },
-  { month: 15, label: '15 meses',       totalMin: 11, totalMax: 14, nightH: '11–12',naps: 1,  napDurMin: '90–120', windowH: '5 h',      bedtime: '18:30–19:30', regression: true,  regressionText: 'Regresión de los 15 meses. Relacionada con el desarrollo del lenguaje y la independencia. Puede coincidir con la transición a 1 siesta.', note: 'Con 1 siesta, la ventana de sueño antes de dormir se alarga bastante. Vigila que no esté sobrecansado — adelanta la hora si es necesario.' },
-  { month: 18, label: '18 meses',       totalMin: 11, totalMax: 14, nightH: '11–12',naps: 1,  napDurMin: '60–120', windowH: '5–6 h',    bedtime: '19:00–20:00', regression: true,  regressionText: 'Regresión de los 18 meses. Una de las más intensas. El desarrollo del lenguaje, la autonomía y los molares pueden alterar el sueño varias semanas.', note: 'A esta edad la siesta única se establece firmemente. La hora ideal suele ser entre las 12:00 y las 13:00.' },
-  { month: 21, label: '21 meses',       totalMin: 11, totalMax: 14, nightH: '11–12',naps: 1,  napDurMin: '60–90',  windowH: '5–6 h',    bedtime: '19:00–20:00', regression: false, note: 'Algunos niños empiezan a resistirse a la siesta. Ofrécela de todas formas — aunque no duerman, el descanso quieto ayuda.' },
-  { month: 24, label: '2 años',         totalMin: 11, totalMax: 14, nightH: '11–12',naps: 1,  napDurMin: '60–90',  windowH: '6 h',      bedtime: '19:00–20:00', regression: true,  regressionText: 'Regresión de los 2 años. Coincide con el terrible two, el desarrollo de la autonomía y la imaginación (miedos nocturnos).', note: 'Los miedos nocturnos son normales a esta edad. Una rutina predecible y calmada ayuda más que cualquier otra cosa.' },
+  { month: 0,  label: 'Recién nacido',  totalMin: 14, totalMax: 17, nightH: '8–9',   naps: 4,     napDurMin: '30–60',  windowH: '45–60 min', bedtime: '21:00–23:00', regression: false, note: 'Los recién nacidos no distinguen el día de la noche. El sueño es completamente irregular. Duerme cuando el bebé duerme — tú también lo necesitas.' },
+  { month: 1,  label: '1 mes',          totalMin: 14, totalMax: 17, nightH: '8–9',   naps: 4,     napDurMin: '30–60',  windowH: '45–60 min', bedtime: '21:00–23:00', regression: false, note: 'Poco a poco empieza a diferenciarse el día de la noche. Exponer al bebé a la luz natural durante el día ayuda a regular el ritmo circadiano.' },
+  { month: 2,  label: '2 meses',        totalMin: 14, totalMax: 16, nightH: '9–10',  naps: 4,     napDurMin: '30–60',  windowH: '1–1.5 h',  bedtime: '20:30–22:00', regression: false, note: 'Algunos bebés empiezan a hacer un tramo nocturno más largo (4–5 horas seguidas). Cuando ocurra, aprovéchalo.' },
+  { month: 3,  label: '3 meses',        totalMin: 14, totalMax: 16, nightH: '10',    naps: 3,     napDurMin: '45–90',  windowH: '1.5–2 h',  bedtime: '20:00–21:30', regression: false, note: 'Buen momento para empezar una rutina suave antes de dormir (baño, canción, oscuridad). La consistencia es clave.' },
+  { month: 4,  label: '4 meses',        totalMin: 12, totalMax: 15, nightH: '10–11', naps: 3,     napDurMin: '30–45',  windowH: '1.5–2 h',  bedtime: '19:30–21:00', regression: true,  regressionText: 'Regresión del sueño de los 4 meses. Es la más intensa — el cerebro del bebé madura y cambia su arquitectura del sueño. Puede durar 2–6 semanas.', note: 'Las siestas pueden volverse cortas (30 min exactos). Es normal y pasajero. Mantén la rutina aunque sea difícil.' },
+  { month: 5,  label: '5 meses',        totalMin: 12, totalMax: 15, nightH: '10–11', naps: 3,     napDurMin: '45–90',  windowH: '2 h',      bedtime: '19:30–20:30', regression: false, note: 'Muchos bebés ya encadenan ciclos de sueño mejor. Las siestas pueden alargarse. Buen momento de consolidar rutinas.' },
+  { month: 6,  label: '6 meses',        totalMin: 12, totalMax: 15, nightH: '11',    naps: 2,     napDurMin: '60–120', windowH: '2–2.5 h',  bedtime: '19:00–20:30', regression: false, note: 'Transición típica de 3 a 2 siestas. La siesta de la mañana y la de la tarde. Si el bebé rechaza la tercera, ya está listo para el cambio.' },
+  { month: 7,  label: '7 meses',        totalMin: 12, totalMax: 15, nightH: '11',    naps: 2,     napDurMin: '60–120', windowH: '2.5–3 h',  bedtime: '19:00–20:00', regression: false, note: 'Con 2 siestas consolidadas la rutina es más predecible. Intenta que la segunda siesta no acabe muy tarde (antes de las 16:00).' },
+  { month: 8,  label: '8 meses',        totalMin: 12, totalMax: 15, nightH: '11',    naps: 2,     napDurMin: '60–120', windowH: '3 h',      bedtime: '18:30–20:00', regression: true,  regressionText: 'Posible regresión de los 8–10 meses por el desarrollo de la ansiedad de separación y los hitos motores (gateo, ponerse de pie).', note: 'La ansiedad de separación es normal y sana. Una rutina predecible antes de dormir ayuda al bebé a sentirse seguro.' },
+  { month: 9,  label: '9 meses',        totalMin: 12, totalMax: 14, nightH: '11',    naps: 2,     napDurMin: '60–90',  windowH: '3 h',      bedtime: '18:30–20:00', regression: false, note: 'El bebé puede empezar a ponerse de pie en la cuna. Es un hito emocionante que puede perturbar el sueño temporalmente.' },
+  { month: 10, label: '10 meses',       totalMin: 12, totalMax: 14, nightH: '11',    naps: 2,     napDurMin: '60–90',  windowH: '3–3.5 h',  bedtime: '18:30–20:00', regression: false, note: 'Algunos bebés empiezan a mostrar señales de querer pasar a 1 siesta, pero la mayoría todavía necesita 2. No lo adelantes.' },
+  { month: 11, label: '11 meses',       totalMin: 12, totalMax: 14, nightH: '11',    naps: 2,     napDurMin: '60–90',  windowH: '3.5 h',    bedtime: '18:30–19:30', regression: false, note: 'La segunda siesta puede ir acortándose. Si le cuesta dormirse por la noche, prueba a adelantar la hora de acostarse, no retrasarla.' },
+  { month: 12, label: '12 meses',       totalMin: 11, totalMax: 14, nightH: '11',    naps: 2,     napDurMin: '60–90',  windowH: '3.5–4 h',  bedtime: '18:30–19:30', regression: true,  regressionText: 'Regresión del primer año. Coincide con grandes hitos de desarrollo: primeros pasos, primeras palabras. Puede durar 2–4 semanas.', note: 'La transición a 1 siesta suele ocurrir entre los 12 y 18 meses. Espera señales claras antes de hacerla.' },
+  { month: 13, label: '13 meses',       totalMin: 11, totalMax: 14, nightH: '11',    naps: 2,     napDurMin: '60–90',  windowH: '4 h',      bedtime: '18:30–19:30', regression: false, note: 'Si el bebé rechaza la siesta de la mañana consistentemente más de una semana, puede ser el momento de pasar a 1 siesta.' },
+  { month: 14, label: '14 meses',       totalMin: 11, totalMax: 14, nightH: '11',    naps: '1–2', napDurMin: '60–120', windowH: '4–5 h',    bedtime: '18:30–19:30', regression: false, note: 'Período de transición a 1 siesta. Puede haber días de 1 y días de 2 siestas. Sigue sus señales de cansancio.' },
+  { month: 15, label: '15 meses',       totalMin: 11, totalMax: 14, nightH: '11–12', naps: 1,     napDurMin: '90–120', windowH: '5 h',      bedtime: '18:30–19:30', regression: true,  regressionText: 'Regresión de los 15 meses. Relacionada con el desarrollo del lenguaje y la independencia. Puede coincidir con la transición a 1 siesta.', note: 'Con 1 siesta, la ventana de sueño antes de dormir se alarga bastante. Vigila que no esté sobrecansado — adelanta la hora si es necesario.' },
+  { month: 18, label: '18 meses',       totalMin: 11, totalMax: 14, nightH: '11–12', naps: 1,     napDurMin: '60–120', windowH: '5–6 h',    bedtime: '19:00–20:00', regression: true,  regressionText: 'Regresión de los 18 meses. Una de las más intensas. El desarrollo del lenguaje, la autonomía y los molares pueden alterar el sueño varias semanas.', note: 'A esta edad la siesta única se establece firmemente. La hora ideal suele ser entre las 12:00 y las 13:00.' },
+  { month: 21, label: '21 meses',       totalMin: 11, totalMax: 14, nightH: '11–12', naps: 1,     napDurMin: '60–90',  windowH: '5–6 h',    bedtime: '19:00–20:00', regression: false, note: 'Algunos niños empiezan a resistirse a la siesta. Ofrécela de todas formas — aunque no duerman, el descanso quieto ayuda.' },
+  { month: 24, label: '2 años',         totalMin: 11, totalMax: 14, nightH: '11–12', naps: 1,     napDurMin: '60–90',  windowH: '6 h',      bedtime: '19:00–20:00', regression: true,  regressionText: 'Regresión de los 2 años. Coincide con el terrible two, el desarrollo de la autonomía y la imaginación (miedos nocturnos).', note: 'Los miedos nocturnos son normales a esta edad. Una rutina predecible y calmada ayuda más que cualquier otra cosa.' },
 ];
 
 function getDataForMonth(m) {
@@ -488,7 +645,7 @@ function makeHoldBtn(el, onStep) {
   el.addEventListener('touchcancel', stopHold, { passive: true });
   el.addEventListener('mousedown', () => { el.classList.add('pressing'); startHold(); });
   el.addEventListener('mouseup',   stopHold);
-  el.addEventListener('mouseleave',stopHold);
+  el.addEventListener('mouseleave', stopHold);
 }
 
 makeHoldBtn(document.getElementById('age-minus'), dir => { ageIdx = Math.max(0, Math.min(ALL_MONTHS.length-1, ageIdx+dir)); render(); });
@@ -534,7 +691,12 @@ function renderBar(d) {
     el.className = `bar-segment ${seg.type}`;
     el.style.left  = `${(seg.start / 24) * 100}%`;
     el.style.width = `${(seg.dur  / 24) * 100}%`;
-    if (seg.label) { const lbl = document.createElement('span'); lbl.className = 'bar-label'; lbl.textContent = seg.label; el.appendChild(lbl); }
+    if (seg.label) {
+      const lbl = document.createElement('span');
+      lbl.className = 'bar-label';
+      lbl.textContent = seg.label;
+      el.appendChild(lbl);
+    }
     bar.appendChild(el);
   });
 }
@@ -547,27 +709,23 @@ function render() {
   document.getElementById('age-sub').textContent = d.label !== `${ageIdx} meses` ? d.label : '';
   document.getElementById('r-total').textContent    = `${d.totalMin}–${d.totalMax}h`;
   document.getElementById('r-total-sub').textContent = 'rango recomendado';
-  document.getElementById('r-night').textContent = d.nightH;
-  document.getElementById('r-naps').textContent    = d.naps;
-  document.getElementById('r-nap-dur').textContent = `~${d.napDurMin} min c/u`;
-  document.getElementById('r-window').textContent = d.windowH;
-  document.getElementById('r-bedtime').textContent = d.bedtime;
+  document.getElementById('r-night').textContent    = d.nightH;
+  document.getElementById('r-naps').textContent     = d.naps;
+  document.getElementById('r-nap-dur').textContent  = `~${d.napDurMin} min c/u`;
+  document.getElementById('r-window').textContent   = d.windowH;
+  document.getElementById('r-bedtime').textContent  = d.bedtime;
   const badge = document.getElementById('regression-badge');
-  if (d.regression) { document.getElementById('regression-text').textContent = d.regressionText; badge.classList.add('visible'); }
-  else { badge.classList.remove('visible'); }
+  if (d.regression) {
+    document.getElementById('regression-text').textContent = d.regressionText;
+    badge.classList.add('visible');
+  } else {
+    badge.classList.remove('visible');
+  }
   document.getElementById('context-note').innerHTML = `<strong>Ten en cuenta:</strong> ${d.note}`;
   renderBar(d);
 }
 
 render();
-</script>
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .catch(err => console.warn('SW registration failed:', err));
-  });
-}
 </script>
 </body>
 </html>
