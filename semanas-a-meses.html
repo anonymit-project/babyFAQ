@@ -2,14 +2,31 @@
 <html lang="es">
 <head>
 <title>Semanas de embarazo a meses · Conversor y trimestres · babyFAQ</title>
-<meta name="description" content="Convierte las semanas de embarazo a meses reales y descubre en qué trimestre estás. Calculadora instantánea con hitos clave semana a semana.">
+<meta name="description" content="Convierte las semanas de embarazo a meses reales y descubre en qué trimestre estás. Calculadora con hitos y progreso semana a semana.">
 <meta property="og:title" content="Semanas de embarazo a meses · Conversor y trimestres · babyFAQ">
-<meta property="og:description" content="Convierte las semanas de embarazo a meses reales y descubre en qué trimestre estás. Calculadora instantánea con hitos clave semana a semana.">
+<meta property="og:description" content="Convierte las semanas de embarazo a meses reales y descubre en qué trimestre estás. Calculadora con hitos y progreso semana a semana.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#fdf6ee">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://babyfaq.es/semanas-a-meses.html">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Conversor semanas de embarazo a meses",
+  "description": "Convierte las semanas de embarazo a meses reales, descubre en qué trimestre estás y consulta los hitos de desarrollo semana a semana.",
+  "url": "https://babyfaq.es/semanas-a-meses.html",
+  "applicationCategory": "HealthApplication",
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "babyFAQ"
+  }
+}
+</script>
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -43,7 +60,16 @@
   .blob-1 { width: 300px; height: 300px; background: #f7d5c4; top: -100px; right: -80px; opacity: 0.45; }
   .blob-2 { width: 250px; height: 250px; background: #d4c8f0; bottom: -80px; left: -60px; opacity: 0.3; }
 
+  @media (min-width: 640px) {
+    .blob-1 { width: 380px; height: 380px; top: -120px; right: -100px; opacity: 0.28; }
+    .blob-2 { width: 320px; height: 320px; bottom: -100px; left: -120px; opacity: 0.18; }
+  }
+
   .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  @media (min-width: 640px) {
+    .container { max-width: 860px; padding: 48px 40px 80px; }
+  }
 
   .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
   .back-link:hover { color: var(--terracota); }
@@ -54,7 +80,13 @@
   @media (min-width: 480px) { h1 { font-size: 34px; } }
   @media (min-width: 640px) { h1 { font-size: 38px; } }
   h1 em { font-style: italic; color: var(--terracota); }
-  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300; }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300; text-align: justify; }
+
+  /* ── Layout desktop: main + tabla side by side ── */
+  @media (min-width: 640px) {
+    .desktop-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+    .desktop-col-full { grid-column: 1 / -1; }
+  }
 
   /* ── Selector ── */
   .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(61,43,31,0.06); border: 1px solid rgba(196,168,152,0.2); }
@@ -73,7 +105,6 @@
 
   /* Month + trimester big display */
   .big-row { display: flex; gap: 10px; margin-bottom: 16px; }
-
   .big-block { flex: 1; border-radius: 16px; padding: 18px 12px; text-align: center; border: 1.5px solid transparent; }
   .big-block.month-block { background: var(--cream); border-color: rgba(196,168,152,0.3); }
   .big-label { font-size: 9px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 6px; }
@@ -88,7 +119,6 @@
   .trimester-block.t1 .big-value { color: var(--t1); }
   .trimester-block.t2 .big-value { color: var(--t2); }
   .trimester-block.t3 .big-value { color: var(--t3); }
-  .trimester-block .big-label { }
   .trimester-block.t1 .big-label { color: var(--t1); }
   .trimester-block.t2 .big-label { color: var(--t2); }
   .trimester-block.t3 .big-label { color: var(--t3); }
@@ -121,10 +151,10 @@
   .milestone-block.t1 .milestone-label { color: var(--t1); }
   .milestone-block.t2 .milestone-label { color: var(--t2); }
   .milestone-block.t3 .milestone-label { color: var(--t3); }
-  .milestone-text { font-size: 13px; color: var(--mid); line-height: 1.65; }
+  .milestone-text { font-size: 13px; color: var(--mid); line-height: 1.65; text-align: justify; }
 
   /* Context note */
-  .context-note { background: var(--cream); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: var(--mid); line-height: 1.65; border: 1px solid rgba(196,168,152,0.2); }
+  .context-note { background: var(--cream); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: var(--mid); line-height: 1.65; border: 1px solid rgba(196,168,152,0.2); text-align: justify; }
   .context-note strong { color: var(--deep); font-weight: 500; }
 
   /* ── Tabla resumen ── */
@@ -148,10 +178,25 @@
   .info-section { background: var(--warm-white); border-radius: 20px; padding: 28px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(61,43,31,0.06); border: 1px solid rgba(196,168,152,0.2); }
   .info-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
   .info-section h2 em { font-style: italic; color: var(--terracota); }
-  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; }
+  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; text-align: justify; }
   .info-section p:last-child { margin-bottom: 0; }
   .info-section strong { color: var(--deep); font-weight: 500; }
   .info-divider { height: 1px; background: rgba(196,168,152,0.2); margin: 20px 0; }
+
+  /* ── Info sections en grid 2 cols en desktop ── */
+  @media (min-width: 640px) {
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .info-grid .info-section { margin-bottom: 0; }
+    .info-full { grid-column: 1 / -1; }
+  }
+
+  /* ── Fuentes ── */
+  .sources-section { background: var(--warm-white); border-radius: 20px; padding: 22px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(61,43,31,0.06); border: 1px solid rgba(196,168,152,0.2); }
+  .sources-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 17px; color: var(--deep); margin-bottom: 14px; }
+  .sources-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .sources-list li { font-size: 12px; color: var(--mid); display: flex; align-items: center; gap: 8px; }
+  .sources-list a { color: var(--terracota); text-decoration: none; transition: opacity 0.2s; }
+  .sources-list a:hover { opacity: 0.75; }
 
   .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.65; margin-top: 20px; padding: 0 8px; }
 </style>
@@ -172,24 +217,24 @@
 
 <div class="container">
 
-  <a class="back-link" href="index.html">← Volver al inicio</a>
+  <a class="back-link" href="/">← Volver al inicio</a>
 
   <header>
     <span class="badge">Embarazo</span>
-    <h1>¿De cuántos<br><em>meses</em> estoy?</h1>
-    <p class="subtitle">Convierte las semanas de embarazo a meses reales, descubre en qué trimestre estás y los hitos clave de cada etapa.</p>
+    <h1>¿De cuántos <em>meses</em> estoy?</h1>
+    <p class="subtitle">Convierte las semanas de embarazo a meses reales, descubre en qué trimestre estás y consulta los hitos clave de cada etapa.</p>
   </header>
 
   <!-- Selector semanas -->
   <div class="card">
     <div class="section-label">Semanas de embarazo</div>
     <div class="week-selector">
-      <button class="hold-btn" id="week-m" data-dir="-1">−</button>
+      <button class="hold-btn" id="week-m" data-dir="-1" aria-label="Restar una semana">−</button>
       <div class="week-display">
         <span class="week-value" id="week-val">12</span>
         <span class="week-unit">semanas</span>
       </div>
-      <button class="hold-btn" id="week-p" data-dir="1">+</button>
+      <button class="hold-btn" id="week-p" data-dir="1" aria-label="Sumar una semana">+</button>
     </div>
   </div>
 
@@ -213,7 +258,7 @@
     <!-- Barra de progreso -->
     <div class="progress-wrap">
       <span class="progress-label">Progreso del embarazo · semana <span id="prog-week">—</span> de 40</span>
-      <div class="progress-track" id="progress-track">
+      <div class="progress-track" id="progress-track" role="progressbar" aria-label="Progreso del embarazo">
         <div class="progress-seg s1" id="seg1"></div>
         <div class="progress-seg s2" id="seg2"></div>
         <div class="progress-seg s3" id="seg3"></div>
@@ -237,7 +282,7 @@
       <div class="stat-block">
         <span class="stat-label">Días transcurridos</span>
         <span class="stat-value" id="stat-days">—</span>
-        <span class="stat-sub">desde la fecundación</span>
+        <span class="stat-sub">desde la última regla</span>
       </div>
       <div class="stat-block">
         <span class="stat-label">Porcentaje</span>
@@ -259,7 +304,7 @@
 
   <!-- Tabla completa -->
   <div class="table-card">
-    <button class="table-toggle" id="table-toggle" onclick="toggleTable()">Ver tabla completa semanas → meses ↓</button>
+    <button class="table-toggle" id="table-toggle" onclick="toggleTable()" aria-expanded="false" aria-controls="full-table">Ver tabla completa semanas → meses ↓</button>
     <div class="full-table" id="full-table">
       <table>
         <thead>
@@ -275,33 +320,49 @@
     </div>
   </div>
 
-  <!-- Info section -->
-  <div class="info-section">
+  <!-- Info sections -->
+  <div class="info-grid">
 
-    <h2>Por qué las semanas y los <em>meses no cuadran</em></h2>
-    <p>La confusión más frecuente en el embarazo es esta: si el embarazo dura 9 meses, ¿por qué los médicos hablan de 40 semanas? La respuesta está en cómo se cuentan. <strong>El embarazo se mide en semanas desde el primer día de la última menstruación</strong>, no desde la fecundación real. Esto añade aproximadamente dos semanas al inicio.</p>
-    <p>Por eso un embarazo de 40 semanas equivale a unos <strong>9 meses y 1 semana</strong> contados desde la última regla, o a unos <strong>38 semanas de desarrollo embrionario real</strong>. Los meses del embarazo tampoco son meses de calendario exactos: cada "mes obstétrico" equivale a 4 semanas y media aproximadamente, lo que hace que la conversión nunca sea exacta.</p>
-    <p>El resultado es que <strong>"estoy de 3 meses"</strong> puede significar entre la semana 9 y la 13 dependiendo de a quién le preguntes. Por eso los profesionales sanitarios usan siempre las semanas como referencia — es la unidad más precisa y la que se usa en todas las ecografías y analíticas.</p>
+    <div class="info-section">
+      <h2>Por qué las semanas y los <em>meses no cuadran</em></h2>
+      <p>La confusión más frecuente en el embarazo es esta: si el embarazo dura 9 meses, ¿por qué los médicos hablan de 40 semanas? La respuesta está en cómo se cuentan. <strong>El embarazo se mide en semanas desde el primer día de la última menstruación</strong>, no desde la fecundación real. Esto añade aproximadamente dos semanas al inicio.</p>
+      <p>Por eso un embarazo de 40 semanas equivale a unos <strong>9 meses y 1 semana</strong> contados desde la última regla, o a unas <strong>38 semanas de desarrollo embrionario real</strong>. Los meses del embarazo tampoco son meses de calendario exactos: cada "mes obstétrico" equivale a 4 semanas y media aproximadamente, lo que hace que la conversión nunca sea exacta.</p>
+      <p>El resultado es que <strong>"estoy de 3 meses"</strong> puede significar entre la semana 9 y la 13 dependiendo de a quién le preguntes. Por eso los profesionales sanitarios usan siempre las semanas como referencia — es la unidad más precisa y la que se usa en todas las ecografías y analíticas.</p>
+    </div>
 
-    <div class="info-divider"></div>
+    <div class="info-section">
+      <h2>Los tres <em>trimestres</em> y por qué importan</h2>
+      <p>El embarazo se divide en tres trimestres que corresponden a etapas muy diferentes del desarrollo del bebé y de cómo te puedes sentir tú.</p>
+      <p>El <strong>primer trimestre (semanas 1–12)</strong> es el período de mayor organogénesis: en estas semanas se forman todos los órganos principales del bebé. Es también cuando el riesgo de aborto espontáneo es más alto y cuando los síntomas —náuseas, fatiga, sensibilidad en el pecho— suelen ser más intensos.</p>
+      <p>El <strong>segundo trimestre (semanas 13–26)</strong> es para muchas mujeres el más llevadero. Los síntomas del primer trimestre suelen remitir, la barriga empieza a ser visible y se perciben los primeros movimientos fetales. Es el período de la ecografía morfológica (semana 20), la más completa del embarazo.</p>
+      <p>El <strong>tercer trimestre (semanas 27–40)</strong> es el de la preparación final. El bebé aumenta de peso rápidamente, la madre puede sentir más incomodidad física y empiezan los preparativos concretos: clases de preparto, visita al hospital, bolsa de maternidad.</p>
+    </div>
 
-    <h2>Los tres <em>trimestres</em> y por qué importan</h2>
-    <p>El embarazo se divide en tres trimestres que corresponden a etapas muy diferentes del desarrollo.</p>
-    <p>El <strong>primer trimestre (semanas 1–12)</strong> es el período de mayor organogénesis: en estas semanas se forman todos los órganos principales del bebé. Es también cuando el riesgo de aborto espontáneo es más alto y cuando los síntomas —náuseas, fatiga, sensibilidad en el pecho— suelen ser más intensos. La mayoría de parejas espera al final del primer trimestre para anunciar el embarazo.</p>
-    <p>El <strong>segundo trimestre (semanas 13–26)</strong> es para muchas mujeres el más llevadero. Los síntomas del primer trimestre suelen remitir, la barriga empieza a ser visible y se perciben los primeros movimientos fetales. Es el período de la ecografía morfológica (semana 20), la más completa del embarazo.</p>
-    <p>El <strong>tercer trimestre (semanas 27–40)</strong> es el de la preparación final. El bebé aumenta de peso rápidamente, la madre puede sentir más incomodidad física y empiezan los preparativos concretos: clases de preparto, visita al hospital, bolsa de maternidad. El parto puede ocurrir a partir de la semana 37 (término precoz) y se considera postérmino a partir de la semana 42.</p>
-
-    <div class="info-divider"></div>
-
-    <h2>El parto a <em>término</em>: cuándo es cuándo</h2>
-    <p>No todos los partos a término son iguales. La clasificación actual distingue entre <strong>término precoz</strong> (semanas 37–38), <strong>término completo</strong> (semanas 39–40, el período óptimo) y <strong>término tardío</strong> (semanas 41–41+6). A partir de la semana 42 se habla de embarazo postérmino y es habitual que el equipo médico valore la inducción.</p>
-    <p>Esta distinción importa porque los bebés nacidos en la semana 37 o 38, aunque técnicamente "a término", tienen tasas ligeramente mayores de ingreso en neonatología que los nacidos en la semana 39–40. Si no hay indicación médica, esperar a que el parto se inicie espontáneamente cerca de la semana 40 suele ser la mejor opción.</p>
+    <div class="info-section info-full">
+      <h2>El parto a <em>término</em>: cuándo es cuándo</h2>
+      <p>No todos los partos a término son iguales. La clasificación actual distingue entre <strong>término precoz</strong> (semanas 37–38), <strong>término completo</strong> (semanas 39–40, el período óptimo) y <strong>término tardío</strong> (semanas 41–41+6). A partir de la semana 42 se habla de embarazo postérmino y es habitual que el equipo médico valore la inducción del parto.</p>
+      <p>Esta distinción importa porque los bebés nacidos en la semana 37 o 38, aunque técnicamente "a término", tienen tasas ligeramente mayores de ingreso en neonatología que los nacidos en la semana 39–40. Si no hay indicación médica, esperar a que el parto se inicie espontáneamente cerca de la semana 40 suele ser la mejor opción para la salud del bebé.</p>
+      <div class="info-divider"></div>
+      <h2>Cómo <em>usar esta calculadora</em></h2>
+      <p>Usa los botones + y − para seleccionar las semanas exactas que te indica tu matrona o ginecólogo. Verás al instante a qué mes de embarazo corresponde, en qué trimestre te encuentras, el porcentaje de embarazo completado y el hito de desarrollo más relevante de esa semana. Si pulsas y mantienes los botones, el número avanzará automáticamente para que puedas explorar con comodidad. También puedes desplegar la tabla completa para ver el equivalente en meses de todas las semanas del embarazo de un vistazo.</p>
+      <p>Recuerda que la conversión de semanas a meses es siempre aproximada. Cuando tu médico dice "semana 20", esa es la referencia exacta que se usa en analíticas, ecografías y controles. Los meses son útiles para explicarlo en el día a día, pero las semanas son la unidad clínica de referencia.</p>
+    </div>
 
   </div>
 
+  <!-- Fuentes consultadas -->
+  <div class="sources-section">
+    <h2>📚 Fuentes consultadas</h2>
+    <ul class="sources-list">
+      <li>📋 <a href="https://www.who.int/es" target="_blank" rel="noopener">Organización Mundial de la Salud (OMS)</a> — Definiciones y criterios de término del embarazo</li>
+      <li>📋 <a href="https://www.aeped.es" target="_blank" rel="noopener">Asociación Española de Pediatría (AEP)</a> — Seguimiento del embarazo y cuidados perinatales</li>
+      <li>📋 <a href="https://www.mscbs.gob.es" target="_blank" rel="noopener">Ministerio de Sanidad de España</a> — Protocolo de atención al embarazo de bajo riesgo</li>
+      <li>📋 <a href="https://www.acog.org" target="_blank" rel="noopener">American College of Obstetricians and Gynecologists (ACOG)</a> — Clasificación del parto a término</li>
+    </ul>
+  </div>
+
   <p class="disclaimer">
-    La conversión semanas → meses es aproximada. Los profesionales sanitarios usan siempre las semanas como referencia exacta.<br>
-    La fecha de parto calculada por la última regla puede variar respecto a la fecha ecográfica.
+    La conversión semanas → meses es aproximada. Los profesionales sanitarios usan siempre las semanas como referencia exacta. La fecha de parto calculada por la última regla puede variar respecto a la fecha ecográfica. Esta herramienta tiene carácter informativo y no sustituye el seguimiento de tu matrona o ginecólogo.
   </p>
 
 </div>
@@ -398,7 +459,7 @@ function makeHoldBtn(el, onStep) {
   el.addEventListener('touchcancel', stopHold, { passive: true });
   el.addEventListener('mousedown', () => { el.classList.add('pressing'); startHold(); });
   el.addEventListener('mouseup',   stopHold);
-  el.addEventListener('mouseleave',stopHold);
+  el.addEventListener('mouseleave', stopHold);
 }
 
 makeHoldBtn(document.getElementById('week-m'), d => { week = Math.max(WEEK_MIN, Math.min(WEEK_MAX, week + d)); render(); });
@@ -415,7 +476,7 @@ function render() {
   const days  = week * 7;
 
   // Month
-  document.getElementById('res-month').textContent    = month;
+  document.getElementById('res-month').textContent     = month;
   document.getElementById('res-month-sub').textContent = `${monthLabel(month)} mes`;
 
   // Trimester
@@ -428,7 +489,6 @@ function render() {
   // Progress
   document.getElementById('prog-week').textContent = week;
   const pctCapped = Math.min(100, pct);
-  // Segments: T1 0–30%, T2 30–65%, T3 65–100%
   const t1End = Math.min(pctCapped, 30);
   const t2End = Math.min(Math.max(pctCapped - 30, 0), 35);
   const t3End = Math.max(pctCapped - 65, 0);
@@ -494,6 +554,7 @@ function toggleTable() {
   const btn = document.getElementById('table-toggle');
   const open = t.classList.toggle('visible');
   btn.textContent = open ? 'Ocultar tabla ↑' : 'Ver tabla completa semanas → meses ↓';
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
   if (open) {
     const highlighted = document.querySelector('#table-body tr.highlight');
     if (highlighted) setTimeout(() => highlighted.scrollIntoView({ block: 'nearest', behavior: 'smooth' }), 50);
