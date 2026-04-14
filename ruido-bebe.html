@@ -1,26 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<title>Sonidos normales del bebé · ¿Es normal este ruido? · babyFAQ</title>
-<meta name="description" content="Guía de los sonidos más frecuentes del bebé: hipo, gruñidos, ronquidos, respiración ruidosa, estornudos y más. Cuándo es normal y cuándo consultar al pediatra.">
-<meta property="og:title" content="Sonidos normales del bebé · ¿Es normal este ruido? · babyFAQ">
-<meta property="og:description" content="Guía de los sonidos más frecuentes del bebé: hipo, gruñidos, ronquidos, respiración ruidosa, estornudos y más. Cuándo es normal y cuándo consultar.">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#f4f8f6">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Es normal este ruido? · Sonidos del bebé · babyFAQ</title>
+<meta name="description" content="Guía de sonidos del bebé: hipo, gruñidos, estridor, ronquidos y más. ¿Es normal? Aprende cuándo preocuparte y cuándo consultar al pediatra.">
+<meta property="og:title" content="¿Es normal este ruido? · Sonidos del bebé · babyFAQ">
+<meta property="og:description" content="Guía de sonidos del bebé: hipo, gruñidos, estridor, ronquidos y más. Aprende cuándo es normal y cuándo consultar al pediatra.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fdf6ee">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://babyfaq.es/ruido-bebe.html">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "¿Es normal este ruido? · Sonidos del bebé",
+  "description": "Guía interactiva de sonidos del bebé: hipo, gruñidos, estridor, ronquidos y más. Aprende cuándo es normal y cuándo consultar al pediatra.",
+  "url": "https://babyfaq.es/ruido-bebe.html",
+  "applicationCategory": "HealthApplication",
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "babyFAQ"
+  }
+}
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #f4f8f6;
-    --warm-white: #fafdfb;
+    --cream: #fdf6ee;
+    --warm-white: #fffcf8;
+    --terracota: #c97a5e;
+    --terra-soft: #e0b5a2;
+    --deep: #2d1a10;
+    --mid: #7a5040;
+    --soft: #c09080;
+    --terra-bg: #fdf0eb;
+    --terra-border: #e8c0b0;
+    /* Colores semánticos — no cambiar */
     --green: #3a7a5a;
     --green-soft: #b8d8c8;
-    --deep: #1a2d22;
-    --mid: #3a5a48;
-    --soft: #88b098;
     --green-bg: #e8f5ee;
     --green-border: #a8d8bc;
     --amber: #b07020;
@@ -29,54 +60,84 @@
     --red: #a83030;
     --red-bg: #fdf0f0;
     --red-border: #f0a8a8;
-    --blue: #3a6aaa;
-    --blue-bg: #eef3fc;
-    --blue-border: #a8c0e8;
-    --purple: #7a5aaa;
-    --purple-bg: #ede8f8;
-    --purple-border: #c4b0e8;
-    --terracota: #c97a5e;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
 
-  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  /* ── Fondo decorativo ── */
+  .noise {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
   .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
-  .blob-1 { width: 300px; height: 300px; background: #a8d8c0; top: -100px; right: -80px; opacity: 0.3; }
-  .blob-2 { width: 250px; height: 250px; background: #a8c8f0; bottom: -80px; left: -60px; opacity: 0.25; }
+  .blob-1 { width: 300px; height: 300px; background: #e8b4a0; top: -100px; right: -80px; opacity: 0.3; }
+  .blob-2 { width: 250px; height: 250px; background: #f0d4c4; bottom: -80px; left: -60px; opacity: 0.25; }
 
+  @media (min-width: 640px) {
+    .blob-1 { width: 420px; height: 420px; top: -160px; right: -140px; opacity: 0.2; }
+    .blob-2 { width: 360px; height: 360px; bottom: -130px; left: -110px; opacity: 0.18; }
+  }
+
+  /* ── Contenedor ── */
   .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 24px 60px; }
 
-  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
-  .back-link:hover { color: var(--green); }
+  @media (min-width: 640px) {
+    .container { max-width: 860px; padding: 48px 40px 80px; }
+  }
 
+  /* ── Back-link ── */
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--terracota); }
+
+  /* ── Header ── */
   header { text-align: center; margin-bottom: 28px; }
-  .badge { display: inline-block; background: var(--green-bg); color: var(--green); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  .badge { display: inline-block; background: var(--terra-bg); color: var(--terracota); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
   h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
   @media (min-width: 480px) { h1 { font-size: 34px; } }
   @media (min-width: 640px) { h1 { font-size: 38px; } }
-  h1 em { font-style: italic; color: var(--green); }
-  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300; }
+  h1 em { font-style: italic; color: var(--terracota); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300; text-align: justify; }
 
-  /* ── Search ── */
+  /* ── Buscador ── */
   .search-wrap { position: relative; margin-bottom: 12px; }
   .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 15px; opacity: 0.4; pointer-events: none; }
-  .search-input { width: 100%; background: var(--warm-white); border: 1.5px solid rgba(136,176,152,0.35); border-radius: 14px; padding: 13px 14px 13px 42px; font-size: 15px; font-family: 'DM Sans', sans-serif; color: var(--deep); outline: none; transition: border-color 0.2s; box-shadow: 0 2px 10px rgba(26,45,34,0.05); }
+  .search-input {
+    width: 100%; background: var(--warm-white);
+    border: 1.5px solid rgba(201,122,94,0.25); border-radius: 14px;
+    padding: 13px 14px 13px 42px; font-size: 15px; font-family: 'DM Sans', sans-serif;
+    color: var(--deep); outline: none; transition: border-color 0.2s;
+    box-shadow: 0 2px 10px rgba(45,26,16,0.05);
+  }
   .search-input::placeholder { color: var(--soft); }
-  .search-input:focus { border-color: var(--green); }
+  .search-input:focus { border-color: var(--terracota); }
 
   /* ── Category pills ── */
   .cat-pills { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
-  .cat-pill { padding: 5px 12px; border-radius: 20px; border: 1.5px solid rgba(136,176,152,0.3); background: var(--warm-white); font-size: 12px; font-weight: 500; color: var(--mid); cursor: pointer; transition: all 0.15s; touch-action: manipulation; }
-  .cat-pill.active { background: var(--green); border-color: var(--green); color: white; }
+  .cat-pill {
+    padding: 5px 12px; border-radius: 20px;
+    border: 1.5px solid rgba(201,122,94,0.25); background: var(--warm-white);
+    font-size: 12px; font-weight: 500; color: var(--mid);
+    cursor: pointer; transition: all 0.15s; touch-action: manipulation;
+  }
+  .cat-pill.active { background: var(--terracota); border-color: var(--terracota); color: white; }
 
   /* ── Sound card ── */
   .sound-section { margin-bottom: 8px; }
 
-  .sound-header { display: flex; align-items: center; gap: 11px; background: var(--warm-white); border-radius: 14px; padding: 14px 16px; cursor: pointer; border: 1px solid rgba(136,176,152,0.18); box-shadow: 0 1px 6px rgba(26,45,34,0.05); user-select: none; transition: border-color 0.15s; }
-  .sound-header:hover { border-color: var(--green-soft); }
-  .sound-header.open { border-color: var(--green-border); border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: transparent; }
+  .sound-header {
+    display: flex; align-items: center; gap: 11px; background: var(--warm-white);
+    border-radius: 14px; padding: 14px 16px; cursor: pointer;
+    border: 1px solid rgba(201,122,94,0.18);
+    box-shadow: 0 1px 6px rgba(45,26,16,0.05);
+    user-select: none; transition: border-color 0.15s;
+  }
+  .sound-header:hover { border-color: var(--terra-soft); }
+  .sound-header.open {
+    border-color: var(--terra-border);
+    border-bottom-left-radius: 0; border-bottom-right-radius: 0;
+    border-bottom-color: transparent;
+  }
 
   .sound-emoji { font-size: 24px; flex-shrink: 0; }
   .sound-info  { flex: 1; min-width: 0; }
@@ -93,7 +154,12 @@
   .sound-header.open .sound-chevron { transform: rotate(90deg); }
 
   /* ── Sound body ── */
-  .sound-body { display: none; background: var(--warm-white); border: 1px solid var(--green-border); border-top: none; border-bottom-left-radius: 14px; border-bottom-right-radius: 14px; padding: 16px 16px 18px; margin-bottom: 2px; }
+  .sound-body {
+    display: none; background: var(--warm-white);
+    border: 1px solid var(--terra-border); border-top: none;
+    border-bottom-left-radius: 14px; border-bottom-right-radius: 14px;
+    padding: 16px 16px 18px; margin-bottom: 2px;
+  }
   .sound-body.open { display: block; }
 
   .verdict-block { border-radius: 12px; padding: 13px 14px; margin-bottom: 12px; }
@@ -113,13 +179,13 @@
   .verdict-block.urgent .verdict-item { color: #7a1a1a; }
   .verdict-item::before { content: '·'; position: absolute; left: 4px; font-weight: 700; }
 
-  .sound-explain { font-size: 13px; color: var(--mid); line-height: 1.7; margin-bottom: 12px; }
+  .sound-explain { font-size: 13px; color: var(--mid); line-height: 1.7; margin-bottom: 12px; text-align: justify; }
   .sound-explain strong { color: var(--deep); font-weight: 500; }
 
-  .sound-tip { background: var(--cream); border-radius: 10px; padding: 10px 12px; font-size: 12px; color: var(--mid); line-height: 1.6; border: 1px solid rgba(136,176,152,0.2); }
+  .sound-tip { background: var(--cream); border-radius: 10px; padding: 10px 12px; font-size: 12px; color: var(--mid); line-height: 1.6; border: 1px solid rgba(201,122,94,0.2); }
   .sound-tip strong { color: var(--deep); font-weight: 500; }
 
-  /* ── No results ── */
+  /* ── Sin resultados ── */
   .no-results { text-align: center; padding: 40px 20px; color: var(--soft); font-size: 14px; }
   .no-results-icon { font-size: 36px; display: block; margin-bottom: 10px; }
 
@@ -130,25 +196,51 @@
   .alert-item  { font-size: 12px; color: #7a1a1a; line-height: 1.6; padding-left: 14px; position: relative; }
   .alert-item::before { content: '·'; position: absolute; left: 4px; font-weight: 700; }
 
-  /* ── Info section ── */
-  .info-section { background: var(--warm-white); border-radius: 20px; padding: 28px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,45,34,0.06); border: 1px solid rgba(136,176,152,0.2); }
+  /* ── Info sections ── */
+  .info-section {
+    background: var(--warm-white); border-radius: 20px; padding: 28px 22px;
+    margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,26,16,0.06);
+    border: 1px solid rgba(201,122,94,0.2);
+  }
   .info-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
-  .info-section h2 em { font-style: italic; color: var(--green); }
-  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; }
+  .info-section h2 em { font-style: italic; color: var(--terracota); }
+  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; text-align: justify; }
   .info-section p:last-child { margin-bottom: 0; }
   .info-section strong { color: var(--deep); font-weight: 500; }
-  .info-divider { height: 1px; background: rgba(136,176,152,0.2); margin: 20px 0; }
+  .info-divider { height: 1px; background: rgba(201,122,94,0.15); margin: 20px 0; }
 
+  /* Desktop: grid 2 col para las info sections */
+  .info-grid { display: flex; flex-direction: column; gap: 0; }
+  @media (min-width: 640px) {
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .info-grid .info-section { margin-bottom: 0; }
+    .info-grid .info-section-full { grid-column: 1 / -1; }
+  }
+
+  /* ── Fuentes consultadas ── */
+  .sources-section {
+    background: var(--warm-white); border-radius: 20px; padding: 24px 22px;
+    margin-bottom: 14px; border: 1px solid rgba(201,122,94,0.2);
+  }
+  .sources-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 18px; color: var(--deep); margin-bottom: 14px; }
+  .sources-list { display: flex; flex-direction: column; gap: 9px; }
+  .source-item { font-size: 12px; color: var(--mid); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+  .source-item a { color: var(--terracota); text-decoration: none; font-weight: 500; }
+  .source-item a:hover { text-decoration: underline; }
+
+  /* ── Disclaimer ── */
   .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.65; margin-top: 20px; padding: 0 8px; }
+
+  /* ── Animación fadeUp ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .container > * { animation: fadeUp 0.4s ease both; }
+  .container > *:nth-child(2) { animation-delay: 0.05s; }
+  .container > *:nth-child(3) { animation-delay: 0.10s; }
+  .container > *:nth-child(4) { animation-delay: 0.15s; }
 </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag("js", new Date());
-  gtag("config", "G-55NR11957W");
-</script>
 </head>
 <body>
 
@@ -158,11 +250,11 @@
 
 <div class="container">
 
-  <a class="back-link" href="index.html">← Volver al inicio</a>
+  <a class="back-link" href="/">← Volver al inicio</a>
 
   <header>
     <span class="badge">0–12 meses</span>
-    <h1>¿Es normal<br>este <em>ruido</em>?</h1>
+    <h1>¿Es normal este <em>ruido</em>?</h1>
     <p class="subtitle">Los bebés hacen sonidos que a los primerizos nos asustan. La mayoría son completamente normales. Aquí te explicamos cuáles son cuáles.</p>
   </header>
 
@@ -180,28 +272,60 @@
   <!-- Buscador + filtros -->
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
-    <input class="search-input" type="text" id="search" placeholder="Busca un sonido… hipo, ronquido, gruñido…" oninput="applyFilters()">
+    <input
+      class="search-input"
+      type="text"
+      id="search"
+      placeholder="Busca un sonido… hipo, ronquido, gruñido…"
+      oninput="applyFilters()"
+      aria-label="Buscar un sonido del bebé"
+    >
   </div>
   <div class="cat-pills" id="cat-pills"></div>
 
   <!-- Lista de sonidos -->
   <div id="sounds-output"></div>
 
-  <!-- Info section -->
-  <div class="info-section">
+  <!-- Secciones informativas -->
+  <div class="info-grid" style="margin-top: 8px;">
 
-    <h2>Por qué los bebés hacen <em>tantos ruidos</em></h2>
-    <p>Los recién nacidos son animales sorprendentemente ruidosos. Gruñen, resuellan, hacen chasquidos, se quejan, suspiran y respiran con sonidos que a los padres primerizos les parecen alarmantes pero que en la inmensa mayoría de casos son completamente normales.</p>
-    <p>La razón es anatómica: <strong>las vías respiratorias del bebé son mucho más estrechas que las del adulto</strong>, tanto en proporción al cuerpo como en términos absolutos. Un milímetro de mucosidad o de inflamación que en un adulto pasaría inadvertido puede producir en un bebé un ruido considerable. Además, el tejido cartilaginoso de la laringe y la tráquea es más blando y flexible, lo que hace que vibre con la respiración.</p>
-    <p>A esto se suma que los bebés tienen el reflejo de succión muy activo, que pasan mucho tiempo tumbados (lo que facilita el reflujo y los ruidos digestivos), y que aún no pueden sonarse la nariz. El resultado es una sinfonía de sonidos que mejoran progresivamente con la maduración.</p>
+    <div class="info-section">
+      <h2>Por qué los bebés hacen <em>tantos ruidos</em></h2>
+      <p>Los recién nacidos son animales sorprendentemente ruidosos. Gruñen, resuellan, hacen chasquidos, se quejan, suspiran y respiran con sonidos que a los padres primerizos les parecen alarmantes pero que en la inmensa mayoría de casos son completamente normales.</p>
+      <p>La razón es anatómica: <strong>las vías respiratorias del bebé son mucho más estrechas que las del adulto</strong>, tanto en proporción al cuerpo como en términos absolutos. Un milímetro de mucosidad o de inflamación que en un adulto pasaría inadvertido puede producir en un bebé un ruido considerable. Además, el tejido cartilaginoso de la laringe y la tráquea es más blando y flexible, lo que hace que vibre con la respiración.</p>
+      <p>A esto se suma que los bebés tienen el reflejo de succión muy activo, que pasan mucho tiempo tumbados —lo que facilita el reflujo y los ruidos digestivos—, y que aún no pueden sonarse la nariz. El resultado es una sinfonía de sonidos que mejoran progresivamente con la maduración.</p>
+    </div>
 
-    <div class="info-divider"></div>
+    <div class="info-section">
+      <h2>Cómo evaluar la <em>respiración</em> de tu bebé</h2>
+      <p>El indicador más fiable del estado respiratorio del bebé no es el sonido que hace, sino su <strong>frecuencia respiratoria y su esfuerzo</strong>. Una respiración normal en un recién nacido es de 40 a 60 respiraciones por minuto —lo que parece muy rápido para los estándares de adulto pero es completamente normal.</p>
+      <p>Lo que hay que observar son los signos de trabajo respiratorio: <strong>tiraje</strong> (hundimiento visible entre las costillas o en la base del cuello con cada respiración), <strong>aleteo nasal</strong> (las aletas de la nariz se abren y cierran de forma exagerada), o <strong>quejido espiratorio</strong> (un sonido al exhalar, diferente al inspiratorio). Si aparece cualquiera de estos signos, consulta sin esperar.</p>
+      <p>El color del bebé es otro indicador clave. Un bebé con buena oxigenación tiene los labios rosados y la piel con buen tono. La palidez intensa o el tinte azulado en los labios son señales de alarma que requieren atención urgente.</p>
+    </div>
 
-    <h2>Cómo evaluar la <em>respiración</em> de tu bebé</h2>
-    <p>El indicador más fiable del estado respiratorio del bebé no es el sonido que hace, sino su <strong>frecuencia respiratoria y su esfuerzo</strong>. Una respiración normal en un recién nacido es de 40 a 60 respiraciones por minuto — lo que parece muy rápido para los estándares de adulto pero es completamente normal.</p>
-    <p>Lo que hay que observar son los signos de trabajo respiratorio: <strong>tiraje</strong> (hundimiento visible entre las costillas o en la base del cuello con cada respiración), <strong>aleteo nasal</strong> (las aletas de la nariz se abren y cierran de forma exagerada), o <strong>quejido espiratorio</strong> (un sonido al exhalar, diferente al inspiratorio). Si aparece cualquiera de estos signos, consulta sin esperar.</p>
-    <p>El color del bebé es otro indicador clave. Un bebé con buena oxigenación tiene los labios rosados y la piel con buen tono. La palidez intensa o el tinte azulado en los labios son señales de alarma que requieren atención urgente.</p>
+    <div class="info-section info-section-full">
+      <h2>Cuándo <em>desaparecen</em> estos ruidos</h2>
+      <p>La mayor parte de los sonidos que preocupan a los padres en los primeros meses tienen fecha de caducidad. La <strong>congestión nasal fisiológica</strong> del recién nacido suele resolverse antes del segundo mes de vida. Los <strong>ruidos digestivos más intensos</strong> —gases, regurgitaciones, gruñidos al defecar— mejoran notablemente entre los 3 y los 6 meses, cuando el sistema digestivo se asienta y el bebé gana tono muscular abdominal.</p>
+      <p>La <strong>laringomalacia</strong> (el cartílago blando que produce el estridor al inspirar) sigue su propio ritmo: suele empeorar ligeramente entre el segundo y el cuarto mes, cuando el bebé es más activo y llora más, pero en el 90% de los casos se resuelve sola antes de los 18 meses sin ninguna intervención. Los <strong>ronquidos suaves</strong> asociados a congestión desaparecen con el proceso catarral. Solo los ronquidos persistentes sin resfriado, que además incluyen pausas respiratorias, merecen una evaluación de adenoides.</p>
+      <p>En general, a partir de los <strong>6 meses</strong> los bebés son mucho menos ruidosos. Las vías respiratorias han crecido, el tono muscular ha aumentado, el reflujo mejora con la introducción de sólidos, y el bebé empieza a pasar más tiempo en posición vertical. Si a esta edad un ruido sigue siendo llamativo o molesta al bebé, coméntalo con el pediatra en la revisión.</p>
 
+      <div class="info-divider"></div>
+
+      <h2>Cuándo <em>consultar</em> al pediatra (resumen rápido)</h2>
+      <p>Fuera de las emergencias que requieren llamar al 112, hay señales que merecen una llamada o visita al pediatra en los próximos días: cualquier ruido nuevo que no existía antes y no tiene explicación obvia; cualquier sonido que interfiera con la alimentación o el sueño del bebé; un ruido que empeora progresivamente en lugar de mejorar; o simplemente que el bebé "no está siendo él mismo" —más irritable, menos activo, con peor apetito— aunque el ruido en sí te parezca leve. <strong>Tu intuición de padre o madre es una herramienta clínica válida.</strong> Si algo no te cuadra, consúltalo.</p>
+    </div>
+
+  </div>
+
+  <!-- Fuentes consultadas -->
+  <div class="sources-section">
+    <h2>📚 Fuentes consultadas</h2>
+    <div class="sources-list">
+      <div class="source-item">📖 <span><a href="https://www.aeped.es" target="_blank" rel="noopener">Asociación Española de Pediatría (AEP)</a> — Guías de salud infantil y respiración neonatal.</span></div>
+      <div class="source-item">📖 <span><a href="https://www.who.int/es" target="_blank" rel="noopener">Organización Mundial de la Salud (OMS)</a> — Estándares de desarrollo y salud en la primera infancia.</span></div>
+      <div class="source-item">📖 <span><a href="https://www.healthychildren.org" target="_blank" rel="noopener">American Academy of Pediatrics (AAP)</a> — Recursos sobre respiración, reflujo y sonidos normales del bebé.</span></div>
+      <div class="source-item">📖 <span><a href="https://www.sanidad.gob.es" target="_blank" rel="noopener">Ministerio de Sanidad</a> — Programa de Salud Infantil y guías de atención al recién nacido.</span></div>
+    </div>
   </div>
 
   <p class="disclaimer">
@@ -220,7 +344,6 @@ const CATEGORIES = [
   { id: 'general',      label: '🔊 General' },
 ];
 
-// alarm: 'normal' | 'watch' | 'urgent'
 const SOUNDS = [
   // ── RESPIRACIÓN ────────────────────────────────────────────────
   {
@@ -397,6 +520,7 @@ function buildPills() {
     const btn = document.createElement('button');
     btn.className = 'cat-pill' + (c.id === activeCat ? ' active' : '');
     btn.textContent = c.label;
+    btn.setAttribute('aria-label', 'Filtrar por categoría: ' + c.label);
     btn.addEventListener('click', () => {
       activeCat = c.id;
       document.querySelectorAll('.cat-pill').forEach(b => b.classList.remove('active'));
@@ -430,7 +554,6 @@ function applyFilters() {
 
   matching.forEach(s => {
     const isOpen = openSounds.has(s.name);
-    // Alarm dots: get unique types
     const types = [...new Set(s.verdicts.map(v => v.type))];
 
     const sec = document.createElement('div');
@@ -438,19 +561,22 @@ function applyFilters() {
 
     const dotsHtml = types.map(t => {
       const cls = t === 'normal' ? 'green' : t === 'watch' ? 'amber' : 'red';
-      return `<span class="alarm-dot ${cls}"></span>`;
+      return `<span class="alarm-dot ${cls}" aria-hidden="true"></span>`;
     }).join('');
 
     const headerDiv = document.createElement('div');
     headerDiv.className = 'sound-header' + (isOpen ? ' open' : '');
+    headerDiv.setAttribute('role', 'button');
+    headerDiv.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    headerDiv.setAttribute('aria-label', 'Ver información sobre: ' + s.name);
     headerDiv.innerHTML = `
-      <span class="sound-emoji">${s.emoji}</span>
+      <span class="sound-emoji" aria-hidden="true">${s.emoji}</span>
       <div class="sound-info">
         <div class="sound-name">${s.name}</div>
         <div class="sound-tag">${s.tag}</div>
       </div>
-      <div class="alarm-dots">${dotsHtml}</div>
-      <span class="sound-chevron">›</span>`;
+      <div class="alarm-dots" aria-hidden="true">${dotsHtml}</div>
+      <span class="sound-chevron" aria-hidden="true">›</span>`;
 
     const bodyDiv = document.createElement('div');
     bodyDiv.className = 'sound-body' + (isOpen ? ' open' : '');
@@ -468,6 +594,7 @@ function applyFilters() {
     headerDiv.addEventListener('click', () => {
       const nowOpen = bodyDiv.classList.toggle('open');
       headerDiv.classList.toggle('open', nowOpen);
+      headerDiv.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
       if (nowOpen) openSounds.add(s.name);
       else openSounds.delete(s.name);
     });

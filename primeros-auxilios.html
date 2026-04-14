@@ -6,16 +6,43 @@
 <meta property="og:title" content="Primeros auxilios para bebés · RCP y atragantamiento · babyFAQ">
 <meta property="og:description" content="Guía paso a paso de primeros auxilios para bebés: RCP, atragantamiento y cómo actuar en emergencias. Aprende antes de necesitarlo.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#fdf4f4">
+<meta name="theme-color" content="#fdf6ee">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://babyfaq.es/primeros-auxilios.html">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Primeros auxilios para bebés · babyFAQ",
+  "description": "Guía interactiva de primeros auxilios pediátricos: RCP, maniobra de Heimlich, atragantamiento, quemaduras y caídas. Protocolos paso a paso para bebés de 0 a 12 meses.",
+  "url": "https://babyfaq.es/primeros-auxilios.html",
+  "applicationCategory": "HealthApplication",
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "babyFAQ"
+  }
+}
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-55NR11957W");
+</script>
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #fdf4f4;
-    --warm-white: #fffafa;
+    --cream: #fdf6ee;
+    --warm-white: #fffcf8;
+    --terracota: #c97a5e;
     --red: #b83030;
     --red-soft: #f0b0b0;
     --deep: #2d1a1a;
@@ -33,7 +60,6 @@
     --blue: #3a5aaa;
     --blue-bg: #eaedfa;
     --blue-border: #b0bcec;
-    --step-bg: #fff5f5;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,16 +72,16 @@
 
   .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 24px 60px; }
 
+  /* ── Back link ── */
   .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
-  .back-link:hover { color: var(--red); }
+  .back-link:hover { color: var(--terracota); }
 
+  /* ── Header ── */
   header { text-align: center; margin-bottom: 24px; }
   .badge { display: inline-block; background: var(--red-bg); color: var(--red); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
   h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
-  @media (min-width: 480px) { h1 { font-size: 34px; } }
-  @media (min-width: 640px) { h1 { font-size: 38px; } }
   h1 em { font-style: italic; color: var(--red); }
-  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300; }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.6; font-weight: 300; text-align: justify; }
 
   /* ── 112 banner ── */
   .emergency-banner { background: var(--red); border-radius: 16px; padding: 16px 18px; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
@@ -66,12 +92,13 @@
   .emergency-num { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 400; color: white; flex-shrink: 0; text-decoration: none; }
 
   /* ── Aviso formación ── */
-  .training-note { background: var(--amber-bg); border: 1.5px solid var(--amber-border); border-radius: 16px; padding: 16px 18px; margin-bottom: 16px; font-size: 13px; color: #5a3a08; line-height: 1.65; }
+  .training-note { background: var(--amber-bg); border: 1.5px solid var(--amber-border); border-radius: 16px; padding: 16px 18px; margin-bottom: 16px; font-size: 13px; color: #5a3a08; line-height: 1.65; text-align: justify; }
   .training-note strong { color: var(--deep); font-weight: 600; }
 
-  /* ── Selector de emergencia ── */
+  /* ── Section label ── */
   .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 12px; }
 
+  /* ── Selector de emergencia ── */
   .emergency-tabs { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
   .emergency-tab { display: flex; align-items: center; gap: 14px; background: var(--warm-white); border-radius: 16px; padding: 16px 18px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.18s, background 0.18s; touch-action: manipulation; user-select: none; box-shadow: 0 1px 8px rgba(45,26,26,0.07); }
   .emergency-tab:hover { border-color: var(--red-soft); }
@@ -100,7 +127,7 @@
   .step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--red); color: white; font-size: 14px; font-weight: 700; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
   .step-content { flex: 1; }
   .step-title { font-size: 14px; font-weight: 600; color: var(--deep); margin-bottom: 3px; }
-  .step-desc  { font-size: 13px; color: var(--mid); line-height: 1.65; }
+  .step-desc  { font-size: 13px; color: var(--mid); line-height: 1.65; text-align: justify; }
   .step-desc strong { color: var(--deep); font-weight: 500; }
 
   /* Key highlight */
@@ -111,7 +138,7 @@
   .key-item::before { content: '→'; position: absolute; left: 0; font-size: 11px; color: var(--red); }
 
   /* After steps note */
-  .after-note { background: var(--green-bg); border: 1px solid var(--green-border); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: #1a4a2a; line-height: 1.65; }
+  .after-note { background: var(--green-bg); border: 1px solid var(--green-border); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: #1a4a2a; line-height: 1.65; text-align: justify; }
   .after-note strong { font-weight: 600; }
 
   /* ── Diferencias bebé vs niño ── */
@@ -131,21 +158,50 @@
   .info-section { background: var(--warm-white); border-radius: 20px; padding: 28px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,26,26,0.07); border: 1px solid rgba(196,152,152,0.2); }
   .info-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
   .info-section h2 em { font-style: italic; color: var(--red); }
-  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; }
+  .info-section h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 16px; color: var(--deep); margin: 16px 0 8px; line-height: 1.3; }
+  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; text-align: justify; }
   .info-section p:last-child { margin-bottom: 0; }
   .info-section strong { color: var(--deep); font-weight: 500; }
   .info-divider { height: 1px; background: rgba(196,152,152,0.2); margin: 20px 0; }
 
+  /* ── Fuentes ── */
+  .sources-section { background: var(--warm-white); border-radius: 20px; padding: 22px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,26,26,0.07); border: 1px solid rgba(196,152,152,0.2); }
+  .sources-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 17px; color: var(--deep); margin-bottom: 14px; }
+  .sources-list { display: flex; flex-direction: column; gap: 9px; }
+  .source-item { font-size: 13px; color: var(--mid); }
+  .source-item a { color: var(--red); text-decoration: none; font-weight: 500; }
+  .source-item a:hover { text-decoration: underline; }
+
+  /* ── Disclaimer ── */
   .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.65; margin-top: 20px; padding: 0 8px; }
+
+  /* ── h1 responsive ── */
+  @media (min-width: 480px) { h1 { font-size: 34px; } }
+
+  /* ── Desktop ── */
+  @media (min-width: 640px) {
+    h1 { font-size: 38px; }
+
+    .container { max-width: 860px; padding: 48px 40px 80px; }
+
+    /* Blobs: reducir opacidad y alejar del contenido */
+    .blob-1 { width: 360px; height: 360px; top: -140px; right: 60px; opacity: 0.2; }
+    .blob-2 { width: 300px; height: 300px; bottom: -120px; left: 60px; opacity: 0.12; }
+
+    /* Tabs en grid 2 columnas */
+    .emergency-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    /* Protocol steps en 2 columnas cuando hay espacio */
+    .steps-list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    /* Info sections: layout mejorado */
+    .info-section { padding: 32px 28px; }
+    .diff-card { padding: 26px 24px; }
+
+    /* Fuentes en fila */
+    .sources-list { flex-direction: row; flex-wrap: wrap; gap: 12px 24px; }
+  }
 </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag("js", new Date());
-  gtag("config", "G-55NR11957W");
-</script>
 </head>
 <body>
 
@@ -155,11 +211,11 @@
 
 <div class="container">
 
-  <a class="back-link" href="index.html">← Volver al inicio</a>
+  <a class="back-link" href="/">← Volver al inicio</a>
 
   <header>
     <span class="badge">Emergencias · 0–12 meses</span>
-    <h1>Primeros auxilios<br>para tu <em>bebé</em></h1>
+    <h1>Primeros auxilios para tu <em>bebé</em></h1>
     <p class="subtitle">Aprende los protocolos antes de necesitarlos. En una emergencia, los segundos cuentan y el pánico bloquea — la memoria muscular no.</p>
   </header>
 
@@ -170,7 +226,7 @@
       <div class="emergency-title">En toda emergencia: llama al 112</div>
       <div class="emergency-sub">Llámalos primero o pide a alguien que llame mientras actúas. El operador te guía en tiempo real.</div>
     </div>
-    <a href="tel:112" class="emergency-num">112</a>
+    <a href="tel:112" class="emergency-num" aria-label="Llamar al 112">112</a>
   </div>
 
   <!-- Aviso formación -->
@@ -180,10 +236,10 @@
 
   <!-- Selector -->
   <div class="section-label">Elige la situación</div>
-  <div class="emergency-tabs" id="tabs"></div>
+  <div class="emergency-tabs" id="tabs" role="tablist"></div>
 
   <!-- Protocolo -->
-  <div id="protocol-output"></div>
+  <div id="protocol-output" role="tabpanel"></div>
 
   <!-- Diferencias bebé vs niño mayor -->
   <div class="diff-card">
@@ -212,7 +268,7 @@
     </div>
   </div>
 
-  <!-- Info section -->
+  <!-- Info sections -->
   <div class="info-section">
 
     <h2>Por qué aprender esto <em>antes</em> de necesitarlo</h2>
@@ -230,16 +286,34 @@
 
     <h2>La <em>posición de recuperación</em> y cuándo usarla</h2>
     <p>Si el bebé está inconsciente pero respira con normalidad —es decir, no necesita RCP— debe colocarse en <strong>posición lateral de seguridad</strong>: de lado, con la cabeza ligeramente inclinada hacia atrás para mantener la vía aérea abierta, y la boca orientada hacia abajo para que cualquier vómito pueda salir sin obstruir.</p>
-    <p>En bebés pequeños (menos de 12 meses), la posición de recuperación se realiza sosteniendo al bebé en brazos de lado, ya que aún no tienen la masa muscular necesaria para mantenerse solos en esa posición sobre una superficie.</p>
-    <p>Sigue monitorizando su respiración constantemente hasta que llegue el equipo de emergencias. Si en algún momento deja de respirar, inicia la RCP inmediatamente.</p>
+    <p>En bebés pequeños (menos de 12 meses), la posición de recuperación se realiza sosteniendo al bebé en brazos de lado, ya que aún no tienen la masa muscular necesaria para mantenerse solos en esa posición sobre una superficie plana.</p>
+    <p>Sigue monitorizando su respiración constantemente hasta que llegue el equipo de emergencias. Si en algún momento deja de respirar, inicia la RCP de inmediato.</p>
+
+    <div class="info-divider"></div>
+
+    <h2>Las <em>quemaduras</em> en bebés: lo que muchos padres hacen mal</h2>
+    <p>El error más frecuente ante una quemadura es aplicar remedio casero antes de enfriar la zona — mantequilla, aceite, pasta de dientes o cremas hidratantes. <strong>Todos estos remedios atrapan el calor y empeoran el daño</strong>. Lo único correcto en los primeros momentos es agua fría corriente durante 20 minutos exactos.</p>
+    <p>La piel de los bebés es más fina que la de los adultos, lo que significa que las quemaduras progresan con mayor rapidez y a mayor profundidad. Cualquier quemadura en un bebé menor de 12 meses requiere valoración médica, incluso si parece superficial o pequeña.</p>
+    <p>Nunca uses hielo — puede causar una quemadura por frío sobre la quemadura térmica, agravando el daño. El agua corriente fría (no helada) es el único tratamiento inmediato correcto.</p>
 
     <div class="info-divider"></div>
 
     <h2>Dónde aprender más y <em>practicar</em></h2>
     <p>La Cruz Roja Española ofrece cursos de primeros auxilios pediátricos en muchas ciudades, algunos específicamente diseñados para padres y cuidadores. El coste suele ser bajo o gratuito y la duración es de 4 a 8 horas.</p>
     <p>También puedes buscar cursos a través de tu hospital de referencia, tu centro de salud o tu ayuntamiento. Algunos centros de salud ofrecen talleres de RCP básica en el contexto del seguimiento pediátrico del primer año.</p>
-    <p>Si no puedes hacer un curso presencial a corto plazo, los vídeos del European Resuscitation Council (ERC) son una referencia de alta calidad y están disponibles en español. Busca siempre fuentes oficiales — hay mucho contenido desactualizado o incorrecto en internet sobre este tema.</p>
+    <p>Si no puedes hacer un curso presencial a corto plazo, los vídeos del European Resuscitation Council (ERC) son una referencia de alta calidad disponibles en español. Busca siempre fuentes oficiales — hay mucho contenido desactualizado o incorrecto en internet sobre este tema.</p>
 
+  </div>
+
+  <!-- Fuentes consultadas -->
+  <div class="sources-section">
+    <h2>📚 Fuentes consultadas</h2>
+    <div class="sources-list">
+      <div class="source-item">🔗 <a href="https://www.erc.edu/" target="_blank" rel="noopener">European Resuscitation Council (ERC) — Guías 2021</a></div>
+      <div class="source-item">🔗 <a href="https://www.cruzroja.es/principal/web/cruz-roja/primeros-auxilios" target="_blank" rel="noopener">Cruz Roja Española — Primeros auxilios pediátricos</a></div>
+      <div class="source-item">🔗 <a href="https://www.aeped.es/" target="_blank" rel="noopener">Asociación Española de Pediatría (AEP)</a></div>
+      <div class="source-item">🔗 <a href="https://www.who.int/es" target="_blank" rel="noopener">Organización Mundial de la Salud (OMS)</a></div>
+    </div>
   </div>
 
   <p class="disclaimer">
@@ -289,7 +363,7 @@ const PROTOCOLS = [
       'Nunca hagas barrido ciego con el dedo — puedes empujar el objeto más adentro.',
       'Los golpes en la espalda deben ser firmes — más de lo que intuitivamente parece seguro.',
       'En bebés NO se usa la maniobra de Heimlich abdominal — las compresiones en el pecho son la alternativa.',
-      'Si ves el objeto solo retíralo si es claramente accesible — nunca buscues a ciegas.',
+      'Si ves el objeto, retíralo solo si es claramente accesible — nunca busques a ciegas.',
     ],
     afterNote: 'Aunque el objeto salga y el bebé parezca bien, <strong>ve siempre al médico</strong> después. Las maniobras de desatragantamiento pueden causar lesiones internas que requieren valoración.',
   },
@@ -495,20 +569,30 @@ function buildTabs() {
   PROTOCOLS.forEach(p => {
     const div = document.createElement('div');
     div.className = 'emergency-tab' + (p.id === activeId ? ' active' : '');
+    div.setAttribute('role', 'tab');
+    div.setAttribute('aria-label', 'Ver protocolo: ' + p.tabTitle);
+    div.setAttribute('aria-selected', p.id === activeId ? 'true' : 'false');
+    div.setAttribute('tabindex', '0');
     div.innerHTML = `
-      <span class="tab-emoji">${p.emoji}</span>
+      <span class="tab-emoji" aria-hidden="true">${p.emoji}</span>
       <div class="tab-info">
         <div class="tab-title">${p.tabTitle}</div>
         <div class="tab-sub">${p.tabSub}</div>
       </div>
-      <span class="tab-chevron">›</span>`;
-    div.addEventListener('click', () => {
+      <span class="tab-chevron" aria-hidden="true">›</span>`;
+    const activate = () => {
       activeId = p.id;
-      document.querySelectorAll('.emergency-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.emergency-tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
       div.classList.add('active');
+      div.setAttribute('aria-selected', 'true');
       renderProtocol();
       document.getElementById('protocol-output').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+    };
+    div.addEventListener('click', activate);
+    div.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
     wrap.appendChild(div);
   });
 }
@@ -520,7 +604,7 @@ function renderProtocol() {
   el.innerHTML = `
     <div class="protocol-card">
       <div class="protocol-header">
-        <span class="protocol-emoji">${p.emoji}</span>
+        <span class="protocol-emoji" aria-hidden="true">${p.emoji}</span>
         <div class="protocol-title">${p.title}</div>
         <div class="protocol-age">${p.subtitle}</div>
       </div>
@@ -528,7 +612,7 @@ function renderProtocol() {
         <div class="steps-list">
           ${p.steps.map((s, i) => `
             <div class="step-item">
-              <div class="step-num">${i + 1}</div>
+              <div class="step-num" aria-hidden="true">${i + 1}</div>
               <div class="step-content">
                 <div class="step-title">${s.title}</div>
                 <div class="step-desc">${s.desc}</div>
