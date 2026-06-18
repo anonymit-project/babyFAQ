@@ -128,9 +128,73 @@ Amazon Afiliados. Mayor potencial de integración en:
 - Claude sugiere proactivamente la siguiente herramienta al terminar cada una.
 - Responder siempre en español.
 
-## Roadmap pendiente
-- Reorganización del index completada en categorías (ver arriba)
-- Badge-new en herramientas recién añadidas al index
+
+## Roadmap SEO — Fases y estado
+
+### Fase 1 — Optimizar las 4 herramientas con más tracción
+Herramientas con impresiones reales en Search Console. Máximo impacto a corto plazo.
+Orden: `calculadora-lactancia.html` → `percentil.html` → `talla-panal.html` → `primeros-auxilios.html`
+
+Por cada herramienta:
+- Reescribir `<title>` orientado a la búsqueda real (no solo el nombre de la herramienta)
+- Revisar `<h1>` para equilibrar keyword + copy atractivo
+- Reescribir `<meta description>` (140–155 chars, verbo de acción)
+- Añadir bloque de interlinking al final (2–3 herramientas relacionadas, diseño consistente)
+- Verificar/añadir FAQPage schema donde aplique
+
+Forma de trabajo: NO enviar fichero completo. Enviar solo:
+1. Bloque `<head>` (title, meta, og, canonical, JSON-LD)
+2. Últimas 40–50 líneas del fichero (donde va el interlinking)
+Claude devuelve solo los bloques modificados con instrucción de dónde pegarlos.
+
+### Fase 2 — Texto en página de inicio
+300–400 palabras con keywords naturales distribuidas por categoría.
+Sin cambiar estructura visual. Solo añadir texto que Google lee.
+Impacto: medio-largo plazo (autoridad temática del dominio).
+
+### Fase 3 — Interlinking sistemático en todas las herramientas
+Mapear relaciones entre las 41 herramientas.
+Implementar bloque "Herramientas relacionadas" consistente en todas.
+El patrón visual se define en Fase 1 y se replica aquí.
+Impacto: medio (distribuye PageRank interno, reduce rebote).
+
+### Fase 4 — Autoridad externa (backlinks)
+Sin presupuesto. Canales prioritarios:
+- Foros y comunidades: ForoCoches (subforo familia), BabyCenter España, grupos Facebook maternidad, Reddit r/padres
+- Directorios de recursos para familias
+- Bloggers de maternidad medianos (proponer mención o colaboración)
+- Medios digitales pequeños con secciones de recursos
+Estimación: 3–6 meses para primeros backlinks de calidad con 5h/semana dedicadas.
+Impacto: alto a largo plazo. Es el mayor factor de ranking.
+
+### Fase 5 — Nuevas herramientas (gaps de keywords)
+Gaps detectados con volumen de búsqueda en español no cubiertos por las 41 actuales:
+- `crisis-lactancia.html` — "crisis de lactancia semanas" (Lactancia)
+- `alimentacion-embarazo.html` — tabla de alimentos permitidos/prohibidos (Embarazo)
+- `costras-cabeza.html` — costra láctea: causas y tratamiento (Higiene y cuidados)
+- `reflujo-bebe.html` — síntomas y cuándo preocuparse (Crecimiento y salud)
+- `hitos-habla.html` — cuándo habla el bebé, hitos por edad (Crecimiento y salud)
+- `papillas-bebe.html` — recetas por meses (Alimentación) — alta conversión afiliados
+
+### Fase 6 — Monetización Amazon Afiliados
+Activar cuando se alcancen 500 sesiones/mes consistentes.
+Situación actual: ~150–240 sesiones/mes estimadas (150 impresiones, CTR 3–5%).
+Alcanzable en 3–4 meses con Fases 1–3 ejecutadas.
+Norma: bloques de afiliados siempre después del contenido principal, nunca interrumpiendo la herramienta.
+Herramientas prioritarias para integrar afiliados (ya identificadas):
+`silla-coche` · `temperatura-habitacion` · `ruido-bebe` · `porteo` · `masaje-bebe` · `juguetes-edad`
+
+---
+
+## Flujo de trabajo por conversación
+- Una conversación por herramienta o fase (no una para todo, no una por cada cambio pequeño)
+- Adjuntar siempre `CONTEXTO_BABYFAQ.md` al inicio de cada conversación
+- Indicar cambios propios ANTES de empezar cada herramienta, no después
+- Actualizar el bloque "Estado actual" de este fichero al terminar cada sesión
+
+## Estado actual
+- Roadmap definido · Fase 1 pendiente de iniciar
+- Primera herramienta: `calculadora-lactancia.html`
 - Pendiente revisar herramientas antiguas para aplicar estándares actuales (responsive desktop, fuentes, texto explicativo)
 - `dosis-fiebre.html` ya cubre paracetamol e ibuprofeno — no crear herramienta separada
 
