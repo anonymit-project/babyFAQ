@@ -1,0 +1,1141 @@
+{
+  "version": 1,
+  "generado": "2026-11-04",
+  "nota": "fuentes[] debe contener URLs oficiales verificadas a mano antes de marcar estado_verificacion=verificada. organismos_candidatos son solo punto de partida.",
+  "niveles": {
+    "1": "riesgo alto: un error podría causar daño",
+    "2": "cálculo/guía contra tablas oficiales",
+    "3": "no médica, riesgo bajo"
+  },
+  "herramientas": [
+    {
+      "slug": "fecha-parto",
+      "archivo": "fecha-parto.html",
+      "url": "https://babyfaq.es/fecha-parto.html",
+      "titulo": "Calculadora de fecha probable de parto",
+      "categoria": "Embarazo",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P2",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 57,
+        "posicion_media": 78.4,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "SEGO"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "semanas-a-meses",
+        "tamano-bebe",
+        "bolsa-hospital"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "semanas-a-meses",
+      "archivo": "semanas-a-meses.html",
+      "url": "https://babyfaq.es/semanas-a-meses.html",
+      "titulo": "Semanas de gestación a meses",
+      "categoria": "Embarazo",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 14,
+        "posicion_media": 38.4,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "SEGO"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "fecha-parto",
+        "tamano-bebe",
+        "peso-embarazo"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "tamano-bebe",
+      "archivo": "tamano-bebe.html",
+      "url": "https://babyfaq.es/tamano-bebe.html",
+      "titulo": "Tamaño del bebé por semana",
+      "categoria": "Embarazo",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 28,
+        "posicion_media": 27.3,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "SEGO"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "semanas-a-meses",
+        "patadas",
+        "fecha-parto"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "patadas",
+      "archivo": "patadas.html",
+      "url": "https://babyfaq.es/patadas.html",
+      "titulo": "Contador de patadas",
+      "categoria": "Embarazo",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 28,
+        "posicion_media": 6.4,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "SEGO"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "contracciones",
+        "tamano-bebe",
+        "bolsa-hospital"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "peso-embarazo",
+      "archivo": "peso-embarazo.html",
+      "url": "https://babyfaq.es/peso-embarazo.html",
+      "titulo": "Ganancia de peso en el embarazo",
+      "categoria": "Embarazo",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P2",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 89,
+        "posicion_media": 45.2,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "IOM/NAM (ganancia de peso)",
+        "SEGO"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "fecha-parto",
+        "semanas-a-meses",
+        "tamano-bebe"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "contracciones",
+      "archivo": "contracciones.html",
+      "url": "https://babyfaq.es/contracciones.html",
+      "titulo": "Contador de contracciones",
+      "categoria": "Embarazo",
+      "nivel_riesgo": 1,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 22,
+        "posicion_media": 31.4,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "SEGO",
+        "Ministerio de Sanidad"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "bolsa-hospital",
+        "patadas",
+        "fecha-parto"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "bolsa-hospital",
+      "archivo": "bolsa-hospital.html",
+      "url": "https://babyfaq.es/bolsa-hospital.html",
+      "titulo": "Bolsa del hospital",
+      "categoria": "Embarazo",
+      "nivel_riesgo": 3,
+      "prioridad_seo": "P2",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 48,
+        "posicion_media": 35.2,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "contracciones",
+        "fecha-parto",
+        "talla-panal"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "tomas-leche",
+      "archivo": "tomas-leche.html",
+      "url": "https://babyfaq.es/tomas-leche.html",
+      "titulo": "ml por toma según edad y peso",
+      "categoria": "Lactancia",
+      "nivel_riesgo": 1,
+      "prioridad_seo": "P1",
+      "metricas_90d_google_organico": {
+        "clics": 1,
+        "impresiones": 232,
+        "posicion_media": 20.1,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP",
+        "OMS"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "calculadora-lactancia",
+        "percentil",
+        "introduccion-solidos"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "calculadora-lactancia",
+      "archivo": "calculadora-lactancia.html",
+      "url": "https://babyfaq.es/calculadora-lactancia.html",
+      "titulo": "Alcohol y lactancia: tiempo de espera",
+      "categoria": "Lactancia",
+      "nivel_riesgo": 1,
+      "prioridad_seo": "P1",
+      "metricas_90d_google_organico": {
+        "clics": 6,
+        "impresiones": 174,
+        "posicion_media": 11.3,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP (Comité de Lactancia)",
+        "e-lactancia.org",
+        "AAP"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "tomas-leche",
+        "primeros-auxilios",
+        "alimentos-edad"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "alimentos-edad",
+      "archivo": "alimentos-edad.html",
+      "url": "https://babyfaq.es/alimentos-edad.html",
+      "titulo": "Alimentos por edad",
+      "categoria": "Alimentación",
+      "nivel_riesgo": 1,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 8,
+        "posicion_media": 17.9,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP",
+        "AESAN",
+        "ESPGHAN"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "introduccion-solidos",
+        "solidos-agua",
+        "tomas-leche"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "introduccion-solidos",
+      "archivo": "introduccion-solidos.html",
+      "url": "https://babyfaq.es/introduccion-solidos.html",
+      "titulo": "Introducción a sólidos",
+      "categoria": "Alimentación",
+      "nivel_riesgo": 1,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 0,
+        "posicion_media": null,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP",
+        "OMS",
+        "ESPGHAN"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "alimentos-edad",
+        "solidos-agua",
+        "primeros-auxilios"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "solidos-agua",
+      "archivo": "solidos-agua.html",
+      "url": "https://babyfaq.es/solidos-agua.html",
+      "titulo": "Sólidos y agua: línea de tiempo",
+      "categoria": "Alimentación",
+      "nivel_riesgo": 1,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 0,
+        "posicion_media": null,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP",
+        "OMS"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "introduccion-solidos",
+        "alimentos-edad",
+        "tomas-leche"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "sueno-bebe",
+      "archivo": "sueno-bebe.html",
+      "url": "https://babyfaq.es/sueno-bebe.html",
+      "titulo": "Sueño del bebé por meses",
+      "categoria": "Sueño",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P2",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 53,
+        "posicion_media": 59.4,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP",
+        "AAP"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "hora-acostarse",
+        "regresiones-sueno",
+        "temperatura-habitacion"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "hora-acostarse",
+      "archivo": "hora-acostarse.html",
+      "url": "https://babyfaq.es/hora-acostarse.html",
+      "titulo": "Hora de acostarse",
+      "categoria": "Sueño",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 7,
+        "posicion_media": 6.6,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "sueno-bebe",
+        "regresiones-sueno",
+        "ruido-bebe"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "temperatura-habitacion",
+      "archivo": "temperatura-habitacion.html",
+      "url": "https://babyfaq.es/temperatura-habitacion.html",
+      "titulo": "Temperatura de la habitación",
+      "categoria": "Sueño",
+      "nivel_riesgo": 1,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 18,
+        "posicion_media": 26.3,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP (muerte súbita)",
+        "AAP (sueño seguro)"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "sueno-bebe",
+        "fiebre",
+        "cuna-a-cama"
+      ],
+      "afiliados_prioridad": true
+    },
+    {
+      "slug": "regresiones-sueno",
+      "archivo": "regresiones-sueno.html",
+      "url": "https://babyfaq.es/regresiones-sueno.html",
+      "titulo": "Regresiones del sueño",
+      "categoria": "Sueño",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P2",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 52,
+        "posicion_media": 77.8,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "sueno-bebe",
+        "hora-acostarse",
+        "llanto-bebe"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "cuna-a-cama",
+      "archivo": "cuna-a-cama.html",
+      "url": "https://babyfaq.es/cuna-a-cama.html",
+      "titulo": "De la cuna a la cama",
+      "categoria": "Sueño",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 9,
+        "posicion_media": 49.9,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AAP",
+        "AEP"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "sueno-bebe",
+        "temperatura-habitacion",
+        "control-esfinteres"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "ruido-bebe",
+      "archivo": "ruido-bebe.html",
+      "url": "https://babyfaq.es/ruido-bebe.html",
+      "titulo": "Ruido blanco seguro",
+      "categoria": "Sueño",
+      "nivel_riesgo": 1,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 5,
+        "posicion_media": 13.6,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AAP",
+        "OMS (ruido)",
+        "AEP"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "sueno-bebe",
+        "hora-acostarse",
+        "llanto-bebe"
+      ],
+      "afiliados_prioridad": true
+    },
+    {
+      "slug": "percentil",
+      "archivo": "percentil.html",
+      "url": "https://babyfaq.es/percentil.html",
+      "titulo": "Percentiles OMS peso y altura",
+      "categoria": "Crecimiento y salud",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P1",
+      "metricas_90d_google_organico": {
+        "clics": 1,
+        "impresiones": 225,
+        "posicion_media": 56.7,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "OMS (patrones de crecimiento)",
+        "AEP"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "tomas-leche",
+        "desarrollo",
+        "revisiones-pediatra"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "desarrollo",
+      "archivo": "desarrollo.html",
+      "url": "https://babyfaq.es/desarrollo.html",
+      "titulo": "Hitos del desarrollo",
+      "categoria": "Crecimiento y salud",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 9,
+        "posicion_media": 2.1,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP",
+        "OMS",
+        "CDC"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "percentil",
+        "juguetes-edad",
+        "revisiones-pediatra"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "revisiones-pediatra",
+      "archivo": "revisiones-pediatra.html",
+      "url": "https://babyfaq.es/revisiones-pediatra.html",
+      "titulo": "Revisiones del pediatra",
+      "categoria": "Crecimiento y salud",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 1,
+        "posicion_media": 1.0,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP (Programa de Salud Infantil)"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "vacunas",
+        "percentil",
+        "desarrollo"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "vacunas",
+      "archivo": "vacunas.html",
+      "url": "https://babyfaq.es/vacunas.html",
+      "titulo": "Calendario de vacunas",
+      "categoria": "Crecimiento y salud",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P1",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 105,
+        "posicion_media": 75.5,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "Ministerio de Sanidad (calendario común)",
+        "AEP (CAV)"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "revisiones-pediatra",
+        "fiebre",
+        "dosis-fiebre"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "edad-corregida",
+      "archivo": "edad-corregida.html",
+      "url": "https://babyfaq.es/edad-corregida.html",
+      "titulo": "Edad corregida (prematuros)",
+      "categoria": "Crecimiento y salud",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 31,
+        "posicion_media": 15.1,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP",
+        "AAP"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "percentil",
+        "desarrollo",
+        "vacunas"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "fiebre",
+      "archivo": "fiebre.html",
+      "url": "https://babyfaq.es/fiebre.html",
+      "titulo": "¿Es fiebre?",
+      "categoria": "Crecimiento y salud",
+      "nivel_riesgo": 1,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 16,
+        "posicion_media": 5.6,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP",
+        "Ministerio de Sanidad",
+        "AAP"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "dosis-fiebre",
+        "cuando-urgencias",
+        "temperatura-habitacion"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "dosis-fiebre",
+      "archivo": "dosis-fiebre.html",
+      "url": "https://babyfaq.es/dosis-fiebre.html",
+      "titulo": "Dosis de paracetamol e ibuprofeno",
+      "categoria": "Crecimiento y salud",
+      "nivel_riesgo": 1,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 9,
+        "posicion_media": 16.4,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP (Familia y Salud)",
+        "AEMPS (fichas técnicas)"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "fiebre",
+        "cuando-urgencias",
+        "vacunas"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "cuando-urgencias",
+      "archivo": "cuando-urgencias.html",
+      "url": "https://babyfaq.es/cuando-urgencias.html",
+      "titulo": "¿Urgencias o puede esperar?",
+      "categoria": "Crecimiento y salud",
+      "nivel_riesgo": 1,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 2,
+        "posicion_media": 10.0,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP",
+        "SEUP (urgencias pediátricas)"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "fiebre",
+        "primeros-auxilios",
+        "dosis-fiebre"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "llanto-bebe",
+      "archivo": "llanto-bebe.html",
+      "url": "https://babyfaq.es/llanto-bebe.html",
+      "titulo": "Intérprete de llanto",
+      "categoria": "Crecimiento y salud",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 1,
+        "posicion_media": 1.0,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "colicos-bebe",
+        "sueno-bebe",
+        "masaje-bebe"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "colicos-bebe",
+      "archivo": "colicos-bebe.html",
+      "url": "https://babyfaq.es/colicos-bebe.html",
+      "titulo": "Alivio de cólicos",
+      "categoria": "Crecimiento y salud",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 0,
+        "posicion_media": null,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP",
+        "AAP"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "llanto-bebe",
+        "masaje-bebe",
+        "porteo"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "denticion",
+      "archivo": "denticion.html",
+      "url": "https://babyfaq.es/denticion.html",
+      "titulo": "Dentición: cuándo salen los dientes",
+      "categoria": "Crecimiento y salud",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 9,
+        "posicion_media": 14.9,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "denticion-alivio",
+        "desarrollo",
+        "fiebre"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "control-esfinteres",
+      "archivo": "control-esfinteres.html",
+      "url": "https://babyfaq.es/control-esfinteres.html",
+      "titulo": "Control de esfínteres",
+      "categoria": "Crecimiento y salud",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 18,
+        "posicion_media": 63.1,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP",
+        "AAP"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "talla-panal",
+        "desarrollo",
+        "cuna-a-cama"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "juguetes-edad",
+      "archivo": "juguetes-edad.html",
+      "url": "https://babyfaq.es/juguetes-edad.html",
+      "titulo": "Juguetes por etapa",
+      "categoria": "Crecimiento y salud",
+      "nivel_riesgo": 3,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 2,
+        "posicion_media": 9.5,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "desarrollo",
+        "denticion-alivio",
+        "porteo"
+      ],
+      "afiliados_prioridad": true
+    },
+    {
+      "slug": "bano-bebe",
+      "archivo": "bano-bebe.html",
+      "url": "https://babyfaq.es/bano-bebe.html",
+      "titulo": "Baño del bebé",
+      "categoria": "Higiene y cuidados",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 21,
+        "posicion_media": 39.0,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "masaje-bebe",
+        "temperatura-habitacion",
+        "talla-panal"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "masaje-bebe",
+      "archivo": "masaje-bebe.html",
+      "url": "https://babyfaq.es/masaje-bebe.html",
+      "titulo": "Masaje infantil",
+      "categoria": "Higiene y cuidados",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P2",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 78,
+        "posicion_media": 82.6,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "colicos-bebe",
+        "bano-bebe",
+        "llanto-bebe"
+      ],
+      "afiliados_prioridad": true
+    },
+    {
+      "slug": "denticion-alivio",
+      "archivo": "denticion-alivio.html",
+      "url": "https://babyfaq.es/denticion-alivio.html",
+      "titulo": "Alivio de la dentición",
+      "categoria": "Higiene y cuidados",
+      "nivel_riesgo": 2,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 0,
+        "posicion_media": null,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP",
+        "AAP"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "denticion",
+        "juguetes-edad",
+        "fiebre"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "talla-panal",
+      "archivo": "talla-panal.html",
+      "url": "https://babyfaq.es/talla-panal.html",
+      "titulo": "Talla de pañal",
+      "categoria": "Higiene y cuidados",
+      "nivel_riesgo": 3,
+      "prioridad_seo": "P1",
+      "metricas_90d_google_organico": {
+        "clics": 1,
+        "impresiones": 168,
+        "posicion_media": 37.2,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "tallas-ropa",
+        "talla-zapato",
+        "bolsa-hospital"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "talla-zapato",
+      "archivo": "talla-zapato.html",
+      "url": "https://babyfaq.es/talla-zapato.html",
+      "titulo": "Talla de zapato",
+      "categoria": "Ropa y tallas",
+      "nivel_riesgo": 3,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 26,
+        "posicion_media": 43.6,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "tallas-ropa",
+        "talla-panal",
+        "percentil"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "tallas-ropa",
+      "archivo": "tallas-ropa.html",
+      "url": "https://babyfaq.es/tallas-ropa.html",
+      "titulo": "Conversor de tallas de ropa",
+      "categoria": "Ropa y tallas",
+      "nivel_riesgo": 3,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 5,
+        "posicion_media": 27.2,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "talla-zapato",
+        "talla-panal",
+        "percentil"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "primeros-auxilios",
+      "archivo": "primeros-auxilios.html",
+      "url": "https://babyfaq.es/primeros-auxilios.html",
+      "titulo": "Primeros auxilios",
+      "categoria": "Seguridad",
+      "nivel_riesgo": 1,
+      "prioridad_seo": "P1",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 120,
+        "posicion_media": 77.4,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP",
+        "Cruz Roja",
+        "ERC/CERCP (reanimación)"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "cuando-urgencias",
+        "introduccion-solidos",
+        "silla-coche"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "silla-coche",
+      "archivo": "silla-coche.html",
+      "url": "https://babyfaq.es/silla-coche.html",
+      "titulo": "Silla de coche",
+      "categoria": "Seguridad",
+      "nivel_riesgo": 1,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 2,
+        "posicion_media": 3.0,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "DGT",
+        "Reglamento ECE R129 (i-Size)",
+        "RACE/OCU"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "primeros-auxilios",
+        "porteo",
+        "checker-productos"
+      ],
+      "afiliados_prioridad": true
+    },
+    {
+      "slug": "checker-productos",
+      "archivo": "checker-productos.html",
+      "url": "https://babyfaq.es/checker-productos.html",
+      "titulo": "Checker de productos",
+      "categoria": "Compras",
+      "nivel_riesgo": 3,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 3,
+        "posicion_media": 3.3,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "silla-coche",
+        "porteo",
+        "juguetes-edad"
+      ],
+      "afiliados_prioridad": false
+    },
+    {
+      "slug": "porteo",
+      "archivo": "porteo.html",
+      "url": "https://babyfaq.es/porteo.html",
+      "titulo": "Porteo",
+      "categoria": "Compras",
+      "nivel_riesgo": 3,
+      "prioridad_seo": "P3",
+      "metricas_90d_google_organico": {
+        "clics": 0,
+        "impresiones": 13,
+        "posicion_media": 5.7,
+        "periodo": "2026-08-06 a 2026-11-03"
+      },
+      "organismos_candidatos": [
+        "AEP",
+        "AAP (displasia de cadera)"
+      ],
+      "fuentes": [],
+      "estado_verificacion": "pendiente",
+      "ultima_revision": null,
+      "relacionadas": [
+        "silla-coche",
+        "colicos-bebe",
+        "checker-productos"
+      ],
+      "afiliados_prioridad": true
+    }
+  ]
+}

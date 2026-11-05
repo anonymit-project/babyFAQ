@@ -16,8 +16,8 @@ El sitio es anónimo y sin revisor médico: la fiabilidad se garantiza **por pro
 
 | Nivel | Qué es | Quién aprueba el PR | Requisitos |
 |---|---|---|---|
-| **1** | Un error podría dañar (dosis, fiebre, urgencias, primeros auxilios, alcohol y lactancia, alimentos y sólidos, tomas de leche, contracciones, ruido, temperatura/sueño seguro, silla de coche) | Siempre Cristian, nunca auto-merge | Tabla "dato actual / dato en la fuente / enlace"; tests funcionales con valores esperados; monitor de cambios en fuentes activo |
-| **2** | Cálculo o guía contra tablas oficiales (percentiles, vacunas, edad corregida, fecha de parto, hitos…) | Cristian, revisión rápida de la tabla comparativa | Fuente por dato; tests de cálculo |
+| **1** | Un error podría dañar (dosis, fiebre, urgencias, primeros auxilios, alcohol y lactancia, alimentos y sólidos, tomas de leche, contracciones, ruido, temperatura/sueño seguro, silla de coche) | Siempre el autor, nunca auto-merge | Tabla "dato actual / dato en la fuente / enlace"; tests funcionales con valores esperados; monitor de cambios en fuentes activo |
+| **2** | Cálculo o guía contra tablas oficiales (percentiles, vacunas, edad corregida, fecha de parto, hitos…) | El autor, revisión rápida de la tabla comparativa | Fuente por dato; tests de cálculo |
 | **3** | No médicas (tallas, bolsa del hospital, juguetes, porteo, checker) | Auto-merge posible cuando pasen todos los validadores | Validadores SEO y funcionales en verde |
 
 ## Líneas rojas (el PR se rechaza automáticamente)
