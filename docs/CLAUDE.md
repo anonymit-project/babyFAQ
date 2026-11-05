@@ -46,3 +46,20 @@ Ubicación en el repo: `docs/CLAUDE.md` y `docs/ESTADO.md` (el resto de rutas so
 ## Protocolo de sesión
 - **Inicio:** leer ESTADO, resumir en 3 líneas dónde estamos, proponer la tarea siguiente y listar los ficheros que hay que adjuntar.
 - **Cierre:** entregar `ESTADO.md` actualizado y, si hubo decisiones, la línea para `09-decisiones.md`. Recordar hacer commit en GitHub.
+- PROTOCOLO DE ACTUALIZACIÓN (al cerrar cada tarea, sin que te lo pida)
+Revisa esta tabla y entrega solo lo que cambie, indicando la ruta del fichero:
+
+| Qué ha pasado | Qué actualizar |
+|---|---|
+| Se termina cualquier tarea | `docs/ESTADO.md` (hecho, siguiente paso) |
+| Se toma una decisión | Línea nueva con fecha al final de `docs/09-decisiones.md` |
+| Se modifica o revisa una herramienta | Su objeto en `data/inventario.json` (ultima_revision, estado_verificacion, fuentes) y, si cambia una fase, `docs/06-seo-roadmap.md` |
+| Se crea una herramienta nueva | Su objeto en `data/inventario.json`, el recuento de `docs/01-proyecto.md` y el recordatorio de añadirla al sitemap |
+| Llegan datos nuevos de tráfico | Línea base de `docs/ESTADO.md` y, si cambian las metas, `docs/06` y `docs/07` |
+| Se verifica una fuente oficial | `fuentes` en `data/inventario.json` y `docs/04-fuentes-autorizadas.md` |
+| Cambian las reglas de salud | `docs/05-politica-medica.md` y una línea en `docs/09-decisiones.md` |
+
+Reglas:
+- Del inventario devuelve solo el objeto JSON de la herramienta afectada, no el fichero entero.
+- Antes de crear un fichero nuevo, comprueba que no existe uno con ese propósito; si procede, propón nombre y número, y entrega también la fila nueva para la tabla de `docs/CLAUDE.md`.
+- Termina con la lista de ficheros que el autor debe subir con commit.
