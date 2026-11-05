@@ -20,13 +20,17 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-05.
 - Decisiones de arquitectura y política (`docs/09-decisiones.md`); inventario con niveles de riesgo (`data/inventario.json`).
 - Fase 1 SEO optimizada en `calculadora-lactancia`, `percentil`, `talla-panal`, `primeros-auxilios`.
 - Estructura de contexto en el repo (`CLAUDE.md`, `docs/`, `data/`).
+- Despliegue con GitHub Actions (`.github/workflows/pages.yml`): solo se publica una lista de ficheros permitidos; `docs/`, `data/`, `CONTEXTO_BABYFAQ.md` e `index_old.html` dan 404 en babyfaq.es (comprobado 2026-11-05).
 
 ## Siguiente
-1. Optimizar SEO de `tomas-leche` (Fase 1 pendiente).
-2. Esqueleto Eleventy con `talla-zapato` (Nivel 3) conservando URL, canonical y JSON-LD.
-3. Redactar `docs/03-voz-y-estilo.md` y `docs/04-fuentes-autorizadas.md` (URLs oficiales verificadas a mano).
-4. Auditoría de Nivel 1 en el orden de `docs/05-politica-medica.md`; revisar kg ↔ lb y otros fallos de dinamismo.
-5. Fase 4 (backlinks) en paralelo: primeros contactos en foros y directorios.
+1. Limpieza de privacidad del historial del repo (regla 8 de CLAUDE.md).
+2. Icono (favicon) que no aparece en los resultados de Google.
+3. Quitar `sugerir.html` del sitemap (bloqueada en robots.txt).
+4. Optimizar SEO de `tomas-leche` (Fase 1 pendiente).
+5. Esqueleto Eleventy con `talla-zapato` (Nivel 3) conservando URL, canonical y JSON-LD; el build sustituirá el paso "Preparar" del workflow.
+6. Redactar `docs/03-voz-y-estilo.md` y `docs/04-fuentes-autorizadas.md` (URLs oficiales verificadas a mano).
+7. Auditoría de Nivel 1 en el orden de `docs/05-politica-medica.md`; revisar kg ↔ lb y otros fallos de dinamismo.
+8. Fase 4 (backlinks) en paralelo: primeros contactos en foros y directorios.
 
 ## Por confirmar
 - Si el CTR de "calculadora alcohol lactancia" mejora tras la optimización de title/meta (volver a medir a las 4–6 semanas).
