@@ -13,6 +13,7 @@ Ubicación en el repo: `docs/CLAUDE.md` y `docs/ESTADO.md` (el resto de rutas so
 7. Afiliados nunca dentro de los resultados de una herramienta de salud.
 8. Sin nombre ni datos personales del autor en ficheros del repo (es público).
 9. Nunca asumir el contenido de un fichero que no esté adjunto: pedirlo.
+10. Despliegue: solo se publica lo que lista `.github/workflows/pages.yml`. Si una herramienta nueva necesita un fichero que no sea `.html` (CSS, JS, imágenes), añadirlo allí.
 
 ## Qué es cada fichero y cuándo se usa
 | Fichero | Para qué sirve | Cuándo |
@@ -28,6 +29,7 @@ Ubicación en el repo: `docs/CLAUDE.md` y `docs/ESTADO.md` (el resto de rutas so
 | `docs/09-decisiones.md` | Registro de decisiones y motivos | Para no repetir debates; se añade al final |
 | `data/inventario.json` | Ficha de las 41 herramientas (nivel, prioridad, métricas, relacionadas, fuentes). Pesado | Solo interlinking, priorizar, fuentes, informes |
 | `docs/03-voz-y-estilo.md`, `docs/04-fuentes-autorizadas.md` | PENDIENTES de crear | — |
+| `.github/workflows/pages.yml` | Define qué ficheros se publican en babyfaq.es | Al añadir ficheros públicos que no sean .html, o al migrar a Eleventy |
 
 ## Qué adjuntar según la tarea (además de lo que ya está en el conocimiento del proyecto)
 | Tarea | Documentos clave | Adjuntar |
