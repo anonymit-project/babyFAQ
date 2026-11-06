@@ -21,18 +21,19 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-06.
 - Fase 1 SEO optimizada en `calculadora-lactancia`, `percentil`, `talla-panal`, `primeros-auxilios`.
 - Estructura de contexto en el repo (`CLAUDE.md`, `docs/`, `data/`).
 - Despliegue con GitHub Actions (`.github/workflows/pages.yml`): solo se publica una lista de ficheros permitidos; `docs/`, `data/`, `CONTEXTO_BABYFAQ.md` e `index_old.html` dan 404 en babyfaq.es (comprobado 2026-11-05).
-- - Revisión de privacidad del repo público (2026-11-06): commits anónimos, sin forks, sin rastro en Google ni Wayback; historial mantenido (ver `09-decisiones.md`).
+- Revisión de privacidad del repo público (2026-11-06): commits anónimos, sin forks, sin rastro en Google ni Wayback; historial mantenido (ver `09-decisiones.md`).
+- Fase 1 SEO aplicada en `tomas-leche` (2026-11-06): title, h1, meta, og, interlinking y FAQPage parcial (1 pregunta, el resto pendiente de fuentes).
+- Favicon añadido al `<head>` de `index.html` (2026-11-06); pendiente de que Google lo recoja.
 
 ## Siguiente
-1. Limpieza de privacidad del historial del repo (regla 8 de CLAUDE.md).
-2. Icono (favicon) que no aparece en los resultados de Google.
-3. Quitar `sugerir.html` del sitemap (bloqueada en robots.txt).
-4. Optimizar SEO de `tomas-leche` (Fase 1 pendiente).
-5. Esqueleto Eleventy con `talla-zapato` (Nivel 3) conservando URL, canonical y JSON-LD; el build sustituirá el paso "Preparar" del workflow.
-6. Redactar `docs/03-voz-y-estilo.md` y `docs/04-fuentes-autorizadas.md` (URLs oficiales verificadas a mano).
-7. Auditoría de Nivel 1 en el orden de `docs/05-politica-medica.md`; revisar kg ↔ lb y otros fallos de dinamismo.
-8. Fase 4 (backlinks) en paralelo: primeros contactos en foros y directorios.
+1. Auditoría Nivel 1 de `tomas-leche` (6 hallazgos del 2026-11-06); después ampliar su FAQPage a las 5 preguntas con fuente.
+2. Esqueleto Eleventy con `talla-zapato` (Nivel 3) conservando URL, canonical y JSON-LD.
+3. Redactar `docs/03-voz-y-estilo.md` y `docs/04-fuentes-autorizadas.md` (URLs oficiales verificadas a mano).
+4. Auditoría del resto de Nivel 1 en el orden de `docs/05-politica-medica.md`; revisar kg ↔ lb y otros fallos de dinamismo.
+5. Enlazar desde `calculadora-lactancia` hacia `tomas-leche` (necesita el HTML de la primera).
+6. Fase 4 (backlinks) en paralelo.
 
 ## Por confirmar
 - Si el CTR de "calculadora alcohol lactancia" mejora tras la optimización de title/meta (volver a medir a las 4–6 semanas).
 - Que `babyfaq.es/docs/CLAUDE.md` y `babyfaq.es/data/inventario.json` den 404 (los documentos internos no deben servirse en el sitio).
+- Si mejora la posición/CTR de `tomas-leche` (base: 232 impresiones, posición 20). Medir entre el 4 y el 18 de diciembre de 2026.
