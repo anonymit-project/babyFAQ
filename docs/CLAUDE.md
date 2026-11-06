@@ -45,9 +45,9 @@ Ubicación en el repo: `docs/CLAUDE.md` y `docs/ESTADO.md` (el resto de rutas so
 | Monetización | 07 | — |
 | Buscar fuentes oficiales | 05 | `data/inventario.json` (solo las herramientas de la tarea) |
 
-## Protocolo de sesión
-- **Inicio:** leer ESTADO, resumir en 3 líneas dónde estamos, proponer la tarea siguiente y listar los ficheros que hay que adjuntar.
-- **Cierre:** entregar `ESTADO.md` actualizado y, si hubo decisiones, la línea para `09-decisiones.md`. Recordar hacer commit en GitHub.
+## Protocolo de sesión (un chat por tarea)
+- **Inicio:** leer ESTADO, resumir en 3 líneas dónde estamos, proponer la tarea siguiente y listar los ficheros que hay que adjuntar. Si el chat se abre con un prompt de relevo, usarlo como punto de partida y no volver a explicar el contexto.
+- **Cierre:** entregar `ESTADO.md` actualizado y, si hubo decisiones, la línea para `09-decisiones.md`; recordar el commit; y terminar con el bloque "Prompt para el siguiente chat" (tarea, contexto mínimo, ficheros a adjuntar, restricciones). Cada tarea se hace en su propio chat.
 - PROTOCOLO DE ACTUALIZACIÓN (al cerrar cada tarea, sin que te lo pida)
 Revisa esta tabla y entrega solo lo que cambie, indicando la ruta del fichero:
 
