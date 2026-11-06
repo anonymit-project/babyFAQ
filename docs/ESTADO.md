@@ -1,6 +1,6 @@
 # Estado actual — babyFAQ
 
-Actualizar al terminar cada sesión. Última actualización: 2026-11-05.
+Actualizar al terminar cada sesión. Última actualización: 2026-11-06.
 
 ## Línea base real (periodo 2026-08-06 a 2026-11-03, GA4 + Search Console)
 
@@ -21,6 +21,7 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-05.
 - Fase 1 SEO optimizada en `calculadora-lactancia`, `percentil`, `talla-panal`, `primeros-auxilios`.
 - Estructura de contexto en el repo (`CLAUDE.md`, `docs/`, `data/`).
 - Despliegue con GitHub Actions (`.github/workflows/pages.yml`): solo se publica una lista de ficheros permitidos; `docs/`, `data/`, `CONTEXTO_BABYFAQ.md` e `index_old.html` dan 404 en babyfaq.es (comprobado 2026-11-05).
+- - Revisión de privacidad del repo público (2026-11-06): commits anónimos, sin forks, sin rastro en Google ni Wayback; historial mantenido (ver `09-decisiones.md`).
 
 ## Siguiente
 1. Limpieza de privacidad del historial del repo (regla 8 de CLAUDE.md).
@@ -34,3 +35,4 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-05.
 
 ## Por confirmar
 - Si el CTR de "calculadora alcohol lactancia" mejora tras la optimización de title/meta (volver a medir a las 4–6 semanas).
+- Que `babyfaq.es/docs/CLAUDE.md` y `babyfaq.es/data/inventario.json` den 404 (los documentos internos no deben servirse en el sitio).
