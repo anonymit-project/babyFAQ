@@ -18,6 +18,8 @@ Mientras no haya API, los mismos flujos se hacen en chat, supervisados.
 - Indicar cambios propios ANTES de empezar.
 - Enviar solo lo necesario (p. ej. bloque `<head>` + últimas 40–50 líneas), nunca el repositorio completo.
 - Al terminar: actualizar `ESTADO.md`.
+- Un chat por tarea: al cerrar, Claude entrega un prompt de relevo para abrir el chat siguiente. Ese prompt solo lleva lo que no esté ya en el conocimiento del proyecto.
+- Si el chat acumula muchos mensajes o cambia de tema, cerrar y abrir uno nuevo con el prompt de relevo.
 
 ## Orden de migración a Eleventy
 1. `talla-zapato` (Nivel 3) como piloto: comprobar mismo URL, canonical y JSON-LD que el HTML actual.
