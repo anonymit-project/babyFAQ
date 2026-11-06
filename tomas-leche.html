@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<title>Calculadora tomas de leche bebé por edad y peso · babyFAQ</title>
-<meta name="description" content="Calcula cuántos ml por toma necesita tu bebé según su edad y peso. Fórmula y leche materna. Número de tomas al día e intervalo recomendado por la AAP.">
-<meta property="og:title" content="Calculadora tomas de leche bebé por edad y peso · babyFAQ">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora tomas de leche bebé: ml por edad y peso · babyFAQ</title>
+<meta name="description" content="Calcula los ml por toma de tu bebé según su edad y peso, con fórmula o leche materna extraída. Tomas al día e intervalo orientativos. Pruébala gratis.">
+<meta property="og:title" content="Calculadora tomas de leche bebé: ml por edad y peso · babyFAQ">
 <meta property="og:description" content="Cuántos ml por toma necesita tu bebé según su edad y peso. Leche materna y fórmula. Número de tomas al día e intervalo entre tomas.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://babyfaq.es/tomas-leche.html">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="babyFAQ">
 <meta name="theme-color" content="#fdf6ee">
 <link rel="canonical" href="https://babyfaq.es/tomas-leche.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -25,6 +30,23 @@
     "@type": "Organization",
     "name": "babyFAQ"
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Esta calculadora sirve también para bebés prematuros?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No directamente. Los bebés prematuros tienen necesidades calóricas y de volumen distintas que dependen de su edad gestacional corregida y de su situación clínica. Para prematuros las cantidades siempre deben ser indicadas y supervisadas por el neonatólogo o pediatra."
+      }
+    }
+  ]
 }
 </script>
 
@@ -186,6 +208,12 @@
   .faq-item { margin-bottom: 20px; }
   .faq-item h3 { margin-top: 0; }
 
+  /* ── Relacionadas ── */
+  .related { margin-top: 32px; }
+  .related-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .related-list a { color: var(--terracota); text-decoration: none; font-size: 14px; font-weight: 500; }
+  .related-list a:hover { text-decoration: underline; }
+  
   /* ── Fuentes ── */
   .fuentes-card {
     background: var(--sage-bg); border: 1.5px solid var(--sage-border);
@@ -222,7 +250,7 @@
 
   <header>
     <span class="badge">Alimentación · Lactancia</span>
-    <h1>¿Cuánta leche necesita <em>ahora</em>?</h1>
+    <h1>Tomas de leche del bebé: ¿cuánta necesita <em>ahora</em>?</h1>
     <p class="subtitle">Calcula los ml por toma, el número de tomas y el intervalo según la edad y el peso de tu bebé.</p>
   </header>
 
@@ -430,6 +458,15 @@
 
   </div><!-- /seo-section -->
 
+  <!-- Herramientas relacionadas -->
+  <div class="related">
+    <h2>Herramientas relacionadas</h2>
+    <ul class="related-list">
+      <li><a href="/calculadora-lactancia.html">Calculadora de alcohol y lactancia</a></li>
+      <li><a href="/percentil.html">Calculadora de percentiles del bebé</a></li>
+    </ul>
+  </div>
+  
   <!-- Fuentes consultadas -->
   <div class="fuentes-card">
     <div class="fuentes-title">📚 Fuentes consultadas</div>
