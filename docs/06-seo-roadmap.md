@@ -3,7 +3,7 @@
 Base real: 27 sesiones en 90 días (ver `ESTADO.md`). El cuello de botella es la visibilidad y la autoridad del dominio, no el volumen de contenido.
 
 - **Fase 0 (nueva) — Base técnica:** Eleventy + validadores SEO + tests Playwright + monitor de fuentes + informe Search Console/GA4. Ver `08-agentes-y-flujos.md`.
-- **Fase 1 — Optimizar herramientas con más tracción: HECHA** para `calculadora-lactancia`, `percentil`, `talla-panal`, `primeros-auxilios`, `tomas-leche` (title, h1, meta, interlinking, FAQPage). `tomas-leche` aplicada 2026-11-06 (FAQPage parcial hasta auditar; base 232 impresiones, posición 20; medir del 4 al 18 de dic 2026).
+- **Fase 1 — Optimizar herramientas con más tracción: HECHA** para `calculadora-lactancia`, `percentil`, `talla-panal`, `primeros-auxilios`, `tomas-leche` (title, h1, meta, interlinking, FAQPage). `tomas-leche` aplicada 2026-11-06 (FAQPage parcial hasta auditar; base 232 impresiones, posición 20; medir del 4 al 18 de dic 2026). HECHA también en tomas-leche, con FAQPage de 5 preguntas con fuente
 Verificar en Search Console a las 4–6 semanas si mejora el CTR (p. ej. "calculadora alcohol lactancia", posición 4,3 sin clics en el periodo medido).
 - **Fase 2 — Texto en la página de inicio:** 300–400 palabras con keywords naturales por categoría, sin cambiar la estructura visual.
 - **Fase 3 — Interlinking sistemático:** usar `relacionadas` de `data/inventario.json`; bloque "Herramientas relacionadas" consistente en las 41.
