@@ -37,6 +37,7 @@ La revisión del Nivel 1 y 2 es **administrativa**: abrir el enlace de la fuente
 
 - Esto detecta errores de transcripción, de lógica y cambios en las fuentes. **No** valida si una guía oficial es discutible ni si el diseño de una herramienta de decisión (p. ej. urgencias) es adecuado.
 - Si en el futuro hay un profesional sanitario dispuesto a revisar, empezar por `dosis-fiebre`, `fiebre`, `cuando-urgencias` y `primeros-auxilios`.
+- Excepción documentada (2026-11-08, `tomas-leche`): se permite interpolar entre dos referencias oficiales si está marcado como estimación en pantalla, no se extrapola y hay tests sobre los anclajes. No aplica a otras herramientas sin nueva decisión.
 
 ## Orden de auditoría inicial (una herramienta a la vez)
 
