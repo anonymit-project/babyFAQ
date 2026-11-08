@@ -198,33 +198,35 @@
       "afiliados_prioridad": false
     },
     {
-      "slug": "tomas-leche",
-      "archivo": "tomas-leche.html",
-      "url": "https://babyfaq.es/tomas-leche.html",
-      "titulo": "ml por toma según edad y peso",
-      "categoria": "Lactancia",
-      "nivel_riesgo": 1,
-      "prioridad_seo": "P1",
-      "metricas_90d_google_organico": {
-        "clics": 1,
-        "impresiones": 232,
-        "posicion_media": 20.1,
-        "periodo": "2026-08-06 a 2026-11-03"
-      },
-      "organismos_candidatos": [
-        "AEP",
-        "OMS"
-      ],
-      "fuentes": [],
-      "estado_verificacion": "pendiente",
-      "ultima_revision": null,
-      "relacionadas": [
-        "calculadora-lactancia",
-        "percentil",
-        "introduccion-solidos"
-      ],
-      "afiliados_prioridad": false
+  "slug": "tomas-leche",
+  "archivo": "tomas-leche.html",
+  "url": "https://babyfaq.es/tomas-leche.html",
+  "titulo": "ml por toma según edad y peso",
+  "categoria": "Lactancia",
+  "nivel_riesgo": 1,
+  "prioridad_seo": "P1",
+  "metricas_90d_google_organico": { "clics": 1, "impresiones": 232, "posicion_media": 20.1, "periodo": "2026-08-06 a 2026-11-03" },
+  "organismos_candidatos": ["AEP", "OMS"],
+  "fuentes": [
+    {
+      "fuente_organismo": "AAP",
+      "fuente_url": "https://www.healthychildren.org/English/ages-stages/baby/formula-feeding/Pages/Amount-and-Schedule-of-Formula-Feedings.aspx",
+      "fecha_consulta": "2026-11-08",
+      "cita_literal_breve": "about 2½ ounces (75 mL) of infant formula a day for every pound"
     },
+    {
+      "fuente_organismo": "AAP",
+      "fuente_url": "https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/how-often-and-how-much-should-your-baby-eat.aspx",
+      "fecha_consulta": "2026-11-08",
+      "cita_literal_breve": "tops out at rougly 4.5 oz at a year of age"
+    }
+  ],
+  "estado_verificacion": "verificado",
+  "notas_verificacion": "Interpolación aprobada por el autor (09-decisiones 2026-11-08): tomas de fórmula meses 2-5 y ml de materna. Fórmula 7-12 meses: solo referencia de 6 meses.",
+  "ultima_revision": "2026-11-08",
+  "relacionadas": ["calculadora-lactancia", "percentil", "introduccion-solidos"],
+  "afiliados_prioridad": false
+},
     {
       "slug": "calculadora-lactancia",
       "archivo": "calculadora-lactancia.html",
