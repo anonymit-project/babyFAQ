@@ -1,6 +1,6 @@
 # Estado actual — babyFAQ
 
-Actualizar al terminar cada sesión. Última actualización: 2026-11-06.
+Actualizar al terminar cada sesión. Última actualización: 2026-11-08.
 
 ## Línea base real (periodo 2026-08-06 a 2026-11-03, GA4 + Search Console)
 
@@ -24,9 +24,9 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-06.
 - Revisión de privacidad del repo público (2026-11-06): commits anónimos, sin forks, sin rastro en Google ni Wayback; historial mantenido (ver `09-decisiones.md`).
 - Fase 1 SEO aplicada en `tomas-leche` (2026-11-06): title, h1, meta, og, interlinking y FAQPage parcial (1 pregunta, el resto pendiente de fuentes).
 - Favicon añadido al `<head>` de `index.html` (2026-11-06); pendiente de que Google lo recoja.
+- Auditoría Nivel 1 de tomas-leche: datos solo de la AAP (2 páginas verificadas a mano), interpolación declarada en las tomas de fórmula de 2–5 meses y en los ml de materna, fórmula 7–12 meses con referencia de 6 meses, 5 FAQ con fuente, ‘Última revisión’.
 
 ## Siguiente
-1. Auditoría Nivel 1 de `tomas-leche` (6 hallazgos del 2026-11-06); después ampliar su FAQPage a las 5 preguntas con fuente.
 2. Esqueleto Eleventy con `talla-zapato` (Nivel 3) conservando URL, canonical y JSON-LD.
 3. Redactar `docs/03-voz-y-estilo.md` y `docs/04-fuentes-autorizadas.md` (URLs oficiales verificadas a mano).
 4. Auditoría del resto de Nivel 1 en el orden de `docs/05-politica-medica.md`; revisar kg ↔ lb y otros fallos de dinamismo.
