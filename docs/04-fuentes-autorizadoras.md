@@ -1,0 +1,57 @@
+# Fuentes autorizadas — babyFAQ
+
+Qué se considera fuente válida y qué fuentes están verificadas. Complementa `05-politica-medica.md`.
+
+## Qué es una fuente válida
+Un documento concreto (no la portada del organismo) de un organismo oficial, que contiene el dato tal cual. Se registra con URL, fecha de consulta y cita literal de máx. 15 palabras (lo comprueba `scripts/validate-sources.mjs`).
+
+No son válidas para datos de salud: blogs, foros, tiendas, fabricantes, medios, asociaciones no oficiales. Una portada o una página temática general tampoco, salvo que contenga literalmente el dato.
+
+## Organismos autorizados por tema
+Sin URLs: las URLs solo entran en el registro cuando están verificadas.
+
+| Tema | Organismos |
+|---|---|
+| Lactancia y alimentación del lactante | AEP, AAP, OMS, ESPGHAN, AESAN |
+| Medicamentos y dosis | AEMPS (fichas técnicas), AEP |
+| Vacunas y revisiones | Ministerio de Sanidad, AEP (CAV) |
+| Embarazo y parto | SEGO, Ministerio de Sanidad |
+| Crecimiento, desarrollo | OMS (patrones), AEP |
+| Sueño seguro y temperatura | AEP, AAP |
+| Primeros auxilios y urgencias | AEP, SEUP, ERC/CERCP |
+| Silla de coche | DGT, reglamento ECE R129 |
+
+Requieren decisión del autor antes de usarse (no están en la lista de `05`): IOM/NAM (`peso-embarazo`) y e-lactancia.org (`calculadora-lactancia`). Hasta decidir, no se usan como base de un dato.
+
+## Fuentes de fuera de España
+La AAP es estadounidense. Si es la única fuente con cifras, se acepta (precedente: `tomas-leche`), pero la página debe decirlo ("una fuente estadounidense, no normativa española"). Si hay contradicción con una fuente española, se muestra el rango más conservador y se enlazan ambas (principio 4 de `05`).
+
+## Registro de fuentes verificadas
+| Organismo | Documento | URL | Verificada | Cita (≤15 palabras) | Herramientas |
+|---|---|---|---|---|---|
+| AAP | Amount and Schedule of Baby Formula Feedings | https://www.healthychildren.org/English/ages-stages/baby/formula-feeding/Pages/Amount-and-Schedule-of-Formula-Feedings.aspx | 2026-11-08 | about 2½ ounces (75 mL) of infant formula a day for every pound | tomas-leche |
+| AAP | How Often and How Much Should Your Baby Eat? | https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/how-often-and-how-much-should-your-baby-eat.aspx | 2026-11-08 | tops out at rougly 4.5 oz at a year of age | tomas-leche |
+
+## Candidatas pendientes de verificar
+Enlaces que ya aparecen en páginas pero NO están verificados ni en el inventario. No cuentan como respaldo.
+
+| Herramienta | Enlace actual en la página | Problema conocido |
+|---|---|---|
+| calculadora-lactancia | OMS, página temática de lactancia | Probablemente no contiene el dato de alcohol |
+| calculadora-lactancia | AEP, listado de documentos del Comité de Lactancia | Es un listado; hay que localizar el documento concreto |
+| calculadora-lactancia | AAP, "Alcohol & Breast Milk" | Candidata razonable; falta comprobar la cita |
+| calculadora-lactancia | PNSD, infografía UBE | Falta comprobar que responde y qué dice |
+| talla-zapato (Nivel 3) | Portadas de AEP, AAP y Ministerio de Sanidad | No respaldan la tabla de tallas (ver abajo) |
+
+## Cómo se verifica una fuente (sin ejecutar nada en local)
+1. Abrir la URL a mano y localizar la frase con el dato.
+2. Copiar una cita literal de máx. 15 palabras.
+3. Añadir el objeto a `fuentes` en `data/inventario.json` (organismo, url, fecha_consulta, cita).
+4. Subir en PR: el job `fuentes-y-tests` comprueba que la URL responde y que la cita aparece. Un aviso "!" significa que no se pudo comprobar, no que sea correcto.
+5. Añadir la fila al registro de arriba.
+
+## Nivel 3 (no médicas) — PROPUESTA, pendiente de confirmar
+- "Fuentes consultadas" solo lista fuentes que respaldan una afirmación concreta de la página. Una portada que no respalda nada no se presenta como fuente.
+- Las tablas de tallas se presentan como "orientativas, elaboradas por babyFAQ a partir de equivalencias habituales; varían según fabricante", sin atribuirlas a un organismo.
+- Las afirmaciones de desarrollo (p. ej. "ir descalzo estimula…" en `talla-zapato`) sí necesitan fuente oficial real o se suavizan/eliminan.
+- Esto contradice dos reglas actuales: el "2–4 organismos" de `02` y el check `Fuentes consultadas` obligatorio de `validate-static.mjs`. Habría que ajustar ambos.
