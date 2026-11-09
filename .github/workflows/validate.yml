@@ -18,6 +18,12 @@ jobs:
         with:
           node-version: 20
       - run: npm run validate
+      - name: Construir con Eleventy
+        run: npx --yes @11ty/eleventy@3.0.0
+      - name: Validar herramientas migradas (salida de _site)
+        run: node scripts/validate-static.mjs _site/talla-zapato.html
+      - name: Equivalencia con el HTML original
+        run: node scripts/compare-equivalence.mjs
 
   fuentes-y-tests:
     runs-on: ubuntu-latest
