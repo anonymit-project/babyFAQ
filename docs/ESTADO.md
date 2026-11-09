@@ -26,9 +26,10 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-09.
 - Favicon añadido al `<head>` de `index.html` (2026-11-06); pendiente de que Google lo recoja.
 - Auditoría Nivel 1 de tomas-leche (cerrada 2026-11-08): datos solo de la AAP (2 páginas verificadas a mano), interpolación declarada en las tomas de fórmula de 2–5 meses y en los ml de materna, fórmula 7–12 meses con referencia de 6 meses, 5 FAQ con fuente, "Última revisión".
 - Validador de Capa 1 (2026-11-09): `scripts/validate-static.mjs` (SEO, estándares de 02, líneas rojas de 05, coherencia con el inventario), `scripts/validate-sources.mjs` (fuentes responden y la cita aparece), `tests/tomas-leche.spec.mjs` (Playwright: 11 casos esperados, aviso de tope, sólidos, hold-to-repeat) y `.github/workflows/validate.yml`. Dos jobs en verde con `tomas-leche`. Corregidos en esa pasada: meta charset/viewport duplicados y unidad "horas" duplicada en `tomas-leche.html`.
+- Esqueleto Eleventy (2026-11-09): `eleventy.config.cjs`, `src/` (layout común + plantilla y datos de `talla-zapato`), `scripts/compare-equivalence.mjs`, `pages.yml` y `validate.yml` con build. Subido en PR; pendiente de checks en verde y de comprobación manual de la página publicada.
 
 ## Siguiente
-1. Esqueleto Eleventy con `talla-zapato` (Nivel 3) conservando URL, canonical y JSON-LD; el validador debe seguir en verde (ver `08-agentes-y-flujos.md`).
+1. Confirmar el piloto (checks verdes, página publicada revisada). Después, migrar el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
 2. Redactar `docs/03-voz-y-estilo.md` y `docs/04-fuentes-autorizadas.md` (URLs oficiales verificadas a mano).
 3. Auditoría del resto de Nivel 1 en el orden de `docs/05-politica-medica.md` (siguiente: `calculadora-lactancia`); revisar kg ↔ lb y otros fallos de dinamismo. Al cerrar cada una, añadirla al validador y escribir su test.
 4. Enlazar desde `calculadora-lactancia` hacia `tomas-leche` (necesita el HTML de la primera).
@@ -40,3 +41,4 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-09.
 - Si el CTR de "calculadora alcohol lactancia" mejora tras la optimización de title/meta (volver a medir a las 4–6 semanas).
 - Que `babyfaq.es/docs/CLAUDE.md` y `babyfaq.es/data/inventario.json` den 404 (los documentos internos no deben servirse en el sitio).
 - Si mejora la posición/CTR de `tomas-leche` (base: 232 impresiones, posición 20). Medir entre el 4 y el 18 de diciembre de 2026.
+- Que `babyfaq.es/talla-zapato.html` publicada se comporte igual que antes (botones, tabla, móvil/escritorio) y que Search Console no marque errores en el FAQ.
