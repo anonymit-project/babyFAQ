@@ -22,13 +22,14 @@ Ubicación en el repo: `docs/CLAUDE.md` y `docs/ESTADO.md` (el resto de rutas so
 | `docs/ESTADO.md` | "Dónde estamos": métricas reales, qué está hecho, siguiente paso | Siempre |
 | `docs/01-proyecto.md` | Qué es la web, stack, categorías | Contexto general, herramientas nuevas |
 | `docs/02-estandares-herramienta.md` | Checklist que debe cumplir toda herramienta (diseño, SEO, contenido, interactividad, técnico) | Crear, optimizar o revisar una herramienta |
+| `docs/03-voz-y-estilo.md` | Tono, atribución, frases prohibidas, formato de números y fechas | Escribir o revisar textos de una herramienta |
+| `docs/04-fuentes-autorizadas.md` | Qué es fuente válida, registro de fuentes verificadas y candidatas | Verificar o añadir fuentes |
 | `docs/05-politica-medica.md` | Reglas para datos de salud: niveles de riesgo y líneas rojas | Cualquier herramienta de salud o automatización |
 | `docs/06-seo-roadmap.md` | Fases SEO y qué toca | Priorizar visitas, backlinks, interlinking |
 | `docs/07-monetizacion.md` | Reglas de afiliados Amazon | Solo si se habla de ingresos |
 | `docs/08-agentes-y-flujos.md` | Cómo se automatiza y se migra a Eleventy | Eleventy, tests, monitor de fuentes, agentes |
 | `docs/09-decisiones.md` | Registro de decisiones y motivos | Para no repetir debates; se añade al final |
 | `data/inventario.json` | Ficha de las 41 herramientas (nivel, prioridad, métricas, relacionadas, fuentes). Pesado | Solo interlinking, priorizar, fuentes, informes |
-| `docs/03-voz-y-estilo.md`, `docs/04-fuentes-autorizadas.md` | PENDIENTES de crear | — |
 | `.github/workflows/pages.yml` | Define qué ficheros se publican en babyfaq.es | Al añadir ficheros públicos que no sean .html, o al migrar a Eleventy |
 | `scripts/`, `tests/`, `.github/workflows/validate.yml` | Validador de Capa 1: checks estáticos, fuentes y tests Playwright | Al auditar o cambiar una herramienta, y al añadir una al validador |
 | `eleventy.config.cjs`, `src/` | Capa de build: layout común (`src/_includes/layouts/herramienta.njk`) y, por herramienta migrada, una plantilla `.njk` + un `.json` de datos | Migrar o editar una herramienta ya migrada |
@@ -40,13 +41,13 @@ Ubicación en el repo: `docs/CLAUDE.md` y `docs/ESTADO.md` (el resto de rutas so
 | Optimizar SEO de una herramienta | 02, 06 (+05 si es Nivel 1/2) | `<head>` + últimas 50 líneas de su HTML |
 | Auditar fiabilidad de datos (Nivel 1/2) | 05, 02 | HTML completo + enlace o PDF de la fuente oficial |
 | Corregir un fallo o mejorar usabilidad (p. ej. kg ↔ lb) | 02 | HTML completo de la herramienta |
-| Crear herramienta nueva | 01, 02, 05, 06 | Una herramienta de referencia (`juguetes-edad.html`) |
+| Crear herramienta nueva | 01, 02, 03, 05, 06 | Una herramienta de referencia (`juguetes-edad.html`) |
 | Migrar a Eleventy | 08, 09, 02 | HTML de la herramienta piloto (`talla-zapato.html`) |
 | Interlinking o priorizar | 06 | `data/inventario.json` |
 | Informe de visitas | ESTADO | CSV nuevos de Search Console y GA4 |
 | Backlinks y promoción | 06 (Fase 4) | — |
 | Monetización | 07 | — |
-| Buscar fuentes oficiales | 05 | `data/inventario.json` (solo las herramientas de la tarea) |
+| Buscar fuentes oficiales | 04, 05 | `data/inventario.json` (solo las herramientas de la tarea) |
 
 ## Protocolo de sesión (un chat por tarea)
 - **Inicio:** leer ESTADO, resumir en 3 líneas dónde estamos, proponer la tarea siguiente y listar los ficheros que hay que adjuntar. Si el chat se abre con un prompt de relevo, usarlo como punto de partida y no volver a explicar el contexto.
