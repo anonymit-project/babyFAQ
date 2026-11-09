@@ -31,7 +31,8 @@ for (const file of files) {
   const html = readFileSync(file, 'utf8');
   const body = html.split(/<body[^>]*>/i)[1] ?? html;
   const text = textOf(body);
-  const slug = file.replace(/\.html$/, '');
+  const name = file.split('/').pop();
+  const slug = name.replace(/\.html$/, '');
   const tool = inventario.herramientas.find(h => h.slug === slug);
   const salud = !tool || tool.nivel_riesgo <= 2;
   if (tool) maxNivel = Math.min(maxNivel, tool.nivel_riesgo);
@@ -41,7 +42,7 @@ for (const file of files) {
   const metas = tags(html, 'meta').map(attrs);
   const meta = k => metas.find(m => (m.name || m.property) === k)?.content;
   const links = tags(html, 'link').map(attrs);
-  const canonical = `${SITE}/${file}`;
+  const canonical = `${SITE}/${name}`;
 
   check(/<html[^>]*\blang="es"/i.test(html), 'lang="es"', 'falta lang="es"');
   check(metas.filter(m => m.charset).length === 1, 'un único meta charset', `meta charset repetido o ausente (${metas.filter(m => m.charset).length})`);
