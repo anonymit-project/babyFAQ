@@ -31,6 +31,8 @@ Ubicación en el repo: `docs/CLAUDE.md` y `docs/ESTADO.md` (el resto de rutas so
 | `docs/03-voz-y-estilo.md`, `docs/04-fuentes-autorizadas.md` | PENDIENTES de crear | — |
 | `.github/workflows/pages.yml` | Define qué ficheros se publican en babyfaq.es | Al añadir ficheros públicos que no sean .html, o al migrar a Eleventy |
 | `scripts/`, `tests/`, `.github/workflows/validate.yml` | Validador de Capa 1: checks estáticos, fuentes y tests Playwright | Al auditar o cambiar una herramienta, y al añadir una al validador |
+| `eleventy.config.cjs`, `src/` | Capa de build: layout común (`src/_includes/layouts/herramienta.njk`) y, por herramienta migrada, una plantilla `.njk` + un `.json` de datos | Migrar o editar una herramienta ya migrada |
+| `scripts/compare-equivalence.mjs`, `legacy/` | Compara el HTML original (guardado en `legacy/`) con el generado | Al migrar una herramienta |
 
 ## Qué adjuntar según la tarea (además de lo que ya está en el conocimiento del proyecto)
 | Tarea | Documentos clave | Adjuntar |
