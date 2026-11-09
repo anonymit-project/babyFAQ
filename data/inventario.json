@@ -222,7 +222,7 @@
     }
   ],
   "estado_verificacion": "verificado",
-  "notas_verificacion": "Interpolación aprobada por el autor (09-decisiones 2026-11-08): tomas de fórmula meses 2-5 y ml de materna. Fórmula 7-12 meses: solo referencia de 6 meses.",
+  "notas_verificacion": "Interpolación aprobada por el autor (09-decisiones 2026-11-08): tomas de fórmula meses 2-5 y ml de materna. Fórmula 7-12 meses: solo referencia de 6 meses. Cubierto por validador de Capa 1 y tests Playwright desde 2026-11-09.",
   "ultima_revision": "2026-11-08",
   "relacionadas": ["calculadora-lactancia", "percentil", "introduccion-solidos"],
   "afiliados_prioridad": false
