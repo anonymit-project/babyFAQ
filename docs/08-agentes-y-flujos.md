@@ -8,6 +8,7 @@ Scripts y GitHub Actions (gratuito en repos públicos): build Eleventy, validado
 
 ### Estado de la Capa 1 (2026-11-09)
 Implantados: `scripts/validate-static.mjs`, `scripts/validate-sources.mjs`, `tests/*.spec.mjs` y `.github/workflows/validate.yml`. Por defecto el validador solo revisa `tomas-leche.html`; para otra herramienta se añade a `DEFAULT_FILES` y se escribe su test. Pendientes: monitor de cambios en fuentes, informe semanal de Search Console/GA4 y exigir los checks como obligatorios con protección de rama.
+Piloto Eleventy (2026-11-09): `talla-zapato` se genera desde `src/herramientas/`; `validate.yml` construye y valida `_site/talla-zapato.html` y compara con el original guardado en `legacy/`.
 
 ## Capa 2 — agentes con IA (solo con cuenta de API y presupuesto)
 - **Verificador de fuentes:** prepara PR con tabla "dato actual / dato en la fuente / enlace / cita".
