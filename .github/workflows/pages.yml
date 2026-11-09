@@ -23,10 +23,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Preparar solo lo que va a producción
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Construir con Eleventy (herramientas migradas)
+        run: npx --yes @11ty/eleventy@3.0.0
+
+      - name: Añadir lo que aún no está migrado
         run: |
-          mkdir _site
-          cp *.html _site/
+          test -f _site/talla-zapato.html
+          for f in *.html; do
+            [ -e "_site/$f" ] || cp "$f" _site/
+          done
           rm -f _site/index_old.html
           cp CNAME favicon.svg favicon-48.png manifest.json robots.txt sitemap.xml sw.js _site/
           cp -r icons _site/icons
