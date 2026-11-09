@@ -6,6 +6,9 @@ Nada se publica sin pasar por un Pull Request. Lo médico (Nivel 1 y 2) siempre 
 ## Capa 1 — sin coste (primero)
 Scripts y GitHub Actions (gratuito en repos públicos): build Eleventy, validadores SEO, tests funcionales con Playwright (p. ej. cambiar kg ↔ lb y comprobar que el resultado se recalcula), monitor de cambios en fuentes oficiales (abre una issue con la diferencia), informe semanal de Search Console/GA4.
 
+### Estado de la Capa 1 (2026-11-09)
+Implantados: `scripts/validate-static.mjs`, `scripts/validate-sources.mjs`, `tests/*.spec.mjs` y `.github/workflows/validate.yml`. Por defecto el validador solo revisa `tomas-leche.html`; para otra herramienta se añade a `DEFAULT_FILES` y se escribe su test. Pendientes: monitor de cambios en fuentes, informe semanal de Search Console/GA4 y exigir los checks como obligatorios con protección de rama.
+
 ## Capa 2 — agentes con IA (solo con cuenta de API y presupuesto)
 - **Verificador de fuentes:** prepara PR con tabla "dato actual / dato en la fuente / enlace / cita".
 - **Redactor:** actualiza o crea textos siguiendo estándares y voz.
