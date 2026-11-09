@@ -979,30 +979,27 @@
       "afiliados_prioridad": false
     },
     {
-      "slug": "talla-zapato",
-      "archivo": "talla-zapato.html",
-      "url": "https://babyfaq.es/talla-zapato.html",
-      "titulo": "Talla de zapato",
-      "categoria": "Ropa y tallas",
-      "nivel_riesgo": 3,
-      "prioridad_seo": "P3",
-      "metricas_90d_google_organico": {
-        "clics": 0,
-        "impresiones": 26,
-        "posicion_media": 43.6,
-        "periodo": "2026-08-06 a 2026-11-03"
-      },
-      "organismos_candidatos": [],
-      "fuentes": [],
-      "estado_verificacion": "pendiente",
-      "ultima_revision": null,
-      "relacionadas": [
-        "tallas-ropa",
-        "talla-panal",
-        "percentil"
-      ],
-      "afiliados_prioridad": false
-    },
+  "slug": "talla-zapato",
+  "archivo": "talla-zapato.html",
+  "url": "https://babyfaq.es/talla-zapato.html",
+  "titulo": "Talla de zapato",
+  "categoria": "Ropa y tallas",
+  "nivel_riesgo": 3,
+  "prioridad_seo": "P3",
+  "metricas_90d_google_organico": {
+    "clics": 0,
+    "impresiones": 26,
+    "posicion_media": 43.6,
+    "periodo": "2026-08-06 a 2026-11-03"
+  },
+  "organismos_candidatos": [],
+  "fuentes": [],
+  "estado_verificacion": "pendiente",
+  "notas_verificacion": "Migrada a Eleventy 2026-11-09 (piloto). Las fuentes enlazadas en la página son portadas de organismos, no documentos con las cifras de la tabla.",
+  "ultima_revision": "2026-11-09",
+  "relacionadas": ["tallas-ropa", "talla-panal", "percentil"],
+  "afiliados_prioridad": false
+},
     {
       "slug": "tallas-ropa",
       "archivo": "tallas-ropa.html",
