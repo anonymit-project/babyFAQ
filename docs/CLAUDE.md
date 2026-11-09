@@ -30,6 +30,7 @@ Ubicación en el repo: `docs/CLAUDE.md` y `docs/ESTADO.md` (el resto de rutas so
 | `data/inventario.json` | Ficha de las 41 herramientas (nivel, prioridad, métricas, relacionadas, fuentes). Pesado | Solo interlinking, priorizar, fuentes, informes |
 | `docs/03-voz-y-estilo.md`, `docs/04-fuentes-autorizadas.md` | PENDIENTES de crear | — |
 | `.github/workflows/pages.yml` | Define qué ficheros se publican en babyfaq.es | Al añadir ficheros públicos que no sean .html, o al migrar a Eleventy |
+| `scripts/`, `tests/`, `.github/workflows/validate.yml` | Validador de Capa 1: checks estáticos, fuentes y tests Playwright | Al auditar o cambiar una herramienta, y al añadir una al validador |
 
 ## Qué adjuntar según la tarea (además de lo que ya está en el conocimiento del proyecto)
 | Tarea | Documentos clave | Adjuntar |
