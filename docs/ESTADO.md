@@ -33,9 +33,8 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-09.
 
 ## Siguiente
 1. Confirmar el piloto (checks verdes, página publicada revisada). Después, migrar el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
-2. Auditoría del resto de Nivel 1 en el orden de `docs/05-politica-medica.md` (siguiente: `calculadora-lactancia`); revisar kg ↔ lb y otros fallos de dinamismo. Al cerrar cada una, añadirla al validador y escribir su test.
-3. Enlazar desde `calculadora-lactancia` hacia `tomas-leche` (necesita el HTML de la primera).
-4. Fase 4 (backlinks) en paralelo.
+2. Auditar primeros-auxilios (luego dosis-fiebre, fiebre, cuando-urgencias).
+3. Fase 4 (backlinks) en paralelo.
 
 ## Por confirmar
 - Que el log de `validate:sources` muestre "cita encontrada" en las 2 fuentes de la AAP (un aviso "!" significa que no se comprobó).
@@ -43,3 +42,4 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-09.
 - Si el CTR de "calculadora alcohol lactancia" mejora tras la optimización de title/meta (volver a medir a las 4–6 semanas).
 - Que `babyfaq.es/docs/CLAUDE.md` y `babyfaq.es/data/inventario.json` den 404 (los documentos internos no deben servirse en el sitio).
 - Si mejora la posición/CTR de `tomas-leche` (base: 232 impresiones, posición 20). Medir entre el 4 y el 18 de diciembre de 2026.
+- Constante 13,45 g (decisión), 15 mg/dL por hora, cita del Ministerio de Sanidad y medir CTR de «calculadora alcohol lactancia» del 8 al 22 de dic (la meta cambió hoy).
