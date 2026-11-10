@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
 <title>Calculadora lactancia y alcohol · Cuánto esperar para dar el pecho · babyFAQ</title>
-<meta name="description" content="Introduce tu peso, qué has bebido y cuánto tiempo ha pasado — te decimos al minuto cuándo puedes amamantar con total seguridad. Basado en fórmula Widmark.">
+<meta name="description" content="Calcula cuánto tiempo esperar para dar el pecho tras beber alcohol. Introduce tu peso, la bebida y la hora de inicio.">
+<meta property="og:description" content="Calcula cuánto tiempo esperar para dar el pecho tras beber alcohol según la tabla de Koren (2002). Introduce tu peso, la bebida y la hora de inicio.">
 <meta property="og:title" content="Calculadora lactancia y alcohol · Cuánto esperar para dar el pecho · babyFAQ">
-<meta property="og:description" content="Calcula al minuto cuánto debes esperar para dar el pecho después de beber alcohol. Introduce tu peso, la bebida y el tiempo transcurrido — resultado inmediato.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://babyfaq.es/calculadora-lactancia.html">
 <meta name="theme-color" content="#fdf6ee">
@@ -18,7 +18,7 @@
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Calculadora lactancia y alcohol · Cuánto esperar para dar el pecho",
-  "description": "Calcula cuánto tiempo debes esperar para dar el pecho después de consumir alcohol. Introduce tu peso, el tipo y cantidad de bebida y el tiempo transcurrido — resultado al minuto.",
+  "description": "Calcula cuánto tiempo esperar para dar el pecho tras beber alcohol según la tabla de Koren (2002). Introduce tu peso, la bebida y el tiempo desde que empezaste a beber.",
   "url": "https://babyfaq.es/calculadora-lactancia.html",
   "applicationCategory": "HealthApplication",
   "operatingSystem": "Web",
@@ -36,23 +36,18 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "¿Puedo dar el pecho si he bebido alcohol?",
-      "acceptedAnswer": { "@type": "Answer", "text": "El alcohol pasa a la leche materna en concentraciones similares a las de la sangre. La única forma segura de eliminarlo es esperar a que el cuerpo lo metabolice. La guía general es esperar al menos 2 horas por cada UBE consumida." }
+      "name": "¿Cuánto tiempo hay que esperar para dar el pecho después de beber alcohol?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Según la Tabla 1 de Koren (2002), una mujer de 63,5 kg que toma una bebida estándar necesita 2 horas y 19 minutos desde que empieza a beber para que no quede alcohol en su leche. Con 40,8 kg son 2 horas y 50 minutos, y con 95,3 kg, 1 hora y 51 minutos. Con más bebidas el tiempo aumenta." }
     },
     {
       "@type": "Question",
-      "name": "¿Sirve de algo extraerse la leche después de beber alcohol?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. El pump and dump no acelera la eliminación del alcohol del cuerpo. El alcohol se elimina por metabolismo hepático a una velocidad de 0,015 g/dL por hora, independientemente de si te extraes leche o no." }
+      "name": "¿Cómo calcula babyFAQ el tiempo de espera?",
+      "acceptedAnswer": { "@type": "Answer", "text": "babyFAQ reproduce la Tabla 1 de Koren, que supone una eliminación constante de alcohol de 15 mg/dL por hora y una mujer de estatura media, 1,62 m. Si tu consumo cae entre dos columnas de la tabla o por debajo de una bebida, el resultado se marca como estimación de babyFAQ. Con más de 12 bebidas, con pesos fuera de 40,8–95,3 kg o con esperas de 24 horas o más no calculamos nada, porque la tabla no da cifra." }
     },
     {
       "@type": "Question",
-      "name": "¿Cómo se calcula el tiempo de eliminación del alcohol en la lactancia?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Se calcula a partir de la tasa de alcoholemia usando la fórmula de Widmark con el factor de corrección femenino (r = 0,55). El alcohol se elimina a una velocidad constante de aproximadamente 0,015 g/dL por hora." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuánto tarda en eliminarse una copa de vino de la leche materna?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Una copa de vino de 100 ml al 13% equivale aproximadamente a 1 UBE (10 g de alcohol puro). Para una mujer de 65 kg, el tiempo de eliminación suele ser de entre 2 y 3 horas desde la última copa, dependiendo del tiempo transcurrido y de si se ha comido." }
+      "name": "¿El tiempo se cuenta desde la última copa?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. La tabla de Koren cuenta el tiempo desde el comienzo de la bebida hasta que el alcohol desaparece de la leche. Por eso la calculadora te pide cuánto tiempo ha pasado desde que empezaste a beber." }
     }
   ]
 }
@@ -172,6 +167,12 @@
   .result-detail     { font-size: 14px; color: var(--mid); line-height: 1.6; margin-top: 12px; text-align: justify; }
   .divider { height: 1px; background: rgba(196,168,152,0.25); margin: 16px 0; }
 
+  .result.nocalc { display: block; background: var(--cream); border: 1.5px solid rgba(196,168,152,0.4); }
+  .result.nocalc .result-headline { color: var(--mid); }
+  .result-estimate { font-size: 12px; color: var(--mid); line-height: 1.6; margin-top: 12px; }
+  .result-estimate:empty { display: none; }
+  .hint { font-size: 12px; color: var(--mid); line-height: 1.5; margin-bottom: 12px; }
+  
   /* ── Info sections ── */
   .info-section { background: var(--warm-white); border-radius: 20px; padding: 26px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(61,43,31,0.06); border: 1px solid rgba(196,168,152,0.2); }
   .info-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
@@ -230,8 +231,9 @@
 
       <div class="card">
         <div class="section-label">Tu peso</div>
+        <p class="hint">La tabla cubre de 40,8 a 95,3 kg.</p>
         <div class="weight-input-wrap">
-          <input type="number" id="weight" placeholder="65" min="40" max="150" aria-label="Tu peso en kilogramos">
+          <input type="number" id="weight" placeholder="65" min="40.8" max="95.3" step="0.1" aria-label="Tu peso en kilogramos">
           <span class="unit">kg</span>
         </div>
       </div>
@@ -242,17 +244,18 @@
       </div>
 
       <div class="card">
-        <div class="section-label">Tiempo desde la última copa</div>
+        <div class="section-label">Tiempo desde que empezaste a beber</div>
+        <p class="hint">Cuenta desde la primera copa, no desde la última.</p>
         <div class="time-row">
           <div class="time-input-group">
-            <label for="hours">Horas</label>
+            <label for="hours">Horas transcurridas desde que empezaste a beber</label>
             <div class="weight-input-wrap">
               <input type="number" id="hours" placeholder="0" min="0" max="48" aria-label="Horas transcurridas desde la última copa">
               <span class="unit">h</span>
             </div>
           </div>
           <div class="time-input-group">
-            <label for="minutes">Minutos</label>
+            <label for="minutes">Minutos transcurridos desde que empezaste a beber</label>
             <div class="weight-input-wrap">
               <input type="number" id="minutes" placeholder="0" min="0" max="59" aria-label="Minutos transcurridos desde la última copa">
               <span class="unit">m</span>
@@ -274,6 +277,7 @@
         <div class="result-time-label" id="result-time-label"></div>
         <div class="divider"></div>
         <div class="result-detail" id="result-detail"></div>
+        <div class="result-estimate" id="result-estimate"></div>
       </div>
     </div><!-- /right-col -->
 
@@ -282,48 +286,40 @@
   <!-- Secciones informativas -->
   <div class="info-section" style="margin-top:14px">
     <div class="info-grid-2">
-
       <div>
-        <h2>Alcohol y lactancia: <em>lo que dice la ciencia</em></h2>
-        <p>El alcohol pasa a la leche materna de forma rápida y en concentraciones muy similares a las del torrente sanguíneo. No existe ninguna cantidad de alcohol que sea completamente segura durante la lactancia, aunque la exposición puntual y ocasional con los tiempos de espera adecuados tiene un impacto considerado mínimo por la mayoría de organismos sanitarios.</p>
-        <p>La <strong>Academia Americana de Pediatría (AAP)</strong> y la <strong>OMS</strong> recomiendan como norma general no consumir alcohol durante la lactancia, pero reconocen que el consumo ocasional y moderado con espera es aceptable. La velocidad de eliminación del alcohol es de aproximadamente <strong>0,015 g/dL de sangre por hora</strong>, independientemente de cuánto agua bebas o si te extraes leche.</p>
+        <h2>Alcohol y lactancia: <em>qué calcula esta herramienta</em></h2>
+        <p>Esta calculadora reproduce la Tabla 1 de un artículo de Koren publicado en Canadian Family Physician en 2002. La tabla indica cuánto tarda en desaparecer el alcohol de la leche materna desde que empieza la bebida, según el peso de la madre y el número de bebidas.</p>
+        <p>Parte de dos supuestos: una eliminación constante de alcohol de 15 mg/dL por hora y una mujer de estatura media, 1,62 m. Es una fuente canadiense, no una normativa española, y un cálculo basado en supuestos: no mide tu alcoholemia real.</p>
       </div>
-
       <div>
-        <h2>Equivalencias de bebidas <em>en UBE</em></h2>
-        <p>En España, una <strong>Unidad de Bebida Estándar (UBE)</strong> equivale a 10 gramos de alcohol puro. La guía general es esperar 2 horas por cada UBE consumida antes de dar el pecho.</p>
+        <h2>Cómo se calcula <em>el tiempo de espera</em></h2>
+        <p>Para reproducir la tabla, babyFAQ calcula el agua corporal total con la fórmula de Watson para mujeres (altura de 1,62 m) y reparte el alcohol ingerido en ese volumen, eliminándolo a 15 mg/dL por hora. El tiempo se cuenta desde el comienzo de la bebida.</p>
+        <p>Para pesos que no aparecen como fila de la tabla y para consumos entre dos columnas, el valor sale de la misma fórmula y se marca como estimación de babyFAQ.</p>
+        <h3>Equivalencias aproximadas en bebidas estándar</h3>
+        <p>Una bebida estándar de la tabla equivale a unos 13,45 g de alcohol. Las equivalencias de abajo son un cálculo de babyFAQ (ml × graduación × 0,789 g/ml).</p>
         <div class="table-wrap">
           <table class="ube-table">
-            <thead><tr><th>Bebida</th><th>Cantidad</th><th>Grad.</th><th>UBE</th></tr></thead>
+            <thead><tr><th>Bebida</th><th>Cantidad</th><th>Grad.</th><th>Bebidas estándar (est.)</th></tr></thead>
             <tbody>
-              <tr><td>Cerveza</td><td>1 caña (200 ml)</td><td>5%</td><td>~0,8</td></tr>
-              <tr><td>Cerveza</td><td>1 botellín (330 ml)</td><td>5,5%</td><td>~1,4</td></tr>
-              <tr><td>Vino</td><td>1 copa (100 ml)</td><td>13%</td><td>~1,0</td></tr>
-              <tr><td>Cava</td><td>1 copa (100 ml)</td><td>11,5%</td><td>~0,9</td></tr>
-              <tr><td>Destilado</td><td>1 medida (40 ml)</td><td>40%</td><td>~1,3</td></tr>
+              <tr><td>Cerveza</td><td>1 caña (200 ml)</td><td>5 %</td><td>~0,59</td></tr>
+              <tr><td>Cerveza</td><td>1 botellín (330 ml)</td><td>5,5 %</td><td>~1,07</td></tr>
+              <tr><td>Vino</td><td>1 copa (100 ml)</td><td>13 %</td><td>~0,77</td></tr>
+              <tr><td>Cava</td><td>1 copa (100 ml)</td><td>11,5 %</td><td>~0,68</td></tr>
+              <tr><td>Destilado</td><td>1 medida (40 ml)</td><td>40 %</td><td>~0,94</td></tr>
             </tbody>
           </table>
         </div>
       </div>
-
       <div class="info-divider"></div>
-
-      <div>
-        <h3>¿El «pump and dump» elimina el alcohol?</h3>
-        <p>No. Extraerse la leche y tirarla no acelera la eliminación del alcohol de tu cuerpo — y por tanto tampoco de la leche nueva que se produce. El alcohol no queda «atrapado» en la leche: sube y baja en paralelo a tu tasa de alcoholemia. Cuando tu sangre ya no tenga alcohol, tu leche tampoco lo tendrá. El único uso práctico del pump and dump es aliviar la tensión mamaria si los pechos se llenan mientras esperas.</p>
-
-        <h3>¿Por qué varía el tiempo según el peso?</h3>
-        <p>A igual cantidad de alcohol consumida, una persona de menor peso alcanza una tasa de alcoholemia más alta porque el alcohol se distribuye en un volumen menor de agua corporal. Además, las mujeres tienen en general mayor proporción de grasa corporal y menor de agua, lo que se refleja en el factor de corrección de la fórmula (r = 0,55 frente al r = 0,68 masculino). Por eso esta calculadora pide el peso y usa el factor femenino.</p>
+      <div style="grid-column: 1 / -1;">
+        <h2>Preguntas <em>frecuentes</em></h2>
+        <h3>¿Cuánto tiempo hay que esperar para dar el pecho después de beber alcohol?</h3>
+        <p>Según la Tabla 1 de Koren (2002), una mujer de 63,5 kg que toma una bebida estándar necesita 2 horas y 19 minutos desde que empieza a beber para que no quede alcohol en su leche. Con 40,8 kg son 2 horas y 50 minutos, y con 95,3 kg, 1 hora y 51 minutos. Con más bebidas el tiempo aumenta.</p>
+        <h3>¿Cómo calcula babyFAQ el tiempo de espera?</h3>
+        <p>babyFAQ reproduce la Tabla 1 de Koren, que supone una eliminación constante de alcohol de 15 mg/dL por hora y una mujer de estatura media, 1,62 m. Si tu consumo cae entre dos columnas de la tabla o por debajo de una bebida, el resultado se marca como estimación de babyFAQ. Con más de 12 bebidas, con pesos fuera de 40,8–95,3 kg o con esperas de 24 horas o más no calculamos nada, porque la tabla no da cifra.</p>
+        <h3>¿El tiempo se cuenta desde la última copa?</h3>
+        <p>No. La tabla de Koren cuenta el tiempo desde el comienzo de la bebida hasta que el alcohol desaparece de la leche. Por eso la calculadora te pide cuánto tiempo ha pasado desde que empezaste a beber.</p>
       </div>
-
-      <div>
-        <h3>¿El alcohol afecta a la producción de leche?</h3>
-        <p>Sí. El alcohol inhibe la liberación de oxitocina, la hormona responsable del reflejo de bajada de la leche. Esto puede hacer que el bebé tome menos leche en la toma posterior al consumo de alcohol, aunque la producción total no se ve afectada de forma permanente. Dar el pecho frecuentemente es la mejor forma de mantener la producción.</p>
-
-        <h3>¿Qué pasa si doy el pecho con algo de alcohol en sangre?</h3>
-        <p>La exposición puntual a cantidades bajas de alcohol en la leche tiene un efecto considerado mínimo en el bebé. Lo que más preocupa científicamente son las exposiciones frecuentes o regulares, que pueden afectar al patrón de sueño y, a largo plazo, al desarrollo neurológico. Una ocasión aislada con los tiempos de espera adecuados no constituye un riesgo significativo según el estado actual de la evidencia científica.</p>
-      </div>
-
     </div>
   </div>
 
@@ -331,10 +327,7 @@
   <div class="sources-section">
     <h2>📚 Fuentes consultadas</h2>
     <div class="sources-list">
-      <div class="source-item">📖 <a href="https://www.who.int/health-topics/breastfeeding" target="_blank" rel="noopener">OMS — Organización Mundial de la Salud</a>: recomendaciones sobre lactancia materna y consumo de alcohol</div>
-      <div class="source-item">📖 <a href="https://www.aeped.es/comite-nutricion-y-lactancia-materna/lactancia-materna/documentos" target="_blank" rel="noopener">AEP — Asociación Española de Pediatría</a>: guía de lactancia materna, alcohol y medicamentos</div>
-      <div class="source-item">📖 <a href="https://www.healthychildren.org/English/ages-stages/baby/breastfeeding/Pages/Alcohol-Breast-Milk.aspx" target="_blank" rel="noopener">AAP — American Academy of Pediatrics</a>: alcohol y leche materna</div>
-      <div class="source-item">📖 <a href="https://pnsd.sanidad.gob.es/profesionales/publicaciones/catalogo/catalogoPNSD/publicaciones/pdf/2023_UBE_infografia.pdf" target="_blank" rel="noopener">PNSD — Plan Nacional sobre Drogas</a>: definición de Unidad de Bebida Estándar en España</div>
+      <div class="source-item">📖 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2213923" target="_blank" rel="noopener">Koren G. (2002), Canadian Family Physician 48:39-41</a>: tiempo hasta la eliminación del alcohol de la leche materna (fuente canadiense)</div>
     </div>
   </div>
 
@@ -355,12 +348,10 @@
   </div>
 </div>
   
-  <p class="disclaimer">
-    Cálculo basado en ml × graduación × densidad del etanol (factor femenino r = 0,55, fórmula de Widmark).<br><br>
-    <strong>Aviso importante:</strong> Esta herramienta calcula el tiempo de eliminación del alcohol para ayudarte a tomar una decisión informada sobre la lactancia. No es una recomendación para consumir alcohol durante el período de lactancia. La opción más segura siempre es no beber alcohol mientras amamantas. Los resultados son orientativos — el metabolismo individual, haber comido o el estado de hidratación pueden afectar a la eliminación real.<br><br>
-    Ante cualquier duda, consulta con tu matrona o médico.
+    <p class="disclaimer">
+    Última revisión: 10 de noviembre de 2026<br><br>
+    Información orientativa basada en la Tabla 1 de Koren (2002), una fuente canadiense y no normativa española. No sustituye la valoración de un profesional sanitario. Esta herramienta no recomienda beber alcohol durante la lactancia: solo calcula la espera que indica la tabla. Los resultados son estimaciones. Cada madre y cada bebé son diferentes: ante cualquier duda, consulta con tu matrona o pediatra.
   </p>
-
 </div>
 
 <script>
@@ -462,45 +453,79 @@ function alcoholGrams(d){
   return s.count*d.mlValues[s.mlIdx]*(d.gradValues[s.gradIdx]/100)*0.789;
 }
 
+// ── Cálculo: Tabla 1 de Koren 2002 (Can Fam Physician 48:39-41) ──
+// gramosBebida está calibrado contra la tabla (340 ml × 5 % × 0,789 = 13,41 g); lo verifica tests/calculadora-lactancia.spec.mjs.
+const KOREN={alturaCm:162,tasaGdLh:0.015,gramosBebida:13.45,pesoMin:40.8,pesoMax:95.3,maxBebidas:12,maxMin:1440};
+
+function calcularEspera(pesoKg,gramos,transcurridoMin){
+  const E=1e-9;
+  if(pesoKg<KOREN.pesoMin-E||pesoKg>KOREN.pesoMax+E)return{estado:'sin-calculo',motivo:'peso'};
+  const bebidas=gramos/KOREN.gramosBebida;
+  if(bebidas>KOREN.maxBebidas+E)return{estado:'sin-calculo',motivo:'bebidas',bebidas};
+  const aguaL=-2.097+0.1069*KOREN.alturaCm+0.2466*pesoKg;   // Watson, mujer
+  const volDl=aguaL/0.8*10;
+  const totalMin=gramos/(volDl*KOREN.tasaGdLh)*60;           // desde el INICIO de la bebida
+  if(Math.ceil(totalMin-E)>=KOREN.maxMin)return{estado:'sin-calculo',motivo:'duracion',bebidas,totalMin};
+  const restanteMin=totalMin-transcurridoMin;
+  const estado=restanteMin<=0?'listo':(restanteMin<=60?'espera':'todavia');
+  const porDebajo=bebidas<0.95;
+  const estimacion=porDebajo||Math.abs(bebidas-Math.round(bebidas))>0.05;
+  return{estado,bebidas,totalMin,restanteMin,estimacion,porDebajo};
+}
+
+const fmtCorto=min=>{const t=Math.ceil(min-1e-9),h=Math.floor(t/60),m=t%60;return h>0?(m>0?`${h}h ${m}m`:`${h}h`):`${m}m`;};
+const fmtLargo=min=>{const t=Math.ceil(min-1e-9),h=Math.floor(t/60),m=t%60;const a=h>0?`${h} hora${h>1?'s':''}`:'';const b=m>0?`${m} minuto${m>1?'s':''}`:'';return a&&b?`${a} y ${b}`:(a||b||'0 minutos');};
+const numEs=n=>n.toFixed(1).replace('.',',');
+
 function calculate(){
   const weight=parseFloat(document.getElementById('weight').value);
-  const elapsed=(parseFloat(document.getElementById('hours').value)||0)+(parseFloat(document.getElementById('minutes').value)||0)/60;
-  if(!weight||weight<30){alert('Introduce tu peso en kg para continuar.');return;}
+  const elapsedMin=(parseFloat(document.getElementById('hours').value)||0)*60+(parseFloat(document.getElementById('minutes').value)||0);
+  if(!weight||weight<=0){alert('Introduce tu peso en kg para continuar.');return;}
   const totalAlcohol=DRINKS.reduce((s,d)=>s+alcoholGrams(d),0);
   if(totalAlcohol===0){alert('Selecciona al menos una bebida.');return;}
 
-  const bac0=totalAlcohol/(weight*0.55*10);
-  const bacNow=Math.max(0,bac0-0.015*elapsed);
-  const hLeft=Math.max(0,bacNow/0.015);
-
+  const r=calcularEspera(weight,totalAlcohol,elapsedMin);
   const result=document.getElementById('result');
   const emoji=document.getElementById('result-emoji');
   const headline=document.getElementById('result-headline');
   const timeEl=document.getElementById('result-time');
   const timeLbl=document.getElementById('result-time-label');
   const detail=document.getElementById('result-detail');
+  const est=document.getElementById('result-estimate');
 
   result.className='result';
-  if(bacNow===0){
-    result.classList.add('safe');
-    emoji.textContent='✅';
-    headline.textContent='Puedes dar el pecho';
-    timeEl.textContent='';
-    timeLbl.textContent='';
-    detail.textContent='El alcohol ya se ha eliminado de tu organismo. Puedes amamantar con tranquilidad.';
+  est.textContent='';
+  timeEl.textContent='';timeLbl.textContent='';
+
+  if(r.estado==='sin-calculo'){
+    result.classList.add('nocalc');
+    emoji.textContent='ℹ️';
+    headline.textContent='Sin cálculo para este caso';
+    detail.textContent={
+      peso:'La tabla de Koren solo cubre pesos de 40,8 a 95,3 kg, así que no calculamos nada fuera de ese rango.',
+      bebidas:'La tabla llega hasta 12 bebidas estándar; con más no calculamos nada. Consulta con tu matrona o pediatra.',
+      duracion:'Para este peso y este consumo la tabla de Koren no da cifra (24 horas o más). Consulta con tu matrona o pediatra.'
+    }[r.motivo];
   } else {
-    const totalMin=Math.ceil(hLeft*60);
-    const h=Math.floor(totalMin/60),m=totalMin%60;
-    result.classList.add(hLeft<=1?'wait':'careful');
-    emoji.textContent=hLeft<=1?'⏳':'⚠️';
-    headline.textContent=hLeft<=1?'Espera un poco más':'Todavía no';
-    timeEl.textContent=h>0?(m>0?`${h}h ${m}m`:`${h}h`):`${m}m`;
-    timeLbl.textContent='para poder dar el pecho';
-    const timeStr=h>0?`${h} hora${h>1?'s':''}${m>0?' y '+m+' minutos':''}`:` ${m} minutos`;
-    detail.textContent=`Con ${totalAlcohol.toFixed(1)}g de alcohol y tu peso, necesitas esperar ${timeStr} más desde la última copa.`;
+    const n=numEs(r.bebidas);
+    if(r.estado==='listo'){
+      result.classList.add('safe');
+      emoji.textContent='⏱️';
+      headline.textContent='Ya ha pasado el tiempo de la tabla';
+      detail.textContent=`Según la tabla de Koren (2002), con ${n} bebidas estándar y tu peso el alcohol ya habría desaparecido de la leche. Es una estimación para una mujer de 1,62 m, no una medición de tu alcoholemia.`;
+    } else {
+      result.classList.add(r.estado==='espera'?'wait':'careful');
+      emoji.textContent=r.estado==='espera'?'⏳':'⚠️';
+      headline.textContent=r.estado==='espera'?'Espera un poco más':'Todavía no';
+      timeEl.textContent=fmtCorto(r.restanteMin);
+      timeLbl.textContent='para que desaparezca el alcohol de la leche, según la tabla';
+      detail.textContent=`Con ${n} bebidas estándar y tu peso, la tabla de Koren indica ${fmtLargo(r.totalMin)} desde que empezaste a beber. Ya han pasado ${fmtLargo(elapsedMin)}.`;
+    }
+    if(r.estimacion)est.textContent=r.porDebajo
+      ?`Estimación de babyFAQ: tu consumo equivale a ${n} bebidas estándar, por debajo de la primera columna de la tabla (1 bebida). Se calcula por proporcionalidad.`
+      :`Estimación de babyFAQ: tu consumo equivale a ${n} bebidas estándar, entre dos columnas de la tabla.`;
   }
 
-  // Activar grid de 2 columnas en desktop
   document.getElementById('page-grid').classList.add('has-result');
   document.getElementById('reset-btn').classList.add('visible');
   result.scrollIntoView({behavior:'smooth',block:'nearest'});
