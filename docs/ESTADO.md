@@ -33,7 +33,7 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-10.
 - Auditoría Nivel 1 de calculadora-lactancia (2026-11-10): cálculo = Tabla 1 de Koren 2002 (Watson, 0,015 g/dL/h, 13,45 g/bebida calibrado, tiempo desde el inicio), sin cálculo fuera de tabla, estimación marcada, textos sin respaldo eliminados, fuente única Koren, FAQPage de 3 respuestas, «Última revisión», añadida al validador con su test (25×12 casillas). Pendiente de checks en verde.
 
 ## Siguiente
-1. Confirmar el piloto (checks verdes, página publicada revisada). Después, migrar el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
+1. Migrar el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
 2. Auditar primeros-auxilios (luego dosis-fiebre, fiebre, cuando-urgencias).
 3. Fase 4 (backlinks) en paralelo.
 
