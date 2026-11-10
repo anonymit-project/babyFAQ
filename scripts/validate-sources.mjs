@@ -2,7 +2,7 @@
 // Comprueba que las fuentes del inventario responden y que la cita literal aparece en el texto.
 import { readFileSync } from 'node:fs';
 
-const slugs = process.argv.slice(2).length ? process.argv.slice(2) : ['tomas-leche'];
+const slugs = process.argv.slice(2).length ? process.argv.slice(2) : ['tomas-leche', 'calculadora-lactancia'];
 const inventario = JSON.parse(readFileSync('data/inventario.json', 'utf8'));
 const norm = s => s
   .replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ')
