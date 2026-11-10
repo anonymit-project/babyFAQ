@@ -38,8 +38,9 @@ Enlaces que ya aparecen en páginas pero NO están verificados ni en el inventar
 
 | Herramienta | Enlace actual en la página | Problema conocido |
 |---|---|---|
-| calculadora-lactancia | AAP, "Alcohol & Breast Milk" | Candidata no usada |
-| calculadora-lactancia | Ministerio de Sanidad, nota de prensa 13/11/2020 | Pendiente de confirmar la cita |
+| calculadora-lactancia | OMS y AEP (enlaces retirados de la página el 2026-11-10) | Portada y listado sin verificar; hay que localizar un documento concreto con el dato |
+| calculadora-lactancia | AAP, "Alcohol & Breast Milk" | Frase vista solo en previsualización ("wait at least 2 hours before nursing again"); falta URL exacta y comprobar la cita en la página |
+| calculadora-lactancia | PNSD, Monografía Alcohol 2021 (PDF) | Cita vista a mano (UBE = 10 g); el validador no lee PDF y la página ya no usa UBE |
 | talla-zapato (Nivel 3) | Portadas de AEP, AAP y Ministerio de Sanidad | No respaldan la tabla de tallas (ver abajo) |
 
 ## Cómo se verifica una fuente (sin ejecutar nada en local)
