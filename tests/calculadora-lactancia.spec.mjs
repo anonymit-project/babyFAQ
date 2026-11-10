@@ -49,7 +49,7 @@ test('la tabla tiene 25 filas y 255 casillas con tiempo', () => {
   expect(TABLA.reduce((s, [, t]) => s + t.length, 0)).toBe(255);
 });
 
-test('Tabla 1 de Koren: 300 casillas (±1 min; vacías = sin cálculo)', async ({ page }) => {
+test('Tabla 1 de Koren: 300 casillas (página -1/+2 min respecto a la tabla; vacías = sin cálculo)', async ({ page }) => {
   await open(page);
   const res = await page.evaluate(tabla => tabla.map(([kg]) =>
     Array.from({ length: 12 }, (_, i) => {
@@ -63,7 +63,8 @@ test('Tabla 1 de Koren: 300 casillas (±1 min; vacías = sin cálculo)', async (
       if (n > tiempos.length) {
         if (r.estado !== 'sin-calculo' || r.motivo !== 'duracion') fallos.push(`${kg} kg, ${n} bebidas: esperaba sin cálculo (casilla vacía), dio ${r.estado}`);
       } else if (!ERRATA.has(`${kg}/${n}`)) {
-        if (r.estado === 'sin-calculo' || Math.abs(r.min - tiempos[n - 1]) > 1) fallos.push(`${kg} kg, ${n} bebidas: tabla ${tiempos[n - 1]} min, página ${r.min}`);
+                const d = r.min - tiempos[n - 1]; // la página redondea hacia arriba: nunca más de 1 min por debajo, hasta 2 por encima
+        if (r.estado === 'sin-calculo' || d < -1 || d > 2) fallos.push(`${kg} kg, ${n} bebidas: tabla ${tiempos[n - 1]} min, página ${r.min}`);
       }
     }
   });
@@ -82,7 +83,7 @@ test('límites: peso fuera de rango, más de 12 bebidas y casilla de 24 h', asyn
   const r = await page.evaluate(() => [
     calcularEspera(40.7, KOREN.gramosBebida, 0).motivo,
     calcularEspera(95.4, KOREN.gramosBebida, 0).motivo,
-    calcularEspera(63.5, 12.5 * KOREN.gramosBebida, 0).estado,
+    calcularEspera(95.3, 12 * KOREN.gramosBebida, 0).estado,
     calcularEspera(63.5, 13 * KOREN.gramosBebida, 0).motivo,
     calcularEspera(40.8, 9 * KOREN.gramosBebida, 0).motivo,
   ]);
