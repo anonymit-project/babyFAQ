@@ -8,7 +8,7 @@ Ubicación en el repo: `docs/CLAUDE.md` y `docs/ESTADO.md` (el resto de rutas so
 2. Una tarea (o herramienta) a la vez. Al terminar, proponer la siguiente.
 3. Ningún dato de salud sin fuente oficial. Leer `docs/05-politica-medica.md` antes de tocar herramientas de Nivel 1 o 2.
 4. No cambiar URLs `.html` ni canonicals. No sobrescribir `sw.js`, `manifest.json`, `robots.txt`, `sitemap.xml` sin revisarlos.
-5. Cambios quirúrgicos: devolver solo los bloques modificados con indicación de dónde pegarlos.
+5. Cambios quirúrgicos en "fichas de cambio" (formato en la sección "Formato de entrega de cambios"): fichero, acción, texto a localizar, texto a pegar y cómo comprobarlo.
 6. Coste cero primero: scripts y validadores antes que agentes con API de pago.
 7. Afiliados nunca dentro de los resultados de una herramienta de salud.
 8. Sin nombre ni datos personales del autor en ficheros del repo (es público).
@@ -48,6 +48,23 @@ Ubicación en el repo: `docs/CLAUDE.md` y `docs/ESTADO.md` (el resto de rutas so
 | Backlinks y promoción | 06 (Fase 4) | — |
 | Monetización | 07 | — |
 | Buscar fuentes oficiales | 04, 05 | `data/inventario.json` (solo las herramientas de la tarea) |
+
+## Formato de entrega de cambios
+Cada cambio se entrega como una ficha. Ejemplo:
+
+```
+FICHA 1 · docs/ESTADO.md
+- Acción: SUSTITUIR LÍNEA
+- Localizar: la línea que empieza por "Última actualización:"
+- Pegar: Última actualización: 2026-11-10.
+- Comprobar: Ctrl+F "Última actualización" da 1 resultado.
+```
+
+Acciones posibles: SUSTITUIR LÍNEA, SUSTITUIR BLOQUE, INSERTAR DESPUÉS DE, INSERTAR ANTES DE, BORRAR, AÑADIR AL FINAL.
+- El texto a localizar se copia literal del fichero y debe aparecer una sola vez. Si no, se pide el fichero.
+- Una ficha = una acción. Si el cambio afecta a más de la mitad del fichero, se entrega entero y se avisa.
+- JSON: objeto completo, atención a las comas, validar antes del commit.
+- Si el texto a localizar no aparece en tu fichero: no improvises, envía esa parte y se rehace la ficha.
 
 ## Protocolo de sesión (un chat por tarea)
 - **Inicio:** leer ESTADO, resumir en 3 líneas dónde estamos, proponer la tarea siguiente y listar los ficheros que hay que adjuntar. Si el chat se abre con un prompt de relevo, usarlo como punto de partida y no volver a explicar el contexto.
