@@ -227,35 +227,30 @@
   "relacionadas": ["calculadora-lactancia", "percentil", "introduccion-solidos"],
   "afiliados_prioridad": false
 },
+{
+  "slug": "calculadora-lactancia",
+  "archivo": "calculadora-lactancia.html",
+  "url": "https://babyfaq.es/calculadora-lactancia.html",
+  "titulo": "Alcohol y lactancia: tiempo de espera",
+  "categoria": "Lactancia",
+  "nivel_riesgo": 1,
+  "prioridad_seo": "P1",
+  "metricas_90d_google_organico": { "clics": 6, "impresiones": 174, "posicion_media": 11.3, "periodo": "2026-08-06 a 2026-11-03" },
+  "organismos_candidatos": ["AEP (Comité de Lactancia)", "e-lactancia.org", "AAP"],
+  "fuentes": [
     {
-      "slug": "calculadora-lactancia",
-      "archivo": "calculadora-lactancia.html",
-      "url": "https://babyfaq.es/calculadora-lactancia.html",
-      "titulo": "Alcohol y lactancia: tiempo de espera",
-      "categoria": "Lactancia",
-      "nivel_riesgo": 1,
-      "prioridad_seo": "P1",
-      "metricas_90d_google_organico": {
-        "clics": 6,
-        "impresiones": 174,
-        "posicion_media": 11.3,
-        "periodo": "2026-08-06 a 2026-11-03"
-      },
-      "organismos_candidatos": [
-        "AEP (Comité de Lactancia)",
-        "e-lactancia.org",
-        "AAP"
-      ],
-      "fuentes": [],
-      "estado_verificacion": "pendiente",
-      "ultima_revision": null,
-      "relacionadas": [
-        "tomas-leche",
-        "primeros-auxilios",
-        "alimentos-edad"
-      ],
-      "afiliados_prioridad": false
-    },
+      "fuente_organismo": "Canadian Family Physician (Koren, 2002)",
+      "fuente_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2213923",
+      "fecha_consulta": "2026-11-10",
+      "cita_literal_breve": "waiting for complete elimination of alcohol from their breast milk"
+    }
+  ],
+  "estado_verificacion": "verificado",
+  "notas_verificacion": "Artículo revisado por pares, no organismo oficial (excepción decidida 2026-11-10). Cálculo = Tabla 1 de Koren (imagen; la comprueba tests/calculadora-lactancia.spec.mjs, no el validador): Watson mujer H=162 cm, 0,015 g/dL/h, 13,45 g/bebida calibrado, tiempo desde el inicio de la bebida. Sin cálculo con >12 bebidas, fuera de 40,8–95,3 kg o ≥24 h. Estimación marcada con <1 bebida o entre columnas. Casilla 74,8 kg/11 bebidas de la fuente con errata (omitida en el test). Fuentes OMS/AEP/AAP/PNSD retiradas de la página por no estar verificadas. Cubierto por validador de Capa 1 y tests Playwright desde 2026-11-10.",
+  "ultima_revision": "2026-11-10",
+  "relacionadas": ["tomas-leche", "primeros-auxilios", "alimentos-edad"],
+  "afiliados_prioridad": false
+},
     {
       "slug": "alimentos-edad",
       "archivo": "alimentos-edad.html",
