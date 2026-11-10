@@ -31,16 +31,15 @@ La AAP es estadounidense. Si es la única fuente con cifras, se acepta (preceden
 |---|---|---|---|---|---|
 | AAP | Amount and Schedule of Baby Formula Feedings | https://www.healthychildren.org/English/ages-stages/baby/formula-feeding/Pages/Amount-and-Schedule-of-Formula-Feedings.aspx | 2026-11-08 | about 2½ ounces (75 mL) of infant formula a day for every pound | tomas-leche |
 | AAP | How Often and How Much Should Your Baby Eat? | https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/how-often-and-how-much-should-your-baby-eat.aspx | 2026-11-08 | tops out at rougly 4.5 oz at a year of age | tomas-leche |
+| Canadian Family Physician (Koren 2002, artículo revisado por pares, no organismo; excepción 2026-11-10) | Alcohol y lactancia, Tabla 1 | https://pmc.ncbi.nlm.nih.gov/articles/PMC2213923 | 2026-11-10 | waiting for complete elimination of alcohol from their breast milk | calculadora-lactancia.
 
 ## Candidatas pendientes de verificar
 Enlaces que ya aparecen en páginas pero NO están verificados ni en el inventario. No cuentan como respaldo.
 
 | Herramienta | Enlace actual en la página | Problema conocido |
 |---|---|---|
-| calculadora-lactancia | OMS, página temática de lactancia | Probablemente no contiene el dato de alcohol |
-| calculadora-lactancia | AEP, listado de documentos del Comité de Lactancia | Es un listado; hay que localizar el documento concreto |
-| calculadora-lactancia | AAP, "Alcohol & Breast Milk" | Candidata razonable; falta comprobar la cita |
-| calculadora-lactancia | PNSD, infografía UBE | Falta comprobar que responde y qué dice |
+| calculadora-lactancia | AAP, "Alcohol & Breast Milk" | Candidata no usada |
+| calculadora-lactancia | Ministerio de Sanidad, nota de prensa 13/11/2020 | Pendiente de confirmar la cita |
 | talla-zapato (Nivel 3) | Portadas de AEP, AAP y Ministerio de Sanidad | No respaldan la tabla de tallas (ver abajo) |
 
 ## Cómo se verifica una fuente (sin ejecutar nada en local)
