@@ -39,7 +39,7 @@ Enlaces que ya aparecen en páginas pero NO están verificados ni en el inventar
 | Herramienta | Enlace actual en la página | Problema conocido |
 |---|---|---|
 | calculadora-lactancia | OMS y AEP (enlaces retirados de la página el 2026-11-10) | Portada y listado sin verificar; hay que localizar un documento concreto con el dato |
-| calculadora-lactancia | AAP, "Alcohol & Breast Milk" | Frase vista solo en previsualización ("wait at least 2 hours before nursing again"); falta URL exacta y comprobar la cita en la página |
+| calculadora-lactancia | AAP, "Breastfeeding Mother's Diet and Alcohol Use" (resumen en publications.aap.org: https://publications.aap.org/patiented/article-abstract/doi/10.1542/ppe_schmitt_032/82216/Breastfeeding-Mother-s-Diet-and-Alcohol-Use?redirectedFrom=fulltext) | Frase vista solo en previsualización ("wait at least 2 hours before nursing again"); falta texto completo. Conflicto: con 1 bebida y ≥ ~84 kg la tabla de Koren da menos de 2 h. Decisión 2026-11-10: sin tocar el cálculo hasta verificar |
 | calculadora-lactancia | PNSD, Monografía Alcohol 2021 (PDF) | Cita vista a mano (UBE = 10 g); el validador no lee PDF y la página ya no usa UBE |
 | talla-zapato (Nivel 3) | Portadas de AEP, AAP y Ministerio de Sanidad | No respaldan la tabla de tallas (ver abajo) |
 
