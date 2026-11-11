@@ -1039,9 +1039,41 @@
         "Cruz Roja",
         "ERC/CERCP (reanimación)"
       ],
-      "fuentes": [],
+      "fuentes": [
+        {
+          "fuente_organismo": "ERC (Guías 2025, resumen ejecutivo, traducción al español)",
+          "fuente_url": "https://www.erc.edu/media/vatl54cg/01_gl2025_exec-summary_es_v10.pdf",
+          "fecha_consulta": "2026-11-11",
+          "cita_literal_breve": "Realice cinco ventilaciones de rescate iniciales."
+        },
+        {
+          "fuente_organismo": "ERC (Guías 2025, resumen ejecutivo, traducción al español)",
+          "fuente_url": "https://www.erc.edu/media/vatl54cg/01_gl2025_exec-summary_es_v10.pdf",
+          "fecha_consulta": "2026-11-11",
+          "cita_literal_breve": "Utilice la técnica de los dos pulgares con las manos rodeando el tórax"
+        },
+        {
+          "fuente_organismo": "AEP",
+          "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf",
+          "fecha_consulta": "2026-11-11",
+          "cita_literal_breve": "Realizaremos 5 respiraciones de rescate."
+        },
+        {
+          "fuente_organismo": "AEP",
+          "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf",
+          "fecha_consulta": "2026-11-11",
+          "cita_literal_breve": "Aplicar agua fría durante 10-20 minutos"
+        },
+        {
+          "fuente_organismo": "AEP",
+          "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf",
+          "fecha_consulta": "2026-11-11",
+          "cita_literal_breve": "Si el chichón va a más, se hace largo o blando"
+        }
+      ],
       "estado_verificacion": "pendiente",
-      "ultima_revision": null,
+      "notas_verificacion": "Auditoría 2026-11-11 en curso. Fuentes en PDF: verificación manual (validate-sources avisa, no falla). ERC 2025 manda en RCP (la AEP sigue el ERC 2015); AEP en quemaduras y traumatismo craneal. Citas de la AEP copiadas de las que pasó el autor: comprobar en el PDF. Pendiente: checklist del autor y contraste de atragantamiento con las páginas de obstrucción del ERC 2025 (no revisadas). Profundidad: ERC «al menos un tercio»; 4–5 cm según AEP. Criterios de gravedad de quemaduras retirados por falta de fuente.",
+      "ultima_revision": "2026-11-11",
       "relacionadas": [
         "cuando-urgencias",
         "introduccion-solidos",
