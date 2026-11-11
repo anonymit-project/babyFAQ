@@ -32,6 +32,8 @@ La AAP es estadounidense. Si es la única fuente con cifras, se acepta (preceden
 | AAP | Amount and Schedule of Baby Formula Feedings | https://www.healthychildren.org/English/ages-stages/baby/formula-feeding/Pages/Amount-and-Schedule-of-Formula-Feedings.aspx | 2026-11-08 | about 2½ ounces (75 mL) of infant formula a day for every pound | tomas-leche |
 | AAP | How Often and How Much Should Your Baby Eat? | https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/how-often-and-how-much-should-your-baby-eat.aspx | 2026-11-08 | tops out at rougly 4.5 oz at a year of age | tomas-leche |
 | Canadian Family Physician (Koren 2002, artículo revisado por pares, no organismo; excepción 2026-11-10) | Alcohol y lactancia, Tabla 1 | https://pmc.ncbi.nlm.nih.gov/articles/PMC2213923 | 2026-11-10 | waiting for complete elimination of alcohol from their breast milk | calculadora-lactancia.
+| ERC (traducción oficial AESP-RCP) | Guías 2025, resumen ejecutivo (SVB pediátrico, pp. 126–130) | https://www.erc.edu/media/vatl54cg/01_gl2025_exec-summary_es_v10.pdf | 2026-11-11 (PDF, verificación manual) | Utilice la técnica de los dos pulgares con las manos rodeando el tórax | primeros-auxilios |
+| AEP | Documento de primeros auxilios (PDF; sigue el ERC 2015) | https://static.aeped.es/capitulo_5_0_b962064ae5.pdf | 2026-11-11 (PDF, verificación manual; citas por comprobar) | Aplicar agua fría durante 10-20 minutos | primeros-auxilios |
 
 ## Candidatas pendientes de verificar
 Enlaces que ya aparecen en páginas pero NO están verificados ni en el inventario. No cuentan como respaldo.
