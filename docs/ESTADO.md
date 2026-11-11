@@ -1,6 +1,6 @@
 # Estado actual — babyFAQ
 
-Actualizar al terminar cada sesión. Última actualización: 2026-11-10.
+Actualizar al terminar cada sesión. Última actualización: 2026-11-11.
 
 ## Línea base real (periodo 2026-08-06 a 2026-11-03, GA4 + Search Console)
 
@@ -32,8 +32,8 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-10.
 - Auditoría Nivel 1 de calculadora-lactancia (2026-11-10): cálculo = Tabla 1 de Koren 2002 (Watson, 0,015 g/dL/h, tiempo desde el inicio), 13,45 g/bebida como valor ajustado y rotulado, sin cálculo fuera de tabla, estimación marcada, textos sin respaldo eliminados, fuente única Koren, FAQPage de 3 respuestas, «Última revisión», validador + test (25×12 casillas, tolerancia −1/+2 min). Candidata sin verificar: AAP «al menos 2 horas» (en conflicto con Koren para ≥ ~84 kg y 1 bebida). Pendiente de checks en verde.
 
 ## Siguiente
-1. Migrar el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
-2. Auditar primeros-auxilios (luego dosis-fiebre, fiebre, cuando-urgencias).
+1. Auditar primeros-auxilios (en curso desde 2026-11-11, antes que la migración): hay 9 contradicciones con la AEP y faltan por leer los apartados pediátricos del ERC 2025 (pp. 126–132 del índice). Luego dosis-fiebre, fiebre, cuando-urgencias.
+2. Migrar el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
 3. Fase 4 (backlinks) en paralelo.
 
 ## Por confirmar
