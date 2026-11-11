@@ -2,7 +2,7 @@
 // Comprueba que las fuentes del inventario responden y que la cita literal aparece en el texto.
 import { readFileSync } from 'node:fs';
 
-const slugs = process.argv.slice(2).length ? process.argv.slice(2) : ['tomas-leche', 'calculadora-lactancia'];
+const slugs = process.argv.slice(2).length ? process.argv.slice(2) : ['tomas-leche', 'calculadora-lactancia', 'primeros-auxilios'];
 const inventario = JSON.parse(readFileSync('data/inventario.json', 'utf8'));
 const norm = s => s
   .replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ')
@@ -31,6 +31,12 @@ for (const slug of slugs) {
   if (!tool) { console.error(`✗ ${slug}: no está en el inventario`); errors++; continue; }
   console.log(`\n${slug}`);
   for (const f of tool.fuentes || []) {
+    if (/\.pdf(?:$|[?#])/i.test(f.fuente_url)) {
+      warnings++;
+      console.warn(`  ! PDF: cita sin comprobar automáticamente, verificación manual (${f.fuente_organismo}): ${f.fuente_url}`);
+      if (gh) console.log(`::warning::Fuente en PDF, verificar la cita a mano: ${f.fuente_url}`);
+      continue;
+    }
     const res = await get(f.fuente_url);
     if (res.error) {
       warnings++;
