@@ -30,10 +30,10 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-11.
 - `docs/03-voz-y-estilo.md` y `docs/04-fuentes-autorizadas.md` creados (2026-11-09). 04 solo registra como verificadas las 2 páginas de la AAP de tomas-leche; el resto son candidatas pendientes. Piloto Eleventy `talla-zapato` confirmado (checks verdes, página publicada revisada).
 - Formato de "fichas de cambio" para entregar parches (2026-11-10): regla de oro 5 de `docs/CLAUDE.md`, sección "Formato de entrega de cambios" y punto 3 del orquestador.
 - Auditoría Nivel 1 de calculadora-lactancia (2026-11-10): cálculo = Tabla 1 de Koren 2002 (Watson, 0,015 g/dL/h, tiempo desde el inicio), 13,45 g/bebida como valor ajustado y rotulado, sin cálculo fuera de tabla, estimación marcada, textos sin respaldo eliminados, fuente única Koren, FAQPage de 3 respuestas, «Última revisión», validador + test (25×12 casillas, tolerancia −1/+2 min). Candidata sin verificar: AAP «al menos 2 horas» (en conflicto con Koren para ≥ ~84 kg y 1 bebida). Pendiente de checks en verde.
-- Auditoría Nivel 1 de primeros-auxilios (2026-11-11), en curso: corregidas contradicciones con la AEP (chichón blando, agua 10–20 min, 5 ventilaciones, compresión, vigilancia 24–48 h) y con el ERC 2025 (dos pulgares, llamar antes si hay móvil); retirado lo sin respaldo; fuentes ERC 2025 y AEP en PDF (verificación manual con aviso). Falta: checklist del autor y contrastar atragantamiento con las páginas de obstrucción del ERC 2025. Inventario en «pendiente» hasta entonces.
+- Auditoría Nivel 1 de primeros-auxilios (2026-11-11), cerrada: RCP y atragantamiento según el ERC 2025 (contrastado con sus páginas de obstrucción de vía aérea), quemaduras y traumatismo craneal según la AEP; corregidas contradicciones y retirado lo sin respaldo; añadida la regla AEP «lactante menor de 1 año → urgencias»; 8 fuentes en el inventario (PDF, verificación manual con aviso); inventario «verificado», añadida al validador (`DEFAULT_FILES`) y con test Playwright actualizado. Pendiente de checks en verde y de tu aprobación.
 
 ## Siguiente
-1. Cerrar la auditoría de primeros-auxilios (checklist del autor, contraste de atragantamiento con el ERC 2025, pasar a «verificado» y añadirla al validador); luego dosis-fiebre, fiebre, cuando-urgencias.
+1. Auditar `dosis-fiebre` (Nivel 1), luego `fiebre` y `cuando-urgencias`.
 2. Migrar el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
 3. Fase 4 (backlinks) en paralelo.
 
@@ -44,5 +44,5 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-11.
 - Que `babyfaq.es/docs/CLAUDE.md` y `babyfaq.es/data/inventario.json` den 404 (los documentos internos no deben servirse en el sitio).
 - Si mejora la posición/CTR de `tomas-leche` (base: 232 impresiones, posición 20). Medir entre el 4 y el 18 de diciembre de 2026.
 - Constante 13,45 g (decisión), 15 mg/dL por hora, cita del Ministerio de Sanidad y medir CTR de «calculadora alcohol lactancia» del 8 al 22 de dic (la meta cambió hoy).
-- Que `validate:sources` muestre 5 avisos «!» de PDF para primeros-auxilios (verificación manual) y 0 errores.
+- Que `validate:sources` muestre 8 avisos «!» de PDF para primeros-auxilios (verificación manual) y 0 errores.
 - Si mejora la posición/CTR de primeros-auxilios tras reescribir la meta (base: 120 impresiones, posición 77). Propuesta: medir del 9 al 23 de diciembre de 2026.
