@@ -80,13 +80,17 @@ test('caída: el chichón blando es señal de aviso y vigilancia 24–48 h', asy
   expect(t).not.toMatch(/blando es normal|buena señal|cada 2–3 horas/);
 });
 
-test('atragantamiento bebé: compresiones del pecho según la AEP', async ({ page }) => {
+test('atragantamiento bebé: dos pulgares sobre las rodillas, parar al resolverse y 5 ventilaciones (ERC 2025)', async ({ page }) => {
   await open(page);
   const t = await protocolo(page, 'atragan-bebe');
-  expect(t).toContain('hundirse ligeramente');
+  expect(t).toContain('sobre tus rodillas');
+  expect(t).toContain('dos pulgares');
+  expect(t).toContain('más brusca');
+  expect(t).toContain('respiración ruidosa');
   expect(t).toContain('barrido a ciegas');
-  expect(t).not.toMatch(/4 cm|línea de los pezones/);
+  expect(t).toContain('5 ventilaciones de rescate');
   expect(t).toContain('cada 2 minutos');
+  expect(t).not.toMatch(/2 dedos|ritmo más lento|hundirse ligeramente|tercio inferior|4 cm|línea de los pezones|no hace ruido|ruido es muy débil/);
 });
 
 test('página: fuentes enlazadas, fecha de revisión y sin textos retirados', async ({ page }) => {
@@ -99,4 +103,22 @@ test('página: fuentes enlazadas, fecha de revisión y sin textos retirados', as
   expect(body).not.toMatch(/ERC 2021|multiplica por dos o tres|Nunca uses hielo|4 a 8 horas/);
   const diff = (await page.locator('.diff-card').innerText()).replace(/\s+/g, ' ');
   expect(diff).not.toMatch(/4 cm|5 cm|2 dedos en el centro/);
+});
+
+
+test('atragantamiento niño: criterio de tos ineficaz, parar al resolverse y 5 ventilaciones', async ({ page }) => {
+  await open(page);
+  const t = await protocolo(page, 'atragan-nino');
+  expect(t).toContain('la tos es ineficaz');
+  expect(t).toContain('respiración ruidosa');
+  expect(t).toContain('5 ventilaciones de rescate');
+  expect(t).not.toMatch(/no hace ruido|ruido es muy débil/);
+});
+
+test('caída: lactante menor de 1 año a urgencias y sin criterios sin respaldo', async ({ page }) => {
+  await open(page);
+  const t = await protocolo(page, 'caida');
+  expect(t).toContain('lactante menor de 1 año');
+  expect(t).toContain('zona hundida');
+  expect(t).not.toMatch(/chichón que no sale|rechazo del alimento|llanto diferente/);
 });
