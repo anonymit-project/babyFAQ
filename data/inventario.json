@@ -1020,7 +1020,7 @@
       ],
       "afiliados_prioridad": false
     },
-    {
+        {
       "slug": "primeros-auxilios",
       "archivo": "primeros-auxilios.html",
       "url": "https://babyfaq.es/primeros-auxilios.html",
@@ -1034,11 +1034,7 @@
         "posicion_media": 77.4,
         "periodo": "2026-08-06 a 2026-11-03"
       },
-      "organismos_candidatos": [
-        "AEP",
-        "Cruz Roja",
-        "ERC/CERCP (reanimación)"
-      ],
+      "organismos_candidatos": ["AEP", "Cruz Roja", "ERC/CERCP (reanimación)"],
       "fuentes": [
         {
           "fuente_organismo": "ERC (Guías 2025, resumen ejecutivo, traducción al español)",
@@ -1051,6 +1047,18 @@
           "fuente_url": "https://www.erc.edu/media/vatl54cg/01_gl2025_exec-summary_es_v10.pdf",
           "fecha_consulta": "2026-11-11",
           "cita_literal_breve": "Utilice la técnica de los dos pulgares con las manos rodeando el tórax"
+        },
+        {
+          "fuente_organismo": "ERC (Guías 2025, resumen ejecutivo, traducción al español)",
+          "fuente_url": "https://www.erc.edu/media/vatl54cg/01_gl2025_exec-summary_es_v10.pdf",
+          "fecha_consulta": "2026-11-11",
+          "cita_literal_breve": "signos de resolución de la obstrucción (tos, respiración ruidosa o llanto)"
+        },
+        {
+          "fuente_organismo": "ERC (Guías 2025, resumen ejecutivo, traducción al español)",
+          "fuente_url": "https://www.erc.edu/media/vatl54cg/01_gl2025_exec-summary_es_v10.pdf",
+          "fecha_consulta": "2026-11-11",
+          "cita_literal_breve": "No utilice barridos a ciegas para despejar la obstrucción de la boca"
         },
         {
           "fuente_organismo": "AEP",
@@ -1069,16 +1077,18 @@
           "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf",
           "fecha_consulta": "2026-11-11",
           "cita_literal_breve": "Si el chichón va a más, se hace largo o blando"
+        },
+        {
+          "fuente_organismo": "AEP",
+          "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf",
+          "fecha_consulta": "2026-11-11",
+          "cita_literal_breve": "cada 2 minutos debe revisar la boca del niño"
         }
       ],
-      "estado_verificacion": "pendiente",
-      "notas_verificacion": "Auditoría 2026-11-11 en curso. Fuentes en PDF: verificación manual (validate-sources avisa, no falla). ERC 2025 manda en RCP (la AEP sigue el ERC 2015); AEP en quemaduras y traumatismo craneal. Citas de la AEP copiadas de las que pasó el autor: comprobar en el PDF. Pendiente: checklist del autor y contraste de atragantamiento con las páginas de obstrucción del ERC 2025 (no revisadas). Profundidad: ERC «al menos un tercio»; 4–5 cm según AEP. Criterios de gravedad de quemaduras retirados por falta de fuente.",
+      "estado_verificacion": "verificado",
+      "notas_verificacion": "Auditoría cerrada 2026-11-11 (pendiente de aprobación del autor). ERC 2025 manda en RCP y atragantamiento; AEP en quemaduras y traumatismo craneal. Fuentes en PDF: verificación manual (validate-sources avisa, no falla). Citas de la AEP comprobadas contra el texto del capítulo publicado en aeped.es; citas del ERC por capturas del autor. Conflictos resueltos con el ERC: compresión del lactante atragantado (ERC dos pulgares; AEP dos dedos), 5 ventilaciones iniciales, dos pulgares en RCP. Profundidad: ERC «al menos un tercio», AEP 4–5 cm (se muestran ambas). Retirado por falta de fuente: criterios de gravedad de quemaduras, «chichón que no sale», «rechazo del alimento», «no adherente». Añadido AEP: lactante menor de 1 año con golpe en la cabeza → urgencias. Cubierto por validador de Capa 1 y tests Playwright.",
       "ultima_revision": "2026-11-11",
-      "relacionadas": [
-        "cuando-urgencias",
-        "introduccion-solidos",
-        "silla-coche"
-      ],
+      "relacionadas": ["cuando-urgencias", "introduccion-solidos", "silla-coche"],
       "afiliados_prioridad": false
     },
     {
