@@ -1,6 +1,6 @@
 # Estado actual — babyFAQ
 
-Actualizar al terminar cada sesión. Última actualización: 2026-11-11.
+Actualizar al terminar cada sesión. Última actualización: 2026-11-12.
 
 ## Línea base real (periodo 2026-08-06 a 2026-11-03, GA4 + Search Console)
 
@@ -31,9 +31,10 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-11.
 - Formato de "fichas de cambio" para entregar parches (2026-11-10): regla de oro 5 de `docs/CLAUDE.md`, sección "Formato de entrega de cambios" y punto 3 del orquestador.
 - Auditoría Nivel 1 de calculadora-lactancia (2026-11-10): cálculo = Tabla 1 de Koren 2002 (Watson, 0,015 g/dL/h, tiempo desde el inicio), 13,45 g/bebida como valor ajustado y rotulado, sin cálculo fuera de tabla, estimación marcada, textos sin respaldo eliminados, fuente única Koren, FAQPage de 3 respuestas, «Última revisión», validador + test (25×12 casillas, tolerancia −1/+2 min). Candidata sin verificar: AAP «al menos 2 horas» (en conflicto con Koren para ≥ ~84 kg y 1 bebida). Pendiente de checks en verde.
 - Auditoría Nivel 1 de primeros-auxilios (2026-11-11), cerrada: RCP y atragantamiento según el ERC 2025 (contrastado con sus páginas de obstrucción de vía aérea), quemaduras y traumatismo craneal según la AEP; corregidas contradicciones y retirado lo sin respaldo; añadida la regla AEP «lactante menor de 1 año → urgencias»; 8 fuentes en el inventario (PDF, verificación manual con aviso); inventario «verificado», añadida al validador (`DEFAULT_FILES`) y con test Playwright actualizado. Pendiente de checks en verde y de tu aprobación.
+- Auditoría Nivel 1 de dosis-fiebre (2026-11-12): fuente principal = fichas técnicas AEMPS de Apiretal y Dalsy (la guía de Aragón, solo para la alternancia); cálculo por fórmula validada contra las tablas (paracetamol 0,15 mL/kg a la baja, hasta 32 kg; ibuprofeno como rango por toma, 5–30 kg y desde 3 meses); corregida la contradicción de la alternancia; retirado lo sin respaldo (jarabe 50 mg/mL, Actron, atribución a la AEP, umbrales de urgencia); avisos de varicela, deshidratación, aspirina y duración con fuente; 13 fuentes en el inventario; añadida al validador (`DEFAULT_FILES` y fuentes) y con test Playwright nuevo. Pendiente de checks en verde y de tu aprobación (D4a–D4d en `09`).
 
 ## Siguiente
-1. Auditar `dosis-fiebre` (Nivel 1), luego `fiebre` y `cuando-urgencias`.
+1. Auditar `fiebre` y `cuando-urgencias` (Nivel 1): ahí se reincorporan con fuente los umbrales de urgencia que se han retirado de `dosis-fiebre`.
 2. Migrar el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
 3. Fase 4 (backlinks) en paralelo.
 
@@ -46,3 +47,8 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-11.
 - Constante 13,45 g (decisión), 15 mg/dL por hora, cita del Ministerio de Sanidad y medir CTR de «calculadora alcohol lactancia» del 8 al 22 de dic (la meta cambió hoy).
 - Que `validate:sources` muestre 8 avisos «!» de PDF para primeros-auxilios (verificación manual) y 0 errores.
 - Si mejora la posición/CTR de primeros-auxilios tras reescribir la meta (base: 120 impresiones, posición 77). Propuesta: medir del 9 al 23 de diciembre de 2026.
+- Que `validate:sources` muestre ✓ en las citas de CIMA de dosis-fiebre (si alguna sale ✗, dime cuál: puede ser una diferencia de redacción) y 1 aviso «!» por el PDF de la guía de Aragón.
+- Que CIMA responda al validador (si da error de red o bloqueo, saldrá como aviso, no como error de dato).
+- D4a–D4d de `09-decisiones.md`.
+- Revisar a ojo en móvil y en escritorio el rango del ibuprofeno (p. ej. 30 kg a 20 mg/mL: 10.0–15.0) para ver que no desborda la tarjeta.
+- Si mejora la posición/CTR de dosis-fiebre (base: 9 impresiones, posición 16,4), con la meta nueva. Medir del 10 al 24 de diciembre de 2026.
