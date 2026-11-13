@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dosis paracetamol e ibuprofeno para bebés · Por peso · babyFAQ</title>
-  <meta name="description" content="Calcula la dosis de paracetamol e ibuprofeno según el peso de tu bebé, con las concentraciones de Apiretal, Dalsy y Junifen. Consúltalo con tu pediatra.">
+  <meta name="description" content="Calcula la dosis de paracetamol e ibuprofeno según el peso de tu bebé, con las concentraciones de Apiretal y Dalsy (AEMPS). Consúltalo con tu pediatra.">
   <meta property="og:title" content="Dosis paracetamol e ibuprofeno para bebés · Por peso · babyFAQ">
-  <meta property="og:description" content="Dosis de paracetamol e ibuprofeno por peso para bebés y niños, con las concentraciones habituales. Según una guía de dosificación pediátrica de atención primaria.">
+  <meta property="og:description" content="Dosis de paracetamol e ibuprofeno por peso para bebés y niños, calculadas con las fichas técnicas de la AEMPS de Apiretal y Dalsy. Consulta con tu pediatra.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://babyfaq.es/dosis-fiebre.html">
   <meta name="theme-color" content="#fdf6ee">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://babyfaq.es/dosis-fiebre.html">
@@ -36,7 +37,7 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Calculadora de dosis paracetamol e ibuprofeno para bebés",
-    "description": "Calcula la dosis exacta en mL de paracetamol e ibuprofeno para bebés y niños según su peso. Incluye Apiretal, Dalsy y otras concentraciones.",
+    "description": "Calcula la dosis en mL de paracetamol e ibuprofeno para bebés y niños según su peso, a partir de las fichas técnicas de la AEMPS de Apiretal y Dalsy.",
     "url": "https://babyfaq.es/dosis-fiebre.html",
     "applicationCategory": "HealthApplication",
     "operatingSystem": "Web",
@@ -176,7 +177,6 @@
         margin-bottom: 0;
       }
       .top-grid .card { margin-bottom: 0; }
-      .top-grid .heavy-note { margin-bottom: 0; }
 
       .drugs-grid {
         display: grid;
@@ -216,16 +216,6 @@
     .hold-unit { font-size: 11px; color: var(--soft); font-family: 'DM Sans', sans-serif; }
     .hold-sub  { font-size: 10px; color: var(--soft); display: block; margin-top: 1px; font-style: italic; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
 
-    /* ── Heavy child note ── */
-    .heavy-note {
-      display: none; background: var(--green-bg);
-      border: 1px solid #b2d9be; border-radius: 12px;
-      padding: 9px 13px; font-size: 12px; color: #3a6a4a;
-      line-height: 1.5; margin-bottom: 12px;
-      text-align: justify;
-    }
-    .heavy-note.show { display: block; }
-
     /* ── Drug cards ── */
     .drug-card {
       border-radius: 20px; padding: 18px 16px; margin-bottom: 12px;
@@ -255,6 +245,7 @@
       text-align: center; touch-action: manipulation; line-height: 1.4;
     }
     .conc-btn .cb-brand { display: block; font-size: 9px; font-weight: 400; color: var(--soft); margin-top: 2px; }
+    .conc-fixed { cursor: default; }
     .para-card .conc-btn.active { background: var(--para); border-color: var(--para); color: white; }
     .para-card .conc-btn.active .cb-brand { color: rgba(255,255,255,0.72); }
     .ibu-card  .conc-btn.active { background: var(--ibu);  border-color: var(--ibu);  color: white; }
@@ -263,8 +254,10 @@
 
     /* ── Main dose display ── */
     .dose-display { text-align: center; padding: 10px 0 14px; }
-    .dose-ml-row  { display: flex; align-items: baseline; justify-content: center; gap: 7px; margin-bottom: 5px; }
+    .dose-ml-row  { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 7px; margin-bottom: 5px; }
     .dose-ml   { font-family: 'Fraunces', serif; font-size: 82px; font-weight: 300; line-height: 1; font-variant-numeric: tabular-nums; }
+    .dose-ml.dose-range { font-size: 46px; }
+    @media (min-width: 640px) { .dose-ml.dose-range { font-size: 36px; } }
     .para-card .dose-ml { color: var(--para); }
     .ibu-card  .dose-ml { color: var(--ibu); }
     .dose-unit { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 300; color: var(--soft); }
@@ -292,6 +285,17 @@
     }
     .mini-warn.show { display: block; }
 
+    .est-note {
+      display: none; font-size: 11px; color: var(--mid); font-style: italic;
+      line-height: 1.5; margin-top: 10px; text-align: justify;
+    }
+    .est-note.show { display: block; }
+
+    .dose-note {
+      font-size: 11px; color: var(--soft); line-height: 1.5;
+      margin-top: 10px; text-align: justify;
+    }
+
     /* ── Alternation guide ── */
     .alt-guide {
       background: var(--warm-white); border-radius: 20px;
@@ -300,16 +304,6 @@
       border: 1px solid rgba(196,168,152,0.2);
     }
     .alt-title { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 12px; display: block; }
-    .alt-visual {
-      display: flex; align-items: center; justify-content: center;
-      gap: 0; margin-bottom: 12px; flex-wrap: nowrap; overflow-x: auto;
-    }
-    .alt-pill { padding: 7px 10px; border-radius: 10px; font-size: 11px; font-weight: 500; color: white; white-space: nowrap; flex-shrink: 0; }
-    .alt-pill.para { background: var(--para); }
-    .alt-pill.ibu  { background: var(--ibu); }
-    .alt-gap  { display: flex; flex-direction: column; align-items: center; padding: 0 5px; flex-shrink: 0; }
-    .alt-arrow { font-size: 10px; color: var(--soft); line-height: 1.2; }
-    .alt-time  { font-size: 9px; color: var(--soft); font-weight: 500; letter-spacing: 0.04em; white-space: nowrap; }
     .alt-note  { font-size: 12px; color: var(--mid); line-height: 1.6; text-align: justify; }
     .alt-note strong { color: var(--deep); font-weight: 500; }
 
@@ -321,6 +315,7 @@
     .warn-title { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #a03030; margin-bottom: 9px; display: block; }
     .warn-item  { display: flex; gap: 8px; font-size: 12px; color: #7a2828; line-height: 1.55; margin-bottom: 6px; text-align: justify; }
     .warn-item:last-child { margin-bottom: 0; }
+    .warn-item a { color: #7a2828; }
     .wi { flex-shrink: 0; margin-top: 1px; font-size: 13px; }
 
     /* ── Info sections ── */
@@ -344,6 +339,7 @@
     }
     .info-section p:last-child { margin-bottom: 0; }
     .info-section strong { color: var(--deep); font-weight: 500; }
+    .info-section a { color: var(--terracota); }
 
     @media (min-width: 640px) {
       .info-grid {
@@ -410,7 +406,7 @@
   <header>
     <span class="badge">💊 Salud · Fiebre</span>
     <h1>Paracetamol e <em>ibuprofeno</em></h1>
-    <p class="subtitle">Dosis exacta en mL según el peso de tu bebé o niño. Apiretal, Dalsy y otras concentraciones.</p>
+    <p class="subtitle">Dosis en mL según el peso de tu bebé o niño, calculada con las fichas técnicas de la AEMPS de Apiretal y Dalsy.</p>
   </header>
 
   <!-- Desktop: inputs (left) + drugs grid (right) -->
@@ -446,10 +442,6 @@
           </div>
         </div>
       </div>
-
-      <div class="heavy-note" id="heavy-note">
-        💡 A partir de los 30 kg se suelen usar comprimidos en lugar de jarabe o gotas. Consulta con tu pediatra o farmacéutico.
-      </div>
     </div>
 
     <!-- Columna derecha: drug cards en grid 2 columnas (desktop) / columna (mobile) -->
@@ -459,106 +451,106 @@
       <div class="drug-card para-card" aria-live="polite">
         <div class="drug-header">
           <span class="drug-name">Paracetamol</span>
-          <span class="drug-dose-ref">15 mg/kg / dosis</span>
+          <span class="drug-dose-ref">15 mg/kg por toma</span>
         </div>
 
         <div class="conc-row" id="para-conc-row">
-          <button class="conc-btn active" id="para-btn-a"
-            onclick="setConc('para','A')"
-            aria-label="Seleccionar concentración 100 mg/mL — Apiretal gotas"
-            aria-pressed="true">
+          <div class="conc-btn conc-fixed active">
             100 mg/mL
-            <span class="cb-brand">Apiretal · gotas</span>
-          </button>
-          <button class="conc-btn" id="para-btn-b"
-            onclick="setConc('para','B')"
-            aria-label="Seleccionar concentración 250 mg/5mL — Jarabe"
-            aria-pressed="false">
-            250 mg / 5 mL
-            <span class="cb-brand">Jarabe · 50 mg/mL</span>
-          </button>
-        </div>
-
-        <div class="dose-display">
-          <div class="dose-ml-row">
-            <span class="dose-ml" id="para-ml">1.2</span>
-            <span class="dose-unit">mL</span>
-          </div>
-          <div class="dose-mg" id="para-mg">= 120 mg</div>
-        </div>
-
-        <div class="info-row">
-          <div class="info-block">
-            <span class="info-lbl">Frecuencia</span>
-            <span class="info-val">cada 6–8h</span>
-          </div>
-          <div class="info-block">
-            <span class="info-lbl">Máx. dosis</span>
-            <span class="info-val">4 / día</span>
-          </div>
-          <div class="info-block">
-            <span class="info-lbl">Total / día</span>
-            <span class="info-val" id="para-daily">4.8 mL</span>
+            <span class="cb-brand">Apiretal · solución oral</span>
           </div>
         </div>
 
-        <div class="mini-warn" id="para-warn">
-          ⚠️ En menores de 2 meses o menos de 4 kg, consulta con el pediatra antes de administrar.
+        <div id="para-content">
+          <div class="dose-display">
+            <div class="dose-ml-row">
+              <span class="dose-ml" id="para-ml">1.2</span>
+              <span class="dose-unit">mL</span>
+            </div>
+            <div class="dose-mg" id="para-mg">= 120 mg</div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-block">
+              <span class="info-lbl">Frecuencia</span>
+              <span class="info-val">cada 6 h</span>
+            </div>
+            <div class="info-block">
+              <span class="info-lbl">Mín. entre tomas</span>
+              <span class="info-val">4 h</span>
+            </div>
+            <div class="info-block">
+              <span class="info-lbl">Total / día</span>
+              <span class="info-val" id="para-daily">4.8 mL</span>
+            </div>
+          </div>
+          <p class="dose-note">Ficha técnica de Apiretal (AEMPS): 15 mg/kg cada 6 horas, unos 60 mg/kg al día. Calculado como 0,15 mL por kg y redondeado a la baja a 0,1 mL.</p>
         </div>
+
+        <div class="drug-blocked hidden" id="para-blocked">
+          <span class="blocked-icon">🚫</span>
+          <div class="blocked-txt" id="para-blocked-reason"></div>
+        </div>
+
+        <div class="mini-warn" id="para-warn"></div>
       </div>
 
       <!-- ── IBUPROFENO ── -->
       <div class="drug-card ibu-card" aria-live="polite">
         <div class="drug-header">
           <span class="drug-name">Ibuprofeno</span>
-          <span class="drug-dose-ref">10 mg/kg / dosis</span>
+          <span class="drug-dose-ref">por toma, 3 tomas al día</span>
         </div>
 
         <div class="conc-row" id="ibu-conc-row">
           <button class="conc-btn active" id="ibu-btn-a"
-            onclick="setConc('ibu','A')"
-            aria-label="Seleccionar concentración 20 mg/mL — Dalsy o Junifen"
+            onclick="setIbuConc('A')"
+            aria-label="Seleccionar concentración 20 mg/mL — Dalsy 20 mg/mL"
             aria-pressed="true">
             20 mg/mL
-            <span class="cb-brand">Dalsy · Junifen</span>
+            <span class="cb-brand">Dalsy 20 mg/mL</span>
           </button>
           <button class="conc-btn" id="ibu-btn-b"
-            onclick="setConc('ibu','B')"
-            aria-label="Seleccionar concentración 40 mg/mL — Actron o genérico"
+            onclick="setIbuConc('B')"
+            aria-label="Seleccionar concentración 40 mg/mL — Dalsy 40 mg/mL"
             aria-pressed="false">
             40 mg/mL
-            <span class="cb-brand">Actron · genérico</span>
+            <span class="cb-brand">Dalsy 40 mg/mL</span>
           </button>
         </div>
 
         <div id="ibu-content">
           <div class="dose-display">
             <div class="dose-ml-row">
-              <span class="dose-ml" id="ibu-ml">4.0</span>
+              <span class="dose-ml dose-range"><span id="ibu-lo">2.8</span>–<span id="ibu-hi">4.0</span></span>
               <span class="dose-unit">mL</span>
             </div>
-            <div class="dose-mg" id="ibu-mg">= 80 mg</div>
+            <div class="dose-mg" id="ibu-mg">= 56–80 mg</div>
           </div>
           <div class="info-row">
             <div class="info-block">
-              <span class="info-lbl">Frecuencia</span>
-              <span class="info-val">cada 6–8h</span>
+              <span class="info-lbl">Tomas</span>
+              <span class="info-val">3 al día</span>
             </div>
             <div class="info-block">
-              <span class="info-lbl">Máx. dosis</span>
-              <span class="info-val">3 / día</span>
+              <span class="info-lbl">Máx. al día</span>
+              <span class="info-val" id="ibu-max-ml">12.0 mL</span>
             </div>
             <div class="info-block">
-              <span class="info-lbl">Total / día</span>
-              <span class="info-val" id="ibu-daily">12.0 mL</span>
+              <span class="info-lbl">Máx. al día</span>
+              <span class="info-val" id="ibu-max-mg">240 mg</span>
             </div>
           </div>
+          <p class="dose-note">Ficha técnica de Dalsy (AEMPS): rango por toma según el peso, repartido en 3 tomas al día. Usa la dosis eficaz más baja durante el menor tiempo posible.</p>
+          <p class="est-note" id="ibu-est">Estimación de babyFAQ: el peso está entre dos filas de la tabla de la ficha de Dalsy.</p>
         </div>
 
         <div class="drug-blocked hidden" id="ibu-blocked">
           <span class="blocked-icon">🚫</span>
-          <div class="blocked-txt" id="ibu-blocked-reason">No recomendado antes de los 3 meses de edad.</div>
+          <div class="blocked-txt" id="ibu-blocked-reason"></div>
         </div>
+
+        <div class="mini-warn" id="ibu-warn"></div>
       </div>
 
     </div><!-- /drugs-grid -->
@@ -569,7 +561,7 @@
   <div class="alt-guide">
     <span class="alt-title">💊 ¿Puedo alternarlos?</span>
     <p class="alt-note">
-      <strong>No se recomienda alternarlos de forma rutinaria.</strong> Según la Guía de dosificación en pediatría para atención primaria (Servicio Aragonés de Salud), podría considerarse solo si el primer medicamento no funciona, y no se ha demostrado la seguridad de esta pauta. Si crees que lo necesitas, consúltalo antes con tu pediatra o farmacéutico.
+      <strong>No se recomienda alternarlos de forma rutinaria.</strong> La ficha técnica de Apiretal indica que, con la dosis diaria completa de paracetamol, asociar otro antipirético solo está justificado si no ha sido eficaz, y la Guía de dosificación en pediatría para atención primaria señala que no se ha demostrado la seguridad de esta pauta. Si crees que lo necesitas, consúltalo antes con tu pediatra o farmacéutico.
     </p>
   </div>
 
@@ -578,23 +570,27 @@
     <span class="warn-title">⚠️ Importante</span>
     <div class="warn-item">
       <span class="wi">🔴</span>
-      <span>No des ibuprofeno si el bebé tiene <strong>varicela</strong>, vomita repetidamente o está muy deshidratado.</span>
+      <span>Si tu hijo tiene <strong>varicela</strong>, evita el ibuprofeno: la ficha técnica de Dalsy lo recomienda así.</span>
     </div>
     <div class="warn-item">
       <span class="wi">🔴</span>
-      <span>Nunca des <strong>aspirina</strong> a menores de 16 años — riesgo de síndrome de Reye.</span>
+      <span>No des ibuprofeno si hay <strong>deshidratación grave</strong> (por vómitos, diarrea o poca ingesta de líquidos): la ficha de Dalsy lo contraindica.</span>
     </div>
     <div class="warn-item">
       <span class="wi">🔴</span>
-      <span>No superes las dosis máximas ni acortes el intervalo mínimo entre tomas.</span>
+      <span>No des <strong>aspirina</strong> (ácido acetilsalicílico) a menores de 16 años: su ficha técnica lo relaciona con el síndrome de Reye.</span>
+    </div>
+    <div class="warn-item">
+      <span class="wi">🔴</span>
+      <span>No superes la dosis ni acortes el intervalo: la ficha de Apiretal advierte de riesgo hepático grave con dosis mayores a las recomendadas. Comprueba también que otros medicamentos no lleven paracetamol.</span>
     </div>
     <div class="warn-item">
       <span class="wi">🟡</span>
-      <span>Si la fiebre dura <strong>más de 72 horas</strong> o el bebé tiene menos de 3 meses con temperatura ≥ 38 °C, acude al médico.</span>
+      <span>Si la fiebre dura <strong>más de 3 días</strong>, empeora, reaparece, supera los 39 °C o aparecen otros síntomas, la ficha de Apiretal indica que lo valore un médico.</span>
     </div>
     <div class="warn-item">
       <span class="wi">🟡</span>
-      <span>Ante cualquier duda, llama a tu <strong>pediatra</strong> o al <strong>112</strong>.</span>
+      <span>¿Dudas sobre si ir a urgencias? Mira <a href="/cuando-urgencias.html">¿Urgencias o puede esperar?</a>. Ante cualquier duda, consulta con tu pediatra o farmacéutico; en una emergencia, llama al 112.</span>
     </div>
   </div>
 
@@ -604,38 +600,50 @@
 
     <div class="info-section">
       <h2>Paracetamol: <em>cuándo y cómo</em></h2>
-      <p>El paracetamol (acetaminofén) es el analgésico y antipirético de primera elección para bebés y niños de cualquier edad, incluyendo los menores de 3 meses con indicación pediátrica. Actúa directamente en el sistema nervioso central bloqueando la percepción del dolor y reduciendo la temperatura corporal, sin efecto antiinflamatorio significativo.</p>
-      <p>La dosis estándar es de <strong>10–15 mg por kilogramo de peso</strong> por toma. En esta herramienta usamos 15 mg/kg, que es la dosis analgésica habitual. Puede administrarse cada 6–8 horas, con un máximo de 4 dosis al día. La presentación en gotas (100 mg/mL, como Apiretal) es más concentrada que el jarabe (50 mg/mL), por lo que requiere menos volumen — es importante no confundir las concentraciones.</p>
+      <p>El paracetamol es un analgésico y antipirético. La ficha técnica de Apiretal (AEMPS) lo indica para tratar los síntomas de la fiebre que dura menos de 3 días y el dolor de intensidad leve a moderada, en niños de hasta 32 kg.</p>
+      <p>Según esa ficha, la dosis diaria recomendada es de unos <strong>60 mg por kilo de peso</strong>, repartidos en 4 tomas: <strong>15 mg/kg cada 6 horas</strong>, sin dejar menos de 4 horas entre tomas. Con la concentración de Apiretal (100 mg por mL), eso equivale a 0,15 mL por cada kilo. La guía de dosificación avisa de que algunos jarabes de otras marcas tienen otra concentración y no se dosifican con esta tabla.</p>
+      <p>En menores de 3 años, la ficha indica que el paracetamol se use solo por recomendación médica. Con menos de 7 kg, recomienda considerar los supositorios.</p>
     </div>
 
     <div class="info-section">
       <h2>Ibuprofeno: <em>cuándo y cómo</em></h2>
-      <p>El ibuprofeno es un antiinflamatorio no esteroideo (AINE) con efecto analgésico, antipirético y antiinflamatorio. Su efecto antiinflamatorio lo hace especialmente útil cuando la causa de la fiebre o el dolor tiene un componente inflamatorio (otitis, faringitis, dentición).</p>
-      <p>Se administra a <strong>10 mg por kilogramo de peso</strong> por toma, con un máximo de 400 mg por dosis y un máximo de 3 dosis al día. Solo está recomendado a partir de los <strong>3 meses de edad y 6 kg de peso</strong>. En niños con varicela, vómitos intensos o deshidratación, se prefiere el paracetamol porque el ibuprofeno puede agravar estos cuadros.</p>
+      <p>El ibuprofeno es un antiinflamatorio (AINE) con efecto analgésico y antipirético. La ficha técnica de Dalsy (AEMPS) lo indica a partir de los 3 meses de edad y no lo recomienda con menos de 5 kg de peso.</p>
+      <p>La ficha da la dosis como un <strong>rango por toma</strong> según el peso: entre 20 y 30 mg por kilo y día, repartidos en 3 tomas. Pide usar la dosis eficaz más baja durante el menor tiempo posible, y que en menores de 2 años el médico lo prescriba previamente. La presentación de 40 mg/mL necesita la mitad de volumen que la de 20 mg/mL para la misma dosis.</p>
+      <p>Otras marcas o presentaciones pueden tener indicaciones distintas: sigue siempre el prospecto de tu envase.</p>
     </div>
 
     <div class="info-section info-wide">
-      <h2>Cuándo tratar la fiebre y <em>cuándo no</em></h2>
-      <p>La fiebre es la respuesta del sistema inmune ante una infección — no es una enfermedad en sí misma. El objetivo del tratamiento no es necesariamente bajar la temperatura al valor "normal", sino mejorar el malestar del niño. Si el bebé tiene 38,5 °C pero está activo, juega y se alimenta con normalidad, no es obligatorio administrar ningún antitérmico.</p>
+      <h2>Cuándo consultar <em>al pediatra</em></h2>
+      <p>Los antitérmicos tratan los síntomas, no la causa de la fiebre. Estos son los avisos que recogen las fichas técnicas:</p>
       <ul class="info-tips">
-        <li><span>✅</span><span><strong>Trata la fiebre si</strong> el niño está claramente incómodo, con malestar general, dolor de cabeza, dificultad para dormir o rechazo del alimento, independientemente del número en el termómetro.</span></li>
-        <li><span>🔴</span><span><strong>Acude a urgencias si</strong> el bebé tiene menos de 3 meses y fiebre ≥ 38 °C, si la temperatura supera los 39,5 °C sin mejoría con antitérmico, o si hay convulsiones, dificultad respiratoria, manchas en la piel o apatía extrema.</span></li>
-        <li><span>🔴</span><span><strong>Acude al médico si</strong> la fiebre dura más de 72 horas sin diagnóstico conocido, si reaparece después de haber desaparecido, o si hay síntomas que no corresponden con una infección viral habitual.</span></li>
-        <li><span>🟡</span><span><strong>La febrícula (37–37,9 °C)</strong> no requiere tratamiento farmacológico en niños mayores de 3 meses salvo que haya malestar evidente. Mantén al niño bien hidratado y con ropa ligera.</span></li>
-        <li><span>🟡</span><span><strong>No uses métodos físicos agresivos</strong> como baños de agua fría, paños con alcohol o ventiladores directos — pueden provocar escalofríos y empeorar el malestar. Un baño tibio (1–2 °C por debajo de la temperatura corporal) puede ayudar como complemento al antitérmico.</span></li>
+        <li><span>🔴</span><span><strong>Ibuprofeno y varicela:</strong> la ficha de Dalsy recomienda evitar el ibuprofeno si hay varicela.</span></li>
+        <li><span>🔴</span><span><strong>Ibuprofeno y deshidratación grave:</strong> la ficha de Dalsy lo contraindica cuando la deshidratación es grave, por ejemplo por vómitos, diarrea o ingesta insuficiente de líquidos.</span></li>
+        <li><span>🟡</span><span><strong>Fiebre que se alarga o empeora:</strong> la ficha de Apiretal indica que un médico valore el caso si la fiebre dura más de 3 días, es recurrente, supera los 39 °C o hay signos de otra infección.</span></li>
+        <li><span>🟡</span><span><strong>Lactantes de 3 a 5 meses:</strong> la ficha de Dalsy indica consultar al médico si los síntomas empeoran o persisten pasadas 24 horas.</span></li>
+        <li><span>🟡</span><span><strong>Infecciones ocultas:</strong> según la ficha de Dalsy, el ibuprofeno puede enmascarar los síntomas de una infección. Vigila a tu hijo y consulta si los síntomas persisten o empeoran.</span></li>
       </ul>
+      <p style="margin-top:10px;">Para decidir si hay que ir a urgencias, consulta <a href="/cuando-urgencias.html">¿Urgencias o puede esperar?</a> y <a href="/fiebre.html">¿Es fiebre?</a>.</p>
     </div>
 
     <div class="info-section">
       <h2>Errores frecuentes <em>al dosificar</em></h2>
-      <p>Los errores de dosificación en antitérmicos pediátricos son más frecuentes de lo que parece, y suelen ocurrir por confusión entre concentraciones, uso de cucharillas caseras en lugar de jeringuillas de precisión, o dosificación por edad en lugar de por peso.</p>
-      <p><strong>Nunca uses una cucharilla de cocina</strong> para medir la dosis — la variabilidad es enorme. Usa siempre la jeringuilla o el dosificador incluido con el medicamento. <strong>La dosis siempre se calcula por peso</strong>, no por edad: un niño de 2 años puede pesar 10 kg o 15 kg, y la dosis correcta es muy diferente en cada caso. <strong>No dobles la dosis</strong> si crees que la anterior no ha funcionado — espera al menos el tiempo mínimo entre tomas y consulta al pediatra si no hay respuesta.</p>
+      <p>La mayoría de los errores tienen que ver con la medida, la concentración o el peso.</p>
+      <p><strong>Usa la jeringa del envase.</strong> La ficha de Apiretal indica dosificar con la jeringa para uso oral que incluye el envase.</p>
+      <p><strong>La dosis se calcula por peso, no por edad.</strong> Las fichas dan la edad solo como orientación: lo que cuenta es el peso del niño.</p>
+      <p><strong>Fíjate en la concentración.</strong> La misma dosis en miligramos ocupa un volumen distinto en cada presentación, por ejemplo con ibuprofeno de 20 o de 40 mg/mL.</p>
+      <p><strong>No superes la dosis.</strong> Con dosis mayores a las recomendadas, la ficha de Apiretal advierte de riesgo hepático grave.</p>
     </div>
 
     <div class="info-section">
-      <h2>La alternancia: <em>qué dice la guía</em></h2>
-      <p>La guía de dosificación pediátrica que usamos como fuente indica que el paracetamol y el ibuprofeno <strong>no deben alternarse de forma rutinaria</strong>. Podría considerarse en los casos en que el niño no responde al primer medicamento, pero la guía señala que no se ha demostrado la seguridad de esta pauta.</p>
-      <p>Según la guía, cada medicamento se da una vez cada 6–8 horas. Si tu bebé no mejora con uno solo, consulta con tu pediatra o farmacéutico antes de combinarlos.</p>
+      <h2>La alternancia: <em>qué dice la ficha</em></h2>
+      <p>La ficha técnica de Apiretal señala que, en niños que reciben la dosis diaria completa de paracetamol, asociar otro antipirético solo está justificado cuando no ha sido eficaz. La guía de dosificación pediátrica que usamos como referencia indica que no deben alternarse de forma rutinaria y que no se ha demostrado la seguridad de esta pauta.</p>
+      <p>Según las fichas, cada medicamento se da a su intervalo, sin acortarlo. Si tu bebé no mejora con uno solo, consulta con tu pediatra o farmacéutico antes de combinarlos.</p>
+    </div>
+
+    <div class="info-section info-wide">
+      <h2>Cómo calculamos <em>las dosis</em></h2>
+      <p><strong>Paracetamol:</strong> multiplicamos el peso por 0,15 para obtener los mL de Apiretal, tal como propone su prospecto, y redondeamos a la baja a 0,1 mL. Por eso, en algunos pesos, puede salir 0,1 mL menos que la tabla por tramos de la ficha. Por encima de 32 kg la herramienta no calcula.</p>
+      <p><strong>Ibuprofeno:</strong> mostramos el rango por toma de la ficha de Dalsy. Cuando el peso coincide con una fila de su tabla, el rango es el de la ficha. Entre dos filas es una estimación de babyFAQ, calculada a partir del rango de 20 a 30 mg/kg al día en 3 tomas y ajustada hacia dentro a pasos de 0,2 mL. Con menos de 5 kg, menos de 3 meses o más de 30 kg, la herramienta no calcula.</p>
     </div>
 
   </div><!-- /info-grid -->
@@ -645,34 +653,73 @@
   <div class="fuentes-card">
     <h3>📚 Fuentes consultadas</h3>
     <ul class="fuentes-list">
-      <li>📖 <a href="https://www.aeped.es/comite-medicamentos/fichas-tecnicas" target="_blank" rel="noopener">Asociación Española de Pediatría (AEP)</a> — Fichas técnicas y recomendaciones de dosificación pediátrica</li>
-      <li>📖 <a href="https://www.aap.org/en/patient-care/fever/" target="_blank" rel="noopener">American Academy of Pediatrics (AAP)</a> — Fever and Antipyretics in Children</li>
-      <li>📖 <a href="https://www.aemps.gob.es/medicamentosUsoHumano/fichasTecnicas.do" target="_blank" rel="noopener">Agencia Española de Medicamentos (AEMPS)</a> — Fichas técnicas de paracetamol e ibuprofeno pediátricos</li>
-      <li>📖 <a href="https://www.mscbs.gob.es" target="_blank" rel="noopener">Ministerio de Sanidad de España (SNS)</a> — Uso racional de medicamentos en pediatría</li>
+      <li>📖 <a href="https://cima.aemps.es/cima/dochtml/ft/76028/FT_76028.html" target="_blank" rel="noopener">AEMPS — Ficha técnica de Apiretal 100 mg/mL solución oral</a></li>
+      <li>📖 <a href="https://cima.aemps.es/cima/dochtml/p/76028/P_76028.html" target="_blank" rel="noopener">AEMPS — Prospecto de Apiretal 100 mg/mL solución oral</a></li>
+      <li>📖 <a href="https://cima.aemps.es/cima/dochtml/ft/69726/FichaTecnica_69726.html" target="_blank" rel="noopener">AEMPS — Ficha técnica de Dalsy 40 mg/mL suspensión oral</a></li>
+      <li>📖 <a href="https://cima.aemps.es/cima/dochtml/ft/59166/FichaTecnica_59166.html" target="_blank" rel="noopener">AEMPS — Ficha técnica de Dalsy 20 mg/mL suspensión oral</a></li>
+      <li>📖 <a href="https://cima.aemps.es/cima/dochtml/ft/67875/FichaTecnica_67875.html" target="_blank" rel="noopener">AEMPS — Ficha técnica de Aspirina 500 mg granulado</a></li>
+      <li>📖 <a href="https://www.aepap.org/sites/default/files/documento/archivos-adjuntos/20120530_guia_pediatria.pdf" target="_blank" rel="noopener">Servicio Aragonés de Salud — Guía de dosificación en pediatría para atención primaria (2012, avalada por ArAPAP y SEUP)</a></li>
     </ul>
   </div>
 
+  <p class="disclaimer">Última revisión: 12 de noviembre de 2026</p>
+
   <p class="disclaimer">
-    Dosis calculadas según las recomendaciones de la AEP y las fichas técnicas oficiales de los medicamentos. Esta calculadora es una herramienta de apoyo y <strong>no sustituye el consejo médico</strong>. Consulta siempre con tu pediatra o farmacéutico ante cualquier duda. babyFAQ no proporciona consejo médico.
+    Información orientativa basada en las fichas técnicas de la AEMPS. <strong>No sustituye</strong> la valoración de un profesional sanitario. Cada bebé es diferente: consulta siempre con tu pediatra o farmacéutico. babyFAQ no proporciona consejo médico.
   </p>
 
 </div><!-- /container -->
 
 <script>
-// ── Data ─────────────────────────────────────────────────────────
+// ── Datos ────────────────────────────────────────────────────────
 const KG_VALUES = [];
 for (let v = 3.0; v <= 50.0 + 1e-9; v = Math.round((v + 0.1) * 10) / 10)
   KG_VALUES.push(parseFloat(v.toFixed(1)));
 
-const PARA_CONC = { A: 100, B: 50  };  // mg/mL
-const IBU_CONC  = { A: 20,  B: 40  };  // mg/mL
+const EPS       = 1e-9;
+const IBU_CONC  = { A: 20, B: 40 };   // mg/mL (Dalsy 20 y 40 mg/mL)
+// Pesos de las filas de la tabla de la ficha de Dalsy (entre filas, el rango es estimación de babyFAQ)
+const IBU_FILAS = [5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
 
-let kgIdx    = KG_VALUES.indexOf(8.0);
-let ageVal   = 8;
-let paraConc = 'A';
-let ibuConc  = 'A';
+let kgIdx   = KG_VALUES.indexOf(8.0);
+let ageVal  = 8;
+let ibuConc = 'A';
 
-// ── Hold-repeat engine ────────────────────────────────────────────
+const r1 = x => Math.round(x * 10) / 10;
+
+// ── Cálculo (funciones globales: las usan los tests) ─────────────
+// Paracetamol 100 mg/mL (ficha y prospecto de Apiretal): 15 mg/kg = 0,15 mL por kg, a la baja a 0,1 mL. Hasta 32 kg.
+function calcParacetamol(kg) {
+  if (kg > 32 + EPS) return { estado: 'sin-calculo', motivo: 'peso' };
+  const ml = Math.floor(kg * 1.5 + EPS) / 10;
+  return { estado: 'ok', ml: r1(ml), mg: Math.round(ml * 100), diaMl: r1(ml * 4) };
+}
+
+// Ibuprofeno (ficha de Dalsy 20 y 40 mg/mL): rango por toma = 20–30 mg/kg/día en 3 tomas,
+// ajustado hacia dentro a pasos de 0,2 mL (mínimo hacia arriba, máximo hacia abajo). De 5 a 30 kg y desde 3 meses.
+function calcIbuprofeno(kg, edadMeses, conc) {
+  if (edadMeses < 3)      return { estado: 'sin-calculo', motivo: 'edad' };
+  if (kg < 5 - EPS)       return { estado: 'sin-calculo', motivo: 'peso-min' };
+  if (kg > 30 + EPS)      return { estado: 'sin-calculo', motivo: 'peso-max' };
+  const lo = Math.ceil(kg * 200 / (3 * conc) / 2 - EPS) * 2 / 10;
+  const hi = Math.floor(kg * 100 / conc / 2 + EPS) * 2 / 10;
+  const exacta = IBU_FILAS.some(f => Math.abs(f - kg) < EPS) && !(conc === 40 && Math.abs(kg - 5) < EPS);
+  return {
+    estado: 'ok', lo: r1(lo), hi: r1(hi),
+    loMg: Math.round(lo * conc), hiMg: Math.round(hi * conc),
+    maxMl: r1(hi * 3), maxMg: Math.round(hi * 3 * conc),
+    estimacion: !exacta
+  };
+}
+
+const MOTIVOS = {
+  paraPeso: 'Apiretal está pensado para niños de hasta 32 kg. Por encima de ese peso, consulta con tu pediatra o farmacéutico.',
+  ibuEdad: 'La ficha técnica de Dalsy no recomienda el ibuprofeno en menores de 3 meses.',
+  ibuPesoMin: 'La ficha técnica de Dalsy no recomienda el ibuprofeno con menos de 5 kg de peso.',
+  ibuPesoMax: 'Por encima de 30 kg esta herramienta no calcula: la ficha de Dalsy da la dosis por tramos de peso. Consulta el prospecto o a tu pediatra.'
+};
+
+// ── Hold-repeat engine ───────────────────────────────────────────
 function makeHoldBtn(el, onStep) {
   let hold = null, rep = null, step = 0;
   function fire() { onStep(parseInt(el.dataset.dir)); }
@@ -703,24 +750,69 @@ makeHoldBtn(document.getElementById('kg-p'),  d => { kgIdx  = Math.max(0, Math.m
 makeHoldBtn(document.getElementById('age-m'), d => { ageVal = Math.max(0, Math.min(180, ageVal + d)); render(); });
 makeHoldBtn(document.getElementById('age-p'), d => { ageVal = Math.max(0, Math.min(180, ageVal + d)); render(); });
 
-function setConc(drug, opt) {
-  if (drug === 'para') {
-    paraConc = opt;
-    document.getElementById('para-btn-a').classList.toggle('active', opt === 'A');
-    document.getElementById('para-btn-a').setAttribute('aria-pressed', opt === 'A' ? 'true' : 'false');
-    document.getElementById('para-btn-b').classList.toggle('active', opt === 'B');
-    document.getElementById('para-btn-b').setAttribute('aria-pressed', opt === 'B' ? 'true' : 'false');
-  } else {
-    ibuConc = opt;
-    document.getElementById('ibu-btn-a').classList.toggle('active', opt === 'A');
-    document.getElementById('ibu-btn-a').setAttribute('aria-pressed', opt === 'A' ? 'true' : 'false');
-    document.getElementById('ibu-btn-b').classList.toggle('active', opt === 'B');
-    document.getElementById('ibu-btn-b').setAttribute('aria-pressed', opt === 'B' ? 'true' : 'false');
-  }
+function setIbuConc(opt) {
+  ibuConc = opt;
+  document.getElementById('ibu-btn-a').classList.toggle('active', opt === 'A');
+  document.getElementById('ibu-btn-a').setAttribute('aria-pressed', opt === 'A' ? 'true' : 'false');
+  document.getElementById('ibu-btn-b').classList.toggle('active', opt === 'B');
+  document.getElementById('ibu-btn-b').setAttribute('aria-pressed', opt === 'B' ? 'true' : 'false');
   render();
 }
 
-// ── Render ────────────────────────────────────────────────────────
+// ── Render ───────────────────────────────────────────────────────
+function renderParacetamol(kg, av) {
+  const r = calcParacetamol(kg);
+  const content = document.getElementById('para-content');
+  const blocked = document.getElementById('para-blocked');
+  if (r.estado === 'ok') {
+    content.classList.remove('hidden');
+    blocked.classList.add('hidden');
+    document.getElementById('para-ml').textContent    = r.ml.toFixed(1);
+    document.getElementById('para-mg').textContent    = `= ${r.mg} mg`;
+    document.getElementById('para-daily').textContent = `${r.diaMl.toFixed(1)} mL`;
+  } else {
+    content.classList.add('hidden');
+    blocked.classList.remove('hidden');
+    document.getElementById('para-blocked-reason').textContent = MOTIVOS.paraPeso;
+  }
+  const notas = [];
+  if (av < 36) notas.push('Según la ficha técnica de Apiretal, en menores de 3 años el paracetamol debe usarse solo por recomendación médica.');
+  if (kg < 7)  notas.push('Con menos de 7 kg, la ficha indica considerar el uso de supositorios.');
+  const warn = document.getElementById('para-warn');
+  warn.textContent = notas.join(' ');
+  warn.classList.toggle('show', notas.length > 0);
+}
+
+function renderIbuprofeno(kg, av) {
+  const r = calcIbuprofeno(kg, av, IBU_CONC[ibuConc]);
+  const content = document.getElementById('ibu-content');
+  const blocked = document.getElementById('ibu-blocked');
+  const concRow = document.getElementById('ibu-conc-row');
+  if (r.estado === 'ok') {
+    content.classList.remove('hidden');
+    blocked.classList.add('hidden');
+    concRow.classList.remove('dimmed');
+    document.getElementById('ibu-lo').textContent     = r.lo.toFixed(1);
+    document.getElementById('ibu-hi').textContent     = r.hi.toFixed(1);
+    document.getElementById('ibu-mg').textContent     = `= ${r.loMg}–${r.hiMg} mg`;
+    document.getElementById('ibu-max-ml').textContent = `${r.maxMl.toFixed(1)} mL`;
+    document.getElementById('ibu-max-mg').textContent = `${r.maxMg} mg`;
+    document.getElementById('ibu-est').classList.toggle('show', r.estimacion);
+  } else {
+    content.classList.add('hidden');
+    blocked.classList.remove('hidden');
+    concRow.classList.add('dimmed');
+    document.getElementById('ibu-blocked-reason').textContent =
+      r.motivo === 'edad' ? MOTIVOS.ibuEdad : r.motivo === 'peso-min' ? MOTIVOS.ibuPesoMin : MOTIVOS.ibuPesoMax;
+  }
+  const notas = [];
+  if (av >= 3 && av < 24) notas.push('Según la ficha técnica de Dalsy, en menores de 2 años el médico debe prescribir el medicamento previamente.');
+  if (av >= 3 && av <= 5) notas.push('En niños de 3 a 5 meses, la ficha indica consultar al médico si los síntomas empeoran o persisten pasadas 24 horas.');
+  const warn = document.getElementById('ibu-warn');
+  warn.textContent = notas.join(' ');
+  warn.classList.toggle('show', notas.length > 0);
+}
+
 function render() {
   const kg = KG_VALUES[kgIdx];
 
@@ -739,54 +831,13 @@ function render() {
   }
   document.getElementById('age-sub').textContent = sub;
 
-  // Heavy note
-  document.getElementById('heavy-note').classList.toggle('show', kg > 30);
-
-  // ── PARACETAMOL ──
-  const pConc = PARA_CONC[paraConc];
-  const pMg   = Math.min(Math.round(kg * 15 / 5) * 5, 1000);
-  const pMl   = Math.round(pMg / pConc * 10) / 10;
-  const pDay  = Math.round(pMl * 4 * 10) / 10;
-
-  document.getElementById('para-ml').textContent    = pMl.toFixed(1);
-  document.getElementById('para-mg').textContent    = `= ${pMg} mg`;
-  document.getElementById('para-daily').textContent = `${pDay.toFixed(1)} mL`;
-  document.getElementById('para-warn').classList.toggle('show', av < 2 || kg < 4);
-
-  // ── IBUPROFENO ──
-  const allowed  = av >= 3 && kg >= 6;
-  const iContent = document.getElementById('ibu-content');
-  const iBlocked = document.getElementById('ibu-blocked');
-  const iConc    = document.getElementById('ibu-conc-row');
-
-  if (allowed) {
-    iContent.classList.remove('hidden');
-    iBlocked.classList.add('hidden');
-    iConc.classList.remove('dimmed');
-
-    const iC   = IBU_CONC[ibuConc];
-    const iMg  = Math.min(Math.round(kg * 10 / 5) * 5, 400);
-    const iMl  = Math.round(iMg / iC * 10) / 10;
-    const iDay = Math.round(iMl * 3 * 10) / 10;
-
-    document.getElementById('ibu-ml').textContent    = iMl.toFixed(1);
-    document.getElementById('ibu-mg').textContent    = `= ${iMg} mg`;
-    document.getElementById('ibu-daily').textContent = `${iDay.toFixed(1)} mL`;
-  } else {
-    iContent.classList.add('hidden');
-    iBlocked.classList.remove('hidden');
-    iConc.classList.add('dimmed');
-
-    const reason = av < 3
-      ? 'No recomendado antes de los 3 meses de edad.'
-      : 'No recomendado por debajo de los 6 kg de peso.';
-    document.getElementById('ibu-blocked-reason').textContent = reason;
-  }
+  renderParacetamol(kg, av);
+  renderIbuprofeno(kg, av);
 }
 
 render();
 
-// ── PWA: offline banner ────────────────────────────────────────────
+// ── PWA: offline banner ───────────────────────────────────────────
 const offBanner = document.getElementById('offline-banner');
 window.addEventListener('online',  () => offBanner.classList.remove('show'));
 window.addEventListener('offline', () => offBanner.classList.add('show'));
