@@ -39,6 +39,7 @@ La revisión del Nivel 1 y 2 es **administrativa**: abrir el enlace de la fuente
 - Si en el futuro hay un profesional sanitario dispuesto a revisar, empezar por `dosis-fiebre`, `fiebre`, `cuando-urgencias` y `primeros-auxilios`.
 - Excepción documentada (2026-11-08, `tomas-leche`): se permite interpolar entre dos referencias oficiales si está marcado como estimación en pantalla, no se extrapola y hay tests sobre los anclajes. No aplica a otras herramientas sin nueva decisión.
 - Excepción documentada (2026-11-10, `calculadora-lactancia`): se admite una fórmula que reproduce todas las celdas de una tabla primaria arbitrada (Koren 2002), demostrado por test, con estimación marcada en pantalla y sin cálculo fuera del rango de la tabla (peso, 12 bebidas, 24 h). Extrapolación solo por proporcionalidad por debajo de la primera columna. No aplica a otras herramientas sin nueva decisión.
+- Excepción documentada (2026-11-12, `dosis-fiebre`): se admite calcular dosis intermedias con una fórmula que reproduce las tablas de las fichas técnicas AEMPS (Apiretal y Dalsy), demostrado por test, con estimación marcada en pantalla entre filas, sin cálculo fuera de tabla (paracetamol >32 kg; ibuprofeno <3 meses, <5 kg o >30 kg) y redondeo siempre a la baja (paracetamol) o hacia dentro del rango (ibuprofeno). No aplica a otras herramientas sin nueva decisión.
 
 ## Orden de auditoría inicial (una herramienta a la vez)
 
