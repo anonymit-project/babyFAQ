@@ -687,18 +687,26 @@
         "posicion_media": 16.4,
         "periodo": "2026-08-06 a 2026-11-03"
       },
-      "organismos_candidatos": [
-        "AEP (Familia y Salud)",
-        "AEMPS (fichas técnicas)"
+      "organismos_candidatos": ["AEMPS (fichas técnicas)", "AEP (Familia y Salud)"],
+      "fuentes": [
+        { "fuente_organismo": "AEMPS (ficha técnica Apiretal 100 mg/mL)", "fuente_url": "https://cima.aemps.es/cima/dochtml/ft/76028/FT_76028.html", "fecha_consulta": "2026-11-12", "cita_literal_breve": "destinado a su uso en niños de hasta 32 kg" },
+        { "fuente_organismo": "AEMPS (ficha técnica Apiretal 100 mg/mL)", "fuente_url": "https://cima.aemps.es/cima/dochtml/ft/76028/FT_76028.html", "fecha_consulta": "2026-11-12", "cita_literal_breve": "el paracetamol debe ser usado solo por recomendación médica" },
+        { "fuente_organismo": "AEMPS (ficha técnica Apiretal 100 mg/mL)", "fuente_url": "https://cima.aemps.es/cima/dochtml/ft/76028/FT_76028.html", "fecha_consulta": "2026-11-12", "cita_literal_breve": "15 mg/kg cada 6 horas" },
+        { "fuente_organismo": "AEMPS (ficha técnica Apiretal 100 mg/mL)", "fuente_url": "https://cima.aemps.es/cima/dochtml/ft/76028/FT_76028.html", "fecha_consulta": "2026-11-12", "cita_literal_breve": "la asociación con otro antipirético solo está justificada en casos de ineficacia" },
+        { "fuente_organismo": "AEMPS (ficha técnica Apiretal 100 mg/mL)", "fuente_url": "https://cima.aemps.es/cima/dochtml/ft/76028/FT_76028.html", "fecha_consulta": "2026-11-12", "cita_literal_breve": "persistencia de los síntomas durante más de tres días" },
+        { "fuente_organismo": "AEMPS (prospecto Apiretal 100 mg/mL)", "fuente_url": "https://cima.aemps.es/cima/dochtml/p/76028/P_76028.html", "fecha_consulta": "2026-11-12", "cita_literal_breve": "multiplicarse el peso del niño en kg por 0,15" },
+        { "fuente_organismo": "AEMPS (ficha técnica Dalsy 40 mg/mL)", "fuente_url": "https://cima.aemps.es/cima/dochtml/ft/69726/FichaTecnica_69726.html", "fecha_consulta": "2026-11-12", "cita_literal_breve": "menores de 3 meses o con peso inferior a 5 kg" },
+        { "fuente_organismo": "AEMPS (ficha técnica Dalsy 40 mg/mL)", "fuente_url": "https://cima.aemps.es/cima/dochtml/ft/69726/FichaTecnica_69726.html", "fecha_consulta": "2026-11-12", "cita_literal_breve": "el médico debe siempre prescribir previamente" },
+        { "fuente_organismo": "AEMPS (ficha técnica Dalsy 40 mg/mL)", "fuente_url": "https://cima.aemps.es/cima/dochtml/ft/69726/FichaTecnica_69726.html", "fecha_consulta": "2026-11-12", "cita_literal_breve": "es recomendable evitar el uso de ibuprofeno en caso de varicela" },
+        { "fuente_organismo": "AEMPS (ficha técnica Dalsy 40 mg/mL)", "fuente_url": "https://cima.aemps.es/cima/dochtml/ft/69726/FichaTecnica_69726.html", "fecha_consulta": "2026-11-12", "cita_literal_breve": "deshidratación grave (causada por vómitos, diarrea o ingesta insuficiente de líquidos)" },
+        { "fuente_organismo": "AEMPS (ficha técnica Dalsy 20 mg/mL)", "fuente_url": "https://cima.aemps.es/cima/dochtml/ft/59166/FichaTecnica_59166.html", "fecha_consulta": "2026-11-12", "cita_literal_breve": "menores de 3 meses o con peso inferior a 5 kg" },
+        { "fuente_organismo": "AEMPS (ficha técnica Aspirina 500 mg granulado)", "fuente_url": "https://cima.aemps.es/cima/dochtml/ft/67875/FichaTecnica_67875.html", "fecha_consulta": "2026-11-12", "cita_literal_breve": "no deben administrarse a los niños, en particular a los menores de 16 años" },
+        { "fuente_organismo": "Servicio Aragonés de Salud (Guía de dosificación en pediatría, 2012; avalada por ArAPAP y SEUP)", "fuente_url": "https://www.aepap.org/sites/default/files/documento/archivos-adjuntos/20120530_guia_pediatria.pdf", "fecha_consulta": "2026-11-12", "cita_literal_breve": "No deben alternarse de forma rutinaria" }
       ],
-      "fuentes": [],
-      "estado_verificacion": "pendiente",
-      "ultima_revision": null,
-      "relacionadas": [
-        "fiebre",
-        "cuando-urgencias",
-        "vacunas"
-      ],
+      "estado_verificacion": "verificado",
+      "notas_verificacion": "Auditoría cerrada 2026-11-12 (pendiente de aprobación del autor). Fuente principal: fichas técnicas AEMPS (CIMA) de Apiretal y Dalsy; guía de Aragón (PDF, verificación manual) solo para la alternancia. Paracetamol = 0,15 mL por kg a la baja a 0,1 mL (prospecto de Apiretal); coincide con la guía en las 10 filas y queda 0,1 mL por debajo de los tramos de la ficha en 10,5, 13 y 18,5 kg. Ibuprofeno = rango por toma de Dalsy (20–30 mg/kg/día en 3 tomas, ajustado hacia dentro a 0,2 mL): reproduce 31 de 32 celdas (20 y 40 mg/mL, 5–30 kg); 40 mg/mL a 5 kg da 1,0–1,2 frente a 0,8–1,2 de la ficha y se marca como estimación. Sin cálculo: paracetamol >32 kg; ibuprofeno <3 meses, <5 kg o >30 kg. Umbrales de urgencia sin fuente (<3 meses con ≥38 °C, 39,5 °C) retirados: se auditarán en fiebre y cuando-urgencias. Cubierto por validador de Capa 1 y tests Playwright.",
+      "ultima_revision": "2026-11-12",
+      "relacionadas": ["fiebre", "cuando-urgencias", "vacunas"],
       "afiliados_prioridad": false
     },
     {
