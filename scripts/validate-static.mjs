@@ -2,7 +2,7 @@
 // Validador estático de Capa 1. Uso: npm run validate [-- fichero.html ...]
 import { readFileSync, existsSync } from 'node:fs';
 
-const DEFAULT_FILES = ['tomas-leche.html', 'calculadora-lactancia.html', 'primeros-auxilios.html'];
+const DEFAULT_FILES = ['tomas-leche.html', 'calculadora-lactancia.html', 'primeros-auxilios.html', 'dosis-fiebre.html'];
 const SITE = 'https://babyfaq.es';
 const ALLOWED_SCRIPT_HOSTS = ['www.googletagmanager.com'];
 const MESES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
