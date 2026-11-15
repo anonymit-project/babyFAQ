@@ -90,7 +90,13 @@ test('límites del ibuprofeno: menos de 3 meses, menos de 5 kg y más de 30 kg',
   expect(await txt(page, '#ibu-blocked-reason')).toContain('menos de 5 kg');
   await fijar(page, 30.1, 60);
   expect(await txt(page, '#ibu-blocked-reason')).toContain('Por encima de 30 kg');
-  await fijar(page, 5, 3);
+  await fijar(page, 6, 3);
+  expect(await visible(page, '#ibu-blocked')).toBe(true);
+  expect(await txt(page, '#ibu-blocked-reason')).toContain('AEP');
+  expect(await txt(page, '#ibu-blocked-reason')).toContain('menores de 6 meses');
+  await fijar(page, 6, 5);
+  expect(await visible(page, '#ibu-blocked')).toBe(true);
+  await fijar(page, 5, 6);
   expect(await visible(page, '#ibu-content')).toBe(true);
 });
 
@@ -104,11 +110,12 @@ test('límite del paracetamol: más de 32 kg no calcula', async ({ page }) => {
 
 test('avisos por edad y peso (fichas de Apiretal y Dalsy)', async ({ page }) => {
   await open(page);
-  await fijar(page, 6, 4);
+  await fijar(page, 6, 8);
   expect(await txt(page, '#para-warn')).toContain('menores de 3 años');
   expect(await txt(page, '#para-warn')).toContain('supositorios');
   expect(await txt(page, '#ibu-warn')).toContain('menores de 2 años');
-  expect(await txt(page, '#ibu-warn')).toContain('24 horas');
+  await fijar(page, 6, 5);
+  await expect(page.locator('#ibu-warn')).not.toHaveClass(/show/);
   await fijar(page, 14, 40);
   await expect(page.locator('#para-warn')).not.toHaveClass(/show/);
   await expect(page.locator('#ibu-warn')).not.toHaveClass(/show/);
@@ -123,10 +130,11 @@ test('página: fuentes enlazadas, fecha de revisión y textos retirados', async 
     'https://cima.aemps.es/cima/dochtml/ft/59166/FichaTecnica_59166.html',
     'https://cima.aemps.es/cima/dochtml/ft/67875/FichaTecnica_67875.html',
     'https://www.aepap.org/sites/default/files/documento/archivos-adjuntos/20120530_guia_pediatria.pdf',
+    'https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf',
   ];
   for (const u of FUENTES) expect(await page.locator(`a[href="${u}"]`).count(), u).toBe(1);
   const body = (await page.locator('body').innerText()).replace(/\s+/g, ' ');
-  expect(body).toContain('Última revisión: 12 de noviembre de 2026');
+  expect(body).toContain('Última revisión: 15 de noviembre de 2026');
   expect(body).toContain('No se recomienda alternarlos de forma rutinaria');
   expect(body).not.toMatch(/Sí, puedes alternar|práctica segura|mín\. 4h|Actron|250 mg|basados en la AEP|fichas técnicas oficiales|72 horas|39,5|febrícula/);
   await expect(page.locator('.alt-pill')).toHaveCount(0);
