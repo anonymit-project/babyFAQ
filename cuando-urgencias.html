@@ -6,7 +6,7 @@
   <title>¿Cuándo ir a urgencias con el bebé? Guía por síntoma · babyFAQ</title>
   <meta name="description" content="Guía por síntoma para saber cuándo llevar al bebé a urgencias, cuándo llamar al pediatra y cuándo manejarlo en casa. Para niños de 0 a 6 años.">
   <meta property="og:title" content="¿Cuándo ir a urgencias con el bebé? Guía por síntoma · babyFAQ">
-  <meta property="og:description" content="¿Voy a urgencias o espero al pediatra? Guía rápida por síntoma y edad: fiebre, vómitos, caídas, dificultad respiratoria y más. Basada en criterios de la AEP y el SNS.">
+  <meta property="og:description" content="¿Voy a urgencias o espero al pediatra? Guía rápida por síntoma y edad: fiebre, vómitos, caídas, dificultad respiratoria y más. Información orientativa.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#fdf6ee">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -540,38 +540,31 @@ const SYMPTOMS = [
     tags: ['fiebre','temperatura','caliente','recien nacido','recién nacido','bebé pequeño'],
     levels: [
       { sev: 'red', title: 'Urgencias ahora', items: [
-        'Temperatura ≥ 38 °C en bebés de 0 a 3 meses, sin excepción.',
-        'No esperes a que "suba más" ni intentes bajarla en casa primero.',
-        'A esta edad cualquier infección puede progresar muy rápido.',
+        'Temperatura ≥ 38 °C en menores de 3 meses (hasta los 90 días): la AEP recomienda hacer pruebas a todos.',
+        'Hasta los 21 días: antibiótico, pruebas e ingreso. De 22 a 90 días: pruebas y observación en el hospital al menos unas horas (AEP).',
+        'No esperes a ver cómo evoluciona.',
       ]},
-      { sev: 'green', title: 'Manejo en casa', items: [
-        'Temperatura < 38 °C con buen estado general: monitoriza y observa.',
+      { sev: 'amber', title: 'Consulta con tu pediatra', items: [
+        'Temperatura < 38 °C pero con mal aspecto o con un estado general que te preocupa: consulta con tu pediatra o en urgencias. La AEP basa el manejo en el estado general, la edad y la presencia o no de otros síntomas.',
+        'Si dudas de la lectura, repite la medición con termómetro rectal, el registro más adecuado según la AEP.',
       ]},
     ],
   },
   {
-    cat: 'fiebre', emoji: '🌡️', name: 'Fiebre en mayores de 3 meses',
+    cat: 'fiebre', emoji: '🌡️', name: 'Fiebre entre los 3 y los 24 meses',
     tags: ['fiebre','temperatura','caliente','fiebre alta'],
     levels: [
       { sev: 'red', title: 'Urgencias ahora', items: [
-        'Fiebre con dificultad para respirar, labios azulados o apatía extrema.',
-        'Fiebre con manchas rojas o moradas en la piel que no desaparecen al presionar.',
-        'Fiebre con convulsión (febril o no).',
-        'Fiebre ≥ 39 °C en bebé de 3 a 6 meses que no mejora con antitérmico.',
-        'Temperatura ≥ 40 °C en cualquier edad.',
-        'Fiebre de más de 5 días sin diagnóstico conocido.',
+        'Fiebre con mal aspecto: la AEP indica considerar una posible sepsis hasta que se demuestre lo contrario.',
+        'Si además hay dificultad para respirar, convulsión o manchas en la piel, mira también esas fichas de esta guía.',
       ]},
-      { sev: 'amber', title: 'Llama al pediatra hoy', items: [
-        'Fiebre ≥ 38 °C que no cede con paracetamol o ibuprofeno correctamente dosificados.',
-        'Fiebre de más de 48–72 horas sin mejoría.',
-        'Fiebre con llanto inconsolable o irritabilidad muy marcada.',
-        'Fiebre en bebé que no ha orinado en 8–10 horas (señal de deshidratación).',
+      { sev: 'amber', title: 'Consulta con tu pediatra', items: [
+        'Temperatura ≥ 39 °C: en niñas menores de 24 meses y en niños menores de 12 meses la AEP indica valorar un análisis de orina.',
+        'Fiebre de más de 48 horas: la AEP indica considerar un análisis de orina, sobre todo en niñas.',
       ]},
       { sev: 'green', title: 'Manejo en casa', items: [
-        'Fiebre < 39 °C en niño mayor de 6 meses con buen estado general.',
-        'El niño juega, se alimenta (aunque menos) y responde normalmente.',
-        'Usa paracetamol o ibuprofeno a la dosis correcta por peso.',
-        'Ofrece líquidos frecuentemente. No abrigues en exceso.',
+        'Con buen aspecto, en la mayoría de las ocasiones la causa es una infección viral que no requiere ningún tratamiento específico (AEP).',
+        'El antitérmico sirve para mejorar el estado general y el malestar (AEP). En menores de 3 años, la ficha técnica del paracetamol indica usarlo solo por recomendación médica: consulta con tu pediatra y mira la <a href="/dosis-fiebre.html">calculadora de dosis</a>.',
       ]},
     ],
   },
@@ -640,7 +633,7 @@ const SYMPTOMS = [
     levels: [
       { sev: 'red', title: 'Urgencias ahora', items: [
         'Si el niño puede toser, llora o habla: anímale a toser — no intervengas todavía.',
-        'Si NO puede toser, respirar ni hacer ruido: aplica maniobra de Heimlich (mayores de 1 año) o golpes en la espalda (menores de 1 año). Llama al 112 inmediatamente.',
+        'Si no puede llorar o hablar en voz alta, o la tos es ineficaz: llama al 112 y sigue los pasos de la guía de <a href="/primeros-auxilios.html">primeros auxilios</a> (lactante o niño).',
         'Aunque el objeto salga, si hubo dificultad real: ve a urgencias para descartar cuerpo extraño en vías aéreas.',
       ]},
     ],
@@ -725,6 +718,7 @@ const SYMPTOMS = [
     levels: [
       { sev: 'red', title: 'Urgencias ahora', items: [
         'Pérdida de conocimiento, aunque sea brevemente.',
+        'Lactante menor de 1 año con un golpe en la cabeza (AEP).',  
         'Convulsión tras el golpe.',
         'Vómitos repetidos (más de 2) después del golpe.',
         'Pupila de distinto tamaño en cada ojo.',
@@ -742,8 +736,8 @@ const SYMPTOMS = [
       { sev: 'green', title: 'Manejo en casa', items: [
         'Llora justo después pero se calma en pocos minutos.',
         'Sigue consciente, reactivo y con buen comportamiento.',
-        'Chichón pequeño o normal — es señal de que el golpe fue superficial.',
-        'Observa durante 24 h: despiértalo una vez en la noche si el golpe fue significativo.',
+        'Chichón pequeño que no crece: vigílalo. Si va a más, se hace largo o blando, es una señal de aviso: consulta en urgencias (AEP).',
+        'Vigila su evolución durante 24–48 horas. Los detalles están en la guía de <a href="/primeros-auxilios.html">primeros auxilios</a>.',
       ]},
     ],
   },
@@ -786,7 +780,7 @@ const SYMPTOMS = [
       ]},
       { sev: 'green', title: 'Manejo en casa', items: [
         'Quemadura < 3 cm, superficial (piel enrojecida sin ampolla) en niño mayor de 1 año.',
-        'Enfriar con agua fría corriente 20 minutos — nunca hielo, cremas ni mantequilla.',
+        'Enfría la zona con agua fría corriente durante 10–20 minutos (AEP).',
         'Cubre con apósito limpio. No revientes ampollas pequeñas.',
       ]},
     ],
