@@ -137,7 +137,8 @@ test('mantener pulsado el selector de peso lo acelera', async ({ page }) => {
   const box = await page.locator('#kg-p').boundingBox();
   await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
   await page.mouse.down();
-  await page.waitForTimeout(1500);
+  // Paso de 0,1 kg: a ritmo constante (150 ms) serían ~20 pasos = 10,0 kg; con aceleración (60 ms desde el paso 10), ~31 = 11,1 kg.
+  await page.waitForTimeout(3000);
   await page.mouse.up();
-  expect(parseFloat(await page.locator('#kg-v').innerText())).toBeGreaterThan(9);
+  expect(parseFloat(await page.locator('#kg-v').innerText())).toBeGreaterThan(10.5);
 });
