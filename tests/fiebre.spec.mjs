@@ -34,7 +34,7 @@ test('menores de 3 meses (hasta 3 m incluido) con 38 °C: urgencias, pruebas, in
     await expect(page.locator('#verdict-block')).toHaveClass(/urgent/);
     await expect(page.locator('#action-block')).toHaveClass(/action-er/);
     const t = await txt(page, '#action-text');
-    expect(await txt(page, '#action-title')).toContain('Urgencias');
+    expect(await txt(page, '#action-title')).toMatch(/urgencias/i);
     expect(t).toContain('21 días');
     expect(t).toContain('antibiótico e ingreso');
     expect(t).toContain('observación en el hospital');
