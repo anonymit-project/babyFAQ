@@ -40,7 +40,7 @@ La AAP es estadounidense. Si es la única fuente con cifras, se acepta (preceden
 | AEMPS | Ficha técnica Dalsy 20 mg/mL suspensión oral | https://cima.aemps.es/cima/dochtml/ft/59166/FichaTecnica_59166.html | 2026-11-12 | menores de 3 meses o con peso inferior a 5 kg | dosis-fiebre |
 | AEMPS | Ficha técnica Aspirina 500 mg granulado | https://cima.aemps.es/cima/dochtml/ft/67875/FichaTecnica_67875.html | 2026-11-12 | no deben administrarse a los niños, en particular a los menores de 16 años | dosis-fiebre |
 | Servicio Aragonés de Salud (guía avalada por ArAPAP y SEUP, 2012; no está en la lista de organismos de `05`: uso secundario, solo alternancia) | Guía de dosificación en pediatría para atención primaria (PDF) | https://www.aepap.org/sites/default/files/documento/archivos-adjuntos/20120530_guia_pediatria.pdf | 2026-11-12 (PDF, verificación manual) | No deben alternarse de forma rutinaria | dosis-fiebre |
-| AEP | Protocolo «Lactante febril» (Mintegi y Gómez, Protoc diagn ter pediatr 2020; PDF, 0–24 meses) | https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf | 2026-11-15 (PDF, verificación manual) | en general, temperatura ≥38 °C, siendo el registro rectal el más adecuado | fiebre |
+| AEP | Protocolo «Lactante febril» (Mintegi y Gómez, Protoc diagn ter pediatr 2020; PDF, 0–24 meses) | https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf | 2026-11-15 (PDF, verificación manual) | en general, temperatura ≥38 °C, siendo el registro rectal el más adecuado | fiebre, dosis-fiebre |
 
 ## Candidatas pendientes de verificar
 Enlaces que ya aparecen en páginas pero NO están verificados ni en el inventario. No cuentan como respaldo.
