@@ -1,6 +1,6 @@
 # Estado actual — babyFAQ
 
-Actualizar al terminar cada sesión. Última actualización: 2026-11-12.
+Actualizar al terminar cada sesión. Última actualización: 2026-11-15.
 
 ## Línea base real (periodo 2026-08-06 a 2026-11-03, GA4 + Search Console)
 
@@ -32,11 +32,14 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-12.
 - Auditoría Nivel 1 de calculadora-lactancia (2026-11-10): cálculo = Tabla 1 de Koren 2002 (Watson, 0,015 g/dL/h, tiempo desde el inicio), 13,45 g/bebida como valor ajustado y rotulado, sin cálculo fuera de tabla, estimación marcada, textos sin respaldo eliminados, fuente única Koren, FAQPage de 3 respuestas, «Última revisión», validador + test (25×12 casillas, tolerancia −1/+2 min). Candidata sin verificar: AAP «al menos 2 horas» (en conflicto con Koren para ≥ ~84 kg y 1 bebida). Pendiente de checks en verde.
 - Auditoría Nivel 1 de primeros-auxilios (2026-11-11), cerrada: RCP y atragantamiento según el ERC 2025 (contrastado con sus páginas de obstrucción de vía aérea), quemaduras y traumatismo craneal según la AEP; corregidas contradicciones y retirado lo sin respaldo; añadida la regla AEP «lactante menor de 1 año → urgencias»; 8 fuentes en el inventario (PDF, verificación manual con aviso); inventario «verificado», añadida al validador (`DEFAULT_FILES`) y con test Playwright actualizado. Pendiente de checks en verde y de tu aprobación.
 - Auditoría Nivel 1 de dosis-fiebre (2026-11-12): fuente principal = fichas técnicas AEMPS de Apiretal y Dalsy (la guía de Aragón, solo para la alternancia); cálculo por fórmula validada contra las tablas (paracetamol 0,15 mL/kg a la baja, hasta 32 kg; ibuprofeno como rango por toma, 5–30 kg y desde 3 meses); corregida la contradicción de la alternancia; retirado lo sin respaldo (jarabe 50 mg/mL, Actron, atribución a la AEP, umbrales de urgencia); avisos de varicela, deshidratación, aspirina y duración con fuente; 13 fuentes en el inventario; añadida al validador (`DEFAULT_FILES` y fuentes) y con test Playwright nuevo. Pendiente de checks en verde y de tu aprobación (D4a–D4d en `09`).
+- Auditoría Nivel 1 de fiebre (2026-11-15): fuente única el protocolo AEP «Lactante febril» (PDF 2020, 0–24 meses; 16 citas con verificación manual) + ficha AEMPS de Apiretal para «paracetamol en <3 años solo por recomendación médica». Un solo umbral de 38 °C; retirados selector de método, «subfebril», 37,5 °C axilar, 40,5 °C, bandas por edad sin fuente y FAQ sin respaldo; reincorporado con fuente «<3 meses con ≥38 °C → urgencias» (≤21 días antibiótico e ingreso; 22–90 días observación); pautas de 3–24 meses solo con lo que dice la AEP (mal aspecto, ≥39 °C, >48 h); FAQPage idéntico al texto visible; 3 meses se trata como menor de 3 meses; inventario «verificado», añadida al validador y con test Playwright nuevo (D5a–D5e en `09`). Pendiente de checks en verde y de tu aprobación.
+- Auditoría parcial de cuando-urgencias (2026-11-15): sustituido el bloque de fiebre por pautas con fuente AEP; corregidas las contradicciones con `primeros-auxilios` (chichón blando, atragantamiento, observación 24–48 h, quemadura 10–20 min, lactante <1 año con golpe en la cabeza); retirada la atribución a AEP/SNS de la meta og:description. Sigue «pendiente»: el resto de síntomas no tiene fuente.
 
 ## Siguiente
-1. Auditar `fiebre` y `cuando-urgencias` (Nivel 1): ahí se reincorporan con fuente los umbrales de urgencia que se han retirado de `dosis-fiebre`.
-2. Migrar el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
-3. Fase 4 (backlinks) en paralelo.
+1. `dosis-fiebre`: resolver el conflicto del ibuprofeno por debajo de 6 meses (la AEP indica paracetamol; la calculadora lo da desde 3 meses por la ficha de Dalsy) y ajustar su test (D5d).
+2. Auditar el resto de `cuando-urgencias` (Nivel 1) por categorías, cada una en su chat con su fuente: traumatismos y quemaduras (aquí se decide D5e), respiración, digestivo, piel, otros. Hay también atribuciones a AEP/SEUP/SNS en el texto visible que no tienen fuente.
+3. Migrar el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
+4. Fase 4 (backlinks) en paralelo.
 
 ## Por confirmar
 - Que el log de `validate:sources` muestre "cita encontrada" en las 2 fuentes de la AAP (un aviso "!" significa que no se comprobó).
@@ -52,3 +55,7 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-12.
 - D4a–D4d de `09-decisiones.md`.
 - Revisar a ojo en móvil y en escritorio el rango del ibuprofeno (p. ej. 30 kg a 20 mg/mL: 10.0–15.0) para ver que no desborda la tarjeta.
 - Si mejora la posición/CTR de dosis-fiebre (base: 9 impresiones, posición 16,4), con la meta nueva. Medir del 10 al 24 de diciembre de 2026.
+- Que `validate:sources` muestre 16 avisos «!» de PDF para fiebre (verificación manual: abre el PDF de la AEP y busca cada cita con Ctrl+F) y ✓ en la cita de CIMA (Apiretal).
+- Si mejora la posición/CTR de fiebre tras reescribir título y meta (base: 16 impresiones, posición 5,6). Medir del 14 al 28 de diciembre de 2026.
+- D5a–D5e de `09-decisiones.md`.
+- Revisar a ojo en móvil la nueva `fiebre.html` (sin selector de método) y que el mensaje de <3 meses se lea bien en la tarjeta.
