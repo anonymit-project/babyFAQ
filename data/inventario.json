@@ -652,25 +652,31 @@
       "categoria": "Crecimiento y salud",
       "nivel_riesgo": 1,
       "prioridad_seo": "P3",
-      "metricas_90d_google_organico": {
-        "clics": 0,
-        "impresiones": 16,
-        "posicion_media": 5.6,
-        "periodo": "2026-08-06 a 2026-11-03"
-      },
-      "organismos_candidatos": [
-        "AEP",
-        "Ministerio de Sanidad",
-        "AAP"
+      "metricas_90d_google_organico": { "clics": 0, "impresiones": 16, "posicion_media": 5.6, "periodo": "2026-08-06 a 2026-11-03" },
+      "organismos_candidatos": ["AEP", "Ministerio de Sanidad", "AAP"],
+      "fuentes": [
+        { "fuente_organismo": "AEP (protocolo «Lactante febril», Protoc diagn ter pediatr 2020)", "fuente_url": "https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf", "fecha_consulta": "2026-11-15", "cita_literal_breve": "en general, temperatura ≥38 °C, siendo el registro rectal el más adecuado" },
+        { "fuente_organismo": "AEP (protocolo «Lactante febril»)", "fuente_url": "https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf", "fecha_consulta": "2026-11-15", "cita_literal_breve": "recomendar practicar pruebas en todos estos pacientes" },
+        { "fuente_organismo": "AEP (protocolo «Lactante febril»)", "fuente_url": "https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf", "fecha_consulta": "2026-11-15", "cita_literal_breve": "es necesario administrar antibiótico, realizar pruebas e ingresar al paciente" },
+        { "fuente_organismo": "AEP (protocolo «Lactante febril»)", "fuente_url": "https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf", "fecha_consulta": "2026-11-15", "cita_literal_breve": "precisan observación hospitalaria al menos durante unas horas" },
+        { "fuente_organismo": "AEP (protocolo «Lactante febril»)", "fuente_url": "https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf", "fecha_consulta": "2026-11-15", "cita_literal_breve": "las pruebas se realizarán en pacientes muy seleccionados" },
+        { "fuente_organismo": "AEP (protocolo «Lactante febril»)", "fuente_url": "https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf", "fecha_consulta": "2026-11-15", "cita_literal_breve": "considerar que presenta una sepsis hasta que no se demuestre lo contrario" },
+        { "fuente_organismo": "AEP (protocolo «Lactante febril»)", "fuente_url": "https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf", "fecha_consulta": "2026-11-15", "cita_literal_breve": "Niñas <24 meses con FSF ≥39 °C" },
+        { "fuente_organismo": "AEP (protocolo «Lactante febril»)", "fuente_url": "https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf", "fecha_consulta": "2026-11-15", "cita_literal_breve": "Niños <12 meses con FSF ≥39 °C" },
+        { "fuente_organismo": "AEP (protocolo «Lactante febril»)", "fuente_url": "https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf", "fecha_consulta": "2026-11-15", "cita_literal_breve": "patología renal o FSF >48 horas" },
+        { "fuente_organismo": "AEP (protocolo «Lactante febril»)", "fuente_url": "https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf", "fecha_consulta": "2026-11-15", "cita_literal_breve": "determinada por el estado general, la edad y la presencia o no de focalidad" },
+        { "fuente_organismo": "AEP (protocolo «Lactante febril»)", "fuente_url": "https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf", "fecha_consulta": "2026-11-15", "cita_literal_breve": "por la inmadurez de su sistema inmune y no haber recibido inmunizaciones" },
+        { "fuente_organismo": "AEP (protocolo «Lactante febril»)", "fuente_url": "https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf", "fecha_consulta": "2026-11-15", "cita_literal_breve": "La prevalencia de IBPG es alrededor del 20%" },
+        { "fuente_organismo": "AEP (protocolo «Lactante febril»)", "fuente_url": "https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf", "fecha_consulta": "2026-11-15", "cita_literal_breve": "la causa es una infección viral que no requiere ningún tratamiento específico" },
+        { "fuente_organismo": "AEP (protocolo «Lactante febril»)", "fuente_url": "https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf", "fecha_consulta": "2026-11-15", "cita_literal_breve": "mejorar el estado general y disminuir la sensación de malestar" },
+        { "fuente_organismo": "AEP (protocolo «Lactante febril»)", "fuente_url": "https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf", "fecha_consulta": "2026-11-15", "cita_literal_breve": "En menores de 6 meses usaremos paracetamol" },
+        { "fuente_organismo": "AEP (protocolo «Lactante febril»)", "fuente_url": "https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf", "fecha_consulta": "2026-11-15", "cita_literal_breve": "No es recomendable alternar antitérmicos de manera rutinaria" },
+        { "fuente_organismo": "AEMPS (ficha técnica Apiretal 100 mg/mL)", "fuente_url": "https://cima.aemps.es/cima/dochtml/ft/76028/FT_76028.html", "fecha_consulta": "2026-11-15", "cita_literal_breve": "el paracetamol debe ser usado solo por recomendación médica" }
       ],
-      "fuentes": [],
-      "estado_verificacion": "pendiente",
-      "ultima_revision": null,
-      "relacionadas": [
-        "dosis-fiebre",
-        "cuando-urgencias",
-        "temperatura-habitacion"
-      ],
+      "estado_verificacion": "verificado",
+      "notas_verificacion": "Auditoría cerrada 2026-11-15 (pendiente de aprobación del autor). Fuente única para umbrales: protocolo AEP «Lactante febril» (PDF, 2020, cubre 0–24 meses; verificación manual de las 16 citas). Un solo umbral de 38 °C (la AEP no da cifras por método); retirados selector de método, «subfebril», 37,5 °C axilar, 40,5 °C, bandas por edad >3 meses sin fuente, daño cerebral, y las portadas de AEP/AAP/OMS/Sanidad como fuentes. 3 meses se trata como menor de 3 meses (precaución). Pautas 3–24 meses solo con lo que dice la AEP (mal aspecto, ≥39 °C, >48 h). Paracetamol en <3 años solo por recomendación médica: ficha AEMPS de Apiretal. FAQPage generado idéntico al texto visible. Conflicto abierto: AEP indica paracetamol en <6 meses y dosis-fiebre calcula ibuprofeno desde 3 meses (ficha de Dalsy). Cubierto por validador de Capa 1 y tests Playwright.",
+      "ultima_revision": "2026-11-15",
+      "relacionadas": ["dosis-fiebre", "cuando-urgencias", "temperatura-habitacion"],
       "afiliados_prioridad": false
     },
     {
