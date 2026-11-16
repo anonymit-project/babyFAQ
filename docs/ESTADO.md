@@ -66,5 +66,5 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-15.
 - D7a–D7c de `09-decisiones.md`.
 - Comprobación manual de las tablas OMS de dosis-fiebre: abrir los 2 PDF (enlaces en `04`) y comparar las 66 cifras de las anclas de cada 6 meses con el test (`OMS_ANCLAS`) y con la tabla de este chat.
 - Que `validate:sources` muestre 4 avisos «!» de PDF para dosis-fiebre (guía de Aragón, protocolo AEP y las 2 tablas de la OMS) y 0 errores.
-- Que `test:e2e` pase con 58 tests (51 + 7 nuevos de la OMS). No pude ejecutarlos: si alguno falla, pásame el log.
-- Revisar a ojo en móvil la caja de rango OMS y el botón bajo la tarjeta de edad y peso; en escritorio queda encima de las dos tarjetas de dosis.
+- Que `test:e2e` vuelva a dar 58 de 58 tras el arreglo del solape (en la primera pasada falló 1: el clic en `#age-p`).
+- Revisar a ojo la caja de rango OMS y el botón: en móvil, bajo la tarjeta de edad y peso; en escritorio, encima de las dos tarjetas de dosis, con Peso y Edad apilados (D7d). Comprobar con el ratón que el «+» de edad responde.
