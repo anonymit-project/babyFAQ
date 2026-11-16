@@ -35,12 +35,12 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-15.
 - Auditoría Nivel 1 de fiebre (2026-11-15): fuente única el protocolo AEP «Lactante febril» (PDF 2020, 0–24 meses; 16 citas con verificación manual) + ficha AEMPS de Apiretal para «paracetamol en <3 años solo por recomendación médica». Un solo umbral de 38 °C; retirados selector de método, «subfebril», 37,5 °C axilar, 40,5 °C, bandas por edad sin fuente y FAQ sin respaldo; reincorporado con fuente «<3 meses con ≥38 °C → urgencias» (≤21 días antibiótico e ingreso; 22–90 días observación); pautas de 3–24 meses solo con lo que dice la AEP (mal aspecto, ≥39 °C, >48 h); FAQPage idéntico al texto visible; 3 meses se trata como menor de 3 meses; inventario «verificado», añadida al validador y con test Playwright nuevo (D5a–D5e en `09`). Pendiente de checks en verde y de tu aprobación.
 - Auditoría parcial de cuando-urgencias (2026-11-15): sustituido el bloque de fiebre por pautas con fuente AEP; corregidas las contradicciones con `primeros-auxilios` (chichón blando, atragantamiento, observación 24–48 h, quemadura 10–20 min, lactante <1 año con golpe en la cabeza); retirada la atribución a AEP/SNS de la meta og:description. Sigue «pendiente»: el resto de síntomas no tiene fuente.
 - dosis-fiebre, D6 (2026-11-15): ibuprofeno sin cálculo por debajo de 6 meses (AEP «Lactante febril» frente a la ficha de Dalsy, que lo admite desde 3 meses); motivo visible con ambas fuentes, test actualizado, fuente AEP añadida al inventario y a la página, revisión 15-nov. Corregido también el test de `fiebre` que fallaba por mayúsculas (CSS). Pendiente de checks en verde y de tu aprobación (D6a–D6b en `09`).
+- dosis-fiebre, opción C de edad y peso (2026-11-15): rango OMS (menor P3 – mayor P97 de niñas y niños) junto al peso, aviso si los kg quedan fuera sin bloquear el cálculo y botón «Usar peso medio para esta edad» (menor P50) con aviso en las dos tarjetas de dosis; tablas OMS 2006 de peso para la edad (2 PDF, verificación manual; P3, P50 y P97 cruzados con L, M y S); solo hasta 60 meses (el selector sigue en 0–180); 2 fuentes nuevas en el inventario y en la página; 7 tests nuevos. Pendiente de checks en verde y de tu aprobación (D7a–D7c en `09`).
 
 ## Siguiente
-1. `dosis-fiebre`: aplicar la opción C de edad y peso (rango OMS junto al kg, aviso si quedan fuera y botón «Usar peso medio para esta edad»), decidida el 2026-11-13 y que no estaba en la versión revisada el 2026-11-15.
-2. Auditar el resto de `cuando-urgencias` (Nivel 1) por categorías, cada una en su chat con su fuente: traumatismos y quemaduras (aquí se decide D5e), respiración, digestivo, piel, otros. Hay también atribuciones a AEP/SEUP/SNS en el texto visible que no tienen fuente.
-3. Migrar el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
-4. Fase 4 (backlinks) en paralelo.
+1. Auditar el resto de `cuando-urgencias` (Nivel 1) por categorías, cada una en su chat con su fuente: traumatismos y quemaduras (aquí se decide D5e), respiración, digestivo, piel, otros. Hay también atribuciones a AEP/SEUP/SNS en el texto visible que no tienen fuente.
+2. Migrar el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
+3. Fase 4 (backlinks) en paralelo.
 
 ## Por confirmar
 - Que el log de `validate:sources` muestre "cita encontrada" en las 2 fuentes de la AAP (un aviso "!" significa que no se comprobó).
@@ -63,3 +63,8 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-15.
 - D6a–D6b de `09-decisiones.md`.
 - Que `validate:sources` muestre 2 avisos «!» de PDF para dosis-fiebre (guía de Aragón y protocolo AEP; verificación manual) y 0 errores. Antes de aprobar D6a, abrir el PDF de la AEP y leer el contexto de «En menores de 6 meses usaremos paracetamol».
 - Que el check `test:e2e` pase con el test de `fiebre` corregido (51 de 51).
+- D7a–D7c de `09-decisiones.md`.
+- Comprobación manual de las tablas OMS de dosis-fiebre: abrir los 2 PDF (enlaces en `04`) y comparar las 66 cifras de las anclas de cada 6 meses con el test (`OMS_ANCLAS`) y con la tabla de este chat.
+- Que `validate:sources` muestre 4 avisos «!» de PDF para dosis-fiebre (guía de Aragón, protocolo AEP y las 2 tablas de la OMS) y 0 errores.
+- Que `test:e2e` pase con 58 tests (51 + 7 nuevos de la OMS). No pude ejecutarlos: si alguno falla, pásame el log.
+- Revisar a ojo en móvil la caja de rango OMS y el botón bajo la tarjeta de edad y peso; en escritorio queda encima de las dos tarjetas de dosis.
