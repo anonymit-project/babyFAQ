@@ -131,6 +131,8 @@ test('página: fuentes enlazadas, fecha de revisión y textos retirados', async 
     'https://cima.aemps.es/cima/dochtml/ft/67875/FichaTecnica_67875.html',
     'https://www.aepap.org/sites/default/files/documento/archivos-adjuntos/20120530_guia_pediatria.pdf',
     'https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf',
+    'https://cdn.who.int/media/docs/default-source/child-growth/child-growth-standards/indicators/weight-for-age/wfa-girls-0-5-percentiles.pdf?sfvrsn=1a008a84_11',
+    'https://cdn.who.int/media/docs/default-source/child-growth/child-growth-standards/indicators/weight-for-age/wfa-boys-0-5-percentiles.pdf?sfvrsn=488e74e6_11',
   ];
   for (const u of FUENTES) expect(await page.locator(`a[href="${u}"]`).count(), u).toBe(1);
   const body = (await page.locator('body').innerText()).replace(/\s+/g, ' ');
@@ -149,4 +151,122 @@ test('mantener pulsado el selector de peso lo acelera', async ({ page }) => {
   await page.waitForTimeout(3000);
   await page.mouse.up();
   expect(parseFloat(await page.locator('#kg-v').innerText())).toBeGreaterThan(10.5);
+});
+
+
+// ── Peso para la edad: patrones OMS 2006, 0–60 meses (opción C, D7) ──
+// Anclas copiadas de las tablas «Weight-for-age, birth to 5 years (percentiles)». mes: [niñas P3, P50, P97, niños P3, P50, P97] (kg)
+const OMS_ANCLAS = {
+  0:  [2.4, 3.2, 4.2, 2.5, 3.3, 4.3],
+  6:  [5.8, 7.3, 9.2, 6.4, 7.9, 9.7],
+  12: [7.1, 8.9, 11.3, 7.8, 9.6, 11.8],
+  18: [8.2, 10.2, 13.0, 8.9, 10.9, 13.5],
+  24: [9.2, 11.5, 14.6, 9.8, 12.2, 15.1],
+  30: [10.1, 12.7, 16.2, 10.7, 13.3, 16.6],
+  36: [11.0, 13.9, 17.8, 11.4, 14.3, 18.0],
+  42: [11.8, 15.0, 19.5, 12.2, 15.3, 19.4],
+  48: [12.5, 16.1, 21.1, 12.9, 16.3, 20.9],
+  54: [13.2, 17.2, 22.8, 13.6, 17.3, 22.3],
+  60: [14.0, 18.2, 24.4, 14.3, 18.3, 23.8],
+};
+
+test('OMS: 61 meses por tabla, valores crecientes y P3 < P50 < P97', async ({ page }) => {
+  await open(page);
+  const fallos = await page.evaluate(() => {
+    const f = [];
+    for (const [nombre, t] of [['niñas', OMS_NINAS], ['niños', OMS_NINOS]]) {
+      for (const k of ['p3', 'p50', 'p97']) {
+        if (t[k].length !== 61) f.push(`${nombre} ${k}: ${t[k].length} valores`);
+        for (let m = 1; m < t[k].length; m++) if (t[k][m] < t[k][m - 1]) f.push(`${nombre} ${k}: baja en el mes ${m}`);
+      }
+      for (let m = 0; m < 61; m++) if (!(t.p3[m] < t.p50[m] && t.p50[m] < t.p97[m])) f.push(`${nombre}: P3 < P50 < P97 roto en el mes ${m}`);
+    }
+    return f;
+  });
+  expect(fallos, fallos.join('\n')).toEqual([]);
+});
+
+test('OMS: anclas cada 6 meses coinciden con las tablas', async ({ page }) => {
+  await open(page);
+  const fallos = [];
+  for (const [mes, esperado] of Object.entries(OMS_ANCLAS)) {
+    const real = await page.evaluate(m => [OMS_NINAS.p3[m], OMS_NINAS.p50[m], OMS_NINAS.p97[m], OMS_NINOS.p3[m], OMS_NINOS.p50[m], OMS_NINOS.p97[m]], Number(mes));
+    if (JSON.stringify(real) !== JSON.stringify(esperado)) fallos.push(`mes ${mes}: tabla ${esperado}, página ${real}`);
+  }
+  expect(fallos, fallos.join('\n')).toEqual([]);
+});
+
+test('OMS: rango sin distinguir sexo, peso medio = menor P50 y sin datos fuera de 0–60 meses', async ({ page }) => {
+  await open(page);
+  // [mes, mínimo (menor P3), máximo (mayor P97), medio (menor P50)]. A 42 meses el mayor P97 es el de las niñas.
+  const CASOS = [[0, 2.4, 4.3, 3.2], [6, 5.8, 9.7, 7.3], [42, 11.8, 19.5, 15.0], [60, 14.0, 24.4, 18.2]];
+  for (const [m, lo, hi, med] of CASOS) {
+    expect(await page.evaluate(x => omsPesoEdad(x), m), `${m} meses`).toEqual({ lo, hi, med });
+  }
+  expect(await page.evaluate(() => omsPesoEdad(61))).toBeNull();
+  const sinFila = await page.evaluate(() => {
+    const f = [];
+    for (let m = 0; m <= 60; m++) if (KG_VALUES.indexOf(omsPesoEdad(m).med) < 0) f.push(m);
+    return f;
+  });
+  expect(sinFila, 'meses cuyo peso medio no existe en el selector de kg').toEqual([]);
+});
+
+test('OMS: la página enseña el rango y avisa si los kg quedan fuera (12 meses: 7,1–11,8 kg)', async ({ page }) => {
+  await open(page);
+  await fijar(page, 9, 12);
+  expect(await txt(page, '#oms-range')).toContain('7,1–11,8 kg');
+  expect(await txt(page, '#oms-range')).toContain('percentiles 3 a 97');
+  await expect(page.locator('#oms-warn')).not.toHaveClass(/show/);
+  for (const kg of [7.1, 11.8]) {
+    await fijar(page, kg, 12);
+    await expect(page.locator('#oms-warn'), `${kg} kg`).not.toHaveClass(/show/);
+  }
+  await fijar(page, 7.0, 12);
+  await expect(page.locator('#oms-warn')).toHaveClass(/show/);
+  expect(await txt(page, '#oms-warn')).toContain('por debajo');
+  await fijar(page, 11.9, 12);
+  expect(await txt(page, '#oms-warn')).toContain('por encima');
+  // El aviso no bloquea la dosis: sigue yendo por peso (11,9 kg × 0,15 mL, a la baja)
+  expect(await txt(page, '#para-ml')).toBe('1.7');
+});
+
+test('OMS: el botón fija el peso medio y las dos tarjetas avisan de que no es el peso real', async ({ page }) => {
+  await open(page);
+  await fijar(page, 20, 12);
+  await page.click('#oms-btn');
+  expect(await txt(page, '#kg-v')).toBe('8.9');
+  await expect(page.locator('#oms-warn')).not.toHaveClass(/show/);
+  expect(await txt(page, '#para-warn')).toContain('peso medio de la OMS');
+  expect(await txt(page, '#ibu-warn')).toContain('peso medio de la OMS');
+  // Al mover los kg deja de ser el peso medio
+  await page.click('#kg-p');
+  expect(await txt(page, '#para-warn')).not.toContain('peso medio de la OMS');
+  // Al cambiar la edad también
+  await page.click('#oms-btn');
+  expect(await txt(page, '#para-warn')).toContain('peso medio de la OMS');
+  await page.click('#age-p');
+  expect(await txt(page, '#para-warn')).not.toContain('peso medio de la OMS');
+});
+
+test('OMS: a partir de 61 meses no hay rango ni botón y la dosis sigue yendo por peso', async ({ page }) => {
+  await open(page);
+  await fijar(page, 20, 61);
+  await expect(page.locator('#oms-btn')).toHaveClass(/hidden/);
+  expect(await txt(page, '#oms-range')).toContain('hasta los 5 años');
+  await expect(page.locator('#oms-warn')).not.toHaveClass(/show/);
+  expect(await txt(page, '#para-ml')).toBe('3.0');
+  await fijar(page, 20, 60);
+  await expect(page.locator('#oms-btn')).not.toHaveClass(/hidden/);
+});
+
+test('OMS: la edad no cambia la cifra de la dosis, solo el peso', async ({ page }) => {
+  await open(page);
+  const dosis = [];
+  for (const m of [12, 40, 100]) {
+    await fijar(page, 14, m);
+    dosis.push([await txt(page, '#para-ml'), await txt(page, '#ibu-lo'), await txt(page, '#ibu-hi')]);
+  }
+  expect(dosis[1]).toEqual(dosis[0]);
+  expect(dosis[2]).toEqual(dosis[0]);
 });
