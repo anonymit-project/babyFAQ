@@ -509,6 +509,7 @@
     <h3>📚 Fuentes consultadas</h3>
     <ul class="fuentes-list">
       <li>📖 <a href="https://www.aeped.es" target="_blank" rel="noopener">Asociación Española de Pediatría (AEP)</a> — Protocolos de urgencias pediátricas</li>
+      <li>📖 <a href="https://static.aeped.es/capitulo_5_0_b962064ae5.pdf" target="_blank" rel="noopener">AEP, capítulo «Primeros auxilios»</a> — Traumatismo craneal, fracturas, quemaduras y electrocución</li>
       <li>📖 <a href="https://www.mscbs.gob.es" target="_blank" rel="noopener">Ministerio de Sanidad de España (SNS)</a> — Guías de atención pediátrica en urgencias</li>
       <li>📖 <a href="https://www.seup.org" target="_blank" rel="noopener">Sociedad Española de Urgencias de Pediatría (SEUP)</a> — Criterios de triaje pediátrico</li>
       <li>📖 <a href="https://www.aap.org" target="_blank" rel="noopener">American Academy of Pediatrics (AAP)</a> — When to call the doctor: pediatric emergency guidance</li>
@@ -717,27 +718,21 @@ const SYMPTOMS = [
     tags: ['golpe cabeza','caída','caida','traumatismo craneal','cabeza','chichon','chichón'],
     levels: [
       { sev: 'red', title: 'Urgencias ahora', items: [
-        'Pérdida de conocimiento, aunque sea brevemente.',
-        'Lactante menor de 1 año con un golpe en la cabeza (AEP).',  
-        'Convulsión tras el golpe.',
-        'Vómitos repetidos (más de 2) después del golpe.',
-        'Pupila de distinto tamaño en cada ojo.',
-        'El bebé no se despierta con normalidad o está muy adormilado.',
-        'Fontanela abultada y tensa.',
-        'Caída de más de 1–1,5 m de altura o desde una cama en menores de 6 meses.',
-        'Sangrado por oídos o nariz sin causa de golpe directo allí.',
-      ]},
-      { sev: 'amber', title: 'Llama al pediatra hoy', items: [
-        'El niño llora mucho más de lo habitual después del golpe.',
-        'Chichón muy grande o que crece rápidamente.',
-        'Golpe en la nuca o en la base del cráneo.',
-        'No estás seguro de la intensidad del golpe.',
+        'Lactante menor de 1 año con un golpe en la cabeza (AEP).',
+        'Golpe de alto impacto: accidente de tráfico o caída de más de 1 metro de altura (AEP).',
+        'Pierde el conocimiento, está muy adormilado o cuesta despertarlo.',
+        'Convulsiones o movimientos extraños.',
+        'Vómitos o dolor de cabeza persistentes, o irritabilidad (en los más pequeños, llanto continuo).',
+        'Sale sangre o un líquido claro por la nariz o el oído, o hay un hematoma bajo ambos ojos o detrás de las orejas.',
+        'Pupilas de distinto tamaño, confusión, alteración del habla, de la vista o del equilibrio, o no mueve bien un brazo o una pierna.',
+        'Hematoma muy grande, zona hundida en la cabeza o amnesia (no recuerda el golpe ni lo que pasó después).',
+        'Su estado general empeora, está «raro» o hay cualquier signo que te preocupe (AEP).',
       ]},
       { sev: 'green', title: 'Manejo en casa', items: [
-        'Llora justo después pero se calma en pocos minutos.',
-        'Sigue consciente, reactivo y con buen comportamiento.',
-        'Chichón pequeño que no crece: vigílalo. Si va a más, se hace largo o blando, es una señal de aviso: consulta en urgencias (AEP).',
-        'Vigila su evolución durante 24–48 horas. Los detalles están en la guía de <a href="/primeros-auxilios.html">primeros auxilios</a>.',
+        'Si no se da ninguno de los supuestos anteriores, la AEP indica que puede observarse en casa: un adulto que conozca al niño debe acompañarle y vigilar los signos de alarma durante 24–48 horas.',
+        'Si el golpe ha sido importante, revísalo cada 2–3 horas. Puede dormir, pero conviene despertarlo un par de veces por la noche para comprobar su estado general (AEP).',
+        'Chichón pequeño sin herida: si va a más, se hace largo o blando, acude cuanto antes a un centro sanitario (AEP).',
+        'Los detalles están en la guía de <a href="/primeros-auxilios.html">primeros auxilios</a>.',
       ]},
     ],
   },
@@ -746,20 +741,15 @@ const SYMPTOMS = [
     tags: ['golpe brazo','golpe pierna','fractura','hueso','torcedura','esguince','codo','tobillo'],
     levels: [
       { sev: 'red', title: 'Urgencias ahora', items: [
-        'Deformidad visible en el miembro (angulación anormal).',
-        'El hueso protruye a través de la piel.',
-        'El niño no puede apoyar o mover el miembro en absoluto y el dolor es muy intenso.',
-        'Cambio de color marcado (blanco o azulado) en la extremidad tras el golpe.',
+        'El hueso asoma por la piel o hay una herida sobre la zona golpeada (fractura abierta, AEP).',
+        'El miembro ha perdido su alineación o parece más corto (AEP).',
+        'Palidez o frialdad en los dedos, no puede moverlos o tiene hormigueos o calambres (AEP).',
+        'Sospecha de lesión en cabeza, pelvis, muslo o columna vertebral: no muevas al niño y avisa al 112. La AEP indica limitarse a vigilar la respiración y la circulación.',
+        'Dolor que aumenta al mover el miembro, hinchazón o deformidad, o dificultad para moverlo con normalidad: ante la sospecha de fractura, la AEP indica acudir al centro sanitario u hospital más cercano.',
+        'No intentes colocar el hueso en su sitio ni le des de comer ni de beber, por si necesita operación (AEP).',
       ]},
       { sev: 'amber', title: 'Llama al pediatra hoy', items: [
-        'Dolor moderado que persiste más de 1–2 horas sin mejoría.',
-        'Hinchazón progresiva sin deformidad.',
-        'El niño protege el miembro y no lo usa (codo de niñera — subluxación radial).',
-      ]},
-      { sev: 'green', title: 'Manejo en casa', items: [
-        'Dolor leve que mejora en minutos con hielo y reposo.',
-        'El niño usa el miembro con normalidad tras el susto inicial.',
-        'Hielo (con paño, nunca directo) 10 min, descanso, elevación.',
+        'La guía de la AEP no da criterios para golpes leves en los que no sospechas fractura. Si no estás seguro de si hay lesión, consulta con tu pediatra.',
       ]},
     ],
   },
@@ -768,20 +758,21 @@ const SYMPTOMS = [
     tags: ['quemadura','quemado','fuego','caliente','escaldadura','agua caliente'],
     levels: [
       { sev: 'red', title: 'Urgencias ahora', items: [
-        'Quemadura que afecta cara, manos, pies, genitales o articulaciones.',
-        'Quemadura > 5 cm de diámetro o que afecta más del 5 % de la superficie corporal.',
-        'Quemadura de 3.er grado: piel blanca, marrón o negra, sin dolor (pérdida de sensibilidad).',
-        'Quemadura eléctrica o química.',
-        'Cualquier quemadura en bebé menor de 1 año.',
+        'Quemadura en cara o cuello: llama siempre al 112 (riesgo para la vía aérea, AEP).',
+        'Quemadura por fuego, humo o gases, o con signos de afectación de la vía aérea: ruidos raros al respirar, cambios en la voz, dificultad para respirar, tos, pelos de la nariz o cejas chamuscados.',
+        'Quemadura profunda, extensa o que no duele (3.er grado: piel muy blanca o carbonizada): necesita siempre valoración médica (AEP).',
+        'Quemadura en zonas de especial riesgo (manos, pies, pliegues como axilas e ingles, articulaciones, genitales, palmas, plantas, boca, ojos o nariz): necesita siempre valoración médica (AEP).',
+        'Si afecta a manos, pies o pliegues, la AEP indica trasladar al niño al centro hospitalario más cercano.',
+        'Quemadura eléctrica: avisa siempre al 112/061, aunque los síntomas parezcan leves, y lleva siempre a un centro médico al niño consciente (AEP).',
+        'Si el niño está inconsciente o no respira con normalidad: llama al 112 y sigue la guía de <a href="/primeros-auxilios.html">primeros auxilios</a> (RCP).',
+        'Mientras tanto, enfría la zona con agua fría durante 10–20 minutos (en una quemadura química, mínimo 20 minutos). No rompas las ampollas ni despegues la ropa pegada a la piel (AEP).',
       ]},
       { sev: 'amber', title: 'Llama al pediatra hoy', items: [
-        'Quemadura con ampollas grandes.',
-        'Quemadura que no mejora en 48 h o muestra signos de infección.',
+        'Quemadura con ampollas (2.º grado): la AEP indica acudir a valoración en un servicio médico.',
+        'Si dudas de la gravedad, consulta al 112/061 y sigue sus instrucciones (AEP). Los más pequeños son los más vulnerables.',
       ]},
       { sev: 'green', title: 'Manejo en casa', items: [
-        'Quemadura < 3 cm, superficial (piel enrojecida sin ampolla) en niño mayor de 1 año.',
-        'Enfría la zona con agua fría corriente durante 10–20 minutos (AEP).',
-        'Cubre con apósito limpio. No revientes ampollas pequeñas.',
+        'Solo piel roja, sin ampollas (1.er grado, como una quemadura solar): crema hidratante y observación por si aparecen ampollas. Si aparecen, ya es de 2.º grado: valoración médica (AEP).',
       ]},
     ],
   },
