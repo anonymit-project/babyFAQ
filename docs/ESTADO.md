@@ -1,6 +1,6 @@
 # Estado actual — babyFAQ
 
-Actualizar al terminar cada sesión. Última actualización: 2026-11-15.
+Actualizar al terminar cada sesión. Última actualización: 2026-11-16.
 
 ## Línea base real (periodo 2026-08-06 a 2026-11-03, GA4 + Search Console)
 
@@ -36,9 +36,10 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-15.
 - Auditoría parcial de cuando-urgencias (2026-11-15): sustituido el bloque de fiebre por pautas con fuente AEP; corregidas las contradicciones con `primeros-auxilios` (chichón blando, atragantamiento, observación 24–48 h, quemadura 10–20 min, lactante <1 año con golpe en la cabeza); retirada la atribución a AEP/SNS de la meta og:description. Sigue «pendiente»: el resto de síntomas no tiene fuente.
 - dosis-fiebre, D6 (2026-11-15): ibuprofeno sin cálculo por debajo de 6 meses (AEP «Lactante febril» frente a la ficha de Dalsy, que lo admite desde 3 meses); motivo visible con ambas fuentes, test actualizado, fuente AEP añadida al inventario y a la página, revisión 15-nov. Corregido también el test de `fiebre` que fallaba por mayúsculas (CSS). Pendiente de checks en verde y de tu aprobación (D6a–D6b en `09`).
 - dosis-fiebre, opción C de edad y peso (2026-11-15): rango OMS (menor P3 – mayor P97 de niñas y niños) junto al peso, aviso si los kg quedan fuera sin bloquear el cálculo y botón «Usar peso medio para esta edad» (menor P50) con aviso en las dos tarjetas de dosis; tablas OMS 2006 de peso para la edad (2 PDF, verificación manual; P3, P50 y P97 cruzados con L, M y S); solo hasta 60 meses (el selector sigue en 0–180); 2 fuentes nuevas en el inventario y en la página; 7 tests nuevos. Pendiente de checks en verde y de tu aprobación (D7a–D7c en `09`).
+- Auditoría parcial de cuando-urgencias, traumatismos y quemaduras (2026-11-16): golpe en la cabeza, golpe en extremidades y quemaduras contrastados con el capítulo de primeros auxilios de la AEP (PDF, verificación manual; 24 citas en el inventario). Retirado lo sin respaldo (fontanela, nuca, más de 2 vómitos, 1–1,5 m, codo de niñera, tamaños de quemadura, «menor de 1 año»); reincorporadas con fuente las zonas de riesgo de quemaduras (D5e resuelto como D8a); capítulo AEP enlazado en «Fuentes consultadas»; test Playwright nuevo `tests/cuando-urgencias.spec.mjs` (4 casos). Pendiente de checks en verde y de tu aprobación (D8a–D8e en `09`).
 
 ## Siguiente
-1. Auditar el resto de `cuando-urgencias` (Nivel 1) por categorías, cada una en su chat con su fuente: traumatismos y quemaduras (aquí se decide D5e), respiración, digestivo, piel, otros. Hay también atribuciones a AEP/SEUP/SNS en el texto visible que no tienen fuente.
+1. Auditar el resto de `cuando-urgencias` por categorías, cada una en su chat: respiración (atragantamiento y dificultad respiratoria con la Tabla 7 del mismo capítulo de la AEP; bronquiolitis necesita fuente nueva), ingesta de tóxicos (mismo capítulo de la AEP), digestivo, piel y otros. Al cerrar la última: quitar las portadas de «Fuentes consultadas», enlazar el protocolo AEP «Lactante febril», añadir «Última revisión» y añadir la herramienta a `DEFAULT_FILES` y a `validate-sources`. Pendiente aparte: reincorporar en `primeros-auxilios` las zonas de riesgo de quemaduras (D8a).
 2. Migrar el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
 3. Fase 4 (backlinks) en paralelo.
 
@@ -68,3 +69,7 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-15.
 - Que `validate:sources` muestre 4 avisos «!» de PDF para dosis-fiebre (guía de Aragón, protocolo AEP y las 2 tablas de la OMS) y 0 errores.
 - Que `test:e2e` vuelva a dar 58 de 58 tras el arreglo del solape (en la primera pasada falló 1: el clic en `#age-p`).
 - Revisar a ojo la caja de rango OMS y el botón: en móvil, bajo la tarjeta de edad y peso; en escritorio, encima de las dos tarjetas de dosis, con Peso y Edad apilados (D7d). Comprobar con el ratón que el «+» de edad responde.
+- D8a–D8e de `09-decisiones.md`.
+- Comprobación manual de las citas de cuando-urgencias: abrir el PDF de la AEP (enlace en `04`) y buscar cada una con Ctrl+F; el validador no lee PDF.
+- Revisar a ojo en móvil y en escritorio los tres síntomas de «Golpes»: golpe en la cabeza sin bloque ámbar, extremidades sin bloque verde y quemaduras con los tres, que se lean bien y que el enlace a primeros auxilios funcione.
+- Que `test:e2e` pase con los 4 tests nuevos de `cuando-urgencias`.
