@@ -676,7 +676,7 @@
       "estado_verificacion": "verificado",
       "notas_verificacion": "Auditoría cerrada 2026-11-15 (pendiente de aprobación del autor). Fuente única para umbrales: protocolo AEP «Lactante febril» (PDF, 2020, cubre 0–24 meses; verificación manual de las 16 citas). Un solo umbral de 38 °C (la AEP no da cifras por método); retirados selector de método, «subfebril», 37,5 °C axilar, 40,5 °C, bandas por edad >3 meses sin fuente, daño cerebral, y las portadas de AEP/AAP/OMS/Sanidad como fuentes. 3 meses se trata como menor de 3 meses (precaución). Pautas 3–24 meses solo con lo que dice la AEP (mal aspecto, ≥39 °C, >48 h). Paracetamol en <3 años solo por recomendación médica: ficha AEMPS de Apiretal. FAQPage generado idéntico al texto visible. Conflicto abierto: AEP indica paracetamol en <6 meses y dosis-fiebre calcula ibuprofeno desde 3 meses (ficha de Dalsy). Cubierto por validador de Capa 1 y tests Playwright.",
       "ultima_revision": "2026-11-15",
-      "relacionadas": ["dosis-fiebre", "cuando-urgencias", "temperatura-habitacion"],
+      "relacionadas": ["dosis-fiebre", "gencias", "temperatura-habitacion"],
       "afiliados_prioridad": false
     },
     {
@@ -715,7 +715,7 @@
       "estado_verificacion": "verificado",
       "notas_verificacion": "Auditoría cerrada 2026-11-12 (pendiente de aprobación del autor). Fuente principal: fichas técnicas AEMPS (CIMA) de Apiretal y Dalsy; guía de Aragón (PDF, verificación manual) solo para la alternancia. Paracetamol = 0,15 mL por kg a la baja a 0,1 mL (prospecto de Apiretal); coincide con la guía en las 10 filas y queda 0,1 mL por debajo de los tramos de la ficha en 10,5, 13 y 18,5 kg. Ibuprofeno = rango por toma de Dalsy (20–30 mg/kg/día en 3 tomas, ajustado hacia dentro a 0,2 mL): reproduce 31 de 32 celdas (20 y 40 mg/mL, 5–30 kg); 40 mg/mL a 5 kg da 1,0–1,2 frente a 0,8–1,2 de la ficha y se marca como estimación. Sin cálculo: paracetamol >32 kg; ibuprofeno <6 meses, <5 kg o >30 kg. 2026-11-15 (D6, pendiente de aprobación del autor): ibuprofeno sin cálculo por debajo de 6 meses por el principio 4 de 05, porque el protocolo AEP «Lactante febril» (PDF, verificación manual; la cita está en el inventario de fiebre) indica paracetamol en <6 meses y la ficha de Dalsy lo admite desde 3 meses (con prescripción previa en <2 años). Umbrales de urgencia sin fuente (<3 meses con ≥38 °C, 39,5 °C) retirados: se reincorporaron con fuente AEP en fiebre. 2026-11-15 (D7, pendiente de aprobación del autor): edad y peso (opción C) con los patrones de crecimiento de la OMS 2006, peso para la edad de 0 a 60 meses (tablas PDF, verificación manual; P3, P50 y P97 comprobados contra las columnas L, M y S de la propia tabla). Rango = menor P3 y mayor P97 de niñas y niños; botón = menor P50. Todas las cifras mostradas existen en las tablas, ninguna se interpola. Solo orienta: la dosis sigue yendo por peso. Sin rango ni botón a partir de 61 meses. Cubierto por validador de Capa 1 y tests Playwright.",
       "ultima_revision": "2026-11-15",
-      "relacionadas": ["fiebre", "cuando-urgencias", "vacunas"],
+      "relacionadas": ["fiebre", "gencias", "vacunas"],
       "afiliados_prioridad": false
     },
     {
@@ -736,8 +736,34 @@
         "AEP",
         "SEUP (urgencias pediátricas)"
       ],
-      "fuentes": [],
+      "fuentes": [
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "Es un lactante menor de 1 año." },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "alto impacto: accidente de tráfico, caída de más de 1 metro de altura" },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "Le sale sangre o un líquido claro por la nariz o el oído" },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "Dolor de cabeza o vómitos persistentes, irritabilidad" },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "vigilar la aparición de los síntomas de alarma durante las siguientes 24-48 horas" },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "ha de ser despertado un par de veces por la noche" },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "Si el chichón va a más, se hace largo o blando" },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "Acudir al centro sanitario/hospital más cercano." },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "NO alinear una posible fractura o luxación" },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "NO darle comida ni bebida, por si en el hospital necesita ser operado" },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "Pérdida de alineación del miembro." },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "Palidez, frialdad en los dedos." },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "Sospecha de lesión de cabeza, pelvis, muslos y columna vertebral." },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "La cara y el cuello son zonas especiales de riesgo inmediato" },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "manos, pies, pliegues como axilas e ingles, articulaciones y genitales" },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "plantas de manos y pies siempre necesita valoración médica" },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "habría que acudir a valoración a un servicio médico" },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "Si existen dudas: consultar a 112/061 y seguir sus instrucciones." },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "en una quemadura por sustancia química se recomienda un mínimo de 20 minutos" },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "Aplicar agua fría durante 10-20 minutos" },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "piel roja (quemadura de primer grado): crema hidratante y observación" },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "AVISAR (112/061) siempre aunque los síntomas parezcan muy leves" },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "trasladar al niño al centro hospitalario más cercano" },
+        { "fuente_organismo": "AEP (capítulo «Primeros auxilios»)", "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf", "fecha_consulta": "2026-11-16", "cita_literal_breve": "LLAMAR SIEMPRE AL 112." }
+      ],
       "estado_verificacion": "pendiente",
+      "notas_verificacion": "Auditoría parcial (2026-11-16, pendiente de aprobación del autor): categoría traumatismos y quemaduras (golpe en la cabeza, golpe en extremidades, quemaduras) contrastada con el capítulo de primeros auxilios de la AEP (PDF, verificación manual de las citas; texto leído por Claude, comprobación manual pendiente). Retirado por falta de fuente: fontanela abultada, golpe en la nuca, más de 2 vómitos, 1–1,5 m, cama en menores de 6 meses, codo de niñera, criterios de dolor de 1–2 h, tamaños de quemadura (5 cm, 5 %, 3 cm), quemadura de menos de 1 año como criterio, quemadura que no mejora en 48 h. Reincorporadas con fuente las zonas de riesgo de quemaduras. El bloque de fiebre (auditado 2026-11-15, fuente: protocolo AEP «Lactante febril») aún no está registrado aquí. Siguen sin fuente: respiración, digestivo, piel y otros. Se pasará a «verificado» y se añadirá al validador al cerrar la última categoría.",
       "ultima_revision": null,
       "relacionadas": [
         "fiebre",
