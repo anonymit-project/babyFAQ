@@ -106,3 +106,46 @@ test('ingesta de tóxicos: Toxicología, síntomas y no provocar el vómito seg�
   expect(await niv(page, 'amber')).toBe(1);
   expect(await niv(page, 'green')).toBe(1);
 });
+
+const AEP_DESHIDRATACION = 'https://static.aeped.es/17_deshidratacion_1a2da41a4c.pdf';
+const AEP_ABDOMEN = 'https://static.aeped.es/16_abdomen_agudo_52075d0563.pdf';
+
+test('vómitos: bilis, shock y signos de alarma de deshidratación, 5 ml cada 2–5 min y lactancia según la AEP; sin cifras retiradas', async ({ page }) => {
+  await open(page);
+  expect(await page.locator(`a[href="${AEP_DESHIDRATACION}"]`).count()).toBe(1);
+  const t = await ficha(page, 'vómitos');
+  for (const s of ['Vómitos biliosos (de color verde), progresivos, abundantes y frecuentes', 'patología orgánica importante', 'piel pálida o moteada',
+    'El shock descompensado es una urgencia vital', 'ausencia de lágrimas', 'fontanela hundida en los lactantes', 'pérdida de turgencia de la piel',
+    'Vómitos persistentes tras un golpe en la cabeza', 'vómitos incoercibles', 'contraindicación relativa', 'no da cifras de número de vómitos',
+    'deshidratación leve no detectable clínicamente', '5 ml de solución de rehidratación oral cada 2–5 minutos', 'no debe interrumpirse',
+    'nunca debe diluirse', 'ni para preparar biberones']) expect(t, s).toContain(s);
+  expect(t).not.toMatch(/estenosis|pilórica|proyectivos|8–10|más de 6 vómitos|4–6 horas|3–4 vómitos|espera 30|5–10 ml|zumos|refrescos|de farmacia|no es urgente/);
+  expect(await niv(page, 'red')).toBe(1);
+  expect(await niv(page, 'amber')).toBe(1);
+  expect(await niv(page, 'green')).toBe(1);
+});
+
+test('diarrea: remite a deshidratación, sangre y menores de 3 meses según la AEP; sin cifras retiradas', async ({ page }) => {
+  await open(page);
+  const t = await ficha(page, 'diarrea');
+  for (const s of ['ficha «Vómitos»', 'Fiebre con mal aspecto', 'mermelada de grosella', 'ficha «Dolor abdominal»', 'recoger un coprocultivo', 'moco y heces',
+    'Menor de 3 meses', 'análisis de sangre', 'una apendicitis', 'no da cifras de número de deposiciones', 'dieta normal para la edad',
+    'azúcares de absorción rápida', 'reposo intestinal', 'salvo vómitos reiterados', 'ni diluyas la leche de fórmula']) expect(t, s).toContain(s);
+  expect(t).not.toMatch(/8–10|más de 8|5–7 días|4–5 deposiciones|menor de 2 meses|menor de 6 meses|no es obligatoria|acorta|sangre abundante/);
+  expect(await niv(page, 'red')).toBe(1);
+  expect(await niv(page, 'amber')).toBe(1);
+  expect(await niv(page, 'green')).toBe(1);
+});
+
+test('dolor abdominal: abdomen agudo, apendicitis, invaginación y traumatismo según la AEP; sin verde ni cifras retiradas', async ({ page }) => {
+  await open(page);
+  expect(await page.locator(`a[href="${AEP_ABDOMEN}"]`).count()).toBe(1);
+  const t = await ficha(page, 'dolor abdominal');
+  for (const s of ['48–72 horas', 'abdomen agudo', 'más de 6 horas', 'localizado y fijo', 'causa quirúrgica', 'toser, saltar', 'menores de 5 años',
+    'mermelada de grosella', '15–20 %', 'letargia, hipotonía', 'muy sugestivos de lesión intraabdominal', 'vómitos biliosos',
+    'obstrucción y la invaginación intestinal', 'no da criterios para manejar el dolor abdominal en casa']) expect(t, s).toContain(s);
+  expect(t).not.toMatch(/1–2 horas|muy duro|30–60|encoge|horas fijas|recurrente|Gases con/);
+  expect(await niv(page, 'red')).toBe(1);
+  expect(await niv(page, 'amber')).toBe(1);
+  expect(await niv(page, 'green')).toBe(0);
+});
