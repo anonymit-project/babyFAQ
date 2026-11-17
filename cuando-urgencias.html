@@ -509,7 +509,8 @@
     <h3>📚 Fuentes consultadas</h3>
     <ul class="fuentes-list">
       <li>📖 <a href="https://www.aeped.es" target="_blank" rel="noopener">Asociación Española de Pediatría (AEP)</a> — Protocolos de urgencias pediátricas</li>
-      <li>📖 <a href="https://static.aeped.es/capitulo_5_0_b962064ae5.pdf" target="_blank" rel="noopener">AEP, capítulo «Primeros auxilios»</a> — Traumatismo craneal, fracturas, quemaduras y electrocución</li>
+      <li>📖 <a href="https://static.aeped.es/capitulo_5_0_b962064ae5.pdf" target="_blank" rel="noopener">AEP, capítulo «Primeros auxilios»</a> — Traumatismo craneal, fracturas, quemaduras, electrocución, atragantamiento, dificultad para respirar e intoxicaciones</li>
+      <li>📖 <a href="https://static.aeped.es/25_intoxicaciones_9c258fb7c6.pdf" target="_blank" rel="noopener">AEP/SEUP, protocolo «Intoxicaciones»</a> — Riesgo, descontaminación de piel y ojos y sustancias mínimamente tóxicas</li>
       <li>📖 <a href="https://www.mscbs.gob.es" target="_blank" rel="noopener">Ministerio de Sanidad de España (SNS)</a> — Guías de atención pediátrica en urgencias</li>
       <li>📖 <a href="https://www.seup.org" target="_blank" rel="noopener">Sociedad Española de Urgencias de Pediatría (SEUP)</a> — Criterios de triaje pediátrico</li>
       <li>📖 <a href="https://www.aap.org" target="_blank" rel="noopener">American Academy of Pediatrics (AAP)</a> — When to call the doctor: pediatric emergency guidance</li>
@@ -598,7 +599,7 @@ const SYMPTOMS = [
         'Si no responde y no respira con normalidad: llama al 112 y sigue la guía de <a href="/primeros-auxilios.html">primeros auxilios</a> (RCP).',
       ]},
       { sev: 'amber', title: 'Llama al pediatra hoy', items: [
-        'El capítulo de la AEP solo recoge signos de alarma, no criterios para una dificultad leve. Si no estás seguro de si respira bien, consulta con tu pediatra.',
+        'El capítulo de la AEP solo recoge signos de alarma y no da criterios para una dificultad leve. Si no estás seguro de si respira bien, consulta con tu pediatra.',
       ]},
     ],
   },
@@ -901,21 +902,23 @@ const SYMPTOMS = [
   },
   {
     cat: 'otros', emoji: '🧪', name: 'Ingesta de tóxicos',
-    tags: ['veneno','tóxico','toxico','medicamento','pastilla','pila','planta','producto limpieza','lejia','lejía'],
+    tags: ['veneno','tóxico','toxico','medicamento','pastilla','planta','producto limpieza','lejia','lejía'],
     levels: [
       { sev: 'red', title: 'Urgencias ahora', items: [
-        'Llama al Servicio de Información Toxicológica: 91 562 04 20 (24 h, 365 días).',
-        'Si el niño está inconsciente, no respira con normalidad o convulsiona: llama al 112.',
-        'Ingesta de pila de botón (especialmente redonda): urgencias inmediatas — puede perforar el esófago.',
-        'No induzcas el vómito salvo que el toxicólogo lo indique explícitamente.',
+        'Si el niño está inconsciente o no respira con normalidad: llama al 112 y sigue la guía de <a href="/primeros-auxilios.html">primeros auxilios</a> (RCP). La AEP indica abrir la vía aérea y, si respira, ponerlo en posición de seguridad.',
+        'Si tiene síntomas tras la posible ingesta, la AEP indica llevarlo a un centro sanitario cuanto antes y vigilar su nivel de consciencia. Entre los síntomas que recoge: vómitos continuos, dolor abdominal o diarrea; mucho sueño, dificultad para despertarlo o comportamiento anormal; dificultad para respirar o respiración muy rápida o muy lenta; convulsiones; movimientos descoordinados o dificultad para caminar; alucinaciones; palpitaciones; color azulado de labios o uñas; dolor de cabeza; babeo y dolor en la boca o la garganta.',
       ]},
-      { sev: 'amber', title: 'Llama al pediatra hoy', items: [
-        'Ingesta de planta desconocida aunque el niño esté bien.',
-        'Ingesta de pequeña cantidad de medicamento que no le corresponde.',
+      { sev: 'amber', title: 'Llama a Toxicología o al 112', items: [
+        'Si crees que ha tomado o ha tocado un tóxico, aunque esté bien, llama al Instituto Nacional de Toxicología (91 562 04 20) o al 112 y sigue sus indicaciones (AEP). Con medicamentos y plantas, la AEP señala que al principio lo habitual es que no haya síntomas: aparecen en las horas siguientes.',
+        'Llama también si no sabes qué ha tomado o cuánto: la SEUP considera de riesgo al niño que ha ingerido una sustancia que no se puede identificar o a dosis desconocida. Algunas sustancias pueden ser graves en un niño incluso a dosis pequeñas (SEUP).',
+        'Ten a mano la edad y el peso del niño, el nombre completo del producto (mejor con el envase), la cantidad máxima que pudo tomar, el tiempo transcurrido, si ha vomitado y qué se le ha dado (AEP). Si es una planta, intenta identificarla y saber si comió hojas, flores o semillas.',
+        'Mientras tanto: retírale de las manos y de la boca los restos del producto (mirándole la boca), no lo dejes solo, vigílalo en todo momento y no intentes provocar el vómito (AEP).',
+        'Si el contacto ha sido por la piel o los ojos: lava con agua abundante durante 15 minutos (SEUP). Si es piel con un insecticida o similar, quita la ropa y lava con agua y jabón, con guantes para protegerte (AEP).',
+        'Lleva al centro sanitario los envases o los restos de planta implicados (AEP).',
       ]},
       { sev: 'green', title: 'Manejo en casa', items: [
-        'Consulta siempre con toxicología antes de decidir que "no pasa nada".',
-        'Ten el número de toxicología guardado en el móvil: 91 562 04 20.',
+        'La AEP señala que en muchas ocasiones el producto ingerido no es tóxico, por ejemplo muchos tipos de pinturas y rotuladores de uso infantil, plastilinas, tizas, jabones de higiene personal, maquillaje o el agua del retrete. La SEUP añade que son mínimamente tóxicos salvo ingesta de gran cantidad, paso a la vía respiratoria o alergia. Si no estás seguro del producto, llama a Toxicología.',
+        'Ten el teléfono de Toxicología (91 562 04 20) a la vista junto al teléfono de casa o guardado en una tecla del móvil (AEP).',
       ]},
     ],
   },
