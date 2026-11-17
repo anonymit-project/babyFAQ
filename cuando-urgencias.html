@@ -516,6 +516,9 @@
       <li>📖 <a href="https://www.aap.org" target="_blank" rel="noopener">American Academy of Pediatrics (AAP)</a> — When to call the doctor: pediatric emergency guidance</li>
       <li>📖 <a href="https://static.aeped.es/17_deshidratacion_1a2da41a4c.pdf" target="_blank" rel="noopener">AEP/SEUP, protocolo «Deshidratación aguda»</a> — Signos de deshidratación y rehidratación oral en la gastroenteritis</li>
       <li>📖 <a href="https://static.aeped.es/16_abdomen_agudo_52075d0563.pdf" target="_blank" rel="noopener">AEP/SEUP, protocolo «Dolor abdominal agudo (abdomen agudo)»</a> — Signos de alarma, apendicitis, invaginación y gastroenteritis</li>
+      <li>📖 <a href="https://static.aeped.es/12_sepsis_26c79d4497.pdf" target="_blank" rel="noopener">AEP, protocolo «Sepsis»</a> — Sospecha clínica, signos de mala circulación y exantema petequial</li>
+      <li>📖 <a href="https://static.aeped.es/07_anafilaxia_1d42a6f8fc.pdf" target="_blank" rel="noopener">AEP, protocolo «Anafilaxia en Urgencias»</a> — Criterios, signos, adrenalina y observación</li>
+      <li>📖 <a href="https://static.aeped.es/24_mordeduras_picaduras_407bef8de5.pdf" target="_blank" rel="noopener">AEP, protocolo «Mordeduras y picaduras de animales»</a> — Picaduras de abeja y avispa</li>
     </ul>
   </div>
 
@@ -774,20 +777,15 @@ const SYMPTOMS = [
     cat: 'piel', emoji: '🔴', name: 'Manchas en la piel con fiebre',
     tags: ['manchas','sarpullido','erupcion','erupción','puntitos','petequias','meningitis','morados'],
     levels: [
-      { sev: 'red', title: 'Urgencias ahora — prueba del vaso', items: [
-        'Manchas rojas o moradas que NO desaparecen al presionar con un vaso transparente: urgencias inmediatas (posible meningococcemia).',
-        'No esperes a que "salgan más" — cada minuto importa.',
-        'Manchas que crecen rápidamente o se juntan.',
+      { sev: 'red', title: 'Urgencias ahora', items: [
+        'Fiebre con petequias o púrpura (puntitos o manchas rojas o moradas en la piel): la AEP señala que pueden orientar a N. meningitidis (meningococo) como causa de la sepsis.',
+        'No esperes a ver cómo evoluciona: la AEP indica que un retraso en el diagnóstico de la sepsis se relaciona con un peor pronóstico.',
+        'Fiebre con mal aspecto o con signos de mala circulación: la AEP indica sospechar una sepsis en todo niño con fiebre y alteración del aspecto o de la circulación. Entre los signos que recoge: extremidades frías o moteadas, coloración pálida-sucia de la piel, respiración muy rápida, muy lenta o con pausas, y estado mental alterado.',
+        'La AEP señala que al principio los signos son más sutiles cuanto menor es el niño y que, si el proceso es de corta evolución, puede tener buen aspecto al principio.',
+        'Mira también las fichas de fiebre según la edad.',
       ]},
-      { sev: 'amber', title: 'Llama al pediatra hoy', items: [
-        'Sarpullido generalizado con fiebre de causa desconocida.',
-        'Manchas que desaparecen al presionar pero acompañadas de mal estado general.',
-        'Erupción que aparece después de empezar un antibiótico u otro medicamento.',
-      ]},
-      { sev: 'green', title: 'Manejo en casa', items: [
-        'Sarpullido rosado que aparece al bajar la fiebre (roseola): normal, no requiere consulta urgente.',
-        'Urticaria leve sin dificultad para respirar: antihistamínico y observación.',
-        'Eczema habitual sin sobreinfección.',
+      { sev: 'amber', title: 'Consulta con tu pediatra', items: [
+        'Sarpullido con fiebre, sin petequias ni púrpura y sin ninguno de los signos anteriores: el protocolo de sepsis de la AEP no da criterios para este caso. El protocolo tampoco describe cómo distinguir las petequias de otro sarpullido en casa: si dudas, consulta con tu pediatra.',
       ]},
     ],
   },
@@ -796,19 +794,24 @@ const SYMPTOMS = [
     tags: ['alergia','alergica','alérgica','picadura','hinchazón','anafilaxia','picor','ronchas'],
     levels: [
       { sev: 'red', title: 'Urgencias ahora', items: [
-        'Dificultad para respirar, voz ronca o dificultad para tragar tras exposición a alérgeno.',
-        'Hinchazón de labios, lengua o garganta.',
-        'Palidez, decaimiento o pérdida de conocimiento.',
-        'Si tienes adrenalina autoinyectable prescrita: úsala y llama al 112.',
+        'Si tras exponerse a un posible alérgeno (alimento, picadura de insecto o medicamento) aparece de forma rápida una afectación de la piel o las mucosas junto con síntomas respiratorios o circulatorios, la AEP lo recoge como criterio de anafilaxia, una reacción alérgica grave y de inicio rápido.',
+        'Piel o mucosas: urticaria generalizada, picor, enrojecimiento, hinchazón de labios, úvula o lengua.',
+        'Respiratorios: dificultad para respirar, silbidos (sibilancias), opresión en el pecho o en la garganta, tos o parada respiratoria. Mira también la ficha «Dificultad para respirar».',
+        'Circulatorios y generales: mareo, palidez, desmayo, flacidez o menos alerta.',
+        'Digestivos: vómitos, dolor abdominal o cólico persistentes. La AEP también recoge como criterio dos o más de estos grupos de síntomas tras la exposición a un alérgeno (por ejemplo, piel y digestivos persistentes).',
+        'Si tiene un autoinyector de adrenalina prescrito, úsalo y llama al 112: la AEP indica que la adrenalina nunca debe retrasarse ante la sospecha de anafilaxia. Los antihistamínicos y los corticoides no la sustituyen ni deben retrasarla.',
+        'Si no responde y no respira con normalidad: llama al 112 y sigue la guía de <a href="/primeros-auxilios.html">primeros auxilios</a> (RCP).',
+        'La anafilaxia puede darse sin lesiones en la piel y es más difícil de reconocer en lactantes; los criterios son útiles, pero no reemplazan al juicio clínico (AEP).',
+        'Tras una picadura de abeja o avispa, los síntomas aparecen muy rápido y dependen de la hipersensibilidad, no de la cantidad de veneno (AEP).',
+        'Aunque los síntomas se controlen, la AEP indica observación hospitalaria de al menos 6 horas, porque pueden reaparecer (reacción bifásica: la mayoría en las primeras 6–8 horas y descrita hasta 24 horas después).',
       ]},
-      { sev: 'amber', title: 'Llama al pediatra hoy', items: [
-        'Urticaria generalizada (ronchas por todo el cuerpo) aunque sin dificultad respiratoria.',
-        'Primera reacción alérgica a un alimento nuevo.',
-        'Hinchazón local importante tras picadura de insecto.',
+      { sev: 'amber', title: 'Consulta con tu pediatra', items: [
+        'Urticaria, picor o hinchazón local (también tras una picadura) sin ninguno de los síntomas anteriores: los protocolos de la AEP consultados (anafilaxia y mordeduras y picaduras) no dan criterios para estos casos. Si dudas, consulta con tu pediatra.',
+        'Si ya ha habido una anafilaxia: la AEP indica informar de qué alérgeno se sospecha, disponer de autoinyectores de adrenalina con entrenamiento en su uso y derivar a Alergología Infantil para un estudio completo.',
       ]},
       { sev: 'green', title: 'Manejo en casa', items: [
-        'Picadura de insecto con picor y enrojecimiento local leve: frío local y crema de hidrocortisona.',
-        'Urticaria leve conocida sin síntomas sistémicos: antihistamínico oral.',
+        'Picadura de abeja o avispa con solo reacción local (dolor en la zona y una mácula-pápula, es decir, una mancha elevada, según la AEP): si es de abeja, retira el aguijón (AEP).',
+        'La AEP no da más pautas para casa. Si aparece alguno de los síntomas de la lista roja, sigue ese apartado.',
       ]},
     ],
   },
