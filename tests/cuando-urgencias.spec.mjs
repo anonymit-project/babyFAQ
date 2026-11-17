@@ -91,3 +91,18 @@ test('atragantamiento: criterios de la AEP y sin urgencias sin respaldo tras exp
   expect(await niv(page, 'amber')).toBe(1);
   expect(await niv(page, 'green')).toBe(0);
 });
+
+const SEUP = 'https://static.aeped.es/25_intoxicaciones_9c258fb7c6.pdf';
+
+test('ingesta de tóxicos: Toxicología, síntomas y no provocar el vómito según la AEP y la SEUP; sin textos retirados', async ({ page }) => {
+  await open(page);
+  expect(await page.locator(`a[href="${SEUP}"]`).count()).toBe(1);
+  const t = await ficha(page, 'ingesta de tóxicos');
+  for (const s of ['inconsciente o no respira con normalidad', 'posición de seguridad', 'centro sanitario cuanto antes', 'vómitos continuos',
+    'babeo y dolor en la boca', '91 562 04 20', 'aunque esté bien', 'no se puede identificar', 'no intentes provocar el vómito',
+    'agua abundante durante 15 minutos', 'envases', 'agua del retrete', 'gran cantidad', 'a la vista junto al teléfono']) expect(t, s).toContain(s);
+  expect(t).not.toMatch(/pila|24 h|365|no pasa nada|salvo que el toxicólogo|perfora/i);
+  expect(await niv(page, 'red')).toBe(1);
+  expect(await niv(page, 'amber')).toBe(1);
+  expect(await niv(page, 'green')).toBe(1);
+});
