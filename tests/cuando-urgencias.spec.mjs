@@ -56,3 +56,38 @@ test('página: enlaza el capítulo de la AEP una sola vez', async ({ page }) => 
   await open(page);
   expect(await page.locator(`a[href="${AEP}"]`).count()).toBe(1);
 });
+
+
+test('dificultad para respirar: signos de alarma de la AEP, sin cifras ni posturas sin fuente', async ({ page }) => {
+  await open(page);
+  const t = await ficha(page, 'dificultad para respirar');
+  for (const s of ['avisar al 112', 'le duele el pecho', 'se le hunden los espacios entre las costillas', 'por encima del esternón',
+    'cabeceo al respirar', 'tono azulado o grisáceo de los labios', 'silbidos al entrar o salir el aire', 'miedo a ahogarse',
+    'primeros auxilios', 'no da criterios para una dificultad leve']) expect(t, s).toContain(s);
+  expect(t).not.toMatch(/> ?60|> ?40|trípode|estridor|tos perruna|aspira los mocos|asma diagnosticada/);
+  expect(await niv(page, 'red')).toBe(1);
+  expect(await niv(page, 'amber')).toBe(1);
+  expect(await niv(page, 'green')).toBe(0);
+});
+
+test('bronquiolitis: criterios de ingreso del protocolo de la AEP, sin pautas sin respaldo', async ({ page }) => {
+  await open(page);
+  const t = await ficha(page, 'bronquiolitis');
+  for (const s of ['considerar el ingreso hospitalario', 'más de 70 respiraciones por minuto', 'Apnea', 'menores de 2 meses', 'Letargia',
+    'menos del 50 %', 'menos de 32 semanas', 'más probabilidades de ingreso y de peor evolución', 'no da criterios para los casos leves']) expect(t, s).toContain(s);
+  expect(t).not.toMatch(/días 3–5|posición incorporada|lavados nasales|no puede coordinar|rechazo total/i);
+  expect(await niv(page, 'red')).toBe(1);
+  expect(await niv(page, 'amber')).toBe(1);
+  expect(await niv(page, 'green')).toBe(0);
+});
+
+test('atragantamiento: criterios de la AEP y sin urgencias sin respaldo tras expulsar el objeto', async ({ page }) => {
+  await open(page);
+  const t = await ficha(page, 'atragantamiento');
+  for (const s of ['anímale a toser', 'ni sacarle el objeto de la boca a ciegas', 'la tos es ineficaz', 'casi no se oye', 'está morado',
+    'ha perdido el conocimiento', 'no indica qué hacer cuando el objeto sale']) expect(t, s).toContain(s);
+  expect(t).not.toMatch(/aunque el objeto salga|ve a urgencias para descartar/);
+  expect(await niv(page, 'red')).toBe(1);
+  expect(await niv(page, 'amber')).toBe(1);
+  expect(await niv(page, 'green')).toBe(0);
+});
