@@ -149,3 +149,38 @@ test('dolor abdominal: abdomen agudo, apendicitis, invaginación y traumatismo s
   expect(await niv(page, 'amber')).toBe(1);
   expect(await niv(page, 'green')).toBe(0);
 });
+
+
+const AEP_ANAFILAXIA = 'https://static.aeped.es/07_anafilaxia_1d42a6f8fc.pdf';
+const AEP_SEPSIS = 'https://static.aeped.es/12_sepsis_26c79d4497.pdf';
+const AEP_PICADURAS = 'https://static.aeped.es/24_mordeduras_picaduras_407bef8de5.pdf';
+
+test('manchas en la piel con fiebre: petequias, sepsis y signos de mala circulación según la AEP; sin prueba del vaso ni verde', async ({ page }) => {
+  await open(page);
+  expect(await page.locator(`a[href="${AEP_SEPSIS}"]`).count()).toBe(1);
+  const t = await ficha(page, 'manchas en la piel con fiebre');
+  for (const s of ['Fiebre con petequias o púrpura', 'N. meningitidis (meningococo)', 'No esperes a ver cómo evoluciona', 'un peor pronóstico',
+    'extremidades frías o moteadas', 'coloración pálida-sucia de la piel', 'muy lenta o con pausas', 'estado mental alterado',
+    'más sutiles cuanto menor es el niño', 'corta evolución', 'fichas de fiebre según la edad', 'no da criterios para este caso',
+    'tampoco describe cómo distinguir las petequias']) expect(t, s).toContain(s);
+  expect(t).not.toMatch(/vaso|meningococcemia|roseola|crecen|se juntan|eczema|antibiótico|no requiere consulta/i);
+  expect(await niv(page, 'red')).toBe(1);
+  expect(await niv(page, 'amber')).toBe(1);
+  expect(await niv(page, 'green')).toBe(0);
+});
+
+test('reacción alérgica: criterios de anafilaxia, adrenalina sin retraso y observación según la AEP; sin pautas retiradas', async ({ page }) => {
+  await open(page);
+  expect(await page.locator(`a[href="${AEP_ANAFILAXIA}"]`).count()).toBe(1);
+  expect(await page.locator(`a[href="${AEP_PICADURAS}"]`).count()).toBe(1);
+  const t = await ficha(page, 'reacción alérgica');
+  for (const s of ['afectación de la piel o las mucosas', 'criterio de anafilaxia', 'urticaria generalizada', 'hinchazón de labios, úvula o lengua',
+    'silbidos (sibilancias)', 'opresión en el pecho o en la garganta', 'ficha «Dificultad para respirar»', 'mareo, palidez, desmayo, flacidez o menos alerta',
+    'dos o más de estos grupos de síntomas', 'autoinyector de adrenalina prescrito', 'úsalo y llama al 112', 'nunca debe retrasarse', 'ni deben retrasarla',
+    'primeros auxilios', 'sin lesiones en la piel', 'no reemplazan al juicio clínico', 'aparecen muy rápido', 'al menos 6 horas', 'primeras 6–8 horas',
+    'no dan criterios para estos casos', 'Alergología Infantil', 'retira el aguijón', 'no da más pautas para casa']) expect(t, s).toContain(s);
+  expect(t).not.toMatch(/hidrocortisona|frío local|antihistamínico oral|alimento nuevo|voz ronca|tragar|pérdida de conocimiento|mg\/kg|roseola/i);
+  expect(await niv(page, 'red')).toBe(1);
+  expect(await niv(page, 'amber')).toBe(1);
+  expect(await niv(page, 'green')).toBe(1);
+});
