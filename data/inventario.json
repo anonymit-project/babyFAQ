@@ -676,7 +676,7 @@
       "estado_verificacion": "verificado",
       "notas_verificacion": "Auditoría cerrada 2026-11-15 (pendiente de aprobación del autor). Fuente única para umbrales: protocolo AEP «Lactante febril» (PDF, 2020, cubre 0–24 meses; verificación manual de las 16 citas). Un solo umbral de 38 °C (la AEP no da cifras por método); retirados selector de método, «subfebril», 37,5 °C axilar, 40,5 °C, bandas por edad >3 meses sin fuente, daño cerebral, y las portadas de AEP/AAP/OMS/Sanidad como fuentes. 3 meses se trata como menor de 3 meses (precaución). Pautas 3–24 meses solo con lo que dice la AEP (mal aspecto, ≥39 °C, >48 h). Paracetamol en <3 años solo por recomendación médica: ficha AEMPS de Apiretal. FAQPage generado idéntico al texto visible. Conflicto abierto: AEP indica paracetamol en <6 meses y dosis-fiebre calcula ibuprofeno desde 3 meses (ficha de Dalsy). Cubierto por validador de Capa 1 y tests Playwright.",
       "ultima_revision": "2026-11-15",
-      "relacionadas": ["dosis-fiebre", "gencias", "temperatura-habitacion"],
+      "relacionadas": ["dosis-fiebre", "cuando-urgencias", "temperatura-habitacion"],
       "afiliados_prioridad": false
     },
     {
@@ -715,7 +715,7 @@
       "estado_verificacion": "verificado",
       "notas_verificacion": "Auditoría cerrada 2026-11-12 (pendiente de aprobación del autor). Fuente principal: fichas técnicas AEMPS (CIMA) de Apiretal y Dalsy; guía de Aragón (PDF, verificación manual) solo para la alternancia. Paracetamol = 0,15 mL por kg a la baja a 0,1 mL (prospecto de Apiretal); coincide con la guía en las 10 filas y queda 0,1 mL por debajo de los tramos de la ficha en 10,5, 13 y 18,5 kg. Ibuprofeno = rango por toma de Dalsy (20–30 mg/kg/día en 3 tomas, ajustado hacia dentro a 0,2 mL): reproduce 31 de 32 celdas (20 y 40 mg/mL, 5–30 kg); 40 mg/mL a 5 kg da 1,0–1,2 frente a 0,8–1,2 de la ficha y se marca como estimación. Sin cálculo: paracetamol >32 kg; ibuprofeno <6 meses, <5 kg o >30 kg. 2026-11-15 (D6, pendiente de aprobación del autor): ibuprofeno sin cálculo por debajo de 6 meses por el principio 4 de 05, porque el protocolo AEP «Lactante febril» (PDF, verificación manual; la cita está en el inventario de fiebre) indica paracetamol en <6 meses y la ficha de Dalsy lo admite desde 3 meses (con prescripción previa en <2 años). Umbrales de urgencia sin fuente (<3 meses con ≥38 °C, 39,5 °C) retirados: se reincorporaron con fuente AEP en fiebre. 2026-11-15 (D7, pendiente de aprobación del autor): edad y peso (opción C) con los patrones de crecimiento de la OMS 2006, peso para la edad de 0 a 60 meses (tablas PDF, verificación manual; P3, P50 y P97 comprobados contra las columnas L, M y S de la propia tabla). Rango = menor P3 y mayor P97 de niñas y niños; botón = menor P50. Todas las cifras mostradas existen en las tablas, ninguna se interpola. Solo orienta: la dosis sigue yendo por peso. Sin rango ni botón a partir de 61 meses. Cubierto por validador de Capa 1 y tests Playwright.",
       "ultima_revision": "2026-11-15",
-      "relacionadas": ["fiebre", "gencias", "vacunas"],
+      "relacionadas": ["fiebre", "cuando-urgencias", "vacunas"],
       "afiliados_prioridad": false
     },
     {
