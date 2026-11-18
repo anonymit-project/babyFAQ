@@ -69,6 +69,8 @@ Acciones posibles: SUSTITUIR LÍNEA, SUSTITUIR BLOQUE, INSERTAR DESPUÉS DE, INS
 ## Protocolo de sesión (un chat por tarea)
 - **Inicio:** leer ESTADO, resumir en 3 líneas dónde estamos, proponer la tarea siguiente y listar los ficheros que hay que adjuntar. Si el chat se abre con un prompt de relevo, usarlo como punto de partida y no volver a explicar el contexto.
 - **Cierre:** entregar `ESTADO.md` actualizado y, si hubo decisiones, la línea para `09-decisiones.md`; recordar el commit; y terminar con el bloque "Prompt para el siguiente chat" (tarea, contexto mínimo, ficheros a adjuntar, restricciones). Cada tarea se hace en su propio chat.
+- **Decisiones:** cada decisión del autor se plantea como una pregunta con 2–3 opciones, la recomendada marcada y sus pros y contras; el autor responde y se avanza. La línea de `09-decisiones.md` recoge la opción elegida.
+- **Ficheros al día:** el conocimiento del proyecto puede ir por detrás de GitHub. Si el fichero sincronizado no incluye lo último de `ESTADO.md` o `09`, Claude lo dice y pide el fichero actual antes de escribir fichas.
 - PROTOCOLO DE ACTUALIZACIÓN (al cerrar cada tarea, sin que te lo pida)
 Revisa esta tabla y entrega solo lo que cambie, indicando la ruta del fichero:
 
