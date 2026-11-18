@@ -519,6 +519,8 @@
       <li>📖 <a href="https://static.aeped.es/12_sepsis_26c79d4497.pdf" target="_blank" rel="noopener">AEP, protocolo «Sepsis»</a> — Sospecha clínica, signos de mala circulación y exantema petequial</li>
       <li>📖 <a href="https://static.aeped.es/07_anafilaxia_1d42a6f8fc.pdf" target="_blank" rel="noopener">AEP, protocolo «Anafilaxia en Urgencias»</a> — Criterios, signos, adrenalina y observación</li>
       <li>📖 <a href="https://static.aeped.es/24_mordeduras_picaduras_407bef8de5.pdf" target="_blank" rel="noopener">AEP, protocolo «Mordeduras y picaduras de animales»</a> — Picaduras de abeja y avispa</li>
+      <li>📖 <a href="https://www.aeped.es/sites/default/files/documentos/6_otitis.pdf" target="_blank" rel="noopener">AEP, protocolo «Otitis media aguda y otitis externa. Mastoiditis»</a> — Signos de mastoiditis, criterios de ingreso, otorrea y otitis externa</li>
+      <li>📖 <a href="https://www.aeped.es/sites/default/files/documentos/5_sinusitis.pdf" target="_blank" rel="noopener">AEP, protocolo «Sinusitis y sus complicaciones. Celulitis preseptal y orbitaria»</a> — Celulitis preseptal y orbitaria y criterios de ingreso por complicación</li>  
     </ul>
   </div>
 
@@ -819,83 +821,69 @@ const SYMPTOMS = [
   // ── OTROS ────────────────────────────────────────────────────
   {
     cat: 'otros', emoji: '👁️', name: 'Problemas en los ojos',
-    tags: ['ojo','ojos','lagañas','conjuntivitis','rojo','legaña','hinchado'],
+    tags: ['ojo','ojos','lagañas','conjuntivitis','rojo','legaña','hinchado','párpado','párpado hinchado','celulitis'],
     levels: [
       { sev: 'red', title: 'Urgencias ahora', items: [
-        'Objeto extraño incrustado en el ojo — no intentes retirarlo.',
-        'Producto químico en los ojos: lava con agua durante 15–20 min y ve a urgencias.',
-        'Traumatismo ocular con pérdida de visión o deformidad del globo ocular.',
-        'Pupila blanca o asimétrica en un ojo.',
+        'Producto químico en los ojos: lava con agua abundante durante 15 minutos (SEUP) y llama al Instituto Nacional de Toxicología (91 562 04 20) o al 112, y sigue sus indicaciones (AEP). Mira también la ficha «Ingesta de tóxicos».',
+        'Párpado hinchado o enrojecido que tapa más de la mitad del ojo, visión doble, dificultad para mover el ojo o menos visión: la AEP los recoge entre los criterios de ingreso por sospecha de complicación de una sinusitis, como la celulitis orbitaria.',
+        'Dolor al mover el ojo u ojo que sobresale: la AEP los asocia a la celulitis orbitaria, que requiere hospitalización.',
+        'Párpado hinchado con afectación del estado general, alteración del nivel de consciencia o síntomas neurológicos: la AEP indica ingreso.',
+        'Lactante menor de 1 año con el párpado hinchado y enrojecido: la AEP indica ingreso y tratamiento intravenoso inicial en la celulitis preseptal.',
       ]},
-      { sev: 'amber', title: 'Llama al pediatra hoy', items: [
-        'Conjuntivitis con mucho pus, dolor intenso o visión borrosa.',
-        'Ojo muy rojo con fotofobia (molestia a la luz) sin causa clara.',
-        'Párpado muy hinchado y rojo con fiebre (posible celulitis preseptal).',
-      ]},
-      { sev: 'green', title: 'Manejo en casa', items: [
-        'Conjuntivitis leve con legañas: limpia con suero fisiológico de dentro hacia fuera.',
-        'Lagrimeo sin pus en bebés — el canal lagrimal puede tardar en abrirse hasta el año.',
-        'Orzuelo pequeño sin fiebre: calor local con paño templado.',
+      { sev: 'amber', title: 'Consulta con tu pediatra', items: [
+        'Párpado hinchado y enrojecido sin ninguno de los signos anteriores: la AEP indica que las celulitis preseptal y orbitaria cursan ambas con inflamación del párpado y que distinguirlas al principio puede ser complicado. Consulta con tu pediatra.',
+        'Los protocolos de la AEP consultados no dan criterios para conjuntivitis, legañas, lagrimeo, orzuelo, objeto en el ojo ni golpe en el ojo. Si dudas, consulta con tu pediatra.',
       ]},
     ],
   },
   {
     cat: 'otros', emoji: '👂', name: 'Dolor de oídos',
-    tags: ['oído','oido','oreja','otitis','dolor oído','dolor oido'],
+    tags: ['oído','oido','oreja','otitis','dolor oído','dolor oido','mastoiditis'],
     levels: [
       { sev: 'red', title: 'Urgencias ahora', items: [
-        'Dolor de oído con fiebre muy alta, cuello rígido o mal estado general.',
-        'Secreción sanguinolenta o con muy mal olor por el oído.',
-        'Hinchazón y enrojecimiento detrás de la oreja (posible mastoiditis).',
+        'Menor de 2 meses con sospecha de otitis: la AEP indica ingreso hospitalario.',
+        'Dolor de oído con dos o más de estos signos: pabellón de la oreja desplazado, enrojecimiento detrás de la oreja, hinchazón que borra el pliegue detrás de la oreja, dolor al presionar el hueso de detrás de la oreja o hinchazón fluctuante. La AEP indica sospechar una mastoiditis, que requiere ingreso hospitalario.',
+        'Mal estado general o vómitos que impiden tolerar líquidos: la AEP los recoge entre los criterios de ingreso en la otitis media aguda.',
       ]},
-      { sev: 'amber', title: 'Llama al pediatra hoy', items: [
-        'Bebé que se toca el oído repetidamente con fiebre y llanto.',
-        'Dolor de oído que no cede con paracetamol tras 2–4 horas.',
-        'Secreción amarillenta por el oído (puede indicar perforación).',
-      ]},
-      { sev: 'green', title: 'Manejo en casa', items: [
-        'Molestia leve en el oído sin fiebre ni llanto intenso: paracetamol y observación 24 h.',
-        'No introduzcas bastoncillos en el canal auditivo.',
+      { sev: 'amber', title: 'Consulta con tu pediatra', items: [
+        'Dolor de oído que sigue pasados 3 días o que empeora de forma significativa en cualquier momento: la AEP indica antibiótico en esos casos y lo decide tu pediatra.',
+        'Secreción espontánea por el oído (otorrea): la AEP la considera factor de mala evolución y recomienda antibiótico.',
+        'Menor de 6 meses, o menor de 2 años con otitis en los dos oídos: la AEP recomienda antibiótico.',
+        'La AEP considera síntomas de gravedad la afectación del estado general, el dolor de oído intenso y la fiebre ≥ 39 °C. Si hay fiebre, mira también las fichas de fiebre según la edad.',
+        'En lactantes los síntomas son inespecíficos (irritabilidad o llanto, insomnio, rechazo de tomas, vómitos, diarrea) y el diagnóstico exige otoscopia. La AEP consultada no da criterios para manejar el dolor de oído en casa: si dudas, consulta con tu pediatra.',
+        'No introduzcas bastoncillos en el canal auditivo: la AEP los cita entre los traumatismos locales que favorecen la otitis externa y recomienda evitar la limpieza enérgica del conducto.',
       ]},
     ],
   },
   {
     cat: 'otros', emoji: '😴', name: 'Dificultad para despertar / apatía',
-    tags: ['dormir mucho','no despierta','apatia','apatía','apagado','decaido','decaído','somnoliento'],
+    tags: ['dormir mucho','no despierta','apatia','apatía','apagado','decaido','decaído','somnoliento','letargia'],
     levels: [
       { sev: 'red', title: 'Urgencias ahora', items: [
-        'No responde a estímulos, no se despierta al llamarle o al tocarlo.',
-        'Está despierto pero no reacciona con normalidad — mirada perdida.',
-        'Apatía extrema con fiebre alta.',
-        'Pérdida de habilidades que ya tenía (regresión brusca).',
+        'Si no responde y no respira con normalidad: llama al 112 y sigue la guía de <a href="/primeros-auxilios.html">primeros auxilios</a> (RCP).',
+        'Alteración del nivel de consciencia: la AEP la recoge como criterio de ingreso por sospecha de complicación de una sinusitis y como signo de shock en la deshidratación (mira la ficha «Vómitos»).',
+        'Letargia (muy decaído o adormilado) en un lactante con bronquiolitis: criterio de ingreso de la AEP. Mira la ficha «Bronquiolitis».',
+        'Fiebre con estado mental alterado, extremidades frías o moteadas o coloración pálida-sucia de la piel: la AEP los recoge como signos de mala circulación en la sepsis. Mira la ficha «Manchas en la piel con fiebre» y las de fiebre según la edad.',
       ]},
-      { sev: 'amber', title: 'Llama al pediatra hoy', items: [
-        'Más dormido de lo habitual durante más de un día sin fiebre que lo justifique.',
-        'No quiere comer y está muy decaído.',
-      ]},
-      { sev: 'green', title: 'Manejo en casa', items: [
-        'El bebé duerme más cuando está enfermo con fiebre: es normal.',
-        'Se despierta con normalidad aunque luego vuelva a dormirse pronto.',
+      { sev: 'amber', title: 'Consulta con tu pediatra', items: [
+        'La AEP consultada no da criterios para una somnolencia o un decaimiento leves sin fiebre ni otros síntomas. Si está más decaído de lo habitual y no sabes por qué, consulta con tu pediatra.',
       ]},
     ],
   },
   {
     cat: 'otros', emoji: '🍼', name: 'Rechazo del alimento',
-    tags: ['no come','rechaza','pecho','biberón','biberon','come poco','no quiere comer'],
+    tags: ['no come','rechaza','pecho','biberón','biberon','come poco','no quiere comer','rechazo de tomas'],
     levels: [
       { sev: 'red', title: 'Urgencias ahora', items: [
-        'Bebé menor de 3 meses que rechaza totalmente el pecho o el biberón.',
-        'Rechazo total con signos de deshidratación: boca seca, sin lágrimas, fontanela hundida.',
-        'Rechazo con fiebre alta y mal estado general.',
+        'Signos de deshidratación (aspecto decaído, ojos hundidos, boca seca, ausencia de lágrimas, fontanela hundida en los lactantes, menos orina): mira la lista completa de la ficha «Vómitos» (AEP).',
+        'Fiebre con mal aspecto: mira las fichas de fiebre según la edad.',
+        'Lactante con bronquiolitis que toma aproximadamente menos del 50 % de lo habitual: criterio de ingreso de la AEP. Mira la ficha «Bronquiolitis».',
       ]},
-      { sev: 'amber', title: 'Llama al pediatra hoy', items: [
-        'Lleva más de 8 h sin comer nada en bebé menor de 6 meses.',
-        'Toma menos del 50 % de lo habitual durante más de 24 h con empeoramiento.',
-      ]},
-      { sev: 'green', title: 'Manejo en casa', items: [
-        'Come menos durante un episodio febril o de dentición: completamente normal.',
-        'La huelga de lactancia suele resolverse sola en 1–3 días.',
-        'Ofrece con frecuencia sin forzar — el apetito vuelve al mejorar.',
+      { sev: 'amber', title: 'Consulta con tu pediatra', items: [
+        'Vómitos que no ceden y no tolera los líquidos: mira la ficha «Vómitos».',
+        'En lactantes, el rechazo de tomas puede ser un síntoma inespecífico de otitis, junto con irritabilidad, llanto, insomnio, vómitos o diarrea (AEP). Mira la ficha «Dolor de oídos».',
+        'Si rechaza las tomas y no sabes por qué, consulta con tu pediatra: fuera de la bronquiolitis, los protocolos de la AEP consultados no dan horas sin comer ni cantidades mínimas.',
+        'En la gastroenteritis, la AEP indica que la lactancia materna no debe interrumpirse y que la leche de fórmula nunca debe diluirse.',
       ]},
     ],
   },
