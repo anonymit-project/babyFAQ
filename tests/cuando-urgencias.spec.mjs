@@ -184,3 +184,60 @@ test('reacción alérgica: criterios de anafilaxia, adrenalina sin retraso y obs
   expect(await niv(page, 'amber')).toBe(1);
   expect(await niv(page, 'green')).toBe(1);
 });
+
+
+
+const AEP_OTITIS = 'https://www.aeped.es/sites/default/files/documentos/6_otitis.pdf';
+const AEP_SINUSITIS = 'https://www.aeped.es/sites/default/files/documentos/5_sinusitis.pdf';
+
+test('problemas en los ojos: químico, celulitis orbitaria y párpado hinchado según la AEP y la SEUP; sin textos retirados ni verde', async ({ page }) => {
+  await open(page);
+  expect(await page.locator(`a[href="${AEP_SINUSITIS}"]`).count()).toBe(1);
+  const t = await ficha(page, 'problemas en los ojos');
+  for (const s of ['agua abundante durante 15 minutos', '91 562 04 20', 'ficha «Ingesta de tóxicos»', 'más de la mitad del ojo', 'visión doble',
+    'dificultad para mover el ojo', 'celulitis orbitaria', 'Dolor al mover el ojo', 'ojo que sobresale', 'alteración del nivel de consciencia',
+    'Lactante menor de 1 año', 'tratamiento intravenoso inicial', 'distinguirlas al principio puede ser complicado',
+    'no dan criterios para conjuntivitis']) expect(t, s).toContain(s);
+  expect(t).not.toMatch(/15–20|suero fisiológico|calor local|pupila|fotofobia|canal lagrimal|incrustado|mucho pus/i);
+  expect(await niv(page, 'red')).toBe(1);
+  expect(await niv(page, 'amber')).toBe(1);
+  expect(await niv(page, 'green')).toBe(0);
+});
+
+test('dolor de oídos: mastoiditis, ingreso y criterios de antibiótico según la AEP; sin paracetamol ni verde', async ({ page }) => {
+  await open(page);
+  expect(await page.locator(`a[href="${AEP_OTITIS}"]`).count()).toBe(1);
+  const t = await ficha(page, 'dolor de oídos');
+  for (const s of ['Menor de 2 meses', 'ingreso hospitalario', 'dos o más de estos signos', 'pabellón de la oreja desplazado', 'dolor al presionar el hueso',
+    'mastoiditis', 'Mal estado general', 'vómitos que impiden tolerar líquidos', 'pasados 3 días', 'Secreción espontánea', 'factor de mala evolución',
+    'menor de 2 años con otitis en los dos oídos', 'fiebre ≥ 39 °C', 'otoscopia', 'No introduzcas bastoncillos',
+    'no da criterios para manejar el dolor de oído en casa']) expect(t, s).toContain(s);
+  expect(t).not.toMatch(/paracetamol|2–4 horas|perfora|cuello rígido|sanguinolenta|mal olor|24 h/i);
+  expect(await niv(page, 'red')).toBe(1);
+  expect(await niv(page, 'amber')).toBe(1);
+  expect(await niv(page, 'green')).toBe(0);
+});
+
+test('apatía: alteración de consciencia, letargia y signos de mala circulación según la AEP; sin textos retirados ni verde', async ({ page }) => {
+  await open(page);
+  const t = await ficha(page, 'dificultad para despertar');
+  for (const s of ['no respira con normalidad', 'primeros auxilios', 'Alteración del nivel de consciencia', 'sinusitis', 'shock en la deshidratación',
+    'Letargia', 'ficha «Bronquiolitis»', 'estado mental alterado', 'extremidades frías o moteadas', 'coloración pálida-sucia',
+    'ficha «Manchas en la piel con fiebre»', 'no da criterios para una somnolencia']) expect(t, s).toContain(s);
+  expect(t).not.toMatch(/regresión|mirada perdida|más de un día|es normal|se despierta con normalidad|flácido/i);
+  expect(await niv(page, 'red')).toBe(1);
+  expect(await niv(page, 'amber')).toBe(1);
+  expect(await niv(page, 'green')).toBe(0);
+});
+
+test('rechazo del alimento: remite a deshidratación, bronquiolitis y otitis según la AEP; sin cifras retiradas ni verde', async ({ page }) => {
+  await open(page);
+  const t = await ficha(page, 'rechazo del alimento');
+  for (const s of ['Signos de deshidratación', 'lista completa de la ficha «Vómitos»', 'Fiebre con mal aspecto', 'menos del 50 % de lo habitual',
+    'ficha «Bronquiolitis»', 'síntoma inespecífico de otitis', 'ficha «Dolor de oídos»', 'fuera de la bronquiolitis', 'no debe interrumpirse',
+    'nunca debe diluirse']) expect(t, s).toContain(s);
+  expect(t).not.toMatch(/8 h|huelga|dentición|completamente normal|menor de 3 meses|24 h|1–3 días/i);
+  expect(await niv(page, 'red')).toBe(1);
+  expect(await niv(page, 'amber')).toBe(1);
+  expect(await niv(page, 'green')).toBe(0);
+});
