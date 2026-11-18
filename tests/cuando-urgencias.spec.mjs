@@ -258,3 +258,28 @@ test('cierre: fuentes sin portadas, banner con convulsión, sin plazos ni textos
   const datos = await page.evaluate(() => JSON.stringify(SYMPTOMS));
   expect(datos).not.toContain('Llama al pediatra hoy');
 });
+
+
+const AEP_CONVULSIONES = 'https://static.aeped.es/38_0_702f0d52ca.pdf';
+const AAP_CONVULSIONES = 'https://www.healthychildren.org/Spanish/health-issues/injuries-emergencies/Paginas/seizures.aspx';
+
+test('convulsión febril: pasos y criterios de llamada de la AAP, atipicidad de la AEP; sin plazos ni textos retirados', async ({ page }) => {
+  await open(page);
+  expect(await page.locator(`a[href="${AEP_CONVULSIONES}"]`).count()).toBe(1);
+  expect(await page.locator(`a[href="${AAP_CONVULSIONES}"]`).count()).toBe(1);
+  const banner = (await page.locator('.emergency-sub').innerText()).replace(/\s+/g, ' ');
+  for (const s of ['convulsión', 'más de 5 minutos', 'es la primera', '(AAP)']) expect(banner, s).toContain(s);
+  const t = await ficha(page, 'convulsión febril');
+  for (const s of ['quédate a su lado', 'póngalo de lado', 'nada en la boca', 'mide cuánto dura', 'Llama al 112', 'primera convulsión',
+    'más de 5 minutos', 'sin volver a la normalidad', 'si no se despierta', 'si ocurre en el agua', 'potencialmente mortal', 'habla del 911',
+    'menor de 6 meses', 'clasifica como atípica', 'desviación de los ojos', 'más de 15 minutos', 'parálisis de Todd', 'plantear análisis de sangre',
+    'signos meníngeos', 'fontanela abombada', 'punción lumbar', 'La AAP no fija plazo', 'dura menos de 15 minutos', 'no previenen',
+    'esté más cómodo', 'pensado para profesionales']) expect(t, s).toContain(s);
+  expect(t).not.toMatch(/hoy|valoración médica urgente|o no cede|cronometr|diazepam|midazolam|benigna|no pasa nada|es seguro/i);
+  expect(await niv(page, 'red')).toBe(1);
+  expect(await niv(page, 'amber')).toBe(1);
+  expect(await niv(page, 'green')).toBe(0);
+  const body = (await page.locator('body').innerText()).replace(/\s+/g, ' ');
+  expect(body).toContain('Última revisión: 18 de noviembre de 2026');
+  expect(body).toContain('una guía de la AAP (Estados Unidos)');
+});
