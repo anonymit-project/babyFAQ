@@ -241,3 +241,20 @@ test('rechazo del alimento: remite a deshidratación, bronquiolitis y otitis seg
   expect(await niv(page, 'amber')).toBe(1);
   expect(await niv(page, 'green')).toBe(0);
 });
+
+test('cierre: fuentes sin portadas, banner con convulsión, sin plazos ni textos retirados', async ({ page }) => {
+  await open(page);
+  const FUENTES = [
+    'https://static.aeped.es/11_lactante_febril_4b1d3aeef7.pdf',
+    'https://static.aeped.es/21_bronquiolitis_ucip_f17182eb30.pdf',
+    'https://cima.aemps.es/cima/dochtml/ft/76028/FT_76028.html',
+  ];
+  for (const u of FUENTES) expect(await page.locator(`a[href="${u}"]`).count(), u).toBe(1);
+  for (const h of ['https://www.aeped.es', 'https://www.mscbs.gob.es', 'https://www.seup.org', 'https://www.aap.org'])
+    expect(await page.locator(`a[href="${h}"]`).count(), h).toBe(0);
+  const body = (await page.locator('body').innerText()).replace(/\s+/g, ' ');
+  expect(body).not.toMatch(/sin excepciones|inmune|8–10 horas|24 h, 365|mirada perdida|muy flácido|ido de más|antes de que pase el día|Sistema Nacional de Salud|reserva de agua/);
+  expect(await page.locator('.emergency-sub').innerText()).toContain('convulsión');
+  const datos = await page.evaluate(() => JSON.stringify(SYMPTOMS));
+  expect(datos).not.toContain('Llama al pediatra hoy');
+});
