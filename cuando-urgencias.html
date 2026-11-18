@@ -400,7 +400,7 @@
     <span class="emergency-icon" aria-hidden="true">🚨</span>
     <div class="emergency-body">
       <div class="emergency-title">Emergencia vital: llama ya</div>
-      <div class="emergency-sub">Dificultad grave para respirar, convulsiones, pérdida de consciencia, labios azules</div>
+      <div class="emergency-sub">No responde y no respira con normalidad, respira con dificultad, color anormal de la piel (AEP) o convulsión</div>
     </div>
     <a href="tel:112" class="emergency-num" aria-label="Llamar al 112 - Emergencias">112</a>
   </div>
@@ -418,8 +418,8 @@
       <div class="legend-item">
         <div class="legend-dot amber" aria-hidden="true">⏰</div>
         <div class="legend-text">
-          <div class="legend-label amber">Llama al pediatra hoy</div>
-          <div class="legend-desc">Consulta antes de que pase el día</div>
+          <div class="legend-label amber">Consulta con tu pediatra</div>
+          <div class="legend-desc">Las fuentes no fijan plazo; si dudas, consulta</div>
         </div>
       </div>
       <div class="legend-item">
@@ -458,8 +458,8 @@
 
     <div class="info-section">
       <h2>Cómo usar esta <em>guía</em></h2>
-      <p>Esta herramienta es una referencia rápida basada en los criterios de triaje pediátrico de la AEP y los protocolos del Sistema Nacional de Salud. Está pensada para las situaciones más frecuentes, no para reemplazar la valoración médica de situaciones complejas o ambiguas.</p>
-      <p><strong>Confía siempre en tu instinto.</strong> Si como padre o madre sientes que algo no está bien —aunque no puedas explicar exactamente qué— es motivo suficiente para consultar. Los profesionales de urgencias nunca considerarán que has «ido de más».</p>
+      <p>Esta herramienta es una referencia rápida basada en protocolos de la AEP y de la AEP/SEUP, que tienes al final en «Fuentes consultadas». Solo recoge lo que esos documentos dicen: cuando no dan criterios para un caso, la ficha lo indica y te remite a tu pediatra. No sustituye la valoración médica de situaciones complejas o ambiguas.</p>
+      <p><strong>Si algo te preocupa, consulta.</strong> Aunque no puedas explicar exactamente qué no va bien, puedes llamar a tu pediatra o a tu centro de salud; si crees que es una emergencia, llama al 112.</p>
     </div>
 
     <div class="info-section">
@@ -478,14 +478,14 @@
 
     <div class="info-section">
       <h2>Señales de <em>alarma general</em></h2>
-      <p>Independientemente del síntoma concreto, estas señales deben llevarte siempre a urgencias:</p>
+      <p>Estas señales aparecen en varias fichas de esta guía. Si las ves, sigue la ficha que corresponda:</p>
       <ul class="alarm-list">
-        <li><span>🔴</span><span><strong>Dificultad para respirar:</strong> aleteo nasal, tiraje intercostal (hundimiento entre las costillas), respiración muy rápida o ruidos al respirar.</span></li>
-        <li><span>🔴</span><span><strong>Color pálido, grisáceo o azulado</strong> en labios, uñas o piel, especialmente alrededor de la boca.</span></li>
-        <li><span>🔴</span><span><strong>Apatía o dificultad para despertar:</strong> el bebé no responde con normalidad a estímulos, tiene mirada perdida o está muy flácido.</span></li>
-        <li><span>🔴</span><span><strong>Rechazo total del alimento</strong> en menores de 3 meses, especialmente si se acompaña de cualquier otro síntoma.</span></li>
-        <li><span>🔴</span><span><strong>Llanto inconsolable</strong> de más de 2–3 horas sin causa aparente, especialmente si es un llanto agudo e inusual.</span></li>
-        <li><span>🟡</span><span><strong>Ingesta de tóxicos:</strong> llama al Teléfono de Toxicología <strong>91 562 04 20</strong> (24 h, 365 días) antes de desplazarte, aunque el niño parezca estar bien.</span></li>
+        <li><span>🔴</span><span><strong>Dificultad para respirar o color anormal de la piel:</strong> la AEP indica avisar al 112. Entre sus signos están que se le hundan los espacios entre las costillas, los silbidos al respirar y el tono azulado o grisáceo de los labios (ficha «Dificultad para respirar»).</span></li>
+        <li><span>🔴</span><span><strong>No responde y no respira con normalidad:</strong> llama al 112 y sigue la guía de <a href="/primeros-auxilios.html">primeros auxilios</a> (RCP).</span></li>
+        <li><span>🔴</span><span><strong>Fiebre con mal aspecto o con signos de mala circulación</strong> (extremidades frías o moteadas, piel pálida-sucia, estado mental alterado): la AEP indica sospechar una sepsis. Mira «Manchas en la piel con fiebre» y las fichas de fiebre según la edad.</span></li>
+        <li><span>🔴</span><span><strong>Signos de deshidratación:</strong> mira el apartado siguiente y la ficha «Vómitos».</span></li>
+        <li><span>🟡</span><span><strong>Ingesta de tóxicos:</strong> si crees que ha tomado o tocado un tóxico, aunque esté bien, llama al Instituto Nacional de Toxicología <strong>91 562 04 20</strong> o al 112 (AEP).</span></li>
+        <li><span>🟡</span><span><strong>Llanto inconsolable, decaimiento o rechazo de las tomas sin causa clara:</strong> las fuentes consultadas no dan horas ni edades para estos casos. Mira «Dificultad para despertar / apatía» y «Rechazo del alimento»; si dudas, consulta con tu pediatra.</span></li>
       </ul>
     </div>
 
@@ -605,7 +605,7 @@ const SYMPTOMS = [
         'Estado: inquietud, ansiedad o miedo a ahogarse o a que le falte el aire.',
         'Si no responde y no respira con normalidad: llama al 112 y sigue la guía de <a href="/primeros-auxilios.html">primeros auxilios</a> (RCP).',
       ]},
-      { sev: 'amber', title: 'Llama al pediatra hoy', items: [
+      { sev: 'amber', title: 'Consulta con tu pediatra', items: [
         'El capítulo de la AEP solo recoge signos de alarma y no da criterios para una dificultad leve. Si no estás seguro de si respira bien, consulta con tu pediatra.',
       ]},
     ],
@@ -622,7 +622,7 @@ const SYMPTOMS = [
         'Dificultad para alimentarse: toma aproximadamente menos del 50 % de lo habitual.',
         'Si hay cualquier signo de alarma respiratoria, mira también la ficha «Dificultad para respirar».',
       ]},
-      { sev: 'amber', title: 'Llama al pediatra hoy', items: [
+      { sev: 'amber', title: 'Consulta con tu pediatra', items: [
         'Menor de 3 meses, prematuro (menos de 32 semanas) o con cardiopatía congénita, hipertensión pulmonar, enfermedad pulmonar crónica, inmunodeficiencia o enfermedad neuromuscular: la AEP indica que estos niños tienen más probabilidades de ingreso y de peor evolución.',
         'El protocolo de la AEP está pensado para profesionales y no da criterios para los casos leves. Si dudas, consulta con tu pediatra.',
       ]},
@@ -637,7 +637,7 @@ const SYMPTOMS = [
         'Si la tos es ineficaz o no puede hablar: llama al 112 y sigue los pasos de la guía de <a href="/primeros-auxilios.html">primeros auxilios</a> (lactante o niño).',
         'Llama también al 112 si el atragantamiento no se soluciona y no para de toser o de dar arcadas, si la dificultad para respirar no mejora, si la tos es débil o casi no se oye, si está morado o si ha perdido el conocimiento (AEP).',
       ]},
-      { sev: 'amber', title: 'Llama al pediatra hoy', items: [
+      { sev: 'amber', title: 'Consulta con tu pediatra', items: [
         'La AEP no indica qué hacer cuando el objeto sale y el niño se recupera. Si hubo dificultad real para respirar, consulta con tu pediatra.',
       ]},
     ],
@@ -745,7 +745,7 @@ const SYMPTOMS = [
         'Dolor que aumenta al mover el miembro, hinchazón o deformidad, o dificultad para moverlo con normalidad: ante la sospecha de fractura, la AEP indica acudir al centro sanitario u hospital más cercano.',
         'No intentes colocar el hueso en su sitio ni le des de comer ni de beber, por si necesita operación (AEP).',
       ]},
-      { sev: 'amber', title: 'Llama al pediatra hoy', items: [
+      { sev: 'amber', title: 'Consulta con tu pediatra', items: [
         'La guía de la AEP no da criterios para golpes leves en los que no sospechas fractura. Si no estás seguro de si hay lesión, consulta con tu pediatra.',
       ]},
     ],
@@ -764,7 +764,7 @@ const SYMPTOMS = [
         'Si el niño está inconsciente o no respira con normalidad: llama al 112 y sigue la guía de <a href="/primeros-auxilios.html">primeros auxilios</a> (RCP).',
         'Mientras tanto, enfría la zona con agua fría durante 10–20 minutos (en una quemadura química, mínimo 20 minutos). No rompas las ampollas ni despegues la ropa pegada a la piel (AEP).',
       ]},
-      { sev: 'amber', title: 'Llama al pediatra hoy', items: [
+      { sev: 'amber', title: 'Consulta con tu pediatra', items: [
         'Quemadura con ampollas (2.º grado): la AEP indica acudir a valoración en un servicio médico.',
         'Si dudas de la gravedad, consulta al 112/061 y sigue sus instrucciones (AEP). Los más pequeños son los más vulnerables.',
       ]},
