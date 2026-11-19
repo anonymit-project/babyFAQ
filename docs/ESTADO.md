@@ -1,6 +1,6 @@
 # Estado actual — babyFAQ
 
-Actualizar al terminar cada sesión. Última actualización: 2026-11-18.
+Actualizar al terminar cada sesión. Última actualización: 2026-11-19.
 
 ## Línea base real (periodo 2026-08-06 a 2026-11-03, GA4 + Search Console)
 
@@ -45,11 +45,11 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-18.
 - Cierre parcial de cuando-urgencias (2026-11-18): D13e–D13f (ojos: químico y lactante con párpado hinchado en rojo) y D14a–D14d. Retiradas las portadas de «Fuentes consultadas» (AEP, Sanidad, SEUP, AAP) y enlazados el protocolo AEP «Lactante febril», el de bronquiolitis y la ficha técnica de Apiretal; añadido `og:url`; reescritas «La fiebre en perspectiva» (sin «sin excepciones» ni ejemplo 39 °C vs 38 °C), «Deshidratación» (lista de la Tabla 4 de la AEP/SEUP, sin «8–10 horas»), «Señales de alarma general» y «Cómo usar esta guía»; banner del 112 con la redacción de la AEP; títulos ámbar «Llama al pediatra hoy» unificados a «Consulta con tu pediatra» y leyenda sin plazo; test Playwright de cierre. **Sigue «pendiente», no «verificado»:** la ficha «Convulsión febril» no tiene fuente (5 min, «debe ser visto hoy») y el banner conserva «convulsión» hasta resolverla. Sin tocar por no ser médicas: «Urgencias vs. pediatra de cabecera» y «Preparación». Pendiente de checks en verde y de tu aprobación (D14a–D14d en `09`).
 - Cierre de cuando-urgencias (2026-11-18): ficha «Convulsión febril» auditada con el protocolo AEP «Convulsiones febriles» (2022, PDF, leído completo; verificación manual) y la guía de la AAP «Primeros auxilios para convulsiones en los niños» (HTML, 2019, fuente estadounidense avisada en pantalla). Rojo: pasos durante la crisis, 112 si es la primera, dura más de 5 min, se repite sin recuperación u otros criterios de la AAP, y atipicidad de la AEP (edad, focal, más de 15 min, recurrente, Todd, signos meníngeos); ámbar: consultar al médico tras cualquier convulsión sin plazo, definición de típica, antitérmicos no previenen recurrencias y falta de criterios para casa; sin verde. Retirados «valoración médica urgente», «debe ser visto hoy», «o no cede» y «cronometrar». Banner del 112 con los criterios de la AAP. Añadidos «Última revisión: 18 de noviembre de 2026», las citas del bloque de fiebre (Lactante febril y Apiretal) y las 2 de convulsiones; inventario «verificado» (73 fuentes); añadida a `DEFAULT_FILES` y a `validate-sources`; test Playwright nuevo. D14d confirmada. Pendiente de checks en verde y de tu aprobación (D15a–D15e en `09`).
 - Auditoría Nivel 1 de temperatura-habitacion (2026-11-18): fuentes = PSI de la AEPap (PDF de 2009; 22 °C en el apartado del recién nacido; uso secundario), AAP Safe Sleep y su política de 2022 (sin cifra de temperatura; como mucho una capa más que un adulto; señales de sobrecalentamiento) y guía de la Lullaby Trust (16–20 °C, ejemplos de ropa, pecho o nuca; uso secundario; dice que no puede dar tabla de togs). Selector de 14 a 30 °C que compara con las dos referencias sin decir cuál es la buena; tabla de togs orientativa de babyFAQ rotulada «no oficial» (excepción en `05`, D16c); ropa en 3 tramos. Retirados: 18–20 °C como oficial, ropa por zona de 5 tramos, señales de frío sin fuente (labios azulados, piel moteada), «manos y pies normales», termorregulación, 12–18 meses, ventilador, hidratación, «más vendido» y las portadas. Fichero entero sustituido (original en `legacy/temperatura-habitacion.original.html`); 4 fuentes en el inventario; añadida a `DEFAULT_FILES` y a `validate-sources`; test Playwright nuevo (5 casos). Pendiente de checks en verde y de tu aprobación (D16b–D16e en `09`).
+- primeros-auxilios, zonas de riesgo de quemaduras (2026-11-19, D17a–D17b): reincorporadas con el texto de la AEP (capítulo «Primeros auxilios», PDF, verificación manual; frases ya usadas en `cuando-urgencias`): cara y cuello (112), manos, pies, pliegues, articulaciones, genitales, palmas y plantas, y quemadura eléctrica (112/061 siempre). Paso nuevo en el protocolo «Quemadura» y 2 puntos clave; sin tamaños ni «menor de 1 año»; «orificios naturales» no incluido por falta de cita. «Última revisión: 19 de noviembre de 2026»; 1 cita nueva en el inventario; test Playwright nuevo. Pendiente de checks en verde y de tu aprobación.
 
 ## Siguiente
-1. Reincorporar en `primeros-auxilios` las zonas de riesgo de quemaduras (D8a), en un chat aparte.
-2. Migrar el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
-3. Fase 4 (backlinks) en paralelo.
+1. Decidir la propuesta de fuentes para Nivel 3 (pendiente desde 2026-11-09) y migrar `talla-panal` (Nivel 3, P1) a Eleventy; después el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
+2. Fase 4 (backlinks) en paralelo.
 
 ## Por confirmar
 - Que el log de `validate:sources` muestre "cita encontrada" en las 2 fuentes de la AAP (un aviso "!" significa que no se comprobó).
@@ -123,3 +123,9 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-18.
 - Revisar a ojo en móvil y en escritorio el selector, las tarjetas de referencias y de tog, y que la etiqueta «no oficial» se lea bien.
 - Si mejora la posición/CTR de temperatura-habitacion tras cambiar título y meta (base: 18 impresiones, posición 26,3). Medir del 4 al 18 de enero de 2027.
 - Caducidades: política de la AAP (2022, 5 años) y guía de la Lullaby Trust (próxima revisión en 2028 según su página).
+- D17a–D17b de `09-decisiones.md`.
+- Comprobación manual de las zonas de quemaduras: abrir el PDF de la AEP (enlace en `04`) y buscar «zonas especiales de riesgo inmediato». Confirmar que ahí figura «llamar siempre al 112» para cara y cuello. Leer la frase completa de «plantas de manos y pies siempre necesita valoración médica» por si la AEP la limita. Confirmar que «AVISAR (112/061) siempre» y «centro hospitalario más cercano» son de la quemadura eléctrica.
+- Que `validate:sources` muestre 9 avisos «!» de PDF para primeros-auxilios (4 del ERC y 5 de la AEP) y 0 errores.
+- Que `test:e2e` pase con el test nuevo de quemaduras y con la fecha de revisión del 19.
+- Revisar a ojo en móvil el protocolo «Quemadura» con 5 pasos y 5 puntos clave: ¿se lee bien o alarma de más?
+- Aclarar si «orificios naturales» (D8a) está en `cuando-urgencias` y con qué cita; si no tiene cita, quitarlo de allí por coherencia.
