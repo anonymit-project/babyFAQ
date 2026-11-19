@@ -406,18 +406,17 @@
         "posicion_media": 26.3,
         "periodo": "2026-08-06 a 2026-11-03"
       },
-      "organismos_candidatos": [
-        "AEP (muerte súbita)",
-        "AAP (sueño seguro)"
+      "organismos_candidatos": ["AEP (muerte súbita)", "AAP (sueño seguro)"],
+      "fuentes": [
+        { "fuente_organismo": "AEPap (Programa de Salud Infantil, consejos generales por tramos de edad; PDF de 2009; sociedad de atención primaria, no está en la lista de 05: uso secundario)", "fuente_url": "https://aepap.org/wp-content/uploads/2024/02/PSI-Consejos-generales-por-tramos-de-edad.pdf", "fecha_consulta": "2026-11-18", "cita_literal_breve": "La temperatura ambiente debe estar alrededor de 22 °C." },
+        { "fuente_organismo": "AAP (Safe Sleep; fuente estadounidense)", "fuente_url": "https://www.aap.org/en/patient-care/safe-sleep/", "fecha_consulta": "2026-11-18", "cita_literal_breve": "Keep loose blankets, pillows, stuffed toys, bumpers and other soft items" },
+        { "fuente_organismo": "AAP (política «Sleep-Related Infant Deaths: Updated 2022 Recommendations»; fuente estadounidense)", "fuente_url": "https://publications.aap.org/pediatrics/article/150/1/e2022057990/188304/Sleep-Related-Infant-Deaths-Updated-2022?autologincheck=redirected", "fecha_consulta": "2026-11-18", "cita_literal_breve": "it is difficult to provide specific room temperature guidelines to avoid overheating" },
+        { "fuente_organismo": "The Lullaby Trust (guía «How to dress your baby for sleep»; organización benéfica británica, no organismo oficial: uso secundario)", "fuente_url": "https://www.lullabytrust.org.uk/baby-safety/baby-product-information/dress-your-baby-for-sleep/", "fecha_consulta": "2026-11-18", "cita_literal_breve": "The recommended room temperature for babies is 16 – 20°C" }
       ],
-      "fuentes": [],
-      "estado_verificacion": "pendiente",
-      "ultima_revision": null,
-      "relacionadas": [
-        "sueno-bebe",
-        "fiebre",
-        "cuna-a-cama"
-      ],
+      "estado_verificacion": "verificado",
+      "notas_verificacion": "Auditoría cerrada 2026-11-18 (pendiente de aprobación del autor; D16b–D16e). Excepción en 05: AEPap y Lullaby Trust como fuentes secundarias y tabla de togs de babyFAQ rotulada «no oficial». Temperatura: AEPap 22 °C (p. 382, apartado del recién nacido, documento de 2009) y Lullaby Trust 16–20 °C, mostradas juntas sin decir cuál es la buena; la AAP no da cifra (dice que es difícil darla). Togs: ninguna fuente da tabla (la Lullaby Trust dice expresamente que no puede darla); franjas contiguas de babyFAQ (28 o más: 0; 24–27: 0,5; 21–23: 1; 16–20: 2,5; menos de 16: 3,5), comprobadas por test. Ropa: 3 tramos con ejemplos de la Lullaby Trust y regla de la AAP (como mucho una capa más que un adulto cómodo). Señales: pecho o nuca (AAP y Lullaby Trust). Retirado por falta de fuente: 18–20 °C como «oficial», ropa por zona de 5 tramos, señales de frío (labios azulados, piel moteada), «manos y pies fríos son normales», termorregulación inmadura, 12–18 meses, ventilador, hidratación, «más vendido», portadas y Lullaby Trust como guía de togs. Citas de la AAP (política) y de la AEPap (PDF) con verificación manual; el servidor de la AAP puede bloquear el validador. Caducidades: política AAP 2022 (5 años), guía Lullaby Trust (revisada el 28/02/2026, próxima en 2028). Sin afiliados en la herramienta. Cubierto por validador de Capa 1 y tests Playwright.",
+      "ultima_revision": "2026-11-18",
+      "relacionadas": ["sueno-bebe", "fiebre", "cuna-a-cama"],
       "afiliados_prioridad": true
     },
     {
