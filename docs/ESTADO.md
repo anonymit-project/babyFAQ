@@ -46,87 +46,56 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-19.
 - Cierre de cuando-urgencias (2026-11-18): ficha «Convulsión febril» auditada con el protocolo AEP «Convulsiones febriles» (2022, PDF, leído completo; verificación manual) y la guía de la AAP «Primeros auxilios para convulsiones en los niños» (HTML, 2019, fuente estadounidense avisada en pantalla). Rojo: pasos durante la crisis, 112 si es la primera, dura más de 5 min, se repite sin recuperación u otros criterios de la AAP, y atipicidad de la AEP (edad, focal, más de 15 min, recurrente, Todd, signos meníngeos); ámbar: consultar al médico tras cualquier convulsión sin plazo, definición de típica, antitérmicos no previenen recurrencias y falta de criterios para casa; sin verde. Retirados «valoración médica urgente», «debe ser visto hoy», «o no cede» y «cronometrar». Banner del 112 con los criterios de la AAP. Añadidos «Última revisión: 18 de noviembre de 2026», las citas del bloque de fiebre (Lactante febril y Apiretal) y las 2 de convulsiones; inventario «verificado» (73 fuentes); añadida a `DEFAULT_FILES` y a `validate-sources`; test Playwright nuevo. D14d confirmada. Pendiente de checks en verde y de tu aprobación (D15a–D15e en `09`).
 - Auditoría Nivel 1 de temperatura-habitacion (2026-11-18): fuentes = PSI de la AEPap (PDF de 2009; 22 °C en el apartado del recién nacido; uso secundario), AAP Safe Sleep y su política de 2022 (sin cifra de temperatura; como mucho una capa más que un adulto; señales de sobrecalentamiento) y guía de la Lullaby Trust (16–20 °C, ejemplos de ropa, pecho o nuca; uso secundario; dice que no puede dar tabla de togs). Selector de 14 a 30 °C que compara con las dos referencias sin decir cuál es la buena; tabla de togs orientativa de babyFAQ rotulada «no oficial» (excepción en `05`, D16c); ropa en 3 tramos. Retirados: 18–20 °C como oficial, ropa por zona de 5 tramos, señales de frío sin fuente (labios azulados, piel moteada), «manos y pies normales», termorregulación, 12–18 meses, ventilador, hidratación, «más vendido» y las portadas. Fichero entero sustituido (original en `legacy/temperatura-habitacion.original.html`); 4 fuentes en el inventario; añadida a `DEFAULT_FILES` y a `validate-sources`; test Playwright nuevo (5 casos). Pendiente de checks en verde y de tu aprobación (D16b–D16e en `09`).
 - primeros-auxilios, zonas de riesgo de quemaduras (2026-11-19, D17a–D17b): reincorporadas con el texto de la AEP (capítulo «Primeros auxilios», PDF, verificación manual; frases ya usadas en `cuando-urgencias`): cara y cuello (112), manos, pies, pliegues, articulaciones, genitales, palmas y plantas, y quemadura eléctrica (112/061 siempre). Paso nuevo en el protocolo «Quemadura» y 2 puntos clave; sin tamaños ni «menor de 1 año»; «orificios naturales» no incluido por falta de cita. «Última revisión: 19 de noviembre de 2026»; 1 cita nueva en el inventario; test Playwright nuevo. Pendiente de checks en verde y de tu aprobación.
+- Limpieza de «Por confirmar» (2026-11-19, D18b): reestructurada en 4 bloques (aprobaciones por lotes, comprobación manual de citas en PDF, calendario SEO, cautelas). Retiradas las decisiones ya confirmadas (D13e–f, D14a–d, D16a–d), D5d (resuelta por D6a), la referencia huérfana D4a–D4d y los checks de CI sustituidos por «último CI de `main` en verde». Índice de lotes de aprobación preparado (D18a).
 
 ## Siguiente
-1. Limpieza de `ESTADO.md` («Por confirmar» en 4 bloques) y ronda de aprobación por lotes de D5–D17 (D18a–D18b en `09`). Antes: comprobar la protección de rama de `main`.
+1. Ronda de aprobación por lotes: un chat por lote, en el orden del bloque 1 de «Por confirmar». Empezar por `calculadora-lactancia`. Antes: comprobar la protección de rama de `main` (bloque 4).
 2. Decidir la propuesta de fuentes para Nivel 3 (pendiente desde 2026-11-09) y migrar `talla-panal` (Nivel 3, P1) a Eleventy; después el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
 3. Fase 4 (backlinks) en paralelo.
 
 ## Por confirmar
-- Que el log de `validate:sources` muestre "cita encontrada" en las 2 fuentes de la AAP (un aviso "!" significa que no se comprobó).
-- Que la protección de rama de `main` exija PR y los checks `estatico` y `fuentes-y-tests`. Hasta entonces, `pages.yml` publica con cada push aunque el validador falle.
-- Si el CTR de "calculadora alcohol lactancia" mejora tras la optimización de title/meta (volver a medir a las 4–6 semanas).
-- Que `babyfaq.es/docs/CLAUDE.md` y `babyfaq.es/data/inventario.json` den 404 (los documentos internos no deben servirse en el sitio).
-- Si mejora la posición/CTR de `tomas-leche` (base: 232 impresiones, posición 20). Medir entre el 4 y el 18 de diciembre de 2026.
-- Constante 13,45 g (decisión), 15 mg/dL por hora, cita del Ministerio de Sanidad y medir CTR de «calculadora alcohol lactancia» del 8 al 22 de dic (la meta cambió hoy).
-- Que `validate:sources` muestre 8 avisos «!» de PDF para primeros-auxilios (verificación manual) y 0 errores.
-- Si mejora la posición/CTR de primeros-auxilios tras reescribir la meta (base: 120 impresiones, posición 77). Propuesta: medir del 9 al 23 de diciembre de 2026.
-- Que `validate:sources` muestre ✓ en las citas de CIMA de dosis-fiebre (si alguna sale ✗, dime cuál: puede ser una diferencia de redacción) y 1 aviso «!» por el PDF de la guía de Aragón.
-- Que CIMA responda al validador (si da error de red o bloqueo, saldrá como aviso, no como error de dato).
-- D4a–D4d de `09-decisiones.md`.
-- Revisar a ojo en móvil y en escritorio el rango del ibuprofeno (p. ej. 30 kg a 20 mg/mL: 10.0–15.0) para ver que no desborda la tarjeta.
-- Si mejora la posición/CTR de dosis-fiebre (base: 9 impresiones, posición 16,4), con la meta nueva. Medir del 10 al 24 de diciembre de 2026.
-- Que `validate:sources` muestre 16 avisos «!» de PDF para fiebre (verificación manual: abre el PDF de la AEP y busca cada cita con Ctrl+F) y ✓ en la cita de CIMA (Apiretal).
-- Si mejora la posición/CTR de fiebre tras reescribir título y meta (base: 16 impresiones, posición 5,6). Medir del 14 al 28 de diciembre de 2026.
-- D5a–D5e de `09-decisiones.md`.
-- Revisar a ojo en móvil la nueva `fiebre.html` (sin selector de método) y que el mensaje de <3 meses se lea bien en la tarjeta.
-- D6a–D6b de `09-decisiones.md`.
-- Que `validate:sources` muestre 2 avisos «!» de PDF para dosis-fiebre (guía de Aragón y protocolo AEP; verificación manual) y 0 errores. Antes de aprobar D6a, abrir el PDF de la AEP y leer el contexto de «En menores de 6 meses usaremos paracetamol».
-- Que el check `test:e2e` pase con el test de `fiebre` corregido (51 de 51).
-- D7a–D7c de `09-decisiones.md`.
-- Comprobación manual de las tablas OMS de dosis-fiebre: abrir los 2 PDF (enlaces en `04`) y comparar las 66 cifras de las anclas de cada 6 meses con el test (`OMS_ANCLAS`) y con la tabla de este chat.
-- Que `validate:sources` muestre 4 avisos «!» de PDF para dosis-fiebre (guía de Aragón, protocolo AEP y las 2 tablas de la OMS) y 0 errores.
-- Que `test:e2e` vuelva a dar 58 de 58 tras el arreglo del solape (en la primera pasada falló 1: el clic en `#age-p`).
-- Revisar a ojo la caja de rango OMS y el botón: en móvil, bajo la tarjeta de edad y peso; en escritorio, encima de las dos tarjetas de dosis, con Peso y Edad apilados (D7d). Comprobar con el ratón que el «+» de edad responde.
-- D8a–D8e de `09-decisiones.md`.
-- Comprobación manual de las citas de cuando-urgencias: abrir el PDF de la AEP (enlace en `04`) y buscar cada una con Ctrl+F; el validador no lee PDF.
-- Revisar a ojo en móvil y en escritorio los tres síntomas de «Golpes»: golpe en la cabeza sin bloque ámbar, extremidades sin bloque verde y quemaduras con los tres, que se lean bien y que el enlace a primeros auxilios funcione.
-- Que `test:e2e` pase con los 4 tests nuevos de `cuando-urgencias`.
-- D9a–D9c de `09-decisiones.md`.
-- Comprobación manual de las citas de respiración: abrir los 2 PDF de la AEP (enlaces en `04`) y buscar cada cita con Ctrl+F; el validador no lee PDF. En el de bronquiolitis, confirmar que el texto «Criterios de ingreso» dice «Considerar en niños con».
-- Si el ERC 2025 recomienda valoración médica tras desobstruir a un niño (p. ej. «aunque el objeto salga»), traer la cita literal para subirlo de nuevo a rojo (D9c).
-- Revisar a ojo en móvil las tres fichas de «Respiración»: la lista de signos de dificultad para respirar (¿se lee bien o alarma de más?) y el enlace a primeros auxilios.
-- Que `test:e2e` pase con los 3 tests nuevos de respiración (7 en `cuando-urgencias`).
-- D10a–D10e de `09-decisiones.md`.
-- Comprobación manual de las citas de tóxicos: abrir el PDF AEP/SEUP «Intoxicaciones» (enlace en `04`) y el capítulo de la AEP, y buscar cada una con Ctrl+F; el validador no lee PDF. Abrir además la p. 334 del PDF SEUP (Figura 1, «8 acciones que no hay que hacer»): es una imagen y no la he leído; si añade algo, se incorpora.
-- Revisar a ojo en móvil la ficha «Ingesta de tóxicos»: la lista de síntomas del rojo (¿se lee bien o alarma de más?) y el título del ámbar.
-- Que `test:e2e` pase con el test nuevo de tóxicos (66 de 66) y que el arreglo de respiración haya quitado el fallo.
-- D11a–D11e de `09-decisiones.md`.
-- Comprobación manual de digestivo: abrir los 2 PDF (enlaces en `04`) y comprobar cada dato por página y tabla (deshidratación: Tabla 4 p. 220, pp. 221–222 y 224–225; dolor abdominal: pp. 197–205 y 208); el validador no lee PDF.
-- Revisar a ojo en móvil la ficha «Vómitos» (lista de signos de alarma de deshidratación: ¿se lee bien o alarma de más?) y los 7 puntos rojos de «Dolor abdominal».
-- Que `test:e2e` pase con los 3 tests nuevos (69 de 69).
-- Hasta cerrar la última categoría, la sección «Deshidratación: cómo reconocerla» de la página (8–10 horas sin orinar, etc.) contradice la ficha «Vómitos»; se corrige entonces.
-- D12a–D12g de `09-decisiones.md`.
-- Comprobación manual de piel: abrir los 3 PDF (enlaces en `04`) y comprobar cada dato por página (sepsis pp. 158–159; anafilaxia pp. 83 y 86–91; picaduras p. 316); el validador no lee PDF.
-- Comprobar en aeped.es/protocolos si hay versión posterior a 2020 de los protocolos de sepsis, anafilaxia y mordeduras y picaduras.
-- Revisar a ojo en móvil «Reacción alérgica» (10 líneas en rojo: ¿se lee bien o alarma de más?) y que «Manchas en la piel con fiebre», sin bloque verde, se entienda.
-- Que `test:e2e` pase con los 2 tests nuevos de piel (71 de 71).
-- Si se quiere reincorporar la «prueba del vaso» (D12a), buscar antes un documento oficial que la describa, en una tarea aparte.
-- D13a–D13d de `09-decisiones.md`.
-- Comprobación manual de las citas de «otros»: abrir los 2 PDF (enlaces en `04`) y buscar cada cita con Ctrl+F; el validador no lee PDF. Comprobar en la otitis (pp. 103–104) que «mal estado general» y «vómitos que impidan la tolerancia oral» son criterios de ingreso, y en la sinusitis (Tabla 3 p. 89 y p. 93) los criterios de ojos.
-- Revisar a ojo en móvil las fichas «Problemas en los ojos» y «Dolor de oídos» (¿se leen bien o alarman de más?) y las dos fichas mínimas de apatía y rechazo del alimento.
-- Que `test:e2e` pase con los 4 tests nuevos de «otros».
-- Comprobar si hay versión posterior de los protocolos de la AEP de 2020 (sepsis, anafilaxia, picaduras) y de 2022–2023 (otitis, sinusitis) en aeped.es/protocolos.
-- D14a–D14d de `09-decisiones.md`.
-- Que `test:e2e` pase con el test de cierre de `cuando-urgencias`.
-- Revisar a ojo en móvil el banner del 112 (texto más largo), la lista de 6 señales de alarma general y que la leyenda ámbar se lea bien.
-- Comprobación manual de «Deshidratación»: abrir el PDF AEP/SEUP (enlace en `04`) y confirmar en la Tabla 4 (p. 220) la lista de signos.
-- D15a–D15e de `09-decisiones.md`.
-- Que `validate:static` dé 0 errores con `cuando-urgencias.html` y que `validate:sources` muestre 71 avisos «!» de PDF, 0 errores y ✓ en la cita de Apiretal y en la de la AAP (si la AAP sale ✗ o aviso por bloqueo, dímelo).
-- Que `test:e2e` pase con el test nuevo de convulsión febril.
-- Comprobación manual de convulsiones: abrir el PDF AEP (enlace en `04`), buscar «Cualquier signo de atipicidad.» y comprobar la ficha contra pp. 379–381, la Figura 1 (p. 383) y 7.2 (p. 384). Abrir la página de la AAP y confirmar sus 8 criterios de llamada y los pasos.
-- Comprobar en aeped.es/protocolos si hay versión posterior a 2022 del protocolo «Convulsiones febriles». Comprobar también si el capítulo de primeros auxilios de la AEP tiene una sección de convulsiones: tendría prioridad sobre la AAP para los pasos (no pude abrirlo en este chat).
-- Revisar a ojo en móvil la ficha «Convulsión febril» (6 puntos en rojo: ¿se lee bien o alarma de más?) y el banner del 112, ahora más largo.
-- D16b–D16e de `09-decisiones.md`.
-- Que `validate:static` dé 0 errores con `temperatura-habitacion.html` y que `validate:sources` muestre ✓ en las citas de la AAP (Safe Sleep) y de la Lullaby Trust, 1 aviso «!» por el PDF de la AEPap y, quizá, otro por bloqueo en publications.aap.org (si alguna sale ✗, dime cuál).
-- Que `test:e2e` pase con los 5 tests nuevos de `temperatura-habitacion`.
-- Comprobación manual de las citas: PDF de la AEPap, p. 382 (22 °C, apartado del recién nacido); política de la AAP (sin cifra, una capa más, señales de sobrecalentamiento, sin gorros dentro, sin mantas con peso, habitación compartida 6 meses); guía de la Lullaby Trust (16–20 °C, ejemplos de ropa, pecho o nuca).
-- Revisar a ojo en móvil y en escritorio el selector, las tarjetas de referencias y de tog, y que la etiqueta «no oficial» se lea bien.
-- Si mejora la posición/CTR de temperatura-habitacion tras cambiar título y meta (base: 18 impresiones, posición 26,3). Medir del 4 al 18 de enero de 2027.
-- Caducidades: política de la AAP (2022, 5 años) y guía de la Lullaby Trust (próxima revisión en 2028 según su página).
-- D17a–D17b de `09-decisiones.md`.
-- Comprobación manual de las zonas de quemaduras: abrir el PDF de la AEP (enlace en `04`) y buscar «zonas especiales de riesgo inmediato». Confirmar que ahí figura «llamar siempre al 112» para cara y cuello. Leer la frase completa de «plantas de manos y pies siempre necesita valoración médica» por si la AEP la limita. Confirmar que «AVISAR (112/061) siempre» y «centro hospitalario más cercano» son de la quemadura eléctrica.
-- Que `validate:sources` muestre 9 avisos «!» de PDF para primeros-auxilios (4 del ERC y 5 de la AEP) y 0 errores.
-- Que `test:e2e` pase con el test nuevo de quemaduras y con la fecha de revisión del 19.
-- Revisar a ojo en móvil el protocolo «Quemadura» con 5 pasos y 5 puntos clave: ¿se lee bien o alarma de más?
-- Aclarar si «orificios naturales» (D8a) está en `cuando-urgencias` y con qué cita; si no tiene cita, quitarlo de allí por coherencia.
+Reestructurada el 2026-11-19 (D18b) en 4 bloques.
+
+### 1. Aprobaciones del autor (ronda por lotes, D18a)
+Un chat por lote, en este orden (Nivel 1 por tráfico). Cada lote trae una tabla «dato / fuente / enlace» y una respuesta por decisión: OK o ajustar. Nivel 1 nunca se fusiona sin aprobación.
+
+| Lote | Herramienta | Qué se aprueba | Decisiones de `09` |
+|---|---|---|---|
+| 1 | calculadora-lactancia | Auditoría del 2026-11-10 (Koren 2002, excepción de `05`) | Entradas de 2026-11-09 y 2026-11-10 sin marca. Abierto aparte: AAP «al menos 2 horas» |
+| 2 | tomas-leche | Auditoría del 2026-11-08 | Entradas de 2026-11-06 (una marcada «Incluir solo si lo confirmas») y 2026-11-08 (interpolación ya aprobada según el inventario) |
+| 3 | primeros-auxilios | Auditoría del 2026-11-11 y zonas de quemaduras | 3 de 2026-11-11 pendientes (RCP con el ERC sobre la AEP, atragantamiento según el ERC, caída y quemadura según la AEP) y D17a–D17b |
+| 4 | dosis-fiebre | Auditoría del 2026-11-12 y OMS | 3 de 2026-11-12 pendientes (avisos de protección, umbrales de urgencia retirados, ibuprofeno como rango y paracetamol 0,1 mL por debajo), D6a y D7a–D7d |
+| 5 | fiebre | Auditoría del 2026-11-15 | Entrada de 2026-11-15 (fuente única AEP), D5a, D5b y D5c |
+| 6 | cuando-urgencias (33 decisiones) | Auditoría cerrada el 2026-11-18, por categorías | Traumatismos D8a–D8d (D5e se aprueba dentro de D8a), respiración D9a–D9c, tóxicos D10a–D10e, digestivo D11a–D11e, piel D12a–D12g, otros D13a–D13d, convulsión D15a–D15e |
+| 7 | temperatura-habitacion | Auditoría del 2026-11-18 | D16e (D16b–D16d ya confirmadas) |
+| 8 | talla-zapato (Nivel 3) | Piloto Eleventy | Las 3 desviaciones del 2026-11-09 |
+
+Tras cada lote se actualizan `09` (quitar «pendiente de confirmación») y las notas de verificación del inventario que digan «pendiente de aprobación».
+
+### 2. Comprobación manual de citas en PDF
+`validate:sources` no lee PDF: sale un aviso «!» por cada uno (esperado, no es error). Abre el PDF (enlaces en `04`) y busca con Ctrl+F.
+- **primeros-auxilios (9 avisos: 4 ERC, 5 AEP):** «zonas especiales de riesgo inmediato» (cara y cuello con «llamar siempre al 112»); la frase completa de «plantas de manos y pies siempre necesita valoración médica»; que «AVISAR (112/061) siempre» y «centro hospitalario más cercano» sean de la quemadura eléctrica.
+- **dosis-fiebre (4 avisos):** contexto de «En menores de 6 meses usaremos paracetamol» en el PDF de la AEP; las 66 cifras de las anclas de cada 6 meses de las 2 tablas OMS frente a `OMS_ANCLAS` del test.
+- **fiebre (16 avisos):** las 16 citas del PDF «Lactante febril».
+- **cuando-urgencias (71 avisos):** cada dato por página y tabla (deshidratación: Tabla 4 p. 220, pp. 221–222 y 224–225; dolor abdominal: pp. 197–205 y 208; sepsis pp. 158–159; anafilaxia pp. 83 y 86–91; picaduras p. 316; otitis pp. 98–104 y 106–108, con «mal estado general» y «vómitos que impidan la tolerancia oral» como criterios de ingreso en pp. 103–104; sinusitis Tabla 3 p. 89 y pp. 91–93; convulsiones pp. 379–381, Figura 1 p. 383 y 7.2 p. 384; bronquiolitis: «Criterios de ingreso» dice «Considerar en niños con»). Abrir la p. 334 del PDF SEUP de intoxicaciones (Figura 1 «8 acciones que no hay que hacer»): es una imagen y no se ha leído. En la página de la AAP, confirmar sus 8 criterios de llamada y los pasos. Aclarar si «orificios naturales» (D8a) está en `cuando-urgencias` y con qué cita; si no tiene cita, quitarlo de allí.
+- **temperatura-habitacion (1 aviso, el PDF de la AEPap, y quizá otro por bloqueo de publications.aap.org):** AEPap p. 382 (22 °C, recién nacido); política de la AAP (sin cifra, una capa más que un adulto, señales de sobrecalentamiento); guía de la Lullaby Trust (16–20 °C, ejemplos de ropa, pecho o nuca).
+- **calculadora-lactancia:** no hay PDF. La Tabla 1 de Koren es una imagen y la comprueba el test.
+
+### 3. Calendario SEO (medir en Search Console)
+| Fechas | Herramienta | Base (2026-08-06 a 2026-11-03) |
+|---|---|---|
+| 4–18 dic 2026 | tomas-leche | 232 impresiones, posición 20 |
+| 8–22 dic 2026 | calculadora-lactancia | 6 clics, 174 impresiones, posición 11,3 («calculadora alcohol lactancia»: posición 4,3 sin clics) |
+| 9–23 dic 2026 (propuesta) | primeros-auxilios | 120 impresiones, posición 77 |
+| 10–24 dic 2026 | dosis-fiebre | 9 impresiones, posición 16,4 |
+| 14–28 dic 2026 | fiebre | 16 impresiones, posición 5,6 |
+| 4–18 ene 2027 | temperatura-habitacion | 18 impresiones, posición 26,3 |
+
+### 4. Cautelas
+- **Protección de rama de `main`: no confirmada.** Hasta que exista, `pages.yml` publica con cada push aunque el validador falle. Pasos: GitHub → Settings → Branches (o Rules → Rulesets) → regla para `main` → exigir Pull Request y los checks `estatico` y `fuentes-y-tests` (aparecen en la lista tras ejecutarse una vez). Cuando esté activa, borrar este punto.
+- **Último CI de `main` en verde** (`estatico`, `fuentes-y-tests` con `test:e2e`). En el log de `validate:sources` deben salir ✓ en las citas HTML (2 de la AAP en tomas-leche, CIMA en dosis-fiebre y fiebre, AAP convulsiones, AAP Safe Sleep y Lullaby Trust). Un «!» por bloqueo o red no es error de dato; un ✗ sí: avisar cuál.
+- **Una sola pasada a ojo en móvil y escritorio:** dosis-fiebre (caja OMS y botón, selectores apilados, «+» de edad, rango del ibuprofeno a 30 kg y 20 mg/mL: 10.0–15.0, sin desbordar); fiebre (sin selector de método, mensaje de menores de 3 meses); cuando-urgencias (banner del 112, fichas con muchas líneas rojas: reacción alérgica, convulsión, vómitos, tóxicos, ojos y oídos, golpes sin bloque ámbar o verde); temperatura-habitacion (selector, tarjetas, etiqueta «no oficial»); primeros-auxilios (protocolo «Quemadura» con 5 pasos).
+- **Hosting:** `babyfaq.es/docs/CLAUDE.md` y `babyfaq.es/data/inventario.json` deben dar 404.
+- **Caducidades y versiones:** política AAP 2022 (5 años); guía Lullaby Trust (próxima revisión 2028); versión posterior en aeped.es/protocolos de sepsis, anafilaxia y picaduras (2020), otitis y sinusitis (2022–2023) y convulsiones febriles (2022); si el capítulo de primeros auxilios de la AEP tiene sección de convulsiones, tendría prioridad sobre la AAP.
+- **Reincorporaciones condicionadas a una fuente:** «prueba del vaso» (D12a, antes un documento oficial que la describa); valoración médica tras desobstruir a un niño (D9c, cita literal del ERC 2025); AAP «al menos 2 horas» (calculadora, texto completo); frase «recomendable no beber» con cita del Ministerio de Sanidad.
+- **Sin decidir (de `04`):** IOM/NAM para `peso-embarazo` y e-lactancia.org para `calculadora-lactancia`.
