@@ -1112,7 +1112,7 @@
       ],
       "afiliados_prioridad": false
     },
-        {
+    {
       "slug": "primeros-auxilios",
       "archivo": "primeros-auxilios.html",
       "url": "https://babyfaq.es/primeros-auxilios.html",
@@ -1175,11 +1175,17 @@
           "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf",
           "fecha_consulta": "2026-11-11",
           "cita_literal_breve": "cada 2 minutos debe revisar la boca del niño"
+        },
+        {
+          "fuente_organismo": "AEP (capítulo «Primeros auxilios»)",
+          "fuente_url": "https://static.aeped.es/capitulo_5_0_b962064ae5.pdf",
+          "fecha_consulta": "2026-11-19",
+          "cita_literal_breve": "La cara y el cuello son zonas especiales de riesgo inmediato"
         }
       ],
       "estado_verificacion": "verificado",
-      "notas_verificacion": "Auditoría cerrada 2026-11-11 (pendiente de aprobación del autor). ERC 2025 manda en RCP y atragantamiento; AEP en quemaduras y traumatismo craneal. Fuentes en PDF: verificación manual (validate-sources avisa, no falla). Citas de la AEP comprobadas contra el texto del capítulo publicado en aeped.es; citas del ERC por capturas del autor. Conflictos resueltos con el ERC: compresión del lactante atragantado (ERC dos pulgares; AEP dos dedos), 5 ventilaciones iniciales, dos pulgares en RCP. Profundidad: ERC «al menos un tercio», AEP 4–5 cm (se muestran ambas). Retirado por falta de fuente: criterios de gravedad de quemaduras, «chichón que no sale», «rechazo del alimento», «no adherente». Añadido AEP: lactante menor de 1 año con golpe en la cabeza → urgencias. Cubierto por validador de Capa 1 y tests Playwright.",
-      "ultima_revision": "2026-11-11",
+      "notas_verificacion": "Auditoría cerrada 2026-11-11 (pendiente de aprobación del autor). ERC 2025 manda en RCP y atragantamiento; AEP en quemaduras y traumatismo craneal. Fuentes en PDF: verificación manual (validate-sources avisa, no falla). Citas de la AEP comprobadas contra el texto del capítulo publicado en aeped.es; citas del ERC por capturas del autor. Conflictos resueltos con el ERC: compresión del lactante atragantado (ERC dos pulgares; AEP dos dedos), 5 ventilaciones iniciales, dos pulgares en RCP. Profundidad: ERC «al menos un tercio», AEP 4–5 cm (se muestran ambas). Retirado por falta de fuente: tamaño y «menor de 1 año» como criterios de gravedad de quemaduras, «chichón que no sale», «rechazo del alimento», «no adherente». Añadido AEP: lactante menor de 1 año con golpe en la cabeza → urgencias. 2026-11-19 (D17a–D17b, pendiente de aprobación del autor): reincorporadas en quemaduras las zonas de especial riesgo (cara y cuello con 112, manos, pies, pliegues, articulaciones, genitales, palmas y plantas) y la quemadura eléctrica (112/061 siempre), con el mismo texto de la AEP que cuando-urgencias; solo hay una cita nueva en el inventario y el resto se comprueba a mano en el PDF; «orificios naturales» no incluido por falta de cita. Cubierto por validador de Capa 1 y tests Playwright.",
+      "ultima_revision": "2026-11-19",
       "relacionadas": ["cuando-urgencias", "introduccion-solidos", "silla-coche"],
       "afiliados_prioridad": false
     },
