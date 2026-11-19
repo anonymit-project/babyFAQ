@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temperatura habitación bebé y tog del saco de dormir · babyFAQ</title>
+<meta name="description" content="Consulta qué temperatura recomiendan la AEPap y la Lullaby Trust para la habitación del bebé, cómo vestirle para dormir y qué tog orienta el saco.">
+<meta property="og:title" content="Temperatura habitación bebé y tog del saco de dormir · babyFAQ">
+<meta property="og:description" content="Consulta qué temperatura recomiendan la AEPap y la Lullaby Trust para la habitación del bebé, cómo vestirle para dormir y qué tog orienta el saco.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://babyfaq.es/temperatura-habitacion.html">
+<meta name="theme-color" content="#fdf6ee">
+<link rel="canonical" href="https://babyfaq.es/temperatura-habitacion.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Temperatura de la habitación del bebé y tog orientativo",
+  "description": "Selector de temperatura de la habitación del bebé que la compara con las referencias de la AEPap y la Lullaby Trust, muestra un tog orientativo no oficial y las señales de calor y frío.",
+  "url": "https://babyfaq.es/temperatura-habitacion.html",
+  "applicationCategory": "HealthApplication",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "publisher": { "@type": "Organization", "name": "babyFAQ", "url": "https://babyfaq.es" }
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --cream:#f5f0fa; --warm-white:#fdfcff; --blush:#d4b8f0; --terracota:#c97a5e; --accent:#7a5aaa; --deep:#2a1f3d; --mid:#5a4a7a; --soft:#8a7aa8; --accent-bg:#ede8f8; --line:rgba(168,152,196,0.3); --hot:#c03030; --hot-bg:#fdf0f0; --cold:#3a6aaa; --cold-bg:#eef3fc; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--cream); font-family:'DM Sans',sans-serif; color:var(--deep); min-height:100vh; }
+  .noise { position:fixed; inset:0; pointer-events:none; z-index:0; opacity:0.025; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position:fixed; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; }
+  .blob-1 { width:320px; height:320px; background:#c8b0f0; top:-120px; right:-80px; opacity:0.28; }
+  .blob-2 { width:260px; height:260px; background:#b0c8f0; bottom:-80px; left:-60px; opacity:0.22; }
+  .container { position:relative; z-index:1; max-width:440px; margin:0 auto; padding:40px 20px 64px; }
+  .back-link { display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--soft); text-decoration:none; margin-bottom:28px; transition:color 0.2s; }
+  .back-link:hover { color:var(--terracota); }
+  header { text-align:center; margin-bottom:28px; }
+  .badge { display:inline-block; background:var(--accent-bg); color:var(--accent); font-size:11px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:14px; }
+  h1 { font-family:'Fraunces',serif; font-weight:300; font-size:28px; line-height:1.2; margin-bottom:8px; }
+  h1 em { font-style:italic; color:var(--accent); }
+  .subtitle { font-size:13px; color:var(--mid); line-height:1.6; font-weight:300; max-width:360px; margin:0 auto; }
+  .card { background:var(--warm-white); border-radius:20px; padding:22px 18px; margin-bottom:14px; box-shadow:0 2px 16px rgba(42,31,61,0.07); border:1px solid var(--line); }
+  .section-label { font-size:11px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--soft); margin-bottom:14px; }
+  .temp-selector { background:var(--cream); border-radius:16px; border:1.5px solid var(--line); display:flex; align-items:center; height:80px; padding:0 6px; }
+  .hold-btn { width:52px; height:60px; flex-shrink:0; border-radius:12px; border:none; background:transparent; color:var(--accent); font-size:28px; font-weight:300; cursor:pointer; display:flex; align-items:center; justify-content:center; touch-action:manipulation; user-select:none; -webkit-user-select:none; transition:background 0.1s; line-height:1; }
+  .hold-btn:active, .hold-btn.pressing { background:var(--blush); }
+  .temp-display { flex:1; text-align:center; }
+  .temp-value { font-family:'Fraunces',serif; font-size:52px; font-weight:300; line-height:1; display:block; }
+  .temp-unit { font-size:14px; color:var(--soft); }
+  .ref-row { padding:12px 0; border-bottom:1px solid var(--line); font-size:13px; line-height:1.5; color:var(--mid); }
+  .ref-row strong { display:block; color:var(--deep); font-weight:500; }
+  .ref-row .diff { font-family:'Fraunces',serif; font-size:17px; color:var(--accent); display:block; margin-top:2px; }
+  .ref-note { font-size:12px; color:var(--soft); line-height:1.6; margin-top:12px; }
+  .tog-main { text-align:center; padding:6px 0 16px; border-bottom:1px solid var(--line); margin-bottom:14px; }
+  .tog-value { font-family:'Fraunces',serif; font-size:56px; font-weight:300; line-height:1; color:var(--accent); display:block; }
+  .tog-name { font-family:'Fraunces',serif; font-style:italic; font-size:17px; display:block; margin-top:4px; }
+  .tag-nooficial { display:inline-block; margin-top:8px; font-size:11px; color:var(--mid); background:var(--accent-bg); border-radius:10px; padding:3px 10px; }
+  .wear-item { font-size:13px; color:var(--mid); line-height:1.5; padding:3px 0; }
+  .box { border-radius:12px; padding:12px 14px; font-size:12px; line-height:1.65; margin-top:14px; background:var(--accent-bg); color:var(--mid); }
+  .signs-row { display:flex; gap:10px; }
+  .sign-block { flex:1; border-radius:14px; padding:14px 12px; font-size:12px; line-height:1.5; }
+  .sign-block.hot { background:var(--hot-bg); color:#7a1010; }
+  .sign-block.cold { background:var(--cold-bg); color:#1a3a6a; }
+  .sign-block strong { display:block; margin-bottom:8px; }
+  .sign-block p { padding-left:10px; position:relative; margin-bottom:4px; }
+  .sign-block p::before { content:'·'; position:absolute; left:2px; font-weight:700; }
+  .sign-action { margin-top:8px; font-size:11px; opacity:0.85; }
+  .info-section { background:var(--warm-white); border-radius:20px; padding:26px 22px; margin-bottom:14px; box-shadow:0 2px 16px rgba(42,31,61,0.07); border:1px solid var(--line); }
+  .info-section h2 { font-family:'Fraunces',serif; font-weight:300; font-size:20px; margin-bottom:10px; line-height:1.3; }
+  .info-section p { font-size:13px; color:var(--mid); line-height:1.75; margin-bottom:12px; }
+  .info-section p:last-child { margin-bottom:0; }
+  .info-section strong { color:var(--deep); font-weight:500; }
+  .info-section a, .fuentes-card a { color:var(--accent); }
+  .fuentes-card { background:var(--warm-white); border:1.5px solid var(--line); border-radius:20px; padding:20px; margin-bottom:14px; }
+  .fuentes-title { font-size:11px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--soft); margin-bottom:12px; }
+  .fuente-item { font-size:12px; color:var(--mid); line-height:1.55; margin-bottom:8px; }
+  .disclaimer { font-size:11px; color:var(--soft); text-align:center; line-height:1.65; margin-top:20px; padding:0 8px; }
+  @media (min-width:480px) { h1 { font-size:34px; } .subtitle { font-size:14px; } }
+  @media (min-width:640px) {
+    h1 { font-size:38px; }
+    .container { max-width:860px; padding:56px 40px 80px; }
+    .blob-1 { width:440px; height:440px; top:-160px; right:-160px; opacity:0.13; }
+    .blob-2 { width:380px; height:380px; bottom:-120px; left:-160px; opacity:0.11; }
+    .desktop-two-col { display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start; }
+    .right-col { position:sticky; top:28px; }
+  }
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-55NR11957W"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-55NR11957W");</script>
+</head>
+<body>
+<div class="noise"></div>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="container">
+  <a class="back-link" href="/">← Volver al inicio</a>
+
+  <header>
+    <span class="badge">Sueño seguro</span>
+    <h1>¿Qué <em>temperatura</em> y qué saco?</h1>
+    <p class="subtitle">Mueve la temperatura de su habitación y compárala con las referencias de las fuentes. El tog y la ropa son orientativos: manda siempre la etiqueta del saco.</p>
+  </header>
+
+  <div class="desktop-two-col">
+    <div class="left-col">
+      <div class="card">
+        <div class="section-label">Temperatura de la habitación</div>
+        <div class="temp-selector">
+          <button class="hold-btn" id="temp-m" data-dir="-1" aria-label="Reducir temperatura un grado">−</button>
+          <div class="temp-display">
+            <span class="temp-value" id="temp-val">20</span>
+            <span class="temp-unit">°C</span>
+          </div>
+          <button class="hold-btn" id="temp-p" data-dir="1" aria-label="Aumentar temperatura un grado">+</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-label">Cómo saber si tiene calor o frío</div>
+        <div class="signs-row">
+          <div class="sign-block hot">
+            <strong>Señales de calor</strong>
+            <p>Sudor</p>
+            <p>Piel enrojecida</p>
+            <p>Pecho caliente al tocarlo</p>
+            <div class="sign-action">Según la Lullaby Trust, quita una capa de ropa o de ropa de cama.</div>
+          </div>
+          <div class="sign-block cold">
+            <strong>Señal de frío</strong>
+            <p>Pecho frío al tocarlo</p>
+            <div class="sign-action">Según la Lullaby Trust, añade una capa de ropa o elige un tog mayor.</div>
+          </div>
+        </div>
+        <p class="ref-note">Toca el pecho o la nuca. Según la Lullaby Trust, las manos y los pies suelen estar más fríos que el tronco, así que no son la referencia.</p>
+      </div>
+    </div>
+
+    <div class="right-col">
+      <div class="card">
+        <div class="section-label">Referencias de temperatura</div>
+        <div class="ref-row">
+          <strong>AEPap: alrededor de 22 °C (recién nacido)</strong>
+          <span class="diff" id="ref-aepap">—</span>
+        </div>
+        <div class="ref-row">
+          <strong>Lullaby Trust: de 16 a 20 °C</strong>
+          <span class="diff" id="ref-lullaby">—</span>
+        </div>
+        <p class="ref-note">La AAP no da una cifra de temperatura: advierte del sobrecalentamiento y pide vestir al bebé con como mucho una capa más que un adulto cómodo en esa habitación. Ninguna referencia es un objetivo que alcanzar: sirven para comparar.</p>
+      </div>
+
+      <div class="card">
+        <div class="section-label">Tog orientativo</div>
+        <div class="tog-main">
+          <span class="tog-value" id="tog-val">—</span>
+          <span class="tog-name" id="tog-name">—</span>
+          <span class="tag-nooficial">Orientación de babyFAQ, no oficial</span>
+        </div>
+        <div class="section-label">Ejemplos de ropa (Lullaby Trust)</div>
+        <div id="wear-items"></div>
+        <div class="box">La tabla de togs es una equivalencia habitual entre fabricantes, elaborada por babyFAQ: ningún organismo médico la da y varía según la marca. Sigue la etiqueta de tu saco y no pongas un saco encima de otro.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <h2>Qué temperatura recomiendan las fuentes</h2>
+    <p>No hay una cifra única. La <strong>AEPap</strong>, en su Programa de Salud Infantil (2009), indica en el apartado del recién nacido que no se abrigue en exceso y que la temperatura ambiente esté alrededor de 22 °C. La <strong>Lullaby Trust</strong>, una asociación británica, recomienda entre 16 y 20 °C. La <strong>AAP</strong>, en su política de sueño seguro de 2022, explica que los estudios muestran más riesgo con el sobrecalentamiento, pero que la definición varía y por eso es difícil dar una temperatura concreta.</p>
+    <p>Por eso el selector no marca ninguna como «la buena»: te enseña a cuánto está tu habitación de cada referencia. Las tres fuentes coinciden en lo importante: evitar el exceso de abrigo y fijarse en el bebé, no solo en el termómetro. La AEPap es una sociedad científica de atención primaria y la Lullaby Trust una organización benéfica; ninguna de las dos es un organismo oficial, y el documento de la AEPap es de 2009.</p>
+  </div>
+
+  <div class="info-section">
+    <h2>Qué es el tog y por qué la tabla es orientativa</h2>
+    <p>El tog mide cuánto aísla un tejido: cuanto mayor es, más calor retiene. Se usa en sacos de dormir y en mantas, y por eso aparece en las etiquetas de los sacos.</p>
+    <p>La tabla de esta página es <strong>orientativa y no oficial</strong>. Ni la AAP, ni la AEPap, ni la Lullaby Trust dan una tabla que relacione temperatura y tog. La Lullaby Trust explica que no puede darla porque cada producto aísla de forma distinta, el aire entre capas suma calor y cada bebé es diferente. Las franjas de babyFAQ son equivalencias habituales entre fabricantes y pueden variar de una marca a otra.</p>
+    <p>Sigue siempre la etiqueta de tu saco. La Lullaby Trust recuerda que conviene elegir el saco por el peso y no por la edad, que debe quedar ajustado en cuello y hombros, y que no se deben superponer dos sacos: dos de 1 tog no equivalen a uno de 2 tog.</p>
+  </div>
+
+  <div class="info-section">
+    <h2>Cómo vestirle para dormir</h2>
+    <p>La AAP indica vestir al bebé de forma adecuada al ambiente, con como mucho una capa más que la que llevaría un adulto cómodo en esa habitación. Añade que vestirle por capas es preferible a las mantas y que los sacos de dormir también pueden usarse. Los ejemplos de ropa de esta página proceden de la Lullaby Trust y son orientativos.</p>
+    <p>La AAP advierte de no abrigar en exceso y de no cubrir la cabeza ni la cara, y recomienda no poner gorros dentro de casa salvo en las primeras horas de vida o en la unidad neonatal. La Lullaby Trust añade que una manta doblada cuenta como dos mantas.</p>
+    <p>Si usas saco, la Lullaby Trust no aconseja añadir mantas encima: si el bebé se nota frío, añade una capa de ropa o elige un tog mayor.</p>
+  </div>
+
+  <div class="info-section">
+    <h2>Qué mantener fuera de la cuna</h2>
+    <p>La AAP recomienda mantener fuera de la zona de sueño las mantas sueltas, las almohadas, los peluches, los protectores y otros objetos blandos, y no usar mantas con peso. La AEPap añade que el colchón sea duro y que no se usen almohadas ni cojines hasta los 2 años.</p>
+    <p>La AAP también indica acostar al bebé boca arriba, en una superficie firme y plana propia, y que duerma en la habitación de los padres, pero no en su cama, idealmente durante los primeros 6 meses como mínimo. La AEPap señala que no se tenga al bebé cerca de una fuente de calor: estufas y braseros son peligrosos.</p>
+    <p>Si además tiene fiebre, consulta la herramienta <a href="/fiebre.html">¿Es fiebre?</a> y, ante cualquier duda, habla con su pediatra.</p>
+  </div>
+
+  <div class="fuentes-card">
+    <div class="fuentes-title">📚 Fuentes consultadas</div>
+    <p class="fuente-item">📌 <a href="https://aepap.org/wp-content/uploads/2024/02/PSI-Consejos-generales-por-tramos-de-edad.pdf" target="_blank" rel="noopener">AEPap, Programa de Salud Infantil: consejos generales por tramos de edad</a> (PDF de 2009; sociedad de pediatría de atención primaria, no organismo oficial; la cifra de 22 °C está en el apartado del recién nacido).</p>
+    <p class="fuente-item">📌 <a href="https://www.aap.org/en/patient-care/safe-sleep/" target="_blank" rel="noopener">AAP, Safe Sleep</a> (fuente estadounidense, no normativa española).</p>
+    <p class="fuente-item">📌 <a href="https://publications.aap.org/pediatrics/article/150/1/e2022057990/188304/Sleep-Related-Infant-Deaths-Updated-2022?autologincheck=redirected" target="_blank" rel="noopener">AAP, Sleep-Related Infant Deaths: Updated 2022 Recommendations</a> (fuente estadounidense; sus pautas son para el primer año).</p>
+    <p class="fuente-item">📌 <a href="https://www.lullabytrust.org.uk/baby-safety/baby-product-information/dress-your-baby-for-sleep/" target="_blank" rel="noopener">The Lullaby Trust, cómo vestir al bebé para dormir</a> (organización benéfica británica, no organismo oficial; fuente secundaria).</p>
+  </div>
+
+  <p class="disclaimer">Última revisión: 18 de noviembre de 2026</p>
+  <p class="disclaimer">Información orientativa basada en la AAP, la AEPap y la Lullaby Trust. No sustituye la valoración de un profesional sanitario. Cada bebé es diferente: consulta siempre con tu pediatra.</p>
+</div>
+
+<script>
+const TEMP_MIN = 14, TEMP_MAX = 30;
+let temp = 20;
+
+// Tabla orientativa de babyFAQ (no oficial): franjas contiguas en grados enteros.
+const TOGS = [
+  { min: 28, tog: '0',   name: 'Sin aislamiento' },
+  { min: 24, tog: '0,5', name: 'Muy ligero' },
+  { min: 21, tog: '1',   name: 'Ligero' },
+  { min: 16, tog: '2,5', name: 'Estándar' },
+  { min: -99, tog: '3,5', name: 'Muy cálido' }
+];
+
+// Ejemplos de ropa de la Lullaby Trust, en tres tramos.
+const WEAR = [
+  { max: 15, items: ['Pijama de una pieza y saco.', 'Si se nota frío: una capa de ropa extra o un tog mayor, sin mantas encima del saco.'] },
+  { max: 20, items: ['Pijama de una pieza y saco.'] },
+  { max: 99, items: ['Una capa ligera de manga corta.', 'Con mucho calor, solo el pañal.'] }
+];
+
+function getTog(t) { return TOGS.find(z => t >= z.min); }
+function getWear(t) { return WEAR.find(z => t <= z.max); }
+
+function diffAepap(t) {
+  const d = t - 22;
+  if (d === 0) return 'Tu habitación está en esos 22 °C';
+  return Math.abs(d) + ' °C ' + (d > 0 ? 'por encima' : 'por debajo') + ' de esa referencia';
+}
+function diffLullaby(t) {
+  if (t < 16) return (16 - t) + ' °C por debajo de ese rango';
+  if (t > 20) return (t - 20) + ' °C por encima de ese rango';
+  return 'Dentro de ese rango';
+}
+
+function makeHoldBtn(el, onStep) {
+  let holdTimer = null, repeatTimer = null, step = 0;
+  function fire() { onStep(parseInt(el.dataset.dir)); }
+  function startHold() {
+    fire(); step = 1;
+    holdTimer = setTimeout(() => {
+      repeatTimer = setInterval(() => {
+        fire(); step++;
+        if (step === 10) { clearInterval(repeatTimer); repeatTimer = setInterval(fire, 80); }
+      }, 180);
+    }, 350);
+  }
+  function stopHold() {
+    clearTimeout(holdTimer); clearInterval(repeatTimer);
+    holdTimer = repeatTimer = null; step = 0;
+    el.classList.remove('pressing');
+  }
+  el.addEventListener('touchstart', e => { e.preventDefault(); el.classList.add('pressing'); startHold(); }, { passive: false });
+  el.addEventListener('touchend', stopHold, { passive: true });
+  el.addEventListener('touchcancel', stopHold, { passive: true });
+  el.addEventListener('mousedown', () => { el.classList.add('pressing'); startHold(); });
+  el.addEventListener('mouseup', stopHold);
+  el.addEventListener('mouseleave', stopHold);
+}
+
+function step(d) { temp = Math.max(TEMP_MIN, Math.min(TEMP_MAX, temp + d)); render(); }
+makeHoldBtn(document.getElementById('temp-m'), step);
+makeHoldBtn(document.getElementById('temp-p'), step);
+
+function render() {
+  const z = getTog(temp), w = getWear(temp);
+  document.getElementById('temp-val').textContent = temp;
+  document.getElementById('ref-aepap').textContent = diffAepap(temp);
+  document.getElementById('ref-lullaby').textContent = diffLullaby(temp);
+  document.getElementById('tog-val').textContent = z.tog;
+  document.getElementById('tog-name').textContent = z.name;
+  document.getElementById('wear-items').innerHTML = w.items.map(t => '<div class="wear-item">' + t + '</div>').join('');
+}
+render();
+</script>
+</body>
+</html>
