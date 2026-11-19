@@ -99,7 +99,7 @@ test('página: fuentes enlazadas, fecha de revisión y sin textos retirados', as
   expect(await page.locator(`a[href="${AEP}"]`).count()).toBe(1);
   expect(await page.locator('a[href="tel:112"]').count()).toBeGreaterThan(0);
   const body = (await page.locator('body').innerText()).replace(/\s+/g, ' ');
-  expect(body).toContain('Última revisión: 11 de noviembre de 2026');
+  expect(body).toContain('Última revisión: 19 de noviembre de 2026');
   expect(body).not.toMatch(/ERC 2021|multiplica por dos o tres|Nunca uses hielo|4 a 8 horas/);
   const diff = (await page.locator('.diff-card').innerText()).replace(/\s+/g, ' ');
   expect(diff).not.toMatch(/4 cm|5 cm|2 dedos en el centro/);
@@ -121,4 +121,15 @@ test('caída: lactante menor de 1 año a urgencias y sin criterios sin respaldo'
   expect(t).toContain('lactante menor de 1 año');
   expect(t).toContain('zona hundida');
   expect(t).not.toMatch(/chichón que no sale|rechazo del alimento|llanto diferente/);
+});
+
+test('quemadura: zonas de riesgo y quemadura eléctrica según la AEP; sin tamaños ni edad', async ({ page }) => {
+  await open(page);
+  const t = await protocolo(page, 'quemadura');
+  for (const s of ['zonas especiales de riesgo inmediato', 'llama siempre al 112',
+    'las manos, los pies, los pliegues (axilas e ingles), las articulaciones y los genitales',
+    'palmas de las manos y las plantas de los pies', 'valoración médica',
+    'avisa siempre al 112/061', 'aunque los síntomas parezcan muy leves', 'centro hospitalario más cercano']) expect(t, s).toContain(s);
+  expect(t).not.toMatch(/\b5 ?%|\b[35] cm|menor de 1 año|menores de 1 año/);
+  expect(await page.locator('.step-item').count()).toBe(5);
 });
