@@ -48,8 +48,9 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-19.
 - primeros-auxilios, zonas de riesgo de quemaduras (2026-11-19, D17a–D17b): reincorporadas con el texto de la AEP (capítulo «Primeros auxilios», PDF, verificación manual; frases ya usadas en `cuando-urgencias`): cara y cuello (112), manos, pies, pliegues, articulaciones, genitales, palmas y plantas, y quemadura eléctrica (112/061 siempre). Paso nuevo en el protocolo «Quemadura» y 2 puntos clave; sin tamaños ni «menor de 1 año»; «orificios naturales» no incluido por falta de cita. «Última revisión: 19 de noviembre de 2026»; 1 cita nueva en el inventario; test Playwright nuevo. Pendiente de checks en verde y de tu aprobación.
 
 ## Siguiente
-1. Decidir la propuesta de fuentes para Nivel 3 (pendiente desde 2026-11-09) y migrar `talla-panal` (Nivel 3, P1) a Eleventy; después el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
-2. Fase 4 (backlinks) en paralelo.
+1. Limpieza de `ESTADO.md` («Por confirmar» en 4 bloques) y ronda de aprobación por lotes de D5–D17 (D18a–D18b en `09`). Antes: comprobar la protección de rama de `main`.
+2. Decidir la propuesta de fuentes para Nivel 3 (pendiente desde 2026-11-09) y migrar `talla-panal` (Nivel 3, P1) a Eleventy; después el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
+3. Fase 4 (backlinks) en paralelo.
 
 ## Por confirmar
 - Que el log de `validate:sources` muestre "cita encontrada" en las 2 fuentes de la AAP (un aviso "!" significa que no se comprobó).
