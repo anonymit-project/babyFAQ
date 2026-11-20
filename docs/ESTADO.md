@@ -1,6 +1,6 @@
 # Estado actual — babyFAQ
 
-Actualizar al terminar cada sesión. Última actualización: 2026-11-19.
+Actualizar al terminar cada sesión. Última actualización: 2026-11-20.
 
 ## Línea base real (periodo 2026-08-06 a 2026-11-03, GA4 + Search Console)
 
@@ -47,9 +47,11 @@ Actualizar al terminar cada sesión. Última actualización: 2026-11-19.
 - Auditoría Nivel 1 de temperatura-habitacion (2026-11-18): fuentes = PSI de la AEPap (PDF de 2009; 22 °C en el apartado del recién nacido; uso secundario), AAP Safe Sleep y su política de 2022 (sin cifra de temperatura; como mucho una capa más que un adulto; señales de sobrecalentamiento) y guía de la Lullaby Trust (16–20 °C, ejemplos de ropa, pecho o nuca; uso secundario; dice que no puede dar tabla de togs). Selector de 14 a 30 °C que compara con las dos referencias sin decir cuál es la buena; tabla de togs orientativa de babyFAQ rotulada «no oficial» (excepción en `05`, D16c); ropa en 3 tramos. Retirados: 18–20 °C como oficial, ropa por zona de 5 tramos, señales de frío sin fuente (labios azulados, piel moteada), «manos y pies normales», termorregulación, 12–18 meses, ventilador, hidratación, «más vendido» y las portadas. Fichero entero sustituido (original en `legacy/temperatura-habitacion.original.html`); 4 fuentes en el inventario; añadida a `DEFAULT_FILES` y a `validate-sources`; test Playwright nuevo (5 casos). Pendiente de checks en verde y de tu aprobación (D16b–D16e en `09`).
 - primeros-auxilios, zonas de riesgo de quemaduras (2026-11-19, D17a–D17b): reincorporadas con el texto de la AEP (capítulo «Primeros auxilios», PDF, verificación manual; frases ya usadas en `cuando-urgencias`): cara y cuello (112), manos, pies, pliegues, articulaciones, genitales, palmas y plantas, y quemadura eléctrica (112/061 siempre). Paso nuevo en el protocolo «Quemadura» y 2 puntos clave; sin tamaños ni «menor de 1 año»; «orificios naturales» no incluido por falta de cita. «Última revisión: 19 de noviembre de 2026»; 1 cita nueva en el inventario; test Playwright nuevo. Pendiente de checks en verde y de tu aprobación.
 - Limpieza de «Por confirmar» (2026-11-19, D18b): reestructurada en 4 bloques (aprobaciones por lotes, comprobación manual de citas en PDF, calendario SEO, cautelas). Retiradas las decisiones ya confirmadas (D13e–f, D14a–d, D16a–d), D5d (resuelta por D6a), la referencia huérfana D4a–D4d y los checks de CI sustituidos por «último CI de `main` en verde». Índice de lotes de aprobación preparado (D18a).
+- Ronda de aprobación, lote 1 (2026-11-20, D19a–D19b): `calculadora-lactancia` aprobada por el autor sin comprobar en el artículo de Koren la eliminación de 15 mg/dL por hora, la altura de 1,62 m, «desde el inicio» ni la transcripción de la Tabla 1. Corregido en 09 «26 filas» por 25 y marcada como reemplazada parcialmente la entrada del 2026-11-09. Pendientes aparte: etiqueta «desde la última copa» en los `aria-label` de horas y minutos, y subtítulo «sin preocuparte».
 
 ## Siguiente
-1. Ronda de aprobación por lotes: un chat por lote, en el orden del bloque 1 de «Por confirmar». Empezar por `calculadora-lactancia`. Antes: comprobar la protección de rama de `main` (bloque 4).
+1. Ronda de aprobación por lotes: un chat por lote, en el orden del bloque 1 de «Por confirmar». Lote 1 (`calculadora-lactancia`) aprobado; sigue el lote 2 (`tomas-leche`). Antes: comprobar la protección de rama de `main` (bloque 4).
+   - Chat aparte, pequeño: corregir en `calculadora-lactancia.html` los `aria-label` de horas y minutos («desde la última copa» → «desde que empezaste a beber») y reescribir el subtítulo «sin preocuparte» (`03`: sin falsa tranquilidad). Nivel 1: con ficha, test actualizado y tu aprobación.
 2. Decidir la propuesta de fuentes para Nivel 3 (pendiente desde 2026-11-09) y migrar `talla-panal` (Nivel 3, P1) a Eleventy; después el resto de Nivel 3 de uno en uno, añadiendo cada uno al paso "Validar herramientas migradas" de `validate.yml`.
 3. Fase 4 (backlinks) en paralelo.
 
@@ -61,7 +63,7 @@ Un chat por lote, en este orden (Nivel 1 por tráfico). Cada lote trae una tabla
 
 | Lote | Herramienta | Qué se aprueba | Decisiones de `09` |
 |---|---|---|---|
-| 1 | calculadora-lactancia | Auditoría del 2026-11-10 (Koren 2002, excepción de `05`) | Entradas de 2026-11-09 y 2026-11-10 sin marca. Abierto aparte: AAP «al menos 2 horas» |
+| 1 ✓ | calculadora-lactancia | Aprobada el 2026-11-20 | D19a–D19b. Abierto aparte: AAP «al menos 2 horas» y cita de Sanidad |
 | 2 | tomas-leche | Auditoría del 2026-11-08 | Entradas de 2026-11-06 (una marcada «Incluir solo si lo confirmas») y 2026-11-08 (interpolación ya aprobada según el inventario) |
 | 3 | primeros-auxilios | Auditoría del 2026-11-11 y zonas de quemaduras | 3 de 2026-11-11 pendientes (RCP con el ERC sobre la AEP, atragantamiento según el ERC, caída y quemadura según la AEP) y D17a–D17b |
 | 4 | dosis-fiebre | Auditoría del 2026-11-12 y OMS | 3 de 2026-11-12 pendientes (avisos de protección, umbrales de urgencia retirados, ibuprofeno como rango y paracetamol 0,1 mL por debajo), D6a y D7a–D7d |
@@ -99,3 +101,4 @@ Tras cada lote se actualizan `09` (quitar «pendiente de confirmación») y las 
 - **Caducidades y versiones:** política AAP 2022 (5 años); guía Lullaby Trust (próxima revisión 2028); versión posterior en aeped.es/protocolos de sepsis, anafilaxia y picaduras (2020), otitis y sinusitis (2022–2023) y convulsiones febriles (2022); si el capítulo de primeros auxilios de la AEP tiene sección de convulsiones, tendría prioridad sobre la AAP.
 - **Reincorporaciones condicionadas a una fuente:** «prueba del vaso» (D12a, antes un documento oficial que la describa); valoración médica tras desobstruir a un niño (D9c, cita literal del ERC 2025); AAP «al menos 2 horas» (calculadora, texto completo); frase «recomendable no beber» con cita del Ministerio de Sanidad.
 - **Sin decidir (de `04`):** IOM/NAM para `peso-embarazo` y e-lactancia.org para `calculadora-lactancia`.
+- **Atribuciones de `calculadora-lactancia` sin comprobar en el artículo (D19a):** eliminación de 15 mg/dL por hora, altura de 1,62 m y «desde el inicio de la bebida» (la página y la FAQ se las atribuyen a Koren, PMC2213923), y la transcripción de la Tabla 1 del test frente a la imagen (incluida la casilla 74,8 kg / 11 bebidas). Si alguno no figura, la página debe decir que es un ajuste de babyFAQ.
