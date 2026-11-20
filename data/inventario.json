@@ -248,7 +248,7 @@
   "estado_verificacion": "verificado",
   "notas_verificacion": "Artículo revisado por pares, no organismo oficial (excepción decidida 2026-11-10). Cálculo = Tabla 1 de Koren (imagen; la comprueba tests/calculadora-lactancia.spec.mjs, no el validador): Watson mujer H=162 cm, 0,015 g/dL/h, tiempo desde el inicio de la bebida. 13,45 g/bebida es un valor ajustado por babyFAQ (confirmado por el autor 2026-11-10) y rotulado en pantalla; el tiempo de espera no depende de él. La página queda entre -1 y +2 min respecto a la tabla (el test lo exige). Sin cálculo con >12 bebidas, fuera de 40,8-95,3 kg o >=24 h. Estimación marcada con <1 bebida o entre columnas. Casilla 74,8 kg/11 bebidas de la fuente con errata (omitida en el test). Fuentes OMS/AEP/AAP/PNSD retiradas de la página por no estar verificadas. Riesgo conocido: la AAP (resumen, sin verificar) dice esperar al menos 2 horas; con 1 bebida y >= ~84 kg Koren da menos. Cubierto por validador de Capa 1 y tests Playwright desde 2026-11-10.",
   "ultima_revision": "2026-11-10",
-  "relacionadas": ["tomas-leche", "primeros-auxilios", "alimentos-edad"],
+  "relacionadas": ["tomas-leche", "lios", "alimentos-edad"],
   "afiliados_prioridad": false
 },
     {
@@ -305,7 +305,7 @@
       "relacionadas": [
         "alimentos-edad",
         "solidos-agua",
-        "primeros-auxilios"
+        "lios"
       ],
       "afiliados_prioridad": false
     },
@@ -816,7 +816,7 @@
       "ultima_revision": "2026-11-18",
       "relacionadas": [
         "fiebre",
-        "primeros-auxilios",
+        "lios",
         "dosis-fiebre"
       ],
       "afiliados_prioridad": false
@@ -1184,7 +1184,7 @@
         }
       ],
       "estado_verificacion": "verificado",
-      "notas_verificacion": "Auditoría cerrada 2026-11-11 (pendiente de aprobación del autor). ERC 2025 manda en RCP y atragantamiento; AEP en quemaduras y traumatismo craneal. Fuentes en PDF: verificación manual (validate-sources avisa, no falla). Citas de la AEP comprobadas contra el texto del capítulo publicado en aeped.es; citas del ERC por capturas del autor. Conflictos resueltos con el ERC: compresión del lactante atragantado (ERC dos pulgares; AEP dos dedos), 5 ventilaciones iniciales, dos pulgares en RCP. Profundidad: ERC «al menos un tercio», AEP 4–5 cm (se muestran ambas). Retirado por falta de fuente: tamaño y «menor de 1 año» como criterios de gravedad de quemaduras, «chichón que no sale», «rechazo del alimento», «no adherente». Añadido AEP: lactante menor de 1 año con golpe en la cabeza → urgencias. 2026-11-19 (D17a–D17b, pendiente de aprobación del autor): reincorporadas en quemaduras las zonas de especial riesgo (cara y cuello con 112, manos, pies, pliegues, articulaciones, genitales, palmas y plantas) y la quemadura eléctrica (112/061 siempre), con el mismo texto de la AEP que cuando-urgencias; solo hay una cita nueva en el inventario y el resto se comprueba a mano en el PDF; «orificios naturales» no incluido por falta de cita. Cubierto por validador de Capa 1 y tests Playwright.",
+      "notas_verificacion": "Auditoría cerrada 2026-11-11. Aprobada por el autor el 2026-11-20 (lote 3, D21a–D21b), junto con D17a–D17b, sin comprobar aún en los PDF las citas del ERC y de la AEP. ERC 2025 manda en RCP y atragantamiento (excepción al principio 4 registrada en 05); AEP en quemaduras y traumatismo craneal. Fuentes en PDF: verificación manual (validate-sources avisa, no falla). Citas de la AEP comprobadas contra el texto del capítulo publicado en aeped.es; citas del ERC por capturas del autor. Conflictos resueltos con el ERC: compresión del lactante atragantado (ERC dos pulgares; AEP dos dedos), 5 ventilaciones iniciales, dos pulgares en RCP. Profundidad: ERC «al menos un tercio», AEP 4–5 cm (se muestran ambas). Retirado por falta de fuente: tamaño y «menor de 1 año» como criterios de gravedad de quemaduras, «chichón que no sale», «rechazo del alimento», «no adherente». Añadido AEP: lactante menor de 1 año con golpe en la cabeza → urgencias. 2026-11-19 (D17a–D17b): reincorporadas en quemaduras las zonas de especial riesgo (cara y cuello con 112, manos, pies, pliegues, articulaciones, genitales, palmas y plantas) y la quemadura eléctrica (112/061 siempre), con el mismo texto de la AEP que cuando-urgencias; solo hay una cita nueva en el inventario y el resto se comprueba a mano en el PDF; «orificios naturales» no incluido por falta de cita. Pendiente de comprobación manual (D21b, página sin tocar): «No apliques cremas ni pasta de dientes» frente a la crema hidratante que la AEP cita en cuando-urgencias; cifras de RCP del ERC sin cita (30:2, 100–120 por minuto, un tercio, 10 s, 1 s, 15:2, 1 minuto sin móvil, DEA por debajo de 25 kg); ampollas, gasas húmedas y ropa no pegada; golpe en la cabeza (pupila, vómitos repetidos, somnolencia, confusión, zona hundida, hematoma, «más de 1 metro» en menores de 1 año). Cubierto por validador de Capa 1 y tests Playwright.",
       "ultima_revision": "2026-11-19",
       "relacionadas": ["cuando-urgencias", "introduccion-solidos", "silla-coche"],
       "afiliados_prioridad": false
