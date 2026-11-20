@@ -197,7 +197,7 @@
       ],
       "afiliados_prioridad": false
     },
-    {
+{
   "slug": "tomas-leche",
   "archivo": "tomas-leche.html",
   "url": "https://babyfaq.es/tomas-leche.html",
@@ -222,7 +222,7 @@
     }
   ],
   "estado_verificacion": "verificado",
-  "notas_verificacion": "Interpolación aprobada por el autor (09-decisiones 2026-11-08): tomas de fórmula meses 2-5 y ml de materna. Fórmula 7-12 meses: solo referencia de 6 meses. Cubierto por validador de Capa 1 y tests Playwright desde 2026-11-09.",
+  "notas_verificacion": "Interpolación aprobada por el autor (09-decisiones 2026-11-08): tomas de fórmula meses 2-5 y ml de materna. Fórmula 7-12 meses: solo referencia de 6 meses. Cubierto por validador de Capa 1 y tests Playwright desde 2026-11-09. Aprobada por el autor el 2026-11-20 (lote 2, D20a-D20b). Aprobados sin comprobar en la AAP: recién nacido de fórmula (30-60 ml la primera semana, 8-12 tomas, cada 2-3 h), «5-6 pañales mojados desde el día 4-5» y «despertarlo si duerme más de 4-5 h» (no vistos en el texto de la AAP recuperado el 2026-11-20; las cifras del recién nacido sí salen en una página de los CDC, fuera de la lista de 05). «6-8 tomas» del mes 1 es un cálculo de babyFAQ (24 h entre 3-4 h) sin etiqueta de estimación en pantalla: etiquetado pendiente en ficha aparte. La cita «rougly» es una errata literal de la fuente.",
   "ultima_revision": "2026-11-08",
   "relacionadas": ["calculadora-lactancia", "percentil", "introduccion-solidos"],
   "afiliados_prioridad": false
