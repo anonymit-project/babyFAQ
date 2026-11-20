@@ -71,6 +71,7 @@ Acciones posibles: SUSTITUIR LÍNEA, SUSTITUIR BLOQUE, INSERTAR DESPUÉS DE, INS
 - **Cierre:** entregar `ESTADO.md` actualizado y, si hubo decisiones, la línea para `09-decisiones.md`; recordar el commit; y terminar con el bloque "Prompt para el siguiente chat" (tarea, contexto mínimo, ficheros a adjuntar, restricciones). Cada tarea se hace en su propio chat.
 - **Decisiones:** cada decisión del autor se plantea como una pregunta con 2–3 opciones, la recomendada marcada y sus pros y contras; el autor responde y se avanza. La línea de `09-decisiones.md` recoge la opción elegida.
 - **Ficheros al día:** el conocimiento del proyecto puede ir por detrás de GitHub. Si el fichero sincronizado no incluye lo último de `ESTADO.md` o `09`, Claude lo dice y pide el fichero actual antes de escribir fichas.
+- **Repaso de documentación (D21c):** al cerrar cada lote de la ronda de aprobación, y un repaso completo al mes (si `ESTADO` indica que han pasado más de 30 días desde el último, proponerlo al abrir el chat). Busca decisiones pendientes del autor, frases obsoletas (cifras, fechas o estados que ya no cuadran), duplicados y contradicciones entre `ESTADO`, `09`, `05`, el inventario y las páginas, y entrega las correcciones como fichas. La fecha del último repaso completo se anota en `ESTADO`.
 - PROTOCOLO DE ACTUALIZACIÓN (al cerrar cada tarea, sin que te lo pida)
 Revisa esta tabla y entrega solo lo que cambie, indicando la ruta del fichero:
 
