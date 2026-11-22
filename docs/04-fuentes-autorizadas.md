@@ -76,7 +76,7 @@ Enlaces que ya aparecen en páginas pero NO están verificados ni en el inventar
 4. Subir en PR: el job `fuentes-y-tests` comprueba que la URL responde y que la cita aparece. Un aviso "!" significa que no se pudo comprobar, no que sea correcto.
 5. Añadir la fila al registro de arriba.
 
-## Nivel 3 (no médicas) — PROPUESTA, pendiente de confirmar
+## Nivel 3 (no médicas) — DECIDIDO el 2026-11-22 (D26b)
 - "Fuentes consultadas" solo lista fuentes que respaldan una afirmación concreta de la página. Una portada que no respalda nada no se presenta como fuente.
 - Las tablas de tallas se presentan como "orientativas, elaboradas por babyFAQ a partir de equivalencias habituales; varían según fabricante", sin atribuirlas a un organismo.
 - Las afirmaciones de desarrollo (p. ej. "ir descalzo estimula…" en `talla-zapato`) sí necesitan fuente oficial real o se suavizan/eliminan.
