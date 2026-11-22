@@ -80,4 +80,4 @@ Enlaces que ya aparecen en páginas pero NO están verificados ni en el inventar
 - "Fuentes consultadas" solo lista fuentes que respaldan una afirmación concreta de la página. Una portada que no respalda nada no se presenta como fuente.
 - Las tablas de tallas se presentan como "orientativas, elaboradas por babyFAQ a partir de equivalencias habituales; varían según fabricante", sin atribuirlas a un organismo.
 - Las afirmaciones de desarrollo (p. ej. "ir descalzo estimula…" en `talla-zapato`) sí necesitan fuente oficial real o se suavizan/eliminan.
-- Esto contradice dos reglas actuales: el "2–4 organismos" de `02` y el check `Fuentes consultadas` obligatorio de `validate-static.mjs`. Habría que ajustar ambos.
+- Aplicado en D26b: `02` (la sección es opcional en Nivel 3) y `validate-static.mjs` (sección no obligatoria en Nivel 3 y aviso si enlaza una portada). La limpieza de `talla-zapato` (quitar portadas, rotular las tablas, tratar las afirmaciones de desarrollo) va en chat aparte (D26c).
