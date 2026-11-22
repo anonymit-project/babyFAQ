@@ -65,9 +65,20 @@ for (const file of files) {
   check(words > 600, `${words} palabras`, `solo ${words} palabras (mínimo 600)`);
   const iFuentes = text.indexOf('Fuentes consultadas');
   const iRevision = text.indexOf('Última revisión:');
-  check(iFuentes >= 0, 'sección "Fuentes consultadas"', 'falta la sección "Fuentes consultadas"');
+  if (tool && tool.nivel_riesgo === 3 && iFuentes < 0) ok('Nivel 3: "Fuentes consultadas" opcional (D26b)');
+  else check(iFuentes >= 0, 'sección "Fuentes consultadas"', 'falta la sección "Fuentes consultadas"');, 'falta la sección "Fuentes consultadas"');
   check(iRevision >= 0, '"Última revisión" presente', 'falta "Última revisión: fecha"');
   check(iFuentes < 0 || iRevision < 0 || iFuentes < iRevision, 'fuentes antes del disclaimer', '"Fuentes consultadas" debe ir antes del disclaimer final');
+  // Nivel 3 (D26b): "Fuentes consultadas" no puede enlazar portadas. Aviso, no error, hasta limpiar las páginas.
+  if (tool && tool.nivel_riesgo === 3) {
+    const portadas = tags(body, 'a').map(attrs).map(a => a.href).filter(h => {
+      try {
+        const u = new URL(h);
+        return /^https?:$/.test(u.protocol) && u.hostname !== new URL(SITE).hostname && u.pathname.replace(/\/+$/, '') === '' && !u.search;
+      } catch { return false; }
+    });
+    if (portadas.length) warn(`enlace(s) a la portada de un organismo, que no respalda ninguna afirmación concreta: ${portadas.join(', ')}`);
+  }
   if (salud) check(/no sustituye/i.test(text), 'disclaimer médico', 'falta el disclaimer médico al pie');
 
   // ── Técnico ──
