@@ -66,7 +66,7 @@ for (const file of files) {
   const iFuentes = text.indexOf('Fuentes consultadas');
   const iRevision = text.indexOf('Última revisión:');
   if (tool && tool.nivel_riesgo === 3 && iFuentes < 0) ok('Nivel 3: "Fuentes consultadas" opcional (D26b)');
-  else check(iFuentes >= 0, 'sección "Fuentes consultadas"', 'falta la sección "Fuentes consultadas"');,
+  else check(iFuentes >= 0, 'sección "Fuentes consultadas"', 'falta la sección "Fuentes consultadas"');
   check(iRevision >= 0, '"Última revisión" presente', 'falta "Última revisión: fecha"');
   check(iFuentes < 0 || iRevision < 0 || iFuentes < iRevision, 'fuentes antes del disclaimer', '"Fuentes consultadas" debe ir antes del disclaimer final');
   // Nivel 3 (D26b): "Fuentes consultadas" no puede enlazar portadas. Aviso, no error, hasta limpiar las páginas.
