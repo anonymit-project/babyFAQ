@@ -16,7 +16,7 @@
 ## Contenido
 - Mínimo 3 secciones informativas al final (qué es X, cuándo preocuparse, consejos).
 - Tono cálido y cercano, párrafos cortos, fácil de escanear.
-- Sección "Fuentes consultadas" (2–4 organismos oficiales) antes del disclaimer médico final.
+- Sección "Fuentes consultadas" antes del disclaimer médico final. Nivel 1 y 2: 2–4 organismos oficiales, con documentos concretos (ver `04-fuentes-autorizadas.md`). Nivel 3: opcional; si existe, solo enlaza documentos que respalden una afirmación concreta (nunca portadas) y las tablas se rotulan como orientativas de babyFAQ (D26b).
 - Mostrar "Última revisión: fecha".
 
 ## Interactividad
