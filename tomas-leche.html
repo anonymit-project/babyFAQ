@@ -352,8 +352,8 @@
     </p>
     <p>
       La calculadora aplica esa regla a tu peso y reparte el total entre el número de tomas. Las tomas por edad
-      salen de las referencias de la AAP (recién nacido, final del primer mes y 6 meses); para los meses 2 a 5 son una
-      estimación de babyFAQ entre esas referencias, y así se indica en el resultado.
+      salen de las referencias de la AAP (recién nacido, final del primer mes y 6 meses), con dos excepciones que se indican
+      en el resultado: el número de tomas al día del primer mes es una estimación de babyFAQ (24 horas entre las 3–4 horas que indica la AAP) y el de los meses 2 a 5, otra estimación de babyFAQ entre esas referencias.
     </p>
 
     <h2>Referencias oficiales de la AAP</h2>
@@ -422,7 +422,7 @@
   </div>
 
   <p class="disclaimer">
-    Última revisión: 8 de noviembre de 2026.<br>
+    Última revisión: 22 de noviembre de 2026.<br>
     Información orientativa basada en las dos páginas de la AAP enlazadas arriba (una fuente estadounidense, no normativa española). Los valores marcados como estimación son de babyFAQ.<br>
     No sustituye la valoración de un profesional sanitario. Cada bebé es diferente: consulta siempre con tu pediatra.
   </p>
@@ -439,13 +439,14 @@ const REF6 = { mlMin: 180, mlMax: 240, feedsMin: 4, feedsMax: 5 }; // AAP: 6 mes
 
 const NOTE_NOCHE  = 'Entre los 2 y los 4 meses (o por encima de 5,4 kg) la AAP indica que la mayoría de bebés alimentados con fórmula ya no necesitan una toma de madrugada, y de día pueden espaciar a veces hasta 4–5 horas. Cada bebé es distinto: consulta con tu pediatra.';
 const NOTE_INTERP = ' El número de tomas de este mes es una estimación de babyFAQ entre las referencias de la AAP de 1 y 6 meses.';
+const NOTE_CALC   = ' El número de tomas de este mes (6–8 al día) es una estimación de babyFAQ: sale de repartir las 24 horas entre las 3–4 horas que indica la AAP, que no da una cifra de tomas al día.';
 const NOTE_REF6   = 'La AAP no da cifras de leche mes a mes a partir de los 6 meses. Se muestra la referencia de los 6 meses (180–240 ml en 4–5 tomas); el peso no interviene. Con la introducción de sólidos, pregunta a tu pediatra cómo ajustar la leche.';
 const NOTE_MATERNA = 'Estimación de babyFAQ entre dos referencias de la AAP: unos 30 ml por toma en las primeras semanas y hasta unos 135 ml (4,5 onzas) al año. Los bebés amamantados toman tomas más pequeñas y más frecuentes que los de fórmula. El peso no interviene en este cálculo.';
 const NOTE_MATERNA_SOLIDOS = ' A partir de los 6 meses se empiezan a añadir sólidos; pregunta a tu pediatra cómo ajustar la leche.';
 
 const FORMULA_DATA = [
   { display: 'Recién nacido', feedsMin: 8, feedsMax: 12, intervalH: '2 – 3', perFeedCap: 60, note: 'En la primera semana la AAP indica no más de 30–60 ml por toma; durante el primer mes la cantidad va subiendo hasta 90–120 ml, por eso el resultado se limita a 60 ml. Si el bebé duerme más de 4–5 horas en las primeras semanas y empieza a saltarse tomas, la AAP indica despertarlo y ofrecerle el biberón.' },
-  { display: '1 mes', feedsMin: 6, feedsMax: 8, intervalH: '3 – 4', note: 'Al final del primer mes la AAP sitúa la toma en 90–120 ml, aproximadamente cada 3–4 horas. Si el bebé duerme más de 4–5 horas en las primeras semanas y empieza a saltarse tomas, la AAP indica despertarlo y ofrecerle el biberón.' },
+  { display: '1 mes', feedsMin: 6, feedsMax: 8, intervalH: '3 – 4', calculated: true, note: 'Al final del primer mes la AAP sitúa la toma en 90–120 ml, aproximadamente cada 3–4 horas. Si el bebé duerme más de 4–5 horas en las primeras semanas y empieza a saltarse tomas, la AAP indica despertarlo y ofrecerle el biberón.' },
   { display: '2 meses', feedsMin: 6, feedsMax: 7, intervalH: null, interpolated: true, note: NOTE_NOCHE },
   { display: '3 meses', feedsMin: 5, feedsMax: 7, intervalH: null, interpolated: true, note: NOTE_NOCHE },
   { display: '4 meses', feedsMin: 5, feedsMax: 6, intervalH: null, interpolated: true, note: NOTE_NOCHE },
@@ -553,6 +554,7 @@ function render() {
     interval = row.intervalH;
     extra    = ` Total orientativo: ${Math.round(total)} ml al día (75 ml por cada 453 g de peso).`;
     if (row.interpolated) extra += NOTE_INTERP;
+        if (row.calculated) extra += NOTE_CALC;
   }
 
   set('r-ml-toma', mlMain);
