@@ -12,6 +12,18 @@ const B = readFileSync(built, 'utf8');
 const H2_NUEVO = 'Preguntas frecuentes sobre los zapatos de bebé';
 const REVISION = /Última revisión: \d{1,2} de \w+ de \d{4}/;
 
+// D26c (2026-11-22): el texto informativo (desde el primer h2) se reescribió con la AAP y ya no se compara
+// con el original. La zona de la herramienta sí, salvo estas dos sustituciones declaradas.
+const PRIMER_H2 = 'Cómo elegir el zapato correcto para tu bebé';
+const CAMBIOS_ZONA = [
+  ['Añade 5 mm para holgura.', 'Introduce esa medida tal cual, sin añadir holgura.'],
+  ['Las tallas varían según fabricante. Úsalas como referencia y comprueba siempre antes de comprar. Los rangos de edad son orientativos — cada bebé crece a su ritmo.',
+   'Tabla orientativa elaborada por babyFAQ a partir de equivalencias habituales entre sistemas de tallas, sin respaldo de ningún organismo. Las tallas varían según fabricante: úsalas como referencia y comprueba siempre al probar el zapato. Los rangos de edad también son orientativos: cada bebé crece a su ritmo.'],
+];
+const RETIRADOS = ['propiocepción', 'Añade 5', '10–15 mm', 'cada 3–4 meses', 'moldeable', 'pie izquierdo y el derecho'];
+const PORTADAS = ['https://www.aeped.es', 'https://www.healthychildren.org', 'https://www.mscbs.gob.es'];
+const FUENTE_AAP = 'https://www.healthychildren.org/English/ages-stages/toddler/Pages/Shoes-for-Active-Toddlers.aspx';
+
 let errors = 0;
 const fail = m => { errors++; console.error(`  ✗ ${m}`); if (process.env.GITHUB_ACTIONS) console.log(`::error::${m}`); };
 const ok = m => console.log(`  ✓ ${m}`);
@@ -54,15 +66,32 @@ cmpList(ids(A), ids(B), 'ids');
 cmpList(aria(A), aria(B), 'aria-labels');
 
 const text = h => norm(body(h).replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' '));
-const tA = text(A);
-const tB = norm(text(B).replace(H2_NUEVO, ' ').replace(REVISION, ' '));
-if (tA === tB) ok(`texto visible idéntico (${tA.split(' ').length} palabras, salvo las 2 adiciones declaradas)`);
+const zona = t => t.split(PRIMER_H2)[0];
+let tA = zona(text(A));
+for (const [de, a] of CAMBIOS_ZONA) {
+  if (!tA.includes(de)) fail(`el original ya no contiene el texto sustituido: "${de.slice(0, 50)}…"`);
+  tA = tA.replace(de, a);
+}
+const tB = zona(text(B));
+if (norm(tA) === tB) ok(`zona de la herramienta idéntica (${tB.split(' ').length} palabras, salvo ${CAMBIOS_ZONA.length} sustituciones declaradas)`);
 else {
   let i = 0; while (i < tA.length && tA[i] === tB[i]) i++;
-  fail(`texto visible distinto desde el carácter ${i}:\n      original: …${tA.slice(Math.max(0, i - 40), i + 80)}\n      generado: …${tB.slice(Math.max(0, i - 40), i + 80)}`);
+  fail(`zona de la herramienta distinta desde el carácter ${i}:\n      original: …${tA.slice(Math.max(0, i - 40), i + 80)}\n      generado: …${tB.slice(Math.max(0, i - 40), i + 80)}`);
 }
-if (!REVISION.test(text(B))) fail('falta "Última revisión: fecha" en el generado');
-if (!text(B).includes(H2_NUEVO)) fail('falta el h2 de preguntas frecuentes en el generado');
+
+// Texto informativo reescrito (D26c): se comprueban la fuente, la revisión y que no queden textos retirados.
+const tBfull = text(B);
+if (!tBfull.includes(PRIMER_H2)) fail(`falta el h2 «${PRIMER_H2}» en el generado`);
+if (!REVISION.test(tBfull)) fail('falta "Última revisión: fecha" en el generado');
+if (!tBfull.includes(H2_NUEVO)) fail('falta el h2 de preguntas frecuentes en el generado');
+const retirados = RETIRADOS.filter(s => tBfull.includes(s));
+if (retirados.length) fail(`textos retirados en D26c que siguen en la página: ${retirados.join(' | ')}`);
+else ok('ningún texto retirado en D26c sigue en la página');
+const portadas = PORTADAS.filter(h => B.includes(`href="${h}"`));
+if (portadas.length) fail(`enlaces a portadas de organismos: ${portadas.join(', ')}`);
+else ok('sin enlaces a portadas de organismos');
+if (B.includes(`href="${FUENTE_AAP}"`)) ok('enlaza el documento de la AAP');
+else fail('falta el enlace al documento de la AAP');
 
 console.log(`\n${errors} diferencia(s) no declarada(s).`);
 process.exit(errors ? 1 : 0);
