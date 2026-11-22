@@ -2,19 +2,23 @@
   "permalink": "/talla-zapato.html",
   "title": "Talla de zapato bebé según cm de pie · babyFAQ",
   "description": "Descubre la talla de zapato de tu bebé en EU, US y UK a partir de la longitud del pie en cm. Guía completa para bebés y niños de 0 a 6 años.",
-  "ultimaRevision": "2026-11-09",
+  "ultimaRevision": "2026-11-22",
   "faq": [
     {
+      "q": "¿Cómo medir el pie de un bebé para comprar zapatos?",
+      "a": "Pon al bebé de pie sobre un folio, marca con un lápiz el talón y el dedo más largo y mide la distancia entre las dos marcas con una regla. Haz lo mismo con los dos pies y quédate con la medida del más largo. Introduce esa medida en la calculadora <strong>tal cual</strong>, sin añadir holgura: al probar el zapato, comprueba que quede aproximadamente el ancho de un dedo entre la punta del dedo gordo y el borde interior, como indica la AAP."
+    },
+    {
       "q": "¿Cuándo necesita su primer par de zapatos un bebé?",
-      "a": "Los bebés no necesitan zapatos hasta que empiezan a caminar en superficies exteriores. Antes de ese momento, lo mejor para el correcto desarrollo del pie es ir <strong>descalzo</strong> siempre que sea posible — el contacto directo con el suelo estimula la propiocepción y el fortalecimiento de los músculos del pie. En casa, los calcetines antideslizantes son suficientes para dar seguridad sin restringir el movimiento."
+      "a": "Según la AAP, en los primeros meses los pies del bebé se desarrollan mejor si no están metidos en zapatos, y los calcetines bastan para mantenerlos calientes. Cuando empieza a caminar por la calle, sí necesita zapatos para protegerse."
     },
     {
       "q": "¿Qué características debe tener el primer zapato?",
-      "a": "El primer calzado para caminar debe ser <strong>flexible</strong> (la suela debe doblarse fácilmente con la mano), con puntera ancha y redondeada para que los dedos puedan moverse con libertad, suela plana sin tacón ni cuña, y cierre ajustable (velcro o cordones) para que no se salga al caminar. Los zapatos rígidos, de cuero duro o con suelas gruesas no son adecuados para los primeros pasos — el pie necesita sentir el suelo."
+      "a": "La AAP recomienda zapatos cómodos y bien hechos, con suela antideslizante, como unas zapatillas deportivas, que ayuden a mantener firme al niño en suelos resbaladizos. Añade que no hace falta gastar mucho dinero. Su página no entra en más detalles, así que ante cualquier duda consulta con tu pediatra."
     },
     {
       "q": "¿Con qué frecuencia hay que revisar la talla del zapato?",
-      "a": "Hasta los 3 años, se recomienda revisar la talla del pie <strong>cada 2–3 meses</strong>. A partir de los 3 años, cada 3–4 meses es suficiente. Una forma fácil de comprobarlo en casa es el test del pulgar: con el zapato puesto y el pie en posición de marcha, presiona donde está el dedo gordo — debe haber espacio para un dedo de adulto (10–15 mm) entre el dedo y la punta del zapato. Si no hay ese espacio, el zapato ya es demasiado pequeño."
+      "a": "La AAP indica que, cuando los niños empiezan a caminar, sus pies crecen tan deprisa que el primer par no suele durar más de 2–3 meses, y recomienda comprobar el ajuste aproximadamente una vez al mes. Para hacerlo, mira que la punta del dedo gordo quede a un dedo de ancho del borde interior del zapato. Según la AAP, es mejor no llevar zapatos que llevarlos demasiado apretados."
     }
   ]
 }
