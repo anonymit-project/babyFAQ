@@ -1079,11 +1079,18 @@
         "posicion_media": 43.6,
         "periodo": "2026-08-06 a 2026-11-03"
       },
-      "organismos_candidatos": [],
-      "fuentes": [],
+      "organismos_candidatos": ["AAP"],
+      "fuentes": [
+        {
+          "fuente_organismo": "AAP (HealthyChildren, «Shoes for Active Toddlers»; fuente estadounidense, en inglés)",
+          "fuente_url": "https://www.healthychildren.org/English/ages-stages/toddler/Pages/Shoes-for-Active-Toddlers.aspx",
+          "fecha_consulta": "2026-11-22",
+          "cita_literal_breve": "develop best if they're not confined in shoes"
+        }
+      ],
       "estado_verificacion": "pendiente",
-      "notas_verificacion": "Migrada a Eleventy 2026-11-09 (piloto). Aprobada por el autor el 2026-11-22 (lote 8, D26a–D26c): las 3 desviaciones del piloto (h2 de FAQ, «Última revisión», FAQPage desde el texto visible). La fecha refleja la migración, no una comprobación de la tabla contra una fuente. Las portadas de AEP, AAP y Ministerio de Sanidad enlazadas en la página no respaldan la tabla; propuesta de Nivel 3 aceptada (D26b): se retirarán, las tablas se rotularán como orientativas de babyFAQ y «Fuentes consultadas» es opcional. Pendiente en chat aparte (D26c): buscar fuente oficial para las afirmaciones de desarrollo (ir descalzo y propiocepción, cambio de número cada 2–3 meses, suela flexible) y, si no hay, suavizarlas o retirarlas; unificar «añade 5 mm» con los 10–15 mm de la FAQ; decidir si se reincorporan visibles las FAQ de medir el pie y de los 12 meses. Estado «pendiente»: no hay ninguna fuente verificada.",
-      "ultima_revision": "2026-11-09",
+      "notas_verificacion": "Migrada a Eleventy 2026-11-09 (piloto); aprobada 2026-11-22 (D26a–D26c). Limpieza D26e–D26h (2026-11-22): fuente única la AAP «Shoes for Active Toddlers» (HTML, 2015, leída entera): pies mejor sin zapatos los primeros meses y calcetines para abrigar, zapatos al caminar en exteriores, comodidad y suela antideslizante, primer par no más de 2–3 meses al empezar a caminar, comprobar el ajuste una vez al mes, dedo gordo a un dedo de ancho del borde, mejor sin zapatos que apretados. No se encontró documento concreto de la AEP ni del Ministerio de Sanidad. Retirado por falta de fuente: propiocepción y músculos, «hasta la talla 24 cada 2–3 meses», revisión cada 3–4 meses tras los 3 años, 10–15 mm, test con el pie en posición de marcha, suela flexible, puntera, cierre y «rígidos no adecuados», «pie moldeable», pie izquierdo y derecho distintos, FAQ de 12 meses. Reincorporada visible la FAQ «¿Cómo medir el pie?» (consejo práctico). Portadas de AEP, AAP y Sanidad retiradas; tablas rotuladas como orientativas de babyFAQ, sin fuente (Nivel 3). «Añade 5 mm» retirado (D26f): la tabla no se ha comprobado contra una tabla de fabricante y puede que ya incluya holgura. Estado «pendiente» porque la tabla de tallas sigue sin fuente; si el autor prefiere «verificado» para lo respaldado por la AAP, cambiarlo. Existe versión en español de la página de la AAP, sin leer entera.",
+      "ultima_revision": "2026-11-22",
       "relacionadas": ["tallas-ropa", "talla-panal", "percentil"],
       "afiliados_prioridad": false
     },
