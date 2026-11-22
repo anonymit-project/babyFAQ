@@ -87,3 +87,29 @@ test('mantener pulsado el selector de peso lo acelera', async ({ page }) => {
   await page.mouse.up();
   expect(parseFloat(await page.locator('#kg-val').innerText())).toBeGreaterThan(4.5);
 });
+
+test('mes 1 de fórmula: «6–8 tomas» se rotula como estimación de babyFAQ y la etiqueta no sale en otras edades', async ({ page }) => {
+  await open(page);
+  // Los valores no cambian: lo cubre el caso 1 m / 4,5 kg de FORMULA.
+  await goTo(page, 'age', 1);
+  expect(await txt(page, '#r-tomas')).toBe('6–8');
+  let n = await txt(page, '#context-note');
+  expect(n).toContain('(6–8 al día) es una estimación de babyFAQ');
+  expect(n).toContain('24 horas entre las 3–4 horas');
+  expect(n).toContain('no da una cifra de tomas al día');
+  expect(n).not.toContain('entre las referencias de la AAP de 1 y 6 meses');
+  // Meses 2–5: sigue su nota de interpolación, no la del mes 1.
+  await goTo(page, 'age', 2);
+  n = await txt(page, '#context-note');
+  expect(n).toContain('entre las referencias de la AAP de 1 y 6 meses');
+  expect(n).not.toContain('24 horas entre las 3–4 horas');
+  // Recién nacido y 6 meses: cifras de la AAP, sin etiqueta de babyFAQ.
+  for (const m of [0, 6]) {
+    await goTo(page, 'age', m);
+    expect(await txt(page, '#context-note'), `${m} m`).not.toContain('babyFAQ');
+  }
+  // Leche materna a 1 mes: su nota propia, sin el cálculo de 24 horas.
+  await page.click('#btn-materna');
+  await goTo(page, 'age', 1);
+  expect(await txt(page, '#context-note')).not.toContain('24 horas entre las 3–4 horas');
+});
