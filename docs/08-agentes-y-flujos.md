@@ -10,6 +10,7 @@ Scripts y GitHub Actions (gratuito en repos públicos): build Eleventy, validado
 Implantados: `scripts/validate-static.mjs`, `scripts/validate-sources.mjs`, `tests/*.spec.mjs` y `.github/workflows/validate.yml`. Por defecto el validador solo revisa `tomas-leche.html`; para otra herramienta se añade a `DEFAULT_FILES` y se escribe su test. Pendientes: monitor de cambios en fuentes, informe semanal de Search Console/GA4 y exigir los checks como obligatorios con protección de rama.
 Piloto Eleventy (2026-11-09): `talla-zapato` se genera desde `src/herramientas/`; `validate.yml` construye y valida `_site/talla-zapato.html` y compara con el original guardado en `legacy/`.
 Segunda migración (2026-11-23): `talla-panal` (D28a–D28c). `compare-equivalence.mjs` pasa a recibir el slug y a leer `scripts/equivalencia/<slug>.json`; `validate.yml` lleva un paso de equivalencia por herramienta migrada y `pages.yml` exige `_site/<slug>.html`. Cada herramienta migrada añade: plantilla y JSON en `src/herramientas/`, original en `legacy/`, config en `scripts/equivalencia/` y una línea en esos dos workflows.
+Tercera migración (2026-11-23): `tallas-ropa` (D30a–D30d). Su CSS original no declara `--sage` ni `--sage-bg`, y `compare-equivalence.mjs` pasa a ignorar las variables CSS (`--*`) al buscar fugas del layout. Requiere que el original no use esas variables.
 
 ## Capa 2 — agentes con IA (solo con cuenta de API y presupuesto)
 - **Verificador de fuentes:** prepara PR con tabla "dato actual / dato en la fuente / enlace / cita".
