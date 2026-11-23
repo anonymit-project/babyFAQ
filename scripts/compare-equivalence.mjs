@@ -109,7 +109,7 @@ for (const [de, a] of cfg.sustituciones || []) {
   if (!tA.includes(d)) { fail(`el original ya no contiene el texto sustituido: "${d.slice(0, 60)}…"`); continue; }
   tA = tA.replace(d, () => norm(a.split('{FECHA}').join(fecha)));
 }
-const tB = zona(tBfull);
+const tB = norm(zona(tBfull));
 if (norm(tA) === tB) ok(`texto idéntico (${tB.split(' ').length} palabras, salvo ${(cfg.sustituciones || []).length} sustitución(es) declarada(s))`);
 else {
   const x = norm(tA);
