@@ -33,6 +33,7 @@ jobs:
       - name: Añadir lo que aún no está migrado
         run: |
           test -f _site/talla-zapato.html
+          test -f _site/talla-panal.html
           for f in *.html; do
             [ -e "_site/$f" ] || cp "$f" _site/
           done
