@@ -1,16 +1,42 @@
 {
+  "zonaHasta": "Por qué el peso es la guía principal",
   "sustituciones": [
-    [
-      "📌 Asociación Española de Pediatría (AEP) — Recomendaciones sobre higiene del bebé, piel del recién nacido y cambio de pañal. 📌 Ministerio de Sanidad de España — Guía de salud para el primer año de vida y cuidados del lactante.",
-      ""
-    ],
-    [
-      "Los rangos de peso varían según fabricante, línea de producto (Active Fit, Sensitive, Premium…) y lote de producción. Usa el peso como guía principal.",
-      "Última revisión: {FECHA} Tabla orientativa de babyFAQ, sin respaldo de ningún organismo oficial. Los rangos de peso varían según fabricante, línea de producto (Active Fit, Sensitive, Premium…) y lote de producción. Usa el peso como guía principal."
-    ]
+    ["Señales de que la talla se queda pequeña", "Señales de que la talla se queda pequeña (consejos prácticos de babyFAQ)"]
   ],
-  "textosObligatorios": ["Última revisión:", "Tabla orientativa de babyFAQ"],
-  "retirados": ["Recomendaciones sobre higiene del bebé", "Guía de salud para el primer año de vida"],
+  "jsSustituciones": [
+    ["Los pañales de recién nacido duran muy poco — compra un paquete pequeño para probar. Muchos bebés pasan a la talla 1 en 2–3 semanas.", "Los pañales de recién nacido tienen un rango de peso muy corto: compra un paquete pequeño para probar."],
+    ["La talla 1 es la primera que dura algo más. Si el bebé pesa más de 4 kg al nacer, empieza directamente aquí.", "La talla 1 cubre de 2 a 5 kg en todas las marcas de la tabla. Si tu bebé ya supera el rango de recién nacido, mira primero esta talla."],
+    ["El cambio de talla 1 a 2 suele ocurrir entre las 4 y 8 semanas. Fíjate en las marcas de las gomas: si quedan marcadas, es hora de cambiar.", "La talla 2 cubre de 3 a 6 kg en todas las marcas de la tabla. Si las gomas dejan marcas en la piel, prueba la talla siguiente."],
+    ["La talla 3 es la más larga en duración. Muchos bebés la usan varios meses. Es la más rentable de comprar en grandes packs.", "El rango de la talla 3 cambia según la marca: en la tabla empieza en 4, 5 o 6 kg y acaba en 9 o 10 kg. Compruébalo en el envase de tu marca."],
+    ["A partir de la talla 4 los pañales tipo pants (braguita) son una buena opción cuando el bebé empieza a moverse mucho.", "En la talla 4 los rangos varían entre marcas: de 7 a 18 kg en Huggies, Lidl y Carrefour y de 9 a 14 kg en Pampers."],
+    ["No todas las marcas tienen talla 4+. Si no la encuentras, la talla 5 es equivalente en muchas marcas.", "No todas las marcas tienen talla 4+: en la tabla, Huggies, Mercadona y Carrefour no la tienen. Si tu marca no la tiene, mira qué talla de esa marca incluye el peso de tu bebé."],
+    ["Con la talla 5 muchos bebés hacen el control de esfínteres. Los pañales-braguita facilitan la transición porque se suben y bajan solos.", "La talla 5 empieza en 11 kg en todas las marcas de la tabla y acaba en 23 o 25 kg, según la marca."],
+    ["La talla 6 suele usarse mientras dura el pañal. Algunas marcas tienen talla 7 para niños más grandes que aún los necesitan.", "El máximo de la talla 6 va de 25 kg (Pampers) a 35 kg (Dodot) en la tabla. Comprueba el rango de tu marca."],
+    ["Disponible en pocas marcas. Si tu bebé pesa más de 17 kg y sigue con pañal, busca pañales talla 6 XL o talla 7.", "En la tabla, solo Lidl (Lupilu) tiene talla 7. Si tu bebé supera el rango de tu marca, consulta sus tallas mayores."],
+    ["<strong>Consejo:</strong> Si tu bebé está entre dos tallas, elige <strong>la más grande</strong>. Un pañal muy justo fuga más y puede dejar marcas. El peso es la guía principal, pero también importa la forma del bebé — algunos tienen las piernas más gruesas aunque pesen poco.", "<strong>Consejo de babyFAQ:</strong> si tu bebé está entre dos tallas, mira el rango de peso de tu marca y comprueba que el pañal ajusta bien en cintura y piernas. El peso es la guía principal, pero cada bebé es diferente."]
+  ],
+  "textosObligatorios": [
+    "Última revisión:",
+    "Tabla orientativa elaborada por babyFAQ",
+    "Por qué cada marca tiene rangos distintos",
+    "Cómo usar esta calculadora"
+  ],
+  "retirados": [
+    "Recomendaciones sobre higiene del bebé",
+    "Guía de salud para el primer año de vida",
+    "verificados directamente en cada fabricante",
+    "Fuentes consultadas",
+    "Cuántos pañales gasta",
+    "10 y 12 pañales",
+    "la que más dura",
+    "control de esfínteres",
+    "orientación estadística",
+    "elige la más grande",
+    "fuga más",
+    "entre las 4 y 8 semanas",
+    "más rentable",
+    "6 XL"
+  ],
   "portadas": ["https://www.aeped.es", "https://www.mscbs.gob.es"],
   "enlacesObligatorios": [],
   "metaSoloEnGenerado": ["<meta property=\"og:url\" content=\"https://babyfaq.es/talla-panal.html\">"],
