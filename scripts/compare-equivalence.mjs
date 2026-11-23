@@ -80,7 +80,7 @@ if (cfg.cssExacto) {
     if (!rLayout.includes(x)) { problemas.push(`regla de más que no viene del layout: ${x.slice(0, 120)}`); continue; }
     const [s, b] = partir(x);
     if (propsOrig.has(s)) {
-      const fuga = props(b).filter(p => !propsOrig.get(s).has(p));
+      const fuga = props(b).filter(p => !p.startsWith('--') && !propsOrig.get(s).has(p)); // las variables CSS sin usar no cuentan como fuga (D30d)
       if (fuga.length) problemas.push(`el layout aporta propiedades que el original no declara en "${s}": ${fuga.join(', ')}`);
     } else {
       const conClases = /\./.test(s);
