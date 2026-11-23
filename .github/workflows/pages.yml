@@ -34,6 +34,7 @@ jobs:
         run: |
           test -f _site/talla-zapato.html
           test -f _site/talla-panal.html
+          test -f _site/tallas-ropa.html
           for f in *.html; do
             [ -e "_site/$f" ] || cp "$f" _site/
           done
