@@ -1,0 +1,32 @@
+{
+  "permalink": "/tallas-ropa.html",
+  "title": "Tallas de ropa bebé · Conversor ES FR US UK · babyFAQ",
+  "description": "Convierte tallas de ropa de bebé entre los sistemas español, francés, americano y británico al instante. Consulta por edad, altura o peso del bebé.",
+  "ultimaRevision": "2026-11-23",
+  "faq": [
+    {
+      "q": "¿Qué talla de ropa tiene un bebé de 6 meses?",
+      "a": "Según la tabla orientativa de babyFAQ, un bebé de 6 meses encaja en la fila de 3–6 meses: talla 3–6m en ES, UK y US y talla 68 en FR, con una altura de referencia de 60–67 cm y un peso de 5,5–7,5 kg. A los 7 meses pasaría a la fila de 6–9 meses. La tabla no procede de ningún organismo y cada marca tiene su propio patrón, así que comprueba la guía de tallas de la marca con la altura y el peso reales de tu bebé."
+    },
+    {
+      "q": "¿Cómo se convierte la talla francesa de ropa de bebé?",
+      "a": "En el sistema francés la talla indica una altura en centímetros, mientras que en España y el Reino Unido se usan rangos de edad. En la tabla de esta página, la talla FR 68 corresponde a la fila de 3–6 meses (60–67 cm) y la 74 a la de 6–9 meses (67–74 cm). Para convertirla, mide la altura de tu bebé y busca la fila que la incluya; después consulta la guía de la marca, porque cada fabricante tiene sus propias medidas."
+    },
+    {
+      "q": "¿Qué talla compro si mi bebé está entre dos tallas?",
+      "a": "En la tabla de esta página las filas se solapan en los límites: por ejemplo, 67 cm figura como máximo de la fila de 3–6 meses y como mínimo de la de 6–9 meses. Si tu bebé está justo en un límite, mide su altura actual y compárala con la guía de tallas de la marca que vas a comprar."
+    },
+    {
+      "q": "¿Qué talla compro si voy a regalar ropa de bebé?",
+      "a": "Lo más fiable es preguntar a los padres qué talla usa ahora el bebé y cuál es su altura. Si no puedes preguntar, usa la edad aproximada en la tabla de esta página, teniendo en cuenta que es orientativa y que cada marca corta de forma distinta; consulta la guía de tallas de la marca."
+    },
+    {
+      "q": "¿Influye la marca en las tallas de ropa de bebé?",
+      "a": "Sí. Cada fabricante aplica su propio patrón de corte, así que la talla de la etiqueta puede no coincidir con la de esta tabla. Conviene comparar la altura y el peso reales de tu bebé con la guía de tallas de la marca antes de comprar."
+    },
+    {
+      "q": "¿Cuándo empiezan a usarse las tallas por años?",
+      "a": "En la tabla de esta página, a partir de la fila de 2 años las tallas ES se expresan en años (2 años, 3 años, 4 años y 5 años), las UK en rangos de años (2–3 años, 3–4 años…), las US con una T (2T, 3T, 4T y 5T) y las FR siguen siendo una altura en cm (98, 104, 110 y 116). Consulta la guía de la marca, porque cada fabricante puede cambiar de meses a años en otro momento."
+    }
+  ]
+}
