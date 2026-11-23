@@ -1,0 +1,48 @@
+{
+  "zonaHasta": "Guía de tallas de ropa de bebé por países",
+  "sustituciones": [
+    [
+      "Edad Altura Peso 🇪🇸 ES 🇬🇧 UK 🇺🇸 US 🇫🇷 FR",
+      "Edad Altura Peso 🇪🇸 ES 🇬🇧 UK 🇺🇸 US 🇫🇷 FR Tabla orientativa elaborada por babyFAQ a partir de equivalencias habituales entre sistemas de tallas, sin respaldo de ningún organismo. La altura y el peso de cada fila son referencias aproximadas y cada fabricante tiene su propio patrón: consulta la guía de tallas de la marca y usa las medidas reales de tu bebé."
+    ]
+  ],
+  "jsSustituciones": [
+    ["Las primeras semanas el bebé crece muy rápido. Si dudas entre dos tallas, coge la más grande.", "Esta fila de la tabla va de 44 a 50 cm y de 2,5 a 3,5 kg, y es una referencia orientativa de babyFAQ: comprueba siempre la guía de tallas de la marca."],
+    ["A esta edad los bebés crecen unos 3–4 cm al mes. Las tallas duran poco — no compres mucho de una sola.", "En esta fila la talla FR es 60: al expresarse en cm, puedes compararla con la altura actual de tu bebé."],
+    ["Zara y H&M suelen tallar grande; Primark y Mamas & Papas tallan más pequeño que la media.", "Las filas de la tabla se solapan en los límites: 67 cm es el máximo de 3–6 meses y el mínimo de 6–9 meses. Si estás justo en un límite, consulta la guía de la marca."],
+    ["Para pijamas, ten en cuenta los pies: algunos modelos con pie incorporado se quedan cortos antes de la talla.", "Cada fabricante usa su propio patrón: la talla de la etiqueta puede no coincidir con la de esta tabla. Consulta su guía de tallas con la altura y el peso reales."],
+    ["A partir de los 12 meses la talla UK coincide más con la edad que con las medidas — usa siempre cm de referencia.", "En el sistema francés la talla se expresa en cm de altura; en las otras columnas de esta tabla se usan meses o años."],
+    ["A partir de los 2 años la talla FR equivale a la altura en cm. Es el sistema más intuitivo para comparar marcas.", "La talla de esta tabla es solo una referencia: comprueba la altura y el peso reales de tu bebé con la guía de tallas de la marca."],
+    ["<strong>Consejo:</strong> ${note}", "<strong>Consejo de babyFAQ:</strong> ${note}"]
+  ],
+  "textosObligatorios": [
+    "Última revisión:",
+    "Tabla orientativa elaborada por babyFAQ",
+    "Preguntas frecuentes sobre las tallas de ropa de bebé"
+  ],
+  "retirados": [
+    "Zara",
+    "H&M",
+    "Primark",
+    "Mamas",
+    "Petit Bateau",
+    "Jacadi",
+    "Bout'chou",
+    "Fuentes consultadas",
+    "3–4 cm al mes",
+    "pijamas",
+    "coge la más grande",
+    "más intuitivo",
+    "más fiable",
+    "Siempre la talla más grande"
+  ],
+  "portadas": [
+    "https://www.who.int/tools/child-growth-standards",
+    "https://www.aeped.es",
+    "https://www.en13402.eu",
+    "https://www.afnor.org"
+  ],
+  "enlacesObligatorios": [],
+  "metaSoloEnGenerado": [],
+  "cssExacto": false
+}
