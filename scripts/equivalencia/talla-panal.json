@@ -1,0 +1,18 @@
+{
+  "sustituciones": [
+    [
+      "📌 Asociación Española de Pediatría (AEP) — Recomendaciones sobre higiene del bebé, piel del recién nacido y cambio de pañal. 📌 Ministerio de Sanidad de España — Guía de salud para el primer año de vida y cuidados del lactante.",
+      ""
+    ],
+    [
+      "Los rangos de peso varían según fabricante, línea de producto (Active Fit, Sensitive, Premium…) y lote de producción. Usa el peso como guía principal.",
+      "Última revisión: {FECHA} Tabla orientativa de babyFAQ, sin respaldo de ningún organismo oficial. Los rangos de peso varían según fabricante, línea de producto (Active Fit, Sensitive, Premium…) y lote de producción. Usa el peso como guía principal."
+    ]
+  ],
+  "textosObligatorios": ["Última revisión:", "Tabla orientativa de babyFAQ"],
+  "retirados": ["Recomendaciones sobre higiene del bebé", "Guía de salud para el primer año de vida"],
+  "portadas": ["https://www.aeped.es", "https://www.mscbs.gob.es"],
+  "enlacesObligatorios": [],
+  "metaSoloEnGenerado": ["<meta property=\"og:url\" content=\"https://babyfaq.es/talla-panal.html\">"],
+  "cssExacto": false
+}
