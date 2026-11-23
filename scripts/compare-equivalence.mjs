@@ -1,31 +1,23 @@
 #!/usr/bin/env node
 // Compara el HTML original de una herramienta con el generado por Eleventy.
-// Uso: node scripts/compare-equivalence.mjs [original.html generado.html]
-import { readFileSync } from 'node:fs';
+// Uso: node scripts/compare-equivalence.mjs <slug>
+// Necesita: legacy/<slug>.original.html, _site/<slug>.html y scripts/equivalencia/<slug>.json
+// El JSON declara las desviaciones deliberadas de la migración (ver docs/09-decisiones.md, D28a).
+import { readFileSync, existsSync } from 'node:fs';
 
-const [orig = 'legacy/talla-zapato.original.html', built = '_site/talla-zapato.html'] = process.argv.slice(2);
-const A = readFileSync(orig, 'utf8');
-const B = readFileSync(built, 'utf8');
+const slug = process.argv[2];
+if (!slug) { console.error('Uso: node scripts/compare-equivalence.mjs <slug>'); process.exit(2); }
+const rutas = { orig: `legacy/${slug}.original.html`, built: `_site/${slug}.html`, cfg: `scripts/equivalencia/${slug}.json` };
+for (const r of Object.values(rutas)) if (!existsSync(r)) { console.error(`✗ no existe ${r}`); process.exit(1); }
+const A = readFileSync(rutas.orig, 'utf8');
+const B = readFileSync(rutas.built, 'utf8');
+const cfg = JSON.parse(readFileSync(rutas.cfg, 'utf8'));
+console.log(`\nEquivalencia: ${slug}`);
 
-// Desviaciones deliberadas del piloto (documentadas en docs/09-decisiones.md):
-//  1) h2 nuevo sobre las FAQ  2) línea "Última revisión"  3) FAQPage generado desde el texto visible.
-const H2_NUEVO = 'Preguntas frecuentes sobre los zapatos de bebé';
-const REVISION = /Última revisión: \d{1,2} de \w+ de \d{4}/;
-
-// D26c (2026-11-22): el texto informativo (desde el primer h2) se reescribió con la AAP y ya no se compara
-// con el original. La zona de la herramienta sí, salvo estas dos sustituciones declaradas.
-const PRIMER_H2 = 'Cómo elegir el zapato correcto para tu bebé';
-const CAMBIOS_ZONA = [
-  ['Añade 5 mm para holgura.', 'Introduce esa medida tal cual, sin añadir holgura.'],
-  ['Las tallas varían según fabricante. Úsalas como referencia y comprueba siempre antes de comprar. Los rangos de edad son orientativos — cada bebé crece a su ritmo.'],
-  ['Tabla orientativa elaborada por babyFAQ a partir de equivalencias habituales entre sistemas de tallas, sin respaldo de ningún organismo. Las tallas varían según fabricante: úsalas como referencia y comprueba siempre al probar el zapato. Los rangos de edad también son orientativos: cada bebé crece a su ritmo.'],
-];
-const RETIRADOS = ['propiocepción', 'Añade 5', '10–15 mm', 'cada 3–4 meses', 'moldeable', 'pie izquierdo y el derecho'];
-const PORTADAS = ['https://www.aeped.es', 'https://www.healthychildren.org', 'https://www.mscbs.gob.es'];
-const FUENTE_AAP = 'https://www.healthychildren.org/English/ages-stages/toddler/Pages/Shoes-for-Active-Toddlers.aspx';
+const REVISION = /Última revisión: (\d{1,2} de \w+ de \d{4})/;
 
 let errors = 0;
-const fail = m => { errors++; console.error(`  ✗ ${m}`); if (process.env.GITHUB_ACTIONS) console.log(`::error::${m}`); };
+const fail = m => { errors++; console.error(`  ✗ ${m}`); if (process.env.GITHUB_ACTIONS) console.log(`::error::${slug}: ${m}`); };
 const ok = m => console.log(`  ✓ ${m}`);
 const norm = s => s.replace(/\s+/g, ' ').trim();
 const body = h => h.split(/<body[^>]*>/i)[1] ?? h;
@@ -41,57 +33,102 @@ const cmpList = (a, b, nombre) =>
 // ── Cabecera ──
 cmpList([/<html[^>]*\blang="es"/.test(A)], [/<html[^>]*\blang="es"/.test(B)], 'lang="es"');
 cmpList([norm((A.match(/<title>([\s\S]*?)<\/title>/i) || [])[1] || '')], [norm((B.match(/<title>([\s\S]*?)<\/title>/i) || [])[1] || '')], 'title');
-cmpList(tagsOf(A, 'meta'), tagsOf(B, 'meta'), 'meta tags');
+const metaExtra = (cfg.metaSoloEnGenerado || []).map(norm);
+cmpList([...tagsOf(A, 'meta'), ...metaExtra].sort(), tagsOf(B, 'meta'), `meta tags (${metaExtra.length} añadida(s) declarada(s))`);
 cmpList(tagsOf(A, 'link'), tagsOf(B, 'link'), 'link tags');
 
 // ── JSON-LD (salvo FAQPage) y scripts en línea ──
 const scripts = h => [...h.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)].map(m => ({ attrs: m[1], code: m[2] }));
 const ld = h => scripts(h).filter(s => /ld\+json/.test(s.attrs)).map(s => JSON.parse(s.code)).filter(d => d['@type'] !== 'FAQPage').map(d => JSON.stringify(d));
-const inline = h => scripts(h).filter(s => !/src=|ld\+json/.test(s.attrs)).map(s => norm(s.code));
+// El script de Analytics se compara sin espacios (el layout lo escribe compacto); el resto, con espacios normalizados.
+const inline = h => scripts(h).filter(s => !/src=|ld\+json/.test(s.attrs)).map(s => (/dataLayer/.test(s.code) ? s.code.replace(/\s+/g, '') : norm(s.code)));
 cmpList(ld(A), ld(B), 'JSON-LD (sin FAQPage)');
 cmpList(inline(A), inline(B), 'JS en línea (GA + herramienta)');
 
-// ── CSS: mismas reglas aunque cambie el orden o el reparto entre ficheros ──
-const css = h => [...h.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map(m => m[1]).join('\n').replace(/\/\*[\s\S]*?\*\//g, '');
+// ── CSS ──
+const quitarComentarios = c => c.replace(/\/\*[\s\S]*?\*\//g, '');
+const css = h => quitarComentarios([...h.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map(m => m[1]).join('\n'));
 const reglas = c => [...c.matchAll(/([^{}]+)\{([^{}]*)\}/g)]
   .map(m => `${norm(m[1]).replace(/\s*,\s*/g, ',')}{${norm(m[2]).replace(/\s*([:;,])\s*/g, '$1').replace(/;$/, '')}}`).sort();
 const medias = c => [...new Set([...c.matchAll(/@media[^{]*/g)].map(m => norm(m[0])))].sort();
-cmpList(reglas(css(A)), reglas(css(B)), 'reglas CSS');
+const rA = reglas(css(A)), rB = reglas(css(B));
+
+if (cfg.cssExacto) {
+  cmpList(rA, rB, 'reglas CSS');
+} else {
+  // El generado = CSS común del layout + CSS de la plantilla. Se exige que (1) todas las reglas del original
+  // estén en el generado, (2) las reglas de más vengan del layout y (3) no se cuele nada del layout:
+  // ni propiedades que el original no declare para ese selector, ni reglas para clases que la página usa.
+  const layout = readFileSync('src/_includes/layouts/herramienta.njk', 'utf8');
+  const rawLayout = (layout.match(/\{% raw %\}([\s\S]*?)\{% endraw %\}/) || [])[1];
+  if (!rawLayout) fail('no se encontró el bloque {% raw %} de CSS en el layout');
+  const rLayout = reglas(quitarComentarios(rawLayout || ''));
+  const resto = [...rB], falta = [];
+  for (const x of rA) { const i = resto.indexOf(x); if (i < 0) falta.push(x); else resto.splice(i, 1); }
+  const partir = r => { const i = r.indexOf('{'); return [r.slice(0, i), r.slice(i + 1, -1)]; };
+  const props = b => b.split(';').map(d => d.split(':')[0].trim()).filter(Boolean);
+  const propsOrig = new Map();
+  for (const r of rA) { const [s, b] = partir(r); propsOrig.set(s, new Set([...(propsOrig.get(s) || []), ...props(b)])); }
+  const clases = new Set([...body(B).matchAll(/class="([^"]+)"/g)].flatMap(m => m[1].split(/\s+/)));
+  const problemas = [];
+  for (const x of falta) problemas.push(`regla del original que falta en el generado: ${x.slice(0, 120)}`);
+  for (const x of resto) {
+    if (!rLayout.includes(x)) { problemas.push(`regla de más que no viene del layout: ${x.slice(0, 120)}`); continue; }
+    const [s, b] = partir(x);
+    if (propsOrig.has(s)) {
+      const fuga = props(b).filter(p => !propsOrig.get(s).has(p));
+      if (fuga.length) problemas.push(`el layout aporta propiedades que el original no declara en "${s}": ${fuga.join(', ')}`);
+    } else {
+      const conClases = /\./.test(s);
+      const usa = [...s.matchAll(/\.([\w-]+)/g)].some(m => clases.has(m[1]));
+      if (!conClases || usa) problemas.push(`regla del layout para "${s}", que el original no define y la página usa`);
+    }
+  }
+  if (problemas.length) fail(`CSS distinto del original:\n      ${problemas.join('\n      ')}`);
+  else ok(`CSS: las ${rA.length} reglas del original están en el generado; ${resto.length} reglas de más, todas del layout y sin fugas`);
+}
 cmpList(medias(css(A)), medias(css(B)), 'media queries');
 
-// ── Estructura y texto ──
+// ── Estructura ──
 const ids = h => [...body(h).matchAll(/\sid="([^"]+)"/g)].map(m => m[1]).sort();
 const aria = h => [...body(h).matchAll(/aria-label="([^"]+)"/g)].map(m => m[1]).sort();
 cmpList(ids(A), ids(B), 'ids');
 cmpList(aria(A), aria(B), 'aria-labels');
 
+// ── Texto ──
 const text = h => norm(body(h).replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' '));
-const zona = t => t.split(PRIMER_H2)[0];
+const tBfull = text(B);
+const mRev = tBfull.match(REVISION);
+if (!mRev) fail('falta "Última revisión: fecha" en el generado');
+const fecha = mRev ? mRev[1] : '';
+// Si la herramienta declara "zonaHasta", solo se compara el texto anterior a ese título (el resto se reescribió).
+const zona = t => (cfg.zonaHasta ? t.split(cfg.zonaHasta)[0] : t);
 let tA = zona(text(A));
-for (const [de, a] of CAMBIOS_ZONA) {
-  if (!tA.includes(de)) fail(`el original ya no contiene el texto sustituido: "${de.slice(0, 50)}…"`);
-  tA = tA.replace(de, a);
+for (const [de, a] of cfg.sustituciones || []) {
+  const d = norm(de);
+  if (!tA.includes(d)) { fail(`el original ya no contiene el texto sustituido: "${d.slice(0, 60)}…"`); continue; }
+  tA = tA.replace(d, () => norm(a.split('{FECHA}').join(fecha)));
 }
-const tB = zona(text(B));
-if (norm(tA) === tB) ok(`zona de la herramienta idéntica (${tB.split(' ').length} palabras, salvo ${CAMBIOS_ZONA.length} sustituciones declaradas)`);
+const tB = zona(tBfull);
+if (norm(tA) === tB) ok(`texto idéntico (${tB.split(' ').length} palabras, salvo ${(cfg.sustituciones || []).length} sustitución(es) declarada(s))`);
 else {
-  let i = 0; while (i < tA.length && tA[i] === tB[i]) i++;
-  fail(`zona de la herramienta distinta desde el carácter ${i}:\n      original: …${tA.slice(Math.max(0, i - 40), i + 80)}\n      generado: …${tB.slice(Math.max(0, i - 40), i + 80)}`);
+  const x = norm(tA);
+  let i = 0; while (i < x.length && x[i] === tB[i]) i++;
+  fail(`texto distinto desde el carácter ${i}:\n      original: …${x.slice(Math.max(0, i - 40), i + 80)}\n      generado: …${tB.slice(Math.max(0, i - 40), i + 80)}`);
 }
 
-// Texto informativo reescrito (D26c): se comprueban la fuente, la revisión y que no queden textos retirados.
-const tBfull = text(B);
-if (!tBfull.includes(PRIMER_H2)) fail(`falta el h2 «${PRIMER_H2}» en el generado`);
-if (!REVISION.test(tBfull)) fail('falta "Última revisión: fecha" en el generado');
-if (!tBfull.includes(H2_NUEVO)) fail('falta el h2 de preguntas frecuentes en el generado');
-const retirados = RETIRADOS.filter(s => tBfull.includes(s));
-if (retirados.length) fail(`textos retirados en D26c que siguen en la página: ${retirados.join(' | ')}`);
-else ok('ningún texto retirado en D26c sigue en la página');
-const portadas = PORTADAS.filter(h => B.includes(`href="${h}"`));
+// ── Controles de lo declarado ──
+for (const t of cfg.textosObligatorios || []) if (!tBfull.includes(t)) fail(`falta en el generado: «${t}»`);
+const retirados = (cfg.retirados || []).filter(s => tBfull.includes(s));
+if (retirados.length) fail(`textos retirados que siguen en la página: ${retirados.join(' | ')}`);
+else ok('ningún texto retirado sigue en la página');
+const portadas = (cfg.portadas || []).filter(h => B.includes(`href="${h}"`));
 if (portadas.length) fail(`enlaces a portadas de organismos: ${portadas.join(', ')}`);
 else ok('sin enlaces a portadas de organismos');
-if (B.includes(`href="${FUENTE_AAP}"`)) ok('enlaza el documento de la AAP');
-else fail('falta el enlace al documento de la AAP');
+for (const u of cfg.enlacesObligatorios || []) {
+  if (B.includes(`href="${u}"`)) ok(`enlaza ${u}`);
+  else fail(`falta el enlace a ${u}`);
+}
 
 console.log(`\n${errors} diferencia(s) no declarada(s).`);
 process.exit(errors ? 1 : 0);
