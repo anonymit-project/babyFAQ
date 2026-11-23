@@ -1112,7 +1112,8 @@
       "organismos_candidatos": [],
       "fuentes": [],
       "estado_verificacion": "pendiente",
-      "ultima_revision": null,
+      "notas_verificacion": "Migrada a Eleventy y limpiada 2026-11-23 (D30a–D30d; original en legacy/tallas-ropa.original.html). Retirado por falta de fuente: las 4 portadas de «Fuentes consultadas» (OMS, AEP, UNE-EN 13402, AFNOR), marcas concretas (Zara, H&M, Primark, Mamas & Papas, Petit Bateau, Jacadi, Bout'chou), «crecen 3–4 cm al mes», pijamas con pie y «siempre la talla más grande». Los consejos se reescriben con datos de la propia tabla y remiten a la guía de la marca. La FAQPage se genera ahora desde 6 preguntas visibles (antes el JSON-LD marcaba 4 que no coincidían con las 5 visibles). La tabla de edad, altura, peso y tallas ES/UK/US/FR sigue sin fuente y está rotulada como orientativa de babyFAQ. Estado «pendiente» por eso. «Última revisión» refleja esta limpieza, no una comprobación de la tabla.",
+      "ultima_revision": "2026-11-23",
       "relacionadas": [
         "talla-zapato",
         "talla-panal",
