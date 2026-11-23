@@ -1,0 +1,411 @@
+{% extends "layouts/herramienta.njk" %}
+
+{% block jsonld %}{% raw %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Conversor tallas de ropa bebé ES FR US UK",
+  "description": "Convierte tallas de ropa de bebé entre los sistemas español, francés, americano y británico. Busca por edad, altura o peso del bebé.",
+  "url": "https://babyfaq.es/tallas-ropa.html",
+  "applicationCategory": "HealthApplication",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "publisher": { "@type": "Organization", "name": "babyFAQ", "url": "https://babyfaq.es" }
+}
+</script>
+{% endraw %}{% endblock %}
+
+{% block css %}{% raw %}
+  :root {
+    --cream: #fdf6f0; --warm-white: #fffcfa; --blush: #f2c4b0;
+    --terracota: #c97a5e; --deep: #2d1a10; --mid: #6a3f28; --soft: #c4987a;
+    --peach-bg: #fdf0e8; --peach-border: #e8c4a8;
+    --blue-bg: #eef4fb; --blue: #3a6aaa; --blue-border: #a8c4e8;
+    --green-bg: #edf5f0; --green: #3a7a4a; --green-border: #a8d8b0;
+    --purple-bg: #f0eef8; --purple: #6a4aaa; --purple-border: #c4b4e8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 300px; height: 300px; background: #f7c4a0; top: -100px; right: -80px; opacity: 0.35; }
+  .blob-2 { width: 250px; height: 250px; background: #c4d0f7; bottom: -80px; left: -60px; opacity: 0.3; }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--terracota); }
+
+  header { text-align: center; margin-bottom: 32px; }
+  .badge { display: inline-block; background: var(--peach-bg); color: var(--terracota); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
+  h1 em { font-style: italic; color: var(--terracota); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.5; font-weight: 300; text-align: justify; }
+
+  .card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,26,16,0.06); border: 1px solid rgba(196,152,122,0.2); }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft); margin-bottom: 14px; }
+
+  .toggle-row { display: flex; gap: 8px; }
+  .toggle-btn { flex: 1; padding: 10px 6px; border-radius: 12px; border: 1.5px solid rgba(196,152,122,0.3); background: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; color: var(--mid); cursor: pointer; transition: all 0.18s; text-align: center; touch-action: manipulation; }
+  .toggle-btn .t-icon { display: block; font-size: 18px; margin-bottom: 3px; }
+  .toggle-btn.active { background: var(--warm-white); border-color: var(--terracota); color: var(--deep); box-shadow: 0 2px 8px rgba(201,122,94,0.15); }
+
+  .hold-sel { background: var(--cream); border-radius: 14px; border: 1.5px solid rgba(196,152,122,0.35); display: flex; align-items: center; height: 68px; padding: 0 4px; }
+  .hold-btn { width: 44px; height: 52px; flex-shrink: 0; border-radius: 10px; border: none; background: transparent; color: var(--terracota); font-size: 24px; font-weight: 300; cursor: pointer; display: flex; align-items: center; justify-content: center; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: background 0.1s; line-height: 1; }
+  .hold-btn:active, .hold-btn.pressing { background: var(--blush); }
+  .hold-center { flex: 1; text-align: center; }
+  .hold-val { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 300; color: var(--deep); display: block; line-height: 1; }
+  .hold-unit { font-size: 11px; color: var(--soft); font-family: 'DM Sans', sans-serif; }
+  .hold-sub { font-size: 10px; color: var(--soft); display: block; margin-top: 2px; font-style: italic; }
+
+  .result-card { background: var(--warm-white); border-radius: 20px; padding: 22px 18px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(45,26,16,0.06); border: 1px solid rgba(196,152,122,0.2); animation: fadeUp 0.3s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .sizes-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+  .size-block { background: var(--cream); border-radius: 13px; padding: 13px 10px; text-align: center; border: 1.5px solid transparent; }
+  .size-block.es { background: var(--peach-bg);  border-color: var(--peach-border); }
+  .size-block.uk { background: var(--blue-bg);   border-color: var(--blue-border); }
+  .size-block.us { background: var(--green-bg);  border-color: var(--green-border); }
+  .size-block.fr { background: var(--purple-bg); border-color: var(--purple-border); }
+
+  .sz-system { font-size: 9px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 5px; }
+  .size-block.es .sz-system { color: var(--terracota); }
+  .size-block.uk .sz-system { color: var(--blue); }
+  .size-block.us .sz-system { color: var(--green); }
+  .size-block.fr .sz-system { color: var(--purple); }
+
+  .sz-value { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 400; color: var(--deep); display: block; line-height: 1; }
+  .sz-sub { font-size: 10px; color: var(--soft); display: block; margin-top: 3px; }
+
+  .measures-row { display: flex; gap: 8px; margin-bottom: 12px; }
+  .measure-block { flex: 1; background: var(--cream); border-radius: 12px; padding: 10px 8px; text-align: center; }
+  .m-label { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); display: block; margin-bottom: 3px; }
+  .m-value { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 400; color: var(--deep); }
+  .m-unit { font-size: 9px; color: var(--soft); }
+
+  .age-ref { background: var(--cream); border-radius: 10px; padding: 9px 13px; font-size: 12px; color: var(--mid); text-align: center; margin-bottom: 12px; }
+  .age-ref strong { color: var(--deep); }
+
+  .context-note { background: var(--cream); border-radius: 12px; padding: 11px 13px; font-size: 12px; color: var(--mid); line-height: 1.6; border: 1px solid rgba(196,152,122,0.18); text-align: justify; }
+  .context-note strong { color: var(--deep); font-weight: 500; }
+
+  .table-toggle { width: 100%; background: transparent; border: 1.5px solid rgba(196,152,122,0.35); border-radius: 13px; padding: 11px; font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--mid); cursor: pointer; margin-top: 12px; transition: border-color 0.2s, color 0.2s; }
+  .table-toggle:hover { border-color: var(--terracota); color: var(--terracota); }
+  .full-table { display: none; margin-top: 12px; overflow-x: auto; }
+  .full-table.visible { display: block; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  thead th { font-size: 9px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); padding: 6px 6px; text-align: center; border-bottom: 1px solid rgba(196,152,122,0.25); }
+  tbody tr { transition: background 0.12s; cursor: pointer; }
+  tbody tr:hover { background: rgba(242,196,176,0.15); }
+  tbody tr.highlight { background: var(--peach-bg); font-weight: 500; }
+  tbody td { padding: 6px 6px; text-align: center; font-family: 'Fraunces', serif; font-size: 13px; color: var(--deep); border-bottom: 1px solid rgba(196,152,122,0.1); }
+  tbody td:first-child { font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--mid); font-weight: 500; }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 22px; padding: 0 8px; }
+
+  /* ── Secciones informativas ── */
+  .seo-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(196,152,122,0.25); }
+  .seo-section h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; color: var(--deep); margin-bottom: 12px; line-height: 1.3; }
+  .seo-section h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 17px; color: var(--deep); margin-bottom: 8px; margin-top: 24px; line-height: 1.3; }
+  .seo-section p { font-size: 14px; color: var(--mid); line-height: 1.7; margin-bottom: 14px; font-weight: 300; text-align: justify; }
+  .seo-section strong { color: var(--deep); font-weight: 500; }
+  .faq-item { margin-bottom: 20px; }
+  .faq-item h3 { margin-top: 0; }
+  .seo-table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+  .seo-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .seo-table thead th { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); padding: 8px 10px; text-align: left; border-bottom: 1px solid rgba(196,152,122,0.3); background: var(--warm-white); }
+  .seo-table tbody td { padding: 8px 10px; font-size: 13px; color: var(--mid); border-bottom: 1px solid rgba(196,152,122,0.12); vertical-align: top; }
+  .seo-table tbody td:first-child { font-weight: 500; color: var(--deep); white-space: nowrap; }
+  .seo-table tbody tr:last-child td { border-bottom: none; }
+
+  /* ── Fuentes consultadas ── */
+  .sources-section { margin-top: 32px; background: var(--warm-white); border-radius: 20px; padding: 20px 18px; border: 1px solid rgba(196,152,122,0.2); }
+  .sources-section h2 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 17px; color: var(--deep); margin-bottom: 12px; }
+  .sources-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .sources-list li { font-size: 13px; color: var(--mid); }
+  .sources-list a { color: var(--terracota); text-decoration: none; font-weight: 500; }
+  .sources-list a:hover { text-decoration: underline; }
+
+  /* ── Disclaimer médico ── */
+  .medical-disclaimer { margin-top: 24px; background: var(--peach-bg); border-radius: 16px; padding: 16px 18px; border: 1px solid var(--peach-border); }
+  .medical-disclaimer p { font-size: 12px; color: var(--mid); line-height: 1.6; text-align: justify; margin: 0; }
+
+  /* ── Desktop layout ── */
+  @media (min-width: 480px) {
+    h1 { font-size: 34px; }
+  }
+
+  @media (min-width: 640px) {
+    h1 { font-size: 38px; }
+    .container { max-width: 860px; padding: 48px 40px 80px; }
+    .page-grid {
+      display: grid;
+      grid-template-columns: 370px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .right-col { position: sticky; top: 28px; }
+    .right-col .result-card { margin-bottom: 0; }
+    .blob-1 { width: 220px; height: 220px; top: -60px; right: 60px; opacity: 0.22; }
+    .blob-2 { width: 200px; height: 200px; bottom: -60px; left: 40px; opacity: 0.18; }
+  }
+{% endraw %}{% endblock %}
+
+{% block contenido %}
+  <header>
+    <span class="badge">Ropa y tallas</span>
+    <h1>¿Qué talla de <em>ropa</em> le pongo?</h1>
+    <p class="subtitle">Convierte tallas de bebé entre sistemas español, británico, americano y francés al instante.</p>
+  </header>
+
+  <div class="page-grid"><div class="left-col">
+
+  <div class="card">
+    <div class="section-label">Buscar por</div>
+    <div class="toggle-row" style="margin-bottom:14px">
+      <button class="toggle-btn active" id="btn-age"    onclick="setMode('age')"    aria-label="Buscar por edad">   <span class="t-icon">🗓️</span>Edad</button>
+      <button class="toggle-btn"        id="btn-height" onclick="setMode('height')" aria-label="Buscar por altura"><span class="t-icon">📏</span>Altura</button>
+      <button class="toggle-btn"        id="btn-weight" onclick="setMode('weight')" aria-label="Buscar por peso">  <span class="t-icon">⚖️</span>Peso</button>
+    </div>
+
+    <div id="sel-age">
+      <div class="hold-sel">
+        <button class="hold-btn" id="age-m" data-dir="-1" aria-label="Reducir edad">−</button>
+        <div class="hold-center">
+          <span class="hold-val" id="age-v">6</span>
+          <span class="hold-unit">meses</span>
+          <span class="hold-sub" id="age-sub"></span>
+        </div>
+        <button class="hold-btn" id="age-p" data-dir="1" aria-label="Aumentar edad">+</button>
+      </div>
+    </div>
+
+    <div id="sel-height" style="display:none">
+      <div class="hold-sel">
+        <button class="hold-btn" id="ht-m" data-dir="-1" aria-label="Reducir altura">−</button>
+        <div class="hold-center">
+          <span class="hold-val" id="ht-v">67</span>
+          <span class="hold-unit">cm</span>
+        </div>
+        <button class="hold-btn" id="ht-p" data-dir="1" aria-label="Aumentar altura">+</button>
+      </div>
+    </div>
+
+    <div id="sel-weight" style="display:none">
+      <div class="hold-sel">
+        <button class="hold-btn" id="wt-m" data-dir="-1" aria-label="Reducir peso">−</button>
+        <div class="hold-center">
+          <span class="hold-val" id="wt-v">7.5</span>
+          <span class="hold-unit">kg</span>
+        </div>
+        <button class="hold-btn" id="wt-p" data-dir="1" aria-label="Aumentar peso">+</button>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /left-col -->
+  <div class="right-col">
+
+  <div class="result-card" id="result-card">
+    <div class="section-label">Tallas equivalentes</div>
+    <div class="age-ref" id="age-ref"></div>
+    <div class="sizes-row">
+      <div class="size-block es"><span class="sz-system">🇪🇸 ES / EU</span><span class="sz-value" id="sz-es">—</span><span class="sz-sub" id="sz-es-sub"></span></div>
+      <div class="size-block fr"><span class="sz-system">🇫🇷 FR</span><span class="sz-value" id="sz-fr">—</span><span class="sz-sub" id="sz-fr-sub"></span></div>
+      <div class="size-block us"><span class="sz-system">🇺🇸 US</span><span class="sz-value" id="sz-us">—</span><span class="sz-sub" id="sz-us-sub"></span></div>
+      <div class="size-block uk"><span class="sz-system">🇬🇧 UK</span><span class="sz-value" id="sz-uk">—</span><span class="sz-sub" id="sz-uk-sub"></span></div>
+    </div>
+    <div class="measures-row">
+      <div class="measure-block"><span class="m-label">Altura ref.</span><span class="m-value" id="m-height">—</span> <span class="m-unit">cm</span></div>
+      <div class="measure-block"><span class="m-label">Peso ref.</span><span class="m-value" id="m-weight">—</span> <span class="m-unit">kg</span></div>
+      <div class="measure-block"><span class="m-label">Edad ref.</span><span class="m-value" id="m-age">—</span></div>
+    </div>
+    <div class="context-note" id="context-note"></div>
+    <button class="table-toggle" id="table-toggle" onclick="toggleTable()" aria-label="Ver tabla completa de tallas">Ver tabla completa ↓</button>
+    <div class="full-table" id="full-table">
+      <table>
+        <thead>
+          <tr><th>Edad</th><th>Altura</th><th>Peso</th><th>🇪🇸 ES</th><th>🇬🇧 UK</th><th>🇺🇸 US</th><th>🇫🇷 FR</th></tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  </div><!-- /right-col -->
+  </div><!-- /page-grid -->
+
+  <p class="disclaimer">Tabla orientativa elaborada por babyFAQ a partir de equivalencias habituales entre sistemas de tallas, sin respaldo de ningún organismo. La altura y el peso de cada fila son referencias aproximadas y cada fabricante tiene su propio patrón: consulta la guía de tallas de la marca y usa las medidas reales de tu bebé.</p>
+
+  <!-- Secciones informativas -->
+  <div class="seo-section">
+    <h2>Guía de tallas de ropa de bebé por países</h2>
+    <p>
+      Comprar ropa de bebé en tiendas extranjeras o en marcas internacionales puede resultar
+      confuso porque cada país usa un sistema de tallas diferente. En la tabla de esta página,
+      las tallas españolas (ES), británicas (UK) y americanas (US) se expresan sobre todo en
+      meses y, a partir de los 2 años, en años (las americanas con una T), mientras que las
+      francesas (FR) usan la altura en centímetros. Por eso una misma prenda puede llevar
+      etiquetas distintas según el país de la marca.
+    </p>
+
+    <h2>Tabla de equivalencias de tallas por sistemas</h2>
+    <p>
+      Esta tabla es una referencia orientativa de babyFAQ, elaborada a partir de equivalencias
+      habituales entre sistemas de tallas. No procede de ningún organismo y cada fabricante tiene
+      su propio patrón, así que consulta la guía de tallas de la marca antes de comprar.
+    </p>
+    <div class="seo-table-wrap">
+      <table class="seo-table">
+        <thead><tr><th>Edad</th><th>Altura</th><th>🇪🇸 ES</th><th>🇫🇷 FR</th><th>🇺🇸 US</th><th>🇬🇧 UK</th></tr></thead>
+        <tbody>
+          <tr><td>Recién nacido</td><td>44–50 cm</td><td>0–1m</td><td>50</td><td>Newborn</td><td>0–1m</td></tr>
+          <tr><td>1–3 meses</td><td>50–60 cm</td><td>1–3m</td><td>60</td><td>0–3m</td><td>0–3m</td></tr>
+          <tr><td>3–6 meses</td><td>60–67 cm</td><td>3–6m</td><td>68</td><td>3–6m</td><td>3–6m</td></tr>
+          <tr><td>6–9 meses</td><td>67–74 cm</td><td>6–9m</td><td>74</td><td>6–9m</td><td>6–9m</td></tr>
+          <tr><td>9–12 meses</td><td>74–80 cm</td><td>9–12m</td><td>80</td><td>9–12m</td><td>9–12m</td></tr>
+          <tr><td>12–18 meses</td><td>80–86 cm</td><td>12–18m</td><td>86</td><td>12–18m</td><td>12–18m</td></tr>
+          <tr><td>18–24 meses</td><td>86–92 cm</td><td>18–24m</td><td>92</td><td>18–24m</td><td>18–24m</td></tr>
+          <tr><td>2 años</td><td>92–98 cm</td><td>2 años</td><td>98</td><td>2T</td><td>2–3 años</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Preguntas frecuentes sobre las tallas de ropa de bebé</h2>
+{% for item in faq %}
+    <div class="faq-item">
+      <h3>{{ item.q }}</h3>
+      <p>{{ item.a | safe }}</p>
+    </div>
+{% endfor %}
+  </div>
+
+  <p class="disclaimer">Última revisión: {{ ultimaRevision | fechaLarga }}</p>
+
+  <!-- Aviso -->
+  <div class="medical-disclaimer">
+    <p>
+      ⚠️ Tabla orientativa elaborada por babyFAQ, sin respaldo de ningún organismo. Las tallas
+      varían según el fabricante, el tipo de prenda y el corte: consulta siempre la guía de
+      tallas de cada marca y usa la altura y el peso reales de tu bebé como referencia.
+      FR = talla basada en la altura en cm.
+    </p>
+  </div>
+{% endblock %}
+
+{% block script %}{% raw %}
+<script>
+const SIZES=[
+  {age:'Recién nacido',ageMonths:1, heightMin:44,heightMax:50,weightMin:2.5,weightMax:3.5, es:'0–1m',  uk:'0–1m',    us:'Newborn', fr:'50'},
+  {age:'1–3 meses',   ageMonths:3, heightMin:50,heightMax:60,weightMin:3.5,weightMax:5.5, es:'1–3m',  uk:'0–3m',    us:'0–3m',    fr:'60'},
+  {age:'3–6 meses',   ageMonths:6, heightMin:60,heightMax:67,weightMin:5.5,weightMax:7.5, es:'3–6m',  uk:'3–6m',    us:'3–6m',    fr:'68'},
+  {age:'6–9 meses',   ageMonths:9, heightMin:67,heightMax:74,weightMin:7.5,weightMax:9.0, es:'6–9m',  uk:'6–9m',    us:'6–9m',    fr:'74'},
+  {age:'9–12 meses',  ageMonths:12,heightMin:74,heightMax:80,weightMin:9.0,weightMax:10.5,es:'9–12m', uk:'9–12m',   us:'9–12m',   fr:'80'},
+  {age:'12–18 meses', ageMonths:18,heightMin:80,heightMax:86,weightMin:10.5,weightMax:12.0,es:'12–18m',uk:'12–18m', us:'12–18m',  fr:'86'},
+  {age:'18–24 meses', ageMonths:24,heightMin:86,heightMax:92,weightMin:12.0,weightMax:13.5,es:'18–24m',uk:'18–24m', us:'18–24m',  fr:'92'},
+  {age:'2 años',      ageMonths:36,heightMin:92,heightMax:98,weightMin:13.5,weightMax:15.0,es:'2 años',uk:'2–3 años',us:'2T',      fr:'98'},
+  {age:'3 años',      ageMonths:48,heightMin:98,heightMax:104,weightMin:15.0,weightMax:17.0,es:'3 años',uk:'3–4 años',us:'3T',     fr:'104'},
+  {age:'4 años',      ageMonths:60,heightMin:104,heightMax:110,weightMin:17.0,weightMax:19.0,es:'4 años',uk:'4–5 años',us:'4T',   fr:'110'},
+  {age:'5 años',      ageMonths:72,heightMin:110,heightMax:116,weightMin:19.0,weightMax:21.0,es:'5 años',uk:'5–6 años',us:'5T',   fr:'116'},
+];
+const AGE_VALUES=Array.from({length:73},(_,i)=>i);
+const HT_VALUES=Array.from({length:73},(_,i)=>44+i);
+const WT_VALUES=[];for(let v=2.5;v<=22.0+1e-9;v=Math.round((v+0.5)*10)/10)WT_VALUES.push(parseFloat(v.toFixed(1)));
+let mode='age',ageIdx=AGE_VALUES.indexOf(6),htIdx=HT_VALUES.indexOf(67),wtIdx=WT_VALUES.indexOf(7.5);
+
+function makeHoldBtn(el,onStep){
+  let h=null,r=null,s=0;
+  function fire(){onStep(parseInt(el.dataset.dir));}
+  function start(){fire();s=1;h=setTimeout(()=>{r=setInterval(()=>{fire();s++;if(s===10){clearInterval(r);r=setInterval(fire,60);}},150);},350);}
+  function stop(){clearTimeout(h);clearInterval(r);h=r=null;s=0;el.classList.remove('pressing');}
+  el.addEventListener('touchstart',e=>{e.preventDefault();el.classList.add('pressing');start();},{passive:false});
+  el.addEventListener('touchend',stop,{passive:true});
+  el.addEventListener('touchcancel',stop,{passive:true});
+  el.addEventListener('mousedown',()=>{el.classList.add('pressing');start();});
+  el.addEventListener('mouseup',stop);
+  el.addEventListener('mouseleave',stop);
+}
+
+makeHoldBtn(document.getElementById('age-m'),dir=>{ageIdx=Math.max(0,Math.min(AGE_VALUES.length-1,ageIdx+dir));render();});
+makeHoldBtn(document.getElementById('age-p'),dir=>{ageIdx=Math.max(0,Math.min(AGE_VALUES.length-1,ageIdx+dir));render();});
+makeHoldBtn(document.getElementById('ht-m'), dir=>{htIdx=Math.max(0,Math.min(HT_VALUES.length-1,htIdx+dir));render();});
+makeHoldBtn(document.getElementById('ht-p'), dir=>{htIdx=Math.max(0,Math.min(HT_VALUES.length-1,htIdx+dir));render();});
+makeHoldBtn(document.getElementById('wt-m'), dir=>{wtIdx=Math.max(0,Math.min(WT_VALUES.length-1,wtIdx+dir));render();});
+makeHoldBtn(document.getElementById('wt-p'), dir=>{wtIdx=Math.max(0,Math.min(WT_VALUES.length-1,wtIdx+dir));render();});
+
+function setMode(m){
+  mode=m;
+  ['age','height','weight'].forEach(id=>{
+    document.getElementById('btn-'+id).classList.toggle('active',id===m);
+    document.getElementById('sel-'+id).style.display=id===m?'':'none';
+  });
+  render();
+}
+
+function findRow(){
+  if(mode==='age'){const months=AGE_VALUES[ageIdx];return SIZES.find(s=>months<=s.ageMonths)||SIZES[SIZES.length-1];}
+  if(mode==='height'){const cm=HT_VALUES[htIdx];return SIZES.find(s=>cm<=s.heightMax)||SIZES[SIZES.length-1];}
+  const kg=WT_VALUES[wtIdx];return SIZES.find(s=>kg<=s.weightMax)||SIZES[SIZES.length-1];
+}
+function findRowIdx(row){return SIZES.indexOf(row);}
+
+function render(){
+  const months=AGE_VALUES[ageIdx];
+  document.getElementById('age-v').textContent=months;
+  document.getElementById('age-sub').textContent=months===1?'mes':months<24?'':months===24?'2 años':`${Math.floor(months/12)}a ${months%12}m`;
+  document.getElementById('ht-v').textContent=HT_VALUES[htIdx];
+  document.getElementById('wt-v').textContent=WT_VALUES[wtIdx].toFixed(1);
+  const row=findRow();
+  const idx=findRowIdx(row);
+  document.getElementById('sz-es').textContent=row.es;
+  document.getElementById('sz-uk').textContent=row.uk;
+  document.getElementById('sz-us').textContent=row.us;
+  document.getElementById('sz-fr').textContent=row.fr;
+  document.getElementById('sz-es-sub').textContent=row.age;
+  document.getElementById('sz-fr-sub').textContent=`${row.heightMin}–${row.heightMax} cm`;
+  document.getElementById('m-height').textContent=`${row.heightMin}–${row.heightMax}`;
+  document.getElementById('m-weight').textContent=`${row.weightMin}–${row.weightMax}`;
+  document.getElementById('m-age').textContent=row.age;
+  document.getElementById('age-ref').innerHTML=`<strong>Referencia:</strong> ${row.age} · ${row.heightMin}–${row.heightMax} cm · ${row.weightMin}–${row.weightMax} kg`;
+  const notes=[
+    'Esta fila de la tabla va de 44 a 50 cm y de 2,5 a 3,5 kg, y es una referencia orientativa de babyFAQ: comprueba siempre la guía de tallas de la marca.',
+    'En esta fila la talla FR es 60: al expresarse en cm, puedes compararla con la altura actual de tu bebé.',
+    'Las filas de la tabla se solapan en los límites: 67 cm es el máximo de 3–6 meses y el mínimo de 6–9 meses. Si estás justo en un límite, consulta la guía de la marca.',
+    'Cada fabricante usa su propio patrón: la talla de la etiqueta puede no coincidir con la de esta tabla. Consulta su guía de tallas con la altura y el peso reales.',
+    'En el sistema francés la talla se expresa en cm de altura; en las otras columnas de esta tabla se usan meses o años.',
+    'La talla de esta tabla es solo una referencia: comprueba la altura y el peso reales de tu bebé con la guía de tallas de la marca.',
+  ];
+  const note=notes[Math.min(idx,notes.length-1)];
+  document.getElementById('context-note').innerHTML=`<strong>Consejo de babyFAQ:</strong> ${note}`;
+  document.querySelectorAll('#table-body tr').forEach((tr,i)=>{tr.classList.toggle('highlight',i===idx);});
+  const highlighted=document.querySelector('#table-body tr.highlight');
+  if(highlighted&&document.getElementById('full-table').classList.contains('visible')){
+    highlighted.scrollIntoView({block:'nearest',behavior:'smooth'});
+  }
+}
+
+function buildTable(){
+  const tbody=document.getElementById('table-body');
+  SIZES.forEach((row,i)=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${row.age}</td><td>${row.heightMin}–${row.heightMax}</td><td>${row.weightMin}–${row.weightMax}</td><td>${row.es}</td><td>${row.uk}</td><td>${row.us}</td><td>${row.fr}</td>`;
+    tr.addEventListener('click',()=>{ageIdx=AGE_VALUES.indexOf(row.ageMonths);if(ageIdx<0)ageIdx=0;setMode('age');render();});
+    tbody.appendChild(tr);
+  });
+}
+
+function toggleTable(){
+  const t=document.getElementById('full-table');
+  const btn=document.getElementById('table-toggle');
+  const open=t.classList.toggle('visible');
+  btn.textContent=open?'Ocultar tabla ↑':'Ver tabla completa ↓';
+  if(open){const highlighted=document.querySelector('#table-body tr.highlight');if(highlighted)setTimeout(()=>highlighted.scrollIntoView({block:'nearest',behavior:'smooth'}),50);}
+}
+
+buildTable();
+render();
+</script>
+{% endraw %}{% endblock %}
