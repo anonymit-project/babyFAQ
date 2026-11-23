@@ -17,8 +17,8 @@ const REVISION = /Última revisión: \d{1,2} de \w+ de \d{4}/;
 const PRIMER_H2 = 'Cómo elegir el zapato correcto para tu bebé';
 const CAMBIOS_ZONA = [
   ['Añade 5 mm para holgura.', 'Introduce esa medida tal cual, sin añadir holgura.'],
-  ['Las tallas varían según fabricante. Úsalas como referencia y comprueba siempre antes de comprar. Los rangos de edad son orientativos — cada bebé crece a su ritmo.',
-   'Tabla orientativa elaborada por babyFAQ a partir de equivalencias habituales entre sistemas de tallas, sin respaldo de ningún organismo. Las tallas varían según fabricante: úsalas como referencia y comprueba siempre al probar el zapato. Los rangos de edad también son orientativos: cada bebé crece a su ritmo.'],
+  ['Las tallas varían según fabricante. Úsalas como referencia y comprueba siempre antes de comprar. Los rangos de edad son orientativos — cada bebé crece a su ritmo.'],
+  ['Tabla orientativa elaborada por babyFAQ a partir de equivalencias habituales entre sistemas de tallas, sin respaldo de ningún organismo. Las tallas varían según fabricante: úsalas como referencia y comprueba siempre al probar el zapato. Los rangos de edad también son orientativos: cada bebé crece a su ritmo.'],
 ];
 const RETIRADOS = ['propiocepción', 'Añade 5', '10–15 mm', 'cada 3–4 meses', 'moldeable', 'pie izquierdo y el derecho'];
 const PORTADAS = ['https://www.aeped.es', 'https://www.healthychildren.org', 'https://www.mscbs.gob.es'];
