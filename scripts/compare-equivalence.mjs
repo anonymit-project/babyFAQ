@@ -43,7 +43,11 @@ const ld = h => scripts(h).filter(s => /ld\+json/.test(s.attrs)).map(s => JSON.p
 // El script de Analytics se compara sin espacios (el layout lo escribe compacto); el resto, con espacios normalizados.
 const inline = h => scripts(h).filter(s => !/src=|ld\+json/.test(s.attrs)).map(s => (/dataLayer/.test(s.code) ? s.code.replace(/\s+/g, '') : norm(s.code)));
 cmpList(ld(A), ld(B), 'JSON-LD (sin FAQPage)');
-cmpList(inline(A), inline(B), 'JS en línea (GA + herramienta)');
+const jsSust = (cfg.jsSustituciones || []).map(([de, a]) => [norm(de), norm(a)]);
+const inlineA = inline(A);
+for (const [de] of jsSust) if (!inlineA.some(c => c.includes(de))) fail(`el JS del original ya no contiene el texto sustituido: "${de.slice(0, 60)}…"`);
+const inlineAsust = inlineA.map(c => jsSust.reduce((r, [de, a]) => r.replace(de, () => a), c));
+cmpList(inlineAsust, inline(B), `JS en línea (GA + herramienta; ${jsSust.length} sustitución(es) declarada(s))`);
 
 // ── CSS ──
 const quitarComentarios = c => c.replace(/\/\*[\s\S]*?\*\//g, '');
@@ -119,7 +123,8 @@ else {
 
 // ── Controles de lo declarado ──
 for (const t of cfg.textosObligatorios || []) if (!tBfull.includes(t)) fail(`falta en el generado: «${t}»`);
-const retirados = (cfg.retirados || []).filter(s => tBfull.includes(s));
+const jsB = scripts(B).filter(s => !/src=|ld\+json/.test(s.attrs)).map(s => s.code).join(' ');
+const retirados = (cfg.retirados || []).filter(s => tBfull.includes(s) || jsB.includes(s));
 if (retirados.length) fail(`textos retirados que siguen en la página: ${retirados.join(' | ')}`);
 else ok('ningún texto retirado sigue en la página');
 const portadas = (cfg.portadas || []).filter(h => B.includes(`href="${h}"`));
