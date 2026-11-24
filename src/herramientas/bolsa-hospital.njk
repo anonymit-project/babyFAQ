@@ -291,17 +291,9 @@
       <div>
         <h2>El <em>plan de parto</em>: qué es y para qué sirve</h2>
         <p>El plan de parto es un documento escrito en el que expresas tus preferencias para el parto: tipo de analgesia, posiciones, piel con piel, lactancia, presencia del acompañante, entre otros. No es vinculante y sirve para comunicar al equipo lo que te importa.</p>
-        <p>El Ministerio de Sanidad publica un documento de plan de parto y nacimiento que puede servir como modelo (enlace en «Fuentes consultadas»). Tu matrona puede ayudarte a redactarlo. Puedes <strong>imprimirlo en dos copias</strong>: una para el equipo y otra para ti.</p>
+        <p>Tu matrona puede ayudarte a redactarlo y decirte si tu hospital tiene un modelo propio. Puedes <strong>imprimirlo en dos copias</strong>: una para el equipo y otra para ti.</p>
       </div>
 
-    </div>
-  </div>
-
-  <!-- Fuentes consultadas -->
-  <div class="sources-section">
-    <h2>📚 Fuentes consultadas</h2>
-    <div class="sources-list">
-      <div class="source-item">📖 <a href="https://www.ministeriodesanidad.gob.es/organizacion/sns/planCalidadSNS/pdf/equidad/planPartoNacimiento.pdf" target="_blank" rel="noopener">Ministerio de Sanidad de España</a>: documento «Plan de parto y nacimiento», que puede usarse como modelo para redactar el tuyo</div>
     </div>
   </div>
 
@@ -552,8 +544,6 @@ function buildSections() {
       };
 
       div.addEventListener('click', toggle);
-      div.addEventListener('touchstart', e => { e.preventDefault(); }, { passive: false });
-      div.addEventListener('touchend', e => { e.preventDefault(); toggle(); });
 
       itemsWrap.appendChild(div);
     });
