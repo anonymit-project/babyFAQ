@@ -34,7 +34,11 @@ const cmpList = (a, b, nombre) =>
 cmpList([/<html[^>]*\blang="es"/.test(A)], [/<html[^>]*\blang="es"/.test(B)], 'lang="es"');
 cmpList([norm((A.match(/<title>([\s\S]*?)<\/title>/i) || [])[1] || '')], [norm((B.match(/<title>([\s\S]*?)<\/title>/i) || [])[1] || '')], 'title');
 const metaExtra = (cfg.metaSoloEnGenerado || []).map(norm);
-cmpList([...tagsOf(A, 'meta'), ...metaExtra].sort(), tagsOf(B, 'meta'), `meta tags (${metaExtra.length} añadida(s) declarada(s))`);
+const metaSust = (cfg.metaSustituciones || []).map(([de, a]) => [norm(de), norm(a)]);
+const metaA = tagsOf(A, 'meta');
+for (const [de] of metaSust) if (!metaA.some(t => t.includes(de))) fail(`el meta del original ya no contiene el texto sustituido: "${de.slice(0, 60)}…"`);
+const metaAsust = metaA.map(t => metaSust.reduce((r, [de, a]) => r.split(de).join(a), t));
+cmpList([...metaAsust, ...metaExtra].sort(), tagsOf(B, 'meta'), `meta tags (${metaExtra.length} añadida(s) y ${metaSust.length} sustitución(es) declarada(s))`);
 cmpList(tagsOf(A, 'link'), tagsOf(B, 'link'), 'link tags');
 
 // ── JSON-LD (salvo FAQPage) y scripts en línea ──
@@ -80,7 +84,8 @@ if (cfg.cssExacto) {
     if (!rLayout.includes(x)) { problemas.push(`regla de más que no viene del layout: ${x.slice(0, 120)}`); continue; }
     const [s, b] = partir(x);
     if (propsOrig.has(s)) {
-      const fuga = props(b).filter(p => !p.startsWith('--') && !propsOrig.get(s).has(p)); // las variables CSS sin usar no cuentan como fuga (D30d)
+      const admitidas = (cfg.cssPropsAdmitidas || {})[s] || []; // propiedades del layout que se declaran como desviación (D31c)
+      const fuga = props(b).filter(p => !p.startsWith('--') && !propsOrig.get(s).has(p) && !admitidas.includes(p)); // las variables CSS sin usar no cuentan como fuga (D30d)
       if (fuga.length) problemas.push(`el layout aporta propiedades que el original no declara en "${s}": ${fuga.join(', ')}`);
     } else {
       const conClases = /\./.test(s);
