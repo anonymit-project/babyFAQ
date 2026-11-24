@@ -11,6 +11,7 @@ Implantados: `scripts/validate-static.mjs`, `scripts/validate-sources.mjs`, `tes
 Piloto Eleventy (2026-11-09): `talla-zapato` se genera desde `src/herramientas/`; `validate.yml` construye y valida `_site/talla-zapato.html` y compara con el original guardado en `legacy/`.
 Segunda migración (2026-11-23): `talla-panal` (D28a–D28c). `compare-equivalence.mjs` pasa a recibir el slug y a leer `scripts/equivalencia/<slug>.json`; `validate.yml` lleva un paso de equivalencia por herramienta migrada y `pages.yml` exige `_site/<slug>.html`. Cada herramienta migrada añade: plantilla y JSON en `src/herramientas/`, original en `legacy/`, config en `scripts/equivalencia/` y una línea en esos dos workflows.
 Tercera migración (2026-11-23): `tallas-ropa` (D30a–D30d). Su CSS original no declara `--sage` ni `--sage-bg`, y `compare-equivalence.mjs` pasa a ignorar las variables CSS (`--*`) al buscar fugas del layout. Requiere que el original no use esas variables.
+Cuarta migración (2026-11-24): `bolsa-hospital` (D31a–D31d). `compare-equivalence.mjs` admite `metaSustituciones` (cambios declarados en las meta del original) y `cssPropsAdmitidas` (propiedades del layout admitidas por selector). Se usan para la descripción (138 → 151 caracteres, el validador exige 140–155) y para el `text-align` del subtítulo.
 
 ## Capa 2 — agentes con IA (solo con cuenta de API y presupuesto)
 - **Verificador de fuentes:** prepara PR con tabla "dato actual / dato en la fuente / enlace / cita".
