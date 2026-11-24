@@ -27,6 +27,7 @@
     ["Frutos secos, barritas, chocolate. Las cafeterías del hospital no siempre están abiertas.", "Frutos secos, barritas, chocolate. Puede que la cafetería del hospital no esté abierta a todas horas."],
     ["Para la máquina expendedora o la cafetería. Muchos hospitales no admiten tarjeta en todos los sitios.", "Para la máquina expendedora o la cafetería, por si no aceptan tarjeta."],
     ["Silla de coche instalada (i-Size)", "Silla de coche instalada"],
+    ["div.addEventListener('click', toggle); div.addEventListener('touchstart', e => { e.preventDefault(); }, { passive: false }); div.addEventListener('touchend', e => { e.preventDefault(); toggle(); });", "div.addEventListener('click', toggle);"],
     ["Imprescindible y obligatorio. Contramarcha. Muchos hospitales comprueban que esté instalada antes del alta.", "El bebé tendrá que volver a casa en ella. Instálala y pruébala antes del parto, y pregunta en tu hospital si hacen alguna comprobación antes del alta."],
     ["Si habéis decidido no dar el pecho, tenerlo preparado evita estrés.", "Solo si habéis decidido no dar el pecho. Si tienes dudas sobre la lactancia, consúltalo con tu matrona."]
   ],
@@ -34,7 +35,6 @@
   "textosObligatorios": [
     "Última revisión:",
     "Consejos para preparar la bolsa",
-    "Fuentes consultadas",
     "Orientaciones prácticas de babyFAQ"
   ],
   "retirados": [
@@ -60,11 +60,10 @@
   "portadas": [
     "https://www.aeped.es",
     "https://www.seom.org",
-    "https://www.who.int/publications/i/item/9789241550215"
-  ],
-  "enlacesObligatorios": [
+    "https://www.who.int/publications/i/item/9789241550215",
     "https://www.ministeriodesanidad.gob.es/organizacion/sns/planCalidadSNS/pdf/equidad/planPartoNacimiento.pdf"
   ],
+  "enlacesObligatorios": [],
   "metaSoloEnGenerado": [
     "<meta property=\"og:url\" content=\"https://babyfaq.es/bolsa-hospital.html\">"
   ],
