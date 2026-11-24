@@ -1,0 +1,72 @@
+{
+  "zonaHasta": "Consejos para preparar la bolsa",
+  "sustituciones": [],
+  "metaSustituciones": [
+    [
+      "Lista completa para la bolsa del hospital: qué llevar al parto para mamá, bebé y acompañante. Checklist interactivo con progreso guardado.",
+      "Lista completa para la bolsa del hospital: qué llevar al parto para mamá, bebé y acompañante. Marca lo que tienes y guarda tu progreso en el navegador."
+    ]
+  ],
+  "jsSustituciones": [
+    ["Los paritorios están fríos. Los calcetines con suela de goma son perfectos.", "Algunos paritorios pueden estar fríos. Los calcetines con suela de goma son una opción práctica."],
+    ["El parto reseca mucho los labios. El bálsamo es muy agradecido.", "Por si se te resecan los labios durante el parto."],
+    ["Música o meditación durante las contracciones. Muy recomendado.", "Música o meditación para los ratos de contracciones, si te ayuda a relajarte."],
+    ["Dátiles, frutos secos, barritas. Para mantener la energía en partos largos.", "Dátiles, frutos secos, barritas. Pregunta a tu matrona si podrás comer durante el parto."],
+    ["Con pajita es mucho más fácil beber tumbada o en posiciones de parto.", "Con pajita puede ser más fácil beber tumbada."],
+    ["Los hospitales suelen dar, pero llevar las tuyas garantiza comodidad. Las de algodón son más suaves.", "Pregunta en tu hospital si las proporciona; si prefieres un tipo concreto, llévalas tú."],
+    ["Las que da el hospital son para usar y tirar. Tener 5–6 extras es muy práctico.", "Pregunta en tu hospital si las proporciona. Tener algunas de repuesto puede ser práctico."],
+    ["Muy útil si se produce dolor en los primeros días de lactancia.", "Algunas madres la llevan por si hay molestias en los pezones; consulta con tu matrona antes de usar cualquier crema."],
+    ["Recuerda que el abdomen tarda semanas en reducirse — lleva ropa holgada.", "El abdomen no recupera su tamaño de inmediato: lleva ropa holgada."],
+    ["Los hospitales suelen estar frescos. Con pies es más cómodo que con calcetines sueltos.", "Pueden venir bien si el hospital está fresco; con pies no hace falta llevar calcetines aparte."],
+    ["Para las primeras horas — los recién nacidos pierden mucho calor por la cabeza.", "Para las primeras horas. Tu matrona te indicará cómo abrigar al bebé."],
+    ["Las manoplas evitan arañazos en los primeros días. Los calcetines para cuando quite las manoplas.", "Unas manoplas para los primeros días, si quieres, y calcetines para los pies."],
+    ["El hospital suele dar, pero llevar 6–8 garantiza no quedarse sin. Algunos bebés ya nacen para talla 1.", "Pregunta en tu hospital si los proporciona; llevar unos cuantos evita quedarte sin. Comprueba el rango de peso de la talla en el envase."],
+    ["Para los cambios. Las del hospital no siempre son las más suaves.", "Para los cambios. Si prefieres unas concretas, llévalas tú."],
+    ["Para proteger desde el primer cambio.", "Opcional: consulta con tu matrona o pediatra antes de usar cremas en la piel del bebé."],
+    ["Opcional según vuestra decisión. Si lo lleváis, llevad dos — se caen siempre.", "Opcional, según vuestra decisión. Si lo lleváis, mejor llevar dos."],
+    ["Frutos secos, barritas, chocolate. Las cafeterías del hospital no siempre están abiertas.", "Frutos secos, barritas, chocolate. Puede que la cafetería del hospital no esté abierta a todas horas."],
+    ["Para la máquina expendedora o la cafetería. Muchos hospitales no admiten tarjeta en todos los sitios.", "Para la máquina expendedora o la cafetería, por si no aceptan tarjeta."],
+    ["Silla de coche instalada (i-Size)", "Silla de coche instalada"],
+    ["Imprescindible y obligatorio. Contramarcha. Muchos hospitales comprueban que esté instalada antes del alta.", "El bebé tendrá que volver a casa en ella. Instálala y pruébala antes del parto, y pregunta en tu hospital si hacen alguna comprobación antes del alta."],
+    ["Si habéis decidido no dar el pecho, tenerlo preparado evita estrés.", "Solo si habéis decidido no dar el pecho. Si tienes dudas sobre la lactancia, consúltalo con tu matrona."]
+  ],
+  "cssPropsAdmitidas": { ".subtitle": ["text-align"] },
+  "textosObligatorios": [
+    "Última revisión:",
+    "Consejos para preparar la bolsa",
+    "Fuentes consultadas",
+    "Orientaciones prácticas de babyFAQ"
+  ],
+  "retirados": [
+    "Muy recomendado",
+    "garantiza",
+    "son perfectos",
+    "muy agradecido",
+    "pierden mucho calor",
+    "se caen siempre",
+    "i-Size",
+    "Contramarcha",
+    "obligatorio",
+    "no pueden darte el alta",
+    "10%",
+    "recomendación estándar",
+    "Los paritorios están fríos",
+    "tarda semanas",
+    "merece la pena",
+    "Errores frecuentes",
+    "casi nunca proporcionan",
+    "agiliza mucho"
+  ],
+  "portadas": [
+    "https://www.aeped.es",
+    "https://www.seom.org",
+    "https://www.who.int/publications/i/item/9789241550215"
+  ],
+  "enlacesObligatorios": [
+    "https://www.ministeriodesanidad.gob.es/organizacion/sns/planCalidadSNS/pdf/equidad/planPartoNacimiento.pdf"
+  ],
+  "metaSoloEnGenerado": [
+    "<meta property=\"og:url\" content=\"https://babyfaq.es/bolsa-hospital.html\">"
+  ],
+  "cssExacto": false
+}
