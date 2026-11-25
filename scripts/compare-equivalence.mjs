@@ -44,14 +44,38 @@ cmpList(tagsOf(A, 'link'), tagsOf(B, 'link'), 'link tags');
 // ── JSON-LD (salvo FAQPage) y scripts en línea ──
 const scripts = h => [...h.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)].map(m => ({ attrs: m[1], code: m[2] }));
 const ld = h => scripts(h).filter(s => /ld\+json/.test(s.attrs)).map(s => JSON.parse(s.code)).filter(d => d['@type'] !== 'FAQPage').map(d => JSON.stringify(d));
-// El script de Analytics se compara sin espacios (el layout lo escribe compacto); el resto, con espacios normalizados.
-const inline = h => scripts(h).filter(s => !/src=|ld\+json/.test(s.attrs)).map(s => (/dataLayer/.test(s.code) ? s.code.replace(/\s+/g, '') : norm(s.code)));
+// El script de Analytics se compara sin espacios y con comillas dobles (el layout lo escribe compacto); el resto, con espacios normalizados.
+// Si la herramienta declara "jsSinDatos" ([inicio, fin]), el bloque de datos del JS entre esos dos marcadores no se compara (D32d).
+const recortar = c => {
+  const j = cfg.jsSinDatos;
+  if (!j) return c;
+  const i = c.indexOf(j[0]), f = i < 0 ? -1 : c.indexOf(j[1], i);
+  return i < 0 || f < 0 ? c : c.slice(0, i) + c.slice(f);
+};
+const datosJs = h => {
+  const j = cfg.jsSinDatos;
+  if (!j) return null;
+  for (const s of scripts(h)) {
+    const c = norm(s.code), i = c.indexOf(j[0]), f = i < 0 ? -1 : c.indexOf(j[1], i);
+    if (i >= 0 && f >= 0) return c.slice(i, f);
+  }
+  return null;
+};
+const inline = h => scripts(h).filter(s => !/src=|ld\+json/.test(s.attrs)).map(s => recortar(/dataLayer/.test(s.code) ? s.code.replace(/\s+/g, '').replace(/'/g, '"') : norm(s.code)));
 cmpList(ld(A), ld(B), 'JSON-LD (sin FAQPage)');
 const jsSust = (cfg.jsSustituciones || []).map(([de, a]) => [norm(de), norm(a)]);
 const inlineA = inline(A);
 for (const [de] of jsSust) if (!inlineA.some(c => c.includes(de))) fail(`el JS del original ya no contiene el texto sustituido: "${de.slice(0, 60)}…"`);
 const inlineAsust = inlineA.map(c => jsSust.reduce((r, [de, a]) => r.replace(de, () => a), c));
 cmpList(inlineAsust, inline(B), `JS en línea (GA + herramienta; ${jsSust.length} sustitución(es) declarada(s))`);
+if (cfg.jsSinDatos) {
+  const dA = datosJs(A), dB = datosJs(B);
+  if (dA === null || dB === null) fail('jsSinDatos: no se encontraron los marcadores en el original o en el generado');
+  else {
+    const conteos = d => (cfg.jsConteos || []).map(k => d.split(k).length - 1);
+    cmpList(conteos(dA), conteos(dB), `estructura de los datos del JS (${(cfg.jsConteos || []).length} recuento(s) declarado(s))`);
+  }
+}
 
 // ── CSS ──
 const quitarComentarios = c => c.replace(/\/\*[\s\S]*?\*\//g, '');
@@ -90,7 +114,7 @@ if (cfg.cssExacto) {
     } else {
       const conClases = /\./.test(s);
       const usa = [...s.matchAll(/\.([\w-]+)/g)].some(m => clases.has(m[1]));
-      if (!conClases || usa) problemas.push(`regla del layout para "${s}", que el original no define y la página usa`);
+      if ((!conClases || usa) && !(cfg.cssSelectoresAdmitidos || []).includes(s)) problemas.push(`regla del layout para "${s}", que el original no define y la página usa`);
     }
   }
   if (problemas.length) fail(`CSS distinto del original:\n      ${problemas.join('\n      ')}`);
