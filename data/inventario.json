@@ -951,7 +951,8 @@
       ],
       "fuentes": [],
       "estado_verificacion": "pendiente",
-      "ultima_revision": null,
+      "notas_verificacion": "Migrada a Eleventy y limpiada 2026-11-25 (D32a–D32f; original en legacy/juguetes-edad.original.html). Retirado «Fuentes consultadas» (AAP, Zero to Three, OMS y AEP: portadas o documento sin verificar) y la nota de afiliados de Amazon. Retirado por falta de fuente: atribuciones a OMS/AAP/AEP sobre pantallas, «cero pantallas», 1 hora al día, «déficit de vídeo», EN 71, 3,1 cm, regla del tubo de papel, 85 y 75 dB, «prohibidos en Canadá», 30 minutos de hamaca, dopamina, hitos por mes, ventanas críticas del desarrollo y marcas (LEGO Duplo). Sustituido por consejo general (edad y advertencias del fabricante, marcado CE, piezas pequeñas, imanes, pilas de botón, cuerdas) y derivación al pediatra. Los textos de los 30 juguetes están en el JS (STAGES) y no se comparan con el original; los vigila «retirados». El JSON-LD del WebApplication sigue idéntico al original (conserva «beneficios reales» en su description). Reincorporable con fuente: guía oficial sobre pantallas en menores de 5 años y normativa de seguridad de juguetes. afiliados_prioridad sigue en true, sin enlaces ni nota de afiliados en la página. Estado «pendiente»: ninguna afirmación tiene fuente. «Última revisión» refleja la limpieza.",
+      "ultima_revision": "2026-11-25",
       "relacionadas": [
         "desarrollo",
         "denticion-alivio",
