@@ -1,0 +1,39 @@
+{
+  "zonaHasta": "Lo que de verdad importa, a cualquier edad",
+  "sustituciones": [
+    ["Volver al inicio", "← Volver al inicio"],
+    ["Juguetes recomendados para cada etapa con los beneficios reales para el desarrollo. Sin relleno, sin juguetes inútiles.", "Ideas de juguetes para cada etapa, con sugerencias prácticas para jugar juntos. Sin relleno, sin juguetes inútiles."]
+  ],
+  "metaSustituciones": [
+    [
+      "¿Qué juguetes son mejores para tu bebé según los meses que tiene? Recomendaciones por etapa con beneficios reales para el desarrollo. Sin relleno ni juguetes inútiles.",
+      "Ideas de juguetes para tu bebé por etapas, de 0 a 3 años. Descubre qué suele encajar en cada edad y qué conviene cuidar al elegir. Sin relleno."
+    ]
+  ],
+  "jsSustituciones": [],
+  "jsSinDatos": ["const STAGES = [", "// ── State"],
+  "jsConteos": ["id: 's", "essential:"],
+  "cssSelectoresAdmitidos": ["*"],
+  "textosObligatorios": [
+    "Última revisión:",
+    "Orientaciones prácticas de babyFAQ",
+    "Lo que de verdad importa, a cualquier edad"
+  ],
+  "retirados": [
+    "Zero to Three", "OMS", "AAP", "AEP", "EN 71", "3,1", "85 dB", "75 dB", "Canadá",
+    "Baby Einstein", "cero pantallas", "déficit de vídeo", "dopamina", "tubo de papel",
+    "AP Seal", "LEGO", "Duplo", "20–30 cm", "30 cm", "estudios", "Amazon", "afiliados",
+    "comisión", "Fuentes consultadas", "indicador del desarrollo", "beneficios reales", "prohibidos"
+  ],
+  "portadas": [
+    "https://www.aap.org/en/patient-care/healthy-active-living-for-families/children-and-media/",
+    "https://www.zerotothree.org/early-development/play/",
+    "https://www.who.int/docs/default-source/mca-documents/guidelines-on-physical-activity-sedentary-behaviour-and-sleep.pdf",
+    "https://www.aeped.es"
+  ],
+  "enlacesObligatorios": [],
+  "metaSoloEnGenerado": [
+    "<meta property=\"og:url\" content=\"https://babyfaq.es/juguetes-edad.html\">"
+  ],
+  "cssExacto": false
+}
