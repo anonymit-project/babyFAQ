@@ -1274,7 +1274,8 @@
       ],
       "fuentes": [],
       "estado_verificacion": "pendiente",
-      "ultima_revision": null,
+      "notas_verificacion": "Migrada a Eleventy y limpiada 2026-11-25 (D33a–D33f; original en legacy/porteo.original.html). Retirado «Fuentes consultadas» (OMS, AEP, IHDI y UNICEF: portadas o documentos sin verificar). Retirado por falta de fuente: «hasta un 43 % menos de llanto», «asfixiarse en minutos», «el IHDI avala», ángulo de 90–110°, «la única posición segura», «el error más frecuente y más dañino», displasia de cadera, método canguro y UCIN, «beneficios con evidencia», pesos y edades por portabebés (hasta ~8 kg, desde 3,5 kg, 20+ kg, 6+ meses, 6 m–3 años), marcas (Ergobaby, Babybjörn, Tula, LÍLLÉbaby), «30–40 minutos» con el anillo y «sobreestimula». Las reglas TICKS se presentan como orientación práctica de babyFAQ, sin atribuir a ningún organismo. La posición en M se describe como orientación práctica con derivación al pediatra o a una asesora de porteo. Tipos de portabebés y «Cuándo empezar» sin cifras: remiten a las instrucciones del fabricante. Sin FAQ (el original no la tenía). Sin afiliados ni nota de Amazon; afiliados_prioridad sigue en true (monetización aplazada, 07). Reincorporable con fuente: ángulo y posición de cadera (IHDI o AEP, comprobando antes que la URL abre), beneficios del porteo y método canguro (OMS, comprobando URL y cita). Estado «pendiente»: ninguna afirmación tiene fuente. «Última revisión» refleja la limpieza.",
+      "ultima_revision": "2026-11-25",
       "relacionadas": [
         "silla-coche",
         "colicos-bebe",
