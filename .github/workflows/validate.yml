@@ -21,7 +21,7 @@ jobs:
       - name: Construir con Eleventy
         run: npx --yes @11ty/eleventy@3.0.0
       - name: Validar herramientas migradas (salida de _site)
-        run: node scripts/validate-static.mjs _site/talla-zapato.html _site/talla-panal.html _site/tallas-ropa.html _site/bolsa-hospital.html
+        run: node scripts/validate-static.mjs _site/talla-zapato.html _site/talla-panal.html _site/tallas-ropa.html _site/bolsa-hospital.html _site/juguetes-edad.html
       - name: Equivalencia con el HTML original (talla-zapato)
         run: node scripts/compare-equivalence.mjs talla-zapato
       - name: Equivalencia con el HTML original (talla-panal)
@@ -30,6 +30,8 @@ jobs:
         run: node scripts/compare-equivalence.mjs tallas-ropa
       - name: Equivalencia con el HTML original (bolsa-hospital)
         run: node scripts/compare-equivalence.mjs bolsa-hospital
+      - name: Equivalencia con el HTML original (juguetes-edad)
+        run: node scripts/compare-equivalence.mjs juguetes-edad
         
   fuentes-y-tests:
     runs-on: ubuntu-latest
