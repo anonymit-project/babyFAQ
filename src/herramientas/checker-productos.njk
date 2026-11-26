@@ -1,0 +1,384 @@
+{% extends "layouts/herramienta.njk" %}
+
+{% block jsonld %}{% raw %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Checker de productos de bebé — ¿Lo necesito realmente?",
+  "description": "Orientación práctica sobre 40 productos de bebé: imprescindible, útil, depende de tu situación o prescindible.",
+  "url": "https://babyfaq.es/checker-productos.html",
+  "applicationCategory": "HealthApplication",
+  "inLanguage": "es",
+  "publisher": { "@type": "Organization", "name": "babyFAQ", "url": "https://babyfaq.es" }
+}
+</script>
+{% endraw %}{% endblock %}
+
+{% block css %}{% raw %}
+  :root {
+    --cream: #f5f7fa; --warm-white: #fdfeff; --blue-soft: #c4d8f2;
+    --blue: #3a6aaa; --deep: #1a2535; --mid: #3a5070; --soft: #8aaac8;
+    --green: #3a7a4a; --green-bg: #edf5f0; --green-border: #a8d8b0;
+    --yellow: #8a7010; --yellow-bg: #fdf8e0; --yellow-border: #e8d870;
+    --amber: #a06010; --amber-bg: #fdf3e0; --amber-border: #e8c870;
+    --red: #a03030; --red-bg: #fdf0f0; --red-border: #e8a8a8;
+    --terracota: #c97a5e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--deep); min-height: 100vh; }
+
+  .noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.02; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+  .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .blob-1 { width: 300px; height: 300px; background: #b8ccf0; top: -100px; right: -80px; opacity: 0.3; }
+  .blob-2 { width: 250px; height: 250px; background: #b8e8c8; bottom: -80px; left: -60px; opacity: 0.25; }
+
+  @media (min-width: 640px) {
+    .blob-1 { width: 420px; height: 420px; top: -150px; right: -130px; opacity: 0.18; }
+    .blob-2 { width: 360px; height: 360px; bottom: -120px; left: -110px; opacity: 0.15; }
+  }
+
+  .container { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 40px 20px 60px; }
+
+  @media (min-width: 640px) { .container { max-width: 860px; padding: 48px 40px 80px; } }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--soft); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--terracota); }
+
+  header { text-align: center; margin-bottom: 28px; }
+  .badge { display: inline-block; background: #e0eaf8; color: var(--blue); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 14px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 28px; line-height: 1.2; color: var(--deep); margin-bottom: 8px; }
+  @media (min-width: 480px) { h1 { font-size: 34px; } }
+  @media (min-width: 640px) { h1 { font-size: 38px; } }
+  h1 em { font-style: italic; color: var(--blue); }
+  .subtitle { font-size: 13px; color: var(--mid); line-height: 1.5; font-weight: 300; text-align: center; }
+
+  /* ── Controls ── */
+  .controls { background: var(--warm-white); border-radius: 20px; padding: 18px 16px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,37,53,0.06); border: 1px solid rgba(138,170,200,0.2); }
+  .search-wrap { position: relative; margin-bottom: 14px; }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 15px; opacity: 0.4; pointer-events: none; }
+  .search-input { width: 100%; background: var(--cream); border: 1.5px solid rgba(138,170,200,0.4); border-radius: 12px; padding: 12px 14px 12px 40px; font-size: 15px; font-family: 'DM Sans', sans-serif; color: var(--deep); outline: none; transition: border-color 0.2s; }
+  .search-input::placeholder { color: var(--soft); }
+  .search-input:focus { border-color: var(--blue); }
+
+  .filter-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .filter-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); flex-shrink: 0; }
+  .filter-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+  .filter-pill { padding: 4px 10px; border-radius: 20px; border: 1.5px solid rgba(138,170,200,0.3); background: var(--cream); font-size: 11px; font-weight: 500; color: var(--mid); cursor: pointer; transition: all 0.15s; touch-action: manipulation; }
+  .filter-pill.active-must   { background: var(--green-bg);  border-color: var(--green-border); color: var(--green); }
+  .filter-pill.active-useful { background: var(--yellow-bg); border-color: var(--yellow-border); color: var(--yellow); }
+  .filter-pill.active-depends{ background: var(--amber-bg);  border-color: var(--amber-border); color: var(--amber); }
+  .filter-pill.active-no     { background: var(--red-bg);    border-color: var(--red-border);   color: var(--red); }
+  .filter-pill.active-all    { background: #e0eaf8; border-color: #a8c4e8; color: var(--blue); }
+
+  .legend { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .legend-item { display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--mid); }
+  .results-meta { font-size: 12px; color: var(--soft); margin-bottom: 10px; padding-left: 2px; }
+
+  /* ── Categories ── */
+  .category-section { margin-bottom: 6px; }
+  .cat-header { display: flex; align-items: center; gap: 8px; padding: 8px 4px 6px; cursor: pointer; user-select: none; }
+  .cat-icon { font-size: 15px; }
+  .cat-name { font-size: 11px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--soft); flex: 1; }
+  .cat-count { font-size: 11px; color: var(--soft); }
+  .cat-chevron { font-size: 10px; color: var(--soft); transition: transform 0.2s; }
+  .cat-header.open .cat-chevron { transform: rotate(90deg); }
+  .product-list { display: none; flex-direction: column; gap: 6px; padding-bottom: 6px; }
+  .product-list.open { display: flex; }
+
+  @media (min-width: 640px) {
+    .product-list.open { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  }
+
+  /* ── Product cards ── */
+  .product-card { display: flex; align-items: flex-start; gap: 10px; background: var(--warm-white); border-radius: 13px; padding: 12px 13px; border: 1.5px solid transparent; }
+  .product-card.must    { background: var(--green-bg);  border-color: var(--green-border); }
+  .product-card.useful  { background: var(--yellow-bg); border-color: var(--yellow-border); }
+  .product-card.depends { background: var(--amber-bg);  border-color: var(--amber-border); }
+  .product-card.no      { background: var(--red-bg);    border-color: var(--red-border); }
+
+  .product-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+  .product-body { flex: 1; min-width: 0; }
+  .product-name { font-size: 14px; font-weight: 500; color: var(--deep); margin-bottom: 2px; }
+  .product-verdict { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+  .must    .product-verdict { color: var(--green); }
+  .useful  .product-verdict { color: var(--yellow); }
+  .depends .product-verdict { color: var(--amber); }
+  .no      .product-verdict { color: var(--red); }
+  .product-note { font-size: 12px; color: var(--mid); line-height: 1.55; text-align: justify; }
+  .verdict-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+
+  .no-results { text-align: center; padding: 40px 20px; color: var(--soft); font-size: 14px; }
+  .no-results-icon { font-size: 36px; display: block; margin-bottom: 10px; }
+
+  /* ── Desktop layout ── */
+  @media (min-width: 640px) {
+    .page-grid { display: grid; grid-template-columns: 260px 1fr; gap: 24px; align-items: start; }
+    .left-col { position: sticky; top: 28px; }
+    .left-col .controls { margin-bottom: 14px; }
+    .left-col .legend { margin-bottom: 0; }
+  }
+
+  /* ── Info sections ── */
+  .info-section { background: var(--warm-white); border-radius: 20px; padding: 26px 22px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,37,53,0.06); border: 1px solid rgba(138,170,200,0.2); margin-top: 14px; }
+  .info-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 20px; color: var(--deep); margin-bottom: 10px; line-height: 1.3; }
+  .info-section h2 em { font-style: italic; color: var(--blue); }
+  .info-section h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 16px; color: var(--deep); margin: 18px 0 7px; line-height: 1.3; }
+  .info-section p { font-size: 13px; color: var(--mid); line-height: 1.75; margin-bottom: 10px; font-weight: 300; text-align: justify; }
+  .info-section p:last-child { margin-bottom: 0; }
+  .info-section strong { color: var(--deep); font-weight: 500; }
+  .info-divider { height: 1px; background: rgba(138,170,200,0.2); margin: 18px 0; }
+
+  @media (min-width: 640px) {
+    .info-section { padding: 32px 28px; }
+    .info-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+    .info-grid-2 .info-divider { grid-column: 1 / -1; }
+  }
+
+  /* ── Sources ── */
+  .sources-section { background: var(--warm-white); border-radius: 20px; padding: 22px 20px; margin-bottom: 14px; box-shadow: 0 2px 16px rgba(26,37,53,0.06); border: 1px solid rgba(138,170,200,0.2); }
+  .sources-section h2 { font-family: 'Fraunces', serif; font-weight: 300; font-size: 16px; color: var(--deep); margin-bottom: 12px; }
+  .sources-list { display: flex; flex-direction: column; gap: 8px; }
+  .source-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--mid); }
+  .source-item a { color: var(--blue); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .source-item a:hover { color: var(--terracota); }
+
+  .disclaimer { font-size: 11px; color: var(--soft); text-align: center; line-height: 1.6; margin-top: 24px; padding: 0 8px; }
+{% endraw %}{% endblock %}
+
+{% block contenido %}
+  <header>
+    <span class="badge">Compras</span>
+    <h1>¿Realmente lo <em>necesito</em>?</h1>
+    <p class="subtitle">Orientación práctica de babyFAQ sobre los productos de bebé más comprados, para decidir qué comprar y qué puede esperar.</p>
+  </header>
+
+  <div class="page-grid"><div class="left-col">
+
+  <div class="controls">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" type="text" id="search" placeholder="Busca un producto… hamaca, esterilizador, andador…" oninput="applyFilters()" aria-label="Buscar producto por nombre">
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">Ver</span>
+      <div class="filter-pills" id="filter-pills"></div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item">✅ Imprescindible</div>
+    <div class="legend-item">👍 Útil</div>
+    <div class="legend-item">⚠️ Depende</div>
+    <div class="legend-item">❌ No lo necesitas</div>
+  </div>
+
+  </div><!-- /left-col -->
+  <div class="right-col">
+
+  <div class="results-meta" id="results-meta"></div>
+  <div id="product-output"></div>
+
+  </div><!-- /right-col -->
+  </div><!-- /page-grid -->
+
+  <!-- ── Secciones informativas ── -->
+  <div class="info-section">
+    <div class="info-grid-2">
+
+      <div>
+        <h2>Qué comprar (y qué no) para un <em>recién nacido</em></h2>
+        <p>Hay muchos productos pensados para bebés y es fácil sentir que necesitas todos. En la práctica, un bebé necesita pocas cosas para estar cómodo: un sitio donde dormir, ropa, pañales, algo para llevarlo en coche y poco más. El resto son comodidades que pueden venir bien en algunas casas y sobrar en otras.</p>
+        <p>El criterio que usa esta página es sencillo: <strong>¿te facilita el día a día o resuelve algo que ya tienes resuelto de otra forma?</strong> Si la respuesta es no, el veredicto suele ser «útil pero prescindible» o «no lo necesitas». Es una opinión práctica de babyFAQ sobre 40 productos, no una lista oficial ni una recomendación médica.</p>
+      </div>
+
+      <div>
+        <h2>Los productos que piden <em>más cuidado</em></h2>
+        <p>Algunos productos dependen de la edad, del peso o del modo de uso: la silla de coche, la trona, la hamaca, la cuna o las barreras de escalera. En todos ellos, lo más importante es leer las instrucciones y las advertencias del fabricante y comprobar que el producto encaja con el peso y la estatura de tu bebé.</p>
+        <p>Para la silla de coche, consulta además la normativa vigente de la DGT. En los productos relacionados con el sueño, como nidos, posicionadores o sensores de movimiento, lee con atención lo que promete y lo que no promete el fabricante y consulta con tu pediatra cómo acostar a tu bebé. Ningún producto sustituye a un adulto atento.</p>
+      </div>
+
+      <div class="info-divider"></div>
+
+      <div>
+        <h3>¿Merece la pena comprar de segunda mano?</h3>
+        <p>En las primeras tallas la ropa se usa poco tiempo, porque los bebés crecen deprisa, así que la segunda mano es una opción razonable. Con los productos que sujetan al bebé, como la silla de coche, conviene saber de dónde viene y si ha sufrido algún golpe, y comprobar que conserva sus etiquetas e instrucciones.</p>
+
+        <h3>¿En qué productos conviene fijarse más al comprar?</h3>
+        <p>En los que vas a usar a diario o que sujetan al bebé: la silla de coche, el carrito, la cuna con su colchón y el portabebés. Compara modelos, lee las instrucciones y consulta las indicaciones de uso del fabricante. En el resto, las diferencias de precio no siempre se notan en el uso diario.</p>
+      </div>
+
+      <div>
+        <h3>¿Y si ya me han regalado cosas?</h3>
+        <p>Mira primero qué tienes y en qué estado está, y deja para más adelante lo que todavía no necesitas: muchos productos solo hacen falta cuando el bebé llega a cierta etapa. Si algo te lo han prestado, revisa su estado y sus instrucciones antes de usarlo.</p>
+
+        <h3>¿Puedo dejar alguna compra para después?</h3>
+        <p>Casi todas las comodidades pueden esperar. Si dudas entre comprar algo ahora o más adelante, empieza por lo que tiene que ver con dormir, comer y viajar en coche, y valora el resto cuando veas cómo es tu día a día con el bebé.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="info-section">
+    <h2>Cómo usar este <em>checker</em></h2>
+    <p>Escribe el nombre de un producto en el buscador o filtra por veredicto. Cada ficha muestra una nota breve con el motivo. Los veredictos son la opinión práctica de babyFAQ: no proceden de ningún organismo y cada familia tiene una situación distinta.</p>
+    <p>Si un producto aparece como «Depende», mira si encaja con tu casa y con tu rutina. Si aparece como «No lo necesitas», es nuestra opinión de que puedes prescindir de él; en los productos con advertencias, lee además las del fabricante. Ante cualquier duda sobre el uso de un producto, consulta con tu pediatra.</p>
+
+    <h2>Preguntas frecuentes sobre productos de bebé</h2>
+{% for item in faq %}
+    <h3>{{ item.q }}</h3>
+    <p>{{ item.a | safe }}</p>
+{% endfor %}
+  </div>
+
+  <p class="disclaimer">Última revisión: {{ ultimaRevision | fechaLarga }}<br>Orientación práctica de babyFAQ, sin respaldo de ningún organismo oficial: los veredictos son una opinión general y cada familia es diferente.<br>Esta herramienta no sustituye el consejo de tu pediatra ni las instrucciones del fabricante de cada producto.</p>
+{% endblock %}
+
+{% block script %}{% raw %}
+<script>
+const FILTERS=[
+  {id:'all',    label:'Todos'},
+  {id:'must',   label:'✅ Imprescindible'},
+  {id:'useful', label:'👍 Útil'},
+  {id:'depends',label:'⚠️ Depende'},
+  {id:'no',     label:'❌ No'},
+];
+const VERDICT={
+  must:   {icon:'✅', label:'Imprescindible'},
+  useful: {icon:'👍', label:'Útil pero prescindible'},
+  depends:{icon:'⚠️', label:'Depende de tu situación'},
+  no:     {icon:'❌', label:'No lo necesitas'},
+};
+const VERDICT_ORDER={must:0,useful:1,depends:2,no:3};
+
+const PRODUCTS=[
+  {cat:'Dormir',icon:'🛏️',name:'Moisés / cuna de colecho',tags:['moises','moisés','colecho'],verdict:'must',note:'Muchas familias lo usan los primeros meses. Mira en las instrucciones del fabricante hasta qué peso o edad se puede usar y sigue sus indicaciones de montaje.'},
+  {cat:'Dormir',icon:'🛏️',name:'Cuna estándar',tags:['cuna'],verdict:'must',note:'Un sitio donde dormir cuando el bebé se quede pequeño para el moisés. Comprueba la edad y el peso que indica el fabricante y que el colchón que lleva encaja bien en la cuna.'},
+  {cat:'Dormir',icon:'😴',name:'Saco de dormir',tags:['saco dormir','saco'],verdict:'must',note:'Es una alternativa práctica a las mantas sueltas. Elige la talla que indica el fabricante y sigue su etiqueta para abrigar al bebé según la temperatura de la habitación.'},
+  {cat:'Dormir',icon:'📱',name:'Vigilabebés / monitor',tags:['vigilabebés','monitor bebe','camara bebe'],verdict:'useful',note:'Útil si el bebé duerme en otra habitación. Con audio suele ser suficiente; la cámara da más tranquilidad pero no es estrictamente necesaria.'},
+  {cat:'Dormir',icon:'🌙',name:'Proyector / luz nocturna',tags:['proyector','luz nocturna'],verdict:'useful',note:'Útil para tomas nocturnas sin encender luces fuertes. Una luz tenue en el enchufe también sirve.'},
+  {cat:'Dormir',icon:'🔊',name:'Máquina de ruido blanco',tags:['ruido blanco','white noise'],verdict:'depends',note:'Puede venir bien con sueño ligero o en una casa ruidosa. En una habitación tranquila no aporta nada. Si la usas, mantén el volumen bajo, lejos de la cuna, y sigue las indicaciones del fabricante.'},
+  {cat:'Dormir',icon:'🪆',name:'Posicionador de bebé / nido',tags:['posicionador','nido bebe','nest','dockatot'],verdict:'no',note:'No es necesario. Si te lo planteas, lee con atención las advertencias del fabricante sobre cuándo y cómo se puede usar y consulta con tu pediatra cómo acostar al bebé.'},
+  {cat:'Alimentación',icon:'🍼',name:'Biberones',tags:['biberon','biberón'],verdict:'must',note:'Imprescindible si das leche extraída o fórmula. Para lactancia exclusiva directa no son necesarios, aunque uno de reserva siempre viene bien.'},
+  {cat:'Alimentación',icon:'🧴',name:'Esterilizador',tags:['esterilizador'],verdict:'useful',note:'Cómodo los primeros meses. Existen otras formas de limpiar el material: pregunta a tu pediatra o a tu matrona cuál te conviene y sigue las instrucciones de cada producto.'},
+  {cat:'Alimentación',icon:'🍼',name:'Calentador de biberones',tags:['calentador biberon'],verdict:'useful',note:'Cómodo para las tomas nocturnas. Un recipiente con agua caliente cumple una función parecida, aunque tarda más. Comprueba siempre la temperatura antes de dar el biberón.'},
+  {cat:'Alimentación',icon:'🥛',name:'Sacaleches',tags:['sacaleches'],verdict:'depends',note:'Puede ser clave si vas a dar leche extraída o a volver al trabajo. Si la lactancia directa te funciona y no piensas extraer, quizá no lo necesites.'},
+  {cat:'Alimentación',icon:'🥣',name:'Triturador / batidora de brazo',tags:['triturador','batidora'],verdict:'depends',note:'Útil si vas a hacer purés. Una batidora de brazo básica suele bastar, y quizá ya tengas una en casa.'},
+  {cat:'Alimentación',icon:'🥄',name:'Cubiertos de bebé',tags:['cubiertos bebe','cuchara bebe'],verdict:'must',note:'Los necesitarás cuando empiece a comer alimentos sólidos; mira la edad que indica el fabricante. Conviene tener varias cucharas porque se caen constantemente.'},
+  {cat:'Alimentación',icon:'🪣',name:'Baberos con bolsillo',tags:['babero'],verdict:'must',note:'Es práctico tener varios baberos, con bolsillo rígido o de silicona, fáciles de limpiar.'},
+  {cat:'Alimentación',icon:'🪑',name:'Trona / silla de comer',tags:['trona','silla comer'],verdict:'must',note:'Útil cuando empiece a comer sentado. Fíjate en que sea estable y tenga arnés, y sigue las instrucciones del fabricante sobre la edad y el peso. Una con reposapiés regulable suele ser más cómoda.'},
+  {cat:'Alimentación',icon:'🤱',name:'Cojín de lactancia',tags:['cojin lactancia'],verdict:'depends',note:'Puede venir bien para dar el pecho con comodidad. Para el biberón es prescindible.'},
+  {cat:'Alimentación',icon:'🔥',name:'Vaporera eléctrica para bebé',tags:['vaporera','robot bebe'],verdict:'no',note:'Cocinar al vapor en un cazo con colador cumple una función parecida. Puede no compensar si ya tienes cazo y colador en casa.'},
+  {cat:'Baño e higiene',icon:'🛁',name:'Bañera de bebé',tags:['bañera bebe'],verdict:'useful',note:'Práctica los primeros meses. Algunos bebés se bañan directamente en el lavabo. Con el tiempo se queda pequeña.'},
+  {cat:'Baño e higiene',icon:'🌡️',name:'Termómetro digital',tags:['termometro','termómetro'],verdict:'must',note:'Conviene tener uno en casa. Para saber cómo medir la temperatura y qué hacer según la edad, mira la herramienta «¿Es fiebre?» de babyFAQ y consulta con tu pediatra.'},
+  {cat:'Baño e higiene',icon:'✂️',name:'Cortaúñas / lima de bebé',tags:['cortauñas bebe','lima uñas'],verdict:'must',note:'Las uñas del bebé crecen rápido y pueden arañar. Elige un cortaúñas o una lima pensados para bebés y úsalos con cuidado.'},
+  {cat:'Baño e higiene',icon:'🧴',name:'Aspirador nasal',tags:['aspirador nasal','moco'],verdict:'useful',note:'Puede venir bien cuando haya mocos, porque los bebés no pueden sonarse. Hay modelos de perilla, de boca y eléctricos: sigue las instrucciones del modelo y consulta con tu pediatra si dudas de cómo limpiar la nariz.'},
+  {cat:'Baño e higiene',icon:'🧴',name:'Crema de pañal',tags:['crema pañal'],verdict:'useful',note:'Muchas familias la usan en los cambios. Consulta con tu matrona o tu pediatra antes de usar cremas en la piel del bebé.'},
+  {cat:'Baño e higiene',icon:'🧴',name:'Humidificador',tags:['humidificador'],verdict:'depends',note:'Puede venir bien con calefacción seca o con el bebé constipado. Si lo usas, límpialo según las instrucciones del fabricante y consulta con tu pediatra.'},
+  {cat:'Movilidad y transporte',icon:'🚗',name:'Silla de coche para recién nacido',tags:['silla coche','isize'],verdict:'must',note:'Imprescindible para llevar al bebé en coche. Elígela según el peso y la estatura del bebé, instálala siguiendo las instrucciones del fabricante y comprueba en la normativa de la DGT qué requisitos debe cumplir. Si dudas, consulta en una tienda especializada.'},
+  {cat:'Movilidad y transporte',icon:'🛒',name:'Carrito / silla de paseo',tags:['carrito','cochecito'],verdict:'must',note:'Muy práctico para la mayoría de familias. Elige según tu estilo de vida: ruedas grandes para terreno irregular o plegado compacto para el transporte público. Sigue las instrucciones del fabricante sobre la edad y el peso.'},
+  {cat:'Movilidad y transporte',icon:'🎒',name:'Mochila portabebés ergonómica',tags:['mochila portabebés','fular','porteo'],verdict:'depends',note:'Muy valorada por quienes portean. Si el carrito te funciona bien, puede no hacerte falta. Mira la guía de porteo de babyFAQ y las instrucciones del fabricante.'},
+  {cat:'Juego y estimulación',icon:'🎯',name:'Gimnasio de actividades',tags:['gimnasio','arco actividades'],verdict:'useful',note:'Sirve para ratos de juego en el suelo. Uno básico suele bastar. Revisa que no haya cuerdas largas ni piezas que se puedan soltar.'},
+  {cat:'Juego y estimulación',icon:'🧸',name:'Mordedores',tags:['mordedor'],verdict:'useful',note:'Pueden ser útiles cuando el bebé quiera chupar y morder cosas. Elige uno pensado para bebés y no lo ates al cuello. Si lo enfrías, mejor en la nevera que en el congelador.'},
+  {cat:'Juego y estimulación',icon:'🪆',name:'Chupete',tags:['chupete'],verdict:'depends',note:'No todos los bebés lo aceptan ni lo necesitan. Si lo usa, elige uno pensado para su edad y revísalo con frecuencia. Para dudas sobre cuándo retirarlo, consulta con tu pediatra.'},
+  {cat:'Juego y estimulación',icon:'🛁',name:'Hamaca / bouncer',tags:['hamaca','bouncer'],verdict:'useful',note:'Útil para tener al bebé a la vista mientras cocinas o te duchas. Mira en las instrucciones del fabricante para qué uso está pensada y durante cuánto tiempo, y alterna con ratos de juego en el suelo.'},
+  {cat:'Juego y estimulación',icon:'🪀',name:'Andador / tacatá',tags:['andador','tacata','tacatá'],verdict:'no',note:'Si te lo planteas, consulta con tu pediatra antes de comprarlo. Los ratos de juego en el suelo o un correpasillos que se empuja desde detrás cumplen una función parecida. Si lo usas, vigila siempre al bebé, sobre todo cerca de escaleras.'},
+  {cat:'Juego y estimulación',icon:'🧩',name:'Alfombra de juego / puzzle de foam',tags:['alfombra juego','puzzle foam'],verdict:'useful',note:'Práctica para los ratos de juego en el suelo, boca abajo o sentado. Elige una fácil de limpiar.'},
+  {cat:'Juego y estimulación',icon:'📚',name:'Libros de tela / cartón',tags:['libros bebe','cuentos bebe'],verdict:'useful',note:'Leer juntos es un rato para compartir desde muy pronto. Los de tela para los más pequeños y los de cartón duro cuando ya agarre bien.'},
+  {cat:'Juego y estimulación',icon:'📺',name:'Tablet / pantallas para bebés',tags:['tablet bebe','pantalla bebe'],verdict:'no',note:'No son un juguete ni sustituyen el juego con objetos o con personas. Si dudas sobre el tiempo o el contenido adecuados a la edad de tu bebé, consúltalo con tu pediatra.'},
+  {cat:'Salud y seguridad',icon:'🔒',name:'Protectores de enchufes',tags:['protector enchufe'],verdict:'must',note:'Útiles cuando el bebé empiece a desplazarse por la casa. Coloca protectores en los enchufes que estén a su alcance y sigue las instrucciones del fabricante.'},
+  {cat:'Salud y seguridad',icon:'🚧',name:'Barrera de seguridad para escaleras',tags:['barrera escalera','valla escalera'],verdict:'must',note:'Imprescindible si tienes escaleras en casa. Se suele instalar arriba y abajo; sigue las instrucciones del fabricante sobre el tipo de fijación.'},
+  {cat:'Salud y seguridad',icon:'🛡️',name:'Protectores de esquinas',tags:['protector esquinas','esquineras'],verdict:'useful',note:'Útiles cuando empiece a ponerse de pie y a moverse agarrado a los muebles. Los de silicona transparente son los más discretos.'},
+  {cat:'Salud y seguridad',icon:'🔒',name:'Seguros para cajones y armarios',tags:['seguro cajon','seguro armario'],verdict:'useful',note:'Útiles en cuanto empiece a explorar, sobre todo en muebles con objetos peligrosos o pesados.'},
+  {cat:'Salud y seguridad',icon:'🧯',name:'Botiquín de bebé',tags:['botiquin','botiquín'],verdict:'useful',note:'Conviene tener uno preparado. Pregunta a tu pediatra qué incluir y cómo usarlo, sobre todo con medicamentos, y consulta siempre la dosis antes de dar nada.'},
+  {cat:'Salud y seguridad',icon:'📡',name:'Sensor de movimiento para cuna',tags:['sensor movimiento','monitor respiracion','owlet'],verdict:'no',note:'No es necesario. Si te lo planteas, consulta con tu pediatra y lee con atención lo que promete y lo que no promete el fabricante: un dispositivo no sustituye la vigilancia de un adulto.'},
+];
+
+let activeFilter='all';
+let searchQuery='';
+
+function buildPills(){
+  const wrap=document.getElementById('filter-pills');
+  FILTERS.forEach(f=>{
+    const btn=document.createElement('button');
+    btn.className='filter-pill'+(f.id===activeFilter?' active-'+f.id:'');
+    btn.textContent=f.label;
+    btn.setAttribute('aria-label', `Filtrar por: ${f.label}`);
+    btn.addEventListener('click',()=>{
+      activeFilter=f.id;
+      document.querySelectorAll('.filter-pill').forEach(b=>{b.className='filter-pill';});
+      btn.className='filter-pill active-'+f.id;
+      applyFilters();
+    });
+    wrap.appendChild(btn);
+  });
+}
+
+function applyFilters(){
+  searchQuery=document.getElementById('search').value.toLowerCase().trim();
+  const cats={};
+  PRODUCTS.forEach(p=>{if(!cats[p.cat])cats[p.cat]=[];cats[p.cat].push(p);});
+  const output=document.getElementById('product-output');
+  output.innerHTML='';
+  let totalVisible=0;
+
+  Object.entries(cats).forEach(([catName,products])=>{
+    const matching=products.filter(p=>{
+      if(activeFilter!=='all'&&p.verdict!==activeFilter)return false;
+      if(searchQuery){
+        const nm=p.name.toLowerCase().includes(searchQuery);
+        const tg=p.tags.some(t=>t.includes(searchQuery));
+        if(!nm&&!tg)return false;
+      }
+      return true;
+    });
+    if(matching.length===0)return;
+    matching.sort((a,b)=>{
+      const d=VERDICT_ORDER[a.verdict]-VERDICT_ORDER[b.verdict];
+      if(d!==0)return d;
+      return a.name.localeCompare(b.name,'es');
+    });
+    totalVisible+=matching.length;
+
+    const section=document.createElement('div');
+    section.className='category-section';
+
+    const header=document.createElement('div');
+    header.className='cat-header open';
+    header.setAttribute('role','button');
+    header.setAttribute('aria-label',`Categoría ${catName} — ${matching.length} productos`);
+    header.innerHTML=`<span class="cat-icon">${getCatIcon(catName)}</span><span class="cat-name">${catName}</span><span class="cat-count">${matching.length}</span><span class="cat-chevron">›</span>`;
+
+    const list=document.createElement('div');
+    list.className='product-list open';
+    list.innerHTML=matching.map(p=>{
+      const v=VERDICT[p.verdict];
+      return`<div class="product-card ${p.verdict}"><span class="product-icon">${p.icon}</span><div class="product-body"><div class="product-name">${p.name}</div><div class="product-verdict">${v.label}</div><div class="product-note">${p.note}</div></div><span class="verdict-icon">${v.icon}</span></div>`;
+    }).join('');
+
+    header.addEventListener('click',()=>{
+      const open=list.classList.toggle('open');
+      header.classList.toggle('open',open);
+    });
+    section.appendChild(header);
+    section.appendChild(list);
+    output.appendChild(section);
+  });
+
+  if(totalVisible===0){
+    output.innerHTML=`<div class="no-results"><span class="no-results-icon">🤔</span>No hemos encontrado "${searchQuery}".<br>Prueba con otro nombre.</div>`;
+  }
+  document.getElementById('results-meta').textContent=totalVisible>0
+    ?`${totalVisible} producto${totalVisible!==1?'s':''}${activeFilter!=='all'?' · '+FILTERS.find(f=>f.id===activeFilter)?.label:''}`
+    :'';
+}
+
+function getCatIcon(cat){
+  const map={'Dormir':'🌙','Alimentación':'🍼','Baño e higiene':'🛁','Movilidad y transporte':'🚗','Juego y estimulación':'🧸','Ropa y accesorios':'👕','Salud y seguridad':'🛡️'};
+  return map[cat]||'📦';
+}
+
+buildPills();
+applyFilters();
+</script>
+{% endraw %}{% endblock %}
