@@ -5,9 +5,9 @@ Aplazada. Con ~9 sesiones/mes en la línea base (ver `ESTADO.md`) no hay audienc
 
 ## Reglas
 - Bloques de afiliados siempre **después** del contenido principal, nunca interrumpiendo la herramienta.
-- Nunca dentro del bloque de resultados de una herramienta de salud (línea roja de `05-politica-medica.md`).
+- Solo en herramientas de Nivel 3 y fuera del bloque de resultados. Nunca en herramientas de Nivel 1–2 (línea roja de `05-politica-medica.md`; el validador lo bloquea). Decisión D35a.
 - Enlaces con `tag=` de Amazon; marcarlos con `rel="sponsored noopener"` e indicar que son enlaces de afiliado.
 - Medir clics en enlaces de afiliado como evento en GA4 antes de escalar.
 
 ## Herramientas con más potencial (`afiliados_prioridad` en el inventario)
-`silla-coche` · `temperatura-habitacion` · `ruido-bebe` · `porteo` · `masaje-bebe` · `juguetes-edad`
+`porteo` · `juguetes-edad` (Nivel 3). `silla-coche`, `temperatura-habitacion`, `ruido-bebe` y `masaje-bebe` quedan fuera por ser de Nivel 1–2 (D35a).
