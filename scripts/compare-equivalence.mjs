@@ -62,7 +62,10 @@ const datosJs = h => {
   return null;
 };
 const inline = h => scripts(h).filter(s => !/src=|ld\+json/.test(s.attrs)).map(s => recortar(/dataLayer/.test(s.code) ? s.code.replace(/\s+/g, '').replace(/'/g, '"') : norm(s.code)));
-cmpList(ld(A), ld(B), 'JSON-LD (sin FAQPage)');
+const ldSust = cfg.jsonLdSustituciones || [];
+for (const [de] of ldSust) if (!ld(A).some(s => s.includes(de))) fail(`el JSON-LD del original ya no contiene el texto sustituido: "${de.slice(0, 60)}…"`);
+const ldA = ld(A).map(s => ldSust.reduce((r, [de, a]) => r.split(de).join(a), s));
+cmpList(ldA, ld(B), `JSON-LD (sin FAQPage; ${ldSust.length} sustitución(es) declarada(s))`);
 const jsSust = (cfg.jsSustituciones || []).map(([de, a]) => [norm(de), norm(a)]);
 const inlineA = inline(A);
 for (const [de] of jsSust) if (!inlineA.some(c => c.includes(de))) fail(`el JS del original ya no contiene el texto sustituido: "${de.slice(0, 60)}…"`);
