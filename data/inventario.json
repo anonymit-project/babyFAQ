@@ -1246,7 +1246,8 @@
       "organismos_candidatos": [],
       "fuentes": [],
       "estado_verificacion": "pendiente",
-      "ultima_revision": null,
+      "notas_verificacion": "Migrada a Eleventy y limpiada 2026-11-26 (D34a–D34e; original en legacy/checker-productos.original.html). Retirado «Fuentes consultadas» (portadas de AEP, AAP y OMS y un enlace de la FDA sin verificar). Corregido «más de 80 productos» (son 40). El FAQPage original marcaba 3 preguntas que no se veían en la página; ahora se muestran 3 FAQ suavizadas y el JSON-LD se genera desde ellas. Retirado por falta de fuente: atribuciones a AAP, AEP, OMS y FDA, «prohibidos en Canadá», «obligatoria por ley», contramarcha hasta 15 meses o 4 años, i-Size/R129, < 50 dB, paracetamol «con receta», «consenso de pediatras», «experiencia real» y las cifras de edad en meses de cada producto. Posicionador, sensor de movimiento, andador y pantallas mantienen el aviso de cautela, sin atribuir a ningún organismo, y remiten al fabricante y al pediatra. Veredicto bajado de «Imprescindible» a «Útil» o «Depende» en 13 productos cuya nota dependía de una afirmación sin fuente. Se mantienen ids, estructura y lógica del JS; los textos de los 40 productos están en el JS (PRODUCTS) y los vigila «retirados». El JSON-LD del WebApplication cambia su description (declarado con jsonLdSustituciones en el comparador). Sin afiliados ni nota de Amazon. Reincorporable con fuente: normativa de la DGT sobre sistemas de retención infantil y guías oficiales sobre sueño seguro. Estado «pendiente»: ningún veredicto tiene fuente. «Última revisión» refleja la limpieza.",
+      "ultima_revision": "2026-11-26",
       "relacionadas": [
         "silla-coche",
         "porteo",
