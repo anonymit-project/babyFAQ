@@ -41,8 +41,8 @@ Ubicación en el repo: `docs/CLAUDE.md` y `docs/ESTADO.md` (el resto de rutas so
 | Optimizar SEO de una herramienta | 02, 06 (+05 si es Nivel 1/2) | `<head>` + últimas 50 líneas de su HTML |
 | Auditar fiabilidad de datos (Nivel 1/2) | 05, 02 | HTML completo + enlace o PDF de la fuente oficial |
 | Corregir un fallo o mejorar usabilidad (p. ej. kg ↔ lb) | 02 | HTML completo de la herramienta |
-| Crear herramienta nueva | 01, 02, 03, 05, 06 | Una herramienta de referencia (`juguetes-edad.html`) |
-| Migrar a Eleventy | 08, 09, 02 | HTML de la herramienta piloto (`talla-zapato.html`) |
+| Crear herramienta nueva | 01, 02, 03, 05, 06 | Una herramienta de referencia (p. ej. `src/herramientas/juguetes-edad.njk` y su `.json`) |
+| Migrar a Eleventy | 08, 09, 02 | HTML de la herramienta a migrar, `scripts/compare-equivalence.mjs` y, como referencia, la `.njk` y el `.json` de una ya migrada (p. ej. `src/herramientas/checker-productos.*` y `scripts/equivalencia/checker-productos.json`) |
 | Interlinking o priorizar | 06 | `data/inventario.json` |
 | Informe de visitas | ESTADO | CSV nuevos de Search Console y GA4 |
 | Backlinks y promoción | 06 (Fase 4) | — |
