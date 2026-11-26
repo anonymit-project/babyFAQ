@@ -418,7 +418,7 @@
       "notas_verificacion": "Auditoría cerrada 2026-11-18; aprobada por el autor el 2026-11-22 (lote 7, D25a) sin comprobar en las fuentes las frases sin cita individual de la página (ver ESTADO, bloque 2). Excepción en 05: AEPap y Lullaby Trust como fuentes secundarias y tabla de togs de babyFAQ rotulada «no oficial». Temperatura: AEPap 22 °C (p. 382, apartado del recién nacido, documento de 2009) y Lullaby Trust 16–20 °C, mostradas juntas sin decir cuál es la buena; la AAP no da cifra (dice que es difícil darla). Togs: ninguna fuente da tabla (la Lullaby Trust dice expresamente que no puede darla); franjas contiguas de babyFAQ (28 o más: 0; 24–27: 0,5; 21–23: 1; 16–20: 2,5; menos de 16: 3,5), comprobadas por test. Ropa: 3 tramos con ejemplos de la Lullaby Trust y regla de la AAP (como mucho una capa más que un adulto cómodo). Señales: pecho o nuca (AAP y Lullaby Trust). Retirado por falta de fuente: 18–20 °C como «oficial», ropa por zona de 5 tramos, señales de frío (labios azulados, piel moteada), «manos y pies fríos son normales», termorregulación inmadura, 12–18 meses, ventilador, hidratación, «más vendido», portadas y Lullaby Trust como guía de togs. Citas de la AAP (política) y de la AEPap (PDF) con verificación manual; el servidor de la AAP puede bloquear el validador. Caducidades: política AAP 2022 (5 años), guía Lullaby Trust (revisada el 28/02/2026, próxima en 2028). Sin afiliados en la herramienta. Cubierto por validador de Capa 1 y tests Playwright.",
       "ultima_revision": "2026-11-18",
       "relacionadas": ["sueno-bebe", "fiebre", "cuna-a-cama"],
-      "afiliados_prioridad": true
+      "afiliados_prioridad": false
     },
     {
       "slug": "regresiones-sueno",
@@ -502,7 +502,7 @@
         "hora-acostarse",
         "llanto-bebe"
       ],
-      "afiliados_prioridad": true
+      "afiliados_prioridad": false
     },
     {
       "slug": "percentil",
@@ -1012,7 +1012,7 @@
         "bano-bebe",
         "llanto-bebe"
       ],
-      "afiliados_prioridad": true
+      "afiliados_prioridad": false
     },
     {
       "slug": "denticion-alivio",
@@ -1227,7 +1227,7 @@
         "porteo",
         "checker-productos"
       ],
-      "afiliados_prioridad": true
+      "afiliados_prioridad": false
     },
     {
       "slug": "checker-productos",
