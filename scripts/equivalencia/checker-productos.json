@@ -1,0 +1,49 @@
+{
+  "zonaHasta": "Qué comprar (y qué no)",
+  "sustituciones": [
+    [
+      "Veredicto honesto sobre los productos de bebé más comprados. Sin publicidad, sin interés en que compres.",
+      "Orientación práctica de babyFAQ sobre los productos de bebé más comprados, para decidir qué comprar y qué puede esperar."
+    ]
+  ],
+  "metaSustituciones": [
+    [
+      "Veredicto honesto sobre más de 80 productos de bebé: qué es imprescindible, qué es útil y qué no necesitas. Sin publicidad ni interés comercial.",
+      "Orientación sobre 40 productos de bebé: cuáles suelen ser imprescindibles, cuáles son útiles y cuáles puedes dejar para más adelante. Busca el tuyo."
+    ],
+    [
+      "Veredicto honesto sobre los productos de bebé más comprados. Qué es imprescindible, qué es útil y qué no necesitas realmente.",
+      "Orientación práctica sobre los productos de bebé más comprados: cuáles suelen ser imprescindibles, cuáles son útiles y cuáles puedes dejar para más adelante."
+    ]
+  ],
+  "jsonLdSustituciones": [
+    [
+      "Veredicto honesto sobre más de 80 productos de bebé: imprescindible, útil, depende de tu situación o no lo necesitas. Sin publicidad ni interés comercial.",
+      "Orientación práctica sobre 40 productos de bebé: imprescindible, útil, depende de tu situación o prescindible."
+    ]
+  ],
+  "jsSustituciones": [],
+  "jsSinDatos": ["const PRODUCTS=[", "let activeFilter"],
+  "jsConteos": ["{cat:'", "verdict:'", "tags:["],
+  "textosObligatorios": [
+    "Última revisión:",
+    "Orientación práctica de babyFAQ",
+    "Preguntas frecuentes sobre productos de bebé",
+    "no sustituye"
+  ],
+  "retirados": [
+    "más de 80", "Canadá", "FDA", "AAP", "AEP", "OMS", "consenso", "contramarcha", "por ley",
+    "50 dB", "con receta", "R129", "cero pantallas", "falsa seguridad", "muerte súbita",
+    "experiencia real", "Veredicto honesto", "activamente desaconsejados", "Fuentes consultadas",
+    "prohibidos", "más efectivo", "mismo resultado", "exactamente lo mismo", "interés comercial"
+  ],
+  "portadas": [
+    "https://www.aeped.es",
+    "https://www.healthychildren.org",
+    "https://www.fda.gov/consumers/consumer-updates/infant-sleep-positioners-not-safe",
+    "https://www.who.int/health-topics/infant-health"
+  ],
+  "enlacesObligatorios": [],
+  "metaSoloEnGenerado": [],
+  "cssExacto": false
+}
