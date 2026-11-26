@@ -38,7 +38,7 @@ Debe contener la expresión "no sustituye" (la busca el validador). Modelo:
 "Información orientativa basada en [fuentes]. No sustituye la valoración de un profesional sanitario. Cada bebé es diferente: consulta siempre con tu pediatra."
 
 ## Afiliados
-Fuera del bloque de resultados y fuera de herramientas de salud. Ver `07-monetizacion.md`.
+Solo en herramientas de Nivel 3 y fuera del bloque de resultados; nunca en Nivel 1–2 (el validador lo bloquea). Ver `07-monetizacion.md`.
 
 ## Pendiente de decidir
 - Decimales: los textos usan coma, pero los selectores muestran punto (`12.0`, `4.0`). No se cambia sin decisión; afecta a tests.
