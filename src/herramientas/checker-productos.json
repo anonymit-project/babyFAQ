@@ -1,0 +1,21 @@
+{
+  "permalink": "/checker-productos.html",
+  "title": "¿Lo necesito? Checker de productos de bebé · babyFAQ",
+  "description": "Orientación sobre 40 productos de bebé: cuáles suelen ser imprescindibles, cuáles son útiles y cuáles puedes dejar para más adelante. Busca el tuyo.",
+  "ogDescription": "Orientación práctica sobre los productos de bebé más comprados: cuáles suelen ser imprescindibles, cuáles son útiles y cuáles puedes dejar para más adelante.",
+  "ultimaRevision": "2026-11-26",
+  "faq": [
+    {
+      "q": "¿Qué productos de bebé suelen ser imprescindibles?",
+      "a": "Según la valoración práctica de babyFAQ, lo que suele hacer falta desde el principio es un sitio donde dormir (moisés o cuna), una silla de coche adecuada para llevar al bebé en coche, ropa, pañales y algo para medir la temperatura. Todo lo demás depende de tu situación y puedes ir comprándolo cuando lo necesites. Es una opinión práctica, no una lista oficial: ante cualquier duda, consulta con tu matrona o tu pediatra."
+    },
+    {
+      "q": "¿Son recomendables los andadores con ruedas?",
+      "a": "Es una duda para comentar con tu pediatra antes de comprarlo. Las alternativas más sencillas son los ratos de juego en el suelo o un correpasillos que se empuja desde detrás. Si decides usar un andador, sigue las instrucciones del fabricante y no dejes nunca al bebé solo con él, sobre todo cerca de escaleras."
+    },
+    {
+      "q": "¿Qué productos conviene mirar con más cuidado?",
+      "a": "Conviene leer con atención las advertencias del fabricante en los productos relacionados con el sueño (nidos, posicionadores y sensores de movimiento) y en los que dependen de la edad o del peso del bebé, como la silla de coche, la trona o la hamaca. Ningún producto sustituye la vigilancia de un adulto ni las pautas que te indique tu pediatra sobre cómo acostar a tu bebé."
+    }
+  ]
+}
